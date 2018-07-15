@@ -10,6 +10,7 @@ class Customer extends CI_Controller {
     
     //anewuzheresdsadsadadsadsa
     //nigguh
+    //fjdksjfkdlsjfkds
     public function index(){
         
         //$items =  $this->UserModel->getItems();
