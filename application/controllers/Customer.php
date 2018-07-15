@@ -8,7 +8,8 @@ class Customer extends CI_Controller {
             $this->load->model('UserModel');
     }
     
-    //anewuzhere
+    //anewuzheresdsadsadadsadsa
+    //nigguh
     public function index(){
         
         //$items =  $this->UserModel->getItems();
