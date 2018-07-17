@@ -4,7 +4,7 @@
     <div class="page-content">
     	<div class="row">
 		  
-          <div class="col-md-12">
+          <div class="col-md-11">
           <div class="content-box-large">
             <div class="panel-heading">Staff Management</div>
             <div class="panel-body">
