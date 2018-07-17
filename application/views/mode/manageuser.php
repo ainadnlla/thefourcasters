@@ -1,24 +1,10 @@
-<link rel="stylesheet" type="text/css" href="<?=base_url()?>css/styles.css"/>
+
 <div class="container-fluid">
     <div class="row" >
     <div class="page-content">
     	<div class="row">
-		  <div class="col-md-2">
-		  	<div class="sidebar content-box" style="display: block;">
-                <ul class="nav">
-                    <!-- Main menu -->
-                    <li class="current"><a href="<?=base_url()?>"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
-                    <li><a href="<?=base_url().'user/calendar'?>"><i class="glyphicon glyphicon-calendar"></i> Calendar</a></li>
-                    <li><a href="<?=base_url().'user/stats'?>"><i class="glyphicon glyphicon-stats"></i> Statistics </a></li>
-                    <li><a href="<?=base_url().'user/table'?>"><i class="glyphicon glyphicon-list"></i> Users</a></li>
-                    <li><a href="<?=base_url().'user/deliver'?>"><i class="glyphicon glyphicon-record"></i> Deliveries</a></li>
-                    <li><a href="<?=base_url().'user/manageuser'?>"><i class="glyphicon glyphicon-edit"></i> Manage User</a></li>
-                    <li><a href="<?=base_url().'user/report'?>"><i class="glyphicon glyphicon-tasks"></i> Reports</a></li>
-                   
-                </ul>
-             </div>
-		  </div>
-          <div class="col-md-6">
+		  
+          <div class="col-md-12">
           <div class="content-box-large">
             <div class="panel-heading">Staff Management</div>
             <div class="panel-body">
@@ -66,3 +52,4 @@
 </div>
 
 
+</center>

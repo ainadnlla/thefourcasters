@@ -26,10 +26,10 @@ class User extends CI_Controller {
     } 
     public function calendar(){
         
-        $this->load->view('include/header');
+        $this->load->view('include/calendar_head');
         $this->load->view('include/header_nav'); 
         $this->load->view('mode/calendar');
-        $this->load->view('include/footer');
+        $this->load->view('include/calendar_foot');
     }  
     public function stats(){
         
