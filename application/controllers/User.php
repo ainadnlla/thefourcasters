@@ -78,6 +78,7 @@ class User extends CI_Controller {
     public function add(){
         
         $this->load->view('include/header');
+        $this->load->view('include/header_nav');
         $this->load->view('mode/add' );
         $this->load->view('include/footer');
 
@@ -85,6 +86,7 @@ class User extends CI_Controller {
     public function edit($id){
         $item =$this->UserModel->getProd($id);
         $this->load->view('include/header');
+        $this->load->view('include/header_nav');
         $this->load->view('mode/edit',compact('item'));
         $this->load->view('include/footer');
 

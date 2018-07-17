@@ -1,5 +1,16 @@
 
-<link rel="stylesheet" type="text/css" href="<?=base_url()?>css/styles.css"/>
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        User Priveleges
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="<?=base_url().'user/manageuser'?>"><i class="fa fa-laptop"></i> Home</a></li>
+        <li>User Priveleges</li>
+        <li class="active">Add</li>
+      </ol>
+    </section>
 <form  class="form-horizontal"  action ="<?=base_url().'user/register'?>"   method='post'>
 <fieldset>
 <div class="container-fluid">
@@ -91,13 +102,13 @@
   
   <button id="button1id" name="add" type="Submit" value= "Submit"class="btn btn-success">Add</button>
   <a href="<?=base_url().'user/manageuser/'?>" class="btn btn-danger" role="button">Back</a>
-  <center> <?php if(validation_errors()): ?>
+ <?php if(validation_errors()): ?>
   <div class="alert alert-danger alert-dismissible"  role="alert">
   <?=validation_errors()?>
   </div>
 <?php endif; ?>
   
-  </center>
+
  
   </div>
   

@@ -115,6 +115,12 @@
       </li>
 
       <li>
+        <a href="#<?//=base_url().'user/manageuser'?>">
+         <i class="fa fa-fw fa-map"></i> <span>Truck GPS</span>
+          </a>
+        </li>
+
+      <li>
         <a href="<?=base_url().'user/manageuser'?>">
             <i class="fa fa-laptop"></i> <span>User Priveleges</span>
           </a>

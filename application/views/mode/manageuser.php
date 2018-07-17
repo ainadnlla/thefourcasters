@@ -6,7 +6,7 @@
         User Priveleges
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-laptop"></i> Home</a></li>
+        <li><a href="<?=base_url().'user/index'?>"><i class="fa fa-laptop"></i> Home</a></li>
         <li class="active">User Priveleges</li>
       </ol>
     </section>
@@ -16,7 +16,7 @@
     <div class="page-content">
     	<div class="row">
 		  
-          <div class="col-md-11">
+          <div class="col-md-13">
           <div class="content-box-large">
             <div class="panel-heading">Staff Management</div>
             <div class="panel-body">
