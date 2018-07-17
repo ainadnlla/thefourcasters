@@ -24,11 +24,31 @@ class User extends CI_Controller {
         $this->load->view('mode/table');
         $this->load->view('include/footer');
     } 
+    public function form(){
+        
+        $this->load->view('include/header');
+        $this->load->view('include/header_nav');
+        $this->load->view('mode/form');
+        $this->load->view('include/footer');
+    }
     public function calendar(){
         
         $this->load->view('include/calendar_head');
         $this->load->view('include/header_nav'); 
         $this->load->view('mode/calendar');
+        $this->load->view('include/calendar_foot');
+    }  
+    public function inbox(){
+        
+        $this->load->view('include/calendar_head');
+        $this->load->view('include/header_nav'); 
+        $this->load->view('mode/inbox');
+        $this->load->view('include/calendar_foot');
+    }  
+    public function compose(){     
+        $this->load->view('include/calendar_head');
+        $this->load->view('include/header_nav'); 
+        $this->load->view('mode/compose');
         $this->load->view('include/calendar_foot');
     }  
     public function stats(){
@@ -37,7 +57,7 @@ class User extends CI_Controller {
         $this->load->view('include/header_nav');
         $this->load->view('mode/stats');
         $this->load->view('include/footer');
-    }   
+    }
     public function manageuser(){
        
         $items =  $this->UserModel->getItems();
