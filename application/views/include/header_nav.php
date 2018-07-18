@@ -120,10 +120,18 @@
           </a>
         </li>
 
-      <li>
-        <a href="<?=base_url().'user/manageuser'?>">
-            <i class="fa fa-laptop"></i> <span>User Priveleges</span>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>Accounts Management</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
+          <ul class="treeview-menu">
+            <li><a href="<?=base_url().'user/manageuser'?>"><i class="fa fa-circle-o"></i>User Management</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i>User Priveleges</a></li>
+          </ul>
         </li>
 
         <li>
