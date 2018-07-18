@@ -44,10 +44,7 @@ public function getItems(){
 
 public function insertUser($data){
     $this->db->insert('staff', $data);
-}
-
-
-    
+}   
 }
 
 ?>

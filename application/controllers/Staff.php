@@ -12,7 +12,7 @@ class Staff extends CI_Controller {
     public function index(){
         
         //$items =  $this->UserModel->getItems();
-         $this->load->view('include/header');
+        $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('staff/index');
         $this->load->view('include/footer');
