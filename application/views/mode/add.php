@@ -1,34 +1,33 @@
-
- <div class="content-wrapper">
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        User Priveleges
+       User Details
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?=base_url().'user/manageuser'?>"><i class="fa fa-laptop"></i> Home</a></li>
-        <li>User Priveleges</li>
-        <li class="active">Add</li>
+        <li><a href="<?=base_url().'user/manageuser'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="<?=base_url().'user/manageuser'?>">User Details</a></li>
+        <li class="active">Add</a></li>
       </ol>
     </section>
-<form  class="form-horizontal"  action ="<?=base_url().'user/register'?>"   method='post'>
-<fieldset>
-<div class="container-fluid">
-    <div class="row" >
-    <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <div class="panel panel-primary">
-            <div class="panel-heading">ADD</div>
-            <div class="panel-body">
-                <table class="table">
-                    <!-- Text input-->
-<div class="form-group">
- 
-  <div class="col-md-4">
-  <input type="hidden"  name="id" type="text" placeholder="ID" class="form-control input-md" required="" >
-    
-  </div>
-</div>
+
+    <section class="content">
+      <div class="row">
+      <div class="col-sm-12">
+          <!-- Horizontal Form -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Add Details</h3>
+            </div>
+
+            <!-- form start -->
+            <form class="form-horizontal">
+              <div class="box-body">
+              <div class="form-group">
+                <div class="col-md-4">
+                <input type="hidden"  name="id" type="text" placeholder="ID" class="form-control input-md" required="" >  
+                </div>
+              </div>
 
 <!-- Text input-->
 <div class="form-group">
@@ -73,14 +72,6 @@
   <input name="contact" type="text" placeholder="Contact Number" class="form-control input-md">  
   </div>
 </div>
-
-
-<!-- Select Basic -->
-
-
-
-
-<!-- Select Basic -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="gender">Gender</label>
   <div class="col-md-4">
@@ -92,12 +83,9 @@
   </div>
 </div>
 
-
 <!-- Button (Double) -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="button1id"></label>
-
-
   <div class="col-md-8">
   
   <button id="button1id" name="add" type="Submit" value= "Submit"class="btn btn-success">Add</button>
@@ -106,27 +94,20 @@
   <div class="alert alert-danger alert-dismissible"  role="alert">
   <?=validation_errors()?>
   </div>
-<?php endif; ?>
-  
-
- 
-  </div>
-  
+  <?php endif; ?>
+</div>
+</div>
+</form>
+</div>
+          </div>
+        </div>
+  </section>
 </div>
 
-
-
-
-</fieldset>
-</form>
-            </div>
-       
-       
-            </div>
-        </div>
-        </center>
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>The Fourcasters</b>
     </div>
-</div> 
-
-
-
+    <strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation</a>.</strong> All rights
+    reserved.
+  </footer>

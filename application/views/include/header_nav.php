@@ -114,35 +114,38 @@
         </a>
       </li>
 
-      <li>
-        <a href="#<?//=base_url().'user/manageuser'?>">
-         <i class="fa fa-fw fa-map"></i> <span>Truck GPS</span>
-          </a>
-        </li>
-
-        <li class="treeview">
+      <li class="treeview">
           <a href="#">
-            <i class="fa fa-pie-chart"></i>
-            <span>Accounts Management</span>
+            <i class="fa fa-list"></i>
+            <span>Truck Management</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?=base_url().'user/manageuser'?>"><i class="fa fa-circle-o"></i>User Management</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i>User Priveleges</a></li>
+            <li><a href="<?=base_url().'user/table'?>"><i class="fa fa-table"></i> Truck Details</a></li>
+            <li><a href="<?=base_url().'user/truckgps'?>"><i class="fa fa-map-pin"></i> Truck GPS</a></li>
+            <li><a href="<?=base_url().'user/truckdelivery'?>"><i class="fa fa-truck"></i> Truck Delivery</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-list"></i>
+            <span>User Management</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?=base_url().'user/manageuser'?>"><i class="fa fa-circle-o"></i>User Details</a></li>
+            <li><a href="<?=base_url().'user/manageprivelege'?>"><i class="fa fa-circle-o"></i>User Priveleges</a></li>
           </ul>
         </li>
 
         <li>
           <a href="<?=base_url().'user/form'?>">
             <i class="fa fa-edit"></i> <span>Registration Form</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="<?=base_url().'user/table'?>">
-            <i class="fa fa-table"></i> <span>Truck Details</span>
           </a>
         </li>
         

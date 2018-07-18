@@ -24,6 +24,27 @@ class User extends CI_Controller {
         $this->load->view('mode/table');
         $this->load->view('include/footer');
     } 
+    public function manageprivelege(){
+        
+        $this->load->view('include/header');
+        $this->load->view('include/header_nav');
+        $this->load->view('mode/manageprivelege');
+        $this->load->view('include/footer');
+    } 
+    public function truckgps(){
+        
+        $this->load->view('include/header');
+        $this->load->view('include/header_nav');
+        $this->load->view('mode/truckgps');
+        $this->load->view('include/footer');
+    }
+    public function truckdelivery(){
+        
+        $this->load->view('include/header');
+        $this->load->view('include/header_nav');
+        $this->load->view('mode/truckdelivery');
+        $this->load->view('include/footer');
+    }
     public function form(){
         
         $this->load->view('include/header');
