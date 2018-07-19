@@ -19,6 +19,22 @@ class UserModel extends CI_Model{
         
 //     }
 
+//INSERT
+
+    public function insert($data){
+        $this->db->insert('staff' , $data);
+        }
+
+//UPDATE
+    public function update($id ,$data){
+        $this->db->where('id' , $id);
+        $this->db->update('staff' , $data);
+        }   
+
+    public function editItems($id, $Product){
+            $this->db->where('id', $id);
+            $this->db->update('tblitem', $data);
+        }
 
     public function getProd($id)
     {
@@ -27,10 +43,7 @@ class UserModel extends CI_Model{
         return $query->row();
   
     }
-public function update($id,$data){
-    $this->db->where('id',$id);
-    $this->db->update('staff',$data);
-}
+
 
 public function delete($id,$data){
     $this->db->where('id', $id);

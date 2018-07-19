@@ -1,20 +1,24 @@
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        User Priveleges
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="<?=base_url().'user/manageuser'?>"><i class="fa fa-laptop"></i> Home</a></li>
-        <li>User Priveleges</li>
-        <li class="active">Edit</li>
-      </ol>
+      <h1>User Priveleges</h1>
+        <ol class="breadcrumb">
+          <li><a href="<?=base_url().'user/manageuser'?>"><i class="fa fa-laptop"></i> Home</a></li>
+          <li>User Priveleges</li>
+          <li class="active">Edit</li>
+        </ol>
     </section>
-<form  class="form-horizontal"  action ="<?=base_url()?>user/update/<?=$item->id?>"   method='post'>
-<fieldset>
 
-<!-- Form Name -->
-<legend class="text-center">EDIT</legend>
+ <!-- Content Header (Page header) -->
+    <section class="content">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Update Details</h3>
+            </div>
+
+    <form  class="form-horizontal"  action ="<?=base_url()?>user/update/<?=$item->id?>"  method='post'>
+<fieldset>
 
 <!-- Text input-->
 <!-- Text input-->

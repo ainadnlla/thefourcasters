@@ -96,14 +96,38 @@ class User extends CI_Controller {
         $this->load->view('include/footer');
        // $this->debug($item);
     }
+
+    public function insert(){
+        $data = $this->input->post();
+        unset($data['add']);
+
+            $this->form_validation->set_rules('fname', 'First Name', 'required');
+            $this->form_validation->set_rules('mname', 'Middle Name', 'required');
+            $this->form_validation->set_rules('lname', 'Last Name', 'required');
+            $this->form_validation->set_rules('password','Password', 'required');
+            $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
+            $this->form_validation->set_rules('email', 'Email Address', 'required');
+            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
+            $this->form_validation->set_rules('gender', 'Gender', 'required');
+
+      if ($this->form_validation->run() == FALSE)
+      {
+          $this->add();
+      }
+      else
+      {
+            $this->UserModel->insert($data);
+            $this->index();
+      }
+    }
+
     public function add(){
-        
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/add' );
+        $this->load->view('mode/add');
         $this->load->view('include/footer');
-
     }
+
     public function edit($id){
         $item =$this->UserModel->getProd($id);
         $this->load->view('include/header');
@@ -129,6 +153,7 @@ class User extends CI_Controller {
      
         // return Redirect::route('item');
      }
+
      public function register(){
         $data = $this->input->post();
         
@@ -149,29 +174,33 @@ class User extends CI_Controller {
             $this->UserModel->insertUser($data);
        
           redirect('user/manageuser');
-      }
-  
-        
+      }    
 }
-public function update($id){
-    $data = $this->input->post();
-    unset($data['submit']);
 
-    $this->form_validation->set_rules('password', 'Password', 'required|min_length[8]');
-    $this->form_validation->set_rules('repass', 'Password Confirmation', 'required|matches[password]');
+    public function update($id){
+        $data = $this->input->post();
+        unset($data['submit']);
+
+            $this->form_validation->set_rules('fname', 'First Name', 'required');
+            $this->form_validation->set_rules('mname', 'Middle Name', 'required');
+            $this->form_validation->set_rules('lname', 'Last Name', 'required');
+            $this->form_validation->set_rules('password','Password', 'required');
+            $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
+            $this->form_validation->set_rules('email', 'Email Address', 'required');
+            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
+            $this->form_validation->set_rules('gender', 'Gender', 'required');
+            
+            if ($this->form_validation->run() == FALSE)
+            {
+                $this->edit($id);
+            }
+            else
+            {
+                $this->UserModel->update($id, $data);
+                redirect('user/manageuser');
+            }
+        }
     
-
-
-  if ($this->form_validation->run() == FALSE)
-  {
-       $this->edit('id');
-      echo "error";
-  }
-  else
-  {
-    $this->UserModel-> update($id,$data);
-      redirect('user/manageuser');
-  }
 //  public function update($id){
 //         $data= $this->input->post();
 //        //$this->debug($data);
@@ -182,5 +211,4 @@ public function update($id){
        
 //     }
     }
-}
 ?>

@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="fname" class="col-sm-4 control-label">Firsname</label>
+                  <label for="fname" class="col-sm-4 control-label">First Name</label>
                   <div class="col-sm-4">
                   <input value="<?=$item->fname?>" type="text" name="fname" class="form-control" placeholder="fname" disabled></input>
                   </div>
@@ -67,12 +67,12 @@
                   </div>
                 </div>
 
-                <div class="form-group">
+         <!--   <div class="form-group">
                   <label for="password" class="col-sm-4 control-label">Password</label>
                   <div class="col-sm-4">
                   <input value="<?=$item->password?>" type="password" name="password" class="form-control" placeholder="password" disabled></input>
                   </div>
-                </div>
+                </div> --> 
 
                 <div class="form-group">
                   <label for="contact" class="col-sm-4 control-label">Contact No.</label>
