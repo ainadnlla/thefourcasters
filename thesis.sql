@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2018 at 10:03 AM
+-- Generation Time: Jul 19, 2018 at 06:21 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -54,6 +54,7 @@ CREATE TABLE `staff` (
   `lname` varchar(50) NOT NULL,
   `mname` varchar(50) DEFAULT NULL,
   `password` varchar(50) NOT NULL,
+  `repass` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `contact` int(25) NOT NULL,
   `gender` char(1) NOT NULL,
@@ -65,9 +66,11 @@ CREATE TABLE `staff` (
 -- Dumping data for table `staff`
 --
 
-INSERT INTO `staff` (`id`, `fname`, `lname`, `mname`, `password`, `email`, `contact`, `gender`, `status`, `usertype`) VALUES
-(1, 'dsa', 'dsa', NULL, 'dsa', 'anthonyjarlane@yahoo.com', 917333899, 'M', 1, 1),
-(2, 'Anthony Jarl', 'Ane', 'L.', 'd9b1d7db4cd6e70935368a1efb10e377', 'anthony_ane@icloud.com', 2147483647, 'M', 0, 0);
+INSERT INTO `staff` (`id`, `fname`, `lname`, `mname`, `password`, `repass`, `email`, `contact`, `gender`, `status`, `usertype`) VALUES
+(2, 'Anthony Jarl', 'Ane', 'L.', 'd9b1d7db4cd6e70935368a1efb10e377', '', 'anthony_ane@icloud.com', 2147483647, 'M', 0, 0),
+(3, 'Lanz', 'Manalo', 'Orquia', '123456789', '123456789', 'ljomanalo@gmail.com', 917425812, 'M', 0, 0),
+(4, 'Darleneski', 'Teves', 'Fayeski', '123456789', '123456789', 'darleneteves@gmail.com', 906258879, 'F', 0, 0),
+(6, 'Aina ', 'Sales', 'Daniella', '123456789', '123456789', 'ainadrsales@gmail.com', 917123456, 'F', 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -93,13 +96,13 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
