@@ -19,8 +19,10 @@
             <div class="box-header">
               <h3 class="box-title">Staff Information</h3>
             </div>
+
             <!-- /.box-header -->
             <div class="box-body">
+            
               <table id="staff" class="table table-bordered table-hover">
                 <thead>
                 <tr>
@@ -75,7 +77,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="staff" class="table table-bordered table-hover">
+              <table id="customer" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -99,7 +101,39 @@
                 <a href="#" class="btn btn-success" role="button">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Customer</a>
                 </div>
-            </div>  
+            </div>
+
+            <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Driver Information</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="driver" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>Email Address</th>
+                    <th>Contact Number</th>
+                    <th>Gender</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        
+                    <tr>
+                </tfoot>
+              </table>
+            </div>
+                <div class="box-footer">
+                <a href="#" class="btn btn-success" role="button">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Driver</a>
+                </div>
+            </div>
         
     </section>
 </div>

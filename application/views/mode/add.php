@@ -30,7 +30,8 @@
     <div class="form-group">
       <label class="col-md-4 control-label"for ="fname">First Name</label>  
         <div class="col-md-4">
-          <input  name="fname" type="text" placeholder="First Name" class="form-control input-md">  
+          <input  name="fname" type="text" placeholder="First Name" class="form-control input-md">
+          <?= form_error('fname', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
@@ -38,6 +39,7 @@
       <label class="col-md-4 control-label" for="mname" >Middle Name</label>  
         <div class="col-md-4">
           <input name="mname" type="text" placeholder="Middle Name (optional)" class="form-control input-md">  
+          <?= form_error('mname', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
@@ -45,6 +47,7 @@
       <label class="col-md-4 control-label" for="lname" >Last Name</label>  
         <div class="col-md-4">
           <input  name="lname" type="text" placeholder="Last Name" class="form-control input-md">  
+          <?= form_error('lname', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
@@ -52,6 +55,7 @@
       <label class="col-md-4 control-label" for="password" >Password</label>  
         <div class="col-md-4">
           <input name="password" type="password" placeholder="Password" class="form-control input-md">  
+          <?= form_error('password', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
@@ -59,6 +63,7 @@
       <label class="col-md-4 control-label" for="repass" >Confirm Password</label>  
         <div class="col-md-4">
           <input name="repass" type="password" placeholder="Confirm Password" class="form-control input-md">  
+          <?= form_error('repass', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
@@ -66,6 +71,7 @@
       <label class="col-md-4 control-label" >Email</label>  
         <div class="col-md-4">
           <input  name="email" type="email" placeholder="example@yahoo.com" class="form-control input-md">  
+          <?= form_error('email', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
@@ -73,6 +79,7 @@
       <label class="col-md-4 control-label" >Contact No.</label>  
         <div class="col-md-4">
           <input name="contact" type="text" placeholder="Contact Number" class="form-control input-md">  
+          <?= form_error('contact', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
@@ -90,25 +97,18 @@
 <!-- Button (Double) -->
     <div class="form-group">
       <label class="col-md-4 control-label" for="button1id"></label>
-        <div class="col-md-8">
+        <div class="col-md-4">
   
           <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Add</button>
             <a href="<?=base_url().'user/manageuser/'?>" class="btn btn-danger" role="button">Back</a>
-            
-            <div class="col-xs-8"></div>
-              <div class="col-xs-8 text-center">
-                <?php if(validation_errors()): ?>
-                  <div class="alert alert-danger alert-dismissible"  role="alert">
-                <?=validation_errors()?>
-                </div>
-                <?php endif; ?>
-              </div>
-            </div>
+
+
             </form>
         </div>
-</div>
-</div>
-</div>
+        
+      </div>
+    </div>
+  </div>
 </section>
 </div>
 

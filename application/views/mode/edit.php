@@ -35,49 +35,49 @@
   <label class="col-md-4 control-label" for ="fname" >First Name</label>  
   <div class="col-md-4">
   <input  value="<?=$item->fname?>" name="fname" type="text" placeholder="First Name" class="form-control input-md" required="">
-    
+  <?= form_error('fname', '<span class="label label-danger">', '</span>') ?>  
   </div>
 </div>  
 <div class="form-group">
   <label class="col-md-4 control-label" >Middle Name</label>  
   <div class="col-md-4">
   <input  value="<?=$item->mname?>" name="mname" type="text" placeholder="Middle Name" class="form-control input-md" >
-    
+  <?= form_error('mname', '<span class="label label-danger">', '</span>') ?>  
   </div>
 </div>  
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Last Name</label>  
   <div class="col-md-4">
   <input  value="<?=$item->lname?>" name="lname" type="text" placeholder="Last Name" class="form-control input-md" required="">
-    
+  <?= form_error('lname', '<span class="label label-danger">', '</span>') ?>  
   </div>
 </div>  
 <div class="form-group">
   <label class="col-md-4 control-label" >Password</label>  
   <div class="col-md-4">
   <input  value="<?=$item->password?>" name="password" type="password" placeholder="Password" class="form-control input-md" required="">
-    
+  <?= form_error('password', '<span class="label label-danger">', '</span>') ?>  
   </div>
 </div>  
 <div class="form-group">
   <label class="col-md-4 control-label" >Confirm Password</label>  
   <div class="col-md-4">
   <input  value="<?=$item->repass?>" name="repass" type="password" placeholder="Confirm Password" class="form-control input-md" required="">
-    
+  <?= form_error('repass', '<span class="label label-danger">', '</span>') ?>  
   </div>
 </div>  
 <div class="form-group">
   <label class="col-md-4 control-label">Email</label>  
   <div class="col-md-4">
   <input  value="<?=$item->email?>" name="email" type="text" placeholder="Email Address" class="form-control input-md" required="">
-    
+  <?= form_error('email', '<span class="label label-danger">', '</span>') ?>  
   </div>
 </div>  
 <div class="form-group">
   <label class="col-md-4 control-label" >Contact No. </label>  
   <div class="col-md-4">
   <input  value="<?=$item->contact?>" name="contact" type="text" placeholder="Product Name" class="form-control input-md" required="">
-    
+  <?= form_error('contact', '<span class="label label-danger">', '</span>') ?>  
   </div>
 </div>  
 
@@ -101,13 +101,6 @@
   <div class="col-md-8">
     <button id="button1id" name="submit" value="submit" class="btn btn-success">Edit</button>
     <a href="<?= base_url().'user/manageuser'?>" class="btn btn-danger" role="button"> Cancel</a>
-    <center> <?php if(validation_errors()): ?>
-  <div class="alert alert-danger alert-dismissible"  role="alert">
-  <?=validation_errors()?>
-  </div>
-<?php endif; ?>
-  
-  </center>
   </div>
 </div>
 
