@@ -11,7 +11,7 @@ class User extends CI_Controller {
     //anewuzhere
     public function index(){
         
-        $items =  $this->UserModel->getItems();
+    //    $items =  $this->UserModel->getItems();
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
@@ -79,9 +79,43 @@ class User extends CI_Controller {
         $this->load->view('mode/stats');
         $this->load->view('include/footer');
     }
-    public function manageuser(){
-       
-        $items =  $this->UserModel->getItems();
+
+    public function profile(){
+        $this->load->view('include/header');
+        $this->load->view('include/header_nav');
+        $this->load->view('mode/profile');
+        $this->load->view('include/footer');
+    }
+ 
+    public function manageuser($offset=0){
+
+        $this->load->library('pagination');
+        $norecs = 5;
+
+        $config['base_url'] = base_url().'user/manageuser/';
+        $config['total_rows'] = $this->UserModel->getNumRecs();
+        $config['per_page'] = $norecs;
+
+        $config['full_tag_open'] = "<ul class='pagination'>";
+        $config['full_tag_close'] ="</ul>";
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+        $config['next_tag_open'] = "<li>";
+        $config['next_tagl_close'] = "</li>";
+        $config['prev_tag_open'] = "<li>";
+        $config['prev_tagl_close'] = "</li>";
+        $config['first_tag_open'] = "<li>";
+        $config['first_tagl_close'] = "</li>";
+        $config['last_tag_open'] = "<li>";
+        $config['last_tagl_close'] = "</li>";
+
+        $this->pagination->initialize($config);
+
+        $this->load->config('myconfig');
+        $items =  $this->UserModel->getItems($norecs, $offset);
+
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
@@ -200,7 +234,8 @@ class User extends CI_Controller {
                 redirect('user/manageuser');
             }
         }
-    
+
+
 //  public function update($id){
 //         $data= $this->input->post();
 //        //$this->debug($data);

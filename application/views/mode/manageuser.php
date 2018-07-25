@@ -67,6 +67,8 @@
                 <a href="<?=base_url()?>user/add" class="btn btn-success" role="button">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Staff</a>
                 </div>
+
+                 <?php echo $this->pagination->create_links();?>
             </div>
           </div>
         </div>

@@ -44,16 +44,23 @@ class UserModel extends CI_Model{
   
     }
 
+// PAGINATION
+   
+   public function getItems($norecs, $offset){
+    $query = $this->db->get('staff', $norecs, $offset);
+    return $query->result();
+    }
+
+    public function getNumRecs(){
+    return $this->db->count_all('staff');
+    }
+
+//DELETE    
 
 public function delete($id,$data){
     $this->db->where('id', $id);
     $this->db->delete('staff');
 }
-public function getItems(){
-    $query = $this -> db->get('staff');
-    return $query->result();
-}
-
 
 public function insertUser($data){
     $this->db->insert('staff', $data);
