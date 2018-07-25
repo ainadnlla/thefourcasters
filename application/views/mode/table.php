@@ -25,7 +25,7 @@
                 <thead>
                 <tr>
                     <th>License No.</th>
-                    <th>Ensurance</th>
+                    <th>Insurance</th>
                     <th>Action</th>
                 </tr>
                 </thead>

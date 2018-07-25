@@ -1,33 +1,33 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class UserModel extends CI_Model{
+class CustomerModel extends CI_Model{
 
 //INSERT
 
     public function insert($data){
-        $this->db->insert('staff' , $data);
+        $this->db->insert('customer', $data);
         }
 
     public function insertUser($data){
-        $this->db->insert('staff', $data);
+        $this->db->insert('customer', $data);
         } 
 
 //UPDATE
     public function update($id ,$data){
         $this->db->where('id' , $id);
-        $this->db->update('staff' , $data);
+        $this->db->update('customer' , $data);
         }   
 
     public function editItems($id, $Product){
             $this->db->where('id', $id);
-            $this->db->update('tblitem', $data);
+            $this->db->update('customer', $data);
         }
 
     public function getProd($id)
     {
   
-        $query = $this->db->get_where('staff', array('id' => $id));
+        $query = $this->db->get_where('customer', array('id' => $id));
         return $query->row();
   
     }
@@ -35,19 +35,19 @@ class UserModel extends CI_Model{
 // PAGINATION
    
    public function getItems($norecs, $offset){
-    $query = $this->db->get('staff', $norecs, $offset);
+    $query = $this->db->get('customer', $norecs, $offset);
     return $query->result();
     }
 
     public function getNumRecs(){
-    return $this->db->count_all('staff');
+    return $this->db->count_all('customer');
     }
 
 //DELETE    
 
     public function delete($id,$data){
         $this->db->where('id', $id);
-        $this->db->delete('staff');
+        $this->db->delete('customer');
     }
 }
 

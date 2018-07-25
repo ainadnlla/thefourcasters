@@ -1,17 +1,13 @@
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        User Details
-      </h1>
+      <h1>User Details</h1>
       <ol class="breadcrumb">
-        <li><a href="<?=base_url().'user/manageuser'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="<?=base_url().'user/index'?>"><i class="fa fa-dashboard"></i>Home</a></li>
         <li><a href="<?=base_url().'user/manageuser'?>">User Management</a></li>
         <li class="active">User Details</a></li>
       </ol>
     </section>
 
-    <!-- Main content -->
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
@@ -20,9 +16,7 @@
               <h3 class="box-title">Staff Information</h3>
             </div>
 
-            <!-- /.box-header -->
-            <div class="box-body">
-            
+            <div class="box-body">  
               <table id="staff" class="table table-bordered table-hover">
                 <thead>
                 <tr>
@@ -43,7 +37,8 @@
                         <td><?= $item->fname?></td>
                         <td><?= $item->mname?></td>
                         <td><?= $item->lname?></td>
-                        <td><?= $item->email?></td>                            <td><?= $item->contact?></td>
+                        <td><?= $item->email?></td>                            
+                        <td><?= $item->contact?></td>
                         <td><?= $item->gender?></td>
 
                         <td>
@@ -77,7 +72,6 @@
             <div class="box-header">
               <h3 class="box-title">Customer Information</h3>
             </div>
-            <!-- /.box-header -->
             <div class="box-body">
               <table id="customer" class="table table-bordered table-hover">
                 <thead>
@@ -93,16 +87,40 @@
                 </tr>
                 </thead>
                 <tbody>
+                <?php foreach($values as $value): ?>
                     <tr>
-                        
-                    <tr>
+                        <td><?= $value->id?></td>
+                        <td><?= $value->fname?></td>
+                        <td><?= $value->mname?></td>
+                        <td><?= $value->lname?></td>
+                        <td><?= $value->email?></td>                            
+                        <td><?= $value->contact?></td>
+                        <td><?= $value->gender?></td>
+
+
+                        <td>
+                        <a href="<?= base_url().'customer/view/'.$value->id?>" class="btn btn-primary" role="button">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true">
+                        </span></a>
+                        <a href="<?= base_url().'customer/edit/'.$value->id?>" class="btn btn-warning" role="button">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true">
+                        </span></a>
+                        <?php $onclick = array('onclick'=>"return confirm('Are you sure?')");?>
+                        <a href="<?=base_url('customer/delete/'.$value->id)?>" class="btn btn-danger" role="button">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
+                        </span></a>
+                        </td>
+                    </tr>        
+                <?php endforeach; ?> 
                 </tfoot>
               </table>
             </div>
                 <div class="box-footer">
-                <a href="#" class="btn btn-success" role="button">
+                <a href="<?=base_url()?>customer/add" class="btn btn-success" role="button">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Customer</a>
                 </div>
+
+                 <?php echo $this->pagination->create_links();?>
             </div>
 
             <div class="box">

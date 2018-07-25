@@ -7,10 +7,8 @@ class User extends CI_Controller {
             parent::__construct();
             $this->load->model('UserModel');
     }
-    
-    //anewuzhere
+
     public function index(){
-        
     //    $items =  $this->UserModel->getItems();
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
@@ -18,62 +16,62 @@ class User extends CI_Controller {
         $this->load->view('mode/index',compact('items'));
     }  
     public function table(){
-        
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('mode/table');
         $this->load->view('include/footer');
     } 
+
     public function manageprivelege(){
-        
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('mode/manageprivelege');
         $this->load->view('include/footer');
     } 
+
     public function truckgps(){
-        
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('mode/truckgps');
         $this->load->view('include/footer');
     }
-    public function truckdelivery(){
-        
+
+    public function truckdelivery(){     
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('mode/truckdelivery');
         $this->load->view('include/footer');
     }
+
     public function form(){
-        
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('mode/form');
         $this->load->view('include/footer');
     }
+
     public function calendar(){
-        
         $this->load->view('include/calendar_head');
         $this->load->view('include/header_nav'); 
         $this->load->view('mode/calendar');
         $this->load->view('include/calendar_foot');
     }  
+
     public function inbox(){
-        
         $this->load->view('include/calendar_head');
         $this->load->view('include/header_nav'); 
         $this->load->view('mode/inbox');
         $this->load->view('include/calendar_foot');
     }  
+
     public function compose(){     
         $this->load->view('include/calendar_head');
         $this->load->view('include/header_nav'); 
         $this->load->view('mode/compose');
         $this->load->view('include/calendar_foot');
     }  
+
     public function stats(){
-        
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('mode/stats');
@@ -88,7 +86,6 @@ class User extends CI_Controller {
     }
  
     public function manageuser($offset=0){
-
         $this->load->library('pagination');
         $norecs = 5;
 
@@ -128,7 +125,6 @@ class User extends CI_Controller {
         $this->load->view('include/header_nav');
         $this->load->view('mode/view',compact('item'));
         $this->load->view('include/footer');
-       // $this->debug($item);
     }
 
     public function insert(){
@@ -168,48 +164,24 @@ class User extends CI_Controller {
         $this->load->view('include/header_nav');
         $this->load->view('mode/edit',compact('item'));
         $this->load->view('include/footer');
-
     }
+
     public function delete($Product_ID){
-        $item =$this->UserModel->getProd($Product_ID);
+        $item = $this->UserModel->getProd($Product_ID);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('mode/delete',compact('item'));
         $this->load->view('include/footer');
     } 
+
     public function del($id){
-        // $this->debug($item);
+
         $data= $this->input->post();
         unset($data['delete']);
          $item =$this->uri->segment(4);
          $this->UserModel->delete($id,$data);
          redirect('user/manageuser');
-     
-        // return Redirect::route('item');
      }
-
-     public function register(){
-        $data = $this->input->post();
-        
-        unset($data['add']);
-
-        $this->form_validation->set_rules('password', 'Password', 'required|min_length[8]');
-        $this->form_validation->set_rules('repass', 'Password Confirmation', 'required|matches[password]');
-        
-  
-
-      if ($this->form_validation->run() == FALSE)
-      {
-          $this->add();
-          echo "error";
-      }
-      else
-      {
-            $this->UserModel->insertUser($data);
-       
-          redirect('user/manageuser');
-      }    
-}
 
     public function update($id){
         $data = $this->input->post();
@@ -234,16 +206,5 @@ class User extends CI_Controller {
                 redirect('user/manageuser');
             }
         }
-
-
-//  public function update($id){
-//         $data= $this->input->post();
-//        //$this->debug($data);
-//         unset($data['submit']);
-//         $this->UserModel-> update($id,$data);
-//         $this->index();
-       
-       
-//     }
     }
 ?>
