@@ -5,8 +5,8 @@
         User Priveleges
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?=base_url().'user/manageprivelege'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li><a href="<?=base_url().'user/manageprivelege'?>">User Management</a></li>
+        <li><a href="<?=base_url().'user/userprivelege'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="<?=base_url().'user/userprivelege'?>">User Management</a></li>
         <li class="active">User Privelege</a></li>
       </ol>
     </section>

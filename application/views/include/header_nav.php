@@ -138,8 +138,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?=base_url().'user/manageuser'?>"><i class="fa fa-circle-o"></i>User Details</a></li>
-            <li><a href="<?=base_url().'user/manageprivelege'?>"><i class="fa fa-circle-o"></i>User Priveleges</a></li>
+            <li><a href="<?=base_url().'user/userdetails'?>"><i class="fa fa-circle-o"></i>User Details</a></li>
+            <li><a href="<?=base_url().'user/userprivelege'?>"><i class="fa fa-circle-o"></i>User Priveleges</a></li>
           </ul>
         </li>
 

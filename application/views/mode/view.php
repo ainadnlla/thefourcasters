@@ -5,8 +5,8 @@
        User Details
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?=base_url().'user/manageuser'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li><a href="<?=base_url().'user/manageuser'?>">User Details</a></li>
+        <li><a href="<?=base_url().'user/userdetails'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="<?=base_url().'user/userdetails'?>">User Details</a></li>
         <li class="active">View</a></li>
       </ol>
     </section>
@@ -81,14 +81,16 @@
                   </div>
                 </div>
 
+                <div class="form-group">
+                <label class="col-md-4 control-label" for="button1id"></label>
+                <div class="col-md-4">
+                <a href="<?=base_url().'user/userdetails_staff/'?>" class="btn btn-danger" role="button">Back</a>
+                </div>
+                </div>
+
               </div>
               </form>
-              <!-- /.box-body -->
-              <div class="box-footer">
-                <a href="<?= base_url().'user/manageuser'?>" class="btn btn-danger" role="button"> Back</a>
-              </div>
-              <!-- /.box-footer -->
-            </form>
+            </form> 
           </div>
         </div>  
   </section>

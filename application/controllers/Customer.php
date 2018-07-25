@@ -9,89 +9,11 @@ class Customer extends CI_Controller {
             $this->load->model('UserModel');
     }
     
-
-    public function index(){
-            $this->load->view('include/header');
-            $this->load->view('include/header_nav');
-            $this->load->view('include/footer');
-            $this->load->view('mode/index',compact('values'));
-        } 
-
-        public function table(){
-            $this->load->view('include/header');
-            $this->load->view('include/header_nav');
-            $this->load->view('mode/table');
-            $this->load->view('include/footer');
-        } 
-
-        public function manageprivelege(){
-            $this->load->view('include/header');
-            $this->load->view('include/header_nav');
-            $this->load->view('mode/manageprivelege');
-            $this->load->view('include/footer');
-        } 
-
-        public function truckgps(){
-            $this->load->view('include/header');
-            $this->load->view('include/header_nav');
-            $this->load->view('mode/truckgps');
-            $this->load->view('include/footer');
-        }
-
-        public function truckdelivery(){
-            $this->load->view('include/header');
-            $this->load->view('include/header_nav');
-            $this->load->view('mode/truckdelivery');
-            $this->load->view('include/footer');
-        }
-
-        public function form(){
-            $this->load->view('include/header');
-            $this->load->view('include/header_nav');
-            $this->load->view('mode/form');
-            $this->load->view('include/footer');
-        }
-
-        public function calendar(){  
-            $this->load->view('include/calendar_head');
-            $this->load->view('include/header_nav'); 
-            $this->load->view('mode/calendar');
-            $this->load->view('include/calendar_foot');
-        }  
-
-        public function inbox(){
-            $this->load->view('include/calendar_head');
-            $this->load->view('include/header_nav'); 
-            $this->load->view('mode/inbox');
-            $this->load->view('include/calendar_foot');
-        }  
-
-        public function compose(){     
-            $this->load->view('include/calendar_head');
-            $this->load->view('include/header_nav'); 
-            $this->load->view('mode/compose');
-            $this->load->view('include/calendar_foot');
-        }  
-
-        public function stats(){
-            $this->load->view('include/header');
-            $this->load->view('include/header_nav');
-            $this->load->view('mode/stats');
-            $this->load->view('include/footer');
-        }
-    
-        public function profile(){
-            $this->load->view('include/header');
-            $this->load->view('include/header_nav');
-            $this->load->view('mode/profile');
-            $this->load->view('include/footer');
-        }
-
-    public function manageuser($offset=0){
+    public function userdetails_customer($offset=0){
         $this->load->library('pagination');
         $norecs = 5;
 
-        $config['base_url'] = base_url().'user/manageuser/';
+        $config['base_url'] = base_url().'user/userdetails_customer/';
         $config['total_rows'] = $this->CustomerModel->getNumRecs();
         $config['per_page'] = $norecs;
 
@@ -113,16 +35,16 @@ class Customer extends CI_Controller {
         $this->pagination->initialize($config);
 
         $this->load->config('myconfig');
-        $data['values']  =  $this->CustomerModel->getItems($norecs, $offset);
+        $values = $this->CustomerModel->getItems($norecs, $offset);
         
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
-        $this->load->view('mode/manageuser',compact('values'));
+        $this->load->view('mode/userdetails',compact('values'));
     }
 
     public function view($id){
-        $data['values'] = $this->CustomerModel->getProd($id);
+        $value = $this->CustomerModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('mode/customerview',compact('value'));
@@ -181,7 +103,7 @@ class Customer extends CI_Controller {
             unset($data['delete']);
             $value = $this->uri->segment(4);
             $this->CustomerModel->delete($id,$data);
-            redirect('user/manageuser');
+            redirect('user/userdetails');
      }
 
     public function update($id){
@@ -204,7 +126,7 @@ class Customer extends CI_Controller {
             else
             {
                 $this->CustomerModel->update($id, $data);
-                redirect('user/manageuser');
+                redirect('user/userdetails');
             }
         }
 

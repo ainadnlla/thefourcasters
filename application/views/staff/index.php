@@ -9,9 +9,9 @@
                     <!-- Main menu -->
                     <li class="current"><a href="<?=base_url()?>"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
                     <li><a href="<?=base_url().'user/calendar'?>"><i class="glyphicon glyphicon-calendar"></i> Calendar</a></li>
-                    <li><a href="<?=base_url().'user/manageuser'?>"><i class="glyphicon glyphicon-edit"></i> Manage Customer</a></li>
-                    <li><a href="<?=base_url().'user/manageuser'?>"><i class="glyphicon glyphicon-edit"></i> Manage Driver</a></li>
-                    <li><a href="<?=base_url().'user/manageuser'?>"><i class="glyphicon glyphicon-edit"></i> Manage Conductor</a></li>
+                    <li><a href="<?=base_url().'user/userdetails'?>"><i class="glyphicon glyphicon-edit"></i> Manage Customer</a></li>
+                    <li><a href="<?=base_url().'user/userdetails'?>"><i class="glyphicon glyphicon-edit"></i> Manage Driver</a></li>
+                    <li><a href="<?=base_url().'user/userdetails'?>"><i class="glyphicon glyphicon-edit"></i> Manage Conductor</a></li>
                     <li><a href="<?=base_url().'user/deliver'?>"><i class="glyphicon glyphicon-record"></i> Booking</a></li>
                    
                 </ul>

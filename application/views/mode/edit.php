@@ -2,7 +2,7 @@
     <section class="content-header">
       <h1>User Priveleges</h1>
         <ol class="breadcrumb">
-          <li><a href="<?=base_url().'user/manageuser'?>"><i class="fa fa-laptop"></i> Home</a></li>
+          <li><a href="<?=base_url().'user/userdetails'?>"><i class="fa fa-laptop"></i> Home</a></li>
           <li>User Priveleges</li>
           <li class="active">Edit</li>
         </ol>
@@ -100,7 +100,7 @@
   <label class="col-md-4 control-label" for="button1id"></label>
   <div class="col-md-8">
     <button id="button1id" name="submit" value="submit" class="btn btn-success">Edit</button>
-    <a href="<?= base_url().'user/manageuser'?>" class="btn btn-danger" role="button"> Cancel</a>
+    <a href="<?= base_url().'user/userdetails_staff'?>" class="btn btn-danger" role="button"> Cancel</a>
   </div>
 </div>
 

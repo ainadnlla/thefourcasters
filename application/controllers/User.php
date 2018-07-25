@@ -6,6 +6,7 @@ class User extends CI_Controller {
     {
             parent::__construct();
             $this->load->model('UserModel');
+            $this->load->model('CustomerModel');
     }
 
     public function index(){
@@ -22,10 +23,10 @@ class User extends CI_Controller {
         $this->load->view('include/footer');
     } 
 
-    public function manageprivelege(){
+    public function userprivelege(){
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/manageprivelege');
+        $this->load->view('mode/userprivelege');
         $this->load->view('include/footer');
     } 
 
@@ -85,38 +86,73 @@ class User extends CI_Controller {
         $this->load->view('include/footer');
     }
  
-    public function manageuser($offset=0){
+    public function userdetails($offset=0){
+        $this->load->view('include/header');
+        $this->load->view('include/header_nav');
+        $this->load->view('mode/userdetails');
+        $this->load->view('include/footer');
+    }
+
+    public function userdetails_staff($offset=0){
         $this->load->library('pagination');
         $norecs = 5;
 
-        $config['base_url'] = base_url().'user/manageuser/';
+        $config['base_url'] = base_url().'user/userdetails_staff/';
         $config['total_rows'] = $this->UserModel->getNumRecs();
         $config['per_page'] = $norecs;
 
-        $config['full_tag_open'] = "<ul class='pagination'>";
-        $config['full_tag_close'] ="</ul>";
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['prev_link'] = '&laquo;';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active"><a href="#">';
+        $config['cur_tag_close'] = '</a></li>';
         $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-        $config['next_tag_open'] = "<li>";
-        $config['next_tagl_close'] = "</li>";
-        $config['prev_tag_open'] = "<li>";
-        $config['prev_tagl_close'] = "</li>";
-        $config['first_tag_open'] = "<li>";
-        $config['first_tagl_close'] = "</li>";
-        $config['last_tag_open'] = "<li>";
-        $config['last_tagl_close'] = "</li>";
 
         $this->pagination->initialize($config);
 
         $this->load->config('myconfig');
         $items =  $this->UserModel->getItems($norecs, $offset);
-
+        
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
-        $this->load->view('mode/manageuser',compact('items'));
+        $this->load->view('mode/userdetails_staff',compact('items'));
+    }
+
+    public function userdetails_customer($offset=0){
+        $this->load->library('pagination');
+        $norecs = 5;
+
+        $config['base_url'] = base_url().'user/userdetails_customer/';
+        $config['total_rows'] = $this->CustomerModel->getNumRecs();
+        $config['per_page'] = $norecs;
+
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['prev_link'] = '&laquo;';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active"><a href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+
+        $this->pagination->initialize($config);
+
+        $this->load->config('myconfig');
+        $values = $this->CustomerModel->getItems($norecs, $offset);
+        
+        $this->load->view('include/header');
+        $this->load->view('include/header_nav');
+        $this->load->view('include/footer');
+        $this->load->view('mode/userdetails_customer',compact('values'));
     }
 
     public function view($id){
@@ -180,7 +216,7 @@ class User extends CI_Controller {
         unset($data['delete']);
          $item =$this->uri->segment(4);
          $this->UserModel->delete($id,$data);
-         redirect('user/manageuser');
+         redirect('user/userdetails');
      }
 
     public function update($id){
@@ -203,7 +239,7 @@ class User extends CI_Controller {
             else
             {
                 $this->UserModel->update($id, $data);
-                redirect('user/manageuser');
+                redirect('user/userdetails');
             }
         }
     }

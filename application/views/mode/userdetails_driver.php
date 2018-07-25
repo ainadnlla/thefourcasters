@@ -3,7 +3,7 @@
       <h1>User Details</h1>
       <ol class="breadcrumb">
         <li><a href="<?=base_url().'user/index'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li><a href="<?=base_url().'user/manageuser'?>">User Management</a></li>
+        <li><a href="<?=base_url().'user/userdetails'?>">User Management</a></li>
         <li class="active">User Details</a></li>
       </ol>
     </section>

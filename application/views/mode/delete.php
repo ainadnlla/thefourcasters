@@ -6,7 +6,7 @@
         User Priveleges
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?=base_url().'user/manageuser'?>"><i class="fa fa-laptop"></i> Home</a></li>
+        <li><a href="<?=base_url().'user/userdetails'?>"><i class="fa fa-laptop"></i> Home</a></li>
         <li>User Priveleges</li>
         <li class="active">Delete</li>
       </ol>
@@ -38,7 +38,7 @@
         Delete</a>
 
     
-        <a href="<?= base_url().'user/manageuser'?>" class="btn btn-danger" role="button"> Back</a>
+        <a href="<?= base_url().'user/userdetails_staff'?>" class="btn btn-danger" role="button"> Back</a>
 
         </form>
         <br>
