@@ -24,13 +24,39 @@
               <table id="staff" class="table table-bordered table-hover">
                 <thead>
                 <tr>
+                    <th>ID</th>
+                    <th>Image</th>
                     <th>License No.</th>
                     <th>Insurance</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                
+                <?php foreach($trucks as $truck): ?>
+                        <tr>
+                            <td><?= $truck->id?></td>
+                            <td><?= $truck->img?></td>
+                            <td><?= $truck->license_no?></td>
+                            <td><?= $truck->insurance?></td>
+                            <td>
+                            <a href="<?= base_url().'user/view/'.$truck->id?>" class="btn btn-primary" role="button">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true">
+                            </span></a>
+
+                            <a href="<?= base_url().'user/edit/'.$truck->id?>"
+                         class="btn btn-warning" role="button">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true">
+                            </span></a>
+                            <?php $onclick = array('onclick'=>"return confirm('Are you sure?')");?>
+                            <a href="<?=base_url('user/delete/'.$trucks->id)?>" class="btn btn-danger" role="button">
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
+                            </span></a>
+                            
+                            </td>
+                        </tr>
+                         
+                    <?php endforeach; ?>
+                    
                 </tfoot>
               </table>
             </div>

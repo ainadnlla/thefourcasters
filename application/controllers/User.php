@@ -8,6 +8,7 @@ class User extends CI_Controller {
             $this->load->model('UserModel');
             $this->load->model('CustomerModel');
             $this->load->model('DriverModel');
+            $this->load->model('TruckModel');
     }
 
     public function index(){
@@ -16,11 +17,39 @@ class User extends CI_Controller {
         $this->load->view('include/footer');
         $this->load->view('mode/index',compact('emps'));
     }  
-    public function table(){
-        $this->load->view('include/header');
-        $this->load->view('include/header_nav');
-        $this->load->view('mode/table');
-        $this->load->view('include/footer');
+    public function table($offset=0){
+            $this->load->library('pagination');
+            $norecs = 5;
+    
+            $config['base_url'] = base_url().'user/table/';
+            $config['total_rows'] = $this->TruckModel->getNumRecs();
+            $config['per_page'] = $norecs;
+    
+            $config['full_tag_open'] = '<ul class="pagination">';
+            $config['full_tag_close'] = '</ul>';
+            $config['prev_link'] = '&laquo;';
+            $config['prev_tag_open'] = '<li>';
+            $config['prev_tag_close'] = '</li>';
+            $config['next_tag_open'] = '<li>';
+            $config['next_tag_close'] = '</li>';
+            $config['cur_tag_open'] = '<li class="active"><a href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            $config['num_tag_open'] = '<li>';
+            $config['num_tag_close'] = '</li>';
+    
+            $this->pagination->initialize($config);
+    
+            $this->load->config('myconfig');
+            $trucks =  $this->TruckModel->getItems($norecs, $offset);
+
+            $this->load->view('include/header');
+            $this->load->view('include/header_nav');
+            $this->load->view('mode/table',compact('trucks'));
+            $this->load->view('include/footer');
+        // $this->load->view('include/header');
+        // $this->load->view('include/header_nav');
+        // $this->load->view('mode/table');
+        // $this->load->view('include/footer');
     } 
 
     public function userprivelege(){
@@ -201,7 +230,7 @@ class User extends CI_Controller {
             $this->form_validation->set_rules('fname', 'First Name', 'required');
             $this->form_validation->set_rules('mname', 'Middle Name', 'required');
             $this->form_validation->set_rules('lname', 'Last Name', 'required');
-            $this->form_validation->set_rules('password','Password', 'required');
+            $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
             $this->form_validation->set_rules('email', 'Email Address', 'required');
             $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
@@ -257,7 +286,7 @@ class User extends CI_Controller {
             $this->form_validation->set_rules('fname', 'First Name', 'required');
             $this->form_validation->set_rules('mname', 'Middle Name', 'required');
             $this->form_validation->set_rules('lname', 'Last Name', 'required');
-            $this->form_validation->set_rules('password','Password', 'required');
+            $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
             $this->form_validation->set_rules('email', 'Email Address', 'required');
             $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');

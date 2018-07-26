@@ -59,7 +59,7 @@ class Driver extends CI_Controller {
             $this->form_validation->set_rules('fname', 'First Name', 'required');
             $this->form_validation->set_rules('mname', 'Middle Name', 'required');
             $this->form_validation->set_rules('lname', 'Last Name', 'required');
-            $this->form_validation->set_rules('password','Password', 'required');
+            $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
             $this->form_validation->set_rules('email', 'Email Address', 'required');
             $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
@@ -104,7 +104,7 @@ class Driver extends CI_Controller {
         unset($data['delete']);
         $driv = $this->uri->segment(4);
         $this->DriverModel->delete($id,$data);
-        redirect('user/userdetails');
+        redirect('user/userdetails_driver');
     }
 
     public function update($id){
