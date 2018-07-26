@@ -90,8 +90,8 @@ class Customer extends CI_Controller {
         $this->load->view('include/footer');
     }
 
-    public function delete($Product_ID){
-        $cust = $this->CustomerModel->getProd($Product_ID);
+    public function delete($id){
+        $cust = $this->CustomerModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('mode/customerdelete',compact('cust'));

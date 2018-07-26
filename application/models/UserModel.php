@@ -47,7 +47,7 @@ class UserModel extends CI_Model{
 
     public function delete($id,$data){
         $this->db->where('id', $id);
-        $this->db->delete('staff');
+        $this->db->delete('staff',$data);
     }
 }
 

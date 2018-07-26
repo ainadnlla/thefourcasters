@@ -233,8 +233,8 @@ class User extends CI_Controller {
         $this->load->view('include/footer');
     }
 
-    public function delete($Product_ID){
-        $emp = $this->UserModel->getProd($Product_ID);
+    public function delete($id){
+        $emp = $this->UserModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('mode/staffdelete',compact('emp'));
@@ -247,7 +247,7 @@ class User extends CI_Controller {
         unset($data['delete']);
         $emp =$this->uri->segment(4);
         $this->UserModel->delete($id,$data);
-        redirect('user/userdetails');
+        redirect('user/userdetails_staff');
      }
 
     public function update($id){
