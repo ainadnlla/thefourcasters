@@ -7,14 +7,14 @@ class User extends CI_Controller {
             parent::__construct();
             $this->load->model('UserModel');
             $this->load->model('CustomerModel');
+            $this->load->model('DriverModel');
     }
 
     public function index(){
-    //    $items =  $this->UserModel->getItems();
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
-        $this->load->view('mode/index',compact('items'));
+        $this->load->view('mode/index',compact('emps'));
     }  
     public function table(){
         $this->load->view('include/header');
@@ -116,12 +116,12 @@ class User extends CI_Controller {
         $this->pagination->initialize($config);
 
         $this->load->config('myconfig');
-        $items =  $this->UserModel->getItems($norecs, $offset);
+        $emps =  $this->UserModel->getItems($norecs, $offset);
         
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
-        $this->load->view('mode/userdetails_staff',compact('items'));
+        $this->load->view('mode/userdetails_staff',compact('emps'));
     }
 
     public function userdetails_customer($offset=0){
@@ -147,22 +147,53 @@ class User extends CI_Controller {
         $this->pagination->initialize($config);
 
         $this->load->config('myconfig');
-        $values = $this->CustomerModel->getItems($norecs, $offset);
+        $custs = $this->CustomerModel->getItems($norecs, $offset);
         
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
-        $this->load->view('mode/userdetails_customer',compact('values'));
+        $this->load->view('mode/userdetails_customer',compact('custs'));
+    }
+
+    public function userdetails_driver($offset=0){
+        $this->load->library('pagination');
+        $norecs = 5;
+
+        $config['base_url'] = base_url().'user/userdetails_driver/';
+        $config['total_rows'] = $this->DriverModel->getNumRecs();
+        $config['per_page'] = $norecs;
+
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['prev_link'] = '&laquo;';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active"><a href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+
+        $this->pagination->initialize($config);
+
+        $this->load->config('myconfig');
+        $drivs = $this->DriverModel->getItems($norecs, $offset);
+        
+        $this->load->view('include/header');
+        $this->load->view('include/header_nav');
+        $this->load->view('include/footer');
+        $this->load->view('mode/userdetails_driver',compact('drivs'));
     }
 
     public function view($id){
-        $item = $this->UserModel->getProd($id);
+        $emp = $this->UserModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/view',compact('item'));
+        $this->load->view('mode/staffview',compact('emp'));
         $this->load->view('include/footer');
     }
-
+ 
     public function insert(){
         $data = $this->input->post();
         unset($data['add']);
@@ -183,30 +214,30 @@ class User extends CI_Controller {
       else
       {
             $this->UserModel->insert($data);
-            $this->index();
+            redirect('user/userdetails_staff');
       }
     }
 
     public function add(){
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/add');
+        $this->load->view('mode/staffadd');
         $this->load->view('include/footer');
     }
 
     public function edit($id){
-        $item =$this->UserModel->getProd($id);
+        $emp = $this->UserModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/edit',compact('item'));
+        $this->load->view('mode/staffedit',compact('emp'));
         $this->load->view('include/footer');
     }
 
     public function delete($Product_ID){
-        $item = $this->UserModel->getProd($Product_ID);
+        $emp = $this->UserModel->getProd($Product_ID);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/delete',compact('item'));
+        $this->load->view('mode/staffdelete',compact('emp'));
         $this->load->view('include/footer');
     } 
 
@@ -214,9 +245,9 @@ class User extends CI_Controller {
 
         $data= $this->input->post();
         unset($data['delete']);
-         $item =$this->uri->segment(4);
-         $this->UserModel->delete($id,$data);
-         redirect('user/userdetails');
+        $emp =$this->uri->segment(4);
+        $this->UserModel->delete($id,$data);
+        redirect('user/userdetails');
      }
 
     public function update($id){
@@ -239,7 +270,7 @@ class User extends CI_Controller {
             else
             {
                 $this->UserModel->update($id, $data);
-                redirect('user/userdetails');
+                redirect('user/userdetails_staff');
             }
         }
     }

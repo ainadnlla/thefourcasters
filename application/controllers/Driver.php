@@ -1,20 +1,21 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Customer extends CI_Controller {
+class Driver extends CI_Controller {
     public function __construct()
     {
             parent::__construct();
+            $this->load->model('DriverModel');
             $this->load->model('CustomerModel');
             $this->load->model('UserModel');
     }
-    
-    public function userdetails_customer($offset=0){
+
+    public function userdetails_driver($offset=0){
         $this->load->library('pagination');
         $norecs = 5;
 
-        $config['base_url'] = base_url().'user/userdetails_customer/';
-        $config['total_rows'] = $this->CustomerModel->getNumRecs();
+        $config['base_url'] = base_url().'user/userdetails_driver/';
+        $config['total_rows'] = $this->DriverModel->getNumRecs();
         $config['per_page'] = $norecs;
 
         $config['full_tag_open'] = "<ul class='pagination'>";
@@ -35,19 +36,19 @@ class Customer extends CI_Controller {
         $this->pagination->initialize($config);
 
         $this->load->config('myconfig');
-        $custs = $this->CustomerModel->getItems($norecs, $offset);
+        $drivs = $this->DriverModel->getItems($norecs, $offset);
         
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
-        $this->load->view('mode/userdetails',compact('custs'));
+        $this->load->view('mode/userdetails',compact('drivs'));
     }
 
     public function view($id){
-        $cust = $this->CustomerModel->getProd($id);
+        $driv = $this->DriverModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/customerview',compact('cust'));
+        $this->load->view('mode/driverview',compact('driv'));
         $this->load->view('include/footer'); 
     }
 
@@ -70,41 +71,41 @@ class Customer extends CI_Controller {
       }
       else
       {
-            $this->CustomerModel->insert($data);
-            redirect('user/userdetails_customer');
+            $this->DriverModel->insert($data);
+            redirect('user/userdetails_driver');
       }
     }  
 
     public function add(){
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/customeradd');
+        $this->load->view('mode/driveradd');
         $this->load->view('include/footer');
     }
 
     public function edit($id){
-        $cust = $this->CustomerModel->getProd($id);
+        $driv = $this->DriverModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/customeredit',compact('cust'));
+        $this->load->view('mode/driveredit',compact('driv'));
         $this->load->view('include/footer');
     }
 
     public function delete($Product_ID){
-        $cust = $this->CustomerModel->getProd($Product_ID);
+        $driv = $this->DriverModel->getProd($Product_ID);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/customerdelete',compact('cust'));
+        $this->load->view('mode/driverdelete',compact('driv'));
         $this->load->view('include/footer');
     } 
-    
+
     public function del($id){
-            $data= $this->input->post();
-            unset($data['delete']);
-            $cust = $this->uri->segment(4);
-            $this->CustomerModel->delete($id,$data);
-            redirect('user/userdetails');
-     }
+        $data= $this->input->post();
+        unset($data['delete']);
+        $driv = $this->uri->segment(4);
+        $this->DriverModel->delete($id,$data);
+        redirect('user/userdetails');
+    }
 
     public function update($id){
         $data = $this->input->post();
@@ -125,10 +126,9 @@ class Customer extends CI_Controller {
             }
             else
             {
-                $this->CustomerModel->update($id, $data);
-                redirect('user/userdetails_customer');
+                $this->DriverModel->update($id, $data);
+                redirect('user/userdetails_driver');
             }
         }
-
-}
+    }
 ?>

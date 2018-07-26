@@ -1,9 +1,9 @@
 <div class="content-wrapper">
     <section class="content-header">
-      <h1>Customer Details</h1>
+      <h1>Driver Details</h1>
         <ol class="breadcrumb">
           <li><a href="<?=base_url().'user/userdetails'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-          <li><a href="<?=base_url().'user/userdetails_customer'?>">Customer Details</a></li>
+          <li><a href="<?=base_url().'user/userdetails_driver'?>">Driver Details</a></li>
           <li class="active">Add</a></li>
         </ol>
     </section>
@@ -16,7 +16,7 @@
               <h3 class="box-title">Add Details</h3>
             </div>
 
-    <form class="form-horizontal" action ="<?=base_url().'customer/insert'?>" method = "post">
+    <form class="form-horizontal" action ="<?=base_url().'driver/insert'?>" method = "post">
         <div class="box-body">
           <div class="form-group">
             <div class="col-md-4">
@@ -96,7 +96,7 @@
         <div class="col-md-4">
   
           <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Add</button>
-            <a href="<?=base_url().'user/userdetails_customer/'?>" class="btn btn-danger" role="button">Back</a>
+            <a href="<?=base_url().'user/userdetails_driver/'?>" class="btn btn-danger" role="button">Back</a>
 
             </form>
         </div>  

@@ -3,8 +3,7 @@
       <h1>User Details</h1>
       <ol class="breadcrumb">
         <li><a href="<?=base_url().'user/index'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li><a href="<?=base_url().'user/userdetails'?>">User Management</a></li>
-        <li class="active">User Details</a></li>
+        <li class="active">User Management</a></li>
       </ol>
     </section>
 
@@ -55,7 +54,7 @@
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="#" class="small-box-footer">Proceed <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?=base_url().'user/userdetails_driver'?>" class="small-box-footer">Proceed <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         </div>

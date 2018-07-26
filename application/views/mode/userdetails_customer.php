@@ -1,6 +1,6 @@
 <div class="content-wrapper">
     <section class="content-header">
-      <h1>User Details</h1>
+      <h1>Customer Details</h1>
       <ol class="breadcrumb">
         <li><a href="<?=base_url().'user/index'?>"><i class="fa fa-dashboard"></i>Home</a></li>
         <li><a href="<?=base_url().'user/userdetails'?>">User Management</a></li>
@@ -31,26 +31,26 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach($values as $value): ?>
+                <?php foreach($custs as $cust): ?>
                     <tr>
-                        <td><?= $value->id?></td>
-                        <td><?= $value->fname?></td>
-                        <td><?= $value->mname?></td>
-                        <td><?= $value->lname?></td>
-                        <td><?= $value->email?></td>                            
-                        <td><?= $value->contact?></td>
-                        <td><?= $value->gender?></td>
+                        <td><?= $cust->id?></td>
+                        <td><?= $cust->fname?></td>
+                        <td><?= $cust->mname?></td>
+                        <td><?= $cust->lname?></td>
+                        <td><?= $cust->email?></td>                            
+                        <td><?= $cust->contact?></td>
+                        <td><?= $cust->gender?></td>
 
 
                         <td>
-                        <a href="<?= base_url().'customer/view/'.$value->id?>" class="btn btn-primary" role="button">
+                        <a href="<?= base_url().'customer/view/'.$cust->id?>" class="btn btn-primary" role="button">
                         <span class="glyphicon glyphicon-search" aria-hidden="true">
                         </span></a>
-                        <a href="<?= base_url().'customer/edit/'.$value->id?>" class="btn btn-warning" role="button">
+                        <a href="<?= base_url().'customer/edit/'.$cust->id?>" class="btn btn-warning" role="button">
                         <span class="glyphicon glyphicon-pencil" aria-hidden="true">
                         </span></a>
                         <?php $onclick = array('onclick'=>"return confirm('Are you sure?')");?>
-                        <a href="<?=base_url('customer/delete/'.$value->id)?>" class="btn btn-danger" role="button">
+                        <a href="<?=base_url('customer/delete/'.$cust->id)?>" class="btn btn-danger" role="button">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
                         </span></a>
                         </td>
