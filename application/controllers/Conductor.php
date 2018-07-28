@@ -91,13 +91,7 @@ class Conductor extends CI_Controller {
         $this->load->view('include/footer');
     }
 
-    public function delete($Product_ID){
-        $cond = $this->ConductorModel->getProd($Product_ID);
-        $this->load->view('include/header');
-        $this->load->view('include/header_nav');
-        $this->load->view('mode/conductordelete',compact('cond'));
-        $this->load->view('include/footer');
-    } 
+    
 
     public function del($id){
         $data= $this->input->post();

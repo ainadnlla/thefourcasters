@@ -100,7 +100,7 @@ class Customer extends CI_Controller {
             unset($data['delete']);
             $cust = $this->uri->segment(4);
             $this->CustomerModel->delete($id,$data);
-            redirect('user/userdetails');
+            redirect('user/userdetails_customer');
      }
 
     public function update($id){

@@ -47,10 +47,7 @@ class User extends CI_Controller {
             $this->load->view('include/header_nav');
             $this->load->view('mode/table',compact('trucks'));
             $this->load->view('include/footer');
-        // $this->load->view('include/header');
-        // $this->load->view('include/header_nav');
-        // $this->load->view('mode/table');
-        // $this->load->view('include/footer');
+       
     } 
 
     public function userprivelege($offset=0){

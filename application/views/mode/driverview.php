@@ -25,6 +25,13 @@
                   <input value="<?=$driv->id?>" type="text" name="id" class="form-control" placeholder="id" disabled></input>
                   </div>
                 </div>
+                <div class="form-group">
+                  <label for="id" class="col-sm-4 control-label">Driver #</label>
+                  <div class="col-sm-4">
+                  <input value="<?=$driv->drivernum?>" type="text" name="id" class="form-control" placeholder="id" disabled></input>
+                  </div>
+                </div>
+                
 
                 <div class="form-group">
                   <label for="fname" class="col-sm-4 control-label">First Name</label>

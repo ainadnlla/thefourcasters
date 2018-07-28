@@ -45,10 +45,6 @@
                         <span class="glyphicon glyphicon-pencil" aria-hidden="true">
                         </span></a>
                         
-                        <a href="<?=base_url('customer/del/'.$cust->id)?>" class="btn btn-danger" role="button">
-                        <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
-                        </span></a>
-
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
                         </span>
               </button>

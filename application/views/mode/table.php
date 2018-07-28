@@ -61,7 +61,7 @@
               </table>
             </div>
                 <div class="box-footer">
-                <a href="#" class="btn btn-success" role="button">
+                <a href="truck/add" class="btn btn-success" role="button">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Truck</a>
                 </div>
             </div>
