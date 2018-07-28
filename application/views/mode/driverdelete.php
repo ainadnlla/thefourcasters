@@ -20,7 +20,7 @@
         
         <form method="POST" action="<?=base_url().'driver/del/'?>">
             
-        <input value="<?=$driv->id?>" type="text" name="id" class="form-control" placeholder="Name" disabled> <br> </input>
+        <input value="<?=$driv->drivernum?>" type="text" name="drivernum" class="form-control" placeholder="drivernum" disabled> <br> </input>
         
     <input value="<?=$driv->fname?>" type="text" name="fname" class="form-control" placeholder="Name" disabled> <br></input>
         

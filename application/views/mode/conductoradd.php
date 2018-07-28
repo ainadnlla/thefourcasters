@@ -1,9 +1,9 @@
 <div class="content-wrapper">
     <section class="content-header">
-      <h1>Driver Details</h1>
+      <h1>Driver Helper Details</h1>
         <ol class="breadcrumb">
           <li><a href="<?=base_url().'user/userdetails'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-          <li><a href="<?=base_url().'user/userdetails_driver'?>">Driver Details</a></li>
+          <li><a href="<?=base_url().'user/userdetails_conductor'?>">Driver Helper  Details</a></li>
           <li class="active">Add</a></li>
         </ol>
     </section>
@@ -16,7 +16,7 @@
               <h3 class="box-title">Add Details</h3>
             </div>
 
-    <form class="form-horizontal" action ="<?=base_url().'driver/insert'?>" method = "post">
+    <form class="form-horizontal" action ="<?=base_url().'conductor/insert'?>" method = "post">
         <div class="box-body">
           <div class="form-group">
             <div class="col-md-4">
@@ -25,10 +25,10 @@
           </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label"for ="drivernum">Driver #</label>  
+      <label class="col-md-4 control-label"for ="conductornum">Helper #</label>  
         <div class="col-md-4">
-          <input  name="drivernum" type="text" placeholder="Driver #" class="form-control input-md">
-          <?= form_error('drivernum', '<span class="label label-danger">', '</span>') ?>  
+          <input  name="conductornum" type="text" placeholder="Helper #" class="form-control input-md">
+          <?= form_error('conductornum', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
@@ -103,7 +103,7 @@
         <div class="col-md-4">
   
           <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Add</button>
-            <a href="<?=base_url().'user/userdetails_driver/'?>" class="btn btn-danger" role="button">Back</a>
+            <a href="<?=base_url().'user/userdetails_conductor/'?>" class="btn btn-danger" role="button">Back</a>
 
             </form>
         </div>  

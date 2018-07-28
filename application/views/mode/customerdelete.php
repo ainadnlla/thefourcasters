@@ -21,16 +21,10 @@
         <form method="POST" action="<?=base_url().'customer/del/'?>">
             
         <input value="<?=$cust->id?>" type="text" name="id" class="form-control" placeholder="Name" disabled> <br> </input>
-        
-    <input value="<?=$cust->fname?>" type="text" name="fname" class="form-control" placeholder="Name" disabled> <br></input>
-        
-    <input value="<?=$cust->mname?>" type="text" name="mname" class="form-control" placeholder="Quantity" disabled> <br></input>
-
-    <input value="<?=$cust->lname?>" type="text" name="lname" class="form-control" placeholder="Price" disabled> <br></input>
+    <input value="<?=$cust->name?>" type="text" name="name" class="form-control" placeholder="Name" disabled> <br></input>
     <input value="<?=$cust->password?>" type="password" name="password" class="form-control" placeholder="Price" disabled> <br></input>
     <input value="<?=$cust->email?>" type="text" name="email" class="form-control" placeholder="Price" disabled> <br></input>
     <input value="<?=$cust->contact?>" type="text" name="contact" class="form-control" placeholder="Price" disabled> <br></input>
-    <input value="<?=$cust->gender?>" type="text" name="gender" class="form-control" placeholder="Price" disabled> <br></input>
         
         <?php $onclick = array('onclick'=>"return confirm('Are you sure?')");?>
         <a href="<?=base_url('customer/del/'.$cust->id)?>" class="btn btn-danger" role="button">
