@@ -3,7 +3,7 @@
       <h1>Driver Details</h1>
       <ol class="breadcrumb">
         <li><a href="<?=base_url().'user/index'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li><a href="<?=base_url().'user/userdetails'?>">User Management</a></li>
+        <li><a href="<?=base_url().'user/userdetails'?>">User Details</a></li>
         <li class="active">Driver Details</a></li>
       </ol>
     </section>
