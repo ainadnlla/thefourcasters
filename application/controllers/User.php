@@ -8,6 +8,7 @@ class User extends CI_Controller {
             $this->load->model('UserModel');
             $this->load->model('CustomerModel');
             $this->load->model('DriverModel');
+            $this->load->model('ConductorModel');
             $this->load->model('TruckModel');
     }
 
@@ -52,11 +53,35 @@ class User extends CI_Controller {
         // $this->load->view('include/footer');
     } 
 
-    public function userprivelege(){
-        $this->load->view('include/header');
-        $this->load->view('include/header_nav');
-        $this->load->view('mode/userprivelege');
-        $this->load->view('include/footer');
+    public function userprivelege($offset=0){
+            $this->load->library('pagination');
+            $norecs = 5;
+    
+            $config['base_url'] = base_url().'user/userprivelege/';
+            $config['total_rows'] = $this->UserModel->getNumRecs();
+            $config['per_page'] = $norecs;
+    
+            $config['full_tag_open'] = '<ul class="pagination">';
+            $config['full_tag_close'] = '</ul>';
+            $config['prev_link'] = '&laquo;';
+            $config['prev_tag_open'] = '<li>';
+            $config['prev_tag_close'] = '</li>';
+            $config['next_tag_open'] = '<li>';
+            $config['next_tag_close'] = '</li>';
+            $config['cur_tag_open'] = '<li class="active"><a href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            $config['num_tag_open'] = '<li>';
+            $config['num_tag_close'] = '</li>';
+    
+            $this->pagination->initialize($config);
+    
+            $this->load->config('myconfig');
+            $emps =  $this->UserModel->getItems($norecs, $offset);
+            
+            $this->load->view('include/header');
+            $this->load->view('include/header_nav');
+            $this->load->view('include/footer');
+            $this->load->view('mode/userprivelege',compact('emps'));
     } 
 
     public function truckgps(){
@@ -213,6 +238,37 @@ class User extends CI_Controller {
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('mode/userdetails_driver',compact('drivs'));
+    }
+
+    public function userdetails_conductor($offset=0){
+        $this->load->library('pagination');
+        $norecs = 5;
+
+        $config['base_url'] = base_url().'user/userdetails_conductor/';
+        $config['total_rows'] = $this->ConductorModel->getNumRecs();
+        $config['per_page'] = $norecs;
+
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['prev_link'] = '&laquo;';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active"><a href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+
+        $this->pagination->initialize($config);
+
+        $this->load->config('myconfig');
+        $conds = $this->ConductorModel->getItems($norecs, $offset);
+        
+        $this->load->view('include/header');
+        $this->load->view('include/header_nav');
+        $this->load->view('include/footer');
+        $this->load->view('mode/userdetails_conductor',compact('conds'));
     }
 
     public function view($id){

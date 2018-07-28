@@ -3,7 +3,8 @@
       <h1>User Details</h1>
       <ol class="breadcrumb">
         <li><a href="<?=base_url().'user/index'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li class="active">User Management</a></li>
+        <li><a href="<?=base_url().'user/userdetails'?>">User Management</a></li>
+        <li class="active">User Details</a></li>
       </ol>
     </section>
 
@@ -12,8 +13,8 @@
       <!-- Small boxes (Stat box) -->
       <div class="row">
       <div class="col-md-12">
-        
-        <div class="col-lg-12">
+        </br></br>
+        <div class="col-lg-6">
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
@@ -28,7 +29,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-12">
+        <div class="col-lg-6">
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
@@ -43,11 +44,11 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-12">
+        <div class="col-lg-6">
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-            <h3>Driver Details</h3>
+            <h3>Truck Driver Details</h3>
 
               <p>Information</p>
             </div>
@@ -57,6 +58,21 @@
             <a href="<?=base_url().'user/userdetails_driver'?>" class="small-box-footer">Proceed <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
+        <div class="col-lg-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+            <h3>Truck Helper Details</h3>
+
+              <p>Information</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+            <a href="<?=base_url().'user/userdetails_conductor'?>" class="small-box-footer">Proceed <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
         </div>
       </div>
     </section>

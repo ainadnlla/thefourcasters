@@ -1,9 +1,9 @@
 <div class="content-wrapper">
     <section class="content-header">
-      <h1>Customer Details</h1>
+      <h1>Customer/Importer Details</h1>
         <ol class="breadcrumb">
           <li><a href="<?=base_url().'user/userdetails'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-          <li><a href="<?=base_url().'user/userdetails_customer'?>">Customer Details</a></li>
+          <li><a href="<?=base_url().'user/userdetails_customer'?>">Customer/Importer Details</a></li>
           <li class="active">Add</a></li>
         </ol>
     </section>
@@ -25,26 +25,23 @@
           </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label"for ="fname">First Name</label>  
+      <label class="col-md-4 control-label"for ="name">Customer/Importer</label>  
         <div class="col-md-4">
-          <input  name="fname" type="text" placeholder="First Name" class="form-control input-md">
-          <?= form_error('fname', '<span class="label label-danger">', '</span>') ?>  
+          <input  name="name" type="text" placeholder="Customer/Importer" class="form-control input-md">
+          <?= form_error('name', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label" for="mname" >Middle Name</label>  
+      <label class="col-md-4 control-label" for="gender">Customer Type</label>
         <div class="col-md-4">
-          <input name="mname" type="text" placeholder="Middle Name (optional)" class="form-control input-md">  
-          <?= form_error('mname', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="lname" >Last Name</label>  
-        <div class="col-md-4">
-          <input  name="lname" type="text" placeholder="Last Name" class="form-control input-md">  
-          <?= form_error('lname', '<span class="label label-danger">', '</span>') ?>  
+          <select name="cust_type" class="form-control">
+            <option Selected disabled="disabled" >Customer Type</option>
+            <option value="inhouse">In-house Brokerage</option>
+            <option value="broker">Broker/Agent</option>
+            <option value="freight">Freight Forwarder</option>
+            <option value="local">Local/Sub-contractor</option>
+          </select>
         </div>
     </div>
 
@@ -80,16 +77,6 @@
         </div>
     </div>
 
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="gender">Gender</label>
-        <div class="col-md-4">
-          <select name="gender" class="form-control">
-            <option Selected disabled="disabled" >Gender</option>
-            <option value="M">Male</option>
-            <option value="F">Female</option>
-          </select>
-        </div>
-    </div>
 
     <div class="form-group">
       <label class="col-md-4 control-label" for="button1id"></label>

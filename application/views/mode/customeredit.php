@@ -25,28 +25,28 @@
             </div>
 
     <div class="form-group">
-        <label class="col-md-4 control-label" for="fname" >First Name</label>  
+        <label class="col-md-4 control-label" for="name" >Customer/Importer</label>  
             <div class="col-md-4">
-                <input  value="<?=$cust->fname?>" name="fname" type="text" placeholder="First Name" class="form-control input-md" required="">
-                <?= form_error('fname', '<span class="label label-danger">', '</span>') ?>  
+                <input  value="<?=$cust->name?>" name="name" type="text" placeholder="Customer/Importer" class="form-control input-md" required="">
+                <?= form_error('name', '<span class="label label-danger">', '</span>') ?>  
             </div>
     </div>  
 
     <div class="form-group">
-        <label class="col-md-4 control-label" >Middle Name</label>  
-            <div class="col-md-4">
-                <input  value="<?=$cust->mname?>" name="mname" type="text" placeholder="Middle Name" class="form-control input-md" >
-                <?= form_error('mname', '<span class="label label-danger">', '</span>') ?>  
-            </div>
-    </div>  
+        <label class="col-md-4 control-label" >Customer Type</label>
+          <div class="col-md-4">
+            <select  value="<?=$cust->cust_type?>" name="cust_type" class="form-control">
+            <option value='<?=$cust->cust_type?>' selected><?=$cust->cust_type?></option>
+            <option disabled>----------------</option>
+            <option Selected disabled="disabled" >Customer Type</option>
+            <option value="In-house Brokerage">In-house Brokerage</option>
+            <option value="Broker/Agent">Broker/Agent</option>
+            <option value="Freight Forwarder">Freight Forwarder</option>
+            <option value="Local/Sub-contractor">Local/Sub-contractor</option>
+            </select>
+          </div>
+      </div>
 
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="textinput">Last Name</label>  
-            <div class="col-md-4">
-                <input  value="<?=$cust->lname?>" name="lname" type="text" placeholder="Last Name" class="form-control input-md" required="">
-                <?= form_error('lname', '<span class="label label-danger">', '</span>') ?>  
-            </div>
-    </div>  
 
     <div class="form-group">
         <label class="col-md-4 control-label" >Password</label>  
@@ -77,18 +77,6 @@
             <div class="col-md-4">
                 <input  value="<?=$cust->contact?>" name="contact" type="text" placeholder="Product Name" class="form-control input-md" required="">
                 <?= form_error('contact', '<span class="label label-danger">', '</span>') ?>  
-            </div>
-    </div>  
-
-
-    <div class="form-group">
-        <label class="col-md-4 control-label" >Gender</label>
-            <div class="col-md-4">
-                <select  value="<?=$cust->gender?>" name="gender" class="form-control">
-                <option value='<?=$cust->gender?>' selected><?=$cust->gender?></option>
-                <option value="M">M</option>
-                <option value="F">F</option>
-                </select>
             </div>
     </div>
 

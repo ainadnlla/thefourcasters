@@ -1,21 +1,22 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Driver extends CI_Controller {
+class Conductor extends CI_Controller {
     public function __construct()
     {
             parent::__construct();
+            $this->load->model('ConductorModel');
             $this->load->model('DriverModel');
             $this->load->model('CustomerModel');
             $this->load->model('UserModel');
     }
 
-    public function userdetails_driver($offset=0){
+    public function userdetails_conductor($offset=0){
         $this->load->library('pagination');
         $norecs = 5;
 
-        $config['base_url'] = base_url().'user/userdetails_driver/';
-        $config['total_rows'] = $this->DriverModel->getNumRecs();
+        $config['base_url'] = base_url().'user/userdetails_conductor/';
+        $config['total_rows'] = $this->ConductorModel->getNumRecs();
         $config['per_page'] = $norecs;
 
         $config['full_tag_open'] = "<ul class='pagination'>";
@@ -36,26 +37,26 @@ class Driver extends CI_Controller {
         $this->pagination->initialize($config);
 
         $this->load->config('myconfig');
-        $drivs = $this->DriverModel->getItems($norecs, $offset);
+        $conds = $this->ConductorModel->getItems($norecs, $offset);
         
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
-        $this->load->view('mode/userdetails',compact('drivs'));
+        $this->load->view('mode/userdetails',compact('conds'));
     }
 
     public function view($id){
-        $driv = $this->DriverModel->getProd($id);
+        $cond = $this->ConductorModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/driverview',compact('driv'));
+        $this->load->view('mode/conductorview',compact('cond'));
         $this->load->view('include/footer'); 
     }
 
     public function insert(){
         $data = $this->input->post();
         unset($data['add']);
-            $this->form_validation->set_rules('drivernum', 'Driver #', 'required');
+            $this->form_validation->set_rules('conductornum', 'Helper #', 'required');
             $this->form_validation->set_rules('fname', 'First Name', 'required');
             $this->form_validation->set_rules('mname', 'Middle Name', 'required');
             $this->form_validation->set_rules('lname', 'Last Name', 'required');
@@ -70,46 +71,46 @@ class Driver extends CI_Controller {
       }
       else
       {
-            $this->DriverModel->insert($data);
-            redirect('user/userdetails_driver');
+            $this->ConductorModel->insert($data);
+            redirect('user/userdetails_conductor');
       }
     }  
 
     public function add(){
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/driveradd');
+        $this->load->view('mode/conductoradd');
         $this->load->view('include/footer');
     }
 
     public function edit($id){
-        $driv = $this->DriverModel->getProd($id);
+        $cond = $this->ConductorModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/driveredit',compact('driv'));
+        $this->load->view('mode/conductoredit',compact('cond'));
         $this->load->view('include/footer');
     }
 
     public function delete($Product_ID){
-        $driv = $this->DriverModel->getProd($Product_ID);
+        $cond = $this->ConductorModel->getProd($Product_ID);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/driverdelete',compact('driv'));
+        $this->load->view('mode/conductordelete',compact('cond'));
         $this->load->view('include/footer');
     } 
 
     public function del($id){
         $data= $this->input->post();
         unset($data['delete']);
-        $driv = $this->uri->segment(4);
-        $this->DriverModel->delete($id,$data);
-        redirect('user/userdetails_driver');
+        $cond = $this->uri->segment(4);
+        $this->ConductorModel->delete($id,$data);
+        redirect('user/userdetails_conductor');
     }
 
     public function update($id){
         $data = $this->input->post();
         unset($data['submit']);
-            $this->form_validation->set_rules('drivernum', 'Driver #', 'required');
+            $this->form_validation->set_rules('conductornum', 'Helper #', 'required');
             $this->form_validation->set_rules('fname', 'First Name', 'required');
             $this->form_validation->set_rules('mname', 'Middle Name', 'required');
             $this->form_validation->set_rules('lname', 'Last Name', 'required');
@@ -124,8 +125,8 @@ class Driver extends CI_Controller {
             }
             else
             {
-                $this->DriverModel->update($id, $data);
-                redirect('user/userdetails_driver');
+                $this->ConductorModel->update($id, $data);
+                redirect('user/userdetails_conductor');
             }
         }
     }

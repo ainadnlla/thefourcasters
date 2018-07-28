@@ -28,30 +28,16 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="fname" class="col-sm-4 control-label">First Name</label>
+                  <label for="fname" class="col-sm-4 control-label">Customer/Brokerage</label>
                   <div class="col-sm-4">
-                  <input value="<?=$cust->fname?>" type="text" name="fname" class="form-control" placeholder="fname" disabled></input>
+                  <input value="<?=$cust->name?>" type="text" name="name" class="form-control" placeholder="name" disabled></input>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label for="mname" class="col-sm-4 control-label">Middle Name</label>
+                  <label for="fname" class="col-sm-4 control-label">Customer Type</label>
                   <div class="col-sm-4">
-                  <input value="<?=$cust->mname?>" type="text" name="mname" class="form-control" placeholder="mname" disabled></input>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="lname" class="col-sm-4 control-label">Last Name</label>
-                  <div class="col-sm-4">
-                  <input value="<?=$cust->lname?>" type="text" name="lname" class="form-control" placeholder="lname" disabled></input>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="gender" class="col-sm-4 control-label">Gender</label>
-                  <div class="col-sm-4">
-                  <input value="<?=$cust->gender?>" type="text" name="gender" class="form-control" placeholder="gender" disabled></input>
+                  <input value="<?=$cust->cust_type?>" type="text" name="cust_type" class="form-control" placeholder="name" disabled></input>
                   </div>
                 </div>
 

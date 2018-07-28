@@ -3,7 +3,7 @@
       <h1>Customer Details</h1>
       <ol class="breadcrumb">
         <li><a href="<?=base_url().'user/index'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li><a href="<?=base_url().'user/userdetails'?>">User Management</a></li>
+        <li><a href="<?=base_url().'user/userdetails'?>">User Details</a></li>
         <li class="active">Customer Details</a></li>
       </ol>
     </section>
@@ -21,12 +21,10 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>First Name</th>
-                    <th>Middle Name</th>
-                    <th>Last Name</th>
+                    <th>Customer/Importer</th>
+                    <th>Customer Type</th>
                     <th>Email Address</th>
                     <th>Contact Number</th>
-                    <th>Gender</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -34,13 +32,10 @@
                 <?php foreach($custs as $cust): ?>
                     <tr>
                         <td><?= $cust->id?></td>
-                        <td><?= $cust->fname?></td>
-                        <td><?= $cust->mname?></td>
-                        <td><?= $cust->lname?></td>
+                        <td><?= $cust->name?></td>
+                        <td><?= $cust->cust_type?></td>
                         <td><?= $cust->email?></td>                            
                         <td><?= $cust->contact?></td>
-                        <td><?= $cust->gender?></td>
-
 
                         <td>
                         <a href="<?= base_url().'customer/view/'.$cust->id?>" class="btn btn-primary" role="button">
