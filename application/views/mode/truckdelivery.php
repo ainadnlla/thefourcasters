@@ -32,17 +32,25 @@
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
                 <tr>
-                  <th>ID</th>
-                  <th>User</th>
                   <th>Date</th>
+                  <th>Customer/Importer</th>
+                  <th>Destination</th>
+                  <th>Cargo Type</th>
+                  <th>Equipment</th>
+                  <th>Driver</th>
+                  <th>Helper</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
                 <tr>
-                  <td>1</td>
-                  <td>John Doe</td>
                   <td>11-7-2014</td>
-                  <td><span class="label label-success">Approved</span></td>
+                  <td>John Doe</td>
+                  <td>Pier</td>
+                  <td>FCL 1x40</td>
+                  <td>RCE 120</td>
+                  <td>A Villamor</td>
+                  <td>Z. Ubaldo</td>
+                  <td><span class="label label-danger">Denied</span></td>
                 </tr>
               </table>
             </div>

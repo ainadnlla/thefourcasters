@@ -175,6 +175,7 @@ class User extends CI_Controller {
         $this->load->view('mode/userdetails_staff',compact('emps'));
     }
 
+
     public function userdetails_customer($offset=0){
         $this->load->library('pagination');
         $norecs = 5;
@@ -272,7 +273,7 @@ class User extends CI_Controller {
         $emp = $this->UserModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/staffview',compact('emp'));
+        $this->load->view('mode/staff/staffview',compact('emp'));
         $this->load->view('include/footer');
     }
  
@@ -281,7 +282,6 @@ class User extends CI_Controller {
         unset($data['add']);
 
             $this->form_validation->set_rules('fname', 'First Name', 'required');
-            $this->form_validation->set_rules('mname', 'Middle Name', 'required');
             $this->form_validation->set_rules('lname', 'Last Name', 'required');
             $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
@@ -303,7 +303,7 @@ class User extends CI_Controller {
     public function add(){
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/staffadd');
+        $this->load->view('mode/staff/staffadd');
         $this->load->view('include/footer');
     }
 
@@ -311,7 +311,7 @@ class User extends CI_Controller {
         $emp = $this->UserModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/staffedit',compact('emp'));
+        $this->load->view('mode/staff/staffedit',compact('emp'));
         $this->load->view('include/footer');
     }
 
@@ -319,7 +319,7 @@ class User extends CI_Controller {
         $emp = $this->UserModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/staffdelete',compact('emp'));
+        $this->load->view('mode/staff/staffdelete',compact('emp'));
         $this->load->view('include/footer');
     } 
 
@@ -337,7 +337,6 @@ class User extends CI_Controller {
         unset($data['submit']);
 
             $this->form_validation->set_rules('fname', 'First Name', 'required');
-            $this->form_validation->set_rules('mname', 'Middle Name', 'required');
             $this->form_validation->set_rules('lname', 'Last Name', 'required');
             $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
@@ -355,5 +354,6 @@ class User extends CI_Controller {
                 redirect('user/userdetails_staff');
             }
         }
+
     }
 ?>

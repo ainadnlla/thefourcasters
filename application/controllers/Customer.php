@@ -47,7 +47,7 @@ class Customer extends CI_Controller {
         $cust = $this->CustomerModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/customerview',compact('cust'));
+        $this->load->view('mode/customer/sscustomerview',compact('cust'));
         $this->load->view('include/footer'); 
     }
 
@@ -75,7 +75,7 @@ class Customer extends CI_Controller {
     public function add(){
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/customeradd');
+        $this->load->view('mode/customer/customeradd');
         $this->load->view('include/footer');
     }
 
@@ -83,7 +83,7 @@ class Customer extends CI_Controller {
         $cust = $this->CustomerModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/customeredit',compact('cust'));
+        $this->load->view('mode/customer/customeredit',compact('cust'));
         $this->load->view('include/footer');
     }
 
@@ -91,7 +91,7 @@ class Customer extends CI_Controller {
         $cust = $this->CustomerModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/customerdelete',compact('cust'));
+        $this->load->view('mode/customer/customerdelete',compact('cust'));
         $this->load->view('include/footer');
     } 
     

@@ -49,7 +49,7 @@ class Conductor extends CI_Controller {
         $cond = $this->ConductorModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/conductorview',compact('cond'));
+        $this->load->view('mode/conductor/conductorview',compact('cond'));
         $this->load->view('include/footer'); 
     }
 
@@ -58,7 +58,6 @@ class Conductor extends CI_Controller {
         unset($data['add']);
             $this->form_validation->set_rules('conductornum', 'Helper #', 'required');
             $this->form_validation->set_rules('fname', 'First Name', 'required');
-            $this->form_validation->set_rules('mname', 'Middle Name', 'required');
             $this->form_validation->set_rules('lname', 'Last Name', 'required');
             $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
@@ -79,7 +78,7 @@ class Conductor extends CI_Controller {
     public function add(){
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/conductoradd');
+        $this->load->view('mode/conductor/conductoradd');
         $this->load->view('include/footer');
     }
 
@@ -87,7 +86,7 @@ class Conductor extends CI_Controller {
         $cond = $this->ConductorModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/conductoredit',compact('cond'));
+        $this->load->view('mode/conductor//conductoredit',compact('cond'));
         $this->load->view('include/footer');
     }
 
@@ -106,7 +105,6 @@ class Conductor extends CI_Controller {
         unset($data['submit']);
             $this->form_validation->set_rules('conductornum', 'Helper #', 'required');
             $this->form_validation->set_rules('fname', 'First Name', 'required');
-            $this->form_validation->set_rules('mname', 'Middle Name', 'required');
             $this->form_validation->set_rules('lname', 'Last Name', 'required');
             $this->form_validation->set_rules('password','Password', 'required');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');

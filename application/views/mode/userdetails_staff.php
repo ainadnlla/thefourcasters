@@ -14,6 +14,15 @@
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Staff Information</h3>
+
+              <div class="box-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                  <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search" value="Search"></i></button>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="box-body">  
@@ -49,8 +58,7 @@
                         <span class="glyphicon glyphicon-pencil" aria-hidden="true">
                         </span></a>
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
-                        </span>
-              </button>
+                        </span></button>
                         </td>
                     </tr>        
                 <?php endforeach; ?> 
@@ -67,26 +75,24 @@
         </div>        
     </section>
 </div>
+
 <div class="modal modal-danger fade" id="modal-danger">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Delete</h4>
+                <h4 class="modal-title">Confirm Delete</h4>
               </div>
               <div class="modal-body">
-                <p>Are you sure?</p>
+                <p>Are you sure you want to delete this user?</p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">No</button>
-                <a href="<?=base_url('user/del/'.$emp->id)?>"  role="button" class="btn btn-outline" >Yes</a>
-                
+                <button type="button" class="btn btn-outline" data-dismiss="modal">Cancel</button>
+                <a href="<?=base_url('user/del/'.$emp->id)?>"  role="button" class="btn btn-outline" >Delete</a>
               </div>
             </div>
-            <!-- /.modal-content -->
           </div>
-          <!-- /.modal-dialog -->
         </div>
 
 

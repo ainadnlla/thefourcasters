@@ -67,28 +67,26 @@
         </div>
         </section>
 </div>
+
 <div class="modal modal-danger fade" id="modal-danger">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Delete</h4>
+                <h4 class="modal-title">Confirm Delete</h4>
               </div>
               <div class="modal-body">
-                <p>Are you sure?</p>
+                <p>Are you sure you want to delete this user?</p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">No</button>
-                <a href="<?=base_url('conductor/del/'.$cond->id)?>"  role="button" class="btn btn-outline" >Yes</a>
-                
+                <button type="button" class="btn btn-outline" data-dismiss="modal">Cancel</button>
+                <a href="<?=base_url('conductor/del/'.$cond->id)?>"  role="button" class="btn btn-outline" >Delete</a>
               </div>
             </div>
-            <!-- /.modal-content -->
           </div>
-          <!-- /.modal-dialog -->
         </div>
-
+        
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>The Fourcasters</b>

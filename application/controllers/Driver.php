@@ -48,7 +48,7 @@ class Driver extends CI_Controller {
         $driv = $this->DriverModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/driverview',compact('driv'));
+        $this->load->view('mode/driver/driverview',compact('driv'));
         $this->load->view('include/footer'); 
     }
 
@@ -57,7 +57,6 @@ class Driver extends CI_Controller {
         unset($data['add']);
             $this->form_validation->set_rules('drivernum', 'Driver #', 'required');
             $this->form_validation->set_rules('fname', 'First Name', 'required');
-            $this->form_validation->set_rules('mname', 'Middle Name', 'required');
             $this->form_validation->set_rules('lname', 'Last Name', 'required');
             $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
@@ -78,7 +77,7 @@ class Driver extends CI_Controller {
     public function add(){
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/driveradd');
+        $this->load->view('mode/driver/driveradd');
         $this->load->view('include/footer');
     }
 
@@ -86,7 +85,7 @@ class Driver extends CI_Controller {
         $driv = $this->DriverModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/driveredit',compact('driv'));
+        $this->load->view('mode/driver/driveredit',compact('driv'));
         $this->load->view('include/footer');
     }
 
@@ -94,7 +93,7 @@ class Driver extends CI_Controller {
         $driv = $this->DriverModel->getProd($Product_ID);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/driverdelete',compact('driv'));
+        $this->load->view('mode/driver/driverdelete',compact('driv'));
         $this->load->view('include/footer');
     } 
 
@@ -111,7 +110,6 @@ class Driver extends CI_Controller {
         unset($data['submit']);
             $this->form_validation->set_rules('drivernum', 'Driver #', 'required');
             $this->form_validation->set_rules('fname', 'First Name', 'required');
-            $this->form_validation->set_rules('mname', 'Middle Name', 'required');
             $this->form_validation->set_rules('lname', 'Last Name', 'required');
             $this->form_validation->set_rules('password','Password', 'required');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
