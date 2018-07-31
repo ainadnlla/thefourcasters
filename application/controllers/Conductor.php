@@ -12,6 +12,8 @@ class Conductor extends CI_Controller {
     }
 
     public function userdetails_conductor($offset=0){
+        $data['title'] = 'Driver Helper Details | Angelogistic Forwarder Corporation';
+
         $this->load->library('pagination');
         $norecs = 5;
 
@@ -39,16 +41,18 @@ class Conductor extends CI_Controller {
         $this->load->config('myconfig');
         $conds = $this->ConductorModel->getItems($norecs, $offset);
         
-        $this->load->view('include/header');
-        $this->load->view('include/header_nav');
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_nav', $data);
         $this->load->view('include/footer');
         $this->load->view('mode/userdetails',compact('conds'));
     }
 
     public function view($id){
+        $data['title'] = 'Driver Helper Details | Angelogistic Forwarder Corporation';
+
         $cond = $this->ConductorModel->getProd($id);
-        $this->load->view('include/header');
-        $this->load->view('include/header_nav');
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_nav', $data);
         $this->load->view('mode/conductor/conductorview',compact('cond'));
         $this->load->view('include/footer'); 
     }
@@ -76,16 +80,20 @@ class Conductor extends CI_Controller {
     }  
 
     public function add(){
-        $this->load->view('include/header');
-        $this->load->view('include/header_nav');
+        $data['title'] = 'Driver Helper Details | Angelogistic Forwarder Corporation';
+
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_nav', $data);
         $this->load->view('mode/conductor/conductoradd');
         $this->load->view('include/footer');
     }
 
     public function edit($id){
+        $data['title'] = 'Driver Helper Details | Angelogistic Forwarder Corporation';
+
         $cond = $this->ConductorModel->getProd($id);
-        $this->load->view('include/header');
-        $this->load->view('include/header_nav');
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_nav', $data);
         $this->load->view('mode/conductor//conductoredit',compact('cond'));
         $this->load->view('include/footer');
     }

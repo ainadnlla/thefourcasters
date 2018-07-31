@@ -5,8 +5,7 @@
         Truck GPS
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?=base_url().'user/truckgps'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li><a href="<?=base_url().'user/truckgps'?>">Truck Management</a></li>
+        <li><a href="<?=base_url().'user/index'?>"><i class="fa fa-dashboard"></i>Home</a></li>
         <li class="active">Truck GPS</a></li>
       </ol>
     </section>

@@ -10,6 +10,8 @@ class Customer extends CI_Controller {
     }
     
     public function userdetails_customer($offset=0){
+        $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
+
         $this->load->library('pagination');
         $norecs = 5;
 
@@ -37,17 +39,19 @@ class Customer extends CI_Controller {
         $this->load->config('myconfig');
         $custs = $this->CustomerModel->getItems($norecs, $offset);
         
-        $this->load->view('include/header');
-        $this->load->view('include/header_nav');
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_nav', $data);
         $this->load->view('include/footer');
         $this->load->view('mode/userdetails',compact('custs'));
     }
 
     public function view($id){
+        $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
+
         $cust = $this->CustomerModel->getProd($id);
-        $this->load->view('include/header');
-        $this->load->view('include/header_nav');
-        $this->load->view('mode/customer/sscustomerview',compact('cust'));
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_nav', $data);
+        $this->load->view('mode/customer/customerview',compact('cust'));
         $this->load->view('include/footer'); 
     }
 
@@ -73,16 +77,20 @@ class Customer extends CI_Controller {
     }  
 
     public function add(){
-        $this->load->view('include/header');
-        $this->load->view('include/header_nav');
+        $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
+
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_nav', $data);
         $this->load->view('mode/customer/customeradd');
         $this->load->view('include/footer');
     }
 
     public function edit($id){
+        $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
+
         $cust = $this->CustomerModel->getProd($id);
-        $this->load->view('include/header');
-        $this->load->view('include/header_nav');
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_nav', $data);
         $this->load->view('mode/customer/customeredit',compact('cust'));
         $this->load->view('include/footer');
     }

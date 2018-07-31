@@ -1,8 +1,9 @@
 <html>
 <head>
-<title></title>
 
-<!--<link href="<//?=base_url()?>bs/css/bootstrap.min.css" rel="stylesheet">-->
+<title><?= $title ?></title>   
+<link rel="icon" type="image/gif/png" href="<?=base_url()?>dashboard/images/logo.png">
+
 <!-- ainadnlla -->
 <link rel="stylesheet" href="<?=base_url()?>dashboard/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->

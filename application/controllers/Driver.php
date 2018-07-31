@@ -11,6 +11,8 @@ class Driver extends CI_Controller {
     }
 
     public function userdetails_driver($offset=0){
+        $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
+
         $this->load->library('pagination');
         $norecs = 5;
 
@@ -38,16 +40,18 @@ class Driver extends CI_Controller {
         $this->load->config('myconfig');
         $drivs = $this->DriverModel->getItems($norecs, $offset);
         
-        $this->load->view('include/header');
-        $this->load->view('include/header_nav');
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_nav', $data);
         $this->load->view('include/footer');
         $this->load->view('mode/userdetails',compact('drivs'));
     }
 
     public function view($id){
+        $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
+
         $driv = $this->DriverModel->getProd($id);
-        $this->load->view('include/header');
-        $this->load->view('include/header_nav');
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_nav', $data);
         $this->load->view('mode/driver/driverview',compact('driv'));
         $this->load->view('include/footer'); 
     }
@@ -75,16 +79,20 @@ class Driver extends CI_Controller {
     }  
 
     public function add(){
-        $this->load->view('include/header');
-        $this->load->view('include/header_nav');
+        $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
+
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_nav', $data);
         $this->load->view('mode/driver/driveradd');
         $this->load->view('include/footer');
     }
 
     public function edit($id){
+        $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
+
         $driv = $this->DriverModel->getProd($id);
-        $this->load->view('include/header');
-        $this->load->view('include/header_nav');
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_nav', $data);
         $this->load->view('mode/driver/driveredit',compact('driv'));
         $this->load->view('include/footer');
     }
