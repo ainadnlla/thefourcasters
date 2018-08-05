@@ -41,7 +41,7 @@ class Driver extends CI_Controller {
         $drivs = $this->DriverModel->getItems($norecs, $offset);
         
         $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav', $data);
+        $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('mode/userdetails',compact('drivs'));
     }
@@ -51,7 +51,7 @@ class Driver extends CI_Controller {
 
         $driv = $this->DriverModel->getProd($id);
         $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav', $data);
+        $this->load->view('include/header_nav');
         $this->load->view('mode/driver/driverview',compact('driv'));
         $this->load->view('include/footer'); 
     }
@@ -82,7 +82,7 @@ class Driver extends CI_Controller {
         $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
 
         $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav', $data);
+        $this->load->view('include/header_nav');
         $this->load->view('mode/driver/driveradd');
         $this->load->view('include/footer');
     }
@@ -92,7 +92,7 @@ class Driver extends CI_Controller {
 
         $driv = $this->DriverModel->getProd($id);
         $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav', $data);
+        $this->load->view('include/header_nav');
         $this->load->view('mode/driver/driveredit',compact('driv'));
         $this->load->view('include/footer');
     }

@@ -16,7 +16,7 @@ class User extends CI_Controller {
         $data['title'] = 'Angelogistic Forwarder Corporation';
 
         $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav', $data);
+        $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('mode/index',compact('emps'));
     }  
@@ -48,13 +48,14 @@ class User extends CI_Controller {
             $trucks =  $this->TruckModel->getItems($norecs, $offset);
 
             $this->load->view('include/header', $data);
-            $this->load->view('include/header_nav', $data);
+            $this->load->view('include/header_nav');
             $this->load->view('mode/table',compact('trucks'));
             $this->load->view('include/footer');
        
     } 
 
     public function userprivelege($offset=0){
+            $data['title'] = 'User Privelege | Angelogistic Forwarder Corporation';
             $this->load->library('pagination');
             $norecs = 5;
     
@@ -79,7 +80,7 @@ class User extends CI_Controller {
             $this->load->config('myconfig');
             $emps =  $this->UserModel->getItems($norecs, $offset);
             
-            $this->load->view('include/header');
+            $this->load->view('include/header', $data);
             $this->load->view('include/header_nav');
             $this->load->view('include/footer');
             $this->load->view('mode/userprivelege',compact('emps'));
@@ -89,7 +90,7 @@ class User extends CI_Controller {
         $data['title'] = 'Truck Location | Angelogistic Forwarder Corporation';
 
         $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav', $data);
+        $this->load->view('include/header_nav');
         $this->load->view('mode/truckgps');
         $this->load->view('include/footer');
     }
@@ -98,34 +99,30 @@ class User extends CI_Controller {
         $data['title'] = 'Truck Delivery | Angelogistic Forwarder Corporation';
   
         $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav', $data);
+        $this->load->view('include/header_nav');
         $this->load->view('mode/truckdelivery');
         $this->load->view('include/footer');
     }
 
-    public function form(){
-        $this->load->view('include/header');
-        $this->load->view('include/header_nav');
-        $this->load->view('mode/form');
-        $this->load->view('include/footer');
-    }
-
     public function calendar(){
-        $this->load->view('include/calendar_head');
+        $data['title'] = 'Calendar | Angelogistic Forwarder Corporation';
+        $this->load->view('include/calendar_head', $data);
         $this->load->view('include/header_nav'); 
         $this->load->view('mode/calendar');
         $this->load->view('include/calendar_foot');
     }  
 
     public function inbox(){
-        $this->load->view('include/calendar_head');
+        $data['title'] = 'Inbox | Angelogistic Forwarder Corporation';
+        $this->load->view('include/calendar_head', $data);
         $this->load->view('include/header_nav'); 
         $this->load->view('mode/inbox');
         $this->load->view('include/calendar_foot');
     }  
 
     public function compose(){     
-        $this->load->view('include/calendar_head');
+        $data['title'] = 'Compose | Angelogistic Forwarder Corporation';
+        $this->load->view('include/calendar_head', $data);
         $this->load->view('include/header_nav'); 
         $this->load->view('mode/compose');
         $this->load->view('include/calendar_foot');
@@ -139,18 +136,18 @@ class User extends CI_Controller {
     }
 
     public function profile(){
-        $this->load->view('include/header');
+        $data['title'] = 'Profile | Angelogistic Forwarder Corporation';
+        $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('mode/profile');
         $this->load->view('include/footer');
     }
  
     public function userdetails($offset=0){
-
         $data['title'] = 'User Details | Angelogistic Forwarder Corporation';
                 
         $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav', $data);
+        $this->load->view('include/header_nav');
         $this->load->view('mode/userdetails');
         $this->load->view('include/footer');
     }
@@ -183,7 +180,7 @@ class User extends CI_Controller {
         $emps =  $this->UserModel->getItems($norecs, $offset);
         
         $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav', $data);
+        $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('mode/userdetails_staff',compact('emps'));
     }
@@ -217,7 +214,7 @@ class User extends CI_Controller {
         $custs = $this->CustomerModel->getItems($norecs, $offset);
         
         $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav', $data);
+        $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('mode/userdetails_customer',compact('custs'));
     }
@@ -250,7 +247,7 @@ class User extends CI_Controller {
         $drivs = $this->DriverModel->getItems($norecs, $offset);
         
         $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav', $data);
+        $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('mode/userdetails_driver',compact('drivs'));
     }
@@ -283,7 +280,7 @@ class User extends CI_Controller {
         $conds = $this->ConductorModel->getItems($norecs, $offset);
         
         $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav', $data);
+        $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('mode/userdetails_conductor',compact('conds'));
     }
@@ -293,7 +290,7 @@ class User extends CI_Controller {
 
         $emp = $this->UserModel->getProd($id);
         $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav', $data);
+        $this->load->view('include/header_nav');
         $this->load->view('mode/staff/staffview',compact('emp'));
         $this->load->view('include/footer');
     }
@@ -325,7 +322,7 @@ class User extends CI_Controller {
         $data['title'] = 'Staff Details | Angelogistic Forwarder Corporation';
 
         $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav', $data);
+        $this->load->view('include/header_nav');
         $this->load->view('mode/staff/staffadd');
         $this->load->view('include/footer');
     }
@@ -335,7 +332,7 @@ class User extends CI_Controller {
 
         $emp = $this->UserModel->getProd($id);
         $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav', $data);
+        $this->load->view('include/header_nav');
         $this->load->view('mode/staff/staffedit',compact('emp'));
         $this->load->view('include/footer');
     }

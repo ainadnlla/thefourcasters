@@ -142,12 +142,6 @@
             <li><a href="<?=base_url().'user/userprivelege'?>"><i class="fa fa-circle-o"></i>User Priveleges</a></li>
           </ul>
         </li>
-
-        <li>
-          <a href="<?=base_url().'user/form'?>">
-            <i class="fa fa-edit"></i> <span>Registration Form</span>
-          </a>
-        </li>
         
         <li>
           <a href="<?=base_url().'user/calendar'?>">
