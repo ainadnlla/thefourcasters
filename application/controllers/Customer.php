@@ -47,12 +47,12 @@ class Customer extends CI_Controller {
 
     public function view($id){
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
-  $data= $this->input->post();
+
         $cust = $this->CustomerModel->getProd($id);
-        // $this->load->view('include/header', $data);
-        // $this->load->view('include/header_nav', $data);
-        // $this->load->view('mode/customer/customerview',compact('cust'));
-        // $this->load->view('include/footer'); 
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_nav', $data);
+        $this->load->view('mode/customer/customerview',compact('cust'));
+        $this->load->view('include/footer'); 
     }
 
     public function insert(){

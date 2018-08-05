@@ -40,9 +40,11 @@
                         <td>
                         <?php $onclick = $cust->id;?>
  <!-- view -->
+ <a href="<?= base_url().'customer/view/'.$cust->id?>" class="btn btn-primary" role="button">
+<span class="glyphicon glyphicon" aria-hidden="true">Modal</span></a>
 <button type="button" class="btn btn-primary" data-toggle="modal" onclick="<?$cust->id;?>" data-target="#modal-info"><span class="glyphicon glyphicon-search" aria-hidden="true"> </span></button>
 <a href="<?= base_url().'customer/edit/'.$cust->id?>" class="btn btn-warning" role="button">
-<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+<span class="glyphicon glyphicon" aria-hidden="true">Modal</span></a>
 <!-- edit -->
 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-warning"onclick="<?$cust->id?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
 <!-- del -->
