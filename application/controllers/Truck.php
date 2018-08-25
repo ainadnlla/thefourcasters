@@ -14,7 +14,7 @@ class Staff extends CI_Controller {
         $driv = $this->DriverModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/truck/truckview',compact('truck'));
+        $this->load->view('adminf/truck/truckview',compact('truck'));
         $this->load->view('include/footer'); 
     }
 
@@ -31,14 +31,14 @@ class Staff extends CI_Controller {
       else
       {
             $this->DriverModel->insert($data);
-            redirect('user/table');
+            redirect('adminf/table');
       }
     }  
 
     public function add(){
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/truck/truckadd');
+        $this->load->view('adminf/truck/truckadd');
         $this->load->view('include/footer');
     }
 
@@ -46,7 +46,7 @@ class Staff extends CI_Controller {
         $driv = $this->DriverModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/truck/truckedit',compact('truck'));
+        $this->load->view('adminf/truck/truckedit',compact('truck'));
         $this->load->view('include/footer');
     }
 

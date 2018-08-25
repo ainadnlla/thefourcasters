@@ -43,7 +43,7 @@ class Driver extends CI_Controller {
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
-        $this->load->view('mode/userdetails',compact('drivs'));
+        $this->load->view('adminf/userdetails',compact('drivs'));
     }
 
     public function view($id){
@@ -52,7 +52,7 @@ class Driver extends CI_Controller {
         $driv = $this->DriverModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('mode/driver/driverview',compact('driv'));
+        $this->load->view('adminf/driver/driverview',compact('driv'));
         $this->load->view('include/footer'); 
     }
 
@@ -83,7 +83,7 @@ class Driver extends CI_Controller {
 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('mode/driver/driveradd');
+        $this->load->view('adminf/driver/driveradd');
         $this->load->view('include/footer');
     }
 
@@ -93,7 +93,7 @@ class Driver extends CI_Controller {
         $driv = $this->DriverModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('mode/driver/driveredit',compact('driv'));
+        $this->load->view('adminf/driver/driveredit',compact('driv'));
         $this->load->view('include/footer');
     }
 
@@ -101,7 +101,7 @@ class Driver extends CI_Controller {
         $driv = $this->DriverModel->getProd($Product_ID);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/driver/driverdelete',compact('driv'));
+        $this->load->view('adminf/driver/driverdelete',compact('driv'));
         $this->load->view('include/footer');
     } 
 

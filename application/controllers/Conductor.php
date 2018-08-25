@@ -44,7 +44,7 @@ class Conductor extends CI_Controller {
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
-        $this->load->view('mode/userdetails',compact('conds'));
+        $this->load->view('adminf/userdetails',compact('conds'));
     }
 
     public function view($id){
@@ -53,7 +53,7 @@ class Conductor extends CI_Controller {
         $cond = $this->ConductorModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('mode/conductor/conductorview',compact('cond'));
+        $this->load->view('adminf/conductor/conductorview',compact('cond'));
         $this->load->view('include/footer'); 
     }
 
@@ -84,7 +84,7 @@ class Conductor extends CI_Controller {
 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('mode/conductor/conductoradd');
+        $this->load->view('adminf/conductor/conductoradd');
         $this->load->view('include/footer');
     }
 
@@ -94,7 +94,7 @@ class Conductor extends CI_Controller {
         $cond = $this->ConductorModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('mode/conductor//conductoredit',compact('cond'));
+        $this->load->view('adminf/conductor//conductoredit',compact('cond'));
         $this->load->view('include/footer');
     }
 

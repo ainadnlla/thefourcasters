@@ -42,7 +42,7 @@ class Customer extends CI_Controller {
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
-        $this->load->view('mode/userdetails',compact('custs'));
+        $this->load->view('adminf/userdetails',compact('custs'));
     }
 
     public function view($id){
@@ -51,7 +51,7 @@ class Customer extends CI_Controller {
         $cust = $this->CustomerModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('mode/customer/customerview',compact('cust'));
+        $this->load->view('adminf/customer/customerview',compact('cust'));
         $this->load->view('include/footer'); 
     }
 
@@ -81,7 +81,7 @@ class Customer extends CI_Controller {
 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('mode/customer/customeradd');
+        $this->load->view('adminf/customer/customeradd');
         $this->load->view('include/footer');
     }
 
@@ -91,7 +91,7 @@ class Customer extends CI_Controller {
         $cust = $this->CustomerModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('mode/customer/customeredit',compact('cust'));
+        $this->load->view('adminf/customer/customeredit',compact('cust'));
         $this->load->view('include/footer');
     }
 
@@ -99,7 +99,7 @@ class Customer extends CI_Controller {
         $cust = $this->CustomerModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('mode/customer/customerdelete',compact('cust'));
+        $this->load->view('adminf/customer/customerdelete',compact('cust'));
         $this->load->view('include/footer');
     } 
     
@@ -128,7 +128,7 @@ class Customer extends CI_Controller {
             else
             {
                 $this->CustomerModel->update($id, $data);
-                redirect('user/userdetails_customer');
+                redirect('adminf/userdetails_customer');
             }
         }
 

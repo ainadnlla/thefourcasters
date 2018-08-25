@@ -12,13 +12,13 @@ class User extends CI_Controller {
             $this->load->model('TruckModel');
     }
 
-    public function homepage(){
+    public function index(){
         $data['title'] = 'Angelogistic Forwarder Corporation';
 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
-        $this->load->view('adminf/homepage',compact('emps'));
+        $this->load->view('adminf/index',compact('emps'));
     }  
     public function table($offset=0){
             $data['title'] = 'Truck Details | Angelogistic Forwarder Corporation';
