@@ -42,9 +42,7 @@ class Admin extends CI_Controller {
 		}
 		else{
 redirect('staff/index');
-			// $this->load->view('include/admin_header');
-	        // $this->load->view('staff/index');
-	        // $this->load->view('include/admin_footer');
+			
 		}
 	}
 
@@ -52,6 +50,7 @@ redirect('staff/index');
 		$this->session->sess_destroy();
 		redirect('admin/login');
     }
+
 }
 
 ?>
