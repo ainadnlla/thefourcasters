@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User extends CI_Controller {
+class Staff extends CI_Controller {
     public function __construct()
     {
             parent::__construct();
@@ -16,9 +16,9 @@ class User extends CI_Controller {
         $data['title'] = 'Angelogistic Forwarder Corporation';
 
         $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav');
+        // $this->load->view('include/header_nav');
         $this->load->view('include/footer');
-        $this->load->view('adminf/index',compact('emps'));
+        $this->load->view('staff/index');
     }  
     public function table($offset=0){
             $data['title'] = 'Truck Details | Angelogistic Forwarder Corporation';
@@ -49,7 +49,7 @@ class User extends CI_Controller {
 
             $this->load->view('include/header', $data);
             $this->load->view('include/header_nav');
-            $this->load->view('adminf/table',compact('trucks'));
+            $this->load->view('staff/table',compact('trucks'));
             $this->load->view('include/footer');
        
     } 
@@ -83,7 +83,7 @@ class User extends CI_Controller {
             $this->load->view('include/header', $data);
             $this->load->view('include/header_nav');
             $this->load->view('include/footer');
-            $this->load->view('adminf/userprivelege',compact('emps'));
+            $this->load->view('staff/userprivelege',compact('emps'));
     } 
 
     public function truckgps(){
@@ -91,7 +91,7 @@ class User extends CI_Controller {
 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('adminf/truckgps');
+        $this->load->view('staff/truckgps');
         $this->load->view('include/footer');
     }
 

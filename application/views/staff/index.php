@@ -1,6 +1,3 @@
-
- <link rel="stylesheet" type="text/css" href="<?=base_url()?>css/style.css"/>
- 
     <div class="page-content">
     	<div class="row">
 		  <div class="col-md-2">
