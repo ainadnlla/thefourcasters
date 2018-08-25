@@ -38,13 +38,11 @@ class Admin extends CI_Controller {
 			);
 
 			$this->session->set_userdata($newdata);
-			redirect('user/index');
+			redirect('user/homepage');
 		}
 		else{
-
-			$this->load->view('include/admin_header');
-	        $this->load->view('admin/login');
-	        $this->load->view('include/admin_footer');
+redirect('staff/index');
+			
 		}
 	}
 
@@ -52,6 +50,7 @@ class Admin extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect('admin/login');
     }
+
 }
 
 ?>
