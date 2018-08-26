@@ -1,7 +1,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="<?=base_url()?>staff/index"><b>Angelogistics Forwarder Corporation</b></a>
+        <a href="<?=base_url()?>staff/login"><b>Angelogistics Forwarder Corporation</b></a>
     </div>
   <!-- /.login-logo  -->
   <div class="login-box-body">

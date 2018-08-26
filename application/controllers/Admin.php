@@ -41,7 +41,7 @@ class Admin extends CI_Controller {
 			redirect('user/homepage');
 		}
 		else{
-redirect('staff/index');
+		redirect('admin/login');
 			
 		}
 	}

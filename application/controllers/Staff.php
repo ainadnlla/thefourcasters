@@ -12,10 +12,10 @@ class Staff extends CI_Controller {
             $this->load->model('TruckModel');
     }
 
-    public function index(){
+    public function login(){
         $data['title'] = 'Angelogistic Forwarder Corporation';
         $this->load->view('include/admin_header');
-        $this->load->view('staff/index');
+        $this->load->view('staff/login');
         $this->load->view('include/admin_footer');
        }
          
@@ -49,16 +49,16 @@ class Staff extends CI_Controller {
             redirect('staff/homepage');
         }
         else{
-    redirect('staff/index');
+    redirect('staff/login');
             // $this->load->view('include/admin_header');
-            // $this->load->view('staff/index');
+            // $this->load->view('staff/login');
             // $this->load->view('include/admin_footer');
         }
     }
     
     public function logout(){
         $this->session->sess_destroy();
-        redirect('staff/index');
+        redirect('staff/login');
     }
     }
 ?>

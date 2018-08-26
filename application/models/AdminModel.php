@@ -10,7 +10,7 @@ class AdminModel extends CI_Model{
 		return $q->row();
     }
 
-  //TEMPO STAFF ACC
+  //STAFF ACC
     public function getStaff($staff){
       $a= $this->db->get_where('staff',$staff);
       return $a->row();
