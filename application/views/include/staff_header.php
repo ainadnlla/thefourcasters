@@ -1,12 +1,12 @@
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-black-light sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="<?=base_url().'user/homepage'?>" class="logo">
+    <a href="<?=base_url().'staff/homepage'?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>AFC</b></span>
+      <span class="logo-mini"><b>AFC</span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><!--LOGO HERE--></span>
     </a>
@@ -51,13 +51,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Administrator</span>
+              <img src="#" class="user-image" alt="User Image">
+              <span class="hidden-xs">STAFF NAME</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="#" class="img-circle" alt="User Image">
 
                 <p>
                   Angelogistics Forwarder Corporation
@@ -66,10 +66,10 @@
 
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="<?=base_url().'user/profile'?>"> <span class="btn btn-default btn-flat">Profile</a>
+                  <a href="#"> <span class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                <a href="<?=base_url().'admin/login'?>"> <span class="btn btn-default btn-flat">Sign out</span></a>
+                <a href="<?=base_url().'staff/login'?>"> <span class="btn btn-default btn-flat">Sign out</span></a>
                 </div>
               </li>
             </ul>
@@ -86,10 +86,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="#" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Administrator</p>
+          <p>Staff Name</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -109,7 +109,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li>
-        <a href="<?=base_url().'user/homepage'?>">
+        <a href="<?=base_url().'staff/homepage'?>">
           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
         </a>
       </li>
@@ -123,32 +123,26 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?=base_url().'user/table'?>"><i class="fa fa-table"></i> Truck Details</a></li>
-            <li><a href="<?=base_url().'user/truckgps'?>"><i class="fa fa-map-pin"></i> Truck GPS</a></li>
-            <li><a href="<?=base_url().'user/truckdelivery'?>"><i class="fa fa-truck"></i> Truck Delivery</a></li>
+            <li><a href="#"><i class="fa fa-table"></i> Truck Details</a></li>
+            <li><a href="#"><i class="fa fa-map-pin"></i> Truck GPS</a></li>
           </ul>
         </li>
 
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-list"></i>
-            <span>User Management</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?=base_url().'user/userdetails'?>"><i class="fa fa-circle-o"></i>User Details</a></li>
-            <li><a href="<?=base_url().'user/userprivelege'?>"><i class="fa fa-circle-o"></i>User Priveleges</a></li>
-          </ul>
-        </li>
+        <li>
+        <a href="#">
+          <i class="fa fa-info-circle"></i> <span>Booking</span>
+        </a>
+      </li>
+
+        <li>
+        <a href="#">
+          <i class="fa fa-user"></i> <span>Customer Details</span>
+        </a>
+      </li>
         
         <li>
-          <a href="<?=base_url().'user/calendar'?>">
+          <a href="#">
             <i class="fa fa-calendar"></i> <span>Calendar</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
-              <small class="label pull-right bg-blue">17</small>
             </span>
           </a>
         </li>
@@ -157,13 +151,12 @@
           <a href="#">
             <i class="fa fa-envelope"></i> <span>Mailbox</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-green">0</small>
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?=base_url().'user/inbox'?>"><i class="fa fa-circle-o"></i> Inbox</a></li>
-            <li><a href="<?=base_url().'user/compose'?>"><i class="fa fa-circle-o"></i> Compose</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Inbox</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Compose</a></li>
           </ul>
         </li>
 

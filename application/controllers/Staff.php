@@ -21,11 +21,10 @@ class Staff extends CI_Controller {
          
        public function homepage(){
            
-        $this->load->view('include/admin_header');
         $this->load->view('include/header');
+        $this->load->view('include/staff_header');
         $this->load->view('staff/homepage');
         $this->load->view('include/footer');
-        $this->load->view('include/admin_footer');
        }
        public function staff(){
         $staff = array(
