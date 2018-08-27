@@ -6,9 +6,9 @@
     <!-- Logo -->
     <a href="<?=base_url().'staff/homepage'?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>AFC</span>
+      <span class="logo-mini"><b>AFC</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><!--LOGO HERE--></span>
+      <span class="logo-lg"><p>Angelogistics Co. Ltd.</p></span>
     </a>
 
     <nav class="navbar navbar-static-top">
@@ -90,7 +90,7 @@
         </div>
         <div class="pull-left info">
           <p>Staff Name</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <a href="<?= base_url()."staff/profile"?>"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
       <!-- search form -->
@@ -123,25 +123,25 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-table"></i> Truck Details</a></li>
-            <li><a href="#"><i class="fa fa-map-pin"></i> Truck GPS</a></li>
+            <li><a href="<?=base_url().'staff/truckdetails'?>"><i class="fa fa-table"></i> Truck Details</a></li>
+            <li><a href="<?=base_url().'staff/truckgps'?>"><i class="fa fa-map-pin"></i> Truck GPS</a></li>
           </ul>
         </li>
 
         <li>
-        <a href="#">
+        <a href="<?=base_url().'staff/booking'?>">
           <i class="fa fa-info-circle"></i> <span>Booking</span>
         </a>
       </li>
 
         <li>
-        <a href="#">
+        <a href="<?=base_url().'staff/customerdetails'?>">
           <i class="fa fa-user"></i> <span>Customer Details</span>
         </a>
       </li>
         
         <li>
-          <a href="#">
+          <a href="<?=base_url().'staff/calendar'?>">
             <i class="fa fa-calendar"></i> <span>Calendar</span>
             </span>
           </a>
@@ -155,8 +155,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Inbox</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Compose</a></li>
+            <li><a href="<?=base_url().'staff/inbox'?>"><i class="fa fa-circle-o"></i> Inbox</a></li>
+            <li><a href="<?=base_url().'staff/compose'?>"><i class="fa fa-circle-o"></i> Compose</a></li>
           </ul>
         </li>
 

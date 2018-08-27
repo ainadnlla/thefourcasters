@@ -17,7 +17,7 @@ class Conductor extends CI_Controller {
         $this->load->library('pagination');
         $norecs = 5;
 
-        $config['base_url'] = base_url().'user/userdetails_conductor/';
+        $config['base_url'] = base_url().'admin/userdetails_conductor/';
         $config['total_rows'] = $this->ConductorModel->getNumRecs();
         $config['per_page'] = $norecs;
 
@@ -44,7 +44,7 @@ class Conductor extends CI_Controller {
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
-        $this->load->view('adminf/userdetails',compact('conds'));
+        $this->load->view('admin/userdetails',compact('conds'));
     }
 
     public function view($id){
@@ -53,7 +53,7 @@ class Conductor extends CI_Controller {
         $cond = $this->ConductorModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('adminf/conductor/conductorview',compact('cond'));
+        $this->load->view('admin/conductor/conductorview',compact('cond'));
         $this->load->view('include/footer'); 
     }
 
@@ -75,7 +75,7 @@ class Conductor extends CI_Controller {
       else
       {
             $this->ConductorModel->insert($data);
-            redirect('user/userdetails_conductor');
+            redirect('admin/userdetails_conductor');
       }
     }  
 
@@ -84,7 +84,7 @@ class Conductor extends CI_Controller {
 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('adminf/conductor/conductoradd');
+        $this->load->view('admin/conductor/conductoradd');
         $this->load->view('include/footer');
     }
 
@@ -94,7 +94,7 @@ class Conductor extends CI_Controller {
         $cond = $this->ConductorModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('adminf/conductor//conductoredit',compact('cond'));
+        $this->load->view('admin/conductor//conductoredit',compact('cond'));
         $this->load->view('include/footer');
     }
 
@@ -105,7 +105,7 @@ class Conductor extends CI_Controller {
         unset($data['delete']);
         $cond = $this->uri->segment(4);
         $this->ConductorModel->delete($id,$data);
-        redirect('user/userdetails_conductor');
+        redirect('admin/userdetails_conductor');
     }
 
     public function update($id){
@@ -126,7 +126,7 @@ class Conductor extends CI_Controller {
             else
             {
                 $this->ConductorModel->update($id, $data);
-                redirect('user/userdetails_conductor');
+                redirect('admin/userdetails_conductor');
             }
         }
     }

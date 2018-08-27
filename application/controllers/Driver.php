@@ -16,7 +16,7 @@ class Driver extends CI_Controller {
         $this->load->library('pagination');
         $norecs = 5;
 
-        $config['base_url'] = base_url().'user/userdetails_driver/';
+        $config['base_url'] = base_url().'admin/userdetails_driver/';
         $config['total_rows'] = $this->DriverModel->getNumRecs();
         $config['per_page'] = $norecs;
 
@@ -43,7 +43,7 @@ class Driver extends CI_Controller {
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
-        $this->load->view('adminf/userdetails',compact('drivs'));
+        $this->load->view('admin/userdetails',compact('drivs'));
     }
 
     public function view($id){
@@ -52,7 +52,7 @@ class Driver extends CI_Controller {
         $driv = $this->DriverModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('adminf/driver/driverview',compact('driv'));
+        $this->load->view('admin/driver/driverview',compact('driv'));
         $this->load->view('include/footer'); 
     }
 
@@ -74,7 +74,7 @@ class Driver extends CI_Controller {
       else
       {
             $this->DriverModel->insert($data);
-            redirect('user/userdetails_driver');
+            redirect('admin/userdetails_driver');
       }
     }  
 
@@ -83,7 +83,7 @@ class Driver extends CI_Controller {
 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('adminf/driver/driveradd');
+        $this->load->view('admin/driver/driveradd');
         $this->load->view('include/footer');
     }
 
@@ -93,7 +93,7 @@ class Driver extends CI_Controller {
         $driv = $this->DriverModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('adminf/driver/driveredit',compact('driv'));
+        $this->load->view('admin/driver/driveredit',compact('driv'));
         $this->load->view('include/footer');
     }
 
@@ -101,7 +101,7 @@ class Driver extends CI_Controller {
         $driv = $this->DriverModel->getProd($Product_ID);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('adminf/driver/driverdelete',compact('driv'));
+        $this->load->view('admin/driver/driverdelete',compact('driv'));
         $this->load->view('include/footer');
     } 
 
@@ -110,7 +110,7 @@ class Driver extends CI_Controller {
         unset($data['delete']);
         $driv = $this->uri->segment(4);
         $this->DriverModel->delete($id,$data);
-        redirect('user/userdetails_driver');
+        redirect('admin/userdetails_driver');
     }
 
     public function update($id){
@@ -131,7 +131,7 @@ class Driver extends CI_Controller {
             else
             {
                 $this->DriverModel->update($id, $data);
-                redirect('user/userdetails_driver');
+                redirect('admin/userdetails_driver');
             }
         }
     }

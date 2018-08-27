@@ -15,7 +15,7 @@ class Customer extends CI_Controller {
         $this->load->library('pagination');
         $norecs = 5;
 
-        $config['base_url'] = base_url().'user/userdetails_customer/';
+        $config['base_url'] = base_url().'admin/userdetails_customer/';
         $config['total_rows'] = $this->CustomerModel->getNumRecs();
         $config['per_page'] = $norecs;
 
@@ -42,7 +42,7 @@ class Customer extends CI_Controller {
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
-        $this->load->view('adminf/userdetails',compact('custs'));
+        $this->load->view('admin/userdetails',compact('custs'));
     }
 
     public function view($id){
@@ -51,7 +51,7 @@ class Customer extends CI_Controller {
         $cust = $this->CustomerModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('adminf/customer/customerview',compact('cust'));
+        $this->load->view('admin/customer/customerview',compact('cust'));
         $this->load->view('include/footer'); 
     }
 
@@ -72,7 +72,7 @@ class Customer extends CI_Controller {
       else
       {
             $this->CustomerModel->insert($data);
-            redirect('user/userdetails_customer');
+            redirect('admin/userdetails_customer');
       }
     }  
 
@@ -81,7 +81,7 @@ class Customer extends CI_Controller {
 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('adminf/customer/customeradd');
+        $this->load->view('admin/customer/customeradd');
         $this->load->view('include/footer');
     }
 
@@ -91,7 +91,7 @@ class Customer extends CI_Controller {
         $cust = $this->CustomerModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('adminf/customer/customeredit',compact('cust'));
+        $this->load->view('admin/customer/customeredit',compact('cust'));
         $this->load->view('include/footer');
     }
 
@@ -99,7 +99,7 @@ class Customer extends CI_Controller {
         $cust = $this->CustomerModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('adminf/customer/customerdelete',compact('cust'));
+        $this->load->view('admin/customer/customerdelete',compact('cust'));
         $this->load->view('include/footer');
     } 
     
@@ -108,7 +108,7 @@ class Customer extends CI_Controller {
             unset($data['delete']);
             $cust = $this->uri->segment(4);
             $this->CustomerModel->delete($id,$data);
-            redirect('user/userdetails_customer');
+            redirect('admin/userdetails_customer');
      }
 
     public function update($id){
@@ -128,7 +128,7 @@ class Customer extends CI_Controller {
             else
             {
                 $this->CustomerModel->update($id, $data);
-                redirect('adminf/userdetails_customer');
+                redirect('admin/userdetails_customer');
             }
         }
 
