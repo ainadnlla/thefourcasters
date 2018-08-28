@@ -19,7 +19,18 @@ class Staff extends CI_Controller {
         $this->load->view('staff/login');
         $this->load->view('include/admin_footer');
        }
-         
+       public function staff(){
+           $username=$this->input->post('username');
+           $password=$this->input->post('password');
+           $user = $this->AdminModel->getStaff($staff);
+           if($user == true){
+               redirect('staff/homepage');
+            
+           }else{
+               redirect('staff/login');
+           }
+    
+    } 
        public function homepage(){
         $data['title'] = 'Angelogistic Forwarder Corporation';
         $this->load->view('include/header', $data);
@@ -27,33 +38,7 @@ class Staff extends CI_Controller {
         $this->load->view('staff/homepage');
         $this->load->view('include/footer');
        }
-       public function staff(){
-        $staff = array(
-            'email' => $this->input->post('email'),
-            'password' => sha1($this->input->post('password'))
-            );
-    
-        $user = $this->AdminModel->getstaff($staff);
-    
-        if(!$user == null){
-    
-    
-            $newdata = array(
-                    'name'  => $user->fname,
-                    'email' => $user->email,
-                    'logged_in' => TRUE,
-                    'isAdmin' => TRUE
-            );
-    
-            $this->session->set_userdata($newdata);
-            // redirect('staff/homepage');
-           // $this->debug($item);
-        }
-        else{
-    redirect('staff/login');
-
-        }
-    }
+       
     
     public function logout(){
         $this->session->sess_destroy();

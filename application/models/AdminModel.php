@@ -15,5 +15,13 @@ class AdminModel extends CI_Model{
       $a= $this->db->get_where('staff',$staff);
       return $a->row();
     }
+  
+  public function getProd($id)
+  {
+
+      $query = $this->db->get_where('staff', array('id' => $id));
+      return $query->row();
+
   }
+}
 ?>
