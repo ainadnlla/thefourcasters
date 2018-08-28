@@ -8,7 +8,7 @@
  <!--  <p class="login-box-msg">Sign in to start your session</p>-->
 
     
-        
+    <center>   <h2>ADMINISTRATOR</h2></center>
         <div class="form-group has-feedback">
 
             <form class="form-signin" action='<?= base_url()."admin/signin"?>' method='POST'>

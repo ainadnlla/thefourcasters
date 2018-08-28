@@ -57,7 +57,11 @@
                         <a href="<?= base_url().'admin/edit/'.$emp->id?>" class="btn btn-warning" role="button">
                         <span class="glyphicon glyphicon-pencil" aria-hidden="true">
                         </span></a>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
+                        <?php $onclick = array('onclick'=>"return confirm('Are you sure?')");?>
+                        <a href="<?=base_url('admin/del/'.$emp->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
+<span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
+</span></a>
+
                         </span></button>
                         </td>
                     </tr>        

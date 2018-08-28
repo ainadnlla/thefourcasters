@@ -11,7 +11,7 @@
         
         <div class="form-group has-feedback">
 
-            <form class="form-signin" action='<?= base_url()."staff/signin"?>' method='POST'>
+            <form class="form-signin" action='<?= base_url()."staff/staff"?>' method='POST'>
             <input type="text" value='<?=set_value('email')?>' 
             name="email" class="form-control" placeholder="Username" required autofocus>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>

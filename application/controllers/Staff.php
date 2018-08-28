@@ -10,6 +10,7 @@ class Staff extends CI_Controller {
             $this->load->model('DriverModel');
             $this->load->model('ConductorModel');
             $this->load->model('TruckModel');
+            $this->load->model('AdminModel');
     }
 
     public function login(){
@@ -45,13 +46,12 @@ class Staff extends CI_Controller {
             );
     
             $this->session->set_userdata($newdata);
-            redirect('staff/homepage');
+            // redirect('staff/homepage');
+           // $this->debug($item);
         }
         else{
     redirect('staff/login');
-            // $this->load->view('include/admin_header');
-            // $this->load->view('staff/login');
-            // $this->load->view('include/admin_footer');
+
         }
     }
     
