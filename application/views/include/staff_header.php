@@ -69,7 +69,7 @@
                   <a href="#"> <span class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                <a href="<?=base_url().'staff/login'?>"> <span class="btn btn-default btn-flat">Sign out</span></a>
+                <a href="<?=base_url().'staff/logout'?>"> <span class="btn btn-default btn-flat">Sign out</span></a>
                 </div>
               </li>
             </ul>
