@@ -12,7 +12,7 @@
         <div class="form-group has-feedback">
 
             <form class="form-signin" action='<?= base_url()."staff/staff"?>' method='POST'>
-            <input type="text" value='<?=set_value('email')?>' 
+            <input type="text" 
             name="email" class="form-control" placeholder="Email@example.com" required autofocus>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
 
@@ -34,10 +34,13 @@
             </div>
         <!-- /.col -->
             <div class="col-xs-4">
-                <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                <button type="submit" name='insert'class="btn btn-primary btn-block btn-flat">Sign In</button>
+               
             </div>
+           
         <!-- /.col -->
       </div>
+      <center><?php echo $this->session->flashdata("error");?></center>
     </form>
 
 

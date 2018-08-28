@@ -20,15 +20,25 @@ class Staff extends CI_Controller {
         $this->load->view('include/admin_footer');
        }
        public function staff(){
-           $username=$this->input->post('username');
+           $email=$this->input->post('email');
            $password=$this->input->post('password');
-           $user = $this->AdminModel->getStaff($staff);
-           if($user == true){
-               redirect('staff/homepage');
+           $user = $this->AdminModel->getStaff($email,$password);
+           if(!$user == null){
             
-           }else{
+            
+                        $session_data = array(
+                                'email'     => $email,
+                                'logged_in' => TRUE,
+                                'isAdmin' => TRUE
+                        );
+            
+                        $this->session->set_userdata($session_data);
+                        redirect('staff/homepage');
+                    }else{
+                        $this->session->set_flashdata('error','Invalid Username and Password');
                redirect('staff/login');
            }
+           
     
     } 
        public function homepage(){
