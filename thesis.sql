@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2018 at 08:34 PM
+-- Generation Time: Aug 28, 2018 at 08:54 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -40,8 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `username`, `password`) VALUES
-(1, 'admin', 'admin', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441'),
-(2, 'ane', 'ane', '87654321');
+(1, 'admin', 'admin', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441');
 
 -- --------------------------------------------------------
 
@@ -99,7 +98,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`, `contact`, `gender`, `status`, `user_type`, `created`, `updated`) VALUES
-(5, 'Xylem Water System', 'Freight Forwarder', '123456789', '123456789', 'XylemWaterSystem@sample.com', 9999999, '', '', '', '2018-07-29 02:15:44', '2018-07-29 02:15:44');
+(8, 'Xylem Water System', 'broker', '123456789', '123456789', 'XylemWaterSystem@sample.com', 999, '', '', '', '2018-08-28 23:51:06', '2018-08-28 23:51:06');
 
 -- --------------------------------------------------------
 
@@ -119,6 +118,13 @@ CREATE TABLE `driver` (
   `contact` int(12) NOT NULL,
   `gender` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `driver`
+--
+
+INSERT INTO `driver` (`id`, `drivernum`, `fname`, `mname`, `lname`, `password`, `repass`, `email`, `contact`, `gender`) VALUES
+(1, 'ACLDI010987016', 'A', 'A', 'Villamor', '123456789', '123456789', 'sample@sample.com', 12354, 'M');
 
 -- --------------------------------------------------------
 
@@ -144,9 +150,8 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`id`, `fname`, `lname`, `mname`, `password`, `email`, `contact`, `gender`, `status`, `repass`) VALUES
-(3, 'Rynlene', 'Ramirez', 'V.', '12345678', 'rrynlene@yahoo.com', 45646456, 'M', 1, '12345678'),
-(4, 'Aina Daniella', 'Sales', 'R.', '123', 'ainasales@yahoo.com', 5858585, 'F', 1, '1'),
-(5, 'Anthony', 'Ane', 'L.', 'Aj_052898', 'anthonyjarlane@yahoo.com', 12354, 'M', 0, 'Aj_052898');
+(17, 'c', 'c', '', '123456789', 'sample@sample.com', 100, 'M', 0, '123456789'),
+(20, 'Aina', 'Sales', '', '123456789', 'ainadrsales@gmail.com', 2147483647, 'F', 0, '123456789');
 
 -- --------------------------------------------------------
 
@@ -156,10 +161,21 @@ INSERT INTO `staff` (`id`, `fname`, `lname`, `mname`, `password`, `email`, `cont
 
 CREATE TABLE `truck` (
   `id` int(100) NOT NULL,
-  `img` int(2) NOT NULL,
+  `img` varchar(50) DEFAULT NULL,
   `license_no` varchar(20) NOT NULL,
   `insurance` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `truck`
+--
+
+INSERT INTO `truck` (`id`, `img`, `license_no`, `insurance`) VALUES
+(1, '0', 'YU 123', 'Blah'),
+(2, '0', '123456', '5-5-5'),
+(4, 'logo.jpg', '4654654', 'Blah'),
+(10, '', '1234567', '5-5-5'),
+(12, '', '46546541', '5-5-5');
 
 --
 -- Indexes for dumped tables
@@ -210,25 +226,25 @@ ALTER TABLE `conductor`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `truck`
 --
 ALTER TABLE `truck`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
