@@ -40,15 +40,14 @@
                         <td><?= $driv->contact?></td>
 
                         <td>
-                        <a href="<?= base_url().'driver/view/'.$driv->id?>" class="btn btn-primary" role="button">
-                        <span class="glyphicon glyphicon-search" aria-hidden="true">
-                        </span></a>
                         <a href="<?= base_url().'driver/edit/'.$driv->id?>" class="btn btn-warning" role="button">
                         <span class="glyphicon glyphicon-pencil" aria-hidden="true">
                         </span></a>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
-                        </span>
-              </button>
+                        <?php $onclick = array('onclick'=>"return confirm('Are you sure?')");?>
+                        <a href="<?=base_url('driver/del/'.$driv->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
+                        </span></a>
+                        </td>
                         </td>
                     </tr>        
                 <?php endforeach; ?> 

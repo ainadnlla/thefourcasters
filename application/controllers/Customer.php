@@ -45,16 +45,6 @@ class Customer extends CI_Controller {
         $this->load->view('admin/userdetails',compact('custs'));
     }
 
-    public function view($id){
-        $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
-
-        $cust = $this->CustomerModel->getProd($id);
-        $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav');
-        $this->load->view('admin/customer/customerview',compact('cust'));
-        $this->load->view('include/footer'); 
-    }
-
     public function insert(){
         $data = $this->input->post();
         unset($data['add']);

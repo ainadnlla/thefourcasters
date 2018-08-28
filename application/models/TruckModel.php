@@ -49,6 +49,12 @@ class TruckModel extends CI_Model{
         $this->db->where('id', $id);
         $this->db->delete('truck',$data);
     }
+
+//UPLOAD
+    public function getItem($id){
+        $q = $this->db->get_where('truck',array('id'=>$id));
+        return $q->row();
+    }
 }
 
 ?>

@@ -51,18 +51,13 @@
                         <td><?= $emp->gender?></td>
 
                         <td>
-                        <a href="<?= base_url().'admin/view/'.$emp->id?>" class="btn btn-primary" role="button">
-                        <span class="glyphicon glyphicon-search" aria-hidden="true">
-                        </span></a>
                         <a href="<?= base_url().'admin/edit/'.$emp->id?>" class="btn btn-warning" role="button">
                         <span class="glyphicon glyphicon-pencil" aria-hidden="true">
                         </span></a>
                         <?php $onclick = array('onclick'=>"return confirm('Are you sure?')");?>
                         <a href="<?=base_url('admin/del/'.$emp->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
-<span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
-</span></a>
-
-                        </span></button>
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
+                        </span></a>
                         </td>
                     </tr>        
                 <?php endforeach; ?> 

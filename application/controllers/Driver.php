@@ -46,16 +46,6 @@ class Driver extends CI_Controller {
         $this->load->view('admin/userdetails',compact('drivs'));
     }
 
-    public function view($id){
-        $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
-
-        $driv = $this->DriverModel->getProd($id);
-        $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav');
-        $this->load->view('admin/driver/driverview',compact('driv'));
-        $this->load->view('include/footer'); 
-    }
-
     public function insert(){
         $data = $this->input->post();
         unset($data['add']);

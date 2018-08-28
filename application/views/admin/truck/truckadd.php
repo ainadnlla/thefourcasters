@@ -1,9 +1,9 @@
 <div class="content-wrapper">
     <section class="content-header">
-      <h1>Driver Details</h1>
+      <h1>Truck Details</h1>
         <ol class="breadcrumb">
-          <li><a href="<?=base_url().'admin/userdetails'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-          <li><a href="<?=base_url().'admin/userdetails_driver'?>">Driver Details</a></li>
+          <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+          <li><a href="<?=base_url().'admin/truckdetails'?>">Truck Details</a></li>
           <li class="active">Add</a></li>
         </ol>
     </section>
@@ -25,16 +25,17 @@
           </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label"for ="img">Image</label>  
-        <div class="col-md-4">
-          <input  name="img" type="file" placeholder="Image File" class="form-control input-md">  
-        </div>
+      <label class="col-md-4 control-label"for ="upload">Image</label>  
+      <div class="col-md-4">
+      <?php echo form_open_multipart('truck/do_upload');?>
+      <input type="file" name="img" size="20">
+      </div>
     </div>
 
     <div class="form-group">
       <label class="col-md-4 control-label"for ="license_no">License #</label>  
         <div class="col-md-4">
-          <input  name="license_no" type="text" placeholder="First Name" class="form-control input-md">
+          <input  name="license_no" type="text" placeholder="License #" class="form-control input-md">
           <?= form_error('license_no', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
@@ -54,7 +55,7 @@
         <div class="col-md-4">
   
           <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Add</button>
-            <a href="<?=base_url().'admin/userdetails_driver/'?>" class="btn btn-danger" role="button">Back</a>
+            <a href="<?=base_url().'admin/truckdetails/'?>" class="btn btn-danger" role="button">Back</a>
 
             </form>
         </div>  

@@ -325,16 +325,6 @@ class Admin extends CI_Controller {
         $this->load->view('admin/userdetails_conductor',compact('conds'));
     }
 
-    public function view($id){
-        $data['title'] = 'Staff Details | Angelogistic Forwarder Corporation';
-
-        $emp = $this->UserModel->getProd($id);
-        $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav');
-        $this->load->view('admin/staff/staffview',compact('emp'));
-        $this->load->view('include/footer');
-    }
- 
     public function insert(){
         $data = $this->input->post();
         unset($data['add']);
