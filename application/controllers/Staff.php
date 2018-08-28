@@ -19,41 +19,40 @@ class Staff extends CI_Controller {
         $this->load->view('staff/login');
         $this->load->view('include/admin_footer');
        }
-         
+       public function staff(){
+           $email=$this->input->post('email');
+           $password=$this->input->post('password');
+           $user = $this->AdminModel->getStaff($email,$password);
+           if(!$user == null){
+            
+            
+                        $session_data = array(
+                                'email'     => $email,
+                                'logged_in' => TRUE,
+                                'isAdmin' => TRUE
+                        );
+            
+                        $this->session->set_userdata($session_data);
+                        redirect('staff/homepage');
+                    }else{
+                        $this->session->set_flashdata('error','Invalid Username and Password');
+               redirect('staff/login');
+           }
+           
+    
+    } 
        public function homepage(){
+        if($this->session->userdata('email') !=''){   
         $data['title'] = 'Angelogistic Forwarder Corporation';
         $this->load->view('include/header', $data);
         $this->load->view('include/staff_header');
         $this->load->view('staff/homepage');
         $this->load->view('include/footer');
+        }else{
+           redirect('staff/login');
        }
-       public function staff(){
-        $staff = array(
-            'email' => $this->input->post('email'),
-            'password' => sha1($this->input->post('password'))
-            );
-    
-        $user = $this->AdminModel->getstaff($staff);
-    
-        if(!$user == null){
-    
-    
-            $newdata = array(
-                    'name'  => $user->fname,
-                    'email' => $user->email,
-                    'logged_in' => TRUE,
-                    'isAdmin' => TRUE
-            );
-    
-            $this->session->set_userdata($newdata);
-            // redirect('staff/homepage');
-           // $this->debug($item);
-        }
-        else{
-    redirect('staff/login');
-
-        }
-    }
+       }
+       
     
     public function logout(){
         $this->session->sess_destroy();
@@ -61,6 +60,7 @@ class Staff extends CI_Controller {
     }
 
     public function truckdetails($offset=0){
+        if($this->session->userdata('email') !=''){   
         $data['title'] = 'Truck Details | Angelogistic Forwarder Corporation';
 
         $this->load->library('pagination');
@@ -91,9 +91,13 @@ class Staff extends CI_Controller {
         $this->load->view('include/staff_header');
         $this->load->view('staff/truckdetails');
         $this->load->view('include/footer');
+    }else{
+        redirect('staff/login');
+    }
     }
 
     public function customerdetails($offset=0){
+        if($this->session->userdata('email') !=''){
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
 
         $this->load->library('pagination');
@@ -124,48 +128,71 @@ class Staff extends CI_Controller {
         $this->load->view('include/staff_header');
         $this->load->view('include/footer');
         $this->load->view('staff/customerdetails',compact('custs'));
+    }else{
+        redirect('staff/login');
+    }
     }
 
     public function truckgps(){
+        if($this->session->userdata('email') !=''){
         $data['title'] = 'Truck Location | Angelogistic Forwarder Corporation';
 
         $this->load->view('include/header', $data);
         $this->load->view('include/staff_header');
         $this->load->view('staff/truckgps');
         $this->load->view('include/footer');
+    }else{
+        redirect('staff/login');
+    }
     }
 
     public function calendar(){
+        if($this->session->userdata('email') !=''){
         $data['title'] = 'Calendar | Angelogistic Forwarder Corporation';
         $this->load->view('include/calendar_head', $data);
         $this->load->view('include/staff_header'); 
         $this->load->view('staff/calendar');
         $this->load->view('include/calendar_foot');
+    }else{
+        redirect('staff/login');
+    }
     }  
 
     public function inbox(){
+        if($this->session->userdata('email') !=''){
         $data['title'] = 'Inbox | Angelogistic Forwarder Corporation';
         $this->load->view('include/calendar_head', $data);
         $this->load->view('include/staff_header'); 
         $this->load->view('staff/inbox');
         $this->load->view('include/calendar_foot');
+    }else{
+        redirect('staff/login');
+    }
     }  
 
-    public function compose(){     
+    public function compose(){   
+        if($this->session->userdata('email') !=''){
         $data['title'] = 'Compose | Angelogistic Forwarder Corporation';
         $this->load->view('include/calendar_head', $data);
         $this->load->view('include/staff_header'); 
         $this->load->view('staff/compose');
         $this->load->view('include/calendar_foot');
+    }else{
+        redirect('staff/login');
+    }
     }  
 
-    public function booking(){   
+    public function booking(){  
+        if($this->session->userdata('email') !=''){ 
         $data['title'] = 'Booking | Angelogistic Forwarder Corporation';
   
         $this->load->view('include/header', $data);
         $this->load->view('include/staff_header');
         $this->load->view('staff/booking');
         $this->load->view('include/footer');
+    }else{
+        redirect('staff/login');
+    }
     }
 
 
