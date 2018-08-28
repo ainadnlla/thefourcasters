@@ -42,6 +42,7 @@ class Admin extends CI_Controller {
 			redirect('admin/homepage');
 		}
 		else{
+            $this->session->set_flashdata('error','Invalid Username and Password');
 		redirect('admin/login');
 			
 		}

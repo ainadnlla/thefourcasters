@@ -38,6 +38,7 @@
             </div>
         <!-- /.col -->
       </div>
+      <center><?php echo $this->session->flashdata("error");?></center>
     </form>
 
 <!--    <div class="social-auth-links text-center">
