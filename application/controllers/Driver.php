@@ -8,9 +8,21 @@ class Driver extends CI_Controller {
             $this->load->model('DriverModel');
             $this->load->model('CustomerModel');
             $this->load->model('UserModel');
+            $this->load->model('AdminModel');
     }
+public function logged(){
+    $newdata = array(
+        'name'  => $user->name,
+        'username'     => $user->username,
+        'logged_in' => TRUE,
+        'isAdmin' => TRUE
+);
 
+$this->session->set_userdata($newdata);
+}
     public function userdetails_driver($offset=0){
+        if($this->session->userdata('username') !=''){ 
+            
         $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
 
         $this->load->library('pagination');
@@ -44,6 +56,10 @@ class Driver extends CI_Controller {
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('admin/userdetails',compact('drivs'));
+        
+}else{
+    redirect('admin/login');
+}
     }
 
     public function insert(){
@@ -69,15 +85,20 @@ class Driver extends CI_Controller {
     }  
 
     public function add(){
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('admin/driver/driveradd');
         $this->load->view('include/footer');
+    }else{
+        redirect('admin/login');
+    }
     }
 
     public function edit($id){
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
 
         $driv = $this->DriverModel->getProd($id);
@@ -85,14 +106,21 @@ class Driver extends CI_Controller {
         $this->load->view('include/header_nav');
         $this->load->view('admin/driver/driveredit',compact('driv'));
         $this->load->view('include/footer');
+    }else{
+        redirect('admin/login');
+    }
     }
 
     public function delete($Product_ID){
+        if($this->session->userdata('username') !=''){ 
         $driv = $this->DriverModel->getProd($Product_ID);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('admin/driver/driverdelete',compact('driv'));
         $this->load->view('include/footer');
+    }else{
+        redirect('admin/login');
+    }
     } 
 
     public function del($id){

@@ -5,8 +5,12 @@ class Customer extends CI_Controller {
     public function __construct()
     {
             parent::__construct();
-            $this->load->model('CustomerModel');
             $this->load->model('UserModel');
+            $this->load->model('CustomerModel');
+            $this->load->model('DriverModel');
+            $this->load->model('ConductorModel');
+            $this->load->model('TruckModel');
+            $this->load->model('AdminModel');
     }
     
     public function userdetails_customer($offset=0){
@@ -121,6 +125,54 @@ class Customer extends CI_Controller {
                 redirect('admin/userdetails_customer');
             }
         }
+        
+        
+     public function login(){
+            $data['title'] = 'Angelogistic Forwarder Corporation';
+            $this->load->view('include/admin_header');
+            $this->load->view('customer/login');
+            $this->load->view('include/admin_footer');
+            if($this->session->userdata('email') !=''){ 
+                    redirect('customer/homepage');
+            }else{
+                 
+            } 
+            }
+            public function signin(){
+                   $email=$this->input->post('email');
+                   $password=$this->input->post('password');
+                   $user = $this->AdminModel->getCustomer($email,$password);
+                   if(!$user == null){
+                    
+                    
+                                $session_data = array(
+                                        'email'     => $email,
+                                        'logged_in' => TRUE,
+                                        'isAdmin' => TRUE
+                                );
+                    
+                                $this->session->set_userdata($session_data);
+                                redirect('customer/homepage');
+                            }else{
+                                $this->session->set_flashdata('error','Invalid Username and Password');
+                       redirect('customer/login');
+                   }
+                   
+            
+            } 
+               public function homepage(){
+               // if($this->session->userdata('email') !=''){   
+                $data['title'] = 'Angelogistic Forwarder Corporation';
+                $this->load->view('include/header', $data);
+                $this->load->view('include/staff_header');
+                $this->load->view('customer/homepage');
+                $this->load->view('include/footer');
+            //     }else{
+            //        redirect('staff/login');
+            //    }
+               }
+               
+            
 
 }
 ?>

@@ -14,10 +14,16 @@ class Staff extends CI_Controller {
     }
 
     public function login(){
+        
         $data['title'] = 'Angelogistic Forwarder Corporation';
         $this->load->view('include/admin_header');
         $this->load->view('staff/login');
         $this->load->view('include/admin_footer');
+        if($this->session->userdata('email') !=''){ 
+            redirect('staff/homepage');
+        }else{
+         
+        } 
        }
        public function staff(){
            $email=$this->input->post('email');

@@ -54,14 +54,18 @@ class Admin extends CI_Controller {
     }
 
     public function homepage(){
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Angelogistic Forwarder Corporation';
-
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('admin/homepage',compact('emps'));
+    }else{
+        redirect('admin/login');
+    }
     }  
     public function truckdetails($offset=0){
+        if($this->session->userdata('username') !=''){ 
             $data['title'] = 'Truck Details | Angelogistic Forwarder Corporation';
 
             $this->load->library('pagination');
@@ -92,10 +96,13 @@ class Admin extends CI_Controller {
             $this->load->view('include/header_nav');
             $this->load->view('admin/truckdetails',compact('trucks'));
             $this->load->view('include/footer');
-       
+        }else{
+            redirect('admin/login');
+        }
     } 
 
     public function userprivelege($offset=0){
+        if($this->session->userdata('username') !=''){ 
             $data['title'] = 'User Privelege | Angelogistic Forwarder Corporation';
             $this->load->library('pagination');
             $norecs = 5;
@@ -125,75 +132,115 @@ class Admin extends CI_Controller {
             $this->load->view('include/header_nav');
             $this->load->view('include/footer');
             $this->load->view('admin/userprivelege',compact('emps'));
+        }else{
+                redirect('admin/login');
+            }
     } 
 
     public function truckgps(){
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Truck Location | Angelogistic Forwarder Corporation';
 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('admin/truckgps');
         $this->load->view('include/footer');
+    }else{
+        redirect('admin/login');
+    }
     }
 
-    public function truckdelivery(){   
+    public function truckdelivery(){  
+        if($this->session->userdata('username') !=''){  
         $data['title'] = 'Truck Delivery | Angelogistic Forwarder Corporation';
   
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('admin/truckdelivery');
         $this->load->view('include/footer');
+    }else{
+        redirect('admin/login');
+    }
     }
 
     public function calendar(){
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Calendar | Angelogistic Forwarder Corporation';
         $this->load->view('include/calendar_head', $data);
         $this->load->view('include/header_nav'); 
         $this->load->view('admin/calendar');
         $this->load->view('include/calendar_foot');
+        
+}else{
+    redirect('admin/login');
+}
     }  
 
     public function inbox(){
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Inbox | Angelogistic Forwarder Corporation';
         $this->load->view('include/calendar_head', $data);
         $this->load->view('include/header_nav'); 
         $this->load->view('admin/inbox');
         $this->load->view('include/calendar_foot');
+        
+}else{
+    redirect('admin/login');
+}
     }  
 
-    public function compose(){     
+    public function compose(){  
+        
+        if($this->session->userdata('username') !=''){    
         $data['title'] = 'Compose | Angelogistic Forwarder Corporation';
         $this->load->view('include/calendar_head', $data);
         $this->load->view('include/header_nav'); 
         $this->load->view('admin/compose');
         $this->load->view('include/calendar_foot');
+    }else{
+        redirect('admin/login');
+    }
     }  
 
     public function stats(){
+        
+        if($this->session->userdata('username') !=''){ 
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('admin/stats');
         $this->load->view('include/footer');
+    }else{
+        redirect('admin/login');
+    }
     }
 
     public function profile(){
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Profile | Angelogistic Forwarder Corporation';
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('admin/profile');
         $this->load->view('include/footer');
+    }else{
+        redirect('admin/login');
+    }
     }
  
     public function userdetails($offset=0){
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'User Details | Angelogistic Forwarder Corporation';
                 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('admin/userdetails');
         $this->load->view('include/footer');
+    }else{
+        redirect('admin/login');
+    }
     }
 
     public function userdetails_staff($offset=0){
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Staff Details | Angelogistic Forwarder Corporation';
 
         $this->load->library('pagination');
@@ -224,10 +271,14 @@ class Admin extends CI_Controller {
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('admin/userdetails_staff',compact('emps'));
+    }else{
+        redirect('admin/login');
+    }
     }
 
 
     public function userdetails_customer($offset=0){
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
 
         $this->load->library('pagination');
@@ -258,9 +309,13 @@ class Admin extends CI_Controller {
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('admin/userdetails_customer',compact('custs'));
+    }else{
+        redirect('admin/login');
+    }
     }
 
     public function userdetails_driver($offset=0){
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
 
         $this->load->library('pagination');
@@ -291,9 +346,13 @@ class Admin extends CI_Controller {
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('admin/userdetails_driver',compact('drivs'));
+    }else{
+        redirect('admin/login');
+    }
     }
 
     public function userdetails_conductor($offset=0){
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Driver Helper Details | Angelogistic Forwarder Corporation';
 
         $this->load->library('pagination');
@@ -324,6 +383,9 @@ class Admin extends CI_Controller {
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('admin/userdetails_conductor',compact('conds'));
+    }else{
+        redirect('admin/login');
+    }
     }
 
     public function insert(){
@@ -350,15 +412,21 @@ class Admin extends CI_Controller {
     }
 
     public function add(){
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Staff Details | Angelogistic Forwarder Corporation';
 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('admin/staff/staffadd');
         $this->load->view('include/footer');
+        
+}else{
+    redirect('admin/login');
+}
     }
 
     public function edit($id){
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Staff Details | Angelogistic Forwarder Corporation';
 
         $emp = $this->UserModel->getProd($id);
@@ -366,14 +434,21 @@ class Admin extends CI_Controller {
         $this->load->view('include/header_nav');
         $this->load->view('admin/staff/staffedit',compact('emp'));
         $this->load->view('include/footer');
+    }else{
+        redirect('admin/login');
+    }
     }
 
     public function delete($id){
+        if($this->session->userdata('username') !=''){ 
         $emp = $this->UserModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('admin/staff/staffdelete',compact('emp'));
         $this->load->view('include/footer');
+    }else{
+        redirect('admin/login');
+    }
     } 
 
     public function del($id){

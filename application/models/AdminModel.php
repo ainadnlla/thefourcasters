@@ -22,6 +22,18 @@ class AdminModel extends CI_Model{
       return false;
     }
     }
+    public function getCustomer($email,$password){
+      $this->db->where('email',$email);
+      $this->db->where('password',$password);
+      // $this->db->where('user_type',$usert);
+      $query=$this->db->get('customer');
+      if($query->num_rows()>0){
+       return true;
+     }
+     else{
+       return false;
+     }
+     }
   }
   
 ?>
