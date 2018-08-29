@@ -38,7 +38,13 @@
                         <td><?= $cust->contact?></td>
 
                         <td>
-                        <?php $onclick = $cust->id;?>
+                        <a href="<?= base_url().'admin/edit/'.$emp->id?>" class="btn btn-warning" role="button">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true">
+                        </span></a>
+                        <a href="<?= base_url().'admin/edit/'.$emp->id?>" class="btn btn-warning" role="button">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true">
+                        </span></a>
+                        </td>
  <!-- view -->
  <a href="<?= base_url().'customer/view/'.$cust->id?>" class="btn btn-primary" role="button">
 <span class="glyphicon glyphicon" aria-hidden="true">Modal</span></a>
