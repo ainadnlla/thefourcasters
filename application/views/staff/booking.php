@@ -36,7 +36,6 @@
                   <th>Driver</th>
                   <th>Helper</th>
                   <th>Status</th>
-                  <th>Action</th>
                 </tr>
                 <tr>
                   <td>11-7-2014</td>

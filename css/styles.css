@@ -127,13 +127,13 @@ footer .copy{
 }
 
 .header .navbar-toggle{
-   background-color: #1dc1da !important;
-   border:1px solid #0fa6bc !important;
+   background-color: #915F07 !important;
+   border:1px solid #915F07 !important;
 }
 
 .header .navbar-toggle:hover, .header .navbar-toggle:focus {
-   background-color: #0fa6bc !important;
-   border:1px solid #0fa6bc !important;
+   background-color: #915F07 !important;
+   border:1px solid #915F07 !important;
 }
 
 .header .dropdown-menu{
