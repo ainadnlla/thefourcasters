@@ -1,12 +1,14 @@
-<body class="hold-transition login-page">
+<link rel="stylesheet" type="text/css" href="<?=base_url()?>css/login.css"/>
+<body class="hold-transition">
 <div class="login-box">
-    <div class="login-logo">
-        <a href="<?=base_url()?>staff/login"><b>Angelogistics Forwarder Corporation</b></a>
+    <div class="text-center">
+        <a href="<?=base_url()?>staff/login">
+        <img id="profile-img" width = "350px" alt="Image" src="<?= base_url()."images/logoname.png"?>" />
+        <p></p></a>
     </div>
   <!-- /.login-logo  -->
-  <div class="login-box-body">
- <!--  <p class="login-box-msg">Sign in to start your session</p>-->
-
+  <div class="login-box-body login-color">
+ <p class="login-box-msg">Welcome!</p>
     
         
         <div class="form-group has-feedback">
