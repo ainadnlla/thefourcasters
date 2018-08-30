@@ -487,6 +487,27 @@ class Admin extends CI_Controller {
                 redirect('admin/userdetails_staff');
             }
         }
+        // <!-- public function status(){
+        //   
+        //     $status = $this->input->post('status');
+        //     $q = $this->AdminModel->getAdmin($status);
+    
+        //     if($q == '1'){
+    
+            // $getData = array(
+            //     'status'     => $status,
+       //);
+    
+    
+        //         $this->session->set_userdata($current);
+        //         redirect('admin/homepage');
+        //     }
+        //     else{
+        //         $this->session->set_flashdata('error','Invalid Username and Password');
+        //     redirect('admin/login');
+                
+        //     }
+        // } -->
 
     }
 ?>

@@ -11,7 +11,8 @@ class AdminModel extends CI_Model{
     }
 
   //STAFF ACC
-    public function getStaff($email,$password){
+    public function getStaff($email,$password,$status){
+    //  $this->db->where('status',$status);
      $this->db->where('email',$email);
      $this->db->where('password',$password);
      $query=$this->db->get('staff');
@@ -21,19 +22,7 @@ class AdminModel extends CI_Model{
     else{
       return false;
     }
-    }
-    public function getCustomer($email,$password){
-      $this->db->where('email',$email);
-      $this->db->where('password',$password);
-      // $this->db->where('user_type',$usert);
-      $query=$this->db->get('customer');
-      if($query->num_rows()>0){
-       return true;
-     }
-     else{
-       return false;
-     }
-     }
+    }  
   }
   
 ?>
