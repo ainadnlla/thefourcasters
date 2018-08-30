@@ -1,4 +1,8 @@
-<body class="hold-transition skin-black-light sidebar-mini">
+<body class="hold-transition skin-red-light sidebar-mini">
+<!--
+   staff-purple
+   customer-red
+ -->
 <div class="wrapper">
 
   <header class="main-header">
