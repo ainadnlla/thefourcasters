@@ -10,8 +10,16 @@ class Conductor extends CI_Controller {
             $this->load->model('CustomerModel');
             $this->load->model('UserModel');
     }
-
+    public function logged(){
+        $newdata = array(
+            'name'  => $user->name,
+            'username'     => $user->username,
+            'logged_in' => TRUE,
+            'isAdmin' => TRUE
+    );
+    
     public function userdetails_conductor($offset=0){
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Driver Helper Details | Angelogistic Forwarder Corporation';
 
         $this->load->library('pagination');
@@ -45,6 +53,9 @@ class Conductor extends CI_Controller {
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('admin/userdetails',compact('conds'));
+    }else{
+        redirect('admin/login');
+    }
     }
 
     public function insert(){
@@ -70,15 +81,20 @@ class Conductor extends CI_Controller {
     }  
 
     public function add(){
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Driver Helper Details | Angelogistic Forwarder Corporation';
 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('admin/conductor/conductoradd');
         $this->load->view('include/footer');
+    }else{
+        redirect('admin/login');
+    }
     }
 
     public function edit($id){
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Driver Helper Details | Angelogistic Forwarder Corporation';
 
         $cond = $this->ConductorModel->getProd($id);
@@ -86,6 +102,9 @@ class Conductor extends CI_Controller {
         $this->load->view('include/header_nav');
         $this->load->view('admin/conductor//conductoredit',compact('cond'));
         $this->load->view('include/footer');
+    }else{
+        redirect('admin/login');
+    }
     }
 
     

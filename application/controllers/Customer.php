@@ -12,7 +12,13 @@ class Customer extends CI_Controller {
             $this->load->model('TruckModel');
             $this->load->model('AdminModel');
     }
-    
+    public function logged(){
+        $newdata = array(
+            'name'  => $user->name,
+            'username'     => $user->username,
+            'logged_in' => TRUE,
+            'isAdmin' => TRUE
+    );}
     public function userdetails_customer($offset=0){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
@@ -75,15 +81,20 @@ class Customer extends CI_Controller {
     }  
 
     public function add(){
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('admin/customer/customeradd');
         $this->load->view('include/footer');
+    }else{
+        redirect('admin/login');
+    }
     }
 
     public function edit($id){
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
 
         $cust = $this->CustomerModel->getProd($id);
@@ -91,14 +102,21 @@ class Customer extends CI_Controller {
         $this->load->view('include/header_nav');
         $this->load->view('admin/customer/customeredit',compact('cust'));
         $this->load->view('include/footer');
+    }else{
+        redirect('admin/login');
+    }
     }
 
     public function delete($id){
+        if($this->session->userdata('username') !=''){ 
         $cust = $this->CustomerModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('admin/customer/customerdelete',compact('cust'));
         $this->load->view('include/footer');
+    }else{
+        redirect('admin/login');
+    }
     } 
     
     public function del($id){
