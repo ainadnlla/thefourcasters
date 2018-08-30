@@ -18,6 +18,11 @@ class Admin extends CI_Controller {
         $this->load->view('include/admin_header');
         $this->load->view('admin/login');
         $this->load->view('include/admin_footer');
+        if($this->session->userdata('username') !=''){ 
+            redirect('admin/homepage');
+        }else{
+         
+        } 
     }
 
     public function signin(){

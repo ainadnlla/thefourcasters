@@ -14,6 +14,7 @@ class Customer extends CI_Controller {
     }
     
     public function userdetails_customer($offset=0){
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
 
         $this->load->library('pagination');
@@ -47,6 +48,9 @@ class Customer extends CI_Controller {
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('admin/userdetails',compact('custs'));
+    }else{
+        redirect('admin/login');
+    }
     }
 
     public function insert(){

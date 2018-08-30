@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2018 at 08:54 PM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: Aug 30, 2018 at 07:13 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -49,6 +49,7 @@ INSERT INTO `admin` (`id`, `name`, `username`, `password`) VALUES
 --
 
 CREATE TABLE `conductor` (
+  `img` varchar(50) NOT NULL,
   `id` int(100) NOT NULL,
   `conductornum` varchar(50) NOT NULL,
   `image` varchar(50) NOT NULL,
@@ -69,8 +70,8 @@ CREATE TABLE `conductor` (
 -- Dumping data for table `conductor`
 --
 
-INSERT INTO `conductor` (`id`, `conductornum`, `image`, `fname`, `mname`, `lname`, `email`, `password`, `repass`, `gender`, `updated`, `created`, `user_type`, `contact`) VALUES
-(3, 'ACLHL000000017', '', 'Z', 'A', 'Ubaldo', 'sample@sample.com', '123456789', '123456789', 'M', '2018-07-29 01:13:32', '2018-07-29 01:13:32', '', 2147483647);
+INSERT INTO `conductor` (`img`, `id`, `conductornum`, `image`, `fname`, `mname`, `lname`, `email`, `password`, `repass`, `gender`, `updated`, `created`, `user_type`, `contact`) VALUES
+('', 3, 'ACLHL000000017', '', 'Z', 'A', 'Ubaldo', 'sample@sample.com', '123456789', '123456789', 'M', '2018-07-29 01:13:32', '2018-07-29 01:13:32', '', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -88,17 +89,20 @@ CREATE TABLE `customer` (
   `contact` int(11) NOT NULL,
   `gender` varchar(1) NOT NULL,
   `status` varchar(1) NOT NULL,
-  `user_type` varchar(1) NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `img` varchar(50) NOT NULL,
+  `user_type` int(1) NOT NULL,
+  `user_id` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`, `contact`, `gender`, `status`, `user_type`, `created`, `updated`) VALUES
-(8, 'Xylem Water System', 'broker', '123456789', '123456789', 'XylemWaterSystem@sample.com', 999, '', '', '', '2018-08-28 23:51:06', '2018-08-28 23:51:06');
+INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`, `contact`, `gender`, `status`, `created`, `updated`, `img`, `user_type`, `user_id`) VALUES
+(8, 'Xylem Water System', 'broker', '123456789', '123456789', 'XylemWaterSystem@sample.com', 999, '', '', '2018-08-28 23:51:06', '2018-08-28 23:51:06', '', 0, 0),
+(9, '123 123 123', '', '123456789', '123456789', 'a@yahoo.com', 2147483647, '', '', '2018-08-30 14:36:57', '2018-08-30 14:36:57', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -107,6 +111,7 @@ INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`
 --
 
 CREATE TABLE `driver` (
+  `img` varchar(50) NOT NULL,
   `id` int(100) NOT NULL,
   `drivernum` varchar(50) NOT NULL,
   `fname` varchar(50) NOT NULL,
@@ -116,15 +121,16 @@ CREATE TABLE `driver` (
   `repass` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `contact` int(12) NOT NULL,
-  `gender` varchar(1) NOT NULL
+  `gender` varchar(1) NOT NULL,
+  `expire` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `driver`
 --
 
-INSERT INTO `driver` (`id`, `drivernum`, `fname`, `mname`, `lname`, `password`, `repass`, `email`, `contact`, `gender`) VALUES
-(1, 'ACLDI010987016', 'A', 'A', 'Villamor', '123456789', '123456789', 'sample@sample.com', 12354, 'M');
+INSERT INTO `driver` (`img`, `id`, `drivernum`, `fname`, `mname`, `lname`, `password`, `repass`, `email`, `contact`, `gender`, `expire`) VALUES
+('', 1, 'ACLDI010987016', 'A', 'A', 'Villamor', '123456789', '123456789', 'sample@sample.com', 12354, 'M', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -134,6 +140,7 @@ INSERT INTO `driver` (`id`, `drivernum`, `fname`, `mname`, `lname`, `password`, 
 
 CREATE TABLE `staff` (
   `id` int(100) NOT NULL,
+  `img` varchar(50) NOT NULL,
   `fname` varchar(50) NOT NULL,
   `lname` varchar(50) NOT NULL,
   `mname` varchar(50) DEFAULT NULL,
@@ -142,16 +149,19 @@ CREATE TABLE `staff` (
   `contact` int(12) NOT NULL,
   `gender` char(1) NOT NULL,
   `status` int(1) NOT NULL,
-  `repass` varchar(50) NOT NULL
+  `repass` varchar(50) NOT NULL,
+  `date` date NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `staff`
 --
 
-INSERT INTO `staff` (`id`, `fname`, `lname`, `mname`, `password`, `email`, `contact`, `gender`, `status`, `repass`) VALUES
-(17, 'c', 'c', '', '123456789', 'sample@sample.com', 100, 'M', 0, '123456789'),
-(20, 'Aina', 'Sales', '', '123456789', 'ainadrsales@gmail.com', 2147483647, 'F', 0, '123456789');
+INSERT INTO `staff` (`id`, `img`, `fname`, `lname`, `mname`, `password`, `email`, `contact`, `gender`, `status`, `repass`, `date`, `user_id`) VALUES
+(17, '', 'c', 'c', '', '123456789', 'sample@sample.com', 100, 'M', 0, '123456789', '0000-00-00', 0),
+(20, '', 'Aina', 'Sales', '', '123456789', 'ainadrsales@gmail.com', 2147483647, 'F', 0, '123456789', '0000-00-00', 0),
+(21, '', 'Anthony', 'Ane', 'L.', '123456789', 'anthonyjarlane@yahoo.com', 2147483647, 'M', 0, '123456789', '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
@@ -191,7 +201,8 @@ ALTER TABLE `conductor`
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `userid` (`user_id`);
 
 --
 -- Indexes for table `driver`
@@ -203,7 +214,8 @@ ALTER TABLE `driver`
 -- Indexes for table `staff`
 --
 ALTER TABLE `staff`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `truck`
@@ -226,7 +238,7 @@ ALTER TABLE `conductor`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `driver`
@@ -238,13 +250,23 @@ ALTER TABLE `driver`
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `truck`
 --
 ALTER TABLE `truck`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `customer`
+--
+ALTER TABLE `customer`
+  ADD CONSTRAINT `userid` FOREIGN KEY (`user_id`) REFERENCES `staff` (`user_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
