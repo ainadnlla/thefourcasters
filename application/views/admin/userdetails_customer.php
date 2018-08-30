@@ -21,21 +21,26 @@
                 <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Profile</th>
                     <th>Customer/Importer</th>
                     <th>Customer Type</th>
                     <th>Email Address</th>
                     <th>Contact Number</th>
+                    <th>Customer Since</th>
                     <th>Action</th>
+                    
                 </tr>
                 </thead>
                 <tbody>
                 <?php foreach($custs as $cust): ?>
                     <tr>
                         <td><?= $cust->id?></td>
+                        <td><img src="<?=base_url().'images/'.$cust->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
                         <td><?= $cust->name?></td>
                         <td><?= $cust->cust_type?></td>
                         <td><?= $cust->email?></td>                            
                         <td><?= $cust->contact?></td>
+                        <td><?= $cust->date?></td>
 
                         <td>
                         <a href="<?= base_url().'customer/edit/'.$cust->id?>" class="btn btn-warning" role="button">

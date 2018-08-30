@@ -1,5 +1,5 @@
 body {
-    background-color: white;
+    background-color: black;
     height: 100%;
     overflow: hidden;
     
@@ -11,4 +11,5 @@ body {
 .login-color{
     background-color: #bcd6ff;
     border-radius: 20px;
+    
 }

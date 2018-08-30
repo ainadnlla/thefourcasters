@@ -20,26 +20,28 @@
               <table id="conductor" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                    <th>Helper #</th>
-                    <th>First Name</th>
-                    <th>Middle Name</th>
-                    <th>Last Name</th>
+                    <th>ID</th>
+                    <th>Profile</th>
+                    <th>Full Name</th>
+                    <th>License #</th>
+                    <th>Expiration</th>
                     <th>Email Address</th>
                     <th>Contact Number</th>
-                    <th>Gender</th>
+                    <th>Employment Date</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php foreach($conds as $cond): ?>
                     <tr>
+                        <td><?= $cond->id?></td>
+                        <td><img src="<?=base_url().'images/'.$cond->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
+                        <td><?= $cond->fname?> <?= $cond->mname?> <?= $cond->lname?></td>
                         <td><?= $cond->conductornum?></td>
-                        <td><?= $cond->fname?></td>
-                        <td><?= $cond->mname?></td>
-                        <td><?= $cond->lname?></td>
+                        <td><?= $cond->expire?></td>
                         <td><?= $cond->email?></td>                            
                         <td><?= $cond->contact?></td>
-                        <td><?= $cond->gender?></td>
+                        <td><?= $cond->date?></td>
 
                         <td>
                         <a href="<?= base_url().'driver/edit/'.$cond->id?>" class="btn btn-warning" role="button">

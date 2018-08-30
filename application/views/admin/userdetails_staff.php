@@ -43,6 +43,7 @@
                 <?php foreach($emps as $emp): ?>
                     <tr>
                         <td><?= $emp->id?></td>
+                        <td><img src="<?=base_url().'images/'.$emps->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
                         <td><?= $emp->fname?></td>
                         <td><?= $emp->mname?></td>
                         <td><?= $emp->lname?></td>
