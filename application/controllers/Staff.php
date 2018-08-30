@@ -28,11 +28,12 @@ class Staff extends CI_Controller {
        public function staff(){
            $email=$this->input->post('email');
            $password=$this->input->post('password');
-           $user = $this->AdminModel->getStaff($email,$password);
+           $user = $this->AdminModel->getStaff($email,$password,$status);
            if(!$user == null){
             
             
                         $session_data = array(
+                                // 'status' =>$status,
                                 'email'     => $email,
                                 'logged_in' => TRUE,
                                 'isAdmin' => TRUE
@@ -273,6 +274,7 @@ class Staff extends CI_Controller {
     //            echo "Unknown error occured. Please try again.";
     //        }
     //}
+    
 
 }
 ?>

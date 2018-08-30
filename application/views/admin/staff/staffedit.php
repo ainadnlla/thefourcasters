@@ -90,6 +90,16 @@
             </select>
           </div>
       </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label" >Status</label>
+          <div class="col-md-4">
+            <select  value="<?=$emp->status?>" name="status" class="form-control">
+            <option value='<?=$emp->status?>' selected><?=$emp->status?></option>
+            <option value="1">Active</option>
+            <option value="0">Inactive</option>
+            </select>
+          </div>
+      </div>
 
       <div class="form-group">
         <label class="col-md-4 control-label" for="button1id"></label>

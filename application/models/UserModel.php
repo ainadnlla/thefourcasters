@@ -52,6 +52,7 @@ class UserModel extends CI_Model{
 
 //SEARCH
 
+//status
 }
 
 ?>
