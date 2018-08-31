@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Driver extends CI_Controller {
     public function __construct()
     {
@@ -17,21 +16,17 @@ public function logged(){
         'logged_in' => TRUE,
         'isAdmin' => TRUE
 );
-
 $this->session->set_userdata($newdata);
 }
     public function userdetails_driver($offset=0){
         if($this->session->userdata('username') !=''){ 
             
         $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
-
         $this->load->library('pagination');
         $norecs = 5;
-
         $config['base_url'] = base_url().'admin/userdetails_driver/';
         $config['total_rows'] = $this->DriverModel->getNumRecs();
         $config['per_page'] = $norecs;
-
         $config['full_tag_open'] = "<ul class='pagination'>";
         $config['full_tag_close'] ="</ul>";
         $config['num_tag_open'] = '<li>';
@@ -46,9 +41,7 @@ $this->session->set_userdata($newdata);
         $config['first_tagl_close'] = "</li>";
         $config['last_tag_open'] = "<li>";
         $config['last_tagl_close'] = "</li>";
-
         $this->pagination->initialize($config);
-
         $this->load->config('myconfig');
         $drivs = $this->DriverModel->getItems($norecs, $offset);
         
@@ -61,7 +54,6 @@ $this->session->set_userdata($newdata);
     redirect('admin/login');
 }
     }
-
     public function insert(){
         $data = $this->input->post();
         unset($data['add']);
@@ -72,7 +64,6 @@ $this->session->set_userdata($newdata);
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
             $this->form_validation->set_rules('email', 'Email Address', 'required');
             $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
-
       if ($this->form_validation->run() == FALSE)
       {
           $this->add();
@@ -83,11 +74,9 @@ $this->session->set_userdata($newdata);
             redirect('admin/userdetails_driver');
       }
     }  
-
     public function add(){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
-
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('admin/driver/driveradd');
@@ -96,11 +85,9 @@ $this->session->set_userdata($newdata);
         redirect('admin/login');
     }
     }
-
     public function edit($id){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
-
         $driv = $this->DriverModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
@@ -110,7 +97,6 @@ $this->session->set_userdata($newdata);
         redirect('admin/login');
     }
     }
-
     public function delete($Product_ID){
         if($this->session->userdata('username') !=''){ 
         $driv = $this->DriverModel->getProd($Product_ID);
@@ -122,7 +108,6 @@ $this->session->set_userdata($newdata);
         redirect('admin/login');
     }
     } 
-
     public function del($id){
         $data= $this->input->post();
         unset($data['delete']);
@@ -130,7 +115,6 @@ $this->session->set_userdata($newdata);
         $this->DriverModel->delete($id,$data);
         redirect('admin/userdetails_driver');
     }
-
     public function update($id){
         $data = $this->input->post();
         unset($data['submit']);
@@ -152,7 +136,6 @@ $this->session->set_userdata($newdata);
                 redirect('admin/userdetails_driver');
             }
         }
-
     public function do_upload(){  
         $id = $this->input->post('id');
         $data['driv'] = $this->DriverModel->getItem($id);
@@ -162,13 +145,10 @@ $this->session->set_userdata($newdata);
         $config['max_width']            = 1024;
         $config['max_height']           = 768;
         $config['file_name']           = $this->input->post('img');
-
         $this->load->library('upload', $config);
-
         if ( ! $this->upload->do_upload('itemfile'))
         {
             $error = array('error' => $this->upload->display_errors());
-
             $this->debug($error);
         }
         else
@@ -194,7 +174,6 @@ $this->session->set_userdata($newdata);
                 $this->index();
                 }
         }
-
     
         
     

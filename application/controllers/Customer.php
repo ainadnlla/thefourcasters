@@ -63,12 +63,11 @@ class Customer extends CI_Controller {
         $data = $this->input->post();
         unset($data['add']);
 
-            $this->form_validation->set_rules('name', 'First Name', 'required');
-            $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
-            $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
-            $this->form_validation->set_rules('email', 'Email Address', 'required');
-            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
-
+            $this->form_validation->set_rules('equipment', 'Equipment', 'required');
+            $this->form_validation->set_rules('customertype','Customer Type', 'required');
+            $this->form_validation->set_rules('importer', 'Customer/Importer', 'required');
+            $this->form_validation->set_rules('destination', 'Destination', 'required');
+        
       if ($this->form_validation->run() == FALSE)
       {
           $this->add();
@@ -186,7 +185,7 @@ class Customer extends CI_Controller {
                // if($this->session->userdata('email') !=''){   
         $data['title'] = 'Angelogistic Forwarder Corporation';
         $this->load->view('include/header', $data);
-        $this->load->view('include/staff_header');
+        $this->load->view('include/customer_header');
         $this->load->view('customer/homepage');
         $this->load->view('include/footer');
             //     }else{

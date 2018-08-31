@@ -1,10 +1,8 @@
 <?php
     class Email extends CI_Controller{
-
         function index(){
             $this->load->view('mode/compose');
         }
-
         function __construct() {
             parent::__construct();
             $this->load->library('session');
@@ -30,7 +28,6 @@
                 $this->session->set_flashdata("email_sent","You have encountered an error");
             $this->load->view('contact_email_form');
         }
-
         function upload_file(){
             $config['upload_path'] = 'uploads/';
             $config['allowed_types'] = 'doc|docs|jpeg|png';
