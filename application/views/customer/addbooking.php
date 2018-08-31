@@ -17,13 +17,10 @@
 <br/><br/><br>
 <!-- Select Basic -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="equipment">Equipment:</label>
-  <div class="col-md-4">
-    <select id="equipment" name="equipment" class="form-control">
-      <option value="1">Option one</option>
-      <option value="2">Option two</option>
-    </select>
-  </div>
+<label class="col-md-4 control-label" for="helper">Equipment:</label>
+<div class="col-md-4">
+<input id="equipment" name="equipment" type="text" placeholder="Equipment" class="form-control input-md" disabled>
+</div>
 </div>
 <br/><br/><br/>
 <!-- Select Basic -->
@@ -64,8 +61,8 @@
   <label class="col-md-4 control-label" for="customertype">Customer Type</label>
   <div class="col-md-4">
     <select id="customertype" name="customertype" class="form-control">
-      <option value="1">Option one</option>
-      <option value="2">Option two</option>
+      <option value="1">In-house Brokerage</option>
+      <option value="2">Walk In</option>
     </select>
   </div>
 </div>
