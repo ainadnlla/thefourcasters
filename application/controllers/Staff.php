@@ -28,10 +28,12 @@ class Staff extends CI_Controller {
        public function staff(){
            $email=$this->input->post('email');
            $password=$this->input->post('password');
-           $user = $this->AdminModel->getStaff($email,$password,$status);
-           if(!$user == null){
+           $user = $this->AdminModel->getStaff($email, $password);
+           if(!($user == null))
+           {            
             
-            
+                if($user->status == 1)
+                {
                         $session_data = array(
                                 // 'status' =>$status,
                                 'email'     => $email,
@@ -41,6 +43,18 @@ class Staff extends CI_Controller {
             
                         $this->session->set_userdata($session_data);
                         redirect('staff/homepage');
+                }
+
+                else
+                {
+
+                    $this->session->set_flashdata('error','Unauthorized Access');
+                    redirect('staff/login');
+
+                }
+
+        
+
                     }else{
                         $this->session->set_flashdata('error','Invalid Username and Password');
                redirect('staff/login');

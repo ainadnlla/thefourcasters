@@ -11,17 +11,15 @@ class AdminModel extends CI_Model{
     }
 
   //STAFF ACC
-    public function getStaff($email,$password,$status){
-    //  $this->db->where('status',$status);
-     $this->db->where('email',$email);
-     $this->db->where('password',$password);
-     $query=$this->db->get('staff');
-     if($query->num_rows()>0){
-      return true;
-    }
-    else{
-      return false;
-    }
+    public function getStaff($email, $password){
+    //   //$this->db->where('status',$status);
+    //  $this->db->where('email',$email);
+    //  $this->db->where('password',$password);
+    //  $query=$this->db->get('staff');
+
+    $query = $this->db->query("SELECT * FROM staff WHERE email = '$email' && password = '$password'");
+
+     return $query->row();
     }  
   }
   
