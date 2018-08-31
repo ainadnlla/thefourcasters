@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class CustMan extends CI_Controller {
     
-    public function index()
+    public function homepage()
     {
             $data['page_title'] = 'Angelogistics Forwarder Corporation';
             $this->load->view('include/customer_header');

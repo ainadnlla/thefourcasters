@@ -20,11 +20,15 @@
               <table id="staff" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Image</th>
-                    <th>License No.</th>
-                    <th>Insurance</th>
-                    <th>Action</th>
+                <th>Waybill</th>
+                <th>Equipment</th>
+                <th>Driver</th>
+                <th>Helper</th>
+                <th>Date</th>
+                <th>Customer Type</th>
+                <th>Importer</th>
+                <th>Destination</th>
+                <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
