@@ -218,7 +218,7 @@ class Staff extends CI_Controller {
 
     public function do_upload(){  
         $id = $this->input->post('id');
-        $data['emps'] = $this->CustomerModel->getItem($id);
+        $data['emps'] = $this->UserModel->getItem($id);
         $config['upload_path']          = './images/';
         $config['allowed_types']        = 'gif|jpg|png';
         $config['max_size']             = 100;
