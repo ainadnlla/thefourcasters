@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2018 at 07:13 PM
+-- Generation Time: Aug 31, 2018 at 02:06 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -52,6 +52,7 @@ CREATE TABLE `conductor` (
   `img` varchar(50) NOT NULL,
   `id` int(100) NOT NULL,
   `conductornum` varchar(50) NOT NULL,
+  `expire` date NOT NULL,
   `image` varchar(50) NOT NULL,
   `fname` varchar(50) NOT NULL,
   `mname` varchar(25) DEFAULT NULL,
@@ -60,6 +61,7 @@ CREATE TABLE `conductor` (
   `password` varchar(20) NOT NULL,
   `repass` varchar(20) NOT NULL,
   `gender` varchar(1) NOT NULL,
+  `date` date NOT NULL,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_type` varchar(1) NOT NULL,
@@ -70,8 +72,8 @@ CREATE TABLE `conductor` (
 -- Dumping data for table `conductor`
 --
 
-INSERT INTO `conductor` (`img`, `id`, `conductornum`, `image`, `fname`, `mname`, `lname`, `email`, `password`, `repass`, `gender`, `updated`, `created`, `user_type`, `contact`) VALUES
-('', 3, 'ACLHL000000017', '', 'Z', 'A', 'Ubaldo', 'sample@sample.com', '123456789', '123456789', 'M', '2018-07-29 01:13:32', '2018-07-29 01:13:32', '', 2147483647);
+INSERT INTO `conductor` (`img`, `id`, `conductornum`, `expire`, `image`, `fname`, `mname`, `lname`, `email`, `password`, `repass`, `gender`, `date`, `updated`, `created`, `user_type`, `contact`) VALUES
+('', 3, 'ACLHL000000017', '0000-00-00', '', 'Z', 'A', 'Ubaldo', 'sample@sample.com', '123456789', '123456789', 'M', '0000-00-00', '2018-07-29 01:13:32', '2018-07-29 01:13:32', '', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -88,6 +90,7 @@ CREATE TABLE `customer` (
   `email` varchar(50) NOT NULL,
   `contact` int(11) NOT NULL,
   `gender` varchar(1) NOT NULL,
+  `date` date NOT NULL,
   `status` varchar(1) NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -100,9 +103,9 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`, `contact`, `gender`, `status`, `created`, `updated`, `img`, `user_type`, `user_id`) VALUES
-(8, 'Xylem Water System', 'broker', '123456789', '123456789', 'XylemWaterSystem@sample.com', 999, '', '', '2018-08-28 23:51:06', '2018-08-28 23:51:06', '', 0, 0),
-(9, '123 123 123', '', '123456789', '123456789', 'a@yahoo.com', 2147483647, '', '', '2018-08-30 14:36:57', '2018-08-30 14:36:57', '', 0, 0);
+INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`, `contact`, `gender`, `date`, `status`, `created`, `updated`, `img`, `user_type`, `user_id`) VALUES
+(8, 'Xylem Water System', 'Broker/Agent', '123456789', '123456789', 'XylemWaterSystem@sample.com', 999, '', '0000-00-00', '', '2018-08-28 23:51:06', '2018-08-28 23:51:06', '', 0, 0),
+(9, '123 123 123', '', '123456789', '123456789', 'a@yahoo.com', 2147483647, '', '0000-00-00', '', '2018-08-30 14:36:57', '2018-08-30 14:36:57', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -122,15 +125,16 @@ CREATE TABLE `driver` (
   `email` varchar(50) NOT NULL,
   `contact` int(12) NOT NULL,
   `gender` varchar(1) NOT NULL,
-  `expire` date NOT NULL
+  `expire` date NOT NULL,
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `driver`
 --
 
-INSERT INTO `driver` (`img`, `id`, `drivernum`, `fname`, `mname`, `lname`, `password`, `repass`, `email`, `contact`, `gender`, `expire`) VALUES
-('', 1, 'ACLDI010987016', 'A', 'A', 'Villamor', '123456789', '123456789', 'sample@sample.com', 12354, 'M', '0000-00-00');
+INSERT INTO `driver` (`img`, `id`, `drivernum`, `fname`, `mname`, `lname`, `password`, `repass`, `email`, `contact`, `gender`, `expire`, `date`) VALUES
+('', 1, 'ACLDI010987016', 'A', 'A', 'Villamor', '123456789', '123456789', 'sample@sample.com', 12354, 'M', '0000-00-00', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -159,9 +163,10 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`id`, `img`, `fname`, `lname`, `mname`, `password`, `email`, `contact`, `gender`, `status`, `repass`, `date`, `user_id`) VALUES
-(17, '', 'c', 'c', '', '123456789', 'sample@sample.com', 100, 'M', 0, '123456789', '0000-00-00', 0),
+(17, '', 'c', 'c', '', '123456789', 'sample@sample.com', 100, 'M', 1, '123456789', '0000-00-00', 0),
 (20, '', 'Aina', 'Sales', '', '123456789', 'ainadrsales@gmail.com', 2147483647, 'F', 0, '123456789', '0000-00-00', 0),
-(21, '', 'Anthony', 'Ane', 'L.', '123456789', 'anthonyjarlane@yahoo.com', 2147483647, 'M', 0, '123456789', '0000-00-00', 0);
+(21, '', 'Anthony', 'Ane', 'L.', '123456789', 'anthonyjarlane@yahoo.com', 2147483647, 'M', 1, '123456789', '0000-00-00', 0),
+(22, 'WIN_20180324_00_50_35_Pro.jpg', 'Lanz', 'Manalo', 'O.', '123456789', 'lanzmanalo@gmail.com', 0, 'M', 1, '123456789', '2018-08-31', 0);
 
 -- --------------------------------------------------------
 
@@ -250,7 +255,7 @@ ALTER TABLE `driver`
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `truck`
