@@ -25,6 +25,14 @@
           </div>
 
     <div class="form-group">
+      <label class="col-md-4 control-label"for ="upload">Image</label>  
+      <div class="col-md-4">
+      <?php echo form_open_multipart('customer/do_upload');?>
+      <input class="form-control" type="file" name="img" size="20">
+      </div>
+    </div>
+
+    <div class="form-group">
       <label class="col-md-4 control-label"for ="name">Customer/Importer</label>  
         <div class="col-md-4">
           <input  name="name" type="text" placeholder="Customer/Importer" class="form-control input-md">
@@ -74,6 +82,14 @@
         <div class="col-md-4">
           <input name="contact" type="text" placeholder="Contact Number" class="form-control input-md">  
           <?= form_error('contact', '<span class="label label-danger">', '</span>') ?>  
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" >Customer Since</label>  
+        <div class="col-md-4">
+          <input name="date" type="date" class="form-control input-md">  
+          <?= form_error('date', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 

@@ -149,7 +149,7 @@ class Customer extends CI_Controller {
         }
         
         
-     public function login(){
+    public function login(){
             $data['title'] = 'Angelogistic Forwarder Corporation';
             $this->load->view('include/admin_header');
             $this->load->view('customer/login');
@@ -182,18 +182,59 @@ class Customer extends CI_Controller {
                    
             
             } 
-               public function homepage(){
+    public function homepage(){
                // if($this->session->userdata('email') !=''){   
-                $data['title'] = 'Angelogistic Forwarder Corporation';
-                $this->load->view('include/header', $data);
-                $this->load->view('include/staff_header');
-                $this->load->view('customer/homepage');
-                $this->load->view('include/footer');
+        $data['title'] = 'Angelogistic Forwarder Corporation';
+        $this->load->view('include/header', $data);
+        $this->load->view('include/staff_header');
+        $this->load->view('customer/homepage');
+        $this->load->view('include/footer');
             //     }else{
             //        redirect('staff/login');
             //    }
-               }
-               
+    }
+    
+    public function do_upload(){  
+        $id = $this->input->post('id');
+        $data['cust'] = $this->CustomerModel->getItem($id);
+        $config['upload_path']          = './images/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 100;
+        $config['max_width']            = 1024;
+        $config['max_height']           = 768;
+        $config['file_name']           = $this->input->post('img');
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('itemfile'))
+        {
+            $error = array('error' => $this->upload->display_errors());
+
+            $this->debug($error);
+        }
+        else
+        {
+                $upload_data = $this->upload->data();
+                $config['image_library'] = 'gd2';
+                $config['source_image'] = './uploads/'.$upload_data['file_name'];
+                $config['create_thumb'] = TRUE;
+                $config['maintain_ratio'] = TRUE;
+                $config['width']         = 100;
+                $config['height']       = 100;
+                $config['thumb_marker'] = '';
+                $config['new_image'] = './uploads_thumbs/';
+                $this->load->library('image_lib');
+                $this->load->lib->initialize($config2);
+                
+                if ( ! $this->image_lib->resize())
+                {
+                    echo $this->image_lib->display_errors(); die();
+                }
+                $data['image']=$upload_data[file_name];
+                $this->CustomerModel->insert($data);
+                $this->index();
+                }
+        }
             
 
 }

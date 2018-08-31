@@ -20,24 +20,28 @@
               <table id="driver" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                    <th>Driver #</th>
-                    <th>First Name</th>
-                    <th>Middle Name</th>
-                    <th>Last Name</th>
+                    <th>ID</th>
+                    <th>Profile</th>
+                    <th>Full Name</th>
+                    <th>License #</th>
+                    <th>Expiration</th>
                     <th>Email Address</th>
                     <th>Contact Number</th>
+                    <th>Employment Date</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php foreach($drivs as $driv): ?>
                     <tr>
+                        <td><?= $driv->id?></td>
+                        <td><img src="<?=base_url().'images/'.$driv->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
+                        <td><?= $driv->fname?> <?= $driv->mname?> <?= $driv->lname?></td>
                         <td><?= $driv->drivernum?></td>
-                        <td><?= $driv->fname?></td>
-                        <td><?= $driv->mname?></td>
-                        <td><?= $driv->lname?></td>
+                        <td><?= $driv->expire?></td>
                         <td><?= $driv->email?></td>                            
                         <td><?= $driv->contact?></td>
+                        <td><?= $driv->date?></td>
 
                         <td>
                         <a href="<?= base_url().'driver/edit/'.$driv->id?>" class="btn btn-warning" role="button">

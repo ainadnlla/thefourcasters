@@ -216,6 +216,78 @@ class Staff extends CI_Controller {
     }
     }
 
+    public function do_upload(){  
+        $id = $this->input->post('id');
+        $data['emps'] = $this->CustomerModel->getItem($id);
+        $config['upload_path']          = './images/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 100;
+        $config['max_width']            = 1024;
+        $config['max_height']           = 768;
+        $config['file_name']           = $this->input->post('img');
+    
+        $this->load->library('upload', $config);
+    
+            if ( ! $this->upload->do_upload('itemfile'))
+            {
+                $error = array('error' => $this->upload->display_errors());
+    
+                $this->debug($error);
+            }
+            else
+            {
+                $upload_data = $this->upload->data();
+                $config['image_library'] = 'gd2';
+                $config['source_image'] = './uploads/'.$upload_data['file_name'];
+                $config['create_thumb'] = TRUE;
+                $config['maintain_ratio'] = TRUE;
+                $config['width']         = 100;
+                $config['height']       = 100;
+                $config['thumb_marker'] = '';
+                $config['new_image'] = './uploads_thumbs/';
+                $this->load->library('image_lib');
+                $this->load->lib->initialize($config2);
+                    
+                    if ( ! $this->image_lib->resize())
+                    {
+                        echo $this->image_lib->display_errors(); die();
+                    }
+                $data['image']=$upload_data[file_name];
+                $this->UserModel->insert($data);
+                $this->index();
+            }
+        }
+
+    //public function approve(){
+    //    $id = $_GET['id'];
+    //    $query = "select * from `requests` where `id` = '$id'; ";
+    //    if(count(fetchAll($query)) > 0){
+    //       foreach(fetchAll($query) as $row){
+    //           $firstname = $row['firstname'];
+    //            $lastname = $row['lastname'];
+    //            $email = $row['email'];
+    //            $password = $row['password'];
+    //            $query = "INSERT INTO `accounts` (`id`, `firstname`, `lastname`, `email`, `type`, `password`) VALUES (NULL, '$firstname', '$lastname', '$email', 'user', '$password');";
+    //        }
+    //        $query .= "DELETE FROM `requests` WHERE `requests`.`id` = '$id';";
+    //        if(performQuery($query)){
+    //            echo "Booking has been accepted.";
+    //        }else{
+    //           echo "Unknown error occured. Please try again.";
+    //        }
+    //    }
+    //}
+
+    //public function remove(){
+    //    $id = $_GET['id'];
+        
+    //    $query = "DELETE FROM `requests` WHERE `requests`.`id` = '$id';";
+    //        if(performQuery($query)){
+    //            echo "Booking has been rejected.";
+    //        }else{
+    //            echo "Unknown error occured. Please try again.";
+    //        }
+    //}
     
 
 }

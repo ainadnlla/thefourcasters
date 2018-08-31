@@ -30,12 +30,12 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>First Name</th>
-                    <th>Middle Name</th>
-                    <th>Last Name</th>
+                    <th>Profile</th>
+                    <th>Full Name</th>
                     <th>Email Address</th>
                     <th>Contact Number</th>
                     <th>Gender</th>
+                    <th>Employed Date</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -44,12 +44,12 @@
                 <?php foreach($emps as $emp): ?>
                     <tr>
                         <td><?= $emp->id?></td>
-                        <td><?= $emp->fname?></td>
-                        <td><?= $emp->mname?></td>
-                        <td><?= $emp->lname?></td>
+                        <td><img src="<?=base_url().'images/'.$emp->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
+                        <td><?= $emp->fname?> <?= $emp->mname?> <?= $emp->lname?></td>
                         <td><?= $emp->email?></td>                            
                         <td><?= $emp->contact?></td>
                         <td><?= $emp->gender?></td>
+                        <td><?= $emp->date?></td>
                         <td> <?php 
                         if($emp->status==1){
                           ?>
