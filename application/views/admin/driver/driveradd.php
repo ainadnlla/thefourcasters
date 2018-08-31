@@ -25,10 +25,18 @@
           </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label"for ="drivernum">Driver #</label>  
+      <label class="col-md-4 control-label"for ="drivernum">Driver's License #</label>  
         <div class="col-md-4">
           <input  name="drivernum" type="text" placeholder="Driver #" class="form-control input-md">
           <?= form_error('drivernum', '<span class="label label-danger">', '</span>') ?>  
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" >Expiration Date</label>  
+        <div class="col-md-4">
+          <input name="expire" type="date" class="form-control input-md">  
+          <?= form_error('expire', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
@@ -95,6 +103,14 @@
             <option value="M">Male</option>
             <option value="F">Female</option>
           </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" >Employee Since</label>  
+        <div class="col-md-4">
+          <input name="date" type="date" class="form-control input-md">  
+          <?= form_error('date', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 

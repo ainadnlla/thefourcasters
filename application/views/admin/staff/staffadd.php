@@ -25,6 +25,14 @@
           </div>
 
     <div class="form-group">
+      <label class="col-md-4 control-label"for ="upload">Image</label>  
+      <div class="col-md-4">
+      <?php echo form_open_multipart('staff/do_upload');?>
+      <input class="form-control" type="file" name="img" size="20" >
+      </div>
+    </div>
+
+    <div class="form-group">
       <label class="col-md-4 control-label"for ="fname">First Name</label>  
         <div class="col-md-4">
           <input  name="fname" type="text" placeholder="First Name" class="form-control input-md">
@@ -88,6 +96,14 @@
             <option value="M">Male</option>
             <option value="F">Female</option>
           </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" >Employee Since</label>  
+        <div class="col-md-4">
+          <input name="date" type="date" class="form-control input-md">  
+          <?= form_error('date', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 

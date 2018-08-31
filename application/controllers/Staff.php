@@ -239,7 +239,7 @@ class Staff extends CI_Controller {
                         echo $this->image_lib->display_errors(); die();
                     }
                 $data['image']=$upload_data[file_name];
-                $this->StaffModel->insert($data);
+                $this->UserModel->insert($data);
                 $this->index();
             }
         }

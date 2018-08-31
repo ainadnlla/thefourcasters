@@ -41,7 +41,7 @@
                         <td><?= $driv->expire?></td>
                         <td><?= $driv->email?></td>                            
                         <td><?= $driv->contact?></td>
-                        <td>DATE</td>
+                        <td><?= $driv->date?></td>
 
                         <td>
                         <a href="<?= base_url().'driver/edit/'.$driv->id?>" class="btn btn-warning" role="button">
