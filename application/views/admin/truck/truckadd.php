@@ -28,7 +28,7 @@
       <label class="col-md-4 control-label"for ="upload">Image</label>  
       <div class="col-md-4">
       <?php echo form_open_multipart('truck/do_upload');?>
-      <input  class="form-control" type="file" name="img" size="20">
+      <input class="form-control" type="file" name="img" size="20">
       </div>
     </div>
 

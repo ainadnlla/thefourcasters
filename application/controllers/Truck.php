@@ -9,17 +9,24 @@ class Truck extends CI_Controller {
             
     }
     public function insert(){
-        $data = $this->input->post();
-        unset($data['add']);
+        $item = array (
+            'img' => 'default.jpg',
+            'license_no' => $this->input->post('license_no'),
+            'insurance' => $this->input->post('insurance'),
+        );
+
+      /*  $data = $this->input->post();
+        unset($data['add']); */
         $this->form_validation->set_rules('license_no', 'License Number', 'required');
         $this->form_validation->set_rules('insurance', 'Insurance Date', 'required');
-      if ($this->form_validation->run() == FALSE)
+      
+        if ($this->form_validation->run() == FALSE)
       {
           $this->add();
       }
       else
       {
-            $this->TruckModel->insert($data);
+            $this->TruckModel->insert($item);
             redirect('admin/truckdetails');
       }
     }  
@@ -68,7 +75,8 @@ class Truck extends CI_Controller {
         $config['max_size']             = 100;
         $config['max_width']            = 1024;
         $config['max_height']           = 768;
-        $config['file_name']           = $this->input->post('img');
+        $config['file_name']            = $data['truck']->id;
+        
         $this->load->library('upload', $config);
         if ( ! $this->upload->do_upload('itemfile'))
         {
@@ -77,7 +85,11 @@ class Truck extends CI_Controller {
         }
         else
         {
-                $upload_data = $this->upload->data();
+
+            $data = $this->upload->data();
+            $this->TruckModel->update($id,array('img' => $data['file_name']));
+            $this->index();       
+           /*     $upload_data = $this->upload->data();
                 $config['image_library'] = 'gd2';
                 $config['source_image'] = './uploads/'.$upload_data['file_name'];
                 $config['create_thumb'] = TRUE;
@@ -95,7 +107,7 @@ class Truck extends CI_Controller {
                 }
                 $data['image']=$upload_data[file_name];
                 $this->TruckModel->insert($data);
-                $this->index();
+                $this->index(); */
                 }
         }
 }
