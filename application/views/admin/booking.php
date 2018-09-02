@@ -76,10 +76,6 @@
             </tfoot>
           <?php endforeach; ?> 
           </table>
-          <div class="box-footer">
-            <a href="<?=base_url().'bookingadmin/add' ?>" class="btn btn-success btn-block btn-sm" role="button">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Truck Details</a>
-            </div>
 
             <center><?php echo $this->pagination->create_links();?></center>
         </div>
