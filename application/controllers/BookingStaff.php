@@ -13,6 +13,8 @@ class Booking extends CI_Controller {
             $this->load->model('AdminModel');
             $this->load->model('BookingModel');
     }
+
+// STAFF SIDE - BOOKING
     
     public function insert(){
         $data = $this->input->post();
@@ -35,23 +37,23 @@ class Booking extends CI_Controller {
       }
     }  
     public function add(){
-        // if($this->session->userdata('username') !=''){ 
-        $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
+        if($this->session->userdata('username') !=''){ 
+        $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
         $this->load->view('include/header', $data);
         $this->load->view('include/staff_header');
         $this->load->view('staff/booking/addbooking');
         $this->load->view('include/footer');
-    // }else{
-    //     redirect('customer/login');
-    // }
+        }else{
+            redirect('staff/login');
+        }
     }
     public function edit($id){
         if($this->session->userdata('username') !=''){ 
-        $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
-        $book = $this->BookingModel->getProd($id);
+        $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
+        $books = $this->BookingModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/staff_header');
-        $this->load->view('staff/booking/editbooking',compact('book'));
+        $this->load->view('staff/booking/editbooking',compact('books'));
         $this->load->view('include/footer');
     }else{
         redirect('staff/login');
@@ -59,10 +61,10 @@ class Booking extends CI_Controller {
     }
     public function delete($id){
         if($this->session->userdata('username') !=''){ 
-        $book = $this->BookingModel->getProd($id);
+        $books = $this->BookingModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/staff_header');
-        $this->load->view('staff/booking/deletebooking',compact('book'));
+        $this->load->view('staff/booking/deletebooking',compact('books'));
         $this->load->view('include/footer');
     }else{
         redirect('staff/login');
@@ -72,7 +74,7 @@ class Booking extends CI_Controller {
     public function del($id){
             $data= $this->input->post();
             unset($data['delete']);
-            $book = $this->uri->segment(4);
+            $books = $this->uri->segment(4);
             $this->BookingModel->delete($id,$data);
             redirect('staff/booking');
      }

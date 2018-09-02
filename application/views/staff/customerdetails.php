@@ -54,7 +54,7 @@
                         </td>
 
                         <td>
-                        <a href="<?= base_url().'staffedit/'.$cust->id?>" class="btn btn-default btn.lg" role="button">
+                        <a href="<?= base_url().'staff/edit/'.$cust->id?>" class="btn btn-default btn.lg" role="button">
                         <span class="fa fa-edit" aria-hidden="true">
                         </span></a>
 

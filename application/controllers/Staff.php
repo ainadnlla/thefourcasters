@@ -352,11 +352,11 @@ class Staff extends CI_Controller {
             $this->pagination->initialize($config);
     
             $this->load->config('myconfig');
-            $book =  $this->BookingModel->getItems($norecs, $offset);
+            $books =  $this->BookingModel->getItems($norecs, $offset);
 
             $this->load->view('include/header', $data);
             $this->load->view('include/staff_header');
-            $this->load->view('staff/booking',compact('book'));
+            $this->load->view('staff/booking',compact('books'));
             $this->load->view('include/footer');
         }else{
             redirect('staff/login');

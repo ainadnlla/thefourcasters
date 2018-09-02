@@ -48,10 +48,10 @@ class Booking extends CI_Controller {
     public function edit($id){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
-        $book = $this->BookingModel->getProd($id);
+        $books = $this->BookingModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/customer_header');
-        $this->load->view('customer/booking/editbooking',compact('book'));
+        $this->load->view('customer/booking/editbooking',compact('books'));
         $this->load->view('include/footer');
     }else{
         redirect('customer/login');
@@ -59,10 +59,10 @@ class Booking extends CI_Controller {
     }
     public function delete($id){
         if($this->session->userdata('username') !=''){ 
-        $book = $this->BookingModel->getProd($id);
+        $books = $this->BookingModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/customer');
-        $this->load->view('customer/booking/deletebooking',compact('book'));
+        $this->load->view('customer/booking/deletebooking',compact('books'));
         $this->load->view('include/footer');
     }else{
         redirect('customer/login');
@@ -72,7 +72,7 @@ class Booking extends CI_Controller {
     public function del($id){
             $data= $this->input->post();
             unset($data['delete']);
-            $book = $this->uri->segment(4);
+            $books = $this->uri->segment(4);
             $this->BookingModel->delete($id,$data);
             redirect('customer/booking');
      }

@@ -549,11 +549,11 @@ class Admin extends CI_Controller {
             $this->pagination->initialize($config);
     
             $this->load->config('myconfig');
-            $book =  $this->BookingModel->getItems($norecs, $offset);
+            $books =  $this->BookingModel->getItems($norecs, $offset);
 
             $this->load->view('include/header', $data);
             $this->load->view('include/header_nav');
-            $this->load->view('admin/booking',compact('book'));
+            $this->load->view('admin/booking',compact('books'));
             $this->load->view('include/footer');
         }else{
             redirect('admin/login');
