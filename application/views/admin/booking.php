@@ -2,7 +2,7 @@
     <section class="content-header">
       <h1>Booking Delivery</h1>
       <ol class="breadcrumb">
-        <li><a href="<?=base_url().'customer/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
         <li class="active">Booking Delivery</a></li>
       </ol>
     </section>
@@ -17,7 +17,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="customer" class="table table-bordered table-hover">
+              <table id="admin" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th>ID</th>

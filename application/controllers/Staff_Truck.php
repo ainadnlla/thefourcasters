@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Truck extends CI_Controller {
+class Staff_Truck extends CI_Controller {
     public function __construct()
     {
             parent::__construct();
@@ -11,7 +11,6 @@ class Truck extends CI_Controller {
             $this->load->model('TruckModel');
             $this->load->model('AdminModel');
             $this->load->model('BookingModel');
-            
     }
     public function insert(){
         $item = array (
@@ -32,22 +31,22 @@ class Truck extends CI_Controller {
       else
       {
             $this->TruckModel->insert($item);
-            redirect('admin/truckdetails');
+            redirect('staff/truckdetails');
       }
     }  
     public function add(){
         $data['title'] = 'Truck Details | Angelogistic Forwarder Corporation';
         $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav');
-        $this->load->view('admin/truck/truckadd');
+        $this->load->view('include/staff_header');
+        $this->load->view('staff/truck/truckadd');
         $this->load->view('include/footer');
     }
     public function edit($id){
         $data['title'] = 'Truck Details | Angelogistic Forwarder Corporation';
         $truck = $this->TruckModel->getProd($id);
         $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav');
-        $this->load->view('admin/truck/truckedit',compact('truck'));
+        $this->load->view('include/staff_header');
+        $this->load->view('staff/truck/truckedit',compact('truck'));
         $this->load->view('include/footer');
     }
     public function del($id){
@@ -55,7 +54,7 @@ class Truck extends CI_Controller {
         unset($data['delete']);
         $truck = $this->uri->segment(4);
         $this->TruckModel->delete($id,$data);
-        redirect('admin/truckdetails');
+        redirect('staff/truckdetails');
     }
     public function update($id){
         $data = $this->input->post();
@@ -69,7 +68,7 @@ class Truck extends CI_Controller {
             else
             {
                 $this->TruckModel->update($id, $data);
-                redirect('admin/truckdetails');
+                redirect('staff/truckdetails');
             }
     }
     public function do_upload(){  

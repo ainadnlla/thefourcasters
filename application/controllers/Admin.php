@@ -11,13 +11,16 @@ class Admin extends CI_Controller {
             $this->load->model('ConductorModel');
             $this->load->model('TruckModel');
             $this->load->model('AdminModel');
+            $this->load->model('BookingModel');
     }
+
+// ADMIN SIDE
 
 	public function login(){
 
-        $this->load->view('include/admin_header');
+        $this->load->view('include/login_header');
         $this->load->view('admin/login');
-        $this->load->view('include/admin_footer');
+        $this->load->view('include/footer');
         if($this->session->userdata('username') !=''){ 
             redirect('admin/homepage');
         }else{
@@ -149,19 +152,6 @@ class Admin extends CI_Controller {
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('admin/truckgps');
-        $this->load->view('include/footer');
-    }else{
-        redirect('admin/login');
-    }
-    }
-
-    public function truckdelivery(){  
-        if($this->session->userdata('username') !=''){  
-        $data['title'] = 'Truck Delivery | Angelogistic Forwarder Corporation';
-  
-        $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav');
-        $this->load->view('admin/truckdelivery');
         $this->load->view('include/footer');
     }else{
         redirect('admin/login');
@@ -392,6 +382,46 @@ class Admin extends CI_Controller {
         redirect('admin/login');
     }
     }
+
+    public function booking($offset=0){
+        if($this->session->userdata('username') !=''){ 
+            $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
+
+            $this->load->library('pagination');
+            $norecs = 5;
+    
+            $config['base_url'] = base_url().'admin/booking/';
+            $config['total_rows'] = $this->BookingModel->getNumRecs();
+            $config['per_page'] = $norecs;
+    
+            $config['full_tag_open'] = '<ul class="pagination">';
+            $config['full_tag_close'] = '</ul>';
+            $config['prev_link'] = '&laquo;';
+            $config['prev_tag_open'] = '<li>';
+            $config['prev_tag_close'] = '</li>';
+            $config['next_tag_open'] = '<li>';
+            $config['next_tag_close'] = '</li>';
+            $config['cur_tag_open'] = '<li class="active"><a href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            $config['num_tag_open'] = '<li>';
+            $config['num_tag_close'] = '</li>';
+    
+            $this->pagination->initialize($config);
+    
+            $this->load->config('myconfig');
+            $book =  $this->BookingModel->getItems($norecs, $offset);
+
+            $this->load->view('include/header', $data);
+            $this->load->view('include/header_nav');
+            $this->load->view('admin/booking',compact('book'));
+            $this->load->view('include/footer');
+        }else{
+            redirect('admin/login');
+        }
+    } 
+
+
+// STAFF CRUD
 
     public function insert(){
         $data = $this->input->post();

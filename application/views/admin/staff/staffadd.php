@@ -3,6 +3,7 @@
       <h1>Staff Details</h1>
         <ol class="breadcrumb">
           <li><a href="<?=base_url().'admin/userdetails'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+          <li><a href="<?=base_url().'admin/userdetails'?>">User Details</a></li>
           <li><a href="<?=base_url().'admin/userdetails_staff'?>">Staff Details</a></li>
           <li class="active">Add</a></li>
         </ol>

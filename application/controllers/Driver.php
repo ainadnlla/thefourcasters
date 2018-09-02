@@ -4,10 +4,13 @@ class Driver extends CI_Controller {
     public function __construct()
     {
             parent::__construct();
-            $this->load->model('DriverModel');
-            $this->load->model('CustomerModel');
             $this->load->model('UserModel');
+            $this->load->model('CustomerModel');
+            $this->load->model('DriverModel');
+            $this->load->model('ConductorModel');
+            $this->load->model('TruckModel');
             $this->load->model('AdminModel');
+            $this->load->model('BookingModel');
     }
 public function logged(){
     $newdata = array(

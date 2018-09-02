@@ -33,7 +33,7 @@
                     <th>Profile</th>
                     <th>Full Name</th>
                     <th>Email Address</th>
-                    <th>Contact Number</th>
+                    <th>Contact No.</th>
                     <th>Gender</th>
                     <th>Employed Date</th>
                     <th>Status</th>
@@ -50,27 +50,25 @@
                         <td><?= $emp->contact?></td>
                         <td><?= $emp->gender?></td>
                         <td><?= $emp->date?></td>
-                        <td> <?php 
-                        if($emp->status==1){
-                          ?>
-                        <div class="label label-success">
-                          <strong>Active</strong>
+                        <td><p>
+                        <?php if($emp->status==1){ ?>
+                          <div class="label label-success">
+                            <strong>Active</strong>
                           </div>
-                        <?php }elseif($emp->status==0){?>
-                        <div class="label label-danger">
-                        <strong>Inactive</strong>
-                        </div>
-                        <?php
-                      }?>
-
+                        <?php }elseif($emp->status==0){ ?>
+                          <div class="label label-danger">
+                            <strong>Inactive</strong>
+                          </div></p>
+                        <?php }?>
+                        </td>
                         <td>
-                        <a href="<?= base_url().'admin/edit/'.$emp->id?>" class="btn btn-warning" role="button">
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true">
+                        <a href="<?= base_url().'admin/edit/'.$emp->id?>" class="btn btn-default btn.lg" role="button">
+                        <span class="fa fa-edit" aria-hidden="true">
                         </span></a>
                         
-                        <a href="<?=base_url('admin/del/'.$emp->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
+                        <!-- <a href="<?=base_url('admin/del/'.$emp->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
-                        </span></a>
+                        </span></a> -->
                         </td>
                     </tr>        
                 <?php endforeach; ?> 

@@ -31,23 +31,18 @@
                 <?php foreach($trucks as $truck): ?>
                         <tr>
                             <td><?= $truck->id?></td>
-                            <td><?= $truck->img?></td>
+                            <td><img src="<?=base_url().'images/'.$truck->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
                             <td><?= $truck->license_no?></td>
                             <td><?= $truck->insurance?></td>
                             <td>
-                            <a href="<?= base_url().'staff/view/'.$truck->id?>" class="btn btn-primary" role="button">
-                            <span class="glyphicon glyphicon-search" aria-hidden="true">
-                            </span></a>
 
-                            <a href="<?= base_url().'staff/edit/'.$truck->id?>"
-                         class="btn btn-warning" role="button">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true">
+                            <a href="<?= base_url().'staff_truck/edit/'.$truck->id?>" class="btn btn-default btn.lg" role="button">
+                            <span class="fa fa-edit" aria-hidden="true">
                             </span></a>
-                            <?php $onclick = array('onclick'=>"return confirm('Are you sure?')");?>
-                            <a href="<?=base_url('staff/delete/'.$trucks->id)?>" class="btn btn-danger" role="button">
-                            <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
-                            </span></a>
-                            
+                            <!-- <?php $onclick = array('onclick'=>"return confirm('Are you sure?')");?>
+                        <a href="<?=base_url('staff_truck/del/'.$truck->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
+                        </span></a> -->
                             </td>
                         </tr>
                          
@@ -55,11 +50,12 @@
                     
                 </tfoot>
               </table>
-            </div>
-                <div class="box-footer">
-                <a href="truck/add" class="btn btn-success" role="button">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Truck</a>
+              <div class="box-footer">
+                <a href="<?=base_url()?>staff_truck/add" class="btn btn-success btn-block btn-sm" role="button">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Truck Details</a>
                 </div>
+
+                <center><?php echo $this->pagination->create_links();?></center>
             </div>
           </div>
         </div>       

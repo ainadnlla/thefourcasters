@@ -8,73 +8,85 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
-      <!-- Small boxes (Stat box) -->
-      <div class="row">
-      <div class="col-md-12">
-        </br></br>
-        <div class="col-lg-6">
+  <section class="content">
+    <div class="row">
+      <div class="col-md-6 col-xs-12">
+          <div class="box box-success collapsed-box">
+            <div class="box-header with-border">
+              <h3 class="box-title"><b><i>Company Mission</i></b></h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="box-body">
+              To be a leading Manila-based cargo forwarder, logistics provider,
+              customs broker and tariff consultant.
+            </div>
+          </div>
+      </div>
+
+      <div class="col-md-6 col-xs-12">
+          <div class="box box-success collapsed-box">
+            <div class="box-header with-border">
+              <h3 class="box-title"><b><i> Company Vision</i></b></h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="box-body">
+              The Pursuit of Reliability, Efficiency, Personalized Service and Trustworthiness.
+            </div>
+          </div>
+      </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-xs-12">
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>Staff Details</h3>
-
-              <p>Information</p>
+              <h1><b>Staff<br/>Details</b></h1>
+              <br/><br/><br/><br/>
             </div>
-            <div class="icon">
+            <div class="icon"><br/>
               <i class="ion ion-person-add"></i>
             </div>
             <a href="<?=base_url().'admin/userdetails_staff'?>" class="small-box-footer">Proceed <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <!-- ./col -->
-        <div class="col-lg-6">
           <!-- small box -->
-          <div class="small-box bg-green">
+        <div class="col-md-4 col-xs-12">
+          <div class="small-box bg-red">
             <div class="inner">
-            <h3>Customer Details</h3>
-
-              <p>Information</p>
+              <h1><b>Customer<br/>Details</b></h1>
+              <br/><br/><br/><br/>
             </div>
-            <div class="icon">
+            <div class="icon"><br/>
               <i class="ion ion-person-add"></i>
             </div>
             <a href="<?=base_url().'admin/userdetails_customer'?>" class="small-box-footer">Proceed <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <!-- ./col -->
-        <div class="col-lg-6">
           <!-- small box -->
+        <div class="col-md-4 col-xs-12">
           <div class="small-box bg-yellow">
             <div class="inner">
-            <h3>Truck Driver Details</h3>
-
-              <p>Information</p>
+              <h1><b>Driver & Helper<br/>Details</b></h1>
+              <br/><br/><br/><br/>
             </div>
-            <div class="icon">
+            <div class="icon"><br/>
               <i class="ion ion-person-add"></i>
             </div>
             <a href="<?=base_url().'admin/userdetails_driver'?>" class="small-box-footer">Proceed <i class="fa fa-arrow-circle-right"></i></a>
           </div>
-        </div>
-        <div class="col-lg-6">
-          <!-- small box -->
-          <div class="small-box bg-red">
-            <div class="inner">
-            <h3>Truck Helper Details</h3>
-
-              <p>Information</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="<?=base_url().'admin/userdetails_conductor'?>" class="small-box-footer">Proceed <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-
-        </div>
       </div>
-    </section>
+    </div>
+
+    
+
+  </section>
 </div>
 
   <footer class="main-footer">
