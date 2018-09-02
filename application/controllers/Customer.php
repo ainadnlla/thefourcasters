@@ -46,10 +46,10 @@ class Customer extends CI_Controller {
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('admin/customer/customeradd');
+        $this->load->view('customer/booking/addbooking');
         $this->load->view('include/footer');
         }else{
-            redirect('admin/login');
+            redirect('customer/login');
         }
     }
     public function edit($id){

@@ -28,30 +28,44 @@
                   <th>Cargo Size</th>
                   <th>Truck</th>
                   <th>Plate No.</th>
+                  <th>Driver No.</th>
                   <th>Driver Name</th>
-                  <th>license No.</th>
-                  <th>Helper Name</th>
-                  <th>license No.</th>
+                  <th>Conductor No.</th>
+                  <th>Conductor Name</th>
+                  <th>Destination</th>
                   <th>Price</th>
+                  <th>Status</th>
                 </tr>
                 </thead>
+                <?php foreach($book as $book): ?>
                 <tbody>
                 <tr>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
+                  <th><?= $book->id?></th>
+                  <th><?= $book->waybill?></th>
+                  <th><?= $book->date?></th>
+                  <th><?= $book->cust_type?></th>
+                  <th><?= $book->name?></th>
+                  <th><?= $book->cargo?></th>
+                  <th><?= $book->truck?></th>
+                  <th><?= $book->plate_no?></th>
+                  <th><?= $book->driver_no?></th>
+                  <th><?= $book->driver_name?></th>
+                  <th><?= $book->cond_no?></th>
+                  <th><?= $book->condname?></th>
+                  <th><?= $book->price?></th>
+                  <th><p>
+                        <?php if($book->status==1){ ?>
+                          <div class="label label-success">
+                            <strong>Active</strong>
+                          </div>
+                        <?php }elseif($book->status==0){ ?>
+                          <div class="label label-danger">
+                            <strong>Inactive</strong>
+                          </div></p>
+                        <?php }?></th>
                 </tr>
                 </tfoot>
+              <?php endforeach; ?> 
               </table>
               <div class="box-footer">
                 <a href="<?=base_url()?>booking/add" class="btn btn-success btn-block btn-sm" role="button">
@@ -64,7 +78,7 @@
         </div>       
     </section>
 </div>
-
+</div></center>
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>The Fourcasters</b>
