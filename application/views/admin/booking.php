@@ -38,7 +38,7 @@
               <th>Action</th>
             </tr>
             </thead>
-            <?php foreach($book as $book): ?>
+            <?php foreach($books as $book): ?>
             <tbody>
             <tr>
               <th><?= $book->id?></th>
