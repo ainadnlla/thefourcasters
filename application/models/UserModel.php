@@ -21,7 +21,7 @@ class UserModel extends CI_Model{
 
     public function editItems($id, $data){
             $this->db->where('id', $id);
-            $this->db->update('thesis', $data);
+            $this->db->update('staff', $data);
         }
 
     public function getProd($id)

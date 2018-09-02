@@ -70,7 +70,7 @@
               </table>
             </div>
                 <div class="box-footer">
-                <a href="<?=base_url()?>customer/addbooking" class="btn btn-success btn-block btn-sm" role="button">
+                <a href="<?=base_url()?>customer/add" class="btn btn-success btn-block btn-sm" role="button">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Customer</a>
                 </div>
                  <center><?php echo $this->pagination->create_links();?></center>

@@ -24,25 +24,19 @@
             </div>
           </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label class="col-md-4 control-label" for="name">Customer/Importer</label>  
             <div class="col-md-4">
-              <input id="custname" name="custname" type="text" placeholder="Customer/Importer" class="form-control input-md" disabled> 
+              <input <?=$this->session->name?> name="custname" type="text" placeholder="Customer/Importer" class="form-control input-md" disabled> 
             </div>
         </div>
 
         <div class="form-group">
           <label class="col-md-4 control-label" for="customertype">Customer Type</label>
             <div class="col-md-4">
-              <select id="cust_type" name="customertype" class="form-control" disabled>
-              <option Selected disabled="disabled" >Customer Type</option>
-              <option value="In-house Brokerage">In-house Brokerage</option>
-              <option value="Broker/Agent">Broker/Agent</option>
-              <option value="Freight Forwarder">Freight Forwarder</option>
-              <option value="Local/Sub-contractor">Local/Sub-contractor</option>
-              </select>
+            <input <?=$this->session->cust_type?> name="cust_type" type="text" placeholder="Customer Type" class="form-control input-md" disabled> 
             </div>
-        </div>
+        </div> -->
 
         <div class="form-group">
           <label class="col-md-4 control-label" for="product">Product Type</label>  
@@ -53,10 +47,10 @@
         </div>
 
         <div class="form-group">
-          <label class="col-md-4 control-label" for="product">Description</label>  
+          <label class="col-md-4 control-label" for="description">Description</label>  
             <div class="col-md-4">
-              <textarea class="form-control input-md" id="product" name="product" type="text" placeholder="Decription"></textarea>
-              <?= form_error('product', '<span class="label label-danger">', '</span>') ?>  
+              <input class="form-control input-md" id="description" name="description" type="text" placeholder="Decription">
+              <?= form_error('description', '<span class="label label-danger">', '</span>') ?>  
           </div>
         </div>
 
@@ -91,12 +85,11 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label class="col-md-4 control-label" for="price">Price</label>
             <div class="col-md-4">
-              <input id="price" name="price" type="text" placeholder="Price" class="form-control input-md" disabled>
-            </div>
-        </div>
+            <input name="price" type="text" placeholder="Price" class="form-control input-md" disabled>             </div>
+        </div> -->
 
         <div class="form-group">
           <label class="col-md-4 control-label" for=""></label>

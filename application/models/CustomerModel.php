@@ -6,28 +6,28 @@ class CustomerModel extends CI_Model{
 //INSERT
 
     public function insert($data){
-        $this->db->insert('booking', $data);
+        $this->db->insert('customer', $data);
         }
 
     public function insertUser($data){
-        $this->db->insert('booking', $data);
+        $this->db->insert('customer', $data);
         } 
 
 //UPDATE
     public function update($id ,$data){
         $this->db->where('id' , $id);
-        $this->db->update('booking' , $data);
+        $this->db->update('customer' , $data);
         }   
 
     public function editItems($id, $Product){
             $this->db->where('id', $id);
-            $this->db->update('booking', $data);
+            $this->db->update('customer', $data);
         }
 
     public function getProd($id)
     {
   
-        $query = $this->db->get_where('booking', array('id' => $id));
+        $query = $this->db->get_where('customer', array('id' => $id));
         return $query->row();
   
     }
@@ -35,19 +35,19 @@ class CustomerModel extends CI_Model{
 // PAGINATION
    
    public function getItems($norecs, $offset){
-    $query = $this->db->get('booking', $norecs, $offset);
+    $query = $this->db->get('customer', $norecs, $offset);
     return $query->result();
     }
 
     public function getNumRecs(){
-    return $this->db->count_all('booking');
+    return $this->db->count_all('customer');
     }
 
 //DELETE    
 
     public function delete($id,$data){
         $this->db->where('id', $id);
-        $this->db->delete('booking');
+        $this->db->delete('customer');
     }
 }
 
