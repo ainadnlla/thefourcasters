@@ -37,6 +37,7 @@
             <div class="col-md-4">
             <?php echo form_open_multipart('driver/do_upload');?>
             <input class="form-control" type="file" name="img" size="20" >
+            <?= form_error('img', '<span class="label label-danger">', '</span>') ?>  
             </div>
           </div>
       <div>

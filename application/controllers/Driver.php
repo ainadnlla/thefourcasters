@@ -146,6 +146,7 @@ $this->session->set_userdata($newdata);
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
             $this->form_validation->set_rules('email', 'Email Address', 'required');
             $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
+            $this->form_validation->set_rules('img', 'Image', 'required');
             
             if ($this->form_validation->run() == FALSE)
             {
