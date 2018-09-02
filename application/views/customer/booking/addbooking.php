@@ -45,6 +45,22 @@
         </div>
 
         <div class="form-group">
+          <label class="col-md-4 control-label" for="product">Product Type</label>  
+            <div class="col-md-4">
+              <input id="product" name="product" type="text" placeholder="Product" class="form-control input-md">
+              <?= form_error('product', '<span class="label label-danger">', '</span>') ?>  
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="product">Description</label>  
+            <div class="col-md-4">
+              <textarea class="form-control input-md" id="product" name="product" type="text" placeholder="Decription"></textarea>
+              <?= form_error('product', '<span class="label label-danger">', '</span>') ?>  
+          </div>
+        </div>
+
+        <div class="form-group">
           <label class="col-md-4 control-label" for="cargo">Cargo Size</label>
             <div class="col-md-4">
               <select id="cargo" name="cargo" class="form-control input-md">
