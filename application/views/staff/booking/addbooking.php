@@ -26,6 +26,13 @@
           </div>
 
         <div class="form-group">
+          <label class="col-md-4 control-label" for="waybill">Waybill Number: </label>  
+          <div class="col-md-4">
+            <input id="waybill" name="waybill" type="text" placeholder="Waybill Number" class="form-control input-md" disabled> 
+          </div>
+        </div>
+
+        <div class="form-group">
           <label class="col-md-4 control-label" for="date">Date:</label>
             <div class="col-md-4">
               <input name="date" type="date" class="form-control input-md">  
@@ -36,7 +43,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="name">Customer/Importer</label>  
             <div class="col-md-4">
-              <input id="custname" name="custname" type="text" placeholder="Customer/Importer" class="form-control input-md" disabled> 
+              <input id="custname" name="custname" type="text" placeholder="Customer/Importer" class="form-control input-md" > 
             </div>
         </div>
 
@@ -56,7 +63,49 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="cargo">Cargo Size:</label>
             <div class="col-md-4">
-              <input id="cargo" name="cargo" type="text" placeholder="Cargo Size" class="form-control input-md">
+              <input id="cargo" name="cargo" type="text" placeholder="Cargo Size" class="form-control input-md" disabled>
+            </div>
+        </div>
+
+        <div class="form-group" hidden>
+          <label class="col-md-4 control-label" for="truck">Truck:</label>
+            <div class="col-md-4">
+              <input id="truck" name="truck" type="text" placeholder="Truck" class="form-control input-md" disabled>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="plateno">Plate No:</label>
+            <div class="col-md-4">
+              <input id="plate_no" name="plate_no" type="text" placeholder="Plate No" class="form-control input-md" disabled>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="driverno">Driver No:</label>
+            <div class="col-md-4">
+              <input id="driver_no" name="driver_no" type="text" placeholder="Driver No" class="form-control input-md" disabled>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="drivername">Driver Name:</label>
+            <div class="col-md-4">
+              <input id="drivername" name="drivername" type="text" placeholder="Driver Name" class="form-control input-md" disabled>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="condno">Conductor No:</label>
+            <div class="col-md-4">
+              <input id="cond_no" name="cond_no" type="text" placeholder="Conductor No" class="form-control input-md" disabled>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="condname">Conductor Name:</label>
+            <div class="col-md-4">
+              <input id="condname" name="condname" type="text" placeholder="Conductor Name" class="form-control input-md" disabled>
             </div>
         </div>
 
@@ -72,6 +121,13 @@
             <div class="col-md-4">
               <input id="destination" name="destination" type="text" placeholder="Destination" class="form-control input-md">
           </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" >Status</label>
+              <div class="col-md-4">
+                <input id="status" name="status" type="text" placeholder="Status" class="form-control input-md" disabled>
+             </div>
         </div>
 
         <div class="form-group">
