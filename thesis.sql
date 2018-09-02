@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 02, 2018 at 02:08 PM
+-- Generation Time: Sep 02, 2018 at 02:22 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -64,6 +64,7 @@ CREATE TABLE `booking` (
   `drivername` varchar(50) NOT NULL,
   `cond_no` varbinary(50) NOT NULL,
   `condname` varchar(50) NOT NULL,
+  `destination` varchar(50) NOT NULL,
   `price` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

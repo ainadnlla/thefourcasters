@@ -19,9 +19,9 @@ class Booking extends CI_Controller {
         unset($data['add']);
             $this->form_validation->set_rules('id', 'ID', 'required');
             $this->form_validation->set_rules('date','Date', 'required');
-            $this->form_validation->set_rules('cust_type', 'Customer Type', 'required');
             $this->form_validation->set_rules('name', 'Name', 'required');
-            $this->form_validation->set_rules('Destination', 'Destination', 'required');
+            $this->form_validation->set_rules('destination', 'Destination', 'required');
+            $this->form_validation->set_rules('cargo', 'Cargo Type', 'required');
       if ($this->form_validation->run() == FALSE)
       {
           $this->add();
