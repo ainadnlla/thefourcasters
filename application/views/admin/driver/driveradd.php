@@ -25,9 +25,17 @@
           </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label"for ="drivernum">Driver's License #</label>  
+      <label class="col-md-4 control-label"for ="upload">Image</label>  
+      <div class="col-md-4">
+      <?php echo form_open_multipart('driver/do_upload');?>
+      <input class="form-control" type="file" name="img" size="20" >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label"for ="drivernum">License No.</label>  
         <div class="col-md-4">
-          <input  name="drivernum" type="text" placeholder="Driver #" class="form-control input-md">
+          <input  name="drivernum" type="text" placeholder="License No." class="form-control input-md">
           <?= form_error('drivernum', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
@@ -111,6 +119,17 @@
         <div class="col-md-4">
           <input name="date" type="date" class="form-control input-md">  
           <?= form_error('date', '<span class="label label-danger">', '</span>') ?>  
+        </div>
+    </div>
+
+  <div class="form-group">
+      <label class="col-md-4 control-label" for="position">Position</label>
+        <div class="col-md-4">
+          <select name="position" class="form-control">
+            <option Selected disabled="disabled" >Position</option>
+            <option value="1">Driver</option>
+            <option value="2">Helper</option>
+          </select>
         </div>
     </div>
 

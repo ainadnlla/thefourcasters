@@ -1,4 +1,4 @@
-<body class="hold-transition skin-red-light sidebar-mini">
+<body class="hold-transition skin-purple-light sidebar-mini">
 <!--
    staff-purple
    customer-red
@@ -56,7 +56,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="#" class="user-image" alt="User Image">
-              <span class="hidden-xs">STAFF NAME</span>
+              <span class="hidden-xs"> <?= $this->session->name; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -93,7 +93,7 @@
           <img src="#" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Staff Name</p>
+          <p><?= $this->session->name?></p>
           <a href="<?= base_url()."staff/profile"?>"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -134,7 +134,7 @@
 
         <li>
         <a href="<?=base_url().'staff/booking'?>">
-          <i class="fa fa-info-circle"></i> <span>Booking</span>
+          <i class="fa fa-info-circle"></i> <span>Booking Information</span>
         </a>
       </li>
 

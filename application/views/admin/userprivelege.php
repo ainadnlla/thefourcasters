@@ -22,21 +22,21 @@
               <table id="staff" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                    <th>ID</th>
+                    <th width="5%">ID</th>
+                    <th width="10%">Profile</th>
                     <th>Staff Full Name</th>
-                    <th width="15%">Delivery Approver</th>
-                    <th width="15%">Truck Creator</th>
-                    <th width="17%">Customer Management</th>
+                    <th width="30%"><center>User Access Level<center></th>
+                    <th>Change</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php foreach($emps as $emp): ?>
                     <tr>
                         <td><?= $emp->id?></td>
+                        <td><img src="<?=base_url().'images/'.$emp->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
                         <td><?= $emp->fname?> <?= $emp->mname?> <?= $emp->lname?></td>
-                        <td><center><input type="checkbox" name="privelege" value="approver"></center></td>
-                        <td><center><input type="checkbox" name="privelege" value="creator"></center></td>
-                        <td><center><input type="checkbox" name="privelege" value="managecust"></center></td>
+                        <td></td>
+                        <td></td>
                     </tr>        
                 <?php endforeach; ?> 
                 </tfoot>

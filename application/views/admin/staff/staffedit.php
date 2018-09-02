@@ -3,6 +3,7 @@
       <h1>Staff Details</h1>
         <ol class="breadcrumb">
           <li><a href="<?=base_url().'admin/userdetails'?>"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li><a href="<?=base_url().'admin/userdetails'?>">User Details</a></li>
           <li><a href="<?=base_url().'admin/userdetails_staff'?>">Staff Details</a></li>
           <li class="active">Edit</li>
         </ol>
@@ -23,6 +24,23 @@
             <input type="hidden" name="id" type="text" placeholder="ID" class="form-control input-md"value="<?=$emp->id?>" required="" >
           </div>
         </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="upload"></label>  
+            <div class="col-md-4">
+              <img src="<?= base_url().'images/'.$emp->img ?>" width = "100" height="100" alt="..." class="img-thumbnail">
+            </div>
+          </div>
+      <div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="upload">Image</label>  
+            <div class="col-md-4">
+            <?php echo form_open_multipart('staff/do_upload');?>
+            <input class="form-control" type="file" name="img" size="20" >
+            </div>
+          </div>
+      <div>
 
       <div class="form-group">
         <label class="col-md-4 control-label" for ="fname" >First Name</label>  
@@ -82,19 +100,26 @@
 
       <div class="form-group">
         <label class="col-md-4 control-label" >Gender</label>
+            <div class="col-md-4">
+                <select value="<?=$emp->gender?>" name="gender" class="form-control">
+                <option value='<?=$emp->gender?>' selected><?=$emp->gender?></option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                </select>
+            </div>
+    </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" >Employee Since</label>  
           <div class="col-md-4">
-            <select  value="<?=$emp->gender?>" name="gender" class="form-control">
-            <option value='<?=$emp->gender?>' selected><?=$emp->gender?></option>
-            <option value="M">M</option>
-            <option value="F">F</option>
-            </select>
+            <input value="<?=$emp->date?>" name="date" type="date" class="form-control input-md"> 
           </div>
       </div>
+      
       <div class="form-group">
         <label class="col-md-4 control-label" >Status</label>
           <div class="col-md-4">
             <select  value="<?=$emp->status?>" name="status" class="form-control">
-            <option value='<?=$emp->status?>' selected><?=$emp->status?></option>
             <option value="1">Active</option>
             <option value="0">Inactive</option>
             </select>

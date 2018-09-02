@@ -25,9 +25,26 @@
             </div>
 
     <div class="form-group">
-        <label class="col-md-4 control-label" for="drivernum" >Driver #</label>  
+        <label class="col-md-4 control-label" for="upload"></label>  
             <div class="col-md-4">
-                <input  value="<?=$driv->drivernum?>" name="drivernum" type="text" placeholder="Driver #" class="form-control input-md" required="">
+              <img src="<?= base_url().'images/'.$driv->img ?>" width = "100" height="100" alt="..." class="img-thumbnail">
+            </div>
+          </div>
+      <div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="upload">Image</label>  
+            <div class="col-md-4">
+            <?php echo form_open_multipart('driver/do_upload');?>
+            <input class="form-control" type="file" name="img" size="20" >
+            </div>
+          </div>
+      <div>
+
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="drivernum" >License No.</label>  
+            <div class="col-md-4">
+                <input  value="<?=$driv->drivernum?>" name="drivernum" type="text" placeholder="License No." class="form-control input-md" required="">
                 <?= form_error('drivernum', '<span class="label label-danger">', '</span>') ?>  
             </div>
     </div> 
@@ -92,12 +109,41 @@
     <div class="form-group">
         <label class="col-md-4 control-label" >Gender</label>
             <div class="col-md-4">
-                <select  value="<?=$driv->gender?>" name="gender" class="form-control">
-                <option value='<?=$driv->gender?>' selected><?=$driv->gender?></option>
-                <option value="M">M</option>
-                <option value="F">F</option>
+                <select value="<?=$driv->gender?>" name="gender" class="form-control">
+                <option Selected disabled="disabled" value='<?=$driv->gender?>' selected><?=$driv->gender?></option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
                 </select>
             </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-4 control-label" >Employee Since</label>  
+          <div class="col-md-4">
+            <input value="<?=$driv->date?>" name="date" type="date" class="form-control input-md"> 
+            <?= form_error('date', '<span class="label label-danger">', '</span>') ?>  
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" >Status</label>
+          <div class="col-md-4">
+            <select  value="<?=$driv->status?>" name="status" class="form-control">
+            <option value="1">Available</option>
+            <option value="0">Unavailable</option>
+            </select>
+          </div>
+      </div>
+
+      <div class="form-group">
+      <label class="col-md-4 control-label">Position</label>
+        <div class="col-md-4">
+            <select value="<?=$driv->position?>" name="position" class="form-control">
+            <option Selected disabled="disabled" value='<?=$driv->position?>' selected><?=$driv->position?></option>
+            <option value="1">Driver</option>
+            <option value="2">Helper</option>
+          </select>
+        </div>
     </div>
 
     <div class="form-group">

@@ -2,9 +2,8 @@
     <section class="content-header">
       <h1>Customer Details</h1>
         <ol class="breadcrumb">
-          <li><a href="<?=base_url().'admin/userdetails'?>"><i class="fa fa-dashboard"></i> Home </a></li>
-          <li><a href="<?=base_url().'admin/userdetails'?>">User Details</a></li>
-          <li><a href="<?=base_url().'admin/userdetails_customer'?>"> Customer Details </a></li>
+          <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i> Home </a></li>
+          <li><a href="<?=base_url().'staff/customerdetails'?>"> Customer Details </a></li>
           <li class="active">Edit</li>
         </ol>
     </section>
@@ -17,7 +16,7 @@
               <h3 class="box-title">Update Details</h3>
             </div>
 
-    <form class="form-horizontal"  action = "<?=base_url()?>customer/update/<?=$cust->id?>"  method='post'>
+    <form class="form-horizontal"  action = "<?=base_url()?>staff_customer/update/<?=$cust->id?>"  method='post'>
         <fieldset>
             <div class="form-group">
                 <div class="col-md-4">
@@ -36,7 +35,7 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="upload">Image</label>  
             <div class="col-md-4">
-            <?php echo form_open_multipart('customer/do_upload');?>
+            <?php echo form_open_multipart('staff_customer/do_upload');?>
             <input class="form-control" type="file" name="img" size="20" >
             </div>
           </div>
@@ -119,7 +118,7 @@
         <label class="col-md-4 control-label" for="button1id"></label>
             <div class="col-md-8">
                 <button id="button1id" name="submit" value="submit" class="btn btn-success">Update</button>
-                <a href="<?= base_url().'admin/userdetails_customer'?>" class="btn btn-danger" role="button"> Cancel</a>
+                <a href="<?= base_url().'staff/customerdetails'?>" class="btn btn-danger" role="button"> Cancel</a>
             </div>
     </div>
 </fieldset>

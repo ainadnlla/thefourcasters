@@ -11,73 +11,65 @@ class Staff extends CI_Controller {
             $this->load->model('ConductorModel');
             $this->load->model('TruckModel');
             $this->load->model('AdminModel');
+            $this->load->model('BookingModel');
     }
+
+// STAFF SIDE
 
     public function login(){
         
         $data['title'] = 'Angelogistic Forwarder Corporation';
-        $this->load->view('include/admin_header');
+        $this->load->view('include/login_header');
         $this->load->view('staff/login');
-        $this->load->view('include/admin_footer');
+        $this->load->view('include/footer');
         if($this->session->userdata('email') !=''){ 
             redirect('staff/homepage');
         }else{
-         
+ 
         } 
-       }
-       public function staff(){
-           $email=$this->input->post('email');
-           $password=$this->input->post('password');
-           $user = $this->AdminModel->getStaff($email, $password);
-           if(!($user == null))
-           {            
-            
-                if($user->status == 1)
-                {
-                        $session_data = array(
-                                // 'status' =>$status,
-                                'email'     => $email,
-                                'logged_in' => TRUE,
-                                'isAdmin' => TRUE
-                        );
-            
-                        $this->session->set_userdata($session_data);
-                        redirect('staff/homepage');
-                }
-
-                else
-                {
-
-                    $this->session->set_flashdata('error','Unauthorized Access');
-                    redirect('staff/login');
-
-                }
-
+    }
+    public function staff(){
+       $email=$this->input->post('email');
+        $password=$this->input->post('password');
+        $user = $this->AdminModel->getStaff($email, $password);
         
-
-                    }else{
-                        $this->session->set_flashdata('error','Invalid Username and Password');
-               redirect('staff/login');
-           }
-           
-    
-    } 
-       public function homepage(){
-        if($this->session->userdata('email') !=''){   
-        $data['title'] = 'Angelogistic Forwarder Corporation';
-        $this->load->view('include/header', $data);
-        $this->load->view('include/staff_header');
-        $this->load->view('staff/homepage');
-        $this->load->view('include/footer');
-        }else{
+        if(!($user == null)){             
+            if($user->status == 1) {
+                $session_data = array(
+                    'name'  => $user->name,
+                    // 'status' =>$status,
+                    'email'     => $email,
+                    'logged_in' => TRUE,
+                    'isAdmin' => TRUE
+                    );
+                $this->session->set_userdata($session_data);
+                redirect('staff/homepage');
+            }
+            else{
+                $this->session->set_flashdata('error','Unauthorized Access');
+                redirect('staff/login');
+            }
+        }else {
+            $this->session->set_flashdata('error','Invalid Username and Password');
            redirect('staff/login');
        }
-       }
+    }
        
-    
     public function logout(){
         $this->session->sess_destroy();
         redirect('staff/login');
+    }
+
+    public function homepage(){
+        if($this->session->userdata('email') !=''){   
+            $data['title'] = 'Angelogistic Forwarder Corporation';
+            $this->load->view('include/header', $data);
+            $this->load->view('include/staff_header');
+            $this->load->view('staff/homepage');
+            $this->load->view('include/footer');
+        }else{
+            redirect('staff/login');
+        }
     }
 
     public function truckdetails($offset=0){
@@ -110,7 +102,7 @@ class Staff extends CI_Controller {
 
         $this->load->view('include/header', $data);
         $this->load->view('include/staff_header');
-        $this->load->view('staff/truckdetails');
+        $this->load->view('staff/truckdetails', compact('trucks'));
         $this->load->view('include/footer');
     }else{
         redirect('staff/login');
@@ -203,27 +195,51 @@ class Staff extends CI_Controller {
     }
     }  
 
-    public function booking(){  
-        if($this->session->userdata('email') !=''){ 
-        $data['title'] = 'Booking | Angelogistic Forwarder Corporation';
-  
-        $this->load->view('include/header', $data);
-        $this->load->view('include/staff_header');
-        $this->load->view('staff/booking');
-        $this->load->view('include/footer');
-    }else{
-        redirect('staff/login');
-    }
-    }
+    public function booking($offset=0){
+        if($this->session->userdata('username') !=''){ 
+            $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
+
+            $this->load->library('pagination');
+            $norecs = 5;
+    
+            $config['base_url'] = base_url().'customer/booking/';
+            $config['total_rows'] = $this->BookingModel->getNumRecs();
+            $config['per_page'] = $norecs;
+    
+            $config['full_tag_open'] = '<ul class="pagination">';
+            $config['full_tag_close'] = '</ul>';
+            $config['prev_link'] = '&laquo;';
+            $config['prev_tag_open'] = '<li>';
+            $config['prev_tag_close'] = '</li>';
+            $config['next_tag_open'] = '<li>';
+            $config['next_tag_close'] = '</li>';
+            $config['cur_tag_open'] = '<li class="active"><a href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            $config['num_tag_open'] = '<li>';
+            $config['num_tag_close'] = '</li>';
+    
+            $this->pagination->initialize($config);
+    
+            $this->load->config('myconfig');
+            $book =  $this->BookingModel->getItems($norecs, $offset);
+
+            $this->load->view('include/header', $data);
+            $this->load->view('include/staff_header');
+            $this->load->view('staff/booking',compact('book'));
+            $this->load->view('include/footer');
+        }else{
+            redirect('staff/login');
+        }
+    } 
 
     public function do_upload(){  
         $id = $this->input->post('id');
         $data['emps'] = $this->UserModel->getItem($id);
         $config['upload_path']          = './images/';
         $config['allowed_types']        = 'gif|jpg|png';
-        $config['max_size']             = 100;
+        $config['max_size']             = 1000;
         $config['max_width']            = 1024;
-        $config['max_height']           = 768;
+        $config['max_height']           = 1024;
         $config['file_name']           = $this->input->post('img');
     
         $this->load->library('upload', $config);

@@ -27,6 +27,7 @@
                     <th>Email Address</th>
                     <th>Contact Number</th>
                     <th>Customer Since</th>
+                    <th>Status</th>
                     <th>Action</th>
                     
                 </tr>
@@ -41,15 +42,27 @@
                         <td><?= $cust->email?></td>                            
                         <td><?= $cust->contact?></td>
                         <td><?= $cust->date?></td>
+                        <td><p>
+                        <?php if($cust->status==1){ ?>
+                          <div class="label label-success">
+                            <strong>Active</strong>
+                          </div>
+                        <?php }elseif($cust->status==0){ ?>
+                          <div class="label label-danger">
+                            <strong>Inactive</strong>
+                          </div></p>
+                        <?php }?>
+                        </td>
 
                         <td>
-                        <a href="<?= base_url().'customer/edit/'.$cust->id?>" class="btn btn-warning" role="button">
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true">
+                        <a href="<?= base_url().'customer/edit/'.$cust->id?>" class="btn btn-default btn.lg" role="button">
+                        <span class="fa fa-edit" aria-hidden="true">
                         </span></a>
-                        <?php $onclick = array('onclick'=>"return confirm('Are you sure?')");?>
+
+                        <!-- <?php $onclick = array('onclick'=>"return confirm('Are you sure?')");?>
                         <a href="<?=base_url('customer/del/'.$cust->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
-                        </span></a>
+                        </span></a> -->
                         </td>
                     </tr>        
                 <?php endforeach; ?> 

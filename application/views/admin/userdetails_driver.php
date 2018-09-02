@@ -23,11 +23,14 @@
                     <th>ID</th>
                     <th>Profile</th>
                     <th>Full Name</th>
-                    <th>License #</th>
-                    <th>Expiration</th>
+                    <th>License No.</th>
+                    <th>Expiration Date</th>
                     <th>Email Address</th>
-                    <th>Contact Number</th>
-                    <th>Employment Date</th>
+                    <th>Contact No.</th>
+                    <th>Gender</th>
+                    <th>Employed Date</th>
+                    <th>Position</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -41,17 +44,35 @@
                         <td><?= $driv->expire?></td>
                         <td><?= $driv->email?></td>                            
                         <td><?= $driv->contact?></td>
+                        <td><?= $driv->gender?></td>
                         <td><?= $driv->date?></td>
+                        <td>
+                          <?php if($driv->position==1){ ?>
+                          <span>Driver</span>
+                          <?php }elseif($driv->position==2){ ?>
+                            <span>Helper</span>
+                          <?php }?>
+                        </td>
+                        <td><p>
+                        <?php if($driv->status==1){ ?>
+                          <div class="label label-success">
+                            <strong>Available</strong>
+                          </div>
+                        <?php }elseif($driv->status==0){ ?>
+                          <div class="label label-danger">
+                            <strong>Unavailable</strong>
+                          </div></p>
+                        <?php }?>
+                        </td>
 
                         <td>
-                        <a href="<?= base_url().'driver/edit/'.$driv->id?>" class="btn btn-warning" role="button">
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true">
+                        <a href="<?= base_url().'driver/edit/'.$driv->id?>" class="btn btn-default btn.lg" role="button">
+                        <span class="fa fa-edit" aria-hidden="true">
                         </span></a>
-                        <?php $onclick = array('onclick'=>"return confirm('Are you sure?')");?>
-                        <a href="<?=base_url('driver/del/'.$driv->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
+
+                        <!-- <a href="<?=base_url('driver/del/'.$driv->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
-                        </span></a>
-                        </td>
+                        </span></a> -->
                         </td>
                     </tr>        
                 <?php endforeach; ?> 

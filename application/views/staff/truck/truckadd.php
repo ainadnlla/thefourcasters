@@ -2,8 +2,8 @@
     <section class="content-header">
       <h1>Truck Details</h1>
         <ol class="breadcrumb">
-          <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-          <li><a href="<?=base_url().'admin/truckdetails'?>">Truck Details</a></li>
+          <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+          <li><a href="<?=base_url().'staff/truckdetails'?>">Truck Details</a></li>
           <li class="active">Add</a></li>
         </ol>
     </section>
@@ -16,7 +16,7 @@
               <h3 class="box-title">Add Details</h3>
             </div>
 
-    <form class="form-horizontal" action ="<?=base_url().'truck/insert'?>" method = "post">
+    <form class="form-horizontal" action ="<?=base_url().'staff_truck/insert'?>" method = "post">
         <div class="box-body">
           <div class="form-group">
             <div class="col-md-4">
@@ -27,13 +27,13 @@
     <div class="form-group">
       <label class="col-md-4 control-label"for ="upload">Image</label>  
       <div class="col-md-4">
-      <?php echo form_open_multipart('truck/do_upload');?>
+      <?php echo form_open_multipart('staff_truck/do_upload');?>
       <input class="form-control" type="file" name="img" size="20">
       </div>
     </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label"for ="license_no">License #</label>  
+      <label class="col-md-4 control-label"for ="license_no">License No.</label>  
         <div class="col-md-4">
           <input  name="license_no" type="text" placeholder="License #" class="form-control input-md">
           <?= form_error('license_no', '<span class="label label-danger">', '</span>') ?>  
@@ -55,7 +55,7 @@
         <div class="col-md-4">
   
           <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Add</button>
-            <a href="<?=base_url().'admin/truckdetails/'?>" class="btn btn-danger" role="button">Back</a>
+            <a href="<?=base_url().'staff/truckdetails/'?>" class="btn btn-danger" role="button">Back</a>
 
             </form>
         </div>  

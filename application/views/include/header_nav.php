@@ -125,7 +125,6 @@
           <ul class="treeview-menu">
             <li><a href="<?=base_url().'admin/truckdetails'?>"><i class="fa fa-table"></i> Truck Details</a></li>
             <li><a href="<?=base_url().'admin/truckgps'?>"><i class="fa fa-map-pin"></i> Truck GPS</a></li>
-            <li><a href="<?=base_url().'admin/truckdelivery'?>"><i class="fa fa-truck"></i> Truck Delivery</a></li>
           </ul>
         </li>
 
@@ -141,6 +140,13 @@
             <li><a href="<?=base_url().'admin/userdetails'?>"><i class="fa fa-circle-o"></i>User Details</a></li>
             <li><a href="<?=base_url().'admin/userprivelege'?>"><i class="fa fa-circle-o"></i>User Priveleges</a></li>
           </ul>
+        </li>
+
+        <li><a href="<?=base_url().'admin/booking'?>">
+        <i class="fa fa-truck"></i>Booking Information</a></li>
+            <span class="pull-right-container">
+            </span>
+          </a>
         </li>
         
         <li>

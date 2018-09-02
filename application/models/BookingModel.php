@@ -1,53 +1,49 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class UserModel extends CI_Model{
+class BookingModel extends CI_Model{
 
 //INSERT
 
     public function insert($data){
-        $this->db->insert('staff' , $data);
-        }
-
-    public function insertUser($data){
-        $this->db->insert('staff', $data);
+        $this->db->insert('booking' , $data);
         } 
 
 //UPDATE
     public function update($id ,$data){
         $this->db->where('id' , $id);
-        $this->db->update('staff' , $data);
+        $this->db->update('booking' , $data);
         }   
 
     public function editItems($id, $data){
             $this->db->where('id', $id);
-            $this->db->update('thesis', $data);
+            $this->db->update('booking', $data);
         }
 
     public function getProd($id)
     {
   
-        $query = $this->db->get_where('staff', array('id' => $id));
+        $query = $this->db->get_where('booking', array('id' => $id));
         return $query->row();
   
     }
 
 // PAGINATION
    
-   public function getItems($norecs, $offset){
-    $query = $this->db->get('staff', $norecs, $offset);
+    public function getItems($norecs, $offset){
+    $query = $this->db->get('booking', $norecs, $offset);
     return $query->result();
     }
 
     public function getNumRecs(){
-    return $this->db->count_all('staff');
+    return $this->db->count_all('booking');
     }
 
 //DELETE    
 
     public function delete($id,$data){
         $this->db->where('id', $id);
-        $this->db->delete('staff',$data);
+        $this->db->delete('booking',$data);
     }
 
 //SEARCH
