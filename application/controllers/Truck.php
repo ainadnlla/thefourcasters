@@ -66,6 +66,7 @@ class Truck extends CI_Controller {
         unset($data['submit']);
             $this->form_validation->set_rules('license_no', 'License Number', 'required');
             $this->form_validation->set_rules('insurance', 'Insurance Date', 'required');
+            $this->form_validation->set_rules('img', 'Image', 'required');
             if ($this->form_validation->run() == FALSE)
             {
                 $this->edit($id);

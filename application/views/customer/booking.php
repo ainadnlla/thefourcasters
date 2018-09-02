@@ -23,6 +23,9 @@
                   <th>ID</th>
                   <th>Waybill</th>
                   <th>Date</th>
+                  <th>Product</th>
+                  <th>Description</th>
+                  <th>Pieces</th>
                   <th>Customer Type</th>
                   <th>Name</th>
                   <th>Cargo Size</th>
@@ -43,6 +46,9 @@
                   <td><?= $book->id?></td>
                   <td></td>
                   <td><?= $book->date?></td>
+                  <td><?= $book->product?></td>
+                  <td><?= $book->description?></td>
+                  <td><?= $book->pieces?></td>
                   <td></td>
                   <td></td>
                   <td><?= $book->cargo?></td>

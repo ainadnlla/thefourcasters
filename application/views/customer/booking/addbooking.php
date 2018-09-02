@@ -1,6 +1,6 @@
 <div class="content-wrapper">
 <section class="content-header">
-  <h1>Customer/Importer Details</h1>
+  <h1>Booking Information</h1>
     <ol class="breadcrumb">
       <li><a href="<?=base_url().'customer/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
       <li><a href="<?=base_url().'customer/booking'?>">Booking Information</a></li>
@@ -49,8 +49,16 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="description">Description</label>  
             <div class="col-md-4">
-              <input class="form-control input-md" id="description" name="description" type="text" placeholder="Decription">
-              <?= form_error('description', '<span class="label label-danger">', '</span>') ?>  
+              <input class="form-control input-md" id="description" name="description" type="text" placeholder="Decription"> 
+              <?= form_error('description', '<span class="label label-danger">', '</span>') ?> 
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="pieces">No. of Pieces</label>  
+            <div class="col-md-4">
+              <input id="pieces" name="pieces" type="text" placeholder="Pieces" class="form-control input-md">
+              <?= form_error('pieces', '<span class="label label-danger">', '</span>') ?>  
           </div>
         </div>
 

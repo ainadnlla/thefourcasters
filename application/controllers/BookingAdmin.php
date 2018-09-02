@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Booking extends CI_Controller {
+class BookingAdmin extends CI_Controller {
 
     public function __construct()
     {
@@ -20,12 +20,7 @@ class Booking extends CI_Controller {
         $data = $this->input->post();
         unset($data['add']);
             $this->form_validation->set_rules('id', 'ID', 'required');
-            $this->form_validation->set_rules('date','Date', 'required');
-            $this->form_validation->set_rules('name', 'Name', 'required');
-            $this->form_validation->set_rules('destination', 'Destination', 'required');
-            $this->form_validation->set_rules('cargo', 'Cargo Type', 'required');
-            $this->form_validation->set_rules('product', 'Product Type', 'required');
-            $this->form_validation->set_rules('description', 'Description', 'required');
+
       if ($this->form_validation->run() == FALSE)
       {
           $this->add();
@@ -82,12 +77,7 @@ class Booking extends CI_Controller {
         $data = $this->input->post();
         unset($data['submit']);
         $this->form_validation->set_rules('id', 'ID', 'required');
-        $this->form_validation->set_rules('date','Date', 'required');
-        $this->form_validation->set_rules('name', 'Name', 'required');
-        $this->form_validation->set_rules('destination', 'Destination', 'required');
-        $this->form_validation->set_rules('cargo', 'Cargo Type', 'required');
-        $this->form_validation->set_rules('product', 'Product Type', 'required');
-        $this->form_validation->set_rules('description', 'Description', 'required');
+
             
             if ($this->form_validation->run() == FALSE)
             {

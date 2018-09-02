@@ -1,9 +1,9 @@
 <div class="content-wrapper">
 <section class="content-header">
-  <h1>Booking Delivery</h1>
+  <h1>Booking Information</h1>
   <ol class="breadcrumb">
     <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-    <li class="active">Booking Delivery</a></li>
+    <li class="active">Booking Information</a></li>
   </ol>
 </section>
 
@@ -22,9 +22,12 @@
             <tr>
               <th>ID</th>
               <th>Waybill</th>
-              <th>Date</th>
+              <th>Customer</th>
               <th>Customer Type</th>
-              <th>Name</th>
+              <th>Date</th>
+              <th>Product</th>
+              <th>Description</th>
+              <th>Pieces</th>
               <th>Cargo Size</th>
               <th>Truck</th>
               <th>Plate No.</th>
@@ -40,12 +43,15 @@
             </thead>
             <?php foreach($books as $book): ?>
             <tbody>
-            <tr>
-            <td><?= $book->id?></td>
+              <tr>
+                  <td><?= $book->id?></td>
+                  <td></td>
+                  <td></td>
                   <td></td>
                   <td><?= $book->date?></td>
-                  <td></td>
-                  <td></td>
+                  <td><?= $book->product?></td>
+                  <td><?= $book->description?></td>
+                  <td><?= $book->pieces?></td>
                   <td><?= $book->cargo?></td>
                   <td></td>
                   <td></td>
@@ -56,7 +62,10 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><a href="<?= base_url().'bookingadmin/edit/'?>" class="btn btn-default btn.lg" role="button">
+                  <td>
+                  <a href="<?= base_url().'bookingadmin/edit/'.$book->id?>" class="btn btn-default btn.lg" role="button">
+                  <span class="fa fa-eye" aria-hidden="true"></span></a>
+                  <a href="<?= base_url().'bookingadmin/edit/'.$book->id?>" class="btn btn-default btn.lg" role="button">
                   <span class="fa fa-edit" aria-hidden="true"></span></a>
                         
                 <!-- <a href="<?=base_url('bookingadmin/del/'.$book->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
@@ -66,6 +75,11 @@
             </tfoot>
           <?php endforeach; ?> 
           </table>
+
+          <!-- <div class="box-footer">
+                <a href="<?=base_url()?>bookingadmin/add" class="btn btn-success btn-block btn-sm" role="button">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Booking Information</a>
+                </div> -->
 
             <center><?php echo $this->pagination->create_links();?></center>
         </div>
