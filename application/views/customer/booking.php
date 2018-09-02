@@ -40,29 +40,20 @@
                 <?php foreach($books as $book): ?>
                 <tbody>
                 <tr>
-                  <th><?= $book->id?></th>
-                  <th><?= $book->waybill?></th>
-                  <th><?= $book->date?></th>
-                  <th><?= $book->cust_type?></th>
-                  <th><?= $book->name?></th>
-                  <th><?= $book->cargo?></th>
-                  <th><?= $book->truck?></th>
-                  <th><?= $book->plate_no?></th>
-                  <th><?= $book->driver_no?></th>
-                  <th><?= $book->driver_name?></th>
-                  <th><?= $book->cond_no?></th>
-                  <th><?= $book->condname?></th>
-                  <th><?= $book->price?></th>
-                  <th><p>
-                        <?php if($book->status==1){ ?>
-                          <div class="label label-success">
-                            <strong>Active</strong>
-                          </div>
-                        <?php }elseif($book->status==0){ ?>
-                          <div class="label label-danger">
-                            <strong>Inactive</strong>
-                          </div></p>
-                        <?php }?></th>
+                  <td><?= $book->id?></td>
+                  <td></td>
+                  <td><?= $book->date?></td>
+                  <td></td>
+                  <td></td>
+                  <td><?= $book->cargo?></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
                 </tr>
                 </tfoot>
               <?php endforeach; ?> 
@@ -78,7 +69,7 @@
         </div>       
     </section>
 </div>
-</div></center>
+</div>
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>The Fourcasters</b>

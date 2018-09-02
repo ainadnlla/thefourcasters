@@ -17,11 +17,7 @@ class Booking extends CI_Controller {
     public function insert(){
         $data = $this->input->post();
         unset($data['add']);
-            $this->form_validation->set_rules('id', 'ID', 'required');
-            $this->form_validation->set_rules('date','Date', 'required');
-            $this->form_validation->set_rules('name', 'Name', 'required');
             $this->form_validation->set_rules('destination', 'Destination', 'required');
-            $this->form_validation->set_rules('cargo', 'Cargo Type', 'required');
             $this->form_validation->set_rules('product', 'Product Type', 'required');
             $this->form_validation->set_rules('description', 'Description', 'required');
       if ($this->form_validation->run() == FALSE)
