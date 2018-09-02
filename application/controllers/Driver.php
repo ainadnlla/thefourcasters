@@ -12,6 +12,9 @@ class Driver extends CI_Controller {
             $this->load->model('AdminModel');
             $this->load->model('BookingModel');
     }
+
+// ADMIN SIDE - CRUD DRIVER
+
 public function logged(){
     $newdata = array(
         'name'  => $user->name,

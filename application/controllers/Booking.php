@@ -59,7 +59,7 @@ class Booking extends CI_Controller {
     }
     public function delete($id){
         if($this->session->userdata('username') !=''){ 
-        $cust = $this->BookingModel->getProd($id);
+        $book = $this->BookingModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/customer');
         $this->load->view('customer/booking/deletebooking',compact('book'));
@@ -72,7 +72,7 @@ class Booking extends CI_Controller {
     public function del($id){
             $data= $this->input->post();
             unset($data['delete']);
-            $cust = $this->uri->segment(4);
+            $book = $this->uri->segment(4);
             $this->BookingModel->delete($id,$data);
             redirect('customer/booking');
      }

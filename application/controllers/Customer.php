@@ -13,7 +13,7 @@ class Customer extends CI_Controller {
             $this->load->model('BookingModel');
     }
 
-// ADMIN SIDE
+// ADMIN SIDE - CRUD CUSTOMER
 
     public function logged(){
         $newdata = array(

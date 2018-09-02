@@ -87,7 +87,7 @@
     </div>       
 </section>
 </div>
-</div></center>
+</div>
 <footer class="main-footer">
 <div class="pull-right hidden-xs">
   <b>The Fourcasters</b>

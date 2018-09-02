@@ -13,6 +13,9 @@ class Truck extends CI_Controller {
             $this->load->model('BookingModel');
             
     }
+
+// ADMIN SIDE
+
     public function insert(){
         $item = array (
             'img' => 'default.jpg',
