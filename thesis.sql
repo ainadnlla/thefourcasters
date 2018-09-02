@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 02, 2018 at 02:03 PM
+-- Generation Time: Sep 02, 2018 at 02:08 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -57,6 +57,7 @@ CREATE TABLE `booking` (
   `cargo` varchar(50) NOT NULL,
   `product` varchar(50) NOT NULL,
   `description` text NOT NULL,
+  `pieces` int(11) NOT NULL,
   `truck` varchar(50) NOT NULL,
   `license_no` varchar(50) NOT NULL,
   `driver_no` varchar(50) NOT NULL,
