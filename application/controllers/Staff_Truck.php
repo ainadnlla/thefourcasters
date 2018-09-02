@@ -13,7 +13,7 @@ class Staff_Truck extends CI_Controller {
             $this->load->model('BookingModel');
     }
 
-//STAFF SIDE - CRUD TRUCK
+//STAFF SIDE - TRUCK CRUD
 
     public function insert(){
         $item = array (

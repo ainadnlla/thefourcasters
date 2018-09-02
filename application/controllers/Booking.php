@@ -13,6 +13,8 @@ class Booking extends CI_Controller {
             $this->load->model('AdminModel');
             $this->load->model('BookingModel');
     }
+
+// CUSTOMER SIDE - BOOKING
     
     public function insert(){
         $data = $this->input->post();

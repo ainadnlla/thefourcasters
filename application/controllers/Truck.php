@@ -14,7 +14,7 @@ class Truck extends CI_Controller {
             
     }
 
-// ADMIN SIDE
+// ADMIN SIDE - TRUCK CRUD
 
     public function insert(){
         $item = array (

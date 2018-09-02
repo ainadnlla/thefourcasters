@@ -20,12 +20,14 @@ class Admin extends CI_Controller {
         $data = array (
             'img' => 'default.jpg',
             'fname' => $this->input->post('fname'),
+            'mname' => $this->input->post('mname'),
             'lname' => $this->input->post('lname'),
             'password' => $this->input->post('password'),
             'repass' => $this->input->post('repass'),
             'email' => $this->input->post('email'),
             'contact' => $this->input->post('contact'),
             'gender' => $this->input->post('gender'),
+            'date' => $this->input->post('date'),
         );
       /*  $data = $this->input->post();
         unset($data['add']);*/

@@ -12,13 +12,8 @@ class Staff_Customer extends CI_Controller {
             $this->load->model('AdminModel');
             $this->load->model('BookingModel');
     }
-    public function logged(){
-        $newdata = array(
-            'name'  => $user->name,
-            'username'     => $user->username,
-            'logged_in' => TRUE,
-            'isAdmin' => TRUE
-    );}
+    
+    // STAFF SIDE - CUSTOMER CRUD
 
     public function insert(){
         $item = array (
@@ -110,42 +105,6 @@ class Staff_Customer extends CI_Controller {
                 redirect('staff/customerdetails');
             }
         }
-        
-        
-    public function login(){
-        $data['title'] = 'Angelogistic Forwarder Corporation';
-        $this->load->view('include/login_header');
-        $this->load->view('staff/login');
-        $this->load->view('include/footer');
-        if($this->session->userdata('email') !=''){ 
-            redirect('staff/homepage');
-        }
-        else {
-        } 
-    }
-    
-    public function signin(){
-        $email=$this->input->post('email');
-        $password=$this->input->post('password');
-        $user = $this->AdminModel->getCustomer($email,$password);
-
-        if(!$user == null){
-            if($user->status == 1){
-                $session_data = array(
-                    'email'     => $email,
-                    'logged_in' => TRUE,
-                    'isAdmin' => TRUE
-            );
-
-            $this->session->set_userdata($session_data);
-            redirect('staff/homepage');
-            }
-                                
-        }else{
-            $this->session->set_flashdata('error','Invalid Username and Password');
-                redirect('staff/login');
-        }        
-    } 
     
     public function homepage(){
                // if($this->session->userdata('email') !=''){   

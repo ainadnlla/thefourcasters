@@ -32,6 +32,8 @@ class Customer extends CI_Controller {
             'repass' => $this->input->post('repass'),
             'email' => $this->input->post('email'),
             'contact' => $this->input->post('contact'),
+            'cust_type' => $this->input->post('cust_type'),
+            'date' => $this->input->post('date'),
         );
 
       /*  $data = $this->input->post();

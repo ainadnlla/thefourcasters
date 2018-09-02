@@ -66,11 +66,16 @@ $this->session->set_userdata($newdata);
             'img' => 'default.jpg',
             'drivernum' => $this->input->post('drivernum'),
             'fname' => $this->input->post('fname'),
+            'mname' => $this->input->post('mname'),
             'lname' => $this->input->post('lname'),
             'password' => $this->input->post('password'),
             'repass' => $this->input->post('repass'),
             'email' => $this->input->post('email'),
             'contact' => $this->input->post('contact'),
+            'gender' => $this->input->post('gender'),
+            'date' => $this->input->post('date'),
+            'position' => $this->input->post('position'),
+            'expire' => $this->input->post('expire'),
         );
 
     /*    $data = $this->input->post();

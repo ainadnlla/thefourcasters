@@ -15,7 +15,7 @@ class Staff extends CI_Controller {
     }
 
 
-// STAFF SIDE - CRUD CUSTOMER
+// STAFF SIDE - CUSTOMER CRUD
 
     public function insert(){
         $data = $this->input->post();
