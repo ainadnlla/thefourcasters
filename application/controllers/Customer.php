@@ -13,7 +13,7 @@ class Customer extends CI_Controller {
             $this->load->model('BookingModel');
     }
 
-// ADMIN SIDE
+// ADMIN SIDE - CRUD CUSTOMER
 
     public function logged(){
         $newdata = array(
@@ -236,7 +236,7 @@ class Customer extends CI_Controller {
     }  
 
     public function booking($offset=0){
-        if($this->session->userdata('username') !=''){ 
+        // if($this->session->userdata('username') !=''){ 
             $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
 
             $this->load->library('pagination');
@@ -261,15 +261,15 @@ class Customer extends CI_Controller {
             $this->pagination->initialize($config);
     
             $this->load->config('myconfig');
-            $book =  $this->BookingModel->getItems($norecs, $offset);
+            $books =  $this->BookingModel->getItems($norecs, $offset);
 
             $this->load->view('include/header', $data);
             $this->load->view('include/customer_header');
-            $this->load->view('customer/booking',compact('book'));
+            $this->load->view('customer/booking',compact('books'));
             $this->load->view('include/footer');
-        }else{
-            redirect('customer/login');
-        }
+        // }else{
+        //     redirect('customer/login');
+        // }
     } 
 
 }

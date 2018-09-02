@@ -25,10 +25,7 @@
                 <th>Driver</th>
                 <th>Helper</th>
                 <th>Date</th>
-                <th>Customer Type</th>
-                <th>Importer</th>
-                <th>Destination</th>
-                <th>Status</th>
+                
                 </tr>
                 </thead>
                 <tbody>

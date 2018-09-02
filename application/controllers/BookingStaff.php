@@ -13,43 +13,47 @@ class Booking extends CI_Controller {
             $this->load->model('AdminModel');
             $this->load->model('BookingModel');
     }
+
+// STAFF SIDE - BOOKING
     
     public function insert(){
         $data = $this->input->post();
         unset($data['add']);
             $this->form_validation->set_rules('id', 'ID', 'required');
             $this->form_validation->set_rules('date','Date', 'required');
-            $this->form_validation->set_rules('cust_type', 'Customer Type', 'required');
             $this->form_validation->set_rules('name', 'Name', 'required');
-            $this->form_validation->set_rules('Destination', 'Destination', 'required');
+            $this->form_validation->set_rules('destination', 'Destination', 'required');
+            $this->form_validation->set_rules('cargo', 'Cargo Type', 'required');
+            $this->form_validation->set_rules('product', 'Product Type', 'required');
+            $this->form_validation->set_rules('description', 'Description', 'required');
       if ($this->form_validation->run() == FALSE)
       {
           $this->add();
       }
       else
       {
-            $this->CustomerModel->insert($data);
+            $this->BookingModel->insert($data);
             redirect('staff/booking');
       }
     }  
     public function add(){
         if($this->session->userdata('username') !=''){ 
-        $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
+        $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
         $this->load->view('include/header', $data);
         $this->load->view('include/staff_header');
         $this->load->view('staff/booking/addbooking');
         $this->load->view('include/footer');
-    }else{
-        redirect('staff/login');
-    }
+        }else{
+            redirect('staff/login');
+        }
     }
     public function edit($id){
         if($this->session->userdata('username') !=''){ 
-        $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
-        $cust = $this->CustomerModel->getProd($id);
+        $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
+        $books = $this->BookingModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/staff_header');
-        $this->load->view('staff/customer/customeredit',compact('cust'));
+        $this->load->view('staff/booking/editbooking',compact('books'));
         $this->load->view('include/footer');
     }else{
         redirect('staff/login');
@@ -57,10 +61,10 @@ class Booking extends CI_Controller {
     }
     public function delete($id){
         if($this->session->userdata('username') !=''){ 
-        $cust = $this->CustomerModel->getProd($id);
+        $books = $this->BookingModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/staff_header');
-        $this->load->view('staff/customer/customerdelete',compact('cust'));
+        $this->load->view('staff/booking/deletebooking',compact('books'));
         $this->load->view('include/footer');
     }else{
         redirect('staff/login');
@@ -70,18 +74,20 @@ class Booking extends CI_Controller {
     public function del($id){
             $data= $this->input->post();
             unset($data['delete']);
-            $cust = $this->uri->segment(4);
-            $this->CustomerModel->delete($id,$data);
-            redirect('staff/customerdetails');
+            $books = $this->uri->segment(4);
+            $this->BookingModel->delete($id,$data);
+            redirect('staff/booking');
      }
     public function update($id){
         $data = $this->input->post();
         unset($data['submit']);
-            $this->form_validation->set_rules('name', 'Customer/Brokerage', 'required');
-            $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
-            $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
-            $this->form_validation->set_rules('email', 'Email Address', 'required');
-            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
+        $this->form_validation->set_rules('id', 'ID', 'required');
+        $this->form_validation->set_rules('date','Date', 'required');
+        $this->form_validation->set_rules('name', 'Name', 'required');
+        $this->form_validation->set_rules('destination', 'Destination', 'required');
+        $this->form_validation->set_rules('cargo', 'Cargo Type', 'required');
+        $this->form_validation->set_rules('product', 'Product Type', 'required');
+        $this->form_validation->set_rules('description', 'Description', 'required');
             
             if ($this->form_validation->run() == FALSE)
             {
@@ -89,8 +95,8 @@ class Booking extends CI_Controller {
             }
             else
             {
-                $this->CustomerModel->update($id, $data);
-                redirect('staff/customerdetails');
+                $this->BookingModel->update($id, $data);
+                redirect('staff/booking');
             }
         }
 }

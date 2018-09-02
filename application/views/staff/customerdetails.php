@@ -3,7 +3,6 @@
       <h1>Customer Details</h1>
       <ol class="breadcrumb">
         <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li><a href="<?=base_url().'staff/userdetails'?>">User Details</a></li>
         <li class="active">Customer Details</a></li>
       </ol>
     </section>
@@ -55,12 +54,12 @@
                         </td>
 
                         <td>
-                        <a href="<?= base_url().'staff_customer/edit/'.$cust->id?>" class="btn btn-default btn.lg" role="button">
+                        <a href="<?= base_url().'staff/edit/'.$cust->id?>" class="btn btn-default btn.lg" role="button">
                         <span class="fa fa-edit" aria-hidden="true">
                         </span></a>
 
                         <!-- <?php $onclick = array('onclick'=>"return confirm('Are you sure?')");?>
-                        <a href="<?=base_url('staff_customer/del/'.$cust->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
+                        <a href="<?=base_url('staff/del/'.$cust->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
                         </span></a> -->
                         </td>
@@ -70,7 +69,7 @@
               </table>
             </div>
                 <div class="box-footer">
-                <a href="<?=base_url()?>staff_customer/add" class="btn btn-success btn-block btn-sm" role="button">
+                <a href="<?=base_url()?>staff/add" class="btn btn-success btn-block btn-sm" role="button">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Customer</a>
                 </div>
                  <center><?php echo $this->pagination->create_links();?></center>

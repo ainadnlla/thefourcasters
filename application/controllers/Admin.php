@@ -14,6 +14,146 @@ class Admin extends CI_Controller {
             $this->load->model('BookingModel');
     }
 
+// ADMIN SIDE - STAFF CRUD
+
+    public function insert(){
+        $data = $this->input->post();
+        unset($data['add']);
+
+            $this->form_validation->set_rules('fname', 'First Name', 'required');
+            $this->form_validation->set_rules('lname', 'Last Name', 'required');
+            $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
+            $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
+            $this->form_validation->set_rules('email', 'Email Address', 'required');
+            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
+            $this->form_validation->set_rules('gender', 'Gender', 'required');
+
+      if ($this->form_validation->run() == FALSE)
+      {
+          $this->add();
+      }
+      else
+      {
+            $this->UserModel->insert($data);
+            redirect('admin/userdetails_staff');
+      }
+    }
+
+    public function add(){
+        if($this->session->userdata('username') !=''){ 
+        $data['title'] = 'Staff Details | Angelogistic Forwarder Corporation';
+
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_nav');
+        $this->load->view('admin/staff/staffadd');
+        $this->load->view('include/footer');
+        
+}else{
+    redirect('admin/login');
+}
+    }
+
+    public function edit($id){
+        if($this->session->userdata('username') !=''){ 
+        $data['title'] = 'Staff Details | Angelogistic Forwarder Corporation';
+
+        $emp = $this->UserModel->getProd($id);
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_nav');
+        $this->load->view('admin/staff/staffedit',compact('emp'));
+        $this->load->view('include/footer');
+    }else{
+        redirect('admin/login');
+    }
+    }
+
+    public function delete($id){
+        if($this->session->userdata('username') !=''){ 
+        $emp = $this->UserModel->getProd($id);
+        $this->load->view('include/header');
+        $this->load->view('include/header_nav');
+        $this->load->view('admin/staff/staffdelete',compact('emp'));
+        $this->load->view('include/footer');
+    }else{
+        redirect('admin/login');
+    }
+    } 
+
+    public function del($id){
+
+        $data= $this->input->post();
+        unset($data['delete']);
+        $emp =$this->uri->segment(4);
+        $this->UserModel->delete($id,$data);
+        redirect('admin/userdetails_staff');
+     }
+
+    public function update($id){
+        $data = $this->input->post();
+        unset($data['submit']);
+
+            $this->form_validation->set_rules('fname', 'First Name', 'required');
+            $this->form_validation->set_rules('lname', 'Last Name', 'required');
+            $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
+            $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
+            $this->form_validation->set_rules('email', 'Email Address', 'required');
+            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
+            $this->form_validation->set_rules('gender', 'Gender', 'required');
+            
+            if ($this->form_validation->run() == FALSE)
+            {
+                $this->edit($id);
+            }
+            else
+            {
+                $this->UserModel->update($id, $data);
+                redirect('admin/userdetails_staff');
+            }
+        }
+
+        public function do_upload(){  
+        $id = $this->input->post('id');
+        $data['emps'] = $this->UserModel->getItem($id);
+        $config['upload_path']          = './images/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 1000;
+        $config['max_width']            = 1024;
+        $config['max_height']           = 1024;
+        $config['file_name']           = $this->input->post('img');
+    
+        $this->load->library('upload', $config);
+    
+            if ( ! $this->upload->do_upload('itemfile'))
+            {
+                $error = array('error' => $this->upload->display_errors());
+    
+                $this->debug($error);
+            }
+            else
+            {
+                $upload_data = $this->upload->data();
+                $config['image_library'] = 'gd2';
+                $config['source_image'] = './uploads/'.$upload_data['file_name'];
+                $config['create_thumb'] = TRUE;
+                $config['maintain_ratio'] = TRUE;
+                $config['width']         = 100;
+                $config['height']       = 100;
+                $config['thumb_marker'] = '';
+                $config['new_image'] = './uploads_thumbs/';
+                $this->load->library('image_lib');
+                $this->load->lib->initialize($config2);
+                    
+                    if ( ! $this->image_lib->resize())
+                    {
+                        echo $this->image_lib->display_errors(); die();
+                    }
+                $data['image']=$upload_data[file_name];
+                $this->UserModel->insert($data);
+                $this->index();
+            }
+        }
+
+
 // ADMIN SIDE
 
 	public function login(){
@@ -409,11 +549,11 @@ class Admin extends CI_Controller {
             $this->pagination->initialize($config);
     
             $this->load->config('myconfig');
-            $book =  $this->BookingModel->getItems($norecs, $offset);
+            $books =  $this->BookingModel->getItems($norecs, $offset);
 
             $this->load->view('include/header', $data);
             $this->load->view('include/header_nav');
-            $this->load->view('admin/booking',compact('book'));
+            $this->load->view('admin/booking',compact('books'));
             $this->load->view('include/footer');
         }else{
             redirect('admin/login');
@@ -421,6 +561,7 @@ class Admin extends CI_Controller {
     } 
 
 
+<<<<<<< HEAD
 // STAFF CRUD
 
     public function insert(){
@@ -527,6 +668,8 @@ class Admin extends CI_Controller {
                 redirect('admin/userdetails_staff');
             }
         }
+=======
+>>>>>>> 7cb987ae5439e9b111d1ca63e21f07ce25f83f32
         // <!-- public function status(){
         //   
         //     $status = $this->input->post('status');

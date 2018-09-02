@@ -38,7 +38,7 @@
               <th>Action</th>
             </tr>
             </thead>
-            <?php foreach($book as $book): ?>
+            <?php foreach($books as $book): ?>
             <tbody>
             <tr>
               <th><?= $book->id?></th>
@@ -76,10 +76,6 @@
             </tfoot>
           <?php endforeach; ?> 
           </table>
-          <div class="box-footer">
-            <a href="<?=base_url().'bookingadmin/add' ?>" class="btn btn-success btn-block btn-sm" role="button">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Truck Details</a>
-            </div>
 
             <center><?php echo $this->pagination->create_links();?></center>
         </div>
@@ -87,7 +83,7 @@
     </div>       
 </section>
 </div>
-</div></center>
+</div>
 <footer class="main-footer">
 <div class="pull-right hidden-xs">
   <b>The Fourcasters</b>

@@ -16,7 +16,7 @@
               <h3 class="box-title">Update Details</h3>
             </div>
 
-    <form class="form-horizontal"  action = "<?=base_url()?>staff_customer/update/<?=$cust->id?>"  method='post'>
+    <form class="form-horizontal"  action = "<?=base_url()?>staff/update/<?=$cust->id?>"  method='post'>
         <fieldset>
             <div class="form-group">
                 <div class="col-md-4">
@@ -35,7 +35,7 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="upload">Image</label>  
             <div class="col-md-4">
-            <?php echo form_open_multipart('staff_customer/do_upload');?>
+            <?php echo form_open_multipart('admin/do_upload');?>
             <input class="form-control" type="file" name="img" size="20" >
             </div>
           </div>

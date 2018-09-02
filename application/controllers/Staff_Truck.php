@@ -12,6 +12,9 @@ class Staff_Truck extends CI_Controller {
             $this->load->model('AdminModel');
             $this->load->model('BookingModel');
     }
+
+//STAFF SIDE - CRUD TRUCK
+
     public function insert(){
         $item = array (
             'img' => 'default.jpg',
