@@ -27,14 +27,14 @@
         <!-- <div class="form-group">
           <label class="col-md-4 control-label" for="name">Customer/Importer</label>  
             <div class="col-md-4">
-              <input <?=$this->session->name?> name="custname" type="text" placeholder="Customer/Importer" class="form-control input-md" disabled> 
+              <input name="custname" type="text" placeholder="Customer/Importer" class="form-control input-md" disabled> 
             </div>
         </div>
 
         <div class="form-group">
           <label class="col-md-4 control-label" for="customertype">Customer Type</label>
             <div class="col-md-4">
-            <input <?=$this->session->cust_type?> name="cust_type" type="text" placeholder="Customer Type" class="form-control input-md" disabled> 
+            <input name="cust_type" type="text" placeholder="Customer Type" class="form-control input-md" disabled> 
             </div>
         </div> -->
 
@@ -92,9 +92,9 @@
         </div> -->
 
         <div class="form-group">
-          <label class="col-md-4 control-label" for=""></label>
+          <label class="col-md-4 control-label" for="button1id"></label>
             <div class="col-md-4">
-              <button id="buttonid" name="add" type="Submit" value="Submit" class="btn btn-success">Submit</button></a>
+              <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Submit</button></a>
               <a href="<?=base_url().'customer/booking'?>"><button id="" name="" class="btn btn-danger">Cancel</button></a>
             </div>
         </div> 
