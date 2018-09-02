@@ -111,6 +111,7 @@ class Admin extends CI_Controller {
             $this->form_validation->set_rules('email', 'Email Address', 'required');
             $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
             $this->form_validation->set_rules('gender', 'Gender', 'required');
+            $this->form_validation->set_rules('img', 'Image', 'required');
             
             if ($this->form_validation->run() == FALSE)
             {
