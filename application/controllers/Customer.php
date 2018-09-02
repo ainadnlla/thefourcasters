@@ -24,8 +24,18 @@ class Customer extends CI_Controller {
     );}
   
     public function insert(){
-        $data = $this->input->post();
-        unset($data['add']);
+
+        $data = array (
+            'img' => 'default.jpg',
+            'name' => $this->input->post('name'),
+            'password' => $this->input->post('password'),
+            'repass' => $this->input->post('repass'),
+            'email' => $this->input->post('email'),
+            'contact' => $this->input->post('contact'),
+        );
+
+      /*  $data = $this->input->post();
+        unset($data['add']); */
             $this->form_validation->set_rules('name', 'First Name', 'required');
             $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
@@ -112,7 +122,7 @@ class Customer extends CI_Controller {
         $config['max_size']             = 1000;
         $config['max_width']            = 1024;
         $config['max_height']           = 1024;
-        $config['file_name']           = $this->input->post('img');
+        $config['file_name']            = $data['cust']->id;
         $this->load->library('upload', $config);
         if ( ! $this->upload->do_upload('itemfile'))
         {
@@ -121,7 +131,10 @@ class Customer extends CI_Controller {
         }
         else
         {
-                $upload_data = $this->upload->data();
+            $data = $this->upload->data();
+            $this->CustomerModel->update($id,array('img' => $data['file_name']));
+            $this->index();  
+            /*    $upload_data = $this->upload->data();
                 $config['image_library'] = 'gd2';
                 $config['source_image'] = './uploads/'.$upload_data['file_name'];
                 $config['create_thumb'] = TRUE;
@@ -139,7 +152,7 @@ class Customer extends CI_Controller {
                 }
                 $data['image']=$upload_data[file_name];
                 $this->CustomerModel->insert($data);
-                $this->index();
+                $this->index(); */
                 }
         }
 

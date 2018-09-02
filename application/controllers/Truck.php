@@ -57,6 +57,7 @@ class Truck extends CI_Controller {
         $this->TruckModel->delete($id,$data);
         redirect('admin/truckdetails');
     }
+
     public function update($id){
         $data = $this->input->post();
         unset($data['submit']);
@@ -72,6 +73,7 @@ class Truck extends CI_Controller {
                 redirect('admin/truckdetails');
             }
     }
+    
     public function do_upload(){  
         $id = $this->input->post('id');
         $data['truck'] = $this->TruckModel->getItem($id);

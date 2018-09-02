@@ -57,9 +57,21 @@ $this->session->set_userdata($newdata);
     redirect('admin/login');
 }
     }
+
     public function insert(){
-        $data = $this->input->post();
-        unset($data['add']);
+        $data = array (
+            'img' => 'default.jpg',
+            'drivernum' => $this->input->post('drivernum'),
+            'fname' => $this->input->post('fname'),
+            'lname' => $this->input->post('lname'),
+            'password' => $this->input->post('password'),
+            'repass' => $this->input->post('repass'),
+            'email' => $this->input->post('email'),
+            'contact' => $this->input->post('contact'),
+        );
+
+    /*    $data = $this->input->post();
+        unset($data['add']); */
             $this->form_validation->set_rules('drivernum', 'Driver #', 'required');
             $this->form_validation->set_rules('fname', 'First Name', 'required');
             $this->form_validation->set_rules('lname', 'Last Name', 'required');
@@ -118,9 +130,12 @@ $this->session->set_userdata($newdata);
         $this->DriverModel->delete($id,$data);
         redirect('admin/userdetails_driver');
     }
+
     public function update($id){
-        $data = $this->input->post();
-        unset($data['submit']);
+     
+
+   $data = $this->input->post();
+        unset($data['submit']); 
             $this->form_validation->set_rules('drivernum', 'Driver #', 'required');
             $this->form_validation->set_rules('fname', 'First Name', 'required');
             $this->form_validation->set_rules('lname', 'Last Name', 'required');
@@ -147,7 +162,7 @@ $this->session->set_userdata($newdata);
         $config['max_size']             = 100;
         $config['max_width']            = 1024;
         $config['max_height']           = 768;
-        $config['file_name']           = $this->input->post('img');
+        $config['file_name']            = $data['driv']->id;
         $this->load->library('upload', $config);
         if ( ! $this->upload->do_upload('itemfile'))
         {
@@ -156,7 +171,10 @@ $this->session->set_userdata($newdata);
         }
         else
         {
-                $upload_data = $this->upload->data();
+            $data = $this->upload->data();
+            $this->DriverModel->update($id,array('img' => $data['file_name']));
+            $this->index();  
+            /*    $upload_data = $this->upload->data();
                 $config['image_library'] = 'gd2';
                 $config['source_image'] = './uploads/'.$upload_data['file_name'];
                 $config['create_thumb'] = TRUE;
@@ -174,7 +192,7 @@ $this->session->set_userdata($newdata);
                 }
                 $data['image']=$upload_data[file_name];
                 $this->DriverModel->insert($data);
-                $this->index();
+                $this->index(); */
                 }
         }
     

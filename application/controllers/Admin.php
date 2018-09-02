@@ -424,8 +424,18 @@ class Admin extends CI_Controller {
 // STAFF CRUD
 
     public function insert(){
-        $data = $this->input->post();
-        unset($data['add']);
+        $data = array (
+            'img' => 'default.jpg',
+            'fname' => $this->input->post('fname'),
+            'lname' => $this->input->post('lname'),
+            'password' => $this->input->post('password'),
+            'repass' => $this->input->post('repass'),
+            'email' => $this->input->post('email'),
+            'contact' => $this->input->post('contact'),
+            'gender' => $this->input->post('gender'),
+        );
+      /*  $data = $this->input->post();
+        unset($data['add']);*/
 
             $this->form_validation->set_rules('fname', 'First Name', 'required');
             $this->form_validation->set_rules('lname', 'Last Name', 'required');

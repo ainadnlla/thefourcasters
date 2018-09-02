@@ -32,6 +32,15 @@
     </div>
 
     <div class="form-group">
+        <label class="col-md-4 control-label" for="upload">Image</label>  
+            <div class="col-md-4">
+            <?php echo form_open_multipart('truck/do_upload');?>
+            <input class="form-control" type="file" name="img" size="20" >
+            </div>
+          </div>
+      <div>
+
+    <div class="form-group">
       <label class="col-md-4 control-label"for ="license_no">License #</label>  
         <div class="col-md-4">
           <input  value="<?=$truck->license_no?>" type="text" placeholder="License #" class="form-control input-md">
