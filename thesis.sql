@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 03, 2018 at 03:26 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Generation Time: Sep 03, 2018 at 05:00 PM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -67,6 +67,13 @@ CREATE TABLE `booking` (
   `driver_mname` varchar(50) NOT NULL,
   `driver_lname` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`id`, `waybill`, `date`, `cust_type`, `custname`, `cargo`, `product`, `description`, `pieces`, `model`, `driver_no`, `destination`, `price`, `license_no`, `driver_fname`, `driver_mname`, `driver_lname`) VALUES
+(23, 0, '2018-09-03', '', '', 'LCL 1x40', 'Sample', 'sample', 500, '', '', 'Sampleee', 0, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -160,7 +167,7 @@ CREATE TABLE `truck` (
   `gvm` int(50) NOT NULL,
   `gcm` int(50) NOT NULL,
   `power` varchar(50) NOT NULL,
-  `license_no` varchar(20) NOT NULL,
+  `license_no` varchar(50) NOT NULL,
   `insurance` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -225,7 +232,7 @@ ALTER TABLE `truck`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -256,23 +263,28 @@ ALTER TABLE `truck`
 --
 
 --
--- Constraints for table `booking`
---
-ALTER TABLE `booking`
-  ADD CONSTRAINT `cust_type` FOREIGN KEY (`cust_type`) REFERENCES `customer` (`cust_type`),
-  ADD CONSTRAINT `custname` FOREIGN KEY (`custname`) REFERENCES `customer` (`name`),
-  ADD CONSTRAINT `driver_fname` FOREIGN KEY (`driver_fname`) REFERENCES `driver` (`fname`),
-  ADD CONSTRAINT `driver_lname` FOREIGN KEY (`driver_lname`) REFERENCES `driver` (`lname`),
-  ADD CONSTRAINT `driver_mname` FOREIGN KEY (`driver_mname`) REFERENCES `driver` (`mname`),
-  ADD CONSTRAINT `driver_no` FOREIGN KEY (`driver_no`) REFERENCES `driver` (`driver_no`),
-  ADD CONSTRAINT `license_no` FOREIGN KEY (`license_no`) REFERENCES `truck` (`license_no`),
-  ADD CONSTRAINT `model` FOREIGN KEY (`model`) REFERENCES `truck` (`model`);
-
---
 -- Constraints for table `customer`
 --
 ALTER TABLE `customer`
+  ADD CONSTRAINT `cust_type` FOREIGN KEY (`cust_type`) REFERENCES `booking` (`cust_type`),
+  ADD CONSTRAINT `name` FOREIGN KEY (`name`) REFERENCES `booking` (`custname`),
   ADD CONSTRAINT `userid` FOREIGN KEY (`user_id`) REFERENCES `staff` (`user_id`);
+
+--
+-- Constraints for table `driver`
+--
+ALTER TABLE `driver`
+  ADD CONSTRAINT `driver_fname` FOREIGN KEY (`fname`) REFERENCES `booking` (`driver_fname`),
+  ADD CONSTRAINT `driver_lname` FOREIGN KEY (`lname`) REFERENCES `booking` (`driver_lname`),
+  ADD CONSTRAINT `driver_mname` FOREIGN KEY (`mname`) REFERENCES `booking` (`driver_mname`),
+  ADD CONSTRAINT `driver_no` FOREIGN KEY (`driver_no`) REFERENCES `booking` (`driver_no`);
+
+--
+-- Constraints for table `truck`
+--
+ALTER TABLE `truck`
+  ADD CONSTRAINT `license_no` FOREIGN KEY (`license_no`) REFERENCES `booking` (`license_no`),
+  ADD CONSTRAINT `model` FOREIGN KEY (`model`) REFERENCES `booking` (`model`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
