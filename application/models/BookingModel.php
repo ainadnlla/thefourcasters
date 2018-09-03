@@ -46,9 +46,45 @@ class BookingModel extends CI_Model{
         $this->db->delete('booking',$data);
     }
 
-//SEARCH
 
-//status
+//DROPDOWN
+    function getModel()
+    {
+        $query = $this->db->query('SELECT model FROM truck');
+        return $query->result();
+    }
+
+    function getLicense()
+    {
+        $query = $this->db->query('SELECT license_no FROM truck');
+        return $query->result();
+    }
+
+    function getDriver()
+    {
+        $query = $this->db->query('SELECT fname, lname FROM driver WHERE position = "1"');
+        return $query->result();
+    }
+
+    function getDriverNo()
+    {
+        $query = $this->db->query('SELECT drivernum FROM driver WHERE position = "1"');
+        return $query->result();
+    }
+
+    function getHelper()
+    {
+        $query = $this->db->query('SELECT fname, lname FROM driver WHERE position = "2"');
+        return $query->result();
+    }
+
+    function getHelperNo()
+    {
+        $query = $this->db->query('SELECT drivernum FROM driver WHERE position = "2"');
+        return $query->result();
+    }
+
+
 }
 
 ?>

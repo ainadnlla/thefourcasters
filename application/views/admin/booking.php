@@ -23,17 +23,11 @@
               <th>ID</th>
               <th>Waybill</th>
               <th>Customer</th>
-              <th>Customer Type</th>
               <th>Date</th>
               <th>Product</th>
-              <th>Description</th>
-              <th>Pieces</th>
               <th>Cargo Size</th>
               <th>Truck</th>
-              <th>Plate No.</th>
-              <th>Driver No.</th>
               <th>Driver Name</th>
-              <th>Conductor No.</th>
               <th>Conductor Name</th>
               <th>Destination</th>
               <th>Price</th>
@@ -41,29 +35,23 @@
               <th>Action</th>
             </tr>
             </thead>
-            <?php foreach($books as $book): ?>
             <tbody>
+            <?php foreach($books as $book): ?>
               <tr>
                   <td><?= $book->id?></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><?= $book->waybill?></td>
+                  <td><?= $book->custname?></td>
                   <td><?= $book->date?></td>
                   <td><?= $book->product?></td>
-                  <td><?= $book->description?></td>
-                  <td><?= $book->pieces?></td>
                   <td><?= $book->cargo?></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><?= $book->model?></td>
+                  <td><?= $book->drivername?></td>
+                  <td><?= $book->condname?></td>
+                  <td><?= $book->destination?></td>
+                  <td><?= $book->price?></td>
                   <td></td>
                   <td>
-                  <a href="<?= base_url().'bookingadmin/edit/'.$book->id?>" class="btn btn-default btn.lg" role="button">
+                  <a href="<?= base_url().'bookingadmin/view/'.$book->id?>" class="btn btn-default btn.lg" role="button">
                   <span class="fa fa-eye" aria-hidden="true"></span></a>
                   <a href="<?= base_url().'bookingadmin/edit/'.$book->id?>" class="btn btn-default btn.lg" role="button">
                   <span class="fa fa-edit" aria-hidden="true"></span></a>

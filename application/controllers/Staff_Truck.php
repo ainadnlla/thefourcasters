@@ -18,12 +18,23 @@ class Staff_Truck extends CI_Controller {
     public function insert(){
         $item = array (
             'img' => 'default.jpg',
+            'brand' => $this->input->post('brand'),
+            'model' => $this->input->post('model'),
+            'year' => $this->input->post('year'),
+            'gvm' => $this->input->post('gvm'),
+            'gcm' => $this->input->post('gcm'),
+            'power' => $this->input->post('power'),
             'license_no' => $this->input->post('license_no'),
-            'insurance' => $this->input->post('insurance'),
-        );
+            'insurance' => $this->input->post('insurance'),        );
 
       /*  $data = $this->input->post();
         unset($data['add']); */
+        $this->form_validation->set_rules('brand', 'Brand/Maker', 'required');
+        $this->form_validation->set_rules('model', 'Model', 'required');
+        $this->form_validation->set_rules('year', 'Year', 'required|exact_length[4]');
+        $this->form_validation->set_rules('gvm', 'GVM', 'required');
+        $this->form_validation->set_rules('gcm', 'GCM', 'required');
+        $this->form_validation->set_rules('power', 'Engine Power', 'required');
         $this->form_validation->set_rules('license_no', 'License Number', 'required');
         $this->form_validation->set_rules('insurance', 'Insurance Date', 'required');
       
@@ -62,9 +73,14 @@ class Staff_Truck extends CI_Controller {
     public function update($id){
         $data = $this->input->post();
         unset($data['submit']);
-            $this->form_validation->set_rules('license_no', 'License Number', 'required');
-            $this->form_validation->set_rules('insurance', 'Insurance Date', 'required');
-            $this->form_validation->set_rules('img', 'Image', 'required');
+        $this->form_validation->set_rules('brand', 'Brand/Maker', 'required');
+        $this->form_validation->set_rules('model', 'Model', 'required');
+        $this->form_validation->set_rules('year', 'Year', 'required|exact_length[4]');
+        $this->form_validation->set_rules('gvm', 'GVM', 'required');
+        $this->form_validation->set_rules('gcm', 'GCM', 'required');
+        $this->form_validation->set_rules('power', 'Engine Power', 'required');
+        $this->form_validation->set_rules('license_no', 'License Number', 'required');
+        $this->form_validation->set_rules('insurance', 'Insurance Date', 'required');
             if ($this->form_validation->run() == FALSE)
             {
                 $this->edit($id);
@@ -97,7 +113,7 @@ class Staff_Truck extends CI_Controller {
             $data = $this->upload->data();
             $this->TruckModel->update($id,array('img' => $data['file_name']));
             $this->index();       
-           /*     $upload_data = $this->upload->data();
+                $upload_data = $this->upload->data();
                 $config['image_library'] = 'gd2';
                 $config['source_image'] = './uploads/'.$upload_data['file_name'];
                 $config['create_thumb'] = TRUE;
@@ -115,7 +131,7 @@ class Staff_Truck extends CI_Controller {
                 }
                 $data['image']=$upload_data[file_name];
                 $this->TruckModel->insert($data);
-                $this->index(); */
+                $this->index();
                 }
         }
 }

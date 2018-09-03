@@ -55,6 +55,7 @@ class TruckModel extends CI_Model{
         $q = $this->db->get_where('truck',array('id'=>$id));
         return $q->row();
     }
+
 }
 
 ?>

@@ -25,24 +25,82 @@
         </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label"for ="upload">Image</label>  
+      <label class="col-md-4 control-label"for ="upload"></label>  
       <div class="col-md-4">
       <img src="<?= base_url() . 'images/' . $truck->img ?>" width = "100" height="100" alt="Image" class="img-thumbnail">
       </div>
     </div>
 
     <div class="form-group">
+        <label class="col-md-4 control-label" for="upload">Image</label>  
+            <div class="col-md-4">
+            <?php echo form_open_multipart('truck/do_upload');?>
+            <input class="form-control" type="file" name="img" size="20" >
+            <?= form_error('img', '<span class="label label-danger">', '</span>') ?>  
+            </div>
+          </div>
+      <div>
+
+      <div class="form-group">
+      <label class="col-md-4 control-label"for ="brand">Brand</label>  
+        <div class="col-md-4">
+          <input value="<?=$truck->brand?>" name="brand" type="text" placeholder="Brand/Maker" class="form-control input-md">
+          <?= form_error('brand', '<span class="label label-danger">', '</span>') ?>  
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label"for ="model">Model</label>  
+        <div class="col-md-4">
+          <input value="<?=$truck->model?>" name="model" type="text" placeholder="Model" class="form-control input-md">
+          <?= form_error('model', '<span class="label label-danger">', '</span>') ?>  
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label"for ="year">Year</label>  
+        <div class="col-md-4">
+          <input value="<?=$truck->year?>" name="year" type="number" placeholder="Year" class="form-control input-md">
+          <?= form_error('year', '<span class="label label-danger">', '</span>') ?>  
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label"for ="gvm">GVM</label>  
+        <div class="col-md-4">
+          <input  value="<?=$truck->gvm?>" name="gvm" type="number" placeholder="GVM" class="form-control input-md">
+          <?= form_error('gvm', '<span class="label label-danger">', '</span>') ?>  
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label"for ="gcm">GCM</label>  
+        <div class="col-md-4">
+          <input value="<?=$truck->gcm?>" name="gcm" type="number" placeholder="GCM" class="form-control input-md">
+          <?= form_error('gcm', '<span class="label label-danger">', '</span>') ?>  
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label"for ="power">Engine Power</label>  
+        <div class="col-md-4">
+          <input  value="<?=$truck->power?>" name="power" type="text" placeholder="Engine Power" class="form-control input-md">
+          <?= form_error('power', '<span class="label label-danger">', '</span>') ?>  
+        </div>
+    </div>
+
+    <div class="form-group">
       <label class="col-md-4 control-label"for ="license_no">License #</label>  
         <div class="col-md-4">
-          <input  value="<?=$truck->license_no?>" type="text" placeholder="License #" class="form-control input-md">
+          <input  value="<?=$truck->license_no?>" name="license_no" type="text" placeholder="License #" class="form-control input-md">
           <?= form_error('license_no', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label" for="insurance" >Insurance Date</label>  
+      <label class="col-md-4 control-label" for="insurance" >Insurance</label>  
         <div class="col-md-4">
-          <input value="<?=$truck->insurance?>" type="text" placeholder="Insurance Date" class="form-control input-md">  
+          <input value="<?=$truck->insurance?>" name="insurance" type="text" placeholder="Insurance Date" class="form-control input-md">  
           <?= form_error('insurance', '<span class="label label-danger">', '</span>') ?>   
         </div>
     </div>

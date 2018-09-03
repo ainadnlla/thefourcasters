@@ -42,17 +42,37 @@ class BookingAdmin extends CI_Controller {
             redirect('admin/login');
         }
     }
-    public function edit($id){
+
+    public function view($id){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
         $books = $this->BookingModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
+        $this->load->view('admin/booking/viewbooking', compact('books'));
+        $this->load->view('include/footer');
+        }else{
+            redirect('admin/login');
+        }
+    }
+
+    public function edit($id){
+        if($this->session->userdata('username') !=''){ 
+        $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
+        $data['models'] = $this->BookingModel->getModel();
+        $data['license_nos'] = $this->BookingModel->getLicense();
+        $data['drivernames'] = $this->BookingModel->getDriver();
+        $data['drivernums'] = $this->BookingModel->getDriverNo();
+        $data['helpernames'] = $this->BookingModel->getHelper();
+        $data['helpernums'] = $this->BookingModel->getHelperNo();
+        $books = $this->BookingModel->getProd($id);
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_nav');
         $this->load->view('admin/booking/editbooking',compact('books'));
         $this->load->view('include/footer');
-    }else{
-        redirect('admin/login');
-    }
+        }else{
+            redirect('admin/login');
+        }
     }
     public function delete($id){
         if($this->session->userdata('username') !=''){ 

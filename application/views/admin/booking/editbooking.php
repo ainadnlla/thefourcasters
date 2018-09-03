@@ -16,13 +16,13 @@
           <h3 class="box-title">Update Details</h3>
         </div>
 
-        <form class="form-horizontal" action ="<?=base_url()?>bookingadmin/update/<?=$books->id?>" method = "post">
-        <div class="box-body">
-          <div class="form-group">
-            <div class="col-md-4">
-              <input type="hidden"  name="id" type="text" placeholder="ID" class="form-control input-md" required="" >  
-            </div>
+        <form  class="form-horizontal"  action ="<?=base_url()?>bookingadmin/update/<?=$books->id?>"  method='post'>
+      <fieldset>
+        <div class="form-group">
+          <div class="col-md-4">
+            <input type="hidden" name="id" type="text" placeholder="ID" class="form-control input-md"value="<?=$books ->id?>" required="" >
           </div>
+        </div>
 
         <div class="form-group">
           <label class="col-md-4 control-label">Customer/Importer</label>  
@@ -85,45 +85,81 @@
         </div>
 
         <div class="form-group">
-          <label class="col-md-4 control-label" for="truck">Truck</label>  
+          <label class="col-md-4 control-label" for="model">Truck Model</label>  
             <div class="col-md-4">
-              <!-- <input name="truck" type="text" placeholder="Truck" class="form-control input-md"> -->
+            <select class="form-control">
+            <?php 
+              foreach($models as $row) { 
+                echo '<option value="'.$row->model.'">'.$row->model.'</option>';
+              }
+            ?>
+            </select>      
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-md-4 control-label" for="license_no">Truck Plate No.</label>  
             <div class="col-md-4">
-              <!-- <input name="" type="text" placeholder="" class="form-control input-md"> -->
-          </div>
+          <select class="form-control">
+            <?php 
+              foreach($license_nos as $row) { 
+                echo '<option value="'.$row->license_no.'">'.$row->license_no.'</option>';
+              }
+            ?>
+            </select>
+            </div>
         </div>
 
         <div class="form-group">
           <label class="col-md-4 control-label" for="drivername">Driver</label>  
             <div class="col-md-4">
-              <!-- <input name="" type="text" placeholder="" class="form-control input-md"> -->
-          </div>
+            <select class="form-control">
+            <?php 
+              foreach($drivernames as $row) { 
+                echo '<option value="'.$row->fname.$row->lname.'">' .$row->fname.' '. $row->lname.'</option>';
+              }
+            ?>
+            </select>
+            </div>
         </div>
 
         <div class="form-group">
           <label class="col-md-4 control-label" for="driver_no">Driver's License No.</label>  
             <div class="col-md-4">
-              <!-- <input name="" type="text" placeholder="" class="form-control input-md"> -->
-          </div>
+            <select class="form-control">
+            <?php 
+              foreach($drivernums as $row) { 
+                echo '<option value="'.$row->drivernum.'">'.$row->drivernum.'</option>';
+              }
+            ?>
+            </select>
+            </div>
         </div>
 
         <div class="form-group">
-          <label class="col-md-4 control-label" for="condname">Helper</label>  
+          <label class="col-md-4 control-label" for="helpername">Helper</label>  
             <div class="col-md-4">
-              <!-- <input name="" type="text" placeholder="" class="form-control input-md"> -->
-          </div>
+            <select class="form-control">
+            <?php 
+              foreach($helpernames as $row) { 
+                echo '<option value="'.$row->fname.$row->lname.'">' .$row->fname.' '. $row->lname.'</option>';
+              }
+            ?>
+            </select>
+            </div>
         </div>
 
         <div class="form-group">
-          <label class="col-md-4 control-label" for="cond_no">Helper's License No.</label>  
+          <label class="col-md-4 control-label" for="helpernum">Helper's License No.</label>  
             <div class="col-md-4">
-              <!-- <input name="" type="text" placeholder="" class="form-control input-md"> -->
-          </div>
+            <select class="form-control">
+            <?php 
+              foreach($helpernums as $row) { 
+                echo '<option value="'.$row->drivernum.'">'.$row->drivernum.'</option>';
+              }
+            ?>
+            </select>
+            </div>
         </div>
 
         <div class="form-group">
@@ -137,15 +173,15 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="price">Price</label>
             <div class="col-md-4">
-            <!-- <input name="price" type="text" placeholder="Price" class="form-control input-md" disabled>             </div> -->
-        </div>
+            <input id="price" name="price" type="text" placeholder="Price" class="form-control input-md" disable>
+            </div>
         </div>
 
         <div class="form-group">
           <label class="col-md-4 control-label" for="status">Status</label>
             <div class="col-md-4">
-            <!-- <input name="price" type="text" placeholder="Price" class="form-control input-md" disabled>             </div> -->
-        </div>
+            <input name="price" type="text" placeholder="Price" class="form-control input-md" disabled>
+            </div>
         </div>
 
         <div class="form-group">
@@ -155,15 +191,18 @@
               <a href="<?=base_url().'admin/booking'?>"><button id="" name="" class="btn btn-danger">Cancel</button></a>
             </div>
         </div> 
- 
+</fieldset>
+</form>
+</div>
+</div>
 </div>
 </section>
 </div>
 
 <footer class="main-footer">
-<div class="pull-right hidden-xs">
-  <b>The Fourcasters</b>
-</div>
-<strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation</a>.</strong> All rights
-reserved.
+    <div class="pull-right hidden-xs">
+      <b>The Fourcasters</b>
+    </div>
+    <strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation</a>.</strong> All rights
+    reserved.
 </footer>

@@ -20,12 +20,17 @@
               <table id="staff" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                <th>Waybill</th>
-                <th>Equipment</th>
-                <th>Driver</th>
-                <th>Helper</th>
-                <th>Date</th>
-                
+                    <th>ID</th>
+                    <th>Image</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                    <th>GVM</th>
+                    <th>GCM</th>
+                    <th>Engine Power</th>
+                    <th>License No.</th>
+                    <th>Insurance</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -33,6 +38,12 @@
                         <tr>
                             <td><?= $truck->id?></td>
                             <td><img src="<?=base_url().'images/'.$truck->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
+                            <td><?= $truck->brand?></td>
+                            <td><?= $truck->model?></td>
+                            <td><?= $truck->year?></td>
+                            <td><?= $truck->gvm?></td>
+                            <td><?= $truck->gcm?></td>
+                            <td><?= $truck->power?></td>
                             <td><?= $truck->license_no?></td>
                             <td><?= $truck->insurance?></td>
                             <td>

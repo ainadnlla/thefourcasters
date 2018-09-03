@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 02, 2018 at 02:22 PM
+-- Generation Time: Sep 03, 2018 at 12:17 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -58,7 +58,7 @@ CREATE TABLE `booking` (
   `product` varchar(50) NOT NULL,
   `description` text NOT NULL,
   `pieces` int(11) NOT NULL,
-  `truck` varchar(50) NOT NULL,
+  `model` varchar(50) NOT NULL,
   `license_no` varchar(50) NOT NULL,
   `driver_no` varchar(50) NOT NULL,
   `drivername` varchar(50) NOT NULL,
@@ -67,6 +67,15 @@ CREATE TABLE `booking` (
   `destination` varchar(50) NOT NULL,
   `price` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`id`, `waybill`, `date`, `cust_type`, `custname`, `cargo`, `product`, `description`, `pieces`, `model`, `license_no`, `driver_no`, `drivername`, `cond_no`, `condname`, `destination`, `price`) VALUES
+(1, 0, '2018-09-02', '', '', 'FCL 1x40', 'Sample', 'sample', 0, '', '', '', '', '', '', 'Sampleee', 0),
+(2, 0, '2018-09-12', '', '', 'FCL 1x20', 'a', 'sample', 0, '', '', '', '', '', '', 'Sampleee', 0),
+(3, 0, '1515-04-05', '', '', 'FCL 1x20', 'Sample1', 'sample', 1231, '', '', '', '', '', '', 'Somewhere', 0);
 
 -- --------------------------------------------------------
 
@@ -130,13 +139,18 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`, `contact`, `gender`, `date`, `status`, `created`, `updated`, `img`, `user_type`, `user_id`) VALUES
-(8, 'Xylem Water System', 'Broker/Agent', '123456789', '123456789', 'XylemWaterSystem@sample.com', 999, '', '0000-00-00', 0, '2018-08-28 23:51:06', '2018-08-28 23:51:06', '', 0, 0),
+(8, 'Xylem Water System', 'Broker/Agent', '123456789', '123456789', 'XylemWaterSystem@sample.com', 999, '', '0000-00-00', 1, '2018-08-28 23:51:06', '2018-08-28 23:51:06', '', 0, 0),
 (9, '123 123 123', 'In-house Brokerage', '123456789', '123456789', 'a@yahoo.com', 2147483647, '', '0000-00-00', 0, '2018-08-30 14:36:57', '2018-08-30 14:36:57', '', 0, 0),
 (10, 'Sample', 'In-house Brokerage', '123456789', '123456789', 'sample@sample.com', 0, '', '2018-09-02', 1, '2018-09-02 00:51:10', '2018-09-02 00:51:10', '', 0, 0),
 (11, 'A', 'Local/Sub-contractor', '123456789', '123456789', 'sample@sample.com', 111111111, '', '0024-12-24', 1, '2018-09-02 00:54:55', '2018-09-02 00:54:55', '', 0, 0),
 (12, 'B', 'In-house Brokerage', '123456789', '123456789', 'sample@sample.com', 1111, '', '2018-09-02', 0, '2018-09-02 00:57:12', '2018-09-02 00:57:12', '', 0, 0),
 (13, 'C', 'Broker/Agent', '123456789', '123456789', 'sample@sample.com', 566, '', '2000-05-05', 0, '2018-09-02 01:01:37', '2018-09-02 01:01:37', '', 0, 0),
-(14, 'Aina', 'Broker/Agent', '123456789', '123456789', 'customer@gmail.com', 91919191, '', '2018-09-02', 0, '2018-09-02 04:33:53', '2018-09-02 04:33:53', '', 0, 0);
+(14, 'Aina', 'Broker/Agent', '123456789', '123456789', 'customer@gmail.com', 91919191, '', '2018-09-02', 0, '2018-09-02 04:33:53', '2018-09-02 04:33:53', '', 0, 0),
+(15, 'Sample', 'Broker/Agent', '123456789', '123456789', 'sample@sample.com', 6, '', '0005-05-05', 0, '2018-09-02 21:40:49', '2018-09-02 21:40:49', '', 0, 0),
+(16, 'Sample', 'In-house Brokerage', '123456789', '123456789', 'sample@sample.com', 19181, '', '0005-05-05', 0, '2018-09-02 22:05:07', '2018-09-02 22:05:07', '', 0, 0),
+(17, 'Sample', 'In-house Brokerage', '123456789', '123456789', 'sample@sample.com', 199191, '', '0000-00-00', 1, '2018-09-03 00:09:51', '2018-09-03 00:09:51', '', 0, 0),
+(18, 'B', '', '123456789', '123456789', 'sample@sample.com', 48484, '', '0000-00-00', 0, '2018-09-03 00:11:15', '2018-09-03 00:11:15', 'default.jpg', 0, 0),
+(19, 'C', 'Freight Forwarder', '123456789', '123456789', 'sample@sample.com', 454848, '', '0005-05-05', 1, '2018-09-03 00:14:03', '2018-09-03 00:14:03', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -168,7 +182,8 @@ CREATE TABLE `driver` (
 
 INSERT INTO `driver` (`img`, `id`, `drivernum`, `fname`, `mname`, `lname`, `password`, `repass`, `email`, `contact`, `gender`, `expire`, `date`, `status`, `position`) VALUES
 ('', 1, 'ACLDI010987016', 'A', 'A', 'Villamor', '123456789', '123456789', 'sample@sample.com', 12354, 'M', '0000-00-00', '0000-00-00', 1, 2),
-('', 2, 'ACLDI010987016', 'Sample', 'a', 'sample', '123456789', '123456789', 'sample@sample.com', 123456789, 'M', '2018-09-25', '2018-09-13', 1, 1);
+('default.jpg', 2, 'ACL', 'Sample', 'a', 'sample', '123456789', '123456789', 'sample@sample.com', 123456789, 'M', '2018-09-25', '2018-09-13', 1, 1),
+('default.jpg', 3, 'Sample', 'A', 'A', 'A', '123456789', '123456789', 'sample@sample.com', 45454, 'M', '0005-05-05', '0005-05-05', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -202,7 +217,9 @@ INSERT INTO `staff` (`id`, `img`, `fname`, `lname`, `mname`, `password`, `email`
 (21, '', 'Anthony', 'Ane', 'L.', '123456789', 'anthonyjarlane@yahoo.com', 2147483647, 'M', 0, '123456789', '0000-00-00', 0),
 (22, 'WIN_20180324_00_50_35_Pro.jpg', 'Lanz', 'Manalo', 'O.', '123456789', 'lanzmanalo@gmail.com', 0, 'M', 1, '123456789', '2018-08-31', 0),
 (23, '', 'Sample', 'Sample', 'S', '123456789', 'sample@sample.com', 90090909, 'F', 1, '123456789', '2018-10-17', 0),
-(24, '', 'Try', 'Sample', '', '123456789', 'sample@sample.com', 0, 'M', 0, '123456789', '2022-01-30', 0);
+(24, '', 'Try', 'Sample', '', '123456789', 'sample@sample.com', 0, 'M', 0, '123456789', '2022-01-30', 0),
+(25, '', 'Aina', 'Sales', 'Rongavilla', '123456789', 'sample@sample.com', 2147483647, 'M', 0, '123456789', '0005-05-05', 0),
+(26, '', 'A', 'Sales', '', '123456789', 'sample@sample.com', 4848, 'F', 1, '123456789', '0005-05-05', 0);
 
 -- --------------------------------------------------------
 
@@ -213,6 +230,12 @@ INSERT INTO `staff` (`id`, `img`, `fname`, `lname`, `mname`, `password`, `email`
 CREATE TABLE `truck` (
   `id` int(100) NOT NULL,
   `img` varchar(50) DEFAULT NULL,
+  `brand` varchar(50) NOT NULL,
+  `model` varchar(50) NOT NULL,
+  `year` int(4) NOT NULL,
+  `gvm` int(50) NOT NULL,
+  `gcm` int(50) NOT NULL,
+  `power` varchar(50) NOT NULL,
   `license_no` varchar(20) NOT NULL,
   `insurance` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -221,13 +244,16 @@ CREATE TABLE `truck` (
 -- Dumping data for table `truck`
 --
 
-INSERT INTO `truck` (`id`, `img`, `license_no`, `insurance`) VALUES
-(1, '0', 'YU 123', 'Blah'),
-(2, '0', '123456', '5-5-5'),
-(4, 'logo.jpg', '4654654', 'Blah'),
-(10, '', '1234567', '5-5-5'),
-(12, '', '46546541', '5-5-5'),
-(14, 'default.jpg', '5050505', '5050505');
+INSERT INTO `truck` (`id`, `img`, `brand`, `model`, `year`, `gvm`, `gcm`, `power`, `license_no`, `insurance`) VALUES
+(1, 'logoname.png', 'Isuzu', 'FVZ 1400', 2007, 24000, 36000, '255', 'YU 123', 'Blah'),
+(2, 'default.jpg', 'Isuzu', 'Sample', 1775, 65000, 51111, 'Sample', '123456', '5-5-5'),
+(4, 'logo.jpg', '', '', 0, 0, 0, '', '4654654', 'Blah'),
+(10, '', '', '', 0, 0, 0, '', '1234567', '5-5-5'),
+(12, '', '', '', 0, 0, 0, '', '46546541', '5-5-5'),
+(14, 'default.jpg', '', '', 0, 0, 0, '', '5050505', '5050505'),
+(15, 'default.jpg', '', '', 0, 0, 0, '', 'trytry', 'trytry'),
+(16, 'default.jpg', '', '', 0, 0, 0, '', '1231231231231', '434242'),
+(17, 'logo.jpg', 'Sample', 'Sample', 5000, 50000, 50000, 'Sample', 'SAM 123', 'MEMA');
 
 --
 -- Indexes for dumped tables
@@ -280,7 +306,7 @@ ALTER TABLE `truck`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `conductor`
@@ -292,25 +318,25 @@ ALTER TABLE `conductor`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `truck`
 --
 ALTER TABLE `truck`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
