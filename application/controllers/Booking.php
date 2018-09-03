@@ -19,10 +19,12 @@ class Booking extends CI_Controller {
     public function insert(){
         $data = $this->input->post();
         unset($data['add']);
-            $this->form_validation->set_rules('destination', 'Destination', 'required');
-            $this->form_validation->set_rules('product', 'Product Type', 'required');
+            $this->form_validation->set_rules('id', 'ID', 'required');
             $this->form_validation->set_rules('description', 'Description', 'required');
             $this->form_validation->set_rules('pieces', 'Pieces', 'required');
+            $this->form_validation->set_rules('cargo', 'Cargo Type', 'required');
+            $this->form_validation->set_rules('date','Date', 'required');
+            $this->form_validation->set_rules('destination', 'Destination', 'required');
       if ($this->form_validation->run() == FALSE)
       {
           $this->add();
@@ -80,12 +82,11 @@ class Booking extends CI_Controller {
         $data = $this->input->post();
         unset($data['submit']);
         $this->form_validation->set_rules('id', 'ID', 'required');
-        $this->form_validation->set_rules('date','Date', 'required');
-        $this->form_validation->set_rules('name', 'Name', 'required');
-        $this->form_validation->set_rules('destination', 'Destination', 'required');
-        $this->form_validation->set_rules('cargo', 'Cargo Type', 'required');
-        $this->form_validation->set_rules('product', 'Product Type', 'required');
         $this->form_validation->set_rules('description', 'Description', 'required');
+        $this->form_validation->set_rules('pieces', 'Pieces', 'required');
+        $this->form_validation->set_rules('cargo', 'Cargo Type', 'required');
+        $this->form_validation->set_rules('date','Date', 'required');
+        $this->form_validation->set_rules('destination', 'Destination', 'required');
             
             if ($this->form_validation->run() == FALSE)
             {
