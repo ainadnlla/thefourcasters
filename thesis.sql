@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 03, 2018 at 05:00 PM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: Sep 03, 2018 at 06:22 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -99,6 +99,13 @@ CREATE TABLE `customer` (
   `user_id` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`, `contact`, `gender`, `date`, `status`, `created`, `updated`, `img`, `user_type`, `user_id`) VALUES
+(4, 'Xylem Water System', 'Broker/Agent', '123456789', '123456789', 'water@sample.com', 99999999, '', '2016-07-03', 1, '2018-09-04 00:04:35', '2018-09-04 00:04:35', 'C:\\xampp\\htdocs\\thefourcasters\\images\\default.jpg', 0, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -150,7 +157,9 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`id`, `img`, `fname`, `lname`, `mname`, `password`, `email`, `contact`, `gender`, `status`, `repass`, `date`, `user_id`) VALUES
-(1, 'C:\\xampp\\htdocs\\thefourcasters\\images\\default.jpg', 'Anthony', 'Ane', 'L.', '123456789', 'anthonyjarlane@yahoo.com', 2147483647, 'M', 1, '123456789', '1998-05-28', 0);
+(1, 'C:\\xampp\\htdocs\\thefourcasters\\images\\default.jpg', 'Anthony', 'Ane', 'L.', '123456789', 'anthonyjarlane@yahoo.com', 2147483647, 'M', 1, '123456789', '1998-05-28', 1),
+(2, 'default.jpg', 'Anthony1', 'Ane', 'L.', '123456789', 'a@yahoo.com', 2147483647, 'M', 0, '123456789', '2018-05-05', 1),
+(3, 'default.jpg', 'Leona', 'Kim', 'Marj', '123456789', 'dso@yahoo.com', 2147483647, 'F', 0, '123456789', '2009-12-03', 1);
 
 -- --------------------------------------------------------
 
@@ -194,7 +203,6 @@ ALTER TABLE `booking`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `userid` (`user_id`),
   ADD KEY `cust_type` (`cust_type`),
   ADD KEY `name` (`name`);
 
@@ -232,13 +240,17 @@ ALTER TABLE `truck`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
+<<<<<<< HEAD
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+=======
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+>>>>>>> a200a7a3190f2b8c0d472385a0fddc7e82276dec
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `driver`
@@ -250,7 +262,7 @@ ALTER TABLE `driver`
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `truck`
@@ -263,6 +275,7 @@ ALTER TABLE `truck`
 --
 
 --
+<<<<<<< HEAD
 -- Constraints for table `customer`
 --
 ALTER TABLE `customer`
@@ -285,6 +298,19 @@ ALTER TABLE `driver`
 ALTER TABLE `truck`
   ADD CONSTRAINT `license_no` FOREIGN KEY (`license_no`) REFERENCES `booking` (`license_no`),
   ADD CONSTRAINT `model` FOREIGN KEY (`model`) REFERENCES `booking` (`model`);
+=======
+-- Constraints for table `booking`
+--
+ALTER TABLE `booking`
+  ADD CONSTRAINT `cust_type` FOREIGN KEY (`cust_type`) REFERENCES `customer` (`cust_type`),
+  ADD CONSTRAINT `custname` FOREIGN KEY (`custname`) REFERENCES `customer` (`name`),
+  ADD CONSTRAINT `driver_fname` FOREIGN KEY (`driver_fname`) REFERENCES `driver` (`fname`),
+  ADD CONSTRAINT `driver_lname` FOREIGN KEY (`driver_lname`) REFERENCES `driver` (`lname`),
+  ADD CONSTRAINT `driver_mname` FOREIGN KEY (`driver_mname`) REFERENCES `driver` (`mname`),
+  ADD CONSTRAINT `driver_no` FOREIGN KEY (`driver_no`) REFERENCES `driver` (`driver_no`),
+  ADD CONSTRAINT `license_no` FOREIGN KEY (`license_no`) REFERENCES `truck` (`license_no`),
+  ADD CONSTRAINT `model` FOREIGN KEY (`model`) REFERENCES `truck` (`model`);
+>>>>>>> a200a7a3190f2b8c0d472385a0fddc7e82276dec
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

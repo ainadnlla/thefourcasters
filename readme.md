@@ -14,3 +14,4 @@ testing
 
 
 
+nakaka stress goal (thesis4) sana </3
