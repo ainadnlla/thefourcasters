@@ -2,8 +2,8 @@
 <section class="content-header">
   <h1>Booking Information</h1>
     <ol class="breadcrumb">
-      <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-      <li><a href="<?=base_url().'admin/booking'?>">Booking Information</a></li>
+      <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+      <li><a href="<?=base_url().'staff/booking'?>">Booking Information</a></li>
       <li class="active">Edit</a></li>
     </ol>
 </section>
@@ -16,7 +16,7 @@
           <h3 class="box-title">Update Details</h3>
         </div>
 
-        <form  class="form-horizontal"  action ="<?=base_url()?>bookingadmin/update/<?=$books->id?>"  method='post'>
+        <form  class="form-horizontal"  action ="<?=base_url()?>bookingstaff/update/<?=$books->id?>"  method='post'>
       <fieldset>
         <div class="form-group">
           <div class="col-md-4">
@@ -169,7 +169,7 @@
         <label class="col-md-4 control-label"></label>
             <div class="col-md-8">
                 <button id="button1id" name="submit" value="submit" class="btn btn-success">Update</button>
-                <a href="<?= base_url().'admin/booking'?>" class="btn btn-danger" role="button"> Cancel</a>
+                <a href="<?= base_url().'staff/booking'?>" class="btn btn-danger" role="button"> Cancel</a>
             </div>
     </div>
 </fieldset>

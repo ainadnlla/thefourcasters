@@ -44,10 +44,10 @@
       <div>
 
     <div class="form-group">
-        <label class="col-md-4 control-label" for="drivernum" >License No.</label>  
+        <label class="col-md-4 control-label" for="driver_no" >License No.</label>  
             <div class="col-md-4">
-                <input  value="<?=$driv->drivernum?>" name="drivernum" type="text" placeholder="License No." class="form-control input-md" required="">
-                <?= form_error('drivernum', '<span class="label label-danger">', '</span>') ?>  
+                <input  value="<?=$driv->driver_no?>" name="driver_no" type="text" placeholder="License No." class="form-control input-md" required="">
+                <?= form_error('driver_no', '<span class="label label-danger">', '</span>') ?>  
             </div>
     </div> 
 

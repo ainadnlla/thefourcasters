@@ -7,7 +7,6 @@ class Driver extends CI_Controller {
             $this->load->model('UserModel');
             $this->load->model('CustomerModel');
             $this->load->model('DriverModel');
-            $this->load->model('ConductorModel');
             $this->load->model('TruckModel');
             $this->load->model('AdminModel');
             $this->load->model('BookingModel');
@@ -64,7 +63,7 @@ $this->session->set_userdata($newdata);
     public function insert(){
         $data = array (
             'img' => 'default.jpg',
-            'drivernum' => $this->input->post('drivernum'),
+            'driver_no' => $this->input->post('driver_no'),
             'fname' => $this->input->post('fname'),
             'mname' => $this->input->post('mname'),
             'lname' => $this->input->post('lname'),
@@ -80,7 +79,7 @@ $this->session->set_userdata($newdata);
 
     /*    $data = $this->input->post();
         unset($data['add']); */
-            $this->form_validation->set_rules('drivernum', 'Driver #', 'required');
+            $this->form_validation->set_rules('driver_no', 'Driver #', 'required');
             $this->form_validation->set_rules('fname', 'First Name', 'required');
             $this->form_validation->set_rules('lname', 'Last Name', 'required');
             $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
@@ -144,7 +143,7 @@ $this->session->set_userdata($newdata);
 
    $data = $this->input->post();
         unset($data['submit']); 
-            $this->form_validation->set_rules('drivernum', 'Driver #', 'required');
+            $this->form_validation->set_rules('driver_no', 'Driver #', 'required');
             $this->form_validation->set_rules('fname', 'First Name', 'required');
             $this->form_validation->set_rules('lname', 'Last Name', 'required');
             $this->form_validation->set_rules('password','Password', 'required');

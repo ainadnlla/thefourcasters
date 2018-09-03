@@ -62,25 +62,19 @@ class BookingModel extends CI_Model{
 
     function getDriver()
     {
-        $query = $this->db->query('SELECT fname, lname FROM driver WHERE position = "1"');
-        return $query->result();
-    }
-
-    function getDriverNo()
-    {
-        $query = $this->db->query('SELECT drivernum FROM driver WHERE position = "1"');
+        $query = $this->db->query('SELECT fname, lname FROM driver WHERE position ="1" && status ="1"');
         return $query->result();
     }
 
     function getHelper()
     {
-        $query = $this->db->query('SELECT fname, lname FROM driver WHERE position = "2"');
+        $query = $this->db->query('SELECT fname, lname FROM driver WHERE position = "2" && status = "1"');
         return $query->result();
     }
 
-    function getHelperNo()
+    function getDriverNo()
     {
-        $query = $this->db->query('SELECT drivernum FROM driver WHERE position = "2"');
+        $query = $this->db->query('SELECT driver_no FROM driver');
         return $query->result();
     }
 

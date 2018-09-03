@@ -34,22 +34,6 @@
     </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label"for ="drivernum">License No.</label>  
-        <div class="col-md-4">
-          <input  name="drivernum" type="text" placeholder="License No." class="form-control input-md">
-          <?= form_error('drivernum', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label" >Expiration Date</label>  
-        <div class="col-md-4">
-          <input name="expire" type="date" class="form-control input-md">  
-          <?= form_error('expire', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-    <div class="form-group">
       <label class="col-md-4 control-label"for ="fname">First Name</label>  
         <div class="col-md-4">
           <input  name="fname" type="text" placeholder="First Name" class="form-control input-md">
@@ -69,6 +53,22 @@
         <div class="col-md-4">
           <input  name="lname" type="text" placeholder="Last Name" class="form-control input-md">  
           <?= form_error('lname', '<span class="label label-danger">', '</span>') ?>  
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label"for ="driver_no">License No.</label>  
+        <div class="col-md-4">
+          <input  name="driver_no" type="text" placeholder="License No." class="form-control input-md">
+          <?= form_error('driver_no', '<span class="label label-danger">', '</span>') ?>  
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" >Expiration Date</label>  
+        <div class="col-md-4">
+          <input name="expire" type="date" class="form-control input-md">  
+          <?= form_error('expire', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 

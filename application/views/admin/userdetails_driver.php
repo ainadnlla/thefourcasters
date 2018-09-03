@@ -40,7 +40,7 @@
                         <td><?= $driv->id?></td>
                         <td><img src="<?=base_url().'images/'.$driv->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
                         <td><?= $driv->fname?> <?= $driv->mname?> <?= $driv->lname?></td>
-                        <td><?= $driv->drivernum?></td>
+                        <td><?= $driv->driver_no?></td>
                         <td><?= $driv->expire?></td>
                         <td><?= $driv->email?></td>                            
                         <td><?= $driv->contact?></td>

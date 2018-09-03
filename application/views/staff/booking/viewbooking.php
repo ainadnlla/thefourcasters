@@ -2,8 +2,8 @@
 <section class="content-header">
   <h1>Booking Information</h1>
     <ol class="breadcrumb">
-      <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-      <li><a href="<?=base_url().'admin/booking'?>">Booking Information</a></li>
+      <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+      <li><a href="<?=base_url().'staff/booking'?>">Booking Information</a></li>
       <li class="active">View</a></li>
     </ol>
 </section>
@@ -131,7 +131,7 @@
         <div class="form-group">
         <label class="col-md-4 control-label"></label>
             <div class="col-md-8">
-                <a href="<?= base_url().'admin/booking'?>" class="btn btn-danger" role="button"> Cancel</a>
+                <a href="<?= base_url().'staff/booking'?>" class="btn btn-danger" role="button"> Cancel</a>
             </div>
     </div>
 </fieldset>

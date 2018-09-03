@@ -33,8 +33,8 @@
                   <th>Plate No.</th>
                   <th>Driver No.</th>
                   <th>Driver Name</th>
-                  <th>Conductor No.</th>
-                  <th>Conductor Name</th>
+                  <th>Helper No.</th>
+                  <th>Helper Name</th>
                   <th>Destination</th>
                   <th>Price</th>
                   <th>Status</th>

@@ -1,9 +1,9 @@
 <div class="content-wrapper">
 <section class="content-header">
-  <h1>Booking Delivery</h1>
+  <h1>Booking Information</h1>
   <ol class="breadcrumb">
     <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-    <li class="active">Booking Delivery</a></li>
+    <li class="active">Booking Information</a></li>
   </ol>
 </section>
 
@@ -22,51 +22,38 @@
             <tr>
               <th>ID</th>
               <th>Waybill</th>
+              <th>Customer</th>
               <th>Date</th>
-              <th>Customer Type</th>
-              <th>Name</th>
+              <th>Product</th>
               <th>Cargo Size</th>
               <th>Truck</th>
-              <th>Plate No.</th>
-              <th>Driver No.</th>
               <th>Driver Name</th>
-              <th>Conductor No.</th>
-              <th>Conductor Name</th>
+              <th>Helper Name</th>
               <th>Destination</th>
               <th>Price</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
             </thead>
-            <?php foreach($books as $book): ?>
             <tbody>
-            <tr>
-              <th><?= $book->id?></th>
-              <th><?= $book->waybill?></th>
-              <th><?= $book->date?></th>
-              <th><?= $book->cust_type?></th>
-              <th><?= $book->name?></th>
-              <th><?= $book->cargo?></th>
-              <th><?= $book->truck?></th>
-              <th><?= $book->plate_no?></th>
-              <th><?= $book->driver_no?></th>
-              <th><?= $book->driver_name?></th>
-              <th><?= $book->cond_no?></th>
-              <th><?= $book->condname?></th>
-              <th><?= $book->price?></th>
-              <th><p>
-                    <?php if($book->status==1){ ?>
-                      <div class="label label-success">
-                        <strong>Active</strong>
-                      </div>
-                    <?php }elseif($book->status==0){ ?>
-                      <div class="label label-danger">
-                        <strong>Inactive</strong>
-                      </div></p>
-                    <?php }?>
-              </th>
-              <td>
-                <a href="<?= base_url().'bookingstaff/edit/'?>" class="btn btn-default btn.lg" role="button">
+            <?php foreach($books as $book): ?>
+              <tr>
+                  <td><?= $book->id?></td>
+                  <td><?= $book->waybill?></td>
+                  <td><?= $book->custname?></td>
+                  <td><?= $book->date?></td>
+                  <td><?= $book->product?></td>
+                  <td><?= $book->cargo?></td>
+                  <td><?= $book->model?></td>
+                  <td><?= $book->driver_name?></td>
+                  <td><?= $book->helper_name?></td>
+                  <td><?= $book->destination?></td>
+                  <td><?= $book->price?></td>
+                  <td></td>
+                  <td>
+                  <a href="<?= base_url().'bookingstaff/view/'.$book->id?>" class="btn btn-default btn.lg" role="button">
+                  <span class="fa fa-eye" aria-hidden="true"></span></a>
+                  <a href="<?= base_url().'bookingstaff/edit/'.$book->id?>" class="btn btn-default btn.lg" role="button">
                   <span class="fa fa-edit" aria-hidden="true"></span></a>
                         
                 <!-- <a href="<?=base_url('bookingstaff/del/'.$book->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
@@ -76,6 +63,11 @@
             </tfoot>
           <?php endforeach; ?> 
           </table>
+
+          <!-- <div class="box-footer">
+                <a href="<?=base_url()?>bookingstaff/add" class="btn btn-success btn-block btn-sm" role="button">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Booking Information</a>
+                </div> -->
 
             <center><?php echo $this->pagination->create_links();?></center>
         </div>

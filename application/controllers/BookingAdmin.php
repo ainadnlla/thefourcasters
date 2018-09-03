@@ -8,7 +8,6 @@ class BookingAdmin extends CI_Controller {
             $this->load->model('UserModel');
             $this->load->model('CustomerModel');
             $this->load->model('DriverModel');
-            $this->load->model('ConductorModel');
             $this->load->model('TruckModel');
             $this->load->model('AdminModel');
             $this->load->model('BookingModel');
@@ -62,9 +61,8 @@ class BookingAdmin extends CI_Controller {
         $data['models'] = $this->BookingModel->getModel();
         $data['license_nos'] = $this->BookingModel->getLicense();
         $data['drivernames'] = $this->BookingModel->getDriver();
-        $data['drivernums'] = $this->BookingModel->getDriverNo();
+        $data['drivernos'] = $this->BookingModel->getDriverNo();
         $data['helpernames'] = $this->BookingModel->getHelper();
-        $data['helpernums'] = $this->BookingModel->getHelperNo();
         $books = $this->BookingModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');

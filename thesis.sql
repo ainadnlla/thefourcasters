@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 03, 2018 at 06:22 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Generation Time: Sep 03, 2018 at 08:37 PM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -63,17 +63,17 @@ CREATE TABLE `booking` (
   `destination` varchar(50) NOT NULL,
   `price` int(50) NOT NULL,
   `license_no` varchar(50) NOT NULL,
-  `driver_fname` varchar(50) NOT NULL,
-  `driver_mname` varchar(50) NOT NULL,
-  `driver_lname` varchar(50) NOT NULL
+  `driver_name` varchar(50) NOT NULL,
+  `helper_name` varchar(50) NOT NULL,
+  `helper_no` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`id`, `waybill`, `date`, `cust_type`, `custname`, `cargo`, `product`, `description`, `pieces`, `model`, `driver_no`, `destination`, `price`, `license_no`, `driver_fname`, `driver_mname`, `driver_lname`) VALUES
-(23, 0, '2018-09-03', '', '', 'LCL 1x40', 'Sample', 'sample', 500, '', '', 'Sampleee', 0, '', '', '', '');
+INSERT INTO `booking` (`id`, `waybill`, `date`, `cust_type`, `custname`, `cargo`, `product`, `description`, `pieces`, `model`, `driver_no`, `destination`, `price`, `license_no`, `driver_name`, `helper_name`, `helper_no`) VALUES
+(23, 123, '0888-09-03', '', '', 'LCL 1x40', 'Sample', 'sample', 500, 'FVZ 1400', '', 'Sampleee', 0, 'SAM 123', 'Driver Sample', 'Helper Two', '');
 
 -- --------------------------------------------------------
 
@@ -104,6 +104,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`, `contact`, `gender`, `date`, `status`, `created`, `updated`, `img`, `user_type`, `user_id`) VALUES
+(0, 'Xylem Water System', 'Broker/Agent', '123456789', '123456789', 'sample@sample.com', 12345678, '', '0005-05-05', 0, '2018-09-04 00:32:07', '2018-09-04 00:32:07', 'default.jpg', 0, 0),
 (4, 'Xylem Water System', 'Broker/Agent', '123456789', '123456789', 'water@sample.com', 99999999, '', '2016-07-03', 1, '2018-09-04 00:04:35', '2018-09-04 00:04:35', 'C:\\xampp\\htdocs\\thefourcasters\\images\\default.jpg', 0, 0);
 
 -- --------------------------------------------------------
@@ -129,6 +130,15 @@ CREATE TABLE `driver` (
   `status` int(1) NOT NULL,
   `position` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `driver`
+--
+
+INSERT INTO `driver` (`img`, `id`, `driver_no`, `fname`, `mname`, `lname`, `password`, `repass`, `email`, `contact`, `gender`, `expire`, `date`, `status`, `position`) VALUES
+('default.jpg', 1, 'ACL 1245115', 'Driver', 'A', 'Sample', '123456789', '123456789', 'sample@sample.com', 12345678, 'M', '2038-03-03', '2018-09-04', 1, 1),
+('default.jpg', 2, 'ACL 1245154', 'Helper', 'A', 'Sample', '123456789', '123456789', 'sample@sample.com', 1212121, 'M', '2021-07-15', '2018-09-04', 0, 2),
+('default.jpg', 7, 'ACL 12445', 'Helper', '', 'Two', '123456789', '123456789', 'sample@sample.com', 5454545, 'M', '5554-04-05', '5455-05-04', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -181,6 +191,14 @@ CREATE TABLE `truck` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `truck`
+--
+
+INSERT INTO `truck` (`id`, `img`, `brand`, `model`, `year`, `gvm`, `gcm`, `power`, `license_no`, `insurance`) VALUES
+(1, 'default.jpg', 'Isuzu', 'FVZ 1400', 2007, 26000, 36000, '255', 'YU 123', '123456789'),
+(2, 'default.jpg', 'Sample', 'Sample', 1996, 45555, 50000, '455', 'SAM 123', '123');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -193,9 +211,7 @@ ALTER TABLE `booking`
   ADD KEY `custname` (`custname`),
   ADD KEY `license_no` (`license_no`),
   ADD KEY `model` (`model`),
-  ADD KEY `driverfname` (`driver_fname`) USING BTREE,
-  ADD KEY `driver_mname` (`driver_mname`),
-  ADD KEY `driver_lname` (`driver_lname`),
+  ADD KEY `driverfname` (`driver_name`) USING BTREE,
   ADD KEY `driver_no` (`driver_no`);
 
 --
@@ -211,7 +227,6 @@ ALTER TABLE `customer`
 --
 ALTER TABLE `driver`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `position` (`position`),
   ADD KEY `fname` (`fname`),
   ADD KEY `mname` (`mname`,`lname`),
   ADD KEY `lname` (`lname`),
@@ -237,80 +252,16 @@ ALTER TABLE `truck`
 --
 
 --
--- AUTO_INCREMENT for table `booking`
---
-ALTER TABLE `booking`
-<<<<<<< HEAD
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-=======
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
->>>>>>> a200a7a3190f2b8c0d472385a0fddc7e82276dec
-
---
--- AUTO_INCREMENT for table `customer`
---
-ALTER TABLE `customer`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `staff`
---
-ALTER TABLE `staff`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `truck`
 --
 ALTER TABLE `truck`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
-<<<<<<< HEAD
--- Constraints for table `customer`
---
-ALTER TABLE `customer`
-  ADD CONSTRAINT `cust_type` FOREIGN KEY (`cust_type`) REFERENCES `booking` (`cust_type`),
-  ADD CONSTRAINT `name` FOREIGN KEY (`name`) REFERENCES `booking` (`custname`),
-  ADD CONSTRAINT `userid` FOREIGN KEY (`user_id`) REFERENCES `staff` (`user_id`);
-
---
--- Constraints for table `driver`
---
-ALTER TABLE `driver`
-  ADD CONSTRAINT `driver_fname` FOREIGN KEY (`fname`) REFERENCES `booking` (`driver_fname`),
-  ADD CONSTRAINT `driver_lname` FOREIGN KEY (`lname`) REFERENCES `booking` (`driver_lname`),
-  ADD CONSTRAINT `driver_mname` FOREIGN KEY (`mname`) REFERENCES `booking` (`driver_mname`),
-  ADD CONSTRAINT `driver_no` FOREIGN KEY (`driver_no`) REFERENCES `booking` (`driver_no`);
-
---
--- Constraints for table `truck`
---
-ALTER TABLE `truck`
-  ADD CONSTRAINT `license_no` FOREIGN KEY (`license_no`) REFERENCES `booking` (`license_no`),
-  ADD CONSTRAINT `model` FOREIGN KEY (`model`) REFERENCES `booking` (`model`);
-=======
--- Constraints for table `booking`
---
-ALTER TABLE `booking`
-  ADD CONSTRAINT `cust_type` FOREIGN KEY (`cust_type`) REFERENCES `customer` (`cust_type`),
-  ADD CONSTRAINT `custname` FOREIGN KEY (`custname`) REFERENCES `customer` (`name`),
-  ADD CONSTRAINT `driver_fname` FOREIGN KEY (`driver_fname`) REFERENCES `driver` (`fname`),
-  ADD CONSTRAINT `driver_lname` FOREIGN KEY (`driver_lname`) REFERENCES `driver` (`lname`),
-  ADD CONSTRAINT `driver_mname` FOREIGN KEY (`driver_mname`) REFERENCES `driver` (`mname`),
-  ADD CONSTRAINT `driver_no` FOREIGN KEY (`driver_no`) REFERENCES `driver` (`driver_no`),
-  ADD CONSTRAINT `license_no` FOREIGN KEY (`license_no`) REFERENCES `truck` (`license_no`),
-  ADD CONSTRAINT `model` FOREIGN KEY (`model`) REFERENCES `truck` (`model`);
->>>>>>> a200a7a3190f2b8c0d472385a0fddc7e82276dec
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
