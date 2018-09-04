@@ -48,15 +48,10 @@ class BookingModel extends CI_Model{
 
 
 //DROPDOWN
-    function getModel()
-    {
-        $query = $this->db->query('SELECT model FROM truck');
-        return $query->result();
-    }
 
-    function getLicense()
+    function getPlateNo()
     {
-        $query = $this->db->query('SELECT license_no FROM truck');
+        $query = $this->db->query('SELECT plate_no FROM truck');
         return $query->result();
     }
 

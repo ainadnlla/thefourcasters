@@ -90,10 +90,10 @@
     </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label"for ="license_no">License #</label>  
+      <label class="col-md-4 control-label"for ="plate_no">License #</label>  
         <div class="col-md-4">
-          <input  value="<?=$truck->license_no?>" name="license_no" type="text" placeholder="License #" class="form-control input-md">
-          <?= form_error('license_no', '<span class="label label-danger">', '</span>') ?>  
+          <input  value="<?=$truck->plate_no?>" name="plate_no" type="text" placeholder="License #" class="form-control input-md">
+          <?= form_error('plate_no', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 

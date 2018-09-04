@@ -26,7 +26,7 @@
               <th>Date</th>
               <th>Product</th>
               <th>Cargo Size</th>
-              <th>Truck</th>
+              <th>Truck #</th>
               <th>Driver Name</th>
               <th>Helper Name</th>
               <th>Destination</th>
@@ -44,7 +44,7 @@
                   <td><?= $book->date?></td>
                   <td><?= $book->product?></td>
                   <td><?= $book->cargo?></td>
-                  <td><?= $book->model?></td>
+                  <td><?= $book->plate_no?></td>
                   <td><?= $book->driver_name?></td>
                   <td><?= $book->helper_name?></td>
                   <td><?= $book->destination?></td>

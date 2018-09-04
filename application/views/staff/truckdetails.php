@@ -20,16 +20,19 @@
               <table id="staff" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                    <th>ID</th>
+                <th>ID</th>
                     <th>Image</th>
-                    <th>Brand</th>
-                    <th>Model</th>
-                    <th>Year</th>
-                    <th>GVM</th>
-                    <th>GCM</th>
-                    <th>Engine Power</th>
-                    <th>License No.</th>
-                    <th>Insurance</th>
+                    <th>Make</th>
+                    <th>Plate No.</th>
+                    <th>Series</th>
+                    <th>MV File No</th>
+                    <th>Engine No.</th>
+                    <th>Chassis No.</th>
+                    <th>Gross Wt.</th>
+                    <th>Net Wt.</th>
+                    <th>Net Capacity</th>
+                    <th>Year Model</th>
+                    <th>Year Old</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -39,13 +42,16 @@
                             <td><?= $truck->id?></td>
                             <td><img src="<?=base_url().'images/'.$truck->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
                             <td><?= $truck->brand?></td>
-                            <td><?= $truck->model?></td>
+                            <td><?= $truck->plate_no?></td>
+                            <td><?= $truck->series?></td>
+                            <td><?= $truck->mvfile_no?></td>
+                            <td><?= $truck->engine_no?></td>
+                            <td><?= $truck->chassis_no?></td>
+                            <td><?= $truck->grosswt?></td>
+                            <td><?= $truck->netwt?></td>
+                            <td><?= $truck->netcap?></td>
                             <td><?= $truck->year?></td>
-                            <td><?= $truck->gvm?></td>
-                            <td><?= $truck->gcm?></td>
-                            <td><?= $truck->power?></td>
-                            <td><?= $truck->license_no?></td>
-                            <td><?= $truck->insurance?></td>
+                            <td><?= $truck->old?></td>
                             <td>
 
                             <a href="<?= base_url().'staff_truck/edit/'.$truck->id?>" class="btn btn-default btn.lg" role="button">

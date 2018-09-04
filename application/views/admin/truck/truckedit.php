@@ -42,7 +42,7 @@
       <div>
 
       <div class="form-group">
-      <label class="col-md-4 control-label"for ="brand">Brand</label>  
+      <label class="col-md-4 control-label"for ="brand">Make</label>  
         <div class="col-md-4">
           <input value="<?=$truck->brand?>" name="brand" type="text" placeholder="Brand/Maker" class="form-control input-md">
           <?= form_error('brand', '<span class="label label-danger">', '</span>') ?>  
@@ -50,13 +50,63 @@
     </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label"for ="model">Model</label>  
+      <label class="col-md-4 control-label"for ="plate_no">Plate No.</label>  
         <div class="col-md-4">
-          <input value="<?=$truck->model?>" name="model" type="text" placeholder="Model" class="form-control input-md">
-          <?= form_error('model', '<span class="label label-danger">', '</span>') ?>  
+          <input value="<?=$truck->plate_no?>"  name="plate_no" type="text" placeholder="Plate No." class="form-control input-md">
+          <?= form_error('plate_no', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
+    <div class="form-group">
+      <label class="col-md-4 control-label"for ="series">Series</label>  
+        <div class="col-md-4">
+          <input value="<?=$truck->series?>" name="series" type="text" placeholder="series" class="form-control input-md">
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label"for ="mvfile_no">MV File No.</label>  
+        <div class="col-md-4">
+          <input value="<?=$truck->mvfile_no?>" name="mvfile_no" type="text" placeholder="MV File No." class="form-control input-md">
+          <?= form_error('gcm', '<span class="label label-danger">', '</span>') ?>  
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label"for ="engine_no">Engine No.</label>  
+        <div class="col-md-4">
+          <input value="<?=$truck->engine_no?>" name="engine_no" type="text" placeholder="Engine No." class="form-control input-md">
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label"for ="chassis_no">Chassis No.</label>  
+        <div class="col-md-4">
+          <input value="<?=$truck->chassis_no?>" name="chassis_no" type="text" placeholder="Chassis No." class="form-control input-md">
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="grosswt" >Gross Weight</label>  
+        <div class="col-md-4">
+          <input value="<?=$truck->grosswt?>" name="grosswt" type="number" placeholder="Gross Weight" class="form-control input-md">  
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="netwt" >Net Weight</label>  
+        <div class="col-md-4">
+          <input value="<?=$truck->netwt?>" name="netwt" type="number" placeholder="Shipping Weight" class="form-control input-md">  
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="netcap" >Net Capacity</label>  
+        <div class="col-md-4">
+          <input value="<?=$truck->netcap?>" name="netcap" type="number" placeholder="Net Capacity" class="form-control input-md">  
+        </div>
+    </div>
+    
     <div class="form-group">
       <label class="col-md-4 control-label"for ="year">Year</label>  
         <div class="col-md-4">
@@ -65,43 +115,10 @@
         </div>
     </div>
 
-    <div class="form-group">
-      <label class="col-md-4 control-label"for ="gvm">GVM</label>  
+  <div class="form-group">
+      <label class="col-md-4 control-label"for ="old">Truck Old</label>  
         <div class="col-md-4">
-          <input  value="<?=$truck->gvm?>" name="gvm" type="number" placeholder="GVM" class="form-control input-md">
-          <?= form_error('gvm', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label"for ="gcm">GCM</label>  
-        <div class="col-md-4">
-          <input value="<?=$truck->gcm?>" name="gcm" type="number" placeholder="GCM" class="form-control input-md">
-          <?= form_error('gcm', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label"for ="power">Engine Power</label>  
-        <div class="col-md-4">
-          <input  value="<?=$truck->power?>" name="power" type="text" placeholder="Engine Power" class="form-control input-md">
-          <?= form_error('power', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label"for ="license_no">License #</label>  
-        <div class="col-md-4">
-          <input  value="<?=$truck->license_no?>" name="license_no" type="text" placeholder="License #" class="form-control input-md">
-          <?= form_error('license_no', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="insurance" >Insurance</label>  
-        <div class="col-md-4">
-          <input value="<?=$truck->insurance?>" name="insurance" type="text" placeholder="Insurance Date" class="form-control input-md">  
-          <?= form_error('insurance', '<span class="label label-danger">', '</span>') ?>   
+          <!-- <input disabled name="old" type="number" placeholder="Old" class="form-control input-md"> -->
         </div>
     </div>
 

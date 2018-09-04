@@ -50,7 +50,12 @@ class UserModel extends CI_Model{
         $this->db->delete('staff',$data);
     }
 
-//SEARCH
+//UPLOAD
+
+public function getItem($id){
+        $q = $this->db->get_where('truck',array('id'=>$id));
+        return $q->row();
+    }
 
 //status
 }

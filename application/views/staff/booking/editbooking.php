@@ -92,25 +92,12 @@
         </div>
 
         <div class="form-group">
-          <label class="col-md-4 control-label">Truck Model</label>  
-            <div class="col-md-4">
-            <select name="model" class="form-control">
-            <?php 
-              foreach($models as $row) { 
-                echo '<option value="'.$row->model.'">'.$row->model.'</option>';
-              }
-            ?>
-            </select>      
-          </div>
-        </div>
-
-        <div class="form-group">
           <label class="col-md-4 control-label">Truck Plate No.</label>  
             <div class="col-md-4">
-          <select name="license_no" class="form-control">
+          <select name="plate_no" class="form-control">
             <?php 
-              foreach($license_nos as $row) { 
-                echo '<option value="'.$row->license_no.'">'.$row->license_no.'</option>';
+              foreach($plate_nos as $row) { 
+                echo '<option value="'.$row->plate_no.'">'.$row->plate_no.'</option>';
               }
             ?>
             </select>
