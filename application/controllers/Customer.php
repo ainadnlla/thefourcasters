@@ -190,6 +190,9 @@ class Customer extends CI_Controller {
         if(!$user == null){
             if($user->status == 1){
             $session_data = array(
+                'picpath' => $user->img,
+                'name'=>$user->name,
+                'cust'  => $user->cust_type,
                 'email'     => $email,
                 'logged_in' => TRUE,
                 'isAdmin' => TRUE

@@ -24,20 +24,17 @@
             </div>
           </div>
 
-        <!-- <div class="form-group">
-          <label class="col-md-4 control-label" for="name">Customer/Importer</label>  
+          <div class="form-group">
             <div class="col-md-4">
-              <input name="custname" type="text" placeholder="Customer/Importer" class="form-control input-md" disabled> 
+              <input type="hidden"  name="cust_type" type="text" value="<?=$this->session->cust?>" class="form-control input-md" required="" >  
             </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="customertype">Customer Type</label>
+          </div>
+          <div class="form-group">
             <div class="col-md-4">
-            <input name="cust_type" type="text" placeholder="Customer Type" class="form-control input-md" disabled> 
+              <input type="hidden"  name="custname" type="text" value="<?=$this->session->name?>" class="form-control input-md" required="" >  
             </div>
-        </div> -->
-
+          </div>
+   
         <div class="form-group">
           <label class="col-md-4 control-label" for="product">Product Type</label>  
             <div class="col-md-4">
@@ -103,7 +100,7 @@
           <label class="col-md-4 control-label" for="button1id"></label>
             <div class="col-md-4">
               <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Submit</button></a>
-              <a href="<?=base_url().'customer/booking'?>"><button id="" name="" class="btn btn-danger">Cancel</button></a>
+              <a href="<?= base_url().'customer/booking'?>" class="btn btn-danger" role="button"> Cancel</a>
             </div>
         </div> 
  

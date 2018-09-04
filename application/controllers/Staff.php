@@ -167,7 +167,8 @@ class Staff extends CI_Controller {
         if(!($user == null)){             
             if($user->status == 1) {
                 $session_data = array(
-                    'name'  => $user->name,
+                    'name'  => $user->fname,
+                    'picpath' => $user->img,
                     'email'     => $email,
                     'logged_in' => TRUE,
                     'isAdmin' => TRUE

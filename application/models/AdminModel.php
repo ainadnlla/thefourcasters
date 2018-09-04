@@ -21,6 +21,12 @@ class AdminModel extends CI_Model{
 
      return $query->row();
     }  
+  
+  public function getCustomer($email,$password){
+    $query = $this->db->query("SELECT * FROM customer WHERE email = '$email' && password = '$password'");
+    
+         return $query->row();
   }
+}
   
 ?>
