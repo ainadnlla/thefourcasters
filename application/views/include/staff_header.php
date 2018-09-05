@@ -151,33 +151,10 @@
           </a>
         </li>
 
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-envelope"></i> <span>Mailbox</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+        <li>
+          <a href="<?=base_url().'admin/stat'?>">
+            <i class="fa fa-pie-chart"></i> <span>Reports</span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="<?=base_url().'staff/inbox'?>"><i class="fa fa-circle-o"></i> Inbox</a></li>
-            <li><a href="<?=base_url().'staff/compose'?>"><i class="fa fa-circle-o"></i> Compose</a></li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-pie-chart"></i>
-            <span>Reports</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Sample1</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Sample2</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Sample3</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Sample4</a></li>
-          </ul>
         </li>
       </ul>
     </section>

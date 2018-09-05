@@ -352,7 +352,8 @@ class Admin extends CI_Controller {
 
     public function stats(){
         
-        if($this->session->userdata('username') !=''){ 
+        if($this->session->userdata('username') !=''){    
+        $data['title'] = 'Compose | Angelogistic Forwarder Corporation';
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
         $this->load->view('admin/stats');

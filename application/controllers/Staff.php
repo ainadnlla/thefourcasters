@@ -283,6 +283,19 @@ class Staff extends CI_Controller {
         }
     }
 
+    public function stat(){
+        if($this->session->userdata('username') !=''){ 
+        $data['title'] = 'Truck Location | Angelogistic Forwarder Corporation';
+
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_nav');
+        $this->load->view('admin/stats');
+        $this->load->view('include/footer');
+    }else{
+        redirect('staff/login');
+        }
+    }
+
     public function calendar(){
         if($this->session->userdata('email') !=''){
         $data['title'] = 'Calendar | Angelogistic Forwarder Corporation';
