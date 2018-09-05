@@ -8,7 +8,6 @@ class Staff extends CI_Controller {
             $this->load->model('UserModel');
             $this->load->model('CustomerModel');
             $this->load->model('DriverModel');
-            $this->load->model('ConductorModel');
             $this->load->model('TruckModel');
             $this->load->model('AdminModel');
             $this->load->model('BookingModel');
@@ -36,7 +35,7 @@ class Staff extends CI_Controller {
       }
     }  
     public function add(){
-        if($this->session->userdata('username') !=''){ 
+        if($this->session->userdata('email') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
         $this->load->view('include/header', $data);
         $this->load->view('include/staff_header');
@@ -47,7 +46,7 @@ class Staff extends CI_Controller {
     }
     }
     public function edit($id){
-        if($this->session->userdata('username') !=''){ 
+        if($this->session->userdata('email') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
         $cust = $this->CustomerModel->getProd($id);
         $this->load->view('include/header', $data);
@@ -59,7 +58,7 @@ class Staff extends CI_Controller {
     }
     }
     public function delete($id){
-        if($this->session->userdata('username') !=''){ 
+        if($this->session->userdata('email') !=''){ 
         $cust = $this->CustomerModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/staff_header');
@@ -140,14 +139,7 @@ class Staff extends CI_Controller {
 
 // STAFF SIDE
 
-    public function logged(){
-        $newdata = array(
-            'name'  => $user->name,
-            'username'     => $user->username,
-            'logged_in' => TRUE,
-            'isAdmin' => TRUE
-    );}
-
+  
     public function login(){
         
         $data['title'] = 'Angelogistic Forwarder Corporation';
@@ -168,8 +160,8 @@ class Staff extends CI_Controller {
         if(!($user == null)){             
             if($user->status == 1) {
                 $session_data = array(
-                    'name'  => $user->name,
-                    // 'status' =>$status,
+                    'name'  => $user->fname,
+                    'picpath' => $user->img,
                     'email'     => $email,
                     'logged_in' => TRUE,
                     'isAdmin' => TRUE
@@ -328,7 +320,7 @@ class Staff extends CI_Controller {
     }
 
     public function booking($offset=0){
-        if($this->session->userdata('username') !=''){ 
+        if($this->session->userdata('email') !=''){ 
             $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
 
             $this->load->library('pagination');
@@ -363,6 +355,52 @@ class Staff extends CI_Controller {
             redirect('staff/login');
         }
     }
+    public function staff_registration(){
+        $data['title'] = 'Staff Registration | Angelogistic Forwarder Corporation';
+        
+        $this->load->view('include/header',$data);
+        $this->load->view('staff/staffregis');
+        $this->load->view('include/footer');
+          
+
+      }
+      public function registration(){
+          
+        $data = array (
+            'img' => 'default.jpg',
+            'fname' => $this->input->post('fname'),
+            'mname' => $this->input->post('mname'),
+            'lname' => $this->input->post('lname'),
+            'password' => $this->input->post('password'),
+            'repass' => $this->input->post('repass'),
+            'email' => $this->input->post('email'),
+            'contact' => $this->input->post('contact'),
+            'gender' => $this->input->post('gender'),
+            'date' => $this->input->post('date'),
+            'user_id'=> $this->input->post('user_type')
+        );
+      /*  $data = $this->input->post();
+        unset($data['add']);*/
+
+            $this->form_validation->set_rules('fname', 'First Name', 'required');
+            $this->form_validation->set_rules('lname', 'Last Name', 'required');
+            $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
+            $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
+            $this->form_validation->set_rules('email', 'Email Address', 'required');
+            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
+            $this->form_validation->set_rules('gender', 'Gender', 'required');
+
+      if ($this->form_validation->run() == FALSE)
+      {
+          $this->staff_registration();
+      }
+      else
+      {
+            $this->UserModel->regis($data);
+            redirect('staff/login');
+      }
+    }
+
 
 
 

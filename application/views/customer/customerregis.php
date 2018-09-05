@@ -1,11 +1,6 @@
 <div class="content-wrapper">
     <section class="content-header">
-      <h1>Driver Helper Details</h1>
-        <ol class="breadcrumb">
-          <li><a href="<?=base_url().'admin/userdetails'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-          <li><a href="<?=base_url().'admin/userdetails_conductor'?>">Driver Helper  Details</a></li>
-          <li class="active">Add</a></li>
-        </ol>
+      <h1>Customer Registration</h1>
     </section>
 
     <section class="content">
@@ -13,10 +8,10 @@
         <div class="col-sm-12">   
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Add Details</h3>
+              <h3 class="box-title">Customer signup</h3>
             </div>
 
-    <form class="form-horizontal" action ="<?=base_url().'conductor/insert'?>" method = "post">
+    <form class="form-horizontal" action ="<?=base_url().'customer/regis'?>" method = "post">
         <div class="box-body">
           <div class="form-group">
             <div class="col-md-4">
@@ -25,41 +20,31 @@
           </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label"for ="conductornum">Driver's License #</label>  
+      <label class="col-md-4 control-label"for ="upload">Image</label>  
+      <div class="col-md-4">
+      <?php echo form_open_multipart('customer/do_upload');?>
+      <input class="form-control" type="file" name="img" size="20">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label"for ="name">Customer/Importer</label>  
         <div class="col-md-4">
-          <input  name="conductornum" type="text" placeholder="Helper #" class="form-control input-md">
-          <?= form_error('conductornum', '<span class="label label-danger">', '</span>') ?>  
+          <input  name="name" type="text" placeholder="Customer/Importer" class="form-control input-md">
+          <?= form_error('name', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label" >Expiration Date</label>  
+      <label class="col-md-4 control-label" for="gender">Customer Type</label>
         <div class="col-md-4">
-          <input name="expire" type="date" class="form-control input-md">  
-          <?= form_error('expire', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label"for ="fname">First Name</label>  
-        <div class="col-md-4">
-          <input  name="fname" type="text" placeholder="First Name" class="form-control input-md">
-          <?= form_error('fname', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="mname" >Middle Name</label>  
-        <div class="col-md-4">
-          <input name="mname" type="text" placeholder="Middle Name (optional)" class="form-control input-md">   
-        </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="lname" >Last Name</label>  
-        <div class="col-md-4">
-          <input  name="lname" type="text" placeholder="Last Name" class="form-control input-md">  
-          <?= form_error('lname', '<span class="label label-danger">', '</span>') ?>  
+          <select name="cust_type" class="form-control">
+            <option Selected disabled="disabled" >Customer Type</option>
+            <option value="In-house Brokerage">In-house Brokerage</option>
+            <option value="Broker/Agent">Broker/Agent</option>
+            <option value="Freight Forwarder">Freight Forwarder</option>
+            <option value="Local/Sub-contractor">Local/Sub-contractor</option>
+          </select>
         </div>
     </div>
 
@@ -96,30 +81,25 @@
     </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label" for="gender">Gender</label>
-        <div class="col-md-4">
-          <select name="gender" class="form-control">
-            <option Selected disabled="disabled" >Gender</option>
-            <option value="M">Male</option>
-            <option value="F">Female</option>
-          </select>
-        </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label" >Employee Since</label>  
+      <label class="col-md-4 control-label" >Customer Since</label>  
         <div class="col-md-4">
           <input name="date" type="date" class="form-control input-md">  
           <?= form_error('date', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
+    <!-- <div class="form-group">
+            <div class="col-md-4">
+              <input type="hidden"  name="user_id" type="text"  value="2" class="form-control input-md" required="" >  
+            </div>
+          </div> -->
+
 
     <div class="form-group">
       <label class="col-md-4 control-label" for="button1id"></label>
         <div class="col-md-4">
   
           <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Add</button>
-            <a href="<?=base_url().'admin/userdetails_conductor/'?>" class="btn btn-danger" role="button">Back</a>
+            <a href="<?=base_url().'admin/userdetails_customer/'?>" class="btn btn-danger" role="button">Back</a>
 
             </form>
         </div>  

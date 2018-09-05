@@ -2,8 +2,8 @@
 <section class="content-header">
   <h1>Booking Information</h1>
     <ol class="breadcrumb">
-      <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-      <li><a href="<?=base_url().'admin/booking'?>">Booking Information</a></li>
+      <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+      <li><a href="<?=base_url().'staff/booking'?>">Booking Information</a></li>
       <li class="active">View</a></li>
     </ol>
 </section>
@@ -80,6 +80,13 @@
         </div>
 
         <div class="form-group">
+          <label class="col-md-4 control-label">Truck Model</label>  
+            <div class="col-md-4">
+            <input value="<?=$books->model?>" disabled type="text" placeholder="Model" class="form-control input-md">
+          </div>
+        </div>
+
+        <div class="form-group">
           <label class="col-md-4 control-label">Truck Plate No.</label>  
             <div class="col-md-4">
             <input value="<?=$books->plate_no?>" disabled type="text" placeholder="Truck Plate No." class="form-control input-md">
@@ -124,7 +131,7 @@
         <div class="form-group">
         <label class="col-md-4 control-label"></label>
             <div class="col-md-8">
-                <a href="<?= base_url().'admin/booking'?>" class="btn btn-danger" role="button"> Cancel</a>
+                <a href="<?= base_url().'staff/booking'?>" class="btn btn-danger" role="button"> Cancel</a>
             </div>
     </div>
 </fieldset>

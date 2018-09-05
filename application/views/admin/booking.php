@@ -26,9 +26,9 @@
               <th>Date</th>
               <th>Product</th>
               <th>Cargo Size</th>
-              <th>Truck</th>
+              <th>Truck #</th>
               <th>Driver Name</th>
-              <th>Conductor Name</th>
+              <th>Helper Name</th>
               <th>Destination</th>
               <th>Price</th>
               <th>Status</th>
@@ -44,9 +44,9 @@
                   <td><?= $book->date?></td>
                   <td><?= $book->product?></td>
                   <td><?= $book->cargo?></td>
-                  <td><?= $book->model?></td>
-                  <td><?= $book->drivername?></td>
-                  <td><?= $book->condname?></td>
+                  <td><?= $book->plate_no?></td>
+                  <td><?= $book->driver_name?></td>
+                  <td><?= $book->helper_name?></td>
                   <td><?= $book->destination?></td>
                   <td><?= $book->price?></td>
                   <td></td>

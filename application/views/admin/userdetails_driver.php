@@ -40,7 +40,7 @@
                         <td><?= $driv->id?></td>
                         <td><img src="<?=base_url().'images/'.$driv->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
                         <td><?= $driv->fname?> <?= $driv->mname?> <?= $driv->lname?></td>
-                        <td><?= $driv->drivernum?></td>
+                        <td><?= $driv->driver_no?></td>
                         <td><?= $driv->expire?></td>
                         <td><?= $driv->email?></td>                            
                         <td><?= $driv->contact?></td>
@@ -81,7 +81,7 @@
             </div>
                 <div class="box-footer">
                 <a href="<?=base_url()?>driver/add" class="btn btn-success btn-block btn-sm" role="button">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Truck Driver</a>
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Truck Driver / Helper</a>
                 </div>
 
                 <center><?php echo $this->pagination->create_links();?></center>

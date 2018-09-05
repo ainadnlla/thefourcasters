@@ -1,12 +1,7 @@
 <div class="content-wrapper">
     <section class="content-header">
-      <h1>Driver Details</h1>
-        <ol class="breadcrumb">
-          <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-          <li><a href="<?=base_url().'admin/userdetails'?>">User Details</a></li>
-          <li><a href="<?=base_url().'admin/userdetails_driver'?>">Driver Details</a></li>
-          <li class="active">Add</a></li>
-        </ol>
+      <h1>Staff Registration</h1>
+      
     </section>
 
     <section class="content">
@@ -14,10 +9,11 @@
         <div class="col-sm-12">   
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Add Details</h3>
+              <h3 class="box-title">Staff Signup</h3>
             </div>
 
-    <form class="form-horizontal" action ="<?=base_url().'driver/insert'?>" method = "post">
+    <form class="form-horizontal" action ="<?=base_url().'staff/registration'?>" method = "post">
+    
         <div class="box-body">
           <div class="form-group">
             <div class="col-md-4">
@@ -28,7 +24,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label"for ="upload">Image</label>  
       <div class="col-md-4">
-      <?php echo form_open_multipart('driver/do_upload');?>
+      <?php echo form_open_multipart('admin/do_upload');?>
       <input class="form-control" type="file" name="img" size="20" >
       </div>
     </div>
@@ -44,7 +40,8 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="mname" >Middle Name</label>  
         <div class="col-md-4">
-          <input name="mname" type="text" placeholder="Middle Name (optional)" class="form-control input-md">   
+          <input name="mname" type="text" placeholder="Middle Name (optional)" class="form-control input-md">  
+          <?= form_error('mname', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
@@ -53,22 +50,6 @@
         <div class="col-md-4">
           <input  name="lname" type="text" placeholder="Last Name" class="form-control input-md">  
           <?= form_error('lname', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label"for ="driver_no">License No.</label>  
-        <div class="col-md-4">
-          <input  name="driver_no" type="text" placeholder="License No." class="form-control input-md">
-          <?= form_error('driver_no', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label" >Expiration Date</label>  
-        <div class="col-md-4">
-          <input name="expire" type="date" class="form-control input-md">  
-          <?= form_error('expire', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
@@ -122,27 +103,21 @@
           <?= form_error('date', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
-
-  <div class="form-group">
-      <label class="col-md-4 control-label" for="position">Position</label>
-        <div class="col-md-4">
-          <select name="position" class="form-control">
-            <option Selected disabled="disabled" >Position</option>
-            <option value="1">Driver</option>
-            <option value="2">Helper</option>
-          </select>
-        </div>
-    </div>
+    <div class="form-group">
+            <div class="col-md-4">
+              <input type="hidden"  name="user_type" type="text" value="1" class="form-control input-md" required="" >  
+            </div>
+          </div>
+   
 
     <div class="form-group">
       <label class="col-md-4 control-label" for="button1id"></label>
         <div class="col-md-4">
   
           <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Add</button>
-            <a href="<?=base_url().'admin/userdetails_driver/'?>" class="btn btn-danger" role="button">Back</a>
-
+            <a href="<?=base_url().'admin/login/'?>" class="btn btn-danger" role="button">Back</a>
             </form>
-        </div>  
+        </div>
       </div>
     </div>
   </div>

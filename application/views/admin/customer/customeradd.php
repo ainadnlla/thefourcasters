@@ -93,6 +93,11 @@
           <?= form_error('date', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
+    <!-- <div class="form-group">
+            <div class="col-md-4">
+              <input type="hidden"  name="user_id" type="text"  value="2" class="form-control input-md" required="" >  
+            </div>
+          </div> -->
 
 
     <div class="form-group">

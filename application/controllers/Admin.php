@@ -8,7 +8,6 @@ class Admin extends CI_Controller {
             $this->load->model('UserModel');
             $this->load->model('CustomerModel');
             $this->load->model('DriverModel');
-            $this->load->model('ConductorModel');
             $this->load->model('TruckModel');
             $this->load->model('AdminModel');
             $this->load->model('BookingModel');
@@ -28,6 +27,7 @@ class Admin extends CI_Controller {
             'contact' => $this->input->post('contact'),
             'gender' => $this->input->post('gender'),
             'date' => $this->input->post('date'),
+            'user_id'=> $this->input->post('user_type')
         );
       /*  $data = $this->input->post();
         unset($data['add']);*/
@@ -499,43 +499,6 @@ class Admin extends CI_Controller {
     }
     }
 
-    public function userdetails_conductor($offset=0){
-        if($this->session->userdata('username') !=''){ 
-        $data['title'] = 'Driver Helper Details | Angelogistic Forwarder Corporation';
-
-        $this->load->library('pagination');
-        $norecs = 5;
-
-        $config['base_url'] = base_url().'admin/userdetails_conductor/';
-        $config['total_rows'] = $this->ConductorModel->getNumRecs();
-        $config['per_page'] = $norecs;
-
-        $config['full_tag_open'] = '<ul class="pagination">';
-        $config['full_tag_close'] = '</ul>';
-        $config['prev_link'] = '&laquo;';
-        $config['prev_tag_open'] = '<li>';
-        $config['prev_tag_close'] = '</li>';
-        $config['next_tag_open'] = '<li>';
-        $config['next_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li class="active"><a href="#">';
-        $config['cur_tag_close'] = '</a></li>';
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-
-        $this->pagination->initialize($config);
-
-        $this->load->config('myconfig');
-        $conds = $this->ConductorModel->getItems($norecs, $offset);
-        
-        $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav');
-        $this->load->view('include/footer');
-        $this->load->view('admin/userdetails_conductor',compact('conds'));
-    }else{
-        redirect('admin/login');
-    }
-    }
-
     public function booking($offset=0){
         if($this->session->userdata('username') !=''){ 
             $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
@@ -572,28 +535,5 @@ class Admin extends CI_Controller {
             redirect('admin/login');
         }
     } 
-
-        // <!-- public function status(){
-        //   
-        //     $status = $this->input->post('status');
-        //     $q = $this->AdminModel->getAdmin($status);
-    
-        //     if($q == '1'){
-    
-            // $getData = array(
-            //     'status'     => $status,
-       //);
-    
-    
-        //         $this->session->set_userdata($current);
-        //         redirect('admin/homepage');
-        //     }
-        //     else{
-        //         $this->session->set_flashdata('error','Invalid Username and Password');
-        //     redirect('admin/login');
-                
-        //     }
-        // } -->
-
     }
 ?>

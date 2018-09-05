@@ -8,24 +8,18 @@ class BookingStaff extends CI_Controller {
             $this->load->model('UserModel');
             $this->load->model('CustomerModel');
             $this->load->model('DriverModel');
-            $this->load->model('ConductorModel');
             $this->load->model('TruckModel');
             $this->load->model('AdminModel');
             $this->load->model('BookingModel');
     }
-
-// STAFF SIDE - BOOKING
+    
+    // STAFF SIDE - BOOKING
     
     public function insert(){
         $data = $this->input->post();
         unset($data['add']);
             $this->form_validation->set_rules('id', 'ID', 'required');
-            $this->form_validation->set_rules('date','Date', 'required');
-            $this->form_validation->set_rules('name', 'Name', 'required');
-            $this->form_validation->set_rules('destination', 'Destination', 'required');
-            $this->form_validation->set_rules('cargo', 'Cargo Type', 'required');
-            $this->form_validation->set_rules('product', 'Product Type', 'required');
-            $this->form_validation->set_rules('description', 'Description', 'required');
+
       if ($this->form_validation->run() == FALSE)
       {
           $this->add();
@@ -47,17 +41,35 @@ class BookingStaff extends CI_Controller {
             redirect('staff/login');
         }
     }
-    public function edit($id){
+
+    public function view($id){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
         $books = $this->BookingModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/staff_header');
+        $this->load->view('staff/booking/viewbooking', compact('books'));
+        $this->load->view('include/footer');
+        }else{
+            redirect('staff/login');
+        }
+    }
+
+    public function edit($id){
+        if($this->session->userdata('username') !=''){ 
+        $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
+        $data['plate_nos'] = $this->BookingModel->getPlateNo();
+        $data['drivernames'] = $this->BookingModel->getDriver();
+        $data['drivernos'] = $this->BookingModel->getDriverNo();
+        $data['helpernames'] = $this->BookingModel->getHelper();
+        $books = $this->BookingModel->getProd($id);
+        $this->load->view('include/header', $data);
+        $this->load->view('include/staff_header');
         $this->load->view('staff/booking/editbooking',compact('books'));
         $this->load->view('include/footer');
-    }else{
-        redirect('staff/login');
-    }
+        }else{
+            redirect('staff/login');
+        }
     }
     public function delete($id){
         if($this->session->userdata('username') !=''){ 
@@ -82,12 +94,7 @@ class BookingStaff extends CI_Controller {
         $data = $this->input->post();
         unset($data['submit']);
         $this->form_validation->set_rules('id', 'ID', 'required');
-        $this->form_validation->set_rules('date','Date', 'required');
-        $this->form_validation->set_rules('name', 'Name', 'required');
-        $this->form_validation->set_rules('destination', 'Destination', 'required');
-        $this->form_validation->set_rules('cargo', 'Cargo Type', 'required');
-        $this->form_validation->set_rules('product', 'Product Type', 'required');
-        $this->form_validation->set_rules('description', 'Description', 'required');
+
             
             if ($this->form_validation->run() == FALSE)
             {

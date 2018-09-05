@@ -7,7 +7,6 @@ class Customer extends CI_Controller {
             $this->load->model('UserModel');
             $this->load->model('CustomerModel');
             $this->load->model('DriverModel');
-            $this->load->model('ConductorModel');
             $this->load->model('TruckModel');
             $this->load->model('AdminModel');
             $this->load->model('BookingModel');
@@ -34,6 +33,8 @@ class Customer extends CI_Controller {
             'contact' => $this->input->post('contact'),
             'cust_type' => $this->input->post('cust_type'),
             'date' => $this->input->post('date'),
+            //'user_id' => $this->input->post('user_id')
+
         );
 
       /*  $data = $this->input->post();
@@ -189,6 +190,9 @@ class Customer extends CI_Controller {
         if(!$user == null){
             if($user->status == 1){
             $session_data = array(
+                'picpath' => $user->img,
+                'name'=>$user->name,
+                'cust'  => $user->cust_type,
                 'email'     => $email,
                 'logged_in' => TRUE,
                 'isAdmin' => TRUE
@@ -274,6 +278,46 @@ class Customer extends CI_Controller {
         //     redirect('customer/login');
         // }
     } 
+    public function registration(){
+        $data['title'] = 'Customer Registration | Angelogistic Forwarder Corporation';
+        
+        $this->load->view('include/header',$data);
+        $this->load->view('customer/customerregis');
+        $this->load->view('include/footer');
+    }
+        
+    public function regis(){
+        
+                $data = array (
+                    'img' => 'default.jpg',
+                    'name' => $this->input->post('name'),
+                    'password' => $this->input->post('password'),
+                    'repass' => $this->input->post('repass'),
+                    'email' => $this->input->post('email'),
+                    'contact' => $this->input->post('contact'),
+                    'cust_type' => $this->input->post('cust_type'),
+                    'date' => $this->input->post('date'),
+                    //'user_id' => $this->input->post('user_id')
+        
+                );
+        
+              /*  $data = $this->input->post();
+                unset($data['add']); */
+                    $this->form_validation->set_rules('name', 'First Name', 'required');
+                    $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
+                    $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
+                    $this->form_validation->set_rules('email', 'Email Address', 'required');
+                    $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
+              if ($this->form_validation->run() == FALSE)
+              {
+                  $this->registration();
+              }
+              else
+              {
+                    $this->CustomerModel->signup($data);
+                    redirect('customer/login');
+              }
+            }  
 
 }
 ?>

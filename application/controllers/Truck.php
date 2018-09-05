@@ -7,7 +7,6 @@ class Truck extends CI_Controller {
             $this->load->model('UserModel');
             $this->load->model('CustomerModel');
             $this->load->model('DriverModel');
-            $this->load->model('ConductorModel');
             $this->load->model('TruckModel');
             $this->load->model('AdminModel');
             $this->load->model('BookingModel');
@@ -20,26 +19,23 @@ class Truck extends CI_Controller {
         $item = array (
             'img' => 'default.jpg',
             'brand' => $this->input->post('brand'),
-            'model' => $this->input->post('model'),
+            'plate_no' => $this->input->post('plate_no'),
+            'series' => $this->input->post('series'),
+            'mvfile_no' => $this->input->post('mvfile_no'),
+            'engine_no' => $this->input->post('engine_no'),
+            'chassis_no' => $this->input->post('chassis_no'),
+            'grosswt' => $this->input->post('grosswt'),
+            'netwt' => $this->input->post('netwt'),
+            'netcap' => $this->input->post('netcap'),
             'year' => $this->input->post('year'),
-            'gvm' => $this->input->post('gvm'),
-            'gcm' => $this->input->post('gcm'),
-            'power' => $this->input->post('power'),
-            'license_no' => $this->input->post('license_no'),
-            'insurance' => $this->input->post('insurance'),
         );
 
       /*  $data = $this->input->post();
         unset($data['add']); */
-        $this->form_validation->set_rules('brand', 'Brand/Maker', 'required');
-        $this->form_validation->set_rules('model', 'Model', 'required');
-        $this->form_validation->set_rules('year', 'Year', 'required|exact_length[4]');
-        $this->form_validation->set_rules('gvm', 'GVM', 'required');
-        $this->form_validation->set_rules('gcm', 'GCM', 'required');
-        $this->form_validation->set_rules('power', 'Engine Power', 'required');
-        $this->form_validation->set_rules('license_no', 'License Number', 'required');
-        $this->form_validation->set_rules('insurance', 'Insurance Date', 'required');
-      
+        $this->form_validation->set_rules('brand', 'Brand/Make', 'required');
+        $this->form_validation->set_rules('plate_no', 'Plate No.', 'required');
+        $this->form_validation->set_rules('mvfile_no', 'MV File No.', 'required');
+        $this->form_validation->set_rules('year', 'Year Model', 'required|exact_length[4]');      
         if ($this->form_validation->run() == FALSE)
       {
           $this->add();
@@ -76,15 +72,10 @@ class Truck extends CI_Controller {
     public function update($id){
         $data = $this->input->post();
         unset($data['submit']);
-        $this->form_validation->set_rules('brand', 'Brand/Maker', 'required');
-        $this->form_validation->set_rules('model', 'Model', 'required');
-        $this->form_validation->set_rules('year', 'Year', 'required|exact_length[4]');
-        $this->form_validation->set_rules('gvm', 'GVM', 'required');
-        $this->form_validation->set_rules('gcm', 'GCM', 'required');
-        $this->form_validation->set_rules('power', 'Engine Power', 'required');
-        $this->form_validation->set_rules('license_no', 'License Number', 'required');
-        $this->form_validation->set_rules('insurance', 'Insurance Date', 'required');
-        $this->form_validation->set_rules('img', 'Image', 'required');
+        $this->form_validation->set_rules('brand', 'Brand/Make', 'required');
+        $this->form_validation->set_rules('plate_no', 'Plate No.', 'required');
+        $this->form_validation->set_rules('mvfile_no', 'MV File No.', 'required');
+        $this->form_validation->set_rules('year', 'Year Model', 'required|exact_length[4]');      
             if ($this->form_validation->run() == FALSE)
             {
                 $this->edit($id);

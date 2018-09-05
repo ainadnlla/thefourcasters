@@ -49,6 +49,12 @@ class CustomerModel extends CI_Model{
         $this->db->where('id', $id);
         $this->db->delete('customer');
     }
+
+//Registration
+public function signup($data){
+    $this->db->insert('customer', $data);
+    }
 }
+
 
 ?>

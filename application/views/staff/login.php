@@ -30,7 +30,7 @@
             <div class="col-xs-8">
                 <div class="checkbox icheck">
                     <label>
-                        <input type="checkbox">&nbsp Remember Me
+                    &nbsp;&nbsp;&nbsp;  <input type="checkbox">&nbsp; Remember Me
                     </label>
                 </div>
             </div>
@@ -45,7 +45,7 @@
       <center><?php echo $this->session->flashdata("error");?></center>
     </form>
 
-
+    <a href="<?=base_url().'staff/staff_registration'?>"></i>Signup</a>
 
   </div>
   <!-- /.login-box-body -->

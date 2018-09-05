@@ -33,8 +33,8 @@
                   <th>Plate No.</th>
                   <th>Driver No.</th>
                   <th>Driver Name</th>
-                  <th>Conductor No.</th>
-                  <th>Conductor Name</th>
+                  <th>Helper No.</th>
+                  <th>Helper Name</th>
                   <th>Destination</th>
                   <th>Price</th>
                   <th>Status</th>
@@ -49,8 +49,8 @@
                   <td><?= $book->product?></td>
                   <td><?= $book->description?></td>
                   <td><?= $book->pieces?></td>
-                  <td></td>
-                  <td></td>
+                  <td><?= $book->cust_type?></td>
+                  <td><?= $book->custname?></td>
                   <td><?= $book->cargo?></td>
                   <td></td>
                   <td></td>
@@ -58,7 +58,7 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td></td>
+                  <td><?= $book->destination?></td>
                   <td></td>
                   <td></td>
                 </tr>
