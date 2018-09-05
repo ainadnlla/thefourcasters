@@ -278,6 +278,46 @@ class Customer extends CI_Controller {
         //     redirect('customer/login');
         // }
     } 
+    public function registration(){
+        $data['title'] = 'Customer Registration | Angelogistic Forwarder Corporation';
+        
+        $this->load->view('include/header',$data);
+        $this->load->view('customer/customerregis');
+        $this->load->view('include/footer');
+    }
+        
+    public function regis(){
+        
+                $data = array (
+                    'img' => 'default.jpg',
+                    'name' => $this->input->post('name'),
+                    'password' => $this->input->post('password'),
+                    'repass' => $this->input->post('repass'),
+                    'email' => $this->input->post('email'),
+                    'contact' => $this->input->post('contact'),
+                    'cust_type' => $this->input->post('cust_type'),
+                    'date' => $this->input->post('date'),
+                    //'user_id' => $this->input->post('user_id')
+        
+                );
+        
+              /*  $data = $this->input->post();
+                unset($data['add']); */
+                    $this->form_validation->set_rules('name', 'First Name', 'required');
+                    $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
+                    $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
+                    $this->form_validation->set_rules('email', 'Email Address', 'required');
+                    $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
+              if ($this->form_validation->run() == FALSE)
+              {
+                  $this->registration();
+              }
+              else
+              {
+                    $this->CustomerModel->signup($data);
+                    redirect('customer/login');
+              }
+            }  
 
 }
 ?>

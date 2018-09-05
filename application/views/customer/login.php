@@ -42,6 +42,8 @@
       </div>
       <center><?php echo $this->session->flashdata("error");?></center>
     </form>
+    
+    <a href="<?=base_url().'customer/registration'?>"></i>Signup</a>
 
 
 

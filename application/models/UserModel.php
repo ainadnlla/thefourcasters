@@ -53,6 +53,10 @@ class UserModel extends CI_Model{
 //SEARCH
 
 //status
+//registration
+public function regis($data){
+    $this->db->insert('staff' , $data);
+}
 }
 
 ?>
