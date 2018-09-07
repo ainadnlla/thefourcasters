@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 04, 2018 at 08:18 PM
+-- Generation Time: Sep 07, 2018 at 03:03 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -117,28 +117,29 @@ CREATE TABLE `driver` (
   `img` varchar(50) NOT NULL,
   `id` int(100) NOT NULL,
   `driver_no` varchar(50) NOT NULL,
+  `expire` date NOT NULL,
   `fname` varchar(50) NOT NULL,
   `mname` varchar(50) DEFAULT NULL,
   `lname` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `repass` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `contact` int(12) NOT NULL,
+  `birthday` date NOT NULL,
   `gender` varchar(1) NOT NULL,
-  `expire` date NOT NULL,
+  `contact` int(12) NOT NULL,
   `date` date NOT NULL,
-  `status` int(1) NOT NULL,
-  `position` int(1) NOT NULL
+  `position` int(1) NOT NULL,
+  `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `driver`
 --
 
-INSERT INTO `driver` (`img`, `id`, `driver_no`, `fname`, `mname`, `lname`, `password`, `repass`, `email`, `contact`, `gender`, `expire`, `date`, `status`, `position`) VALUES
-('default.jpg', 1, 'ACL 1245115', 'Driver', 'A', 'Sample', '123456789', '123456789', 'sample@sample.com', 12345678, 'M', '2038-03-03', '2018-09-04', 1, 1),
-('default.jpg', 2, 'ACL 1245154', 'Helper', 'A', 'Sample', '123456789', '123456789', 'sample@sample.com', 1212121, 'M', '2021-07-15', '2018-09-04', 0, 2),
-('default.jpg', 7, 'ACL 12445', 'Helper', '', 'Two', '123456789', '123456789', 'sample@sample.com', 5454545, 'M', '5554-04-05', '5455-05-04', 1, 2);
+INSERT INTO `driver` (`img`, `id`, `driver_no`, `expire`, `fname`, `mname`, `lname`, `email`, `password`, `repass`, `birthday`, `gender`, `contact`, `date`, `position`, `status`) VALUES
+('default.jpg', 1, 'ACL 1245115', '2038-03-03', 'Driver', 'A', 'Sample', 'sample@sample.com', '123456789', '123456789', '0000-00-00', 'M', 12345678, '2018-09-04', 1, 0),
+('default.jpg', 2, 'ACL 1245154', '2021-07-15', 'Helper', 'A', 'Sample', 'sample@sample.com', '123456789', '123456789', '0000-00-00', 'M', 1212121, '2018-09-04', 2, 1),
+('default.jpg', 7, 'ACL 12445', '5554-04-05', 'Helper', '', 'Two', 'sample@sample.com', '123456789', '123456789', '1992-04-05', 'M', 5454545, '5455-05-04', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -152,12 +153,13 @@ CREATE TABLE `staff` (
   `fname` varchar(50) NOT NULL,
   `lname` varchar(50) NOT NULL,
   `mname` varchar(50) DEFAULT NULL,
-  `password` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `contact` int(12) NOT NULL,
-  `gender` char(1) NOT NULL,
-  `status` int(1) NOT NULL,
+  `password` varchar(50) NOT NULL,
   `repass` varchar(50) NOT NULL,
+  `birthday` date NOT NULL,
+  `gender` char(1) NOT NULL,
+  `contact` int(12) NOT NULL,
+  `status` int(1) NOT NULL,
   `date` date NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -166,11 +168,11 @@ CREATE TABLE `staff` (
 -- Dumping data for table `staff`
 --
 
-INSERT INTO `staff` (`id`, `img`, `fname`, `lname`, `mname`, `password`, `email`, `contact`, `gender`, `status`, `repass`, `date`, `user_id`) VALUES
-(1, '32152975_10204847274817739_1311416208829972480_n.j', 'Anthony', 'Ane', 'L.', '123456789', 'anthonyjarlane@yahoo.com', 2147483647, 'M', 1, '123456789', '1998-05-28', 1),
-(2, 'default.jpg', 'Anthony1', 'Ane', 'L.', '123456789', 'a@yahoo.com', 2147483647, 'M', 0, '123456789', '2018-05-05', 1),
-(3, 'default.jpg', 'Leona', 'Kim', 'Marj', '123456789', 'dso@yahoo.com', 2147483647, 'F', 0, '123456789', '2009-12-03', 1),
-(4, 'default.jpg', 'Aina', 'Sales', '', '123456789', 'ainadrsales@gmail.com', 2147483647, 'F', 1, '123456789', '2018-09-05', 1);
+INSERT INTO `staff` (`id`, `img`, `fname`, `lname`, `mname`, `email`, `password`, `repass`, `birthday`, `gender`, `contact`, `status`, `date`, `user_id`) VALUES
+(1, '32152975_10204847274817739_1311416208829972480_n.j', 'Anthony', 'Ane', 'L.', 'anthonyjarlane@yahoo.com', '123456789', '123456789', '0000-00-00', 'M', 2147483647, 1, '1998-05-28', 1),
+(2, 'default.jpg', 'Anthony1', 'Ane', 'L.', 'a@yahoo.com', '123456789', '123456789', '0000-00-00', 'M', 2147483647, 0, '2018-05-05', 1),
+(3, 'default.jpg', 'Leona', 'Kim', 'Marj', 'dso@yahoo.com', '123456789', '123456789', '0000-00-00', 'F', 2147483647, 0, '2009-12-03', 1),
+(4, 'default.jpg', 'Aina', 'Sales', '', 'ainadrsales@gmail.com', '123456789', '123456789', '0000-00-00', 'F', 2147483647, 1, '2018-09-05', 1);
 
 -- --------------------------------------------------------
 
