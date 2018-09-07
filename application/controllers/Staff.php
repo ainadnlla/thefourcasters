@@ -163,6 +163,7 @@ class Staff extends CI_Controller {
                     'name'  => $user->fname,
                     'picpath' => $user->img,
                     'email'     => $email,
+                    'priv' => $user->priv,
                     'logged_in' => TRUE,
                     'isAdmin' => TRUE
                     );
@@ -197,7 +198,9 @@ class Staff extends CI_Controller {
     }
 
     public function truckdetails($offset=0){
-        if($this->session->userdata('email') !=''){   
+        if($this->session->userdata('email') !=''){  
+            if($this->session->userdata('priv') =='2') {
+                
         $data['title'] = 'Truck Details | Angelogistic Forwarder Corporation';
 
         $this->load->library('pagination');
@@ -228,13 +231,18 @@ class Staff extends CI_Controller {
         $this->load->view('include/staff_header');
         $this->load->view('staff/truckdetails', compact('trucks'));
         $this->load->view('include/footer');
+    } else{
+        redirect('staff/homepage');
+    }        
     }else{
         redirect('staff/login');
     }
     }
 
     public function customerdetails($offset=0){
+      
         if($this->session->userdata('email') !=''){
+            if($this->session->userdata('priv') =='3') {
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
 
         $this->load->library('pagination');
@@ -265,7 +273,12 @@ class Staff extends CI_Controller {
         $this->load->view('include/staff_header');
         $this->load->view('include/footer');
         $this->load->view('staff/customerdetails',compact('custs'));
-        }else{
+            
+             } else{
+                redirect('staff/homepage');
+              
+          }    
+    }else{
             redirect('staff/login');
         }
     }
@@ -334,6 +347,8 @@ class Staff extends CI_Controller {
 
     public function booking($offset=0){
         if($this->session->userdata('email') !=''){ 
+            if($this->session->userdata('priv') =='1') {
+                
             $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
 
             $this->load->library('pagination');
@@ -364,6 +379,9 @@ class Staff extends CI_Controller {
             $this->load->view('include/staff_header');
             $this->load->view('staff/booking',compact('books'));
             $this->load->view('include/footer');
+            }else{
+                redirect('staff/homepage');
+            }
         }else{
             redirect('staff/login');
         }

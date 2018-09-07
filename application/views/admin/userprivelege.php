@@ -9,7 +9,7 @@
         <li class="active">User Privelege</a></li>
       </ol>
     </section>
-
+    
 <section class="content">
       <div class="row">
         <div class="col-xs-12">

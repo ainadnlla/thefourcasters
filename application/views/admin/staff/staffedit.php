@@ -127,6 +127,19 @@
             </select>
           </div>
       </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label" >Privilege</label>
+          <div class="col-md-4">
+            <select value="<?=$emp->priv?>" name="priv" class="form-control">
+            <option Selected selected-disable>Unchanged</option>
+            <option value="1">Delivery Approver</option>
+            <option value="2">Truck Creator</option>
+            <option value="3">Driver/Helper Management</option>
+            <option value="4">Customer Management</option>
+            
+            </select>
+          </div>
+      </div>
 
       <div class="form-group">
         <label class="col-md-4 control-label" for="button1id"></label>
