@@ -19,20 +19,6 @@
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-
-          <li class="dropdown messages-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-envelope-o"></i>
-              <span class="label label-success"><!--number of messages here--></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have <!--number of messages here--> messages</li>
-              <li>
-                <!-- Messages code here -->
-              </li>
-              <li class="footer"><a href="#">See All Messages</a></li>
-            </ul>
-          </li>
           
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -138,8 +124,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?=base_url().'admin/userdetails'?>"><i class="fa fa-circle-o"></i>User Details</a></li>
-            <li><a href="<?=base_url().'admin/userprivelege'?>"><i class="fa fa-circle-o"></i>User Priveleges</a></li>
+            <li><a href="<?=base_url().'admin/userdetails'?>"><i class="fa fa-circle-o"></i>User Accounts</a></li>
           </ul>
         </li>
 

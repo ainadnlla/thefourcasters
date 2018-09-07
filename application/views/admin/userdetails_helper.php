@@ -1,10 +1,10 @@
 <div class="content-wrapper">
     <section class="content-header">
-      <h1>Staff Details</h1>
+      <h1>Truck Helper Details</h1>
       <ol class="breadcrumb">
         <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
         <li><a href="<?=base_url().'admin/userdetails'?>">User Accounts</a></li>
-        <li class="active">Staff Details</a></li>
+        <li class="active">Truck Helper Details</a></li>
       </ol>
     </section>
 
@@ -13,60 +13,58 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Staff Information</h3>
-
-              <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search" value="Search"></i></button>
-                  </div>
-                </div>
-              </div>
+              <h3 class="box-title">Truck Helper Information</h3>
             </div>
 
             <div class="box-body">  
-              <table id="staff" class="table table-bordered table-hover">
+              <table id="driver" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                     <th>ID</th>
                     <th>Profile</th>
+                    <th>License No.</th>
+                    <th>Expiry Date</th>
                     <th>Full Name</th>
                     <th>Email Address</th>
-                    <th>Contact No.</th>
+                    <th>Birthday</th>
                     <th>Gender</th>
+                    <th>Contact No.</th>
                     <th>Employed Date</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach($emps as $emp): ?>
+                <?php foreach($helps as $help): ?>
                     <tr>
-                        <td><?= $emp->id?></td>
-                        <td><img src="<?=base_url().'images/'.$emp->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
-                        <td><?= $emp->fname?> <?= $emp->mname?> <?= $emp->lname?></td>
-                        <td><?= $emp->email?></td>                            
-                        <td><?= $emp->contact?></td>
-                        <td><?= $emp->gender?></td>
-                        <td><?= $emp->date?></td>
+                        <td><?= $help->id?></td>
+                        <td><img src="<?=base_url().'images/'.$help->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
+                        <td><?= $help->driver_no?></td>
+                        <td><?= $help->expire?></td>
+                        <td><?= $help->fname?> <?= $help->mname?> <?= $help->lname?></td>
+                        <td><?= $help->email?></td>                            
+                        <td><?= $help->birthday?></td>
+                        <td><?= $help->gender?></td>
+                        <td><?= $help->contact?></td>
+                        <td><?= $help->date?></td>
                         <td><p>
-                        <?php if($emp->status==1){ ?>
+                        <?php if($help->status==1){ ?>
                           <div class="label label-success">
-                            <strong>Active</strong>
+                            <strong>Available</strong>
                           </div>
-                        <?php }elseif($emp->status==0){ ?>
+                        <?php }elseif($help->status==0){ ?>
                           <div class="label label-danger">
-                            <strong>Inactive</strong>
+                            <strong>Unavailable</strong>
                           </div></p>
                         <?php }?>
                         </td>
+
                         <td>
-                        <a href="<?= base_url().'admin/edit/'.$emp->id?>" class="btn btn-default btn.lg" role="button">
+                        <a href="<?= base_url().'driver/edit/'.$help->id?>" class="btn btn-default btn.lg" role="button">
                         <span class="fa fa-edit" aria-hidden="true">
                         </span></a>
-                        
-                        <!-- <a href="<?=base_url('admin/del/'.$emp->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
+
+                        <!-- <a href="<?=base_url('driver/del/'.$help->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
                         </span></a> -->
                         </td>
@@ -76,14 +74,15 @@
               </table>
             </div>
                 <div class="box-footer">
-                <a href="<?=base_url()?>admin/add" class="btn btn-success btn-block btn-sm" role="button">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Staff</a>
+                <a href="<?=base_url()?>driver/add" class="btn btn-success btn-block btn-sm" role="button">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Truck Helper</a>
                 </div>
+
                 <center><?php echo $this->pagination->create_links();?></center>
             </div>
           </div>
-        </div>        
-    </section>
+        </div>
+        </section>
 </div>
 
 <div class="modal modal-danger fade" id="modal-danger">
@@ -99,13 +98,12 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-outline" data-dismiss="modal">Cancel</button>
-                <a href="<?=base_url('admin/del/'.$emp->id)?>"  role="button" class="btn btn-outline" >Delete</a>
+                <a href="<?=base_url('driver/del/'.$help->id)?>"  role="button" class="btn btn-outline" >Delete</a>
               </div>
             </div>
           </div>
         </div>
-
-
+        
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>The Fourcasters</b>

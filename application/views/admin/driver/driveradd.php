@@ -3,7 +3,7 @@
       <h1>Driver Details</h1>
         <ol class="breadcrumb">
           <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-          <li><a href="<?=base_url().'admin/userdetails'?>">User Details</a></li>
+          <li><a href="<?=base_url().'admin/userdetails'?>">User Accounts</a></li>
           <li><a href="<?=base_url().'admin/userdetails_driver'?>">Driver Details</a></li>
           <li class="active">Add</a></li>
         </ol>
@@ -129,17 +129,6 @@
         <div class="col-md-4">
           <input name="date" type="date" class="form-control input-md">  
           <?= form_error('date', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-  <div class="form-group">
-      <label class="col-md-4 control-label" for="position">Position</label>
-        <div class="col-md-4">
-          <select name="position" class="form-control">
-            <option Selected disabled="disabled" >Position</option>
-            <option value="1">Driver</option>
-            <option value="2">Helper</option>
-          </select>
         </div>
     </div>
 

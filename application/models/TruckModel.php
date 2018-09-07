@@ -19,11 +19,6 @@ class TruckModel extends CI_Model{
         $this->db->update('truck' , $data);
         }   
 
-    public function editItems($id, $Product){
-            $this->db->where('id', $id);
-            $this->db->update('truck', $data);
-        }
-
     public function getProd($id)
     {
   

@@ -15,11 +15,6 @@ class BookingModel extends CI_Model{
         $this->db->update('booking' , $data);
         }   
 
-    public function editItems($id, $data){
-            $this->db->where('id', $id);
-            $this->db->update('booking', $data);
-        }
-
     public function getProd($id)
     {
   
@@ -57,13 +52,13 @@ class BookingModel extends CI_Model{
 
     function getDriver()
     {
-        $query = $this->db->query('SELECT fname, lname FROM driver WHERE position ="1" && status ="1"');
+        $query = $this->db->query('SELECT fname, lname FROM driver WHERE status ="1"');
         return $query->result();
     }
 
     function getHelper()
     {
-        $query = $this->db->query('SELECT fname, lname FROM driver WHERE position = "2" && status = "1"');
+        $query = $this->db->query('SELECT fname, lname FROM driver WHERE status = "1"');
         return $query->result();
     }
 

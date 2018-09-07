@@ -1,9 +1,9 @@
 <div class="content-wrapper">
     <section class="content-header">
-      <h1>User Details</h1>
+      <h1>User Accounts</h1>
       <ol class="breadcrumb">
         <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li class="active">User Details</a></li>
+        <li class="active">User Accounts</a></li>
       </ol>
     </section>
 
@@ -43,7 +43,7 @@
 
     </div>
     <div class="row">
-        <div class="col-md-4 col-xs-12">
+        <div class="col-md-3 col-xs-12">
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
@@ -57,7 +57,7 @@
           </div>
         </div>
           <!-- small box -->
-        <div class="col-md-4 col-xs-12">
+        <div class="col-md-3 col-xs-12">
           <div class="small-box bg-red">
             <div class="inner">
               <h1><b>Customer<br/>Details</b></h1>
@@ -70,22 +70,33 @@
           </div>
         </div>
           <!-- small box -->
-        <div class="col-md-4 col-xs-12">
+        <div class="col-md-3 col-xs-12">
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h1><b>Driver & Helper<br/>Details</b></h1>
+              <h1><b>Driver<br/>Details</b></h1>
               <br/><br/><br/><br/>
             </div>
             <div class="icon"><br/>
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="<?=base_url().'admin/userdetails_driver'?>" class="small-box-footer">Proceed <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?=base_url().'admin/userdetails_helper'?>" class="small-box-footer">Proceed <i class="fa fa-arrow-circle-right"></i></a>
           </div>
       </div>
+          <!-- small box -->
+        <div class="col-md-3 col-xs-12">
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h1><b>Helper<br/>Details</b></h1>
+              <br/><br/><br/><br/>
+            </div>
+            <div class="icon"><br/>
+              <i class="ion ion-person-add"></i>
+            </div>
+            <a href="<?=base_url().'admin/userdetails_helper'?>" class="small-box-footer">Proceed <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+      </div>
+      
     </div>
-
-    
-
   </section>
 </div>
 

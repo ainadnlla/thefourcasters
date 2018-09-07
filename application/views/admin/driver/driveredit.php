@@ -3,7 +3,7 @@
       <h1>Driver Details</h1>
         <ol class="breadcrumb">
           <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i> Home </a></li>
-          <li><a href="<?=base_url().'admin/userdetails'?>"> User Details </a></li>
+          <li><a href="<?=base_url().'admin/userdetails'?>"> User Accounts </a></li>
           <li><a href="<?=base_url().'admin/userdetails_driver'?>"> Driver Details </a></li>
           <li class="active">Edit</li>
         </ol>
@@ -152,17 +152,6 @@
             </select>
           </div>
       </div>
-
-      <div class="form-group">
-      <label class="col-md-4 control-label">Position</label>
-        <div class="col-md-4">
-            <select style="font-style: italic"value="<?=$driv->position?>" name="position" class="form-control">
-            <option Selected disabled="disabled" style="font-style: italic" >Unchanged</option>
-            <option style="font-style: normal" value="1">Driver</option>
-            <option style="font-style: normal" value="2">Helper</option>
-          </select>
-        </div>
-    </div>
 
     <div class="form-group">
         <label class="col-md-4 control-label" for="button1id"></label>

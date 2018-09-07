@@ -17,13 +17,9 @@ class CustomerModel extends CI_Model{
     public function update($id ,$data){
         $this->db->where('id' , $id);
         $this->db->update('customer' , $data);
-        }   
+        }  
 
-    public function editItems($id, $Product){
-            $this->db->where('id', $id);
-            $this->db->update('customer', $data);
-        }
-
+        
     public function getProd($id)
     {
   

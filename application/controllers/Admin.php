@@ -11,6 +11,7 @@ class Admin extends CI_Controller {
             $this->load->model('TruckModel');
             $this->load->model('AdminModel');
             $this->load->model('BookingModel');
+            $this->load->model('HelperModel');
     }
 
 // ADMIN SIDE - STAFF CRUD
@@ -378,7 +379,7 @@ class Admin extends CI_Controller {
  
     public function userdetails($offset=0){
         if($this->session->userdata('username') !=''){ 
-        $data['title'] = 'User Details | Angelogistic Forwarder Corporation';
+        $data['title'] = 'User Accounts | Angelogistic Forwarder Corporation';
                 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
@@ -496,6 +497,43 @@ class Admin extends CI_Controller {
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('admin/userdetails_driver',compact('drivs'));
+    }else{
+        redirect('admin/login');
+    }
+    }
+
+    public function userdetails_helper($offset=0){
+        if($this->session->userdata('username') !=''){ 
+        $data['title'] = 'Helper Details | Angelogistic Forwarder Corporation';
+
+        $this->load->library('pagination');
+        $norecs = 5;
+
+        $config['base_url'] = base_url().'admin/userdetails_Helper/';
+        $config['total_rows'] = $this->HelperModel->getNumRecs();
+        $config['per_page'] = $norecs;
+
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['prev_link'] = '&laquo;';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active"><a href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+
+        $this->pagination->initialize($config);
+
+        $this->load->config('myconfig');
+        $helps = $this->HelperModel->getItems($norecs, $offset);
+        
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_nav');
+        $this->load->view('include/footer');
+        $this->load->view('admin/userdetails_helper',compact('helps'));
     }else{
         redirect('admin/login');
     }

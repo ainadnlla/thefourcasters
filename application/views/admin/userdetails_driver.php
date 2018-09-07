@@ -3,7 +3,7 @@
       <h1>Truck Driver Details</h1>
       <ol class="breadcrumb">
         <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li><a href="<?=base_url().'admin/userdetails'?>">User Details</a></li>
+        <li><a href="<?=base_url().'admin/userdetails'?>">User Accounts</a></li>
         <li class="active">Truck Driver Details</a></li>
       </ol>
     </section>
@@ -30,7 +30,6 @@
                     <th>Gender</th>
                     <th>Contact No.</th>
                     <th>Employed Date</th>
-                    <th>Position</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -48,13 +47,6 @@
                         <td><?= $driv->gender?></td>
                         <td><?= $driv->contact?></td>
                         <td><?= $driv->date?></td>
-                        <td>
-                          <?php if($driv->position==1){ ?>
-                          <span>Driver</span>
-                          <?php }elseif($driv->position==2){ ?>
-                            <span>Helper</span>
-                          <?php }?>
-                        </td>
                         <td><p>
                         <?php if($driv->status==1){ ?>
                           <div class="label label-success">
@@ -83,7 +75,7 @@
             </div>
                 <div class="box-footer">
                 <a href="<?=base_url()?>driver/add" class="btn btn-success btn-block btn-sm" role="button">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Truck Driver / Helper</a>
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Truck Driver</a>
                 </div>
 
                 <center><?php echo $this->pagination->create_links();?></center>
