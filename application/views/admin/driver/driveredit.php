@@ -145,10 +145,10 @@
       <div class="form-group">
         <label class="col-md-4 control-label" >Status</label>
           <div class="col-md-4">
-            <select style="font-style: italic" value="<?=$driv->status?>" name="status" class="form-control">
-            <option Selected disabled="disabled" style="font-style: italic" >Unchanged</option>
-            <option style="font-style: normal" value="1">Available</option>
-            <option style="font-style: normal" value="0">Unavailable</option>
+            <select value="<?=$driv->status?>" name="status" class="form-control">
+            <option Selected disabled="disabled" >Unchanged</option>
+            <option value="1">Available</option>
+            <option value="0">Unavailable</option>
             </select>
           </div>
       </div>
@@ -156,10 +156,10 @@
       <div class="form-group">
       <label class="col-md-4 control-label">Position</label>
         <div class="col-md-4">
-            <select style="font-style: italic"value="<?=$driv->position?>" name="position" class="form-control">
-            <option Selected disabled="disabled" style="font-style: italic" >Unchanged</option>
-            <option style="font-style: normal" value="1">Driver</option>
-            <option style="font-style: normal" value="2">Helper</option>
+            <select value="<?=$driv->position?>" name="position" class="form-control">
+            <option Selected disabled="disabled">Unchanged</option>
+            <option value="1">Driver</option>
+            <option value="2">Helper</option>
           </select>
         </div>
     </div>

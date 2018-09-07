@@ -18,10 +18,9 @@ class Booking extends CI_Controller {
     public function insert(){
         $data = $this->input->post();
         unset($data['add']);
-            $this->form_validation->set_rules('id', 'ID', 'required');
+            $this->form_validation->set_rules('product', 'Product', 'required');       
             $this->form_validation->set_rules('description', 'Description', 'required');
             $this->form_validation->set_rules('pieces', 'Pieces', 'required');
-            $this->form_validation->set_rules('cargo', 'Cargo Type', 'required');
             $this->form_validation->set_rules('date','Date', 'required');
             $this->form_validation->set_rules('destination', 'Destination', 'required');
       if ($this->form_validation->run() == FALSE)
@@ -35,18 +34,18 @@ class Booking extends CI_Controller {
       }
     }  
     public function add(){
-        // if($this->session->userdata('username') !=''){ 
+         if($this->session->userdata('email') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
         $this->load->view('include/header', $data);
         $this->load->view('include/customer_header');
         $this->load->view('customer/booking/addbooking');
         $this->load->view('include/footer');
-    // }else{
-    //     redirect('customer/login');
-    // }
+     }else{
+         redirect('customer/login');
+     }
     }
     public function edit($id){
-        if($this->session->userdata('username') !=''){ 
+        if($this->session->userdata('email') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
         $data['models'] = $this->TruckModel->getModel();
         $books = $this->BookingModel->getProd($id);
@@ -59,7 +58,7 @@ class Booking extends CI_Controller {
     }
     }
     public function delete($id){
-        if($this->session->userdata('username') !=''){ 
+        if($this->session->userdata('email') !=''){ 
         $books = $this->BookingModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/customer');
@@ -80,10 +79,9 @@ class Booking extends CI_Controller {
     public function update($id){
         $data = $this->input->post();
         unset($data['submit']);
-        $this->form_validation->set_rules('id', 'ID', 'required');
+        $this->form_validation->set_rules('product', 'Product', 'required');               
         $this->form_validation->set_rules('description', 'Description', 'required');
         $this->form_validation->set_rules('pieces', 'Pieces', 'required');
-        $this->form_validation->set_rules('cargo', 'Cargo Type', 'required');
         $this->form_validation->set_rules('date','Date', 'required');
         $this->form_validation->set_rules('destination', 'Destination', 'required');
             

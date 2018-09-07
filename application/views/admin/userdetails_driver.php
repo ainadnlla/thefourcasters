@@ -26,7 +26,7 @@
                     <th>Expiry Date</th>
                     <th>Full Name</th>
                     <th>Email Address</th>
-                    <th>Birthday</th>
+                    <th>Birth Date</th>
                     <th>Gender</th>
                     <th>Contact No.</th>
                     <th>Employed Date</th>

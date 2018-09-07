@@ -56,6 +56,14 @@
           <?= form_error('lname', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
+    
+    <div class="form-group">
+      <label class="col-md-4 control-label" >Email</label>  
+        <div class="col-md-4">
+          <input  name="email" type="email" placeholder="example@yahoo.com" class="form-control input-md">  
+          <?= form_error('email', '<span class="label label-danger">', '</span>') ?>  
+        </div>
+    </div>
 
     <div class="form-group">
       <label class="col-md-4 control-label" for="password" >Password</label>  
@@ -73,13 +81,6 @@
         </div>
     </div>
 
-    <div class="form-group">
-      <label class="col-md-4 control-label" >Email</label>  
-        <div class="col-md-4">
-          <input  name="email" type="email" placeholder="example@yahoo.com" class="form-control input-md">  
-          <?= form_error('email', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
 
     <div class="form-group">
       <label class="col-md-4 control-label" >Contact No.</label>  

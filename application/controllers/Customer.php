@@ -55,7 +55,7 @@ class Customer extends CI_Controller {
       }
     }  
     public function add(){
-        if($this->session->userdata('username') !=''){ 
+        if($this->session->userdata('email') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
@@ -205,6 +205,10 @@ class Customer extends CI_Controller {
             redirect('customer/login');
         }        
     } 
+    public function logout(){
+        $this->session->sess_destroy();
+        redirect('customer/login');
+    }
 
     public function inbox(){
         if($this->session->userdata('email') !=''){

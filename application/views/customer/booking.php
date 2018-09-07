@@ -40,8 +40,8 @@
                   <th>Status</th>
                 </tr>
                 </thead>
-                <?php foreach($books as $book): ?>
                 <tbody>
+                <?php foreach($books as $book): ?>
                 <tr>
                   <td><?= $book->id?></td>
                   <td></td>
