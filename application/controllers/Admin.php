@@ -21,11 +21,12 @@ class Admin extends CI_Controller {
             'fname' => $this->input->post('fname'),
             'mname' => $this->input->post('mname'),
             'lname' => $this->input->post('lname'),
+            'email' => $this->input->post('email'),
             'password' => $this->input->post('password'),
             'repass' => $this->input->post('repass'),
-            'email' => $this->input->post('email'),
-            'contact' => $this->input->post('contact'),
+            'birthday' => $this->input->post('birthday'),
             'gender' => $this->input->post('gender'),
+            'contact' => $this->input->post('contact'),
             'date' => $this->input->post('date'),
             'user_id'=> $this->input->post('user_type')
         );
@@ -34,11 +35,11 @@ class Admin extends CI_Controller {
 
             $this->form_validation->set_rules('fname', 'First Name', 'required');
             $this->form_validation->set_rules('lname', 'Last Name', 'required');
+            $this->form_validation->set_rules('email', 'Email Address', 'required');
             $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
-            $this->form_validation->set_rules('email', 'Email Address', 'required');
             $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
-            $this->form_validation->set_rules('gender', 'Gender', 'required');
+            $this->form_validation->set_rules('email', 'Email Address', 'required');
 
       if ($this->form_validation->run() == FALSE)
       {

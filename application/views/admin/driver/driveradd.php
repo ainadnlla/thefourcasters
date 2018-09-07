@@ -34,6 +34,22 @@
     </div>
 
     <div class="form-group">
+      <label class="col-md-4 control-label"for ="driver_no"> Driver License No.</label>  
+        <div class="col-md-4">
+          <input  name="driver_no" type="text" placeholder="License No." class="form-control input-md">
+          <?= form_error('driver_no', '<span class="label label-danger">', '</span>') ?>  
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" >Expiry Date</label>  
+        <div class="col-md-4">
+          <input name="expire" type="date" class="form-control input-md">  
+          <?= form_error('expire', '<span class="label label-danger">', '</span>') ?>  
+        </div>
+    </div>
+
+    <div class="form-group">
       <label class="col-md-4 control-label"for ="fname">First Name</label>  
         <div class="col-md-4">
           <input  name="fname" type="text" placeholder="First Name" class="form-control input-md">
@@ -57,18 +73,10 @@
     </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label"for ="driver_no">License No.</label>  
+      <label class="col-md-4 control-label" >Email</label>  
         <div class="col-md-4">
-          <input  name="driver_no" type="text" placeholder="License No." class="form-control input-md">
-          <?= form_error('driver_no', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label" >Expiration Date</label>  
-        <div class="col-md-4">
-          <input name="expire" type="date" class="form-control input-md">  
-          <?= form_error('expire', '<span class="label label-danger">', '</span>') ?>  
+          <input  name="email" type="email" placeholder="example@yahoo.com" class="form-control input-md">  
+          <?= form_error('email', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
@@ -89,18 +97,10 @@
     </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label" >Email</label>  
+      <label class="col-md-4 control-label" >Birth Day</label>  
         <div class="col-md-4">
-          <input  name="email" type="email" placeholder="example@yahoo.com" class="form-control input-md">  
-          <?= form_error('email', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label" >Contact No.</label>  
-        <div class="col-md-4">
-          <input name="contact" type="text" placeholder="Contact Number" class="form-control input-md">  
-          <?= form_error('contact', '<span class="label label-danger">', '</span>') ?>  
+          <input name="birthday" type="date" class="form-control input-md">  
+          <?= form_error('birthday', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
@@ -111,7 +111,16 @@
             <option Selected disabled="disabled" >Gender</option>
             <option value="M">Male</option>
             <option value="F">Female</option>
+            <?= form_error('gender', '<span class="label label-danger">', '</span>') ?>  
           </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" >Contact No.</label>  
+        <div class="col-md-4">
+          <input name="contact" type="text" placeholder="Contact Number" class="form-control input-md">  
+          <?= form_error('contact', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 

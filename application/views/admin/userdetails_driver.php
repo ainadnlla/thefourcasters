@@ -22,12 +22,13 @@
                 <tr>
                     <th>ID</th>
                     <th>Profile</th>
-                    <th>Full Name</th>
                     <th>License No.</th>
-                    <th>Expiration Date</th>
+                    <th>Expiry Date</th>
+                    <th>Full Name</th>
                     <th>Email Address</th>
-                    <th>Contact No.</th>
+                    <th>Birthday</th>
                     <th>Gender</th>
+                    <th>Contact No.</th>
                     <th>Employed Date</th>
                     <th>Position</th>
                     <th>Status</th>
@@ -39,12 +40,13 @@
                     <tr>
                         <td><?= $driv->id?></td>
                         <td><img src="<?=base_url().'images/'.$driv->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
-                        <td><?= $driv->fname?> <?= $driv->mname?> <?= $driv->lname?></td>
                         <td><?= $driv->driver_no?></td>
                         <td><?= $driv->expire?></td>
+                        <td><?= $driv->fname?> <?= $driv->mname?> <?= $driv->lname?></td>
                         <td><?= $driv->email?></td>                            
-                        <td><?= $driv->contact?></td>
+                        <td><?= $driv->birthday?></td>
                         <td><?= $driv->gender?></td>
+                        <td><?= $driv->contact?></td>
                         <td><?= $driv->date?></td>
                         <td>
                           <?php if($driv->position==1){ ?>

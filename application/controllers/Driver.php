@@ -64,28 +64,35 @@ $this->session->set_userdata($newdata);
         $data = array (
             'img' => 'default.jpg',
             'driver_no' => $this->input->post('driver_no'),
+            'expire' => $this->input->post('expire'),
             'fname' => $this->input->post('fname'),
             'mname' => $this->input->post('mname'),
             'lname' => $this->input->post('lname'),
+            'email' => $this->input->post('email'),
             'password' => $this->input->post('password'),
             'repass' => $this->input->post('repass'),
-            'email' => $this->input->post('email'),
-            'contact' => $this->input->post('contact'),
+            'birthday' => $this->input->post('birthday'),
             'gender' => $this->input->post('gender'),
+            'contact' => $this->input->post('contact'),
             'date' => $this->input->post('date'),
             'position' => $this->input->post('position'),
-            'expire' => $this->input->post('expire'),
+            
         );
 
     /*    $data = $this->input->post();
         unset($data['add']); */
-            $this->form_validation->set_rules('driver_no', 'Driver #', 'required');
+            $this->form_validation->set_rules('driver_no', 'License No.', 'required');
+            $this->form_validation->set_rules('expire', 'License Expiry Date', 'required');
             $this->form_validation->set_rules('fname', 'First Name', 'required');
             $this->form_validation->set_rules('lname', 'Last Name', 'required');
+            $this->form_validation->set_rules('email', 'Email Address', 'required');
             $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
-            $this->form_validation->set_rules('email', 'Email Address', 'required');
+            $this->form_validation->set_rules('birthday', 'Birth Day', 'required');
+            $this->form_validation->set_rules('gender', 'Contact No.', 'gender');
             $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
+            $this->form_validation->set_rules('position', 'Contact No.', 'required');
+
       if ($this->form_validation->run() == FALSE)
       {
           $this->add();
@@ -143,15 +150,16 @@ $this->session->set_userdata($newdata);
 
    $data = $this->input->post();
         unset($data['submit']); 
-            $this->form_validation->set_rules('driver_no', 'Driver #', 'required');
-            $this->form_validation->set_rules('fname', 'First Name', 'required');
-            $this->form_validation->set_rules('lname', 'Last Name', 'required');
-            $this->form_validation->set_rules('password','Password', 'required');
-            $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
-            $this->form_validation->set_rules('email', 'Email Address', 'required');
-            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
-            $this->form_validation->set_rules('img', 'Image', 'required');
-            
+        $this->form_validation->set_rules('img', 'Image', 'required');
+        $this->form_validation->set_rules('driver_no', 'License No.', 'required');
+        $this->form_validation->set_rules('expire', 'License Expiry Date', 'required');
+        $this->form_validation->set_rules('fname', 'First Name', 'required');
+        $this->form_validation->set_rules('lname', 'Last Name', 'required');
+        $this->form_validation->set_rules('email', 'Email Address', 'required');
+        $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
+        $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
+        $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
+        
             if ($this->form_validation->run() == FALSE)
             {
                 $this->edit($id);

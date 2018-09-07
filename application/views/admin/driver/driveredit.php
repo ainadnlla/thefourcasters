@@ -44,10 +44,18 @@
       <div>
 
     <div class="form-group">
-        <label class="col-md-4 control-label" for="driver_no" >License No.</label>  
+        <label class="col-md-4 control-label" for="driver_no" >Driver License No.</label>  
             <div class="col-md-4">
                 <input  value="<?=$driv->driver_no?>" name="driver_no" type="text" placeholder="License No." class="form-control input-md" required="">
                 <?= form_error('driver_no', '<span class="label label-danger">', '</span>') ?>  
+            </div>
+    </div> 
+
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="expire" >Expiry Date</label>  
+            <div class="col-md-4">
+                <input  value="<?=$driv->expire?>" name="expire" type="date" placeholder="License No." class="form-control input-md" required="">
+                <?= form_error('expire', '<span class="label label-danger">', '</span>') ?>  
             </div>
     </div> 
 
@@ -84,14 +92,6 @@
     </div>  
 
     <div class="form-group">
-        <label class="col-md-4 control-label" >Confirm Password</label>  
-            <div class="col-md-4">
-                <input  value="<?=$driv->repass?>" name="repass" type="password" placeholder="Confirm Password" class="form-control input-md" required="">
-                <?= form_error('repass', '<span class="label label-danger">', '</span>') ?>  
-            </div>
-    </div>  
-
-    <div class="form-group">
         <label class="col-md-4 control-label">Email</label>  
             <div class="col-md-4">
                 <input  value="<?=$driv->email?>" name="email" type="text" placeholder="Email Address" class="form-control input-md" required="">
@@ -100,14 +100,21 @@
     </div>  
 
     <div class="form-group">
-        <label class="col-md-4 control-label" >Contact No.</label>  
+        <label class="col-md-4 control-label" >Confirm Password</label>  
             <div class="col-md-4">
-                <input  value="<?=$driv->contact?>" name="contact" type="text" placeholder="Product Name" class="form-control input-md" required="">
-                <?= form_error('contact', '<span class="label label-danger">', '</span>') ?>  
+                <input  value="<?=$driv->repass?>" name="repass" type="password" placeholder="Confirm Password" class="form-control input-md" required="">
+                <?= form_error('repass', '<span class="label label-danger">', '</span>') ?>  
             </div>
     </div>  
 
-
+    <div class="form-group">
+        <label class="col-md-4 control-label" >Birth Date</label>  
+          <div class="col-md-4">
+            <input value="<?=$driv->birthday?>" name="birthday" type="date" class="form-control input-md"> 
+            <?= form_error('birthday', '<span class="label label-danger">', '</span>') ?>  
+          </div>
+      </div>
+   
     <div class="form-group">
         <label class="col-md-4 control-label" >Gender</label>
             <div class="col-md-4">
@@ -120,6 +127,14 @@
     </div>
 
     <div class="form-group">
+        <label class="col-md-4 control-label" >Contact No.</label>  
+            <div class="col-md-4">
+                <input  value="<?=$driv->contact?>" name="contact" type="text" placeholder="Product Name" class="form-control input-md" required="">
+                <?= form_error('contact', '<span class="label label-danger">', '</span>') ?>  
+            </div>
+    </div>  
+
+    <div class="form-group">
         <label class="col-md-4 control-label" >Employee Since</label>  
           <div class="col-md-4">
             <input value="<?=$driv->date?>" name="date" type="date" class="form-control input-md"> 
@@ -130,9 +145,10 @@
       <div class="form-group">
         <label class="col-md-4 control-label" >Status</label>
           <div class="col-md-4">
-            <select  value="<?=$driv->status?>" name="status" class="form-control">
-            <option value="1">Available</option>
-            <option value="0">Unavailable</option>
+            <select style="font-style: italic" value="<?=$driv->status?>" name="status" class="form-control">
+            <option Selected disabled="disabled" style="font-style: italic" >Unchanged</option>
+            <option style="font-style: normal" value="1">Available</option>
+            <option style="font-style: normal" value="0">Unavailable</option>
             </select>
           </div>
       </div>
@@ -140,10 +156,10 @@
       <div class="form-group">
       <label class="col-md-4 control-label">Position</label>
         <div class="col-md-4">
-            <select value="<?=$driv->position?>" name="position" class="form-control">
-            <option Selected disabled="disabled" value='<?=$driv->position?>' selected><?=$driv->position?></option>
-            <option value="1">Driver</option>
-            <option value="2">Helper</option>
+            <select style="font-style: italic"value="<?=$driv->position?>" name="position" class="form-control">
+            <option Selected disabled="disabled" style="font-style: italic" >Unchanged</option>
+            <option style="font-style: normal" value="1">Driver</option>
+            <option style="font-style: normal" value="2">Helper</option>
           </select>
         </div>
     </div>
