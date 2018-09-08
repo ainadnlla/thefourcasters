@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2018 at 06:49 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Generation Time: Sep 08, 2018 at 04:52 PM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -92,7 +92,6 @@ CREATE TABLE `customer` (
   `repass` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
   `contact` int(11) NOT NULL,
-  `gender` varchar(1) NOT NULL,
   `date` date NOT NULL,
   `status` int(1) NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -106,9 +105,9 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`, `contact`, `gender`, `date`, `status`, `created`, `updated`, `img`, `user_type`, `user_id`) VALUES
-(1, 'Xylem Water System', 'Broker/Agent', '123456789', '123456789', 'sample@sample.com', 12345678, '', '0005-05-05', 0, '2018-09-04 00:32:07', '2018-09-04 00:32:07', 'default.jpg', 0, 0),
-(4, 'Xylem Water System', 'Broker/Agent', '123456789', '123456789', 'water@sample.com', 99999999, '', '2016-07-03', 1, '2018-09-04 00:04:35', '2018-09-04 00:04:35', 'default.jpg', 0, 0);
+INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`, `contact`, `date`, `status`, `created`, `updated`, `img`, `user_type`, `user_id`) VALUES
+(1, 'Xylem Water System', 'Broker/Agent', '123456789', '123456789', 'sample@sample.com', 12345678, '0005-05-05', 0, '2018-09-04 00:32:07', '2018-09-04 00:32:07', 'default.jpg', 0, 0),
+(4, 'Xylem Water System', 'Broker/Agent', '123456789', '123456789', 'water@sample.com', 99999999, '2016-07-03', 1, '2018-09-04 00:04:35', '2018-09-04 00:04:35', 'default.jpg', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -147,6 +146,37 @@ INSERT INTO `driver` (`img`, `id`, `driver_no`, `expire`, `fname`, `mname`, `lna
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `helper`
+--
+
+CREATE TABLE `helper` (
+  `img` varchar(50) NOT NULL,
+  `id` int(100) NOT NULL,
+  `driver_no` varchar(50) NOT NULL,
+  `expire` date NOT NULL,
+  `fname` varchar(50) NOT NULL,
+  `mname` varchar(50) NOT NULL,
+  `lname` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `repass` varchar(50) NOT NULL,
+  `birthday` date NOT NULL,
+  `gender` varchar(50) NOT NULL,
+  `contact` int(12) NOT NULL,
+  `date` date NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `helper`
+--
+
+INSERT INTO `helper` (`img`, `id`, `driver_no`, `expire`, `fname`, `mname`, `lname`, `email`, `password`, `repass`, `birthday`, `gender`, `contact`, `date`, `status`) VALUES
+('default.jpg', 1, '', '0000-00-00', 'Helper', '', 'Sample', 'sample@sample.com', '123456789', '123456789', '1995-06-13', 'M', 999999999, '2018-09-18', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `staff`
 --
 
@@ -172,10 +202,11 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`id`, `img`, `fname`, `lname`, `mname`, `email`, `password`, `repass`, `birthday`, `gender`, `contact`, `status`, `date`, `priv`) VALUES
-(1, 'C:\\xampp\\htdocs\\thefourcasters\\images\\default.jpg', 'Anthony', 'Ane', 'L.', 'anthonyjarlane@yahoo.com', '123456789', '123456789', '0000-00-00', 'M', 2147483647, 1, '1998-05-28', 3),
+(1, 'default.jpg', 'Anthony', 'Ane', 'L.', 'anthonyjarlane@yahoo.com', '123456789', '123456789', '0000-00-00', 'M', 2147483647, 0, '1998-05-28', 0),
 (2, 'default.jpg', 'Anthony1', 'Ane', 'L.', 'a@yahoo.com', '123456789', '123456789', '0000-00-00', 'M', 2147483647, 0, '2018-05-05', 1),
 (3, 'default.jpg', 'Leona', 'Kim', 'Marj', 'dso@yahoo.com', '123456789', '123456789', '0000-00-00', 'F', 2147483647, 0, '2009-12-03', 1),
-(4, 'default.jpg', 'Aina', 'Sales', '', 'ainadrsales@gmail.com', '123456789', '123456789', '0000-00-00', 'F', 2147483647, 1, '2018-09-05', 1);
+(4, 'default.jpg', 'Aina', 'Sales', '', 'ainadrsales@gmail.com', '123456789', '123456789', '0000-00-00', 'F', 2147483647, 1, '2018-09-05', 1),
+(5, 'default.jpg', 'Sample', 'Sample', '', 'sample@sample.com', '123456789', '123456789', '1998-05-05', 'M', 2147483647, 0, '2005-04-15', 0);
 
 -- --------------------------------------------------------
 
@@ -242,6 +273,12 @@ ALTER TABLE `driver`
   ADD KEY `driver_no` (`driver_no`);
 
 --
+-- Indexes for table `helper`
+--
+ALTER TABLE `helper`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `staff`
 --
 ALTER TABLE `staff`
@@ -278,10 +315,16 @@ ALTER TABLE `driver`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `helper`
+--
+ALTER TABLE `helper`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `truck`

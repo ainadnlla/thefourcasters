@@ -81,6 +81,13 @@
         </div>
     </div>
 
+    <div class="form-group">
+      <label class="col-md-4 control-label" >Birth Date</label>  
+        <div class="col-md-4">
+          <input name="birthday" type="date" class="form-control input-md">  
+          <?= form_error('birthday', '<span class="label label-danger">', '</span>') ?>  
+        </div>
+    </div>
 
     <div class="form-group">
       <label class="col-md-4 control-label" >Contact No.</label>  

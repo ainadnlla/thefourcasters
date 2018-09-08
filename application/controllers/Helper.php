@@ -15,51 +15,51 @@ class Helper extends CI_Controller {
 
 // ADMIN SIDE - CRUD HELPER
 
-public function logged(){
-    $newdata = array(
-        'name'  => $user->name,
-        'username'     => $user->username,
-        'logged_in' => TRUE,
-        'isAdmin' => TRUE
-);
-$this->session->set_userdata($newdata);
-}
-    public function userdetails_helper($offset=0){
-        if($this->session->userdata('username') !=''){ 
-            
-        $data['title'] = 'Helper Details | Angelogistic Forwarder Corporation';
-        $this->load->library('pagination');
-        $norecs = 5;
-        $config['base_url'] = base_url().'admin/userdetails_helper/';
-        $config['total_rows'] = $this->HelperModel->getNumRecs();
-        $config['per_page'] = $norecs;
-        $config['full_tag_open'] = "<ul class='pagination'>";
-        $config['full_tag_close'] ="</ul>";
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-        $config['next_tag_open'] = "<li>";
-        $config['next_tagl_close'] = "</li>";
-        $config['prev_tag_open'] = "<li>";
-        $config['prev_tagl_close'] = "</li>";
-        $config['first_tag_open'] = "<li>";
-        $config['first_tagl_close'] = "</li>";
-        $config['last_tag_open'] = "<li>";
-        $config['last_tagl_close'] = "</li>";
-        $this->pagination->initialize($config);
-        $this->load->config('myconfig');
-        $helps = $this->HelperModel->getItems($norecs, $offset);
-        
-        $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav');
-        $this->load->view('include/footer');
-        $this->load->view('admin/userdetails',compact('helps'));
-        
-}else{
-    redirect('admin/login');
-}
+    public function logged(){
+        $newdata = array(
+            'name'  => $user->name,
+            'username'     => $user->username,
+            'logged_in' => TRUE,
+            'isAdmin' => TRUE
+    );
+    $this->session->set_userdata($newdata);
     }
+        public function userdetails_helper($offset=0){
+            if($this->session->userdata('username') !=''){ 
+                
+            $data['title'] = 'Helper Details | Angelogistic Forwarder Corporation';
+            $this->load->library('pagination');
+            $norecs = 5;
+            $config['base_url'] = base_url().'admin/userdetails_helper/';
+            $config['total_rows'] = $this->HelperModel->getNumRecs();
+            $config['per_page'] = $norecs;
+            $config['full_tag_open'] = "<ul class='pagination'>";
+            $config['full_tag_close'] ="</ul>";
+            $config['num_tag_open'] = '<li>';
+            $config['num_tag_close'] = '</li>';
+            $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+            $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+            $config['next_tag_open'] = "<li>";
+            $config['next_tagl_close'] = "</li>";
+            $config['prev_tag_open'] = "<li>";
+            $config['prev_tagl_close'] = "</li>";
+            $config['first_tag_open'] = "<li>";
+            $config['first_tagl_close'] = "</li>";
+            $config['last_tag_open'] = "<li>";
+            $config['last_tagl_close'] = "</li>";
+            $this->pagination->initialize($config);
+            $this->load->config('myconfig');
+            $helps = $this->HelperModel->getItems($norecs, $offset);
+            
+            $this->load->view('include/header', $data);
+            $this->load->view('include/header_nav');
+            $this->load->view('include/footer');
+            $this->load->view('admin/userdetails',compact('helps'));
+            
+    }else{
+        redirect('admin/login');
+    }
+        }
 
     public function insert(){
         $data = array (
@@ -86,8 +86,7 @@ $this->session->set_userdata($newdata);
             $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
             $this->form_validation->set_rules('birthday', 'Birth Day', 'required');
-            $this->form_validation->set_rules('gender', 'Contact No.', 'gender');
-            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
+            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
             $this->form_validation->set_rules('date', 'Employement Date', 'required');
 
       if ($this->form_validation->run() == FALSE)
@@ -128,7 +127,7 @@ $this->session->set_userdata($newdata);
         $help = $this->HelperModel->getProd($Product_ID);
         $this->load->view('include/header');
         $this->load->view('include/header_nav');
-        $this->load->view('admin/hekoer/helperdelete',compact('help'));
+        $this->load->view('admin/helper/helperdelete',compact('help'));
         $this->load->view('include/footer');
     }else{
         redirect('admin/login');
@@ -153,7 +152,7 @@ $this->session->set_userdata($newdata);
         $this->form_validation->set_rules('email', 'Email Address', 'required');
         $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
         $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
-        $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
+        $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
         
             if ($this->form_validation->run() == FALSE)
             {

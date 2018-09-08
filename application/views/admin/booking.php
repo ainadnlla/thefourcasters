@@ -26,7 +26,7 @@
               <th>Date</th>
               <th>Product</th>
               <th>Cargo Size</th>
-              <th>Truck #</th>
+              <th>Truck No.</th>
               <th>Driver Name</th>
               <th>Helper Name</th>
               <th>Destination</th>

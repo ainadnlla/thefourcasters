@@ -23,7 +23,7 @@ class Staff extends CI_Controller {
             $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
             $this->form_validation->set_rules('email', 'Email Address', 'required');
-            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
+            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
       if ($this->form_validation->run() == FALSE)
       {
           $this->add();
@@ -83,7 +83,7 @@ class Staff extends CI_Controller {
             $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
             $this->form_validation->set_rules('email', 'Email Address', 'required');
-            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
+            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
             $this->form_validation->set_rules('img', 'Image', 'required');
             
             if ($this->form_validation->run() == FALSE)
@@ -408,7 +408,7 @@ class Staff extends CI_Controller {
             'contact' => $this->input->post('contact'),
             'gender' => $this->input->post('gender'),
             'date' => $this->input->post('date'),
-            'user_id'=> $this->input->post('user_type')
+            // 'user_id'=> $this->input->post('user_type')
         );
       /*  $data = $this->input->post();
         unset($data['add']);*/
