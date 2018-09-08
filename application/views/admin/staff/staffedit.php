@@ -12,7 +12,7 @@
     <section class="content">
       <div class="row">
         <div class="col-sm-12">
-          <div class="box box-info">
+          <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title">Update Details</h3>
             </div>
