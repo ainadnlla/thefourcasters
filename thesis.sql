@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 08, 2018 at 04:52 PM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: Sep 08, 2018 at 07:28 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -107,7 +107,7 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`, `contact`, `date`, `status`, `created`, `updated`, `img`, `user_type`, `user_id`) VALUES
 (1, 'Xylem Water System', 'Broker/Agent', '123456789', '123456789', 'sample@sample.com', 12345678, '0005-05-05', 0, '2018-09-04 00:32:07', '2018-09-04 00:32:07', 'default.jpg', 0, 0),
-(4, 'Xylem Water System', 'Broker/Agent', '123456789', '123456789', 'water@sample.com', 99999999, '2016-07-03', 1, '2018-09-04 00:04:35', '2018-09-04 00:04:35', 'default.jpg', 0, 0);
+(4, 'Xylem Water System', 'Broker/Agent', '123456789', '123456789', 'water@sample.com', 2147483647, '2016-07-03', 1, '2018-09-04 00:04:35', '2018-09-04 00:04:35', 'C:\\xampp\\htdocs\\thefourcasters\\images\\logo.jpg', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -187,26 +187,30 @@ CREATE TABLE `staff` (
   `lname` varchar(50) NOT NULL,
   `mname` varchar(50) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
+  `contact` int(11) NOT NULL,
   `password` varchar(50) NOT NULL,
   `repass` varchar(50) NOT NULL,
   `birthday` date NOT NULL,
   `gender` char(1) NOT NULL,
-  `contact` int(12) NOT NULL,
   `status` int(1) NOT NULL,
   `date` date NOT NULL,
-  `priv` int(11) NOT NULL
+  `priv` int(11) NOT NULL,
+  `timein` time NOT NULL,
+  `timeout` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `staff`
 --
 
-INSERT INTO `staff` (`id`, `img`, `fname`, `lname`, `mname`, `email`, `password`, `repass`, `birthday`, `gender`, `contact`, `status`, `date`, `priv`) VALUES
-(1, 'default.jpg', 'Anthony', 'Ane', 'L.', 'anthonyjarlane@yahoo.com', '123456789', '123456789', '0000-00-00', 'M', 2147483647, 0, '1998-05-28', 0),
-(2, 'default.jpg', 'Anthony1', 'Ane', 'L.', 'a@yahoo.com', '123456789', '123456789', '0000-00-00', 'M', 2147483647, 0, '2018-05-05', 1),
-(3, 'default.jpg', 'Leona', 'Kim', 'Marj', 'dso@yahoo.com', '123456789', '123456789', '0000-00-00', 'F', 2147483647, 0, '2009-12-03', 1),
-(4, 'default.jpg', 'Aina', 'Sales', '', 'ainadrsales@gmail.com', '123456789', '123456789', '0000-00-00', 'F', 2147483647, 1, '2018-09-05', 1),
-(5, 'default.jpg', 'Sample', 'Sample', '', 'sample@sample.com', '123456789', '123456789', '1998-05-05', 'M', 2147483647, 0, '2005-04-15', 0);
+INSERT INTO `staff` (`id`, `img`, `fname`, `lname`, `mname`, `email`, `contact`, `password`, `repass`, `birthday`, `gender`, `status`, `date`, `priv`, `timein`, `timeout`) VALUES
+(1, '', 'Anthony', 'Ane', 'L.', 'anthonyjarlane@yahoo.com', 2147483647, '123456789', '123456789', '0000-00-00', 'M', 0, '1998-05-28', 0, '00:00:00', '00:00:00'),
+(2, 'default.jpg', 'Anthony1', 'Ane', 'L.', 'a@yahoo.com', 0, '123456789', '123456789', '0000-00-00', 'M', 0, '2018-05-05', 1, '00:00:00', '00:00:00'),
+(3, 'default.jpg', 'Leona', 'Kim', 'Marj', 'dso@yahoo.com', 0, '123456789', '123456789', '0000-00-00', 'F', 0, '2009-12-03', 1, '00:00:00', '00:00:00'),
+(4, '', 'Aina', 'Sales', '', 'ainadrsales@gmail.com', 0, '123456789', '123456789', '0000-00-00', 'F', 0, '2018-09-05', 3, '00:00:00', '00:00:00'),
+(5, 'default.jpg', 'Sample', 'Sample', '', 'sample@sample.com', 0, '123456789', '123456789', '1998-05-05', 'M', 0, '2005-04-15', 0, '00:00:00', '00:00:00'),
+(6, '', 'dsadsa', 'dsa', 'ad', '123@yahoo.com', 0, '123456789', '123456789', '2018-09-08', 'F', 1, '2018-09-08', 2, '00:00:00', '00:00:00'),
+(7, '', 'sample3', 'sample3', 'sample', 'sample3@sample.com', 2147483647, '123456789', '123456789', '2018-07-08', 'M', 1, '2016-08-08', 0, '10:00:00', '17:00:00');
 
 -- --------------------------------------------------------
 
@@ -282,15 +286,13 @@ ALTER TABLE `helper`
 -- Indexes for table `staff`
 --
 ALTER TABLE `staff`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`priv`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `truck`
 --
 ALTER TABLE `truck`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `model` (`series`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -324,7 +326,7 @@ ALTER TABLE `helper`
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `truck`

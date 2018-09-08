@@ -120,6 +120,20 @@
               <input type="hidden"  name="priv" type="text" value="0" class="form-control input-md" required="" >  
             </div>
           </div>
+          <div class="form-group">
+      <label class="col-md-4 control-label"for ="timein">Time In</label>  
+        <div class="col-md-4">
+          <input  name="timein" type="time"  class="form-control input-md">
+          
+        </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label"for ="timeout">Time out</label>  
+        <div class="col-md-4">
+          <input  name="timeout" type="time"  class="form-control input-md">
+     
+        </div>
+    </div>
           
        
 

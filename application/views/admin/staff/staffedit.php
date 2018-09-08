@@ -153,6 +153,23 @@
             <option value="2">Truck Creator</option>
             <option value="3">Driver/Helper Management</option>
             <option value="4">Customer Management</option>
+            <div class="form-group">
+            <div class="col-md-4">
+              <input type="hidden"  name="priv" type="text" value="0" class="form-control input-md" required="" >  
+
+            </div>
+          </div>
+          <div class="form-group">
+      <label class="col-md-4 control-label"for ="timein">Time In</label>  
+        <div class="col-md-4">
+          <input value="<?=$emp->timein?>" name="timein" type="time"  class="form-control input-md">
+          
+        </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label"for ="timeout">Time out</label>  
+        <div class="col-md-4">
+          <input value="<?=$emp->timeout?>" name="timeout" type="time"  class="form-control input-md">
             
             </select>
           </div>
@@ -165,6 +182,7 @@
           <a href="<?= base_url().'admin/userdetails_staff'?>" class="btn btn-danger" role="button"> Cancel</a>
         </div>
       </div>
+      
 
             <!-- /.box-body -->
           </div>
