@@ -1,4 +1,5 @@
-<div class="content-wrapper">
+
+ <div class="content-wrapper">
     <section class="content-header">
       <h1>Staff Details</h1>
         <ol class="breadcrumb">
@@ -17,7 +18,7 @@
               <h3 class="box-title">Update Details</h3>
             </div>
 
-    <form  class="form-horizontal"   action ="<?=base_url()?>admin/update/<?=$emp->id?>"  method='post'>
+    <form  class="form-horizontal">
       <fieldset>
         <div class="form-group">
           <div class="col-md-4">
@@ -42,11 +43,13 @@
           </div>
 
             </div>
+            <!-- /.box-body -->
           </div>
+          <!-- /.box -->
         </div>
+        <!-- /.col -->
       </form>
     </fieldset>
-
         <div class="col-md-9">
           <div class="box box-default">
             <div class="box-header with-border">
@@ -54,10 +57,10 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-        <form  class="form-horizontal">
+            <form  class="form-horizontal">
       <fieldset>
 
-            <div class="form-group">
+            <div class="form-group"  action ="<?=base_url()?>admin/update/<?=$emp->id?>"  method='post'>
         <label class="col-md-4 control-label" for ="fname" >First Name</label>  
           <div class="col-md-5">
             <input  value="<?=$emp->fname?>" name="fname" type="text" placeholder="First Name" class="form-control input-md" required="">
@@ -181,6 +184,3 @@
     <strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation</a>.</strong> All rights
     reserved.
 </footer>
-
-
- 
