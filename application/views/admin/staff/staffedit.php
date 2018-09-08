@@ -18,7 +18,7 @@
               <h3 class="box-title">Update Details</h3>
             </div>
 
-    <form  class="form-horizontal"  action = "<?=base_url()?>admin/update/<?=$emp->id?>"  method='post'>
+    <form  class="form-horizontal" action="<?=base_url()?>admin/update/<?=$emp->id?>"  method='post'>
       <fieldset>
         <div class="form-group">
           <div class="col-md-4">
