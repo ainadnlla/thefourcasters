@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2018 at 03:03 AM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: Sep 07, 2018 at 06:49 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -73,7 +73,10 @@ CREATE TABLE `booking` (
 --
 
 INSERT INTO `booking` (`id`, `waybill`, `date`, `cust_type`, `custname`, `cargo`, `product`, `description`, `pieces`, `plate_no`, `driver_no`, `destination`, `price`, `license_no`, `driver_name`, `helper_name`, `helper_no`) VALUES
-(23, 123, '0888-09-03', '', '', 'LCL 1x40', 'Sample', 'sample', 500, 'RLP 377', '', 'Sampleee', 0, 'SAM 123', 'Driver Sample', 'Helper Two', '');
+(23, 123, '0888-09-03', '', '', 'LCL 1x40', 'Sample', 'sample', 500, 'RLP 377', '', 'Sampleee', 0, 'SAM 123', 'Driver Sample', 'Helper Two', ''),
+(24, 0, '2019-09-07', 'Broker/Agent', 'Xylem Water System', 'LCL 1x40', 'Frozen Goods', 'Chilled Goods', 150, '', '', 'Manila', 0, '', '', '', ''),
+(25, 0, '2018-09-07', 'Broker/Agent', 'Xylem Water System', 'FCL 2x20', 'Sample', 'Sample', 100, '', '', 'Manila', 0, '', '', '', ''),
+(26, 0, '2019-09-07', 'Broker/Agent', 'Xylem Water System', 'FCL 1x40', 'Sample', 'Sample', 150, '', '', 'Manila', 0, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -105,7 +108,7 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`, `contact`, `gender`, `date`, `status`, `created`, `updated`, `img`, `user_type`, `user_id`) VALUES
 (1, 'Xylem Water System', 'Broker/Agent', '123456789', '123456789', 'sample@sample.com', 12345678, '', '0005-05-05', 0, '2018-09-04 00:32:07', '2018-09-04 00:32:07', 'default.jpg', 0, 0),
-(4, 'Xylem Water System', 'Broker/Agent', '123456789', '123456789', 'water@sample.com', 99999999, '', '2016-07-03', 1, '2018-09-04 00:04:35', '2018-09-04 00:04:35', 'C:\\xampp\\htdocs\\thefourcasters\\images\\default.jpg', 0, 0);
+(4, 'Xylem Water System', 'Broker/Agent', '123456789', '123456789', 'water@sample.com', 99999999, '', '2016-07-03', 1, '2018-09-04 00:04:35', '2018-09-04 00:04:35', 'default.jpg', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -161,15 +164,15 @@ CREATE TABLE `staff` (
   `contact` int(12) NOT NULL,
   `status` int(1) NOT NULL,
   `date` date NOT NULL,
-  `user_id` int(11) NOT NULL
+  `priv` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `staff`
 --
 
-INSERT INTO `staff` (`id`, `img`, `fname`, `lname`, `mname`, `email`, `password`, `repass`, `birthday`, `gender`, `contact`, `status`, `date`, `user_id`) VALUES
-(1, '32152975_10204847274817739_1311416208829972480_n.j', 'Anthony', 'Ane', 'L.', 'anthonyjarlane@yahoo.com', '123456789', '123456789', '0000-00-00', 'M', 2147483647, 1, '1998-05-28', 1),
+INSERT INTO `staff` (`id`, `img`, `fname`, `lname`, `mname`, `email`, `password`, `repass`, `birthday`, `gender`, `contact`, `status`, `date`, `priv`) VALUES
+(1, 'C:\\xampp\\htdocs\\thefourcasters\\images\\default.jpg', 'Anthony', 'Ane', 'L.', 'anthonyjarlane@yahoo.com', '123456789', '123456789', '0000-00-00', 'M', 2147483647, 1, '1998-05-28', 3),
 (2, 'default.jpg', 'Anthony1', 'Ane', 'L.', 'a@yahoo.com', '123456789', '123456789', '0000-00-00', 'M', 2147483647, 0, '2018-05-05', 1),
 (3, 'default.jpg', 'Leona', 'Kim', 'Marj', 'dso@yahoo.com', '123456789', '123456789', '0000-00-00', 'F', 2147483647, 0, '2009-12-03', 1),
 (4, 'default.jpg', 'Aina', 'Sales', '', 'ainadrsales@gmail.com', '123456789', '123456789', '0000-00-00', 'F', 2147483647, 1, '2018-09-05', 1);
@@ -243,7 +246,7 @@ ALTER TABLE `driver`
 --
 ALTER TABLE `staff`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `user_id` (`priv`);
 
 --
 -- Indexes for table `truck`
@@ -260,7 +263,7 @@ ALTER TABLE `truck`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `customer`

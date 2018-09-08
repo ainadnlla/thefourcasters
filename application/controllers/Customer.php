@@ -55,7 +55,7 @@ class Customer extends CI_Controller {
       }
     }  
     public function add(){
-        if($this->session->userdata('username') !=''){ 
+        if($this->session->userdata('emailad') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
@@ -163,11 +163,16 @@ class Customer extends CI_Controller {
 //CUSTOMER SIDE
 
     public function homepage(){
+        if($this->session->userdata('emailad') !=''){ 
         $data['title'] = 'Angelogistic Forwarder Corporation';
         $this->load->view('include/header', $data);
         $this->load->view('include/customer_header');
         $this->load->view('customer/homepage');
         $this->load->view('include/footer');
+       
+        }else {
+            redirect('customer/login');
+        } 
         }
 
     public function login(){
@@ -175,7 +180,7 @@ class Customer extends CI_Controller {
         $this->load->view('include/login_header');
         $this->load->view('customer/login');
         $this->load->view('include/footer');
-        if($this->session->userdata('email') !=''){ 
+        if($this->session->userdata('emailad') !=''){ 
                 redirect('customer/homepage');
             }
             else {
@@ -185,7 +190,7 @@ class Customer extends CI_Controller {
     public function signin(){
         $email=$this->input->post('email');
         $password=$this->input->post('password');
-        $user = $this->AdminModel->getCustomer($email,$password);
+        $user = $this->CustomerModel->getCustomer($email,$password);
 
         if(!$user == null){
             if($user->status == 1){
@@ -193,7 +198,7 @@ class Customer extends CI_Controller {
                 'picpath' => $user->img,
                 'name'=>$user->name,
                 'cust'  => $user->cust_type,
-                'email'     => $email,
+                'emailad'     => $email,
                 'logged_in' => TRUE,
                 'isAdmin' => TRUE
             );
@@ -205,9 +210,13 @@ class Customer extends CI_Controller {
             redirect('customer/login');
         }        
     } 
+    public function logout(){
+        $this->session->sess_destroy();
+        redirect('customer/login');
+    }
 
     public function inbox(){
-        if($this->session->userdata('email') !=''){
+        if($this->session->userdata('emailad') !=''){
             $data['title'] = 'Inbox | Angelogistic Forwarder Corporation';
             $this->load->view('include/calendar_head', $data);
             $this->load->view('include/customer_header'); 
@@ -219,7 +228,7 @@ class Customer extends CI_Controller {
     }  
     
     public function compose(){   
-        if($this->session->userdata('email') !=''){
+        if($this->session->userdata('emailad') !=''){
             $data['title'] = 'Compose | Angelogistic Forwarder Corporation';
             $this->load->view('include/calendar_head', $data);
             $this->load->view('include/customer_header'); 
@@ -231,7 +240,7 @@ class Customer extends CI_Controller {
     }  
     
     public function calendar(){
-        if($this->session->userdata('email') !=''){
+        if($this->session->userdata('emailad') !=''){
             $data['title'] = 'Calendar | Angelogistic Forwarder Corporation';
             $this->load->view('include/calendar_head', $data);
             $this->load->view('include/customer_header'); 
@@ -243,7 +252,7 @@ class Customer extends CI_Controller {
     }  
 
     public function booking($offset=0){
-        // if($this->session->userdata('username') !=''){ 
+         if($this->session->userdata('emailad') !=''){ 
             $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
 
             $this->load->library('pagination');
@@ -274,9 +283,9 @@ class Customer extends CI_Controller {
             $this->load->view('include/customer_header');
             $this->load->view('customer/booking',compact('books'));
             $this->load->view('include/footer');
-        // }else{
-        //     redirect('customer/login');
-        // }
+        }else{
+             redirect('customer/login');
+         }
     } 
     public function registration(){
         $data['title'] = 'Customer Registration | Angelogistic Forwarder Corporation';

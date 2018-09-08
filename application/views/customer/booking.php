@@ -11,7 +11,7 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          <div class="box">
+          <div class="box box-danger">
             <div class="box-header">
               <h3 class="box-title">Delivery Progress Information</h3>
             </div>
@@ -40,8 +40,8 @@
                   <th>Status</th>
                 </tr>
                 </thead>
-                <?php foreach($books as $book): ?>
                 <tbody>
+                <?php foreach($books as $book): ?>
                 <tr>
                   <td><?= $book->id?></td>
                   <td></td>
@@ -66,8 +66,8 @@
               <?php endforeach; ?> 
               </table>
               <div class="box-footer">
-                <a href="<?=base_url()?>booking/add" class="btn btn-success btn-block btn-sm" role="button">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Truck Details</a>
+              <a href="<?=base_url()?>booking/add" class="btn btn-success btn-block btn-sm" role="button">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Truck Details</a>
                 </div>
 
                 <center><?php echo $this->pagination->create_links();?></center>

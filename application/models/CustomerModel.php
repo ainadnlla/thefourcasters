@@ -50,7 +50,15 @@ class CustomerModel extends CI_Model{
 public function signup($data){
     $this->db->insert('customer', $data);
     }
+    public function getCustomer($email,$password){
+        $query = $this->db->query("SELECT * FROM customer WHERE email = '$email' && password = '$password'");
+        
+             return $query->row();
+      }
+    
 }
+//Login
+
 
 
 ?>

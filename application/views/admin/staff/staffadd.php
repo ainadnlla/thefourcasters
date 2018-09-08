@@ -12,7 +12,7 @@
     <section class="content">
       <div class="row">
         <div class="col-sm-12">   
-          <div class="box box-info">
+          <div class="box box-sucesss">
             <div class="box-header with-border">
               <h3 class="box-title">Add Details</h3>
             </div>
@@ -56,6 +56,14 @@
           <?= form_error('lname', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
+    
+    <div class="form-group">
+      <label class="col-md-4 control-label" >Email</label>  
+        <div class="col-md-4">
+          <input  name="email" type="email" placeholder="example@yahoo.com" class="form-control input-md">  
+          <?= form_error('email', '<span class="label label-danger">', '</span>') ?>  
+        </div>
+    </div>
 
     <div class="form-group">
       <label class="col-md-4 control-label" for="password" >Password</label>  
@@ -73,13 +81,6 @@
         </div>
     </div>
 
-    <div class="form-group">
-      <label class="col-md-4 control-label" >Email</label>  
-        <div class="col-md-4">
-          <input  name="email" type="email" placeholder="example@yahoo.com" class="form-control input-md">  
-          <?= form_error('email', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
 
     <div class="form-group">
       <label class="col-md-4 control-label" >Contact No.</label>  
@@ -109,10 +110,11 @@
     </div>
     <div class="form-group">
             <div class="col-md-4">
-              <input type="hidden"  name="user_type" type="text" value="1" class="form-control input-md" required="" >  
+              <input type="hidden"  name="priv" type="text" value="0" class="form-control input-md" required="" >  
             </div>
           </div>
-   
+          
+       
 
     <div class="form-group">
       <label class="col-md-4 control-label" for="button1id"></label>

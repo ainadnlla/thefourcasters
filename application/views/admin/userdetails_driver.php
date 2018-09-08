@@ -11,7 +11,7 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          <div class="box">
+          <div class="box box-success">
             <div class="box-header">
               <h3 class="box-title">Truck Driver Information</h3>
             </div>
@@ -26,7 +26,7 @@
                     <th>Expiry Date</th>
                     <th>Full Name</th>
                     <th>Email Address</th>
-                    <th>Birthday</th>
+                    <th>Birth Date</th>
                     <th>Gender</th>
                     <th>Contact No.</th>
                     <th>Employed Date</th>

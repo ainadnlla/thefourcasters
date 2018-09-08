@@ -11,7 +11,7 @@
 <section class="content">
   <div class="row">
     <div class="col-xs-12">
-      <div class="box">
+      <div class="box box-primary">
         <div class="box-header">
           <h3 class="box-title">Delivery Progress Information</h3>
         </div>
@@ -20,35 +20,35 @@
           <table id="Staff" class="table table-bordered table-hover">
             <thead>
             <tr>
-              <th>ID</th>
-              <th>Waybill</th>
-              <th>Customer</th>
-              <th>Date</th>
-              <th>Product</th>
-              <th>Cargo Size</th>
-              <th>Truck</th>
-              <th>Driver Name</th>
-              <th>Helper Name</th>
-              <th>Destination</th>
-              <th>Price</th>
-              <th>Status</th>
-              <th>Action</th>
+            <th>ID</th>
+            <th>Waybill</th>
+            <th>Customer</th>
+            <th>Date</th>
+            <th>Product</th>
+            <th>Cargo Size</th>
+            <th>Truck #</th>
+            <th>Driver Name</th>
+            <th>Helper Name</th>
+            <th>Destination</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Action</th> 
             </tr>
             </thead>
             <tbody>
             <?php foreach($books as $book): ?>
               <tr>
-                  <td><?= $book->id?></td>
-                  <td><?= $book->waybill?></td>
-                  <td><?= $book->custname?></td>
-                  <td><?= $book->date?></td>
-                  <td><?= $book->product?></td>
-                  <td><?= $book->cargo?></td>
-                  <td><?= $book->model?></td>
-                  <td><?= $book->driver_name?></td>
-                  <td><?= $book->helper_name?></td>
-                  <td><?= $book->destination?></td>
-                  <td><?= $book->price?></td>
+              <td><?= $book->id?></td>
+              <td><?= $book->waybill?></td>
+              <td><?= $book->custname?></td>
+              <td><?= $book->date?></td>
+              <td><?= $book->product?></td>
+              <td><?= $book->cargo?></td>
+              <td><?= $book->plate_no?></td>
+              <td><?= $book->driver_name?></td>
+              <td><?= $book->helper_name?></td>
+              <td><?= $book->destination?></td>
+              <td><?= $book->price?></td>
                   <td></td>
                   <td>
                   <a href="<?= base_url().'bookingstaff/view/'.$book->id?>" class="btn btn-default btn.lg" role="button">

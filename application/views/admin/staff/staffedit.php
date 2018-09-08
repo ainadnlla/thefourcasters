@@ -9,11 +9,11 @@
         </ol>
     </section>
 
-    <section class="content" >
-    <div class="row">
+    <section class="content">
+      <div class="row">
         <div class="col-md-3">
-          <div class="box box-default">
-          <div class="box-header with-border">
+          <div class="box box-success">
+            <div class="box-header with-border">
               <h3 class="box-title">Update Details</h3>
             </div>
 
@@ -85,6 +85,14 @@
       </div> 
 
       <div class="form-group">
+        <label class="col-md-4 control-label">Email</label>  
+          <div class="col-md-4">
+            <input  value="<?=$emp->email?>" name="email" type="text" placeholder="Email Address" class="form-control input-md" required="">
+            <?= form_error('email', '<span class="label label-danger">', '</span>') ?>  
+          </div>
+      </div>  
+
+      <div class="form-group">
         <label class="col-md-4 control-label" >Password</label>  
           <div class="col-md-5">
             <input  value="<?=$emp->password?>" name="password" type="password" placeholder="Password" class="form-control input-md" required="">
@@ -101,22 +109,6 @@
       </div>  
 
       <div class="form-group">
-        <label class="col-md-4 control-label">Email</label>  
-          <div class="col-md-5">
-            <input  value="<?=$emp->email?>" name="email" type="text" placeholder="Email Address" class="form-control input-md" required="">
-            <?= form_error('email', '<span class="label label-danger">', '</span>') ?>  
-          </div>
-      </div>  
-
-      <div class="form-group">
-        <label class="col-md-4 control-label" >Contact No. </label>  
-          <div class="col-md-5">
-            <input  value="<?=$emp->contact?>" name="contact" type="text" placeholder="Product Name" class="form-control input-md" required="">
-            <?= form_error('contact', '<span class="label label-danger">', '</span>') ?>  
-          </div>
-      </div>  
-
-      <div class="form-group">
         <label class="col-md-4 control-label" >Gender</label>
             <div class="col-md-5">
                 <select value="<?=$emp->gender?>" name="gender" class="form-control">
@@ -126,6 +118,14 @@
                 </select>
             </div>
     </div>
+
+    <div class="form-group">
+        <label class="col-md-4 control-label" >Contact No. </label>  
+          <div class="col-md-4">
+            <input  value="<?=$emp->contact?>" name="contact" type="text" placeholder="Product Name" class="form-control input-md" required="">
+            <?= form_error('contact', '<span class="label label-danger">', '</span>') ?>  
+          </div>
+      </div>  
 
       <div class="form-group">
         <label class="col-md-4 control-label" >Employee Since</label>  
@@ -138,8 +138,22 @@
         <label class="col-md-4 control-label" >Status</label>
           <div class="col-md-5">
             <select  value="<?=$emp->status?>" name="status" class="form-control">
+            <option Selected selected-disable>Unchanged</option>
             <option value="1">Active</option>
             <option value="0">Inactive</option>
+            </select>
+          </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label" >Privilege</label>
+          <div class="col-md-4">
+            <select value="<?=$emp->priv?>" name="priv" class="form-control">
+            <option Selected selected-disable>Unchanged</option>
+            <option value="1">Delivery Approver</option>
+            <option value="2">Truck Creator</option>
+            <option value="3">Driver/Helper Management</option>
+            <option value="4">Customer Management</option>
+            
             </select>
           </div>
       </div>

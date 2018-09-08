@@ -11,7 +11,7 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          <div class="box">
+          <div class="box box-success">
             <div class="box-header">
               <h3 class="box-title">Staff Information</h3>
 
@@ -33,8 +33,9 @@
                     <th>Profile</th>
                     <th>Full Name</th>
                     <th>Email Address</th>
-                    <th>Contact No.</th>
+                    <th>Birth Date</th>
                     <th>Gender</th>
+                    <th>Contact No.</th>
                     <th>Employed Date</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -47,8 +48,9 @@
                         <td><img src="<?=base_url().'images/'.$emp->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
                         <td><?= $emp->fname?> <?= $emp->mname?> <?= $emp->lname?></td>
                         <td><?= $emp->email?></td>                            
-                        <td><?= $emp->contact?></td>
+                        <td><?= $emp->birthday?></td>
                         <td><?= $emp->gender?></td>
+                        <td><?= $emp->contact?></td>
                         <td><?= $emp->date?></td>
                         <td><p>
                         <?php if($emp->status==1){ ?>

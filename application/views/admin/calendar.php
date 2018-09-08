@@ -15,7 +15,7 @@
 <section class="content">
   <div class="row">
 	<div class="col-md-3">
-	  <div class="box box-solid">
+	  <div class="box box-success">
 		<div class="box-header with-border">
 		  <h4 class="box-title">Draggable Events</h4>
 		</div>
@@ -38,7 +38,7 @@
 		<!-- /.box-body -->
 	  </div>
 	  <!-- /. box -->
-	  <div class="box box-solid">
+	  <div class="box box-success">
 		<div class="box-header with-border">
 		  <h3 class="box-title">Create Event</h3>
 		</div>

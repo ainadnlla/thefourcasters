@@ -12,7 +12,7 @@
     <section class="content">
       <div class="row">
         <div class="col-sm-12">   
-          <div class="box box-info">
+          <div class="box box-sucess">
             <div class="box-header with-border">
               <h3 class="box-title">Add Details</h3>
             </div>
@@ -97,7 +97,7 @@
     </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label" >Birth Day</label>  
+      <label class="col-md-4 control-label" >Birth Date</label>  
         <div class="col-md-4">
           <input name="birthday" type="date" class="form-control input-md">  
           <?= form_error('birthday', '<span class="label label-danger">', '</span>') ?>  
