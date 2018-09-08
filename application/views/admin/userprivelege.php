@@ -9,7 +9,7 @@
         <li class="active">User Privelege</a></li>
       </ol>
     </section>
-
+    
 <section class="content">
       <div class="row">
         <div class="col-xs-12">
@@ -26,7 +26,7 @@
                     <th width="10%">Profile</th>
                     <th>Staff Full Name</th>
                     <th width="30%"><center>User Access Level<center></th>
-                    <th>Change</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -36,8 +36,8 @@
                         <td><img src="<?=base_url().'images/'.$emp->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
                         <td><?= $emp->fname?> <?= $emp->mname?> <?= $emp->lname?></td>
                         <td></td>
-                        <td></td>
-                    </tr>        
+                 
+                    </tr>          
                 <?php endforeach; ?> 
                 </tfoot>
               </table>

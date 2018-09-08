@@ -110,10 +110,11 @@
     </div>
     <div class="form-group">
             <div class="col-md-4">
-              <input type="hidden"  name="user_type" type="text" value="1" class="form-control input-md" required="" >  
+              <input type="hidden"  name="priv" type="text" value="0" class="form-control input-md" required="" >  
             </div>
           </div>
-   
+          
+       
 
     <div class="form-group">
       <label class="col-md-4 control-label" for="button1id"></label>
