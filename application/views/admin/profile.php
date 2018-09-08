@@ -14,7 +14,7 @@
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
+              <img class="profile-user-img img-responsive img-circle" src="<?= base_url()."images/logo.jpg"?>" alt="User profile picture">
 
               <h3 class="profile-username text-center">Administrator</h3>
               <p class="text-muted text-center">Angelogistics Forwarder Corporation</p>
@@ -23,31 +23,31 @@
                 <li class="list-group-item">
                   <b>Status</b> <span class = "label label-success pull-right">Active</span>
                 </li>
-                <li class="list-group-item">
-                  <b>User Rating</b> <a class="pull-right">543</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Member Since</b> <a class="pull-right">13,287</a>
-                </li>
-              </ul>
 
-              <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+              </ul>
             </div>
           </div>
 
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">About Me</h3>
+              <h3 class="box-title">About Company</h3>
             </div>
             <div class="box-body">
-              <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
+              <strong><i class="fa fa-book margin-r-5"></i> Mission</strong>
 
               <p class="text-muted">
-                B.S. in Computer Science from the University of Tennessee at Knoxville
+                To be a leading Manila-based cargo forwarder, logistics provider,
+                customs broker and tariff consultant
+              </p>
+              <hr>
+              <strong><i class="fa fa-book margin-r-5"></i> Vision</strong>
+
+              <p class="text-muted">
+                The Pursuit of Reliability, Efficiency, Personalized Service and Trustworthiness.
               </p>
               <hr>
               <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
-              <p class="text-muted">Malibu, California</p>
+              <p class="text-muted">Maria Clara St, La Loma, Quezon City</p>
               <hr>
               <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
               <p>
