@@ -17,7 +17,7 @@
               <h3 class="box-title">Update Details</h3>
             </div>
 
-    <form  class="form-horizontal"  action ="<?=base_url()?>admin/update/<?=$emp->id?>"  method='post'>
+    <form  class="form-horizontal"   action ="<?=base_url()?>admin/update/<?=$emp->id?>"  method='post'>
       <fieldset>
         <div class="form-group">
           <div class="col-md-4">
@@ -38,18 +38,15 @@
             <div class="col-md-9">
             <?php echo form_open_multipart('admin/do_upload');?>
             <input class="form-control" type="file" name="img" size="20" >
-            <?= form_error('img', '<span class="label label-danger">', '</span>') ?>  
             </div>
           </div>
 
             </div>
-            <!-- /.box-body -->
           </div>
-          <!-- /.box -->
         </div>
-        <!-- /.col -->
       </form>
     </fieldset>
+
         <div class="col-md-9">
           <div class="box box-default">
             <div class="box-header with-border">
@@ -57,7 +54,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-            <form  class="form-horizontal">
+        <form  class="form-horizontal">
       <fieldset>
 
             <div class="form-group">
@@ -86,7 +83,7 @@
 
       <div class="form-group">
         <label class="col-md-4 control-label">Email</label>  
-          <div class="col-md-4">
+          <div class="col-md-5">
             <input  value="<?=$emp->email?>" name="email" type="text" placeholder="Email Address" class="form-control input-md" required="">
             <?= form_error('email', '<span class="label label-danger">', '</span>') ?>  
           </div>
@@ -121,7 +118,7 @@
 
     <div class="form-group">
         <label class="col-md-4 control-label" >Contact No. </label>  
-          <div class="col-md-4">
+          <div class="col-md-5">
             <input  value="<?=$emp->contact?>" name="contact" type="text" placeholder="Product Name" class="form-control input-md" required="">
             <?= form_error('contact', '<span class="label label-danger">', '</span>') ?>  
           </div>
@@ -146,7 +143,7 @@
       </div>
       <div class="form-group">
         <label class="col-md-4 control-label" >Privilege</label>
-          <div class="col-md-4">
+          <div class="col-md-5">
             <select value="<?=$emp->priv?>" name="priv" class="form-control">
             <option Selected selected-disable>Unchanged</option>
             <option value="1">Delivery Approver</option>

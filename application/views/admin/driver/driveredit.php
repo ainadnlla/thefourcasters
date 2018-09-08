@@ -2,9 +2,9 @@
     <section class="content-header">
       <h1>Driver Details</h1>
         <ol class="breadcrumb">
-          <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i> Home </a></li>
-          <li><a href="<?=base_url().'admin/userdetails'?>"> User Accounts </a></li>
-          <li><a href="<?=base_url().'admin/userdetails_driver'?>"> Driver Details </a></li>
+          <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+          <li><a href="<?=base_url().'admin/userdetails'?>">User Accounts</a></li>
+          <li><a href="<?=base_url().'admin/userdetails_driver'?>">Truck Driver Details</a></li>
           <li class="active">Edit</li>
         </ol>
     </section>

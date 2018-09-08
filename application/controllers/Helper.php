@@ -15,6 +15,13 @@ class Helper extends CI_Controller {
 
 // ADMIN SIDE - CRUD HELPER
 
+public function logged(){
+    $newdata = array(
+        'name'  => $user->name,
+        'username'     => $user->username,
+        'logged_in' => TRUE,
+        'isAdmin' => TRUE
+);
 $this->session->set_userdata($newdata);
 }
     public function userdetails_helper($offset=0){
@@ -81,6 +88,8 @@ $this->session->set_userdata($newdata);
             $this->form_validation->set_rules('birthday', 'Birth Day', 'required');
             $this->form_validation->set_rules('gender', 'Contact No.', 'gender');
             $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
+            $this->form_validation->set_rules('date', 'Employement Date', 'required');
+
       if ($this->form_validation->run() == FALSE)
       {
           $this->add();
@@ -193,7 +202,7 @@ $this->session->set_userdata($newdata);
                     echo $this->image_lib->display_errors(); die();
                 }
                 $data['image']=$upload_data[file_name];
-                $this->DriverModel->insert($data);
+                $this->HelperModel->insert($data);
                 $this->index(); */
                 }
         }

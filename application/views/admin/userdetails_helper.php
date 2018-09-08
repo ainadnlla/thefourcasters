@@ -17,7 +17,7 @@
             </div>
 
             <div class="box-body">  
-              <table id="driver" class="table table-bordered table-hover">
+              <table id="helper" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -60,11 +60,11 @@
                         </td>
 
                         <td>
-                        <a href="<?= base_url().'driver/edit/'.$help->id?>" class="btn btn-default btn.lg" role="button">
+                        <a href="<?= base_url().'helper/edit/'.$help->id?>" class="btn btn-default btn.lg" role="button">
                         <span class="fa fa-edit" aria-hidden="true">
                         </span></a>
 
-                        <!-- <a href="<?=base_url('driver/del/'.$help->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
+                        <!-- <a href="<?=base_url('helper/del/'.$help->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
                         </span></a> -->
                         </td>
@@ -74,7 +74,7 @@
               </table>
             </div>
                 <div class="box-footer">
-                <a href="<?=base_url()?>driver/add" class="btn btn-success btn-block btn-sm" role="button">
+                <a href="<?=base_url()?>helper/add" class="btn btn-success btn-block btn-sm" role="button">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Truck Helper</a>
                 </div>
 
@@ -98,7 +98,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-outline" data-dismiss="modal">Cancel</button>
-                <a href="<?=base_url('driver/del/'.$help->id)?>"  role="button" class="btn btn-outline" >Delete</a>
+                <a href="<?=base_url('helper/del/'.$help->id)?>"  role="button" class="btn btn-outline" >Delete</a>
               </div>
             </div>
           </div>

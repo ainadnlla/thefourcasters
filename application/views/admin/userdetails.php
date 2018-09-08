@@ -79,7 +79,7 @@
             <div class="icon"><br/>
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="<?=base_url().'admin/userdetails_helper'?>" class="small-box-footer">Proceed <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?=base_url().'admin/userdetails_driver'?>" class="small-box-footer">Proceed <i class="fa fa-arrow-circle-right"></i></a>
           </div>
       </div>
           <!-- small box -->

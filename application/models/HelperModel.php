@@ -30,19 +30,19 @@ class HelperModel extends CI_Model{
 // PAGINATION
    
    public function getItems($norecs, $offset){
-    $query = $this->db->get('driver', $norecs, $offset);
+    $query = $this->db->get('helper', $norecs, $offset);
     return $query->result();
     }
 
     public function getNumRecs(){
-    return $this->db->count_all('driver');
+    return $this->db->count_all('helper');
     }
 
 //DELETE    
 
     public function delete($id,$data){
         $this->db->where('id', $id);
-        $this->db->delete('driver');
+        $this->db->delete('helper');
     }
 }
 

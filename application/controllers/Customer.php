@@ -39,7 +39,7 @@ class Customer extends CI_Controller {
 
       /*  $data = $this->input->post();
         unset($data['add']); */
-            $this->form_validation->set_rules('name', 'First Name', 'required');
+            $this->form_validation->set_rules('name', 'Customer/Brokerage', 'required');
             $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
             $this->form_validation->set_rules('email', 'Email Address', 'required');
@@ -54,29 +54,35 @@ class Customer extends CI_Controller {
             redirect('admin/userdetails_customer');
       }
     }  
+
     public function add(){
-        if($this->session->userdata('emailad') !=''){ 
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
+
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('admin/customer/customeradd');
         $this->load->view('include/footer');
-        }else{
-            redirect('customer/login');
-        }
+        
+    }else{
+        redirect('admin/login');
     }
+        }
+
     public function edit($id){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
+
         $cust = $this->CustomerModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('admin/customer/customeredit',compact('cust'));
+        $this->load->view('admin//customer/customeredit',compact('cust'));
         $this->load->view('include/footer');
-        }else{
-            redirect('admin/login');
-        }
+    }else{
+        redirect('admin/login');
     }
+    }
+
     public function delete($id){
         if($this->session->userdata('username') !=''){ 
         $cust = $this->CustomerModel->getProd($id);

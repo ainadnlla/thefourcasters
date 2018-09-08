@@ -1,10 +1,10 @@
 <div class="content-wrapper">
     <section class="content-header">
-      <h1>Driver Details</h1>
+      <h1>Helper Details</h1>
         <ol class="breadcrumb">
           <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
           <li><a href="<?=base_url().'admin/userdetails'?>">User Accounts</a></li>
-          <li><a href="<?=base_url().'admin/userdetails_driver'?>">Truck Driver Details</a></li>
+          <li><a href="<?=base_url().'admin/userdetails_helper'?>">Truck Helper Details</a></li>
           <li class="active">Add</a></li>
         </ol>
     </section>
@@ -17,7 +17,7 @@
               <h3 class="box-title">Add Details</h3>
             </div>
 
-    <form class="form-horizontal" action ="<?=base_url().'driver/insert'?>" method = "post">
+    <form class="form-horizontal" action ="<?=base_url().'helper/insert'?>" method = "post">
         <div class="box-body">
           <div class="form-group">
             <div class="col-md-4">
@@ -28,7 +28,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label"for ="upload">Image</label>  
       <div class="col-md-4">
-      <?php echo form_open_multipart('driver/do_upload');?>
+      <?php echo form_open_multipart('helper/do_upload');?>
       <input class="form-control" type="file" name="img" size="20" >
       </div>
     </div>
@@ -37,7 +37,6 @@
       <label class="col-md-4 control-label"for ="driver_no"> Driver License No.</label>  
         <div class="col-md-4">
           <input  name="driver_no" type="text" placeholder="License No." class="form-control input-md">
-          <?= form_error('driver_no', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
@@ -45,7 +44,6 @@
       <label class="col-md-4 control-label" >Expiry Date</label>  
         <div class="col-md-4">
           <input name="expire" type="date" class="form-control input-md">  
-          <?= form_error('expire', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
@@ -111,7 +109,6 @@
             <option Selected disabled="disabled" >Gender</option>
             <option value="M">Male</option>
             <option value="F">Female</option>
-            <?= form_error('gender', '<span class="label label-danger">', '</span>') ?>  
           </select>
         </div>
     </div>
@@ -137,7 +134,7 @@
         <div class="col-md-4">
   
           <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Add</button>
-            <a href="<?=base_url().'admin/userdetails_driver/'?>" class="btn btn-danger" role="button">Back</a>
+            <a href="<?=base_url().'admin/userdetails_helper/'?>" class="btn btn-danger" role="button">Back</a>
 
             </form>
         </div>  

@@ -42,7 +42,7 @@
     </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label" for="gender">Customer Type</label>
+      <label class="col-md-4 control-label" for="cust_type  ">Customer Type</label>
         <div class="col-md-4">
           <select name="cust_type" class="form-control">
             <option Selected disabled="disabled" >Customer Type</option>

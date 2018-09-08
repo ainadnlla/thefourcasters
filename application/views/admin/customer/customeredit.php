@@ -44,9 +44,9 @@
      <div>
 
     <div class="form-group">
-        <label class="col-md-4 control-label" for="name" >Customer/Importer</label>  
+        <label class="col-md-4 control-label" >Customer/Brokerage</label>  
             <div class="col-md-4">
-                <input  value="<?=$cust->name?>" name="name" type="text" placeholder="Customer/Importer" class="form-control input-md" required="">
+                <input  value="<?=$cust->name?>" name="name" type="text" placeholder="Customer/Brokerage" class="form-control input-md" required="">
                 <?= form_error('name', '<span class="label label-danger">', '</span>') ?>  
             </div>
     </div>  
@@ -55,7 +55,7 @@
         <label class="col-md-4 control-label" >Customer Type</label>
           <div class="col-md-4">
             <select  value="<?=$cust->cust_type?>" name="cust_type" class="form-control">
-            <option Selected disabled="disabled" value='<?=$cust->cust_type?>' selected><?=$cust->cust_type?></option>
+            <option Selected disabled="disabled" value="<?=$cust->cust_type?>" selected><?=$cust->cust_type?></option>
             <option disabled>----------------</option>
             <option value="In-house Brokerage">In-house Brokerage</option>
             <option value="Broker/Agent">Broker/Agent</option>
@@ -110,6 +110,7 @@
         <label class="col-md-4 control-label" >Status</label>
           <div class="col-md-4">
             <select  value="<?=$cust->status?>" name="status" class="form-control">
+            <option Selected disabled="disabled">Unchanged</option>
             <option value="1">Active</option>
             <option value="0">Inactive</option>
             </select>
