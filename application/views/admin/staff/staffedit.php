@@ -122,7 +122,7 @@
     <div class="form-group">
         <label class="col-md-4 control-label" >Contact No. </label>  
           <div class="col-md-5">
-            <input  value="<?=$emp->contact?>" name="contact" type="text" placeholder="Product Name" class="form-control input-md" required="">
+            <input  value="<?=$emp->contact?>" name="contact" type="text" placeholder="Contact No." class="form-control input-md" required="">
             <?= form_error('contact', '<span class="label label-danger">', '</span>') ?>  
           </div>
       </div>  
