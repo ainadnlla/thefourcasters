@@ -172,6 +172,18 @@
           </div>
       </div>
 
+          <!-- <div class="form-group">
+      <label class="col-md-4 control-label"for ="timein">Time In</label>  
+        <div class="col-md-4">
+          <input value="<?=$emp->timein?>" name="timein" type="time"  class="form-control input-md">
+          
+        </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label"for ="timeout">Time out</label>  
+        <div class="col-md-4">
+          <input value="<?=$emp->timeout?>" name="timeout" type="time"  class="form-control input-md"> -->
+
       <div class="form-group">
         <label class="col-md-4 control-label" for="button1id"></label>
         <div class="col-md-5">
@@ -179,6 +191,7 @@
           <a href="<?= base_url().'admin/userdetails_staff'?>" class="btn btn-danger" role="button"> Cancel</a>
         </div>
       </div>
+      
 
           </div>
         </div>

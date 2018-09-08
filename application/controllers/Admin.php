@@ -29,6 +29,8 @@ class Admin extends CI_Controller {
             'gender' => $this->input->post('gender'),
             'contact' => $this->input->post('contact'),
             'date' => $this->input->post('date'),
+            'timein' => $this->input->post('timein'),
+            'timeout' => $this->input->post('timeout')
             // 'user_id'=> $this->input->post('user_type')
         );
       /*  $data = $this->input->post();
