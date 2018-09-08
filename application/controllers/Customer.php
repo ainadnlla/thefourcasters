@@ -76,7 +76,7 @@ class Customer extends CI_Controller {
         $cust = $this->CustomerModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('admin//customer/customeredit',compact('cust'));
+        $this->load->view('admin/customer/customeredit',compact('cust'));
         $this->load->view('include/footer');
     }else{
         redirect('admin/login');
@@ -110,7 +110,7 @@ class Customer extends CI_Controller {
             $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
             $this->form_validation->set_rules('email', 'Email Address', 'required');
-            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
+            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric');
             $this->form_validation->set_rules('img', 'Image', 'required');
             
             if ($this->form_validation->run() == FALSE)
@@ -322,7 +322,7 @@ class Customer extends CI_Controller {
                     $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
                     $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
                     $this->form_validation->set_rules('email', 'Email Address', 'required');
-                    $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
+                    $this->form_validation->set_rules('contact', 'Contact No.', 'required');
               if ($this->form_validation->run() == FALSE)
               {
                   $this->registration();
