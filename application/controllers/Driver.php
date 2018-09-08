@@ -88,7 +88,7 @@ $this->session->set_userdata($newdata);
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
             $this->form_validation->set_rules('birthday', 'Birth Day', 'required');
             $this->form_validation->set_rules('gender', 'Contact No.', 'gender');
-            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
+            $this->form_validation->set_rules('contact', 'Contact No.', 'required');
       if ($this->form_validation->run() == FALSE)
       {
           $this->add();
@@ -154,7 +154,7 @@ $this->session->set_userdata($newdata);
         $this->form_validation->set_rules('email', 'Email Address', 'required');
         $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
         $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
-        $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
+        $this->form_validation->set_rules('contact', 'Contact No.', 'required');
         
             if ($this->form_validation->run() == FALSE)
             {
