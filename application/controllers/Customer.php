@@ -76,7 +76,7 @@ class Customer extends CI_Controller {
         $cust = $this->CustomerModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('admin//customer/customeredit',compact('cust'));
+        $this->load->view('admin/customer/customeredit',compact('cust'));
         $this->load->view('include/footer');
     }else{
         redirect('admin/login');

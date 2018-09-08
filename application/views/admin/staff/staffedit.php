@@ -18,14 +18,14 @@
               <h3 class="box-title">Update Details</h3>
             </div>
 
-    <form  class="form-horizontal">
+    <form  class="form-horizontal"  action = "<?=base_url()?>admin/update/<?=$emp->id?>"  method='post'>
       <fieldset>
         <div class="form-group">
           <div class="col-md-4">
             <input type="hidden" name="id" type="text" placeholder="ID" class="form-control input-md"value="<?=$emp->id?>" required="" >
           </div>
         </div>
-
+32
       <div class="form-group">
         <label class="col-md-1 control-label" for="upload"></label>  
             <div class="col-md-9">
@@ -48,7 +48,7 @@
           <!-- /.box -->
         </div>
         <!-- /.col -->
-      </form>
+
     </fieldset>
         <div class="col-md-9">
           <div class="box box-default">
@@ -57,14 +57,14 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-            <form  class="form-horizontal">
+            <s  class="form-horizontal">
       <fieldset>
 
-            <div class="form-group"  action ="<?=base_url()?>admin/update/<?=$emp->id?>"  method='post'>
+            <div class="form-group" >
         <label class="col-md-4 control-label" for ="fname" >First Name</label>  
           <div class="col-md-5">
             <input  value="<?=$emp->fname?>" name="fname" type="text" placeholder="First Name" class="form-control input-md" required="">
-            <?= form_error('fname', '<span class="label label-danger">', '</span>') ?>  
+            <?= form_error('fname', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div>  
 
@@ -72,7 +72,7 @@
         <label class="col-md-4 control-label" >Middle Name</label>  
           <div class="col-md-5">
             <input  value="<?=$emp->mname?>" name="mname" type="text" placeholder="Middle Name" class="form-control input-md" >
-            <?= form_error('mname', '<span class="label label-danger">', '</span>') ?>  
+            <?= form_error('mname', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div>  
 
@@ -80,7 +80,7 @@
         <label class="col-md-4 control-label" for="textinput">Last Name</label>  
           <div class="col-md-5">
             <input  value="<?=$emp->lname?>" name="lname" type="text" placeholder="Last Name" class="form-control input-md" required="">
-            <?= form_error('lname', '<span class="label label-danger">', '</span>') ?>  
+            <?= form_error('lname', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div> 
 
@@ -88,7 +88,7 @@
         <label class="col-md-4 control-label">Email</label>  
           <div class="col-md-5">
             <input  value="<?=$emp->email?>" name="email" type="text" placeholder="Email Address" class="form-control input-md" required="">
-            <?= form_error('email', '<span class="label label-danger">', '</span>') ?>  
+            <?= form_error('email', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div>  
 
@@ -96,7 +96,7 @@
         <label class="col-md-4 control-label" >Password</label>  
           <div class="col-md-5">
             <input  value="<?=$emp->password?>" name="password" type="password" placeholder="Password" class="form-control input-md" required="">
-            <?= form_error('password', '<span class="label label-danger">', '</span>') ?>  
+            <?= form_error('password', '<span class="label label-danger">', '</span>') ?> 
           </div>
       </div> 
 
@@ -104,7 +104,7 @@
         <label class="col-md-4 control-label" >Confirm Password</label>  
           <div class="col-md-5">
             <input  value="<?=$emp->repass?>" name="repass" type="password" placeholder="Confirm Password" class="form-control input-md" required="">
-            <?= form_error('repass', '<span class="label label-danger">', '</span>') ?>  
+           <?= form_error('repass', '<span class="label label-danger">', '</span>') ?> 
           </div>
       </div>  
 
@@ -120,10 +120,10 @@
     </div>
 
     <div class="form-group">
-        <label class="col-md-4 control-label" >Contact No. </label>  
-          <div class="col-md-5">
-            <input  value="<?=$emp->contact?>" name="contact" type="text" placeholder="Product Name" class="form-control input-md" required="">
-            <?= form_error('contact', '<span class="label label-danger">', '</span>') ?>  
+     <label class="col-md-4 control-label">Contact</label>  
+       <div class="col-md-5">
+          <input  value="<?=$emp->contact?>" name="contact" type="text" placeholder="Contact Num" class="form-control input-md" required="">
+            <?= form_error('contact', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div>  
 
@@ -161,7 +161,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="button1id"></label>
         <div class="col-md-5">
-          <button id="button1id" name="submit" value="submit" class="btn btn-success">Update</button>
+          <button id="button1id" name="submit" type="submit" value="submit" class="btn btn-success">Update</button>
           <a href="<?= base_url().'admin/userdetails_staff'?>" class="btn btn-danger" role="button"> Cancel</a>
         </div>
       </div>
@@ -173,9 +173,10 @@
         <!-- /.col -->
       </div>
       </fieldset>
-</form>
+</s>
 </section>
 </div>
+</form>
 
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
