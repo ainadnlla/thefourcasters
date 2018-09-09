@@ -29,6 +29,7 @@
                     <th>Birth Date</th>
                     <th>Gender</th>
                     <th>Contact No.</th>
+                    <th>Years of Experience</th>
                     <th>Employed Date</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -46,6 +47,7 @@
                         <td><?= $driv->birthday?></td>
                         <td><?= $driv->gender?></td>
                         <td><?= $driv->contact?></td>
+                        <td><?= $driv->experience?></td>
                         <td><?= $driv->date?></td>
                         <td><p>
                         <?php if($driv->status==1){ ?>

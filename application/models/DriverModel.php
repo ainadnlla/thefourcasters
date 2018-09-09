@@ -9,9 +9,6 @@ class DriverModel extends CI_Model{
         $this->db->insert('driver', $data);
         }
 
-    public function insertUser($data){
-        $this->db->insert('driver', $data);
-        } 
 
 //UPDATE
     public function update($id ,$data){
@@ -21,11 +18,14 @@ class DriverModel extends CI_Model{
 
     public function getProd($id)
     {
-  
         $query = $this->db->get_where('driver', array('id' => $id));
         return $query->row();
-  
     }
+
+    public function updateDay($id, $days){
+        $this->db->where('id' , $id);
+        $this->db->insert('driver', $days);
+    } 
 
 // PAGINATION
    
@@ -44,6 +44,7 @@ class DriverModel extends CI_Model{
         $this->db->where('id', $id);
         $this->db->delete('driver');
     }
+    
 }
 
 ?>

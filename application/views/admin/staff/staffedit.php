@@ -33,89 +33,104 @@
           </div>
       <div>
       <hr/>
+
       <div class="form-group">
         <label class="col-md-1 control-label" for="upload"></label>  
-            <div class="col-md-9">
+          <div class="col-md-9">
             <?php echo form_open_multipart('admin/do_upload');?>
             <input class="form-control" type="file" name="img" size="20" >
+            <?= form_error('img', '<span class="label label-danger">', '</span>'); ?>  
             </div>
           </div>
           <br/>
-            </div>
-          </div>
         </div>
+      </div>
+    </div>
     </fieldset>
 
-        <div class="col-md-9">
-          <div class="box box-success">
-            <div class="box-header with-border">
-              <h3 class="box-title">Personal Information</h3>
-            </div>
-            <div class="box-body">
-          <div class="form-horizontal">
+<!-- END OF 1ST BOX -->
+
+      <div class="col-md-9">
+        <div class="box box-success">
+          <div class="box-header with-border">
+            <h3 class="box-title">Personal Information</h3>
+          </div>
+          <div class="box-body">
+        <div class="form-horizontal">
       <fieldset>
 
       <div class="form-group" >
-        <label class="col-md-3 control-label" for ="fname" >First Name</label>  
-          <div class="col-md-8">
+        <label class="col-md-4 control-label" for ="fname" >First Name</label>  
+          <div class="col-md-6">
             <input  value="<?=$emp->fname?>" name="fname" type="text" placeholder="First Name" class="form-control input-md" required="">
             <?= form_error('fname', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div>  
 
       <div class="form-group">
-        <label class="col-md-3 control-label" >Middle Name</label>  
-          <div class="col-md-8">
+        <label class="col-md-4 control-label" >Middle Name</label>  
+          <div class="col-md-6">
             <input  value="<?=$emp->mname?>" name="mname" type="text" placeholder="Middle Name" class="form-control input-md" >
             <?= form_error('mname', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div>  
 
       <div class="form-group">
-        <label class="col-md-3 control-label" for="textinput">Last Name</label>  
-          <div class="col-md-8">
+        <label class="col-md-4 control-label" for="textinput">Last Name</label>  
+          <div class="col-md-6">
             <input  value="<?=$emp->lname?>" name="lname" type="text" placeholder="Last Name" class="form-control input-md" required="">
             <?= form_error('lname', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div> 
 
       <div class="form-group">
-        <label class="col-md-3 control-label" >Gender</label>
-            <div class="col-md-8">
+        <label class="col-md-4 control-label" >Gender</label>
+            <div class="col-md-6">
                 <select value="<?=$emp->gender?>" name="gender" class="form-control">
                 <option value='<?=$emp->gender?>' selected><?=$emp->gender?></option>
                 <option value="M">Male</option>
                 <option value="F">Female</option>
                 </select>
             </div>
-    </div>
+      </div>
 
     <div class="form-group">
-     <label class="col-md-3 control-label">Contact</label>  
-       <div class="col-md-8">
+        <label class="col-md-4 control-label" >Birth Date</label>  
+          <div class="col-md-6">
+            <input value="<?=$emp->birthday?>" name="birthday" type="date" class="form-control input-md"> 
+            <?= form_error('birthday', '<span class="label label-danger">', '</span>'); ?>  
+          </div>
+      </div>
+
+    <div class="form-group">
+     <label class="col-md-4 control-label">Contact</label>  
+       <div class="col-md-6">
           <input  value="<?=$emp->contact?>" name="contact" type="text" placeholder="Contact No." class="form-control input-md" required="">
             <?= form_error('contact', '<span class="label label-danger">', '</span>'); ?>  
           </div>
-      </div>  
+      </div>
 
       <div class="form-group">
-        <label class="col-md-3 control-label" >Employee Since</label>  
-          <div class="col-md-8">
+        <label class="col-md-4 control-label" >Employee Since</label>  
+          <div class="col-md-6">
             <input value="<?=$emp->date?>" name="date" type="date" class="form-control input-md"> 
+            <?= form_error('date', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div>
 
           </div>
         </div>
       </div>
-     </div>
+    </div>
     </fieldset>
-    </div> 
     <!-- END OF 1ST ROW -->
+  </div>
 
-    <div class="row">
-     <div class="col-md-12">
-          <div class="box box-success">
+<!-- END OF 2ND BOX -->
+
+    <div class="row"> 
+    <div class="col-md-12"> 
+      <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title">User Details</h3>
             </div>
@@ -172,18 +187,6 @@
           </div>
       </div>
 
-          <!-- <div class="form-group">
-      <label class="col-md-4 control-label"for ="timein">Time In</label>  
-        <div class="col-md-4">
-          <input value="<?=$emp->timein?>" name="timein" type="time"  class="form-control input-md">
-          
-        </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-4 control-label"for ="timeout">Time out</label>  
-        <div class="col-md-4">
-          <input value="<?=$emp->timeout?>" name="timeout" type="time"  class="form-control input-md"> -->
-
       <div class="form-group">
         <label class="col-md-4 control-label" for="button1id"></label>
         <div class="col-md-5">
@@ -191,15 +194,15 @@
           <a href="<?= base_url().'admin/userdetails_staff'?>" class="btn btn-danger" role="button"> Cancel</a>
         </div>
       </div>
-      
 
           </div>
         </div>
       </div>
-      </fieldset>
      </div>
-     <!-- END OF 2ND ROW -->
-
+     </fieldset>
+ <!-- END OF 2ND ROW -->
+     </div>
+    
   </section>
 </div>
 </form>

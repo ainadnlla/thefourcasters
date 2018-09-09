@@ -2,152 +2,269 @@
     <section class="content-header">
       <h1>Helper Details</h1>
         <ol class="breadcrumb">
-          <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+          <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i> Home</a></li>
           <li><a href="<?=base_url().'admin/userdetails'?>">User Accounts</a></li>
-          <li><a href="<?=base_url().'admin/userdetails_helper'?>">Truck Helper Details</a></li>
-          <li class="active">Add</a></li>
+          <li><a href="<?=base_url().'admin/userdetails_helper'?>">Helper Details</a></li>
+          <li class="active">Edit</li>
         </ol>
     </section>
 
     <section class="content">
       <div class="row">
-        <div class="col-sm-12">   
-          <div class="box box-sucess">
+        <div class="col-md-3">
+          <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Add Details</h3>
+              <h3 class="box-title">Profile Photo</h3>
             </div>
 
-    <form class="form-horizontal" action ="<?=base_url().'helper/insert'?>" method = "post">
-        <div class="box-body">
-          <div class="form-group">
-            <div class="col-md-4">
-              <input type="hidden"  name="id" type="text" placeholder="ID" class="form-control input-md" required="" >  
+    <form  class="form-horizontal" action="<?=base_url()?>helper/insert/>"  method='post'>
+      <fieldset>
+        <div class="form-group">
+          <div class="col-md-4">
+            <input type="hidden" name="id" type="text" placeholder="ID" class="form-control input-md"required="" >
+          </div>
+        </div>
+
+      <div class="form-group">
+        <label class="col-md-1 control-label" for="upload"></label>  
+            <div class="col-md-9">
+              <img src="<?= base_url().'images/default.jpg' ?>" alt="..." class="img-thumbnail">
+            </div>
+          </div>
+      <div>
+      <hr/>
+      <div class="form-group">
+        <label class="col-md-1 control-label" for="upload"></label>  
+            <div class="col-md-9">
+            <?php echo form_open_multipart('admin/do_upload');?>
+            <input class="form-control" type="file" name="img" size="20" >
+            <?= form_error('img', '<span class="label label-danger">', '</span>'); ?>  
+            </div>
+          </div>
+          <br/>
             </div>
           </div>
 
+<!-- END OF 1ST BOX -->
+
+      <div class="box box-success">
+        <div class="box-header with-border">
+            <h3 class="box-title">Schedule</h3>
+            </div>
+            <div class="box-body">
+          <div class="form-horizontal">
+      <fieldset>
+
+      <div class="form-group">
+      <label class="col-md-4 control-label"for ="timein">Time In</label>  
+        <div class="col-md-8">
+          <input name="timein" type="time" class="form-control input-md">  
+          <?= form_error('timein', '<span class="label label-danger">', '</span>'); ?>  
+        </div>
+    </div>
+    
     <div class="form-group">
-      <label class="col-md-4 control-label"for ="upload">Image</label>  
-      <div class="col-md-4">
-      <?php echo form_open_multipart('helper/do_upload');?>
-      <input class="form-control" type="file" name="img" size="20" >
+      <label class="col-md-4 control-label"for ="timeout">Time out</label>  
+        <div class="col-md-8">
+          <input name="timeout" type="time"  class="form-control input-md">
+          <?= form_error('timeout', '<span class="label label-danger">', '</span>'); ?>  
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label"for ="weekday">Weekdays</label>  
+        <div class="col-md-8">
+              <select name="weekday[]" multiple class="form-control">
+                <option Selected disabled="disabled">Select Multiple</option>
+                <option name="weekday[]" value="Monday">Monday</option>
+                <option name="weekday[]" value="Tuesday">Tuesday</option>
+                <option name="weekday[]" value="Wednesday">Wednesday</option>
+                <option name="weekday[]" value="Thursday">Thursday</option>
+                <option name="weekday[]" value="Friday">Friday</option>
+                <option name="weekday[]" value="Saturday">Saturday</option>
+                <option name="weekday[]" value="Sunday">Sunday</option>
+              </select>
+            </div>
+        </div>
+
+          </div>
+        </div>
       </div>
+
     </div>
+    </fieldset>
+
+<!-- END OF 2ND BOX -->
+
+      <div class="col-md-9">
+        <div class="box box-success">
+          <div class="box-header with-border">
+            <h3 class="box-title">Personal Information</h3>
+          </div>
+          <div class="box-body">
+        <div class="form-horizontal">
+      <fieldset>
 
     <div class="form-group">
-      <label class="col-md-4 control-label"for ="driver_no"> Driver License No.</label>  
-        <div class="col-md-4">
-          <input  name="driver_no" type="text" placeholder="License No." class="form-control input-md">
-        </div>
-    </div>
+        <label class="col-md-4 control-label" for="driver_no" >Driver License No.</label>  
+            <div class="col-md-6">
+                <input name="driver_no" type="text" placeholder="License No." class="form-control input-md">
+                <?= form_error('driver_no', '<span class="label label-danger">', '</span>'); ?>  
+            </div>
+    </div> 
 
     <div class="form-group">
-      <label class="col-md-4 control-label" >Expiry Date</label>  
-        <div class="col-md-4">
-          <input name="expire" type="date" class="form-control input-md">  
-        </div>
-    </div>
+        <label class="col-md-4 control-label" for="expire" >Expiry Date</label>  
+            <div class="col-md-6">
+                <input name="expire" type="date" placeholder="License No." class="form-control input-md">
+                <?= form_error('expire', '<span class="label label-danger">', '</span>'); ?>  
+            </div>
+    </div> 
 
-    <div class="form-group">
-      <label class="col-md-4 control-label"for ="fname">First Name</label>  
-        <div class="col-md-4">
-          <input  name="fname" type="text" placeholder="First Name" class="form-control input-md">
-          <?= form_error('fname', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
+      <div class="form-group" >
+        <label class="col-md-4 control-label" for ="fname" >First Name</label>  
+          <div class="col-md-6">
+            <input name="fname" type="text" placeholder="First Name" class="form-control input-md" required="">
+            <?= form_error('fname', '<span class="label label-danger">', '</span>'); ?>  
+          </div>
+      </div>  
 
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="mname" >Middle Name</label>  
-        <div class="col-md-4">
-          <input name="mname" type="text" placeholder="Middle Name (optional)" class="form-control input-md">   
-        </div>
-    </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label" >Middle Name</label>  
+          <div class="col-md-6">
+            <input name="mname" type="text" placeholder="Middle Name" class="form-control input-md" >
+            <?= form_error('mname', '<span class="label label-danger">', '</span>'); ?>  
+          </div>
+      </div>  
 
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="lname" >Last Name</label>  
-        <div class="col-md-4">
-          <input  name="lname" type="text" placeholder="Last Name" class="form-control input-md">  
-          <?= form_error('lname', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Last Name</label>  
+          <div class="col-md-6">
+            <input name="lname" type="text" placeholder="Last Name" class="form-control input-md" required="">
+            <?= form_error('lname', '<span class="label label-danger">', '</span>'); ?>  
+          </div>
+      </div> 
 
-    <div class="form-group">
-      <label class="col-md-4 control-label" >Email</label>  
-        <div class="col-md-4">
-          <input  name="email" type="email" placeholder="example@yahoo.com" class="form-control input-md">  
-          <?= form_error('email', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="password" >Password</label>  
-        <div class="col-md-4">
-          <input name="password" type="password" placeholder="Password" class="form-control input-md">  
-          <?= form_error('password', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="repass" >Confirm Password</label>  
-        <div class="col-md-4">
-          <input name="repass" type="password" placeholder="Confirm Password" class="form-control input-md">  
-          <?= form_error('repass', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label" >Birth Date</label>  
-        <div class="col-md-4">
-          <input name="birthday" type="date" class="form-control input-md">  
-          <?= form_error('birthday', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="gender">Gender</label>
-        <div class="col-md-4">
-          <select name="gender" class="form-control">
+      <div class="form-group">
+        <label class="col-md-4 control-label" >Gender</label>
+            <div class="col-md-6">
+            <select name="gender" class="form-control">
             <option Selected disabled="disabled" >Gender</option>
-            <option value="M">Male</option>
-            <option value="F">Female</option>
-          </select>
-        </div>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                </select>
+            </div>
     </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label" >Contact No.</label>  
-        <div class="col-md-4">
-          <input name="contact" type="text" placeholder="Contact Number" class="form-control input-md">  
-          <?= form_error('contact', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label" >Employee Since</label>  
-        <div class="col-md-4">
-          <input name="date" type="date" class="form-control input-md">  
-          <?= form_error('date', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="button1id"></label>
-        <div class="col-md-4">
-  
-          <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Add</button>
-            <a href="<?=base_url().'admin/userdetails_helper/'?>" class="btn btn-danger" role="button">Back</a>
-
-            </form>
-        </div>  
+        <label class="col-md-4 control-label" >Birth Date</label>  
+          <div class="col-md-6">
+            <input name="birthday" type="date" class="form-control input-md"> 
+            <?= form_error('birthday', '<span class="label label-danger">', '</span>'); ?>  
+          </div>
       </div>
-    </div>
-  </div>
-</section>
-</div>
 
-  <footer class="main-footer">
+    <div class="form-group">
+     <label class="col-md-4 control-label">Contact</label>  
+       <div class="col-md-6">
+          <input name="contact" type="text" placeholder="Contact No." class="form-control input-md" required="">
+            <?= form_error('contact', '<span class="label label-danger">', '</span>'); ?>  
+          </div>
+      </div>
+
+    <div class="form-group">
+     <label class="col-md-4 control-label">Years of Experience</label>  
+       <div class="col-md-6">
+          <input name="experience" type="number" placeholder="Years of Experience" class="form-control input-md" required="">
+            <?= form_error('experience', '<span class="label label-danger">', '</span>'); ?>  
+          </div>
+      </div>  
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" >Employee Since</label>  
+          <div class="col-md-6">
+            <input name="date" type="date" class="form-control input-md"> 
+            <?= form_error('date', '<span class="label label-danger">', '</span>'); ?>  
+          </div>
+      </div>
+
+          </div>
+        </div>
+      </div>
+
+<!-- END OF 3RD BOX -->
+
+      <div class="box box-success">
+            <div class="box-header with-border">
+              <h3 class="box-title">User Details</h3>
+            </div>
+            <div class="box-body">
+          <div class="form-horizontal">
+      <fieldset>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Email</label>  
+          <div class="col-md-6">
+            <input name="email" type="text" placeholder="Email Address" class="form-control input-md" required="">
+            <?= form_error('email', '<span class="label label-danger">', '</span>'); ?>  
+          </div>
+      </div>  
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" >Password</label>  
+          <div class="col-md-6">
+            <input name="password" type="password" placeholder="Password" class="form-control input-md" required="">
+            <?= form_error('password', '<span class="label label-danger">', '</span>') ?> 
+          </div>
+      </div> 
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" >Confirm Password</label>  
+          <div class="col-md-6">
+            <input name="repass" type="password" placeholder="Confirm Password" class="form-control input-md" required="">
+           <?= form_error('repass', '<span class="label label-danger">', '</span>') ?> 
+          </div>
+      </div>  
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" >Status</label>
+          <div class="col-md-6">
+            <select name="status" class="form-control">
+            <option Selected disabled>Unchanged</option>
+            <option value="1">Active</option>
+            <option value="0">Inactive</option>
+            </select>
+          </div>
+      </div>
+
+      <div class="box-footer">
+        <label class="col-md-4 control-label" for="button1id"></label>
+        <div class="col-md-6">
+          <button id="button1id" name="add" type="submit" value="submit" class="btn btn-primary">Submit</button>
+          <a href="<?= base_url().'admin/userdetails_helper'?>" class="btn btn-default" role="button"> Cancel</a>
+        </div>
+      </div>
+
+          </div>
+        </div>
+      </div>
+      </fieldset>
+
+     </div>
+    </fieldset>
+    </div> 
+     <!-- END OF 4TH BOX -->
+     </div>
+     <!-- END OF ROW -->
+
+  </section>
+</div>
+</form>
+
+<footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>The Fourcasters</b>
     </div>
     <strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation</a>.</strong> All rights
     reserved.
-  </footer>
+</footer>

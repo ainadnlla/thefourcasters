@@ -74,7 +74,10 @@ $this->session->set_userdata($newdata);
             'birthday' => $this->input->post('birthday'),
             'gender' => $this->input->post('gender'),
             'contact' => $this->input->post('contact'),
+            'experience' => $this->input->post('experience'),
             'date' => $this->input->post('date'),            
+            'timein' => $this->input->post('timein'),
+            'timeout' => $this->input->post('timeout')
         );
 
     /*    $data = $this->input->post();
@@ -87,8 +90,9 @@ $this->session->set_userdata($newdata);
             $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
             $this->form_validation->set_rules('birthday', 'Birth Day', 'required');
-            $this->form_validation->set_rules('gender', 'Contact No.', 'gender');
-            $this->form_validation->set_rules('contact', 'Contact No.', 'required');
+            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
+            $this->form_validation->set_rules('experience', 'Years of Experience', 'required');
+
       if ($this->form_validation->run() == FALSE)
       {
           $this->add();
@@ -113,7 +117,7 @@ $this->session->set_userdata($newdata);
     public function edit($id){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
-        $driv = $this->DriverModel->getProd($id);
+        $driv = $this->DriverModel->getProd($id);       
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('admin/driver/driveredit',compact('driv'));
@@ -154,8 +158,20 @@ $this->session->set_userdata($newdata);
         $this->form_validation->set_rules('email', 'Email Address', 'required');
         $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
         $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
-        $this->form_validation->set_rules('contact', 'Contact No.', 'required');
+        $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
+        $this->form_validation->set_rules('experience', 'Years of Experience', 'required');
+        $this->form_validation->set_rules('birthday', 'Birth Date', 'required');
+        $this->form_validation->set_rules('timein', 'Time In', 'required');
+        $this->form_validation->set_rules('timeout', 'Time Out', 'required');
         
+        $weekdays = implode(',', $this->input->post('weekday'));
+        echo $weekdays;
+        $days = array(
+            //'id'=> $this->input->get('id'),  //MALI TONG LINE
+            'weekday'=> $weekdays
+        );
+        $this->db->insert('driver', $days);
+
             if ($this->form_validation->run() == FALSE)
             {
                 $this->edit($id);
@@ -164,8 +180,10 @@ $this->session->set_userdata($newdata);
             {
                 $this->DriverModel->update($id, $data);
                 redirect('admin/userdetails_driver');
-            }
+            }    
         }
+    
+
     public function do_upload(){  
         $id = $this->input->post('id');
         $data['driv'] = $this->DriverModel->getItem($id);

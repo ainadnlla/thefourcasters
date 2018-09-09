@@ -133,9 +133,11 @@
         <div class="form-group">
           <label class="col-md-4 control-label">Destination</label>  
             <div class="col-md-4">
-              <input value="<?=$books->destination?>" name="destination" type="text" placeholder="Destination" class="form-control input-md">
-              <?= form_error('destination', '<span class="label label-danger">', '</span>') ?>  
-          </div>
+                <select value="<?=$books->destination?>" name="destination" class="form-control input-md">
+                <option Selected disabled="disabled" value='<?=$books->destination?>' selected><?=$books->destination?></option>
+                <option value="FCL 1x20">FCL 1x20</option>
+              </select> 
+            </div>
         </div>
 
         <div class="form-group">
