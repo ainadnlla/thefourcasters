@@ -199,7 +199,7 @@ class Staff extends CI_Controller {
 
     public function truckdetails($offset=0){
         if($this->session->userdata('email') !=''){  
-            if($this->session->userdata('priv') =='2') {
+            if($this->session->userdata('priv') =='3'OR'1') {
                 
         $data['title'] = 'Truck Details | Angelogistic Forwarder Corporation';
 
@@ -242,7 +242,7 @@ class Staff extends CI_Controller {
     public function customerdetails($offset=0){
       
         if($this->session->userdata('email') !=''){
-            if($this->session->userdata('priv') =='3') {
+            if($this->session->userdata('priv') =='5' OR'1') {
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
 
         $this->load->library('pagination');
@@ -347,7 +347,7 @@ class Staff extends CI_Controller {
 
     public function booking($offset=0){
         if($this->session->userdata('email') !=''){ 
-            if($this->session->userdata('priv') =='1') {
+            if($this->session->userdata('priv') =='1'OR'2') {
                 
             $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
 
