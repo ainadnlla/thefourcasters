@@ -62,6 +62,7 @@ class BookingAdmin extends CI_Controller {
         $data['drivernames'] = $this->BookingModel->getDriver();
         $data['drivernos'] = $this->BookingModel->getDriverNo();
         $data['helpernames'] = $this->BookingModel->getHelper();
+        $data['location'] = $this->BookingModel->getDestination();
         $books = $this->BookingModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');

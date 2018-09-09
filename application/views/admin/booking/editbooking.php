@@ -16,7 +16,7 @@
           <h3 class="box-title">Update Details</h3>
         </div>
 
-        <form  class="form-horizontal"  action ="<?=base_url()?>bookingadmin/update/<?=$books->id?>"  method='post'>
+    <form  class="form-horizontal"  action ="<?=base_url()?>bookingadmin/update/<?=$books->id?>"  method='post'>
       <fieldset>
         <div class="form-group">
           <div class="col-md-4">
@@ -107,7 +107,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label">Driver</label>  
             <div class="col-md-4">
-            <select name="driver_name" class="form-control">
+            <select value="<?=$books->driver_name?>" name="driver_name" class="form-control">
             <?php 
               foreach($drivernames as $row) { 
                 echo '<option value="'.$row->fname.' '.$row->lname.'">' .$row->fname.' '. $row->lname.'</option>';
@@ -120,7 +120,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label">Helper</label>  
             <div class="col-md-4">
-            <select name="helper_name" class="form-control">
+            <select value="<?=$books->helper_name?>" name="helper_name" class="form-control">
             <?php 
               foreach($helpernames as $row) { 
                 echo '<option value="'.$row->fname.' '.$row->lname.'">' .$row->fname.' '. $row->lname.'</option>';
@@ -133,10 +133,13 @@
         <div class="form-group">
           <label class="col-md-4 control-label">Destination</label>  
             <div class="col-md-4">
-                <select value="<?=$books->destination?>" name="destination" class="form-control input-md">
-                <option Selected disabled="disabled" value='<?=$books->destination?>' selected><?=$books->destination?></option>
-                <option value="FCL 1x20">FCL 1x20</option>
-              </select> 
+            <select value="<?=$books->destination?>" name="destination" class="form-control">
+            <?php 
+              foreach($location as $row) { 
+                echo '<option value="'.$row->destination.'">' .$row->destination.'</option>';
+              }
+            ?>
+            </select>
             </div>
         </div>
 
@@ -160,7 +163,7 @@
                 <button id="button1id" name="submit" value="submit" class="btn btn-success">Update</button>
                 <a href="<?= base_url().'admin/booking'?>" class="btn btn-danger" role="button"> Cancel</a>
             </div>
-    </div>
+      </div>
 </fieldset>
 </form>
 </div>

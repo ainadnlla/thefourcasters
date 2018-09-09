@@ -128,12 +128,11 @@
           </ul>
         </li>
 
-        <li><a href="<?=base_url().'admin/booking'?>">
-        <i class="fa fa-truck"></i>Booking Information</a></li>
-            <span class="pull-right-container">
-            </span>
-          </a>
-        </li>
+        <li>
+        <a href="<?=base_url().'admin/booking'?>">
+          <i class="fa fa-truck"></i> <span>Booking Information</span>
+        </a>
+      </li>
         
         <li>
           <a href="<?=base_url().'admin/calendar'?>">

@@ -68,6 +68,12 @@ class BookingModel extends CI_Model{
         return $query->result();
     }
 
+    function getDestination()
+    {
+        $query = $this->db->query('SELECT destination FROM destination');
+        return $query->result();
+    }
+
 
 }
 

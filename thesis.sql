@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2018 at 10:08 AM
+-- Generation Time: Sep 09, 2018 at 04:06 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -75,7 +75,7 @@ CREATE TABLE `booking` (
 INSERT INTO `booking` (`id`, `waybill`, `date`, `cust_type`, `custname`, `cargo`, `product`, `description`, `pieces`, `plate_no`, `driver_no`, `destination`, `price`, `license_no`, `driver_name`, `helper_name`, `helper_no`) VALUES
 (23, 123, '0888-09-03', '', '', 'LCL 1x40', 'Sample', 'sample', 500, 'RLP 377', '', 'Sampleee', 5000, 'SAM 123', 'Driver Sample', 'Driver Sample', ''),
 (24, 1542, '2019-09-07', 'Broker/Agent', 'Xylem Water System', 'LCL 1x40', 'Frozen Goods', 'Chilled Goods', 150, 'RLP 377', '', 'Manila', 5000, '', 'Driver Sample', 'Driver Sample', ''),
-(25, 0, '2018-09-07', 'Broker/Agent', 'Xylem Water System', 'FCL 2x20', 'Sample', 'Sample', 100, '', '', 'Manila', 0, '', '', '', ''),
+(25, 0, '2018-09-07', 'Broker/Agent', 'Xylem Water System', 'FCL 2x20', 'Sample', 'Sample', 100, 'RLP 377', '', 'MIP - Bulacan, Meycauayan (Alegro Foods)', 5000, '', 'Driver Sample', 'Helper Sample', ''),
 (26, 0, '2019-09-07', 'Broker/Agent', 'Xylem Water System', 'FCL 1x40', 'Sample', 'Sample', 150, '', '', 'Manila', 0, '', '', '', '');
 
 -- --------------------------------------------------------
@@ -108,6 +108,78 @@ CREATE TABLE `customer` (
 INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`, `contact`, `date`, `status`, `created`, `updated`, `img`, `user_type`, `user_id`) VALUES
 (1, 'Xylem Water System', 'Broker/Agent', '123456789', '123456789', 'sample@sample.com', '12345678', '0005-05-05', 0, '2018-09-04 00:32:07', '2018-09-04 00:32:07', 'default.jpg', 0, 0),
 (4, 'Xylem Water System', 'Broker/Agent', '123456789', '123456789', 'water@sample.com', '2147483647', '2016-07-03', 1, '2018-09-04 00:04:35', '2018-09-04 00:04:35', 'C:\\xampp\\htdocs\\thefourcasters\\images\\logo.jpg', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `destination`
+--
+
+CREATE TABLE `destination` (
+  `id` int(11) NOT NULL,
+  `destination` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `destination`
+--
+
+INSERT INTO `destination` (`id`, `destination`) VALUES
+(1, 'MIP - Laguna, Binan (Wuerth Phils. Inc. Warehouse)'),
+(2, 'MIP - Manila-South, Taguig, Bicutan (Northern Chem. Warehouse)'),
+(3, 'MIP - Cavite, Dasmariñas, Paliparan Gov. Drive (Saffron Philippines, Inc.)\r\n'),
+(4, 'MIP - Manila-North, Valenzuela, Bisalud Bagbauin (Evergreen Textile Printing)\r\n'),
+(5, 'MIP - Manila-North, Valenzuela, Bartolome KM. 16 Mc Arthur (Sun Fortune Inc.)'),
+(6, 'MIP - Manila-North, Valenzuela, Sitio Bisalud (Artos Textile Mills, Inc.)'),
+(7, 'MIP - Manila-North, Caloocan, Sta. Quiteria (Alysons\' Warehouse)'),
+(8, 'MIP - Manila-North, Valenzuela, Talipapa'),
+(9, 'MIP - Manila-North, Valenzuela, Ugong'),
+(10, 'MIP - Pampanga, Angeles, Balibago'),
+(11, 'MIP - Pampanga, San Fernando'),
+(12, 'MIP - Bulacan, Meycauayan (Alegro Foods)'),
+(13, 'MIP - Cavite, Carmona Barrio Bancal (Mets Logistics, Inc.)'),
+(14, 'MIP - Antipolo, Mambungan, Sumulong Highway (V&F Ice Plant)'),
+(15, 'MIP - Anabu, Imus Cavite (Liwayway Marketing Corp.)'),
+(16, 'MIP - Bulacan, Sta. Maria (Coastline Warehouse)'),
+(17, 'MIP - Caloocan, Bagong Barrio (Coastline Truck Center)'),
+(18, 'MIP - Bulacan, Marilao'),
+(19, 'MIP - Bulacan, Guiguinto'),
+(20, 'MIP - Laguna, Calamba (Xylem Water Systems Intl. Inc.)'),
+(21, 'MIP - Batangas, Tabangao (Kepco IIijan Power Plant)'),
+(22, 'MIP - Bulacan, Sta. Maria (Xylem Water Systems Intl. Inc.)'),
+(23, 'MIP - Batangas (Xylem Water Systems Intl. Inc.)'),
+(24, 'MIP - Manila-South, Muntinlupa, Tunasan (Stores Specialists Inc. / Rustans)'),
+(25, 'MIP - Muntinlupa, Tunasan - (Altron Logistics Inc.)'),
+(26, 'MIP - Bulacan, Meycauayan (Tripack)'),
+(27, 'Harbor Center - Laguna, Calamba'),
+(28, 'Harbor Center - Laguna, San Pedro'),
+(29, 'Laguna, Calamba, Brgy. Batino - Bicol'),
+(30, 'Laguna, Calamba, Brgy. Batino - Cavite'),
+(31, 'Laguna, Calamba, Brgy. Batino - Laguna , San Pablo'),
+(32, 'Laguna, Calamba, Brgy. Batino - Quezon Province, Tayabas'),
+(33, 'MIP - Sta. Rosa, Balibago - Laguna (A Dimaguila Enterprises Inc.)'),
+(34, 'MIP - Caloocan, Baesa'),
+(35, 'MIP - Quezon City, Cubao, Tagumpay (Allied Botanical Corp.)'),
+(36, 'MIP - Laguna, Calamba'),
+(37, 'MIP - Manila , Mandaluyong'),
+(38, 'MIP - Manila-South, Taguig, Bicutan'),
+(39, 'MIP - Pangasinan, San Fabian'),
+(40, 'MIP - Ilocos Sur, Vigan City'),
+(41, 'MIP - Batangas, Brgy San Felipe Padre Garcia (BMEG Plant)'),
+(42, 'MIP - Nueva Ecija'),
+(43, 'PIER 16 - Pampanga, San Fernando'),
+(44, 'Mabini External Warehouse - Padre Garcia Feed Pit-Agriking'),
+(45, 'Mabini External Warehouse - Padre Garcia - Armor Feed'),
+(46, 'Mabini External Warehouse - Lipa Feed Plant - Gro Power'),
+(47, 'Mabini External Warehouse - Tanauan Feed Plant - Solid 1'),
+(48, 'Mabini External Warehouse - Bauan Feed Plant - EC SCO'),
+(49, 'Mabini External Warehouse - Lipa Feed Plant - Tower'),
+(50, 'Batangas Golden Bay Warehouse - Pangasinan External Warehouse'),
+(51, 'Batangas Golden Bay Warehouse - Batangas External Warehouse (Masaya)'),
+(52, 'Batangas Golden Bay Warehouse - B-Meg Bataan Feed Plant'),
+(53, 'San Miguel Mills Inc. - Tarlac External Warehouse'),
+(54, 'Tarlac External Warehouse - B-Meg Bataan Feed Plant'),
+(55, 'Pangasinan External Warehouse - Sto Tomas Feed Plant-Welgro');
 
 -- --------------------------------------------------------
 
@@ -274,6 +346,12 @@ ALTER TABLE `customer`
   ADD KEY `name` (`name`);
 
 --
+-- Indexes for table `destination`
+--
+ALTER TABLE `destination`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `driver`
 --
 ALTER TABLE `driver`
@@ -318,10 +396,16 @@ ALTER TABLE `customer`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `destination`
+--
+ALTER TABLE `destination`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+--
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `helper`
