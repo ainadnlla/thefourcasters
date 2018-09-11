@@ -1,11 +1,10 @@
-
 <div class="content-wrapper">
     <section class="content-header">
-      <h1>Driver Details</h1>
+      <h1>Helper Details</h1>
         <ol class="breadcrumb">
           <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i> Home</a></li>
           <li><a href="<?=base_url().'admin/userdetails'?>">User Accounts</a></li>
-          <li><a href="<?=base_url().'admin/userdetails_driver'?>">Driver Details</a></li>
+          <li><a href="<?=base_url().'admin/userdetails_helper'?>">Helper Details</a></li>
           <li class="active">Edit</li>
         </ol>
     </section>
@@ -18,7 +17,7 @@
               <h3 class="box-title">Profile Photo</h3>
             </div>
 
-    <form  class="form-horizontal" action="<?=base_url()?>driver/insert/>"  method='post'>
+    <form  class="form-horizontal" action="<?=base_url()?>helper/insert/>"  method='post'>
       <fieldset>
         <div class="form-group">
           <div class="col-md-4">
@@ -75,7 +74,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label"for ="weekday">Weekdays</label>  
         <div class="col-md-8">
-              <!-- <select name="weekday[]" multiple class="form-control">
+              <select name="weekday[]" multiple class="form-control">
                 <option Selected disabled="disabled">Select Multiple</option>
                 <option name="weekday[]" value="Monday">Monday</option>
                 <option name="weekday[]" value="Tuesday">Tuesday</option>
@@ -84,16 +83,7 @@
                 <option name="weekday[]" value="Friday">Friday</option>
                 <option name="weekday[]" value="Saturday">Saturday</option>
                 <option name="weekday[]" value="Sunday">Sunday</option>
-              </select> -->
-
-              <input type="checkbox" name="weekday" value="Sun"> Sunday<br>
-              <input type="checkbox" name="weekday" value="Mon"> Monday<br>
-              <input type="checkbox" name="weekday" value="Tue"> Tuesday<br>
-              <input type="checkbox" name="weekday" value="Wed"> Wednesday<br>
-              <input type="checkbox" name="weekday" value="Thu"> Thursday<br>
-              <input type="checkbox" name="weekday" value="Fri"> Friday<br>
-              <input type="checkbox" name="weekday" value="Sat"> Saturday<br>
-
+              </select>
             </div>
         </div>
 
@@ -251,7 +241,7 @@
         <label class="col-md-4 control-label" for="button1id"></label>
         <div class="col-md-6">
           <button id="button1id" name="add" type="submit" value="submit" class="btn btn-primary">Submit</button>
-          <a href="<?= base_url().'admin/userdetails_driver'?>" class="btn btn-default" role="button"> Cancel</a>
+          <a href="<?= base_url().'admin/userdetails_helper'?>" class="btn btn-default" role="button"> Cancel</a>
         </div>
       </div>
 

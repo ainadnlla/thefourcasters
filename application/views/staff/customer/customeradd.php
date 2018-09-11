@@ -16,7 +16,7 @@
           <h3 class="box-title">Add Details</h3>
         </div>
 
-<form class="form-horizontal" action ="<?=base_url().'customer/insert'?>" method = "post">
+<form class="form-horizontal" action ="<?=base_url().'staff/insert'?>" method = "post">
     <div class="box-body">
       <div class="form-group">
         <div class="col-md-4">

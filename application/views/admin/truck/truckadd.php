@@ -105,14 +105,18 @@
           <?= form_error('year', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
+<!-- Not Working -->
+<? 
+  $test = $_GET['year'] -  YEAR(GETDATE());
 
+  ?>
   <div class="form-group">
-      <label class="col-md-4 control-label"for ="old">Truck Old</label>  
+      <label class="col-md-4 control-label" for ="old">Truck Old</label>  
         <div class="col-md-4">
-          <!-- <input disabled name="old" type="number" placeholder="Old" class="form-control input-md"> -->
+          <input disabled  name="old"  value="<? echo $test;?>" type="number" placeholder="Old" class="form-control input-md">
         </div>
     </div>
-
+<!--  -->
 
     <div class="form-group">
       <label class="col-md-4 control-label" for="button1id"></label>

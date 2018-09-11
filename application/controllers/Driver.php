@@ -77,7 +77,8 @@ $this->session->set_userdata($newdata);
             'experience' => $this->input->post('experience'),
             'date' => $this->input->post('date'),            
             'timein' => $this->input->post('timein'),
-            'timeout' => $this->input->post('timeout')
+            'timeout' => $this->input->post('timeout'),
+            'weekday' => $this->input->post('weekday')
         );
 
     /*    $data = $this->input->post();

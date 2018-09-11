@@ -282,7 +282,42 @@ class Staff extends CI_Controller {
             redirect('staff/login');
         }
     }
-
+    public function driverdetails($offset=0){
+            if($this->session->userdata('email') !=''){ 
+            $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
+    
+            $this->load->library('pagination');
+            $norecs = 5;
+    
+            $config['base_url'] = base_url().'staff/driverdetails/';
+            $config['total_rows'] = $this->DriverModel->getNumRecs();
+            $config['per_page'] = $norecs;
+    
+            $config['full_tag_open'] = '<ul class="pagination">';
+            $config['full_tag_close'] = '</ul>';
+            $config['prev_link'] = '&laquo;';
+            $config['prev_tag_open'] = '<li>';
+            $config['prev_tag_close'] = '</li>';
+            $config['next_tag_open'] = '<li>';
+            $config['next_tag_close'] = '</li>';
+            $config['cur_tag_open'] = '<li class="active"><a href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            $config['num_tag_open'] = '<li>';
+            $config['num_tag_close'] = '</li>';
+    
+            $this->pagination->initialize($config);
+    
+            $this->load->config('myconfig');
+            $drivs = $this->DriverModel->getItems($norecs, $offset);
+            
+            $this->load->view('include/header', $data);
+            $this->load->view('include/staff_header');
+            $this->load->view('include/footer');
+            $this->load->view('staff/driverdetails',compact('drivs'));
+        }else{
+            redirect('staff/login');
+        }
+        }
     public function truckgps(){
         if($this->session->userdata('email') !=''){
         $data['title'] = 'Truck Location | Angelogistic Forwarder Corporation';
@@ -430,7 +465,162 @@ class Staff extends CI_Controller {
             $this->UserModel->regis($data);
             redirect('staff/login');
       }
+      
     }
+    public function userdetails($offset=0){
+        if($this->session->userdata('email') !=''){ 
+        $data['title'] = 'User Accounts | Angelogistic Forwarder Corporation';
+                
+        $this->load->view('include/header', $data);
+        $this->load->view('include/staff_header');
+        $this->load->view('staff/userdetails');
+        $this->load->view('include/footer');
+    }else{
+        redirect('staff/login');
+    }
+    }
+    //
+    public function driverinsert(){
+        $data = array (
+            'img' => 'default.jpg',
+            'driver_no' => $this->input->post('driver_no'),
+            'expire' => $this->input->post('expire'),
+            'fname' => $this->input->post('fname'),
+            'mname' => $this->input->post('mname'),
+            'lname' => $this->input->post('lname'),
+            'email' => $this->input->post('email'),
+            'password' => $this->input->post('password'),
+            'repass' => $this->input->post('repass'),
+            'birthday' => $this->input->post('birthday'),
+            'gender' => $this->input->post('gender'),
+            'contact' => $this->input->post('contact'),
+            'experience' => $this->input->post('experience'),
+            'date' => $this->input->post('date'),            
+            'timein' => $this->input->post('timein'),
+            'timeout' => $this->input->post('timeout')
+        );
+
+    /*    $data = $this->input->post();
+        unset($data['add']); */
+            $this->form_validation->set_rules('driver_no', 'License No.', 'required');
+            $this->form_validation->set_rules('expire', 'License Expiry Date', 'required');
+            $this->form_validation->set_rules('fname', 'First Name', 'required');
+            $this->form_validation->set_rules('lname', 'Last Name', 'required');
+            $this->form_validation->set_rules('email', 'Email Address', 'required');
+            $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
+            $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
+            $this->form_validation->set_rules('birthday', 'Birth Day', 'required');
+            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
+            $this->form_validation->set_rules('experience', 'Years of Experience', 'required');
+
+      if ($this->form_validation->run() == FALSE)
+      {
+          $this->driveradd();
+      }
+      else
+      {
+            $this->DriverModel->insert($data);
+            redirect('staff/driverdetails');
+      }
+    }  
+    public function driveradd(){
+        if($this->session->userdata('email') !=''){ 
+        $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
+        $this->load->view('include/header', $data);
+        $this->load->view('include/staff_header');
+        $this->load->view('staff/driver/driveradd');
+        $this->load->view('include/footer');
+    }else{
+        redirect('staff/login');
+    }
+    }
+    public function driveredit($id){
+        if($this->session->userdata('email') !=''){ 
+        $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
+        $driv = $this->DriverModel->getProd($id);       
+        $this->load->view('include/header', $data);
+        $this->load->view('include/staff_header');
+        $this->load->view('staff/driver/driveredit',compact('driv'));
+        $this->load->view('include/footer');
+    }else{
+        redirect('staff/login');
+    }
+    }
+    public function driverupdate($id){
+        
+   
+      $data = $this->input->post();
+           unset($data['submit']); 
+           $this->form_validation->set_rules('img', 'Image', 'required');
+           $this->form_validation->set_rules('driver_no', 'License No.', 'required');
+           $this->form_validation->set_rules('expire', 'License Expiry Date', 'required');
+           $this->form_validation->set_rules('fname', 'First Name', 'required');
+           $this->form_validation->set_rules('lname', 'Last Name', 'required');
+           $this->form_validation->set_rules('email', 'Email Address', 'required');
+           $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
+           $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
+           $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
+           $this->form_validation->set_rules('experience', 'Years of Experience', 'required');
+           $this->form_validation->set_rules('birthday', 'Birth Date', 'required');
+           $this->form_validation->set_rules('timein', 'Time In', 'required');
+           $this->form_validation->set_rules('timeout', 'Time Out', 'required');
+           
+           $weekdays = implode(',', $this->input->post('weekday'));
+          echo $weekdays;
+           $days = array(
+               //'id'=> $this->input->get('id'),  //MALI TONG LINE
+               'weekday'=> $weekdays
+           );
+          $this->db->insert('driver', $days);
+   
+               if ($this->form_validation->run() == FALSE)
+               {
+                   $this->driveredit($id);
+               }
+               else
+               {
+                   $this->DriverModel->update($id, $data);
+                   redirect('staff/driverdetails');
+               }    
+           }
+           //HELPER
+           public function helperdetails($offset=0){
+            if($this->session->userdata('email') !=''){ 
+                
+            $data['title'] = 'Helper Details | Angelogistic Forwarder Corporation';
+            $this->load->library('pagination');
+            $norecs = 5;
+            $config['base_url'] = base_url().'staff/helperdetails/';
+            $config['total_rows'] = $this->HelperModel->getNumRecs();
+            $config['per_page'] = $norecs;
+            $config['full_tag_open'] = "<ul class='pagination'>";
+            $config['full_tag_close'] ="</ul>";
+            $config['num_tag_open'] = '<li>';
+            $config['num_tag_close'] = '</li>';
+            $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+            $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+            $config['next_tag_open'] = "<li>";
+            $config['next_tagl_close'] = "</li>";
+            $config['prev_tag_open'] = "<li>";
+            $config['prev_tagl_close'] = "</li>";
+            $config['first_tag_open'] = "<li>";
+            $config['first_tagl_close'] = "</li>";
+            $config['last_tag_open'] = "<li>";
+            $config['last_tagl_close'] = "</li>";
+            $this->pagination->initialize($config);
+            $this->load->config('myconfig');
+            $helps = $this->HelperModel->getItems($norecs, $offset);
+            
+            $this->load->view('include/header', $data);
+            $this->load->view('include/staff_header');
+            $this->load->view('include/footer');
+            $this->load->view('staff/helperdetails',compact('helps'));
+            
+    }else{
+        redirect('staff/login');
+    }
+        }
+        
 
 
 

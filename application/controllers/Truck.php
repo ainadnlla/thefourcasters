@@ -28,6 +28,9 @@ class Truck extends CI_Controller {
             'netwt' => $this->input->post('netwt'),
             'netcap' => $this->input->post('netcap'),
             'year' => $this->input->post('year'),
+            
+            // $test = $_GET['year'] -  YEAR(GETDATE()),
+            // $test == ('old') => $this->input->post('old'),
         );
 
       /*  $data = $this->input->post();

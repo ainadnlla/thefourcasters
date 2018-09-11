@@ -187,8 +187,6 @@
           </div>
       </div>
 
-<<<<<<< HEAD
-=======
           <div class="form-group">
       <label class="col-md-4 control-label"for ="timein">Time In</label>  
         <div class="col-md-4">
@@ -201,7 +199,6 @@
         <div class="col-md-4">
           <input value="<?=$emp->timeout?>" name="timeout" type="time"  class="form-control input-md">
 
->>>>>>> 41ac39ef50d6c612b59908be11e73dba1c24f97e
       <div class="form-group">
         <label class="col-md-4 control-label" for="button1id"></label>
         <div class="col-md-5">

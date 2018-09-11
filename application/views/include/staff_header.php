@@ -138,12 +138,21 @@
         </a>
       </li>
 
-        <li>
-        <a href="<?=base_url().'staff/customerdetails'?>">
-          <i class="fa fa-user"></i> <span>Customer Details</span>
-        </a>
-      </li>
-        
+       
+      <li class="treeview">
+          <a href="#">
+            <i class="fa fa-list"></i>
+            <span>User Management</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?=base_url().'staff/userdetails'?>"><i class="fa fa-circle-o"></i>User Accounts</a></li>
+          </ul>
+        </li>
+
+
         <li>
           <a href="<?=base_url().'staff/calendar'?>">
             <i class="fa fa-calendar"></i> <span>Calendar</span>

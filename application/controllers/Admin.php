@@ -13,8 +13,12 @@ class Admin extends CI_Controller {
             $this->load->model('BookingModel');
             $this->load->model('HelperModel');
     }
-
-// ADMIN SIDE - STAFF CRUD
+//
+//     function myFunction() {
+//         var d = new Date();
+//         var n = d.getFullYear();
+//         document.getElementById("demo").innerHTML = n;
+// // ADMIN SIDE - STAFF CRUD
 
     public function insert(){
         $data = array (
