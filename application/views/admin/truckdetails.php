@@ -34,6 +34,7 @@
                     <th>Year Model</th>
                     <th>Year Old</th>
                     <th>Action</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -51,7 +52,7 @@
                             <td><?= $truck->netwt?></td>
                             <td><?= $truck->netcap?></td>
                             <td><?= $truck->year?></td>
-                            <td><?= $truck->old?></td>
+                            <td><?= $DATE =date('Y') - $truck->year ?></td>
                             <td>
 
                             <a href="<?= base_url().'truck/edit/'.$truck->id?>" class="btn btn-default btn.lg" role="button">

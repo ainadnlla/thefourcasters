@@ -2,9 +2,9 @@
     <section class="content-header">
       <h1>Helper Details</h1>
         <ol class="breadcrumb">
-          <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li><a href="<?=base_url().'admin/userdetails'?>">User Accounts</a></li>
-          <li><a href="<?=base_url().'admin/userdetails_helper'?>">Helper Details</a></li>
+          <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li><a href="<?=base_url().'staff/userdetails'?>">User Accounts</a></li>
+          <li><a href="<?=base_url().'staff/helperdetails'?>">Helper Details</a></li>
           <li class="active">Edit</li>
         </ol>
     </section>
@@ -17,7 +17,7 @@
               <h3 class="box-title">Profile Photo</h3>
             </div>
 
-    <form  class="form-horizontal" action="<?=base_url()?>helper/update/<?=$help->id?>"  method='post'>
+    <form  class="form-horizontal" action="<?=base_url()?>staff/helperupdate/<?=$help->id?>"  method='post'>
       <fieldset>
         <div class="form-group">
           <div class="col-md-4">
@@ -241,7 +241,7 @@
         <label class="col-md-4 control-label" for="button1id"></label>
         <div class="col-md-6">
           <button id="button1id" name="submit" type="submit" value="submit" class="btn btn-success">Update</button>
-          <a href="<?= base_url().'admin/userdetails_helper'?>" class="btn btn-danger" role="button"> Cancel</a>
+          <a href="<?= base_url().'staff/helperdetails'?>" class="btn btn-danger" role="button"> Cancel</a>
         </div>
       </div>
 

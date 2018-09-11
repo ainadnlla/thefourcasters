@@ -187,17 +187,17 @@
           </div>
       </div>
 
-          <div class="form-group">
+          <!-- <div class="form-group">
       <label class="col-md-4 control-label"for ="timein">Time In</label>  
         <div class="col-md-4">
-          <input value="<?=$emp->timein?>" name="timein" type="time"  class="form-control input-md">
+          <input value="<?//=$emp->timein?>" name="timein" type="time"  class="form-control input-md">
           
-        </div>
-    </div>
+        </div> -->
+    <!-- </div>
     <div class="form-group">
       <label class="col-md-4 control-label"for ="timeout">Time out</label>  
         <div class="col-md-4">
-          <input value="<?=$emp->timeout?>" name="timeout" type="time"  class="form-control input-md">
+          <input value="<?//=$emp->timeout?>" name="timeout" type="time"  class="form-control input-md"> -->
 
       <div class="form-group">
         <label class="col-md-4 control-label" for="button1id"></label>

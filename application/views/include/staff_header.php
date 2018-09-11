@@ -117,6 +117,7 @@
           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
         </a>
       </li>
+ 
 
       <li class="treeview">
           <a href="#">
@@ -127,18 +128,24 @@
             </span>
           </a>
           <ul class="treeview-menu">
+          <?php if($this->session->userdata('priv') =='1'OR $this->session->userdata('priv')=='3') {?>
             <li><a href="<?=base_url().'staff/truckdetails'?>"><i class="fa fa-table"></i> Truck Details</a></li>
+            <?php }else{}?>
             <li><a href="<?=base_url().'staff/truckgps'?>"><i class="fa fa-map-pin"></i> Truck GPS</a></li>
           </ul>
         </li>
-
+      <?php  if($this->session->userdata('priv') =='1'OR $this->session->userdata('priv')=='2') {?>
         <li>
         <a href="<?=base_url().'staff/booking'?>">
           <i class="fa fa-info-circle"></i> <span>Booking Information</span>
         </a>
       </li>
+      <?php }else{
 
-       
+      }?>
+
+<?php if($this->session->userdata('priv') =='4'OR $this->session->userdata('priv')=='5' OR $this->session->userdata('priv') =='1') {?>
+
       <li class="treeview">
           <a href="#">
             <i class="fa fa-list"></i>
@@ -151,7 +158,9 @@
             <li><a href="<?=base_url().'staff/userdetails'?>"><i class="fa fa-circle-o"></i>User Accounts</a></li>
           </ul>
         </li>
-
+<?php 
+}else{
+} ?>
 
         <li>
           <a href="<?=base_url().'staff/calendar'?>">

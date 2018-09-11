@@ -40,23 +40,11 @@
             </div>
           </div>
       </div>
+     
 
     </div>
     <div class="row">
-        <!-- <div class="col-md-3 col-xs-12">
-          <!-- small box 
-          <div class="small-box bg-aqua">
-            <div class="inner">
-              <h1><b>Staff<br/>Details</b></h1>
-              <br/><br/><br/><br/>
-            </div>
-            <div class="icon"><br/>
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="<?//=base_url().'admin/userdetails_staff'?>" class="small-box-footer">Proceed <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div> -->
-          <!-- small box -->
+    <?php if($this->session->userdata('priv') =='5'OR $this->session->userdata('priv') =='1') {?>
         <div class="col-md-3 col-xs-12">
           <div class="small-box bg-red">
             <div class="inner">
@@ -69,7 +57,9 @@
             <a href="<?=base_url().'staff/customerdetails'?>" class="small-box-footer">Proceed <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
+    <?php }else{}?>
           <!-- small box -->
+          <?php if($this->session->userdata('priv') =='4'OR $this->session->userdata('priv') =='1') {?>
         <div class="col-md-3 col-xs-12">
           <div class="small-box bg-yellow">
             <div class="inner">
@@ -82,7 +72,9 @@
             <a href="<?=base_url().'staff/driverdetails'?>" class="small-box-footer">Proceed <i class="fa fa-arrow-circle-right"></i></a>
           </div>
       </div>
+      <?php }else{}?>
           <!-- small box -->
+          <?php if($this->session->userdata('priv') =='4'OR $this->session->userdata('priv') =='1') {?>
         <div class="col-md-3 col-xs-12">
           <div class="small-box bg-green">
             <div class="inner">
@@ -95,6 +87,7 @@
             <a href="<?=base_url().'staff/helperdetails'?>" class="small-box-footer">Proceed <i class="fa fa-arrow-circle-right"></i></a>
           </div>
       </div>
+      <?php }else{}?>
       
     </div>
   </section>

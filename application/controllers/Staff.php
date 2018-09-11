@@ -11,6 +11,7 @@ class Staff extends CI_Controller {
             $this->load->model('TruckModel');
             $this->load->model('AdminModel');
             $this->load->model('BookingModel');
+            $this->load->model('HelperModel');
     }
 
 
@@ -199,7 +200,7 @@ class Staff extends CI_Controller {
 
     public function truckdetails($offset=0){
         if($this->session->userdata('email') !=''){  
-            if($this->session->userdata('priv') =='3'OR'1') {
+            if($this->session->userdata('priv') =='3'OR $this->session->userdata('priv')=='1' ){
                 
         $data['title'] = 'Truck Details | Angelogistic Forwarder Corporation';
 
@@ -242,7 +243,7 @@ class Staff extends CI_Controller {
     public function customerdetails($offset=0){
       
         if($this->session->userdata('email') !=''){
-            if($this->session->userdata('priv') =='5' OR'1') {
+            if($this->session->userdata('priv') =='5' OR $this->session->userdata('priv')=='1') {
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
 
         $this->load->library('pagination');
@@ -284,6 +285,7 @@ class Staff extends CI_Controller {
     }
     public function driverdetails($offset=0){
             if($this->session->userdata('email') !=''){ 
+                if($this->session->userdata('priv') =='4' OR $this->session->userdata('priv')=='1') {
             $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
     
             $this->load->library('pagination');
@@ -314,6 +316,9 @@ class Staff extends CI_Controller {
             $this->load->view('include/staff_header');
             $this->load->view('include/footer');
             $this->load->view('staff/driverdetails',compact('drivs'));
+                }else{
+                    redirect('staff/homepage');
+                }
         }else{
             redirect('staff/login');
         }
@@ -382,7 +387,7 @@ class Staff extends CI_Controller {
 
     public function booking($offset=0){
         if($this->session->userdata('email') !=''){ 
-            if($this->session->userdata('priv') =='1'OR'2') {
+            if($this->session->userdata('priv') =='1'OR $this->session->userdata('priv')=='2') {
                 
             $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
 
@@ -467,6 +472,7 @@ class Staff extends CI_Controller {
       }
       
     }
+    //userdetails
     public function userdetails($offset=0){
         if($this->session->userdata('email') !=''){ 
         $data['title'] = 'User Accounts | Angelogistic Forwarder Corporation';
@@ -479,7 +485,7 @@ class Staff extends CI_Controller {
         redirect('staff/login');
     }
     }
-    //
+    //driver crud
     public function driverinsert(){
         $data = array (
             'img' => 'default.jpg',
@@ -585,7 +591,9 @@ class Staff extends CI_Controller {
            }
            //HELPER
            public function helperdetails($offset=0){
+               
             if($this->session->userdata('email') !=''){ 
+                if($this->session->userdata('priv') =='4' OR $this->session->userdata('priv')=='1') {
                 
             $data['title'] = 'Helper Details | Angelogistic Forwarder Corporation';
             $this->load->library('pagination');
@@ -615,12 +623,101 @@ class Staff extends CI_Controller {
             $this->load->view('include/staff_header');
             $this->load->view('include/footer');
             $this->load->view('staff/helperdetails',compact('helps'));
-            
+                }else{
+                    redirect('staff/homepage');
+                }
     }else{
         redirect('staff/login');
     }
         }
-        
+        public function helperadd(){
+            if($this->session->userdata('email') !=''){ 
+            $data['title'] = 'Helper Details | Angelogistic Forwarder Corporation';
+            $this->load->view('include/header', $data);
+            $this->load->view('include/staff_header');
+            $this->load->view('staff/helper/helperadd');
+            $this->load->view('include/footer');
+        }else{
+            redirect('staff/login');
+        }
+        }
+    public function helperinsert(){
+        $data = array (
+            'img' => 'default.jpg',
+            'driver_no' => $this->input->post('driver_no'),
+            'expire' => $this->input->post('expire'),
+            'fname' => $this->input->post('fname'),
+            'mname' => $this->input->post('mname'),
+            'lname' => $this->input->post('lname'),
+            'email' => $this->input->post('email'),
+            'password' => $this->input->post('password'),
+            'repass' => $this->input->post('repass'),
+            'birthday' => $this->input->post('birthday'),
+            'gender' => $this->input->post('gender'),
+            'contact' => $this->input->post('contact'),
+            'date' => $this->input->post('date'),            
+        );
+
+    /*    $data = $this->input->post();
+        unset($data['add']); */
+            $this->form_validation->set_rules('fname', 'First Name', 'required');
+            $this->form_validation->set_rules('lname', 'Last Name', 'required');
+            $this->form_validation->set_rules('email', 'Email Address', 'required');
+            $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
+            $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
+            $this->form_validation->set_rules('birthday', 'Birth Day', 'required');
+            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
+            $this->form_validation->set_rules('date', 'Employement Date', 'required');
+
+      if ($this->form_validation->run() == FALSE)
+      {
+          $this->helperadd();
+      }
+      else
+      {
+            $this->HelperModel->insert($data);
+            redirect('staff/helperdetails');
+      }
+    }  
+    public function helperedit($id){
+        if($this->session->userdata('email') !=''){ 
+        $data['title'] = 'Helper Details | Angelogistic Forwarder Corporation';
+        $help = $this->HelperModel->getProd($id);
+        $this->load->view('include/header', $data);
+        $this->load->view('include/staff_header');
+        $this->load->view('staff/helper/helperedit',compact('help'));
+        $this->load->view('include/footer');
+    }else{
+        redirect('staff/login');
+    }
+    }
+    public function helperupdate($id){
+      $data = $this->input->post();
+           unset($data['submit']); 
+           $this->form_validation->set_rules('img', 'Image', 'required');
+           $this->form_validation->set_rules('fname', 'First Name', 'required');
+           $this->form_validation->set_rules('lname', 'Last Name', 'required');
+           $this->form_validation->set_rules('email', 'Email Address', 'required');
+           $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
+           $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
+           $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
+   
+                   $days = implode(",", $this->input->post('weekday'));
+                   $data = array(
+                       'id'=> $this->input->post('id'),
+                       'weekday'=> $days
+                   );
+   
+               if ($this->form_validation->run() == FALSE)
+               {
+                   $this->helperedit($id);
+               }
+               else
+               {
+                   $this->HelperModel->update($id, $data);
+                   redirect('staff/helperdetails');
+               }
+           }
 
 
 

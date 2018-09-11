@@ -60,7 +60,7 @@
                         </td>
 
                         <td>
-                        <a href="<?= base_url().'helper/edit/'.$help->id?>" class="btn btn-default btn.lg" role="button">
+                        <a href="<?= base_url().'staff/helperedit/'.$help->id?>" class="btn btn-default btn.lg" role="button">
                         <span class="fa fa-edit" aria-hidden="true">
                         </span></a>
 
@@ -74,7 +74,7 @@
               </table>
             </div>
                 <div class="box-footer">
-                <a href="<?=base_url()?>helper/add" class="btn btn-success btn-block btn-sm" role="button">
+                <a href="<?=base_url()?>staff/helperadd" class="btn btn-success btn-block btn-sm" role="button">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Truck Helper</a>
                 </div>
 
