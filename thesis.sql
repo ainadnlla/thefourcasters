@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2018 at 04:06 PM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: Sep 13, 2018 at 05:18 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -106,8 +106,18 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`, `contact`, `date`, `status`, `created`, `updated`, `img`, `user_type`, `user_id`) VALUES
-(1, 'Xylem Water System', 'Broker/Agent', '123456789', '123456789', 'sample@sample.com', '12345678', '0005-05-05', 0, '2018-09-04 00:32:07', '2018-09-04 00:32:07', 'default.jpg', 0, 0),
-(4, 'Xylem Water System', 'Broker/Agent', '123456789', '123456789', 'water@sample.com', '2147483647', '2016-07-03', 1, '2018-09-04 00:04:35', '2018-09-04 00:04:35', 'C:\\xampp\\htdocs\\thefourcasters\\images\\logo.jpg', 0, 0);
+(1, 'Wuerth Phils. Inc', '', '123456789', '123456789', 'wuerthphilsinc@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:51:21', '2018-09-13 15:51:21', 'default.jpg', 0, 0),
+(2, 'Northern Chemical Sales Inc.', '', '123456789', '123456789', 'northernchemci@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:51:22', '2018-09-13 15:51:22', 'default.jpg', 0, 0),
+(3, 'Alysons Chemical Enterprises Inc.', '', '123456789', '123456789', 'alysonschemic@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:51:22', '2018-09-13 15:51:22', 'default.jpg', 0, 0),
+(4, 'Breakthru Cleaning Agent', '', '123456789', '123456789', 'breakthru@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:52:32', '2018-09-13 15:52:32', 'default.jpg', 0, 0),
+(5, 'MyWine - the best italian wine', '', '123456789', '123456789', 'mywine@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:52:32', '2018-09-13 15:52:32', 'default.jpg', 0, 0),
+(6, 'Wacker Machines Supplies Corp.', '', '123456789', '123456789', 'wacker@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:53:20', '2018-09-13 15:53:20', 'default.jpg', 0, 0),
+(7, 'Marilou R. Arevalo (Bong)', '', '123456789', '123456789', 'bong@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:53:20', '2018-09-13 15:53:20', 'default.jpg', 0, 0),
+(8, 'Coastline Truck Center', '', '123456789', '123456789', 'coastline@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:55:58', '2018-09-13 15:55:58', 'default.jpg', 0, 0),
+(9, 'Angelogistics Co. Ltd - Pier Dispatch ', '', '123456789', '123456789', 'dispatch@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:55:58', '2018-09-13 15:55:58', 'default.jpg', 0, 0),
+(10, 'Continental Cargo Carriers Inc. ', '', '123456789', '123456789', 'continental@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:55:58', '2018-09-13 15:55:58', 'default.jpg', 0, 0),
+(11, 'Asiaworld Transport Phils.', '', '123456789', '123456789', 'asiaworld@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:55:58', '2018-09-13 15:55:58', 'default.jpg', 0, 0),
+(12, 'Altron Logistics Inc.', '', '123456789', '123456789', 'altron@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:55:58', '2018-09-13 15:55:58', 'default.jpg', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -209,15 +219,6 @@ CREATE TABLE `driver` (
   `weekday` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `driver`
---
-
-INSERT INTO `driver` (`img`, `id`, `driver_no`, `expire`, `fname`, `mname`, `lname`, `email`, `password`, `repass`, `gender`, `birthday`, `contact`, `experience`, `date`, `status`, `timein`, `timeout`, `weekday`) VALUES
-('default.jpg', 1, 'ACL 1245115', '2038-03-03', 'Driver', 'A', 'Sample', 'sample@sample.com', '123456789', '123456789', 'M', '2018-09-09', '12345678910', 6, '2018-09-04', 1, '13:00:00', '17:00:00', 'Tuesday'),
-('default.jpg', 2, 'ACL 1245154', '2021-07-15', 'Helper', 'A', 'Sample', 'sample@sample.com', '123456789', '123456789', 'M', '0000-00-00', '1212121', 0, '2018-09-04', 1, '00:00:00', '00:00:00', 'Thursday'),
-('default.jpg', 7, 'ACL 12445', '5554-04-05', 'Helper', '', 'Two', 'sample@sample.com', '123456789', '123456789', 'M', '1992-04-05', '5454545', 0, '5455-05-04', 1, '00:00:00', '00:00:00', 'Monday,Tuesday,Wednesday');
-
 -- --------------------------------------------------------
 
 --
@@ -245,13 +246,6 @@ CREATE TABLE `helper` (
   `timeout` time NOT NULL,
   `weekday` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `helper`
---
-
-INSERT INTO `helper` (`img`, `id`, `driver_no`, `expire`, `fname`, `mname`, `lname`, `email`, `password`, `repass`, `birthday`, `gender`, `contact`, `date`, `status`, `experience`, `timein`, `timeout`, `weekday`) VALUES
-('default.jpg', 1, '', '0000-00-00', 'Helper', '', 'Sample', 'sample@sample.com', '123456789', '123456789', '1995-06-13', 'M', '999999999', '2018-09-18', 0, 0, '00:00:00', '00:00:00', 'Tuesday, Wednesday');
 
 -- --------------------------------------------------------
 
@@ -283,9 +277,9 @@ CREATE TABLE `staff` (
 INSERT INTO `staff` (`img`, `id`, `fname`, `lname`, `mname`, `gender`, `birthday`, `contact`, `date`, `email`, `password`, `repass`, `status`, `priv`) VALUES
 ('default.jpg', 1, 'Anthony', 'Ane', 'L.', 'M', '0000-00-00', '09191245852', '1998-05-28', 'anthonyjarlane@yahoo.com', '123456789', '123456789', 0, 0),
 ('default.jpg', 2, 'Anthony1', 'Ane', 'L.', 'M', '0000-00-00', '0', '2018-05-05', 'a@yahoo.com', '123456789', '123456789', 0, 1),
-('default.jpg', 3, 'Leona', 'Kim', 'Marj', 'F', '0000-00-00', '0', '2009-12-03', 'dso@yahoo.com', '123456789', '123456789', 0, 1),
+('C:\\Users\\Anthony\\Pictures\\321312312.jpg', 3, 'Leona', 'Kim', 'Marj', 'F', '0000-00-00', '09173338993', '2009-12-03', 'dso@yahoo.com', '123456789', '123456789', 0, 1),
 ('logo.jpg', 4, 'Aina', 'Sales', 'Rongavilla', 'F', '1998-11-04', '09192753740', '2018-09-05', 'ainadrsales@gmail.com', '123456789', '123456789', 1, 1),
-('default.jpg', 5, 'Sample', 'Sample', '', 'M', '1998-05-05', '0', '2005-04-15', 'sample@sample.com', '123456789', '123456789', 0, 0),
+('C:\\xampp\\htdocs\\thefourcasters\\images\\logo.png', 5, 'Sample', 'Sample', '', 'M', '1998-05-05', '12345678901', '2005-04-15', 'sample@sample.com', '123456789', '123456789', 1, 4),
 ('', 6, 'dsadsa', 'dsa', 'ad', 'F', '2018-09-08', '0', '2018-09-08', '123@yahoo.com', '123456789', '123456789', 1, 2),
 ('', 7, 'sample3', 'sample3', 'sample', 'M', '2018-07-08', '2147483647', '2016-08-08', 'sample3@sample.com', '123456789', '123456789', 1, 0),
 ('default.jpg', 8, 'Aina Daniella', 'Sales', 'Rongavilla', 'F', '1998-04-11', '09192753740', '2018-11-29', 'ainadrsales@gmail.com', 'rongavilla', 'rongavilla', 0, 0),
@@ -318,9 +312,24 @@ CREATE TABLE `truck` (
 --
 
 INSERT INTO `truck` (`id`, `img`, `brand`, `plate_no`, `series`, `mvfile_no`, `engine_no`, `chassis_no`, `grosswt`, `netwt`, `netcap`, `year`, `old`) VALUES
-(1, 'default.jpg', 'Isuzu', '', 'FVZ 1400', '', '', '', 0, 0, 0, 0, 0),
-(2, 'default.jpg', 'Sample', '', 'Sample', '', '', '', 0, 0, 0, 0, 0),
-(3, 'default.jpg', 'FUSO ', 'RLP 377', 'REBUILT TRUCK', '0386-00000240945', '8DC9502620', 'FP54JD-520907', 10500, 210, 10290, 2011, 0);
+(1, 'default.jpg', 'FUSO ', 'RLP 377', 'REBUILT TRUCK', '0386-00000240945', '8DC9502620', 'FP54JD-520907', 10500, 210, 10290, 2011, 0),
+(2, 'default.jpg', 'ISUZU', 'ABC 8771', 'REBUILT TRUCK', '1301-00000503950', '10PD1-746850', 'EXR71D-3000004', 10500, 5250, 5250, 2013, 0),
+(3, 'default.jpg', 'SINOTRUK HOWO', 'ABF 3040', 'REBUILT TRUCK', '1301-00000410217', 'WD61547150417009747', 'LZZ5CCSC7FA093009', 4000, 4000, 4000, 2015, 0),
+(4, 'default.jpg', 'FAW', '130104', 'REBUILT TRUCK', '1301-00000891410', 'CA6DL237E3F52770098', 'LFWNHXPC6G1F58891', 8000, 4000, 4000, 2016, 0),
+(5, 'default.jpg', 'FAW', '130104', 'REBUILT TRUCK', '1301-00000891408', 'CA6DL237E3F52770099', 'LFWNHXPC6G1F58890', 8000, 4000, 4000, 2016, 0),
+(6, 'default.jpg', 'FAW', '130102', 'REBUILT TRUCK', '1301-00001079279', 'CA6DL237E3F52935945', 'LFWSRXPJ7H1E61858', 8000, 4000, 4000, 2017, 0),
+(7, 'default.jpg', 'MTSHUBISHI - FUSO', 'RCE 120', 'DROPSIDE', '0386-00000094576', '8DC11-393526', 'FU419U-540165', 5000, 4000, 4000, 1991, 0),
+(8, 'default.jpg', 'FUSO TRUCK', 'RFR 667', 'DROPSIDE', '0386-00000149453', '8DC11-350914', 'FP411D-550069', 5000, 3000, 4000, 1991, 0),
+(9, 'default.jpg', 'FUSO TRUCK', 'RGY 294', 'DROPSIDE', '0386-00000171817', '8DC9-430796', 'FP415D-650542', 5000, 3000, 4000, 1995, 0),
+(10, 'default.jpg', 'FUSO TRUCK', 'RLE 993', 'DROPSIDE', '0386-00000231282', '6D40235396', 'FP445D-550002', 5000, 3000, 4000, 1999, 0),
+(11, 'default.jpg', 'ISUZU', 'AAQ9266', 'DROPSIDE', '0386-00000309296', '6WG1-405485', 'EXR50D-3000096', 5000, 3000, 4000, 2000, 0),
+(12, 'default.jpg', 'ISUZU', 'AAQ 7784', 'DROPSIDE', '0386-00000307618', '6WG1203422', 'EXR81D-3000080', 5000, 3000, 4000, 2000, 0),
+(13, 'default.jpg', 'ISUZU ELF', 'RKN 816', 'DROPSIDE TRUCK', '0386-00000219894', '4BE1-922286', 'NPR58P-7101502', 5000, 3000, 4000, 2000, 0),
+(14, 'default.jpg', 'ISUZU TRUCK', 'RLD 965', 'DROPSIDE TRUCK', '0386-00000232952', '6WA1-108543', 'JALEXR50DT3000012', 5000, 3000, 4000, 2001, 0),
+(15, 'default.jpg', 'FUSO TRUCK', 'UIM 308', 'REBUILT TRUCK', '1312-00000378407', '8DC11503046', 'FP419D560055', 5000, 3000, 4000, 2011, 0),
+(16, 'default.jpg', 'ISUZU', 'RNK 276', 'REBUILT TRUCK', '0386-00000285353', '10PD1778910', 'EXR18DM3000017', 5000, 3000, 4000, 2013, 0),
+(17, 'default.jpg', 'ISUZU', 'RNK 277', 'REBUILT TRUCK', '0386-00000285354', '10PD1-758483', 'EXR18DN3000425', 5000, 3000, 4000, 2013, 0),
+(18, 'default.jpg', 'ISUZU REBUILT', 'ABA 9575', 'REBUILT TRUCK', '1301-00000145965', '10PD1766803', 'EXR82D13000455', 5000, 3000, 4000, 2014, 0);
 
 --
 -- Indexes for dumped tables
@@ -393,7 +402,7 @@ ALTER TABLE `booking`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `destination`
@@ -405,13 +414,13 @@ ALTER TABLE `destination`
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `helper`
 --
 ALTER TABLE `helper`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `staff`
@@ -423,7 +432,7 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `truck`
 --
 ALTER TABLE `truck`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
