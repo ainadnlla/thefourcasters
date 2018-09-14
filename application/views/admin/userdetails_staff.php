@@ -3,7 +3,6 @@
       <h1>Staff Details</h1>
       <ol class="breadcrumb">
         <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li><a href="<?=base_url().'admin/userdetails'?>">User Accounts</a></li>
         <li class="active">Staff Details</a></li>
       </ol>
     </section>
@@ -12,7 +11,7 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box box-success">
-            <div class="box-header">
+            <div class="box-header"> 
               <h3 class="box-title">Staff Information</h3>
 
               <div class="box-tools">
@@ -26,7 +25,7 @@
             </div>
 
             <div class="box-body">  
-              <table id="staff" class="table table-bordered table-hover">
+              <table id="staff" class="table table-bordered table-hover table-striped">
                 <thead>
                 <tr>
                     <th>ID</th>

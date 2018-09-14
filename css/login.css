@@ -1,5 +1,5 @@
 body {
-    background-color: white;
+    background-image: "base_url().'images/Angelogistics.jpg'";
     height: 100%;
     overflow: hidden;
     
@@ -13,3 +13,4 @@ body {
     border-radius: 20px;
     
 }
+

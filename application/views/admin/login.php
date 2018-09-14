@@ -26,9 +26,11 @@
         <div class="row">
             <div class="col-xs-8">
                 <div class="checkbox icheck">
+                <div class="pull-left">
                     <label>
-                        <input type="checkbox" value=""> Remember Me
+                        <input type="checkbox" value="">Remember Me
                     </label>
+                </div>
                 </div>
             </div>
         <!-- /.col -->
@@ -39,15 +41,6 @@
       </div>
       <center><?php echo $this->session->flashdata("error");?></center>
     </form>
-
-<!--    <div class="social-auth-links text-center">
-      <p>- OR -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-        Facebook</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-        Google+</a>
-    </div>
-     /.social-auth-links -->
 
   </div>
   <!-- /.login-box-body -->

@@ -35,8 +35,9 @@ class TruckModel extends CI_Model{
     }
 
     public function getNumRecs(){
-    return $this->db->count_all('truck');
-    }
+        return $this->db->count_all('truck');
+        }
+    
 
 //DELETE    
 

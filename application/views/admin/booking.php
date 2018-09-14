@@ -11,13 +11,13 @@
 <section class="content">
   <div class="row">
     <div class="col-xs-12">
-      <div class="box">
+      <div class="box box-success">
         <div class="box-header">
           <h3 class="box-title">Delivery Progress Information</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <table id="Staff" class="table table-bordered table-hover">
+          <table id="Staff" class="table table-bordered table-hover table-striped">
             <thead>
             <tr>
               <th>ID</th>

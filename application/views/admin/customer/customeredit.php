@@ -3,7 +3,6 @@
       <h1>Customer Details</h1>
         <ol class="breadcrumb">
           <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i> Home </a></li>
-          <li><a href="<?=base_url().'admin/userdetails'?>">User Accounts</a></li>
           <li><a href="<?=base_url().'admin/userdetails_customer'?>"> Customer Details </a></li>
           <li class="active">Edit</li>
         </ol>

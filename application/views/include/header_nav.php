@@ -117,14 +117,17 @@
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-list"></i>
-            <span>User Management</span>
+            <i class="fa fa-users"></i>
+            <span>User Accounts</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?=base_url().'admin/userdetails'?>"><i class="fa fa-circle-o"></i>User Accounts</a></li>
+            <li><a href="<?=base_url().'admin/userdetails_staff'?>"><i class="fa fa-circle-o"></i>Staff Details</a></li>
+            <li><a href="<?=base_url().'admin/userdetails_customer'?>"><i class="fa fa-circle-o"></i>Customer Details</a></li>
+            <li><a href="<?=base_url().'admin/userdetails_driver'?>"><i class="fa fa-circle-o"></i>Driver Details</a></li>
+            <li><a href="<?=base_url().'admin/userdetails_helper'?>"><i class="fa fa-circle-o"></i>Helper Details</a></li>
           </ul>
         </li>
 

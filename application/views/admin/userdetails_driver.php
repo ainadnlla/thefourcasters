@@ -3,7 +3,6 @@
       <h1>Truck Driver Details</h1>
       <ol class="breadcrumb">
         <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li><a href="<?=base_url().'admin/userdetails'?>">User Accounts</a></li>
         <li class="active">Truck Driver Details</a></li>
       </ol>
     </section>
@@ -17,7 +16,7 @@
             </div>
 
             <div class="box-body">  
-              <table id="driver" class="table table-bordered table-hover">
+              <table id="driver" class="table table-bordered table-hover table-striped">
                 <thead>
                 <tr>
                     <th>ID</th>
