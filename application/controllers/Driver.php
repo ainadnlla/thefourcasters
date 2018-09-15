@@ -78,7 +78,9 @@ $this->session->set_userdata($newdata);
             'date' => $this->input->post('date'),            
             'timein' => $this->input->post('timein'),
             'timeout' => $this->input->post('timeout'),
-            'weekday' => $this->input->post('weekday')
+          //  'weekday' => $this->input->post('weekday'),
+            'weekday'=> implode(",", $this->input->post('weekday'))
+            
         );
 
     /*    $data = $this->input->post();
@@ -164,8 +166,8 @@ $this->session->set_userdata($newdata);
         $this->form_validation->set_rules('birthday', 'Birth Date', 'required');
         $this->form_validation->set_rules('timein', 'Time In', 'required');
         $this->form_validation->set_rules('timeout', 'Time Out', 'required');
-        
-        $weekdays = implode(',', $this->input->post('weekday'));
+       // $this->form_validation->set_rules('','',)
+     //   $weekdays = implode(',', $this->input->post('weekday'));
         echo $weekdays;
         $days = array(
             //'id'=> $this->input->get('id'),  //MALI TONG LINE
