@@ -151,11 +151,17 @@
         </div>
 
         <div class="form-group">
-          <label class="col-md-4 control-label">Status</label>
-            <div class="col-md-4">
-            <input name="status" type="text" placeholder="Status" class="form-control input-md" disabled>
-            </div>
-        </div>
+        <label class="col-md-4 control-label" >Status</label>
+          <div class="col-md-6">
+            <select name="action" value="<?=$books->action?>" class="form-control">
+            <option Selected disabled>Unchanged</option>
+            <option value="0">Pending</option>
+            <option value="1">Accept</option>
+            <option value="2">Deny</option>
+            </select>
+          </div>
+      </div>
+
 
         <div class="form-group">
         <label class="col-md-4 control-label"></label>
