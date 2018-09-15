@@ -3,7 +3,7 @@
 <div class="login-box">
     <div class="text-center">
         <a href="<?=base_url()?>admin/login">
-        <img id="profile-img" width = "350px" alt="Image" src="<?= base_url()."images/logoname.png"?>" />
+        <img id="profile-img" width = "350px" alt="Image" src="<?= base_url()."images/AngelogisticsName.png"?>" />
         <p></p></a>
     </div>
 

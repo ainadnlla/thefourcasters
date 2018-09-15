@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Angelogistics Forwarder Corportation </title>
-<link rel="icon" type="image/gif/png" href="<?= base_url()."images/logo.png"?>">
+<link rel="icon" type="image/gif/png" href="<?= base_url()."images/logo.png"?>"> 
 
 
 <!-- Bootstrap 3.3.7 -->
@@ -22,3 +22,5 @@
 
 </head>
 </html>
+<body>
+	<body style="background-image: url('<?=base_url()?>images/AngelogisticsBG.jpg'); background-attachment: fixed; background-size: cover">
