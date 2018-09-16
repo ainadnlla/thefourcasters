@@ -21,6 +21,7 @@
         <div class="form-group has-feedback">
             <input type="password" name="password" class="form-control" placeholder="Password">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            <center><?php echo $this->session->flashdata("error");?></center>
         </div>
       
         <div class="row">
@@ -39,7 +40,7 @@
             </div>
         <!-- /.col -->
       </div>
-      <center><?php echo $this->session->flashdata("error");?></center>
+      
     </form>
 
   </div>
