@@ -117,7 +117,17 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="status">Status</label>
             <div class="col-md-4">
-            <input name="status" type="text" placeholder="Status" class="form-control input-md" disabled>
+            <?php  if($books->action==1){
+                        $i="Accepted";
+                         
+                      }elseif($books->action==2){
+                      
+                           $i="Denied";
+                         
+                         }else{
+                          $i="Pending" ;
+                       }?>
+                     <input value="<?php echo $i;?>" disabled type="text" placeholder="" class="form-control input-md">
             </div>
         </div>
 

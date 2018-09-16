@@ -49,7 +49,19 @@
                   <td><?= $book->helper_name?></td>
                   <td><?= $book->destination?></td>
                   <td><?= $book->price?></td>
-                  <td></td>
+                  <td>  <?php if($book->action==1){ ?>
+                          <div class="label label-success">
+                            <strong>Accepted</strong>
+                          </div>
+                        <?php }elseif($book->action==2){ ?>
+                          <div class="label label-danger">
+                            <strong>Denied</strong>
+                          </div></p>
+                        <?php }else{?>
+                          <div class="label label-warning">
+                            <strong>Pending</strong>
+                          </div>
+                     <?php   }?></td>
                   <td>
                   <a href="<?= base_url().'bookingadmin/view/'.$book->id?>" class="btn btn-default btn.lg" role="button">
                   <span class="fa fa-eye" aria-hidden="true"></span></a>
