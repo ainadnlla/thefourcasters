@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 13, 2018 at 05:18 PM
+-- Generation Time: Sep 17, 2018 at 11:45 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -65,18 +65,19 @@ CREATE TABLE `booking` (
   `license_no` varchar(50) NOT NULL,
   `driver_name` varchar(50) NOT NULL,
   `helper_name` varchar(50) NOT NULL,
-  `helper_no` varchar(50) NOT NULL
+  `helper_no` varchar(50) NOT NULL,
+  `action` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`id`, `waybill`, `date`, `cust_type`, `custname`, `cargo`, `product`, `description`, `pieces`, `plate_no`, `driver_no`, `destination`, `price`, `license_no`, `driver_name`, `helper_name`, `helper_no`) VALUES
-(23, 123, '0888-09-03', '', '', 'LCL 1x40', 'Sample', 'sample', 500, 'RLP 377', '', 'Sampleee', 5000, 'SAM 123', 'Driver Sample', 'Driver Sample', ''),
-(24, 1542, '2019-09-07', 'Broker/Agent', 'Xylem Water System', 'LCL 1x40', 'Frozen Goods', 'Chilled Goods', 150, 'RLP 377', '', 'Manila', 5000, '', 'Driver Sample', 'Driver Sample', ''),
-(25, 0, '2018-09-07', 'Broker/Agent', 'Xylem Water System', 'FCL 2x20', 'Sample', 'Sample', 100, 'RLP 377', '', 'MIP - Bulacan, Meycauayan (Alegro Foods)', 5000, '', 'Driver Sample', 'Helper Sample', ''),
-(26, 0, '2019-09-07', 'Broker/Agent', 'Xylem Water System', 'FCL 1x40', 'Sample', 'Sample', 150, '', '', 'Manila', 0, '', '', '', '');
+INSERT INTO `booking` (`id`, `waybill`, `date`, `cust_type`, `custname`, `cargo`, `product`, `description`, `pieces`, `plate_no`, `driver_no`, `destination`, `price`, `license_no`, `driver_name`, `helper_name`, `helper_no`, `action`) VALUES
+(23, 123, '0888-09-03', '', '', 'LCL 1x40', 'Sample', 'sample', 500, 'RLP 377', '', 'MIP - Laguna, Binan (Wuerth Phils. Inc. Warehouse)', 0, 'SAM 123', 'Driver Sample', 'Driver Sample', '', 2),
+(24, 1542, '2019-09-07', 'Broker/Agent', 'Xylem Water System', 'LCL 1x40', 'Frozen Goods', 'Chilled Goods', 150, 'RLP 377', '', 'MIP - Laguna, Binan (Wuerth Phils. Inc. Warehouse)', 0, '', 'Driver Sample', 'Driver Sample', '', 1),
+(25, 0, '2018-09-07', 'Broker/Agent', 'Xylem Water System', 'FCL 2x20', 'Sample', 'Sample', 100, 'RLP 377', '', 'MIP - Bulacan, Meycauayan (Alegro Foods)', 5000, '', 'Driver Sample', 'Helper Sample', '', 0),
+(26, 0, '2019-09-07', 'Broker/Agent', 'Xylem Water System', 'FCL 1x40', 'Sample', 'Sample', 150, '', '', 'Manila', 0, '', '', '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -106,7 +107,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`, `contact`, `date`, `status`, `created`, `updated`, `img`, `user_type`, `user_id`) VALUES
-(1, 'Wuerth Phils. Inc', '', '123456789', '123456789', 'wuerthphilsinc@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:51:21', '2018-09-13 15:51:21', 'default.jpg', 0, 0),
+(1, 'Wuerth Phils. Inc', 'Broker/Agent', '123456789', '123456789', 'wuerthphilsinc@gmail.com', '09147852136', '2018-09-15', 1, '2018-09-13 15:51:21', '2018-09-13 15:51:21', 'C:\\Users\\Anthony\\Pictures\\leopard.jpg', 0, 0),
 (2, 'Northern Chemical Sales Inc.', '', '123456789', '123456789', 'northernchemci@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:51:22', '2018-09-13 15:51:22', 'default.jpg', 0, 0),
 (3, 'Alysons Chemical Enterprises Inc.', '', '123456789', '123456789', 'alysonschemic@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:51:22', '2018-09-13 15:51:22', 'default.jpg', 0, 0),
 (4, 'Breakthru Cleaning Agent', '', '123456789', '123456789', 'breakthru@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:52:32', '2018-09-13 15:52:32', 'default.jpg', 0, 0),
@@ -218,6 +219,15 @@ CREATE TABLE `driver` (
   `timeout` time NOT NULL,
   `weekday` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `driver`
+--
+
+INSERT INTO `driver` (`img`, `id`, `driver_no`, `expire`, `fname`, `mname`, `lname`, `email`, `password`, `repass`, `gender`, `birthday`, `contact`, `experience`, `date`, `status`, `timein`, `timeout`, `weekday`) VALUES
+('default.jpg', 1, '321', '2018-09-15', 'cxz', 'cxz', 'cxz', 'sample@sample.com', '123456789', '123456789', 'M', '2018-09-15', '09173338993', 321, '2018-09-15', 0, '15:46:00', '15:46:00', 'Wed'),
+('default.jpg', 2, '321', '2018-09-15', 'cxz', 'cxz', 'cxz', 'sample@sample.com', '123456789', '123456789', 'M', '2018-09-15', '09173338993', 15, '2018-09-15', 0, '16:55:00', '16:55:00', 'Mon,Tue,Wed,Thu,Fri'),
+('default.jpg', 3, '5456', '2018-09-15', 'Xylem', 'Water', 'System', 'sample@sample.com', '123456789', '123456789', 'M', '2018-09-15', '09173338993', 123, '2018-09-15', 0, '05:02:00', '17:02:00', 'Tue,Wed,Thu,Sat');
 
 -- --------------------------------------------------------
 
@@ -414,7 +424,7 @@ ALTER TABLE `destination`
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `helper`
