@@ -78,13 +78,8 @@ $this->session->set_userdata($newdata);
             'date' => $this->input->post('date'),            
             'timein' => $this->input->post('timein'),
             'timeout' => $this->input->post('timeout'),
-          //  'weekday' => $this->input->post('weekday'),
             'weekday'=> implode(",", $this->input->post('weekday'))
-            
         );
-
-    /*    $data = $this->input->post();
-        unset($data['add']); */
             $this->form_validation->set_rules('driver_no', 'License No.', 'required');
             $this->form_validation->set_rules('expire', 'License Expiry Date', 'required');
             $this->form_validation->set_rules('fname', 'First Name', 'required');
@@ -149,11 +144,26 @@ $this->session->set_userdata($newdata);
     }
 
     public function update($id){
-     
-
-   $data = $this->input->post();
+        $data = array (
+            'img' => $this->input->post('img'),
+            'driver_no' => $this->input->post('driver_no'),
+            'expire' => $this->input->post('expire'),
+            'fname' => $this->input->post('fname'),
+            'mname' => $this->input->post('mname'),
+            'lname' => $this->input->post('lname'),
+            'email' => $this->input->post('email'),
+            'password' => $this->input->post('password'),
+            'repass' => $this->input->post('repass'),
+            'birthday' => $this->input->post('birthday'),
+            'gender' => $this->input->post('gender'),
+            'contact' => $this->input->post('contact'),
+            'experience' => $this->input->post('experience'),
+            'date' => $this->input->post('date'),            
+            'timein' => $this->input->post('timein'),
+            'timeout' => $this->input->post('timeout'),
+            'weekday'=> implode(",", $this->input->post('weekday'))
+        );
         unset($data['submit']); 
-        $this->form_validation->set_rules('img', 'Image', 'required');
         $this->form_validation->set_rules('driver_no', 'License No.', 'required');
         $this->form_validation->set_rules('expire', 'License Expiry Date', 'required');
         $this->form_validation->set_rules('fname', 'First Name', 'required');
@@ -166,14 +176,6 @@ $this->session->set_userdata($newdata);
         $this->form_validation->set_rules('birthday', 'Birth Date', 'required');
         $this->form_validation->set_rules('timein', 'Time In', 'required');
         $this->form_validation->set_rules('timeout', 'Time Out', 'required');
-       // $this->form_validation->set_rules('','',)
-     //   $weekdays = implode(',', $this->input->post('weekday'));
-        echo $weekdays;
-        $days = array(
-            //'id'=> $this->input->get('id'),  //MALI TONG LINE
-            'weekday'=> $weekdays
-        );
-        $this->db->insert('driver', $days);
 
             if ($this->form_validation->run() == FALSE)
             {
@@ -181,8 +183,52 @@ $this->session->set_userdata($newdata);
             }
             else
             {
-                $this->DriverModel->update($id, $data);
-                redirect('admin/userdetails_driver');
+                if ($this->input->post('img') == ""){
+                    $data = array (
+                        'img' => 'default.jpg',
+                        'driver_no' => $this->input->post('driver_no'),
+                        'expire' => $this->input->post('expire'),
+                        'fname' => $this->input->post('fname'),
+                        'mname' => $this->input->post('mname'),
+                        'lname' => $this->input->post('lname'),
+                        'email' => $this->input->post('email'),
+                        'password' => $this->input->post('password'),
+                        'repass' => $this->input->post('repass'),
+                        'birthday' => $this->input->post('birthday'),
+                        'gender' => $this->input->post('gender'),
+                        'contact' => $this->input->post('contact'),
+                        'experience' => $this->input->post('experience'),
+                        'date' => $this->input->post('date'),            
+                        'timein' => $this->input->post('timein'),
+                        'timeout' => $this->input->post('timeout'),
+                        'weekday'=> implode(",", $this->input->post('weekday'))
+                    );
+                    $this->DriverModel->update($id, $data);
+                    redirect('admin/userdetails_driver');    
+                }
+                else{
+                    $data = array (
+                        'img' => $this->input->post('img'),
+                        'driver_no' => $this->input->post('driver_no'),
+                        'expire' => $this->input->post('expire'),
+                        'fname' => $this->input->post('fname'),
+                        'mname' => $this->input->post('mname'),
+                        'lname' => $this->input->post('lname'),
+                        'email' => $this->input->post('email'),
+                        'password' => $this->input->post('password'),
+                        'repass' => $this->input->post('repass'),
+                        'birthday' => $this->input->post('birthday'),
+                        'gender' => $this->input->post('gender'),
+                        'contact' => $this->input->post('contact'),
+                        'experience' => $this->input->post('experience'),
+                        'date' => $this->input->post('date'),            
+                        'timein' => $this->input->post('timein'),
+                        'timeout' => $this->input->post('timeout'),
+                        'weekday'=> implode(",", $this->input->post('weekday'))
+                    );
+                    $this->DriverModel->update($id, $data);
+                    redirect('admin/userdetails_driver');    
+                }
             }    
         }
     

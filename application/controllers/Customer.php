@@ -212,7 +212,7 @@ class Customer extends CI_Controller {
             redirect('customer/homepage');
             }      
         }else{
-            $this->session->set_flashdata('error','Invalid Username and Password');
+            $this->session->set_flashdata('error','Invalid Username or Password');
             redirect('customer/login');
         }        
     } 

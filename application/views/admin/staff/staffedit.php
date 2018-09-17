@@ -16,7 +16,7 @@
               <h3 class="box-title">Profile Photo</h3>
             </div>
 
-    <form  class="form-horizontal" action="<?=base_url()?>admin/update/<?=$emp->id?>"  method='post'>
+    <form class="form-horizontal" action="<?=base_url()?>admin/update/<?=$emp->id?>"  method='post'>
       <fieldset>
         <div class="form-group">
           <div class="col-md-4">
@@ -47,7 +47,7 @@
     </div>
     </fieldset>
 
-<!-- END OF 1ST BOX -->
+<!-- END OF 1ST BOX --> 
 
       <div class="col-md-9">
         <div class="box box-success">
@@ -55,80 +55,82 @@
             <h3 class="box-title">Personal Information</h3>
           </div>
           <div class="box-body">
-        <div class="form-horizontal">
+        <div role="form">
       <fieldset>
 
-      <div class="form-group" >
-        <label class="col-md-4 control-label" for ="fname" >First Name</label>  
-          <div class="col-md-6">
-            <input  value="<?=$emp->fname?>" name="fname" type="text" placeholder="First Name" class="form-control input-md" required="">
+      <div class="form-group">
+          <label class="col-md-4 control-label" for ="fname" >First Name</label>  
+          <label class="col-md-3 control-label" >Middle Name</label> 
+          <label class="col-md-5 control-label" >Last Name</label> 
+      </div>
+
+      <div class="form-group">
+        <div class="col-xs-4">
+            <input value="<?=$emp->fname?>" name="fname" type="text" placeholder="First Name" class="form-control input-md" required="">
             <?= form_error('fname', '<span class="label label-danger">', '</span>'); ?>  
           </div>
-      </div>  
-
-      <div class="form-group">
-        <label class="col-md-4 control-label" >Middle Name</label>  
-          <div class="col-md-6">
-            <input  value="<?=$emp->mname?>" name="mname" type="text" placeholder="Middle Name" class="form-control input-md" >
+          <div class="col-xs-3">
+            <input value="<?=$emp->mname?>" name="mname" type="text" placeholder="Middle Name" class="form-control input-md" required="">
             <?= form_error('mname', '<span class="label label-danger">', '</span>'); ?>  
           </div>
-      </div>  
-
-      <div class="form-group">
-        <label class="col-md-4 control-label" for="textinput">Last Name</label>  
-          <div class="col-md-6">
-            <input  value="<?=$emp->lname?>" name="lname" type="text" placeholder="Last Name" class="form-control input-md" required="">
+          <div class="col-xs-5">
+            <input value="<?=$emp->lname?>" name="lname" type="text" placeholder="Last Name" class="form-control input-md" required="">
             <?= form_error('lname', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div> 
 
+      <div class="col-md-12">
+          <br/>
+      </div>
+
       <div class="form-group">
-        <label class="col-md-4 control-label" >Gender</label>
+        <label class="col-md-6 control-label"> Gender</label>
+        <label class="col-md-6 control-label" >Birth Date</label>  
+      </div>
+
+      <div class="form-group">
             <div class="col-md-6">
-                <select value="<?=$emp->gender?>" name="gender" class="form-control">
-                <option value='<?=$emp->gender?>' selected><?=$emp->gender?></option>
-                <option value="M">Male</option>
-                <option value="F">Female</option>
-                </select>
+              <select value="<?=$emp->gender?>" name="gender" class="form-control">
+              <option value='<?=$emp->gender?>' selected><?=$emp->gender?></option>
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+              </select>
             </div>
-      </div>
-
-    <div class="form-group">
-        <label class="col-md-4 control-label" >Birth Date</label>  
-          <div class="col-md-6">
-            <input value="<?=$emp->birthday?>" name="birthday" type="date" class="form-control input-md"> 
-            <?= form_error('birthday', '<span class="label label-danger">', '</span>'); ?>  
+            <div class="col-md-6">
+              <input value="<?=$emp->birthday?>" name="birthday" type="date" class="form-control input-md"> 
+              <?= form_error('birthday', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div>
 
-    <div class="form-group">
-     <label class="col-md-4 control-label">Contact</label>  
-       <div class="col-md-6">
-          <input  value="<?=$emp->contact?>" name="contact" type="text" placeholder="Contact No." class="form-control input-md" required="">
-            <?= form_error('contact', '<span class="label label-danger">', '</span>'); ?>  
-          </div>
+      <div class="col-md-12">
+          <br/>
       </div>
 
       <div class="form-group">
-        <label class="col-md-4 control-label" >Employee Since</label>  
+        <label class="col-md-6 control-label">Contact</label>  
+        <label class="col-md-6 control-label" >Employee Since</label>  
+      </div>
+
+      <div class="form-group">
+          <div class="col-md-6">
+              <input  value="<?=$emp->contact?>" name="contact" type="text" placeholder="Contact No." class="form-control input-md" required="">
+              <?= form_error('contact', '<span class="label label-danger">', '</span>'); ?>  
+          </div>
           <div class="col-md-6">
             <input value="<?=$emp->date?>" name="date" type="date" class="form-control input-md"> 
             <?= form_error('date', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div>
 
+      <div class="col-md-12">
+          <br/>
+      </div>
+
+      </fieldset>
           </div>
         </div>
       </div>
-    </div>
-    </fieldset>
-    <!-- END OF 1ST ROW -->
-  </div>
 
-<!-- END OF 2ND BOX -->
-
-    <div class="row"> 
-    <div class="col-md-12"> 
       <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title">User Details</h3>
@@ -186,18 +188,6 @@
           </div>
       </div>
 
-          <!-- <div class="form-group">
-      <label class="col-md-4 control-label"for ="timein">Time In</label>  
-        <div class="col-md-4">
-          <input value="<?//=$emp->timein?>" name="timein" type="time"  class="form-control input-md">
-          
-        </div> -->
-    <!-- </div>
-    <div class="form-group">
-      <label class="col-md-4 control-label"for ="timeout">Time out</label>  
-        <div class="col-md-4">
-          <input value="<?//=$emp->timeout?>" name="timeout" type="time"  class="form-control input-md"> -->
-
       <div class="form-group">
         <label class="col-md-4 control-label" for="button1id"></label>
         <div class="col-md-5">
@@ -211,9 +201,10 @@
       </div>
      </div>
      </fieldset>
- <!-- END OF 2ND ROW -->
-     </div>
+    </div>
     
+  </div>
+
   </section>
 </div>
 </form>
