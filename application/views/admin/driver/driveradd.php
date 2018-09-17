@@ -68,7 +68,7 @@
           <input name="timeout" type="time"  class="form-control input-md">
           <?= form_error('timeout', '<span class="label label-danger">', '</span>'); ?>  
         </div>
-    </div>
+    </div>321
 
     <div class="form-group">
       <label class="col-md-4 control-label"for ="weekday">Weekdays</label>  

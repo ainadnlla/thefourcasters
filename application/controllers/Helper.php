@@ -75,7 +75,10 @@ class Helper extends CI_Controller {
             'birthday' => $this->input->post('birthday'),
             'gender' => $this->input->post('gender'),
             'contact' => $this->input->post('contact'),
-            'date' => $this->input->post('date'),            
+            'date' => $this->input->post('date'), 
+            'timein' =>$this->input->post('timein'),
+            'timeout' => $this->input->post('timeout'),
+            'weekday'=> implode(",", $this->input->post('weekday'))          
         );
 
     /*    $data = $this->input->post();
