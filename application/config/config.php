@@ -23,7 +23,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/thefourcasters'; 
+
+$_PROTOCOL = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https://' : 'http://');
+$_HTTP_HOST = $_SERVER['HTTP_HOST'];
+$_REQUEST_URI = str_replace(isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '', '', $_SERVER['REQUEST_URI']);
+// $_PATH = str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_REQUEST_URI);
+$_PATH = str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
+// echo $_PATH;
+$config['base_url'] = $_PROTOCOL . $_HTTP_HOST . $_PATH;
+// $config['base_url'] = 'http://localhost/thefourcasters'; 
 
 /*
 |--------------------------------------------------------------------------
