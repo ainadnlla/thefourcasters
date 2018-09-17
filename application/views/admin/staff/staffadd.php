@@ -16,7 +16,7 @@
             <h3 class="box-title">Profile Photo</h3>
           </div>
 
-    <form  class="form-horizontal" action="<?=base_url().'admin/insert'?>"  method='post'>
+    <form  class="form-horizontal" action="<?=base_url().'staff/insert'?>"  method='post'>
     <fieldset>
         <div class="form-group">
           <div class="col-md-4">
@@ -165,7 +165,7 @@
         <label class="col-md-4 control-label" >Status</label>
           <div class="col-md-5">
             <select name="status" class="form-control">
-            <option Selected disabled>Status</option>
+            <option selected disabled>Status</option>
             <option value="1">Active</option>
             <option value="0">Inactive</option>
             </select>

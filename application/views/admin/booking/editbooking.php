@@ -152,7 +152,7 @@
 
         <div class="form-group">
         <label class="col-md-4 control-label" >Status</label>
-          <div class="col-md-6">
+          <div class="col-md-4">
             <select name="action" value="<?=$books->action?>" class="form-control">
             <option Selected disabled>Unchanged</option>
             <option value="0">Pending</option>

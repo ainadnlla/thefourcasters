@@ -228,7 +228,7 @@
         <label class="col-md-4 control-label" >Status</label>
           <div class="col-md-6">
             <select name="status" class="form-control">
-            <option Selected disabled>Unchanged</option>
+            <option ></option>
             <option value="1">Active</option>
             <option value="0">Inactive</option>
             </select>

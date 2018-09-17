@@ -144,7 +144,7 @@
 
       }?>
 
-<?php if($this->session->userdata('priv') =='4'OR $this->session->userdata('priv')=='5' OR $this->session->userdata('priv') =='1') {?>
+
 
       <li class="treeview">
           <a href="#">
@@ -155,12 +155,19 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?=base_url().'staff/userdetails'?>"><i class="fa fa-circle-o"></i>User Accounts</a></li>
+          <?php if($this->session->userdata('priv') =='1'OR $this->session->userdata('priv')=='5') {?>
+          <li><a href="<?=base_url().'staff/customerdetails'?>"><i class="fa fa-circle-o"></i>Customer Details</a></li>
+          <?php }else{}?>
+            <?php if($this->session->userdata('priv') =='1'OR $this->session->userdata('priv')=='4') {?>
+          <li><a href="<?=base_url().'staff/driverdetails'?>"><i class="fa fa-circle-o"></i>Driver Details</a></li>
+          <?php }else{}?>
+            <?php if($this->session->userdata('priv') =='1'OR $this->session->userdata('priv')=='4') {?>
+          <li><a href="<?=base_url().'staff/helperdetails'?>"><i class="fa fa-circle-o"></i>Helper Details</a></li>
+          <?php }else{}?>
           </ul>
         </li>
-<?php 
-}else{
-} ?>
+     
+
 
         <li>
           <a href="<?=base_url().'staff/calendar'?>">
