@@ -237,6 +237,21 @@
           </div>
       </div>
 
+
+      <div class="form-group">
+      <label class="col-md-4 control-label"for ="weekday">Weekdays</label>  
+        <div class="col-md-8">
+    
+              <input type="checkbox" name="weekday[]" value="Sun"> Sunday<br>
+              <input type="checkbox" name="weekday[]" value="Mon"> Monday<br>
+              <input type="checkbox" name="weekday[]" value="Tue"> Tuesday<br>
+              <input type="checkbox" name="weekday[]" value="Wed"> Wednesday<br>
+              <input type="checkbox" name="weekday[]" value="Thu"> Thursday<br>
+              <input type="checkbox" name="weekday[]" value="Fri"> Friday<br>
+              <input type="checkbox" name="weekday[]" value="Sat"> Saturday<br>
+
+            </div>
+        </div>
       <div class="form-group">
         <label class="col-md-4 control-label" for="button1id"></label>
         <div class="col-md-6">

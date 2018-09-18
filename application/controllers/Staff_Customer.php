@@ -74,7 +74,7 @@ class Staff_Customer extends CI_Controller {
             $this->CustomerModel->delete($id,$data);
             redirect('staff/customerdetails');
      }
-    public function update($id){
+     public function update($id){
         $data = $this->input->post();
         unset($data['submit']);
             $this->form_validation->set_rules('name', 'Customer/Brokerage', 'required');
@@ -94,7 +94,6 @@ class Staff_Customer extends CI_Controller {
                 redirect('staff/customerdetails');
             }
         }
-    
     public function do_upload(){  
         $id = $this->input->post('id');
         $data['cust'] = $this->CustomerModel->getItem($id);

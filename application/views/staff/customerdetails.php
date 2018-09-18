@@ -59,7 +59,7 @@
                         </span></a>
 
                         <!-- <?php $onclick = array('onclick'=>"return confirm('Are you sure?')");?>
-                        <a href="<?=base_url('staff_customer/del/'.$cust->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
+                        <a href="<?=base_url('staff/del/'.$cust->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
                         </span></a> -->
                         </td>

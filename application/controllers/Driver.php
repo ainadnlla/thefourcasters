@@ -78,7 +78,8 @@ $this->session->set_userdata($newdata);
             'date' => $this->input->post('date'),            
             'timein' => $this->input->post('timein'),
             'timeout' => $this->input->post('timeout'),
-            'weekday'=> implode(",", $this->input->post('weekday'))
+            'weekday'=> implode(",", $this->input->post('weekday')),
+            'status' => $this->input->post('status')
         );
             $this->form_validation->set_rules('driver_no', 'License No.', 'required');
             $this->form_validation->set_rules('expire', 'License Expiry Date', 'required');

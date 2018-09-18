@@ -168,12 +168,12 @@ class Customer extends CI_Controller {
 
 //CUSTOMER SIDE
 
-    public function homepage(){
+    public function index(){
         if($this->session->userdata('emailad') !=''){ 
         $data['title'] = 'Angelogistic Forwarder Corporation';
         $this->load->view('include/header', $data);
         $this->load->view('include/customer_header');
-        $this->load->view('customer/homepage');
+        $this->load->view('customer/index');
         $this->load->view('include/footer');
        
         }else {
@@ -187,7 +187,7 @@ class Customer extends CI_Controller {
         $this->load->view('customer/login');
         $this->load->view('include/footer');
         if($this->session->userdata('emailad') !=''){ 
-                redirect('customer/homepage');
+                redirect('customer/index');
             }
             else {
             } 
@@ -209,7 +209,7 @@ class Customer extends CI_Controller {
                 'isAdmin' => TRUE
             );
             $this->session->set_userdata($session_data);
-            redirect('customer/homepage');
+            redirect('customer/index');
             }      
         }else{
             $this->session->set_flashdata('error','Invalid Username or Password');

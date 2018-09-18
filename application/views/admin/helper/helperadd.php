@@ -70,21 +70,21 @@
         </div>
     </div>
 
+   
     <div class="form-group">
-      <label class="col-md-4 control-label"for ="weekday">Weekdays</label>  
-        <div class="col-md-8">
-              <select name="weekday[]" multiple class="form-control">
-                <option Selected disabled="disabled">Select Multiple</option>
-                <option name="weekday[]" value="Monday">Monday</option>
-                <option name="weekday[]" value="Tuesday">Tuesday</option>
-                <option name="weekday[]" value="Wednesday">Wednesday</option>
-                <option name="weekday[]" value="Thursday">Thursday</option>
-                <option name="weekday[]" value="Friday">Friday</option>
-                <option name="weekday[]" value="Saturday">Saturday</option>
-                <option name="weekday[]" value="Sunday">Sunday</option>
-              </select>
-            </div>
-        </div>
+    <label class="col-md-4 control-label"for ="weekday">Weekdays</label>  
+      <div class="col-md-8">
+  
+            <input type="checkbox" name="weekday[]" value="Sun"> Sunday<br>
+            <input type="checkbox" name="weekday[]" value="Mon"> Monday<br>
+            <input type="checkbox" name="weekday[]" value="Tue"> Tuesday<br>
+            <input type="checkbox" name="weekday[]" value="Wed"> Wednesday<br>
+            <input type="checkbox" name="weekday[]" value="Thu"> Thursday<br>
+            <input type="checkbox" name="weekday[]" value="Fri"> Friday<br>
+            <input type="checkbox" name="weekday[]" value="Sat"> Saturday<br>
+
+          </div>
+      </div>
 
           </div>
         </div>
