@@ -80,6 +80,7 @@
               <input type="checkbox" name="weekday[]" value="Thu"> Thursday<br>
               <input type="checkbox" name="weekday[]" value="Fri"> Friday<br>
               <input type="checkbox" name="weekday[]" value="Sat"> Saturday<br>
+              <?= form_error('weekday', '<span class="label label-danger">', '</span>') ?> 
             </div>
         </div>
 
