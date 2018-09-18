@@ -81,16 +81,20 @@ $this->session->set_userdata($newdata);
             'weekday'=> implode(",", $this->input->post('weekday')),
             'status' => $this->input->post('status')
         );
-            $this->form_validation->set_rules('driver_no', 'License No.', 'required');
-            $this->form_validation->set_rules('expire', 'License Expiry Date', 'required');
-            $this->form_validation->set_rules('fname', 'First Name', 'required');
-            $this->form_validation->set_rules('lname', 'Last Name', 'required');
-            $this->form_validation->set_rules('email', 'Email Address', 'required');
-            $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
-            $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
-            $this->form_validation->set_rules('birthday', 'Birth Day', 'required');
-            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
-            $this->form_validation->set_rules('experience', 'Years of Experience', 'required');
+        $this->form_validation->set_rules('driver_no', 'License No.', 'required');
+        $this->form_validation->set_rules('expire', 'License Expiry Date', 'required');
+        $this->form_validation->set_rules('fname', 'First Name', 'required');
+        $this->form_validation->set_rules('lname', 'Last Name', 'required');
+        $this->form_validation->set_rules('email', 'Email Address', 'required');
+        $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
+        $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
+        $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
+        $this->form_validation->set_rules('experience', 'Years of Experience', 'required');
+        $this->form_validation->set_rules('birthday', 'Birth Date', 'required');
+        $this->form_validation->set_rules('timein', 'Time In', 'required');
+        $this->form_validation->set_rules('timeout', 'Time Out', 'required');
+        $this->form_validation->set_rules('gender', 'Gender', 'required');
+
 
       if ($this->form_validation->run() == FALSE)
       {
@@ -177,6 +181,8 @@ $this->session->set_userdata($newdata);
         $this->form_validation->set_rules('birthday', 'Birth Date', 'required');
         $this->form_validation->set_rules('timein', 'Time In', 'required');
         $this->form_validation->set_rules('timeout', 'Time Out', 'required');
+        $this->form_validation->set_rules('gender', 'Gender', 'required');
+        $this->form_validation->set_rules('img', '(Image)', 'required');
 
             if ($this->form_validation->run() == FALSE)
             {

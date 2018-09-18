@@ -37,7 +37,7 @@
         <label class="col-md-1 control-label" for="upload"></label>  
           <div class="col-md-9">
             <?php echo form_open_multipart('admin/do_upload');?>
-            <input class="form-control" type="file" name="img" size="20" >
+            <input value="<?=set_value('img')?>"  class="form-control" type="file" name="img" size="20" >
             <?= form_error('img', '<span class="label label-danger">', '</span>'); ?>  
             </div>
           </div>
@@ -70,8 +70,7 @@
             <?= form_error('fname', '<span class="label label-danger">', '</span>'); ?>  
           </div>
           <div class="col-xs-3">
-            <input value="<?=$emp->mname?>" name="mname" type="text" placeholder="Middle Name" class="form-control input-md" required="">
-            <?= form_error('mname', '<span class="label label-danger">', '</span>'); ?>  
+            <input value="<?=$emp->mname?>" name="mname" type="text" placeholder="Middle Name (Optional)" class="form-control input-md">
           </div>
           <div class="col-xs-5">
             <input value="<?=$emp->lname?>" name="lname" type="text" placeholder="Last Name" class="form-control input-md" required="">
@@ -97,7 +96,7 @@
               </select>
             </div>
             <div class="col-md-6">
-              <input value="<?=$emp->birthday?>" name="birthday" type="date" class="form-control input-md"> 
+              <input value="<?=$emp->birthday?>" name="birthday" type="date" class="form-control input-md" required=""> 
               <?= form_error('birthday', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div>
@@ -117,7 +116,7 @@
               <?= form_error('contact', '<span class="label label-danger">', '</span>'); ?>  
           </div>
           <div class="col-md-6">
-            <input value="<?=$emp->date?>" name="date" type="date" class="form-control input-md"> 
+            <input value="<?=$emp->date?>" name="date" type="date" class="form-control input-md" required=""> 
             <?= form_error('date', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div>
@@ -167,9 +166,9 @@
         <label class="col-md-4 control-label" >Status</label>
           <div class="col-md-5">
             <select  value="<?=$emp->status?>" name="status" class="form-control">
-            <option Selected disabled>Unchanged</option>
-            <option value="1">Active</option>
-            <option value="0">Inactive</option>
+            <option disabled value='<?=$emp->status?>' selected>(<?=$emp->status?>)</option>
+            <option value="0">(0) Inactive</option>
+            <option value="1">(1) Active</option>
             </select>
           </div>
       </div>

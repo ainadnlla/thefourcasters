@@ -35,7 +35,7 @@
         <label class="col-md-4 control-label" for="upload">Image</label>  
             <div class="col-md-4">
             <?php echo form_open_multipart('truck/do_upload');?>
-            <input class="form-control" type="file" name="img" size="20" >
+            <input value="<?=set_value('img')?>"  class="form-control" type="file" name="img" size="20" >
             <?= form_error('img', '<span class="label label-danger">', '</span>') ?>  
             </div>
           </div>
@@ -61,6 +61,7 @@
       <label class="col-md-4 control-label"for ="series">Series</label>  
         <div class="col-md-4">
           <input value="<?=$truck->series?>" name="series" type="text" placeholder="series" class="form-control input-md">
+          <?= form_error('series', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
@@ -76,6 +77,7 @@
       <label class="col-md-4 control-label"for ="engine_no">Engine No.</label>  
         <div class="col-md-4">
           <input value="<?=$truck->engine_no?>" name="engine_no" type="text" placeholder="Engine No." class="form-control input-md">
+          <?= form_error('engine_no', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
@@ -83,6 +85,7 @@
       <label class="col-md-4 control-label"for ="chassis_no">Chassis No.</label>  
         <div class="col-md-4">
           <input value="<?=$truck->chassis_no?>" name="chassis_no" type="text" placeholder="Chassis No." class="form-control input-md">
+          <?= form_error('chassis_no', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
@@ -90,6 +93,7 @@
       <label class="col-md-4 control-label" for="grosswt" >Gross Weight</label>  
         <div class="col-md-4">
           <input value="<?=$truck->grosswt?>" name="grosswt" type="number" placeholder="Gross Weight" class="form-control input-md">  
+          <?= form_error('grosswt', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
@@ -97,6 +101,7 @@
       <label class="col-md-4 control-label" for="netwt" >Net Weight</label>  
         <div class="col-md-4">
           <input value="<?=$truck->netwt?>" name="netwt" type="number" placeholder="Shipping Weight" class="form-control input-md">  
+          <?= form_error('netwt', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
 
@@ -104,6 +109,7 @@
       <label class="col-md-4 control-label" for="netcap" >Net Capacity</label>  
         <div class="col-md-4">
           <input value="<?=$truck->netcap?>" name="netcap" type="number" placeholder="Net Capacity" class="form-control input-md">  
+          <?= form_error('netcap', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
     
@@ -112,13 +118,6 @@
         <div class="col-md-4">
           <input value="<?=$truck->year?>" name="year" type="number" placeholder="Year" class="form-control input-md">
           <?= form_error('year', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-  <div class="form-group">
-      <label class="col-md-4 control-label"for ="old">Truck Old</label>  
-        <div class="col-md-4">
-          <!-- <input disabled name="old" type="number" placeholder="Old" class="form-control input-md"> -->
         </div>
     </div>
 

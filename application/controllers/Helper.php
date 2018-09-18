@@ -78,7 +78,8 @@ class Helper extends CI_Controller {
             'date' => $this->input->post('date'), 
             'timein' =>$this->input->post('timein'),
             'timeout' => $this->input->post('timeout'),
-            'weekday'=> implode(",", $this->input->post('weekday'))          
+            'weekday'=> implode(",", $this->input->post('weekday'))   
+                   
         );
 
     /*    $data = $this->input->post();
@@ -89,8 +90,10 @@ class Helper extends CI_Controller {
             $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
             $this->form_validation->set_rules('birthday', 'Birth Day', 'required');
+            $this->form_validation->set_rules('gender', 'Gender', 'required');
             $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
             $this->form_validation->set_rules('date', 'Employement Date', 'required');
+            $this->form_validation->set_rules('weekday', 'Weekdays', 'required');
 
       if ($this->form_validation->run() == FALSE)
       {

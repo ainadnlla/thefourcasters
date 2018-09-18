@@ -37,6 +37,7 @@ class Staff extends CI_Controller {
         $this->form_validation->set_rules('email', 'Email Address', 'required');
         $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
         $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
+        $this->form_validation->set_rules('gender', 'Gender', 'required');
         $this->form_validation->set_rules('birthday', 'Birth Date', 'required');
         $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
         $this->form_validation->set_rules('email', 'Email Address', 'required');
@@ -106,14 +107,16 @@ class Staff extends CI_Controller {
     $data = $this->input->post();
     unset($data['submit']);
 
-        $this->form_validation->set_rules('fname', 'First Name', 'required');
-        $this->form_validation->set_rules('lname', 'Last Name', 'required');
-        $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
-        $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
-        $this->form_validation->set_rules('email', 'Email Address', 'required');
-        $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
-        $this->form_validation->set_rules('gender', 'Gender', 'required');
-        $this->form_validation->set_rules('img', 'Image', 'required');
+    $this->form_validation->set_rules('fname', 'First Name', 'required');
+    $this->form_validation->set_rules('lname', 'Last Name', 'required');
+    $this->form_validation->set_rules('email', 'Email Address', 'required');
+    $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
+    $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
+    $this->form_validation->set_rules('gender', 'Gender', 'required');
+    $this->form_validation->set_rules('birthday', 'Birth Date', 'required');
+    $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
+    $this->form_validation->set_rules('email', 'Email Address', 'required');
+    $this->form_validation->set_rules('date', 'Employment Date', 'required');
         
         if ($this->form_validation->run() == FALSE)
         {

@@ -37,7 +37,13 @@ class Truck extends CI_Controller {
         unset($data['add']); */
         $this->form_validation->set_rules('brand', 'Brand/Make', 'required');
         $this->form_validation->set_rules('plate_no', 'Plate No.', 'required');
-        $this->form_validation->set_rules('mvfile_no', 'MV File No.', 'required');
+        $this->form_validation->set_rules('series', 'MV File No.', 'required');
+        $this->form_validation->set_rules('mvfile_no', 'Plate No.', 'required');
+        $this->form_validation->set_rules('engine_no', 'Plate No.', 'required');
+        $this->form_validation->set_rules('chassis_no', 'Plate No.', 'required');
+        $this->form_validation->set_rules('grosswt', 'Plate No.', 'required');
+        $this->form_validation->set_rules('netwt', 'Plate No.', 'required');
+        $this->form_validation->set_rules('netcap', 'Plate No.', 'required');
         $this->form_validation->set_rules('year', 'Year Model', 'required|exact_length[4]');      
         if ($this->form_validation->run() == FALSE)
       {
@@ -77,8 +83,14 @@ class Truck extends CI_Controller {
         unset($data['submit']);
         $this->form_validation->set_rules('brand', 'Brand/Make', 'required');
         $this->form_validation->set_rules('plate_no', 'Plate No.', 'required');
-        $this->form_validation->set_rules('mvfile_no', 'MV File No.', 'required');
-        $this->form_validation->set_rules('year', 'Year Model', 'required|exact_length[4]');      
+        $this->form_validation->set_rules('series', 'MV File No.', 'required');
+        $this->form_validation->set_rules('mvfile_no', 'Plate No.', 'required');
+        $this->form_validation->set_rules('engine_no', 'Plate No.', 'required');
+        $this->form_validation->set_rules('chassis_no', 'Plate No.', 'required');
+        $this->form_validation->set_rules('grosswt', 'Plate No.', 'required');
+        $this->form_validation->set_rules('netwt', 'Plate No.', 'required');
+        $this->form_validation->set_rules('netcap', 'Plate No.', 'required');
+        $this->form_validation->set_rules('year', 'Year Model', 'required|exact_length[4]');       
             if ($this->form_validation->run() == FALSE)
             {
                 $this->edit($id);

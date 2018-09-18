@@ -36,7 +36,7 @@
         <label class="col-md-1 control-label" for="upload"></label>  
             <div class="col-md-9">
             <?php echo form_open_multipart('admin/do_upload');?>
-            <input class="form-control" type="file" name="img" size="20" >
+            <input value="<?=set_value('img')?>" class="form-control" type="file" name="img" size="20" >
             <?= form_error('img', '<span class="label label-danger">', '</span>'); ?>  
             </div>
           </div>
@@ -57,7 +57,7 @@
       <div class="form-group">
       <label class="col-md-4 control-label"for ="timein">Time In</label>  
         <div class="col-md-8">
-          <input name="timein" type="time" class="form-control input-md">  
+          <input value="<?=set_value('timein')?>" name="timein" type="time" class="form-control input-md">  
           <?= form_error('timein', '<span class="label label-danger">', '</span>'); ?>  
         </div>
     </div>
@@ -68,12 +68,11 @@
           <input name="timeout" type="time"  class="form-control input-md">
           <?= form_error('timeout', '<span class="label label-danger">', '</span>'); ?>  
         </div>
-    </div>321
+    </div>
 
     <div class="form-group">
       <label class="col-md-4 control-label"for ="weekday">Weekdays</label>  
         <div class="col-md-8">
-    
               <input type="checkbox" name="weekday[]" value="Sun"> Sunday<br>
               <input type="checkbox" name="weekday[]" value="Mon"> Monday<br>
               <input type="checkbox" name="weekday[]" value="Tue"> Tuesday<br>
@@ -81,7 +80,6 @@
               <input type="checkbox" name="weekday[]" value="Thu"> Thursday<br>
               <input type="checkbox" name="weekday[]" value="Fri"> Friday<br>
               <input type="checkbox" name="weekday[]" value="Sat"> Saturday<br>
-
             </div>
         </div>
 
@@ -106,7 +104,7 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="driver_no" >Driver License No.</label>  
             <div class="col-md-6">
-                <input name="driver_no" type="text" placeholder="License No." class="form-control input-md">
+                <input value="<?=set_value('driver_no')?>" name="driver_no" type="text" placeholder="License No." class="form-control input-md" required="">
                 <?= form_error('driver_no', '<span class="label label-danger">', '</span>'); ?>  
             </div>
     </div> 
@@ -114,7 +112,7 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="expire" >Expiry Date</label>  
             <div class="col-md-6">
-                <input name="expire" type="date" placeholder="License No." class="form-control input-md">
+                <input value="<?=set_value('expire')?>" name="expire" type="date" placeholder="License No." class="form-control input-md" required="">
                 <?= form_error('expire', '<span class="label label-danger">', '</span>'); ?>  
             </div>
     </div> 
@@ -122,7 +120,7 @@
       <div class="form-group" >
         <label class="col-md-4 control-label" for ="fname" >First Name</label>  
           <div class="col-md-6">
-            <input name="fname" type="text" placeholder="First Name" class="form-control input-md" required="">
+            <input value="<?=set_value('fname')?>" name="fname" type="text" placeholder="First Name" class="form-control input-md" required="">
             <?= form_error('fname', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div>  
@@ -130,15 +128,14 @@
       <div class="form-group">
         <label class="col-md-4 control-label" >Middle Name</label>  
           <div class="col-md-6">
-            <input name="mname" type="text" placeholder="Middle Name" class="form-control input-md" >
-            <?= form_error('mname', '<span class="label label-danger">', '</span>'); ?>  
+            <input value="<?=set_value('mname')?>" name="mname" type="text" placeholder="Middle Name (Optional)" class="form-control input-md" >
           </div>
       </div>  
 
       <div class="form-group">
         <label class="col-md-4 control-label" for="textinput">Last Name</label>  
           <div class="col-md-6">
-            <input name="lname" type="text" placeholder="Last Name" class="form-control input-md" required="">
+            <input value="<?=set_value('lname')?>" name="lname" type="text" placeholder="Last Name" class="form-control input-md" required="">
             <?= form_error('lname', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div> 
@@ -146,18 +143,19 @@
       <div class="form-group">
         <label class="col-md-4 control-label" >Gender</label>
             <div class="col-md-6">
-            <select name="gender" class="form-control">
+            <select value="<?=set_value('gender')?>" name="gender" class="form-control">
             <option Selected disabled="disabled" >Gender</option>
                 <option value="M">Male</option>
                 <option value="F">Female</option>
                 </select>
+                <?= form_error('gender', '<span class="label label-danger">', '</span>'); ?>  
             </div>
     </div>
 
     <div class="form-group">
         <label class="col-md-4 control-label" >Birth Date</label>  
           <div class="col-md-6">
-            <input name="birthday" type="date" class="form-control input-md"> 
+            <input value="<?=set_value('birthday')?>" name="birthday" type="date" class="form-control input-md" required=""> 
             <?= form_error('birthday', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div>
@@ -165,7 +163,7 @@
     <div class="form-group">
      <label class="col-md-4 control-label">Contact</label>  
        <div class="col-md-6">
-          <input name="contact" type="text" placeholder="Contact No." class="form-control input-md" required="">
+          <input value="<?=set_value('contact')?>" name="contact" type="text" placeholder="Contact No." class="form-control input-md" required="">
             <?= form_error('contact', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div>
@@ -173,7 +171,7 @@
     <div class="form-group">
      <label class="col-md-4 control-label">Years of Experience</label>  
        <div class="col-md-6">
-          <input name="experience" type="number" placeholder="Years of Experience" class="form-control input-md" required="">
+          <input value="<?=set_value('experience')?>" name="experience" type="number" min="0" placeholder="Years of Experience" class="form-control input-md" required="">
             <?= form_error('experience', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div>  
@@ -181,7 +179,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" >Employee Since</label>  
           <div class="col-md-6">
-            <input name="date" type="date" class="form-control input-md"> 
+            <input value="<?=set_value('date')?>" name="date" type="date" class="form-control input-md" required=""> 
             <?= form_error('date', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div>
@@ -203,7 +201,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label">Email</label>  
           <div class="col-md-6">
-            <input name="email" type="text" placeholder="Email Address" class="form-control input-md" required="">
+            <input value="<?=set_value('email')?>" name="email" type="text" placeholder="Email Address" class="form-control input-md" required="">
             <?= form_error('email', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div>  
@@ -211,7 +209,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" >Password</label>  
           <div class="col-md-6">
-            <input name="password" type="password" placeholder="Password" class="form-control input-md" required="">
+            <input value="<?=set_value('password')?>" name="password" type="password" placeholder="Password" class="form-control input-md" required="">
             <?= form_error('password', '<span class="label label-danger">', '</span>') ?> 
           </div>
       </div> 
@@ -219,7 +217,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" >Confirm Password</label>  
           <div class="col-md-6">
-            <input name="repass" type="password" placeholder="Confirm Password" class="form-control input-md" required="">
+            <input value="<?=set_value('repass')?>" name="repass" type="password" placeholder="Confirm Password" class="form-control input-md" required="">
            <?= form_error('repass', '<span class="label label-danger">', '</span>') ?> 
           </div>
       </div>  
@@ -227,8 +225,8 @@
       <div class="form-group">
         <label class="col-md-4 control-label" >Status</label>
           <div class="col-md-6">
-            <select name="status" class="form-control">
-            <option ></option>
+            <select value="<?=set_value('status')?>" name="status" class="form-control">
+            <option Selected disabled>Status</option>
             <option value="1">Active</option>
             <option value="0">Inactive</option>
             </select>
