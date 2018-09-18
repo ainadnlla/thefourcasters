@@ -68,7 +68,7 @@
           <input name="timeout" type="time"  class="form-control input-md">
           <?= form_error('timeout', '<span class="label label-danger">', '</span>'); ?>  
         </div>
-    </div>321
+    </div>
 
     <div class="form-group">
       <label class="col-md-4 control-label"for ="weekday">Weekdays</label>  
@@ -81,7 +81,7 @@
               <input type="checkbox" name="weekday[]" value="Thu"> Thursday<br>
               <input type="checkbox" name="weekday[]" value="Fri"> Friday<br>
               <input type="checkbox" name="weekday[]" value="Sat"> Saturday<br>
-
+              <?= form_error('weekday', '<span class="label label-danger">', '</span>') ?> 
             </div>
         </div>
 

@@ -91,6 +91,7 @@ $this->session->set_userdata($newdata);
             $this->form_validation->set_rules('birthday', 'Birth Day', 'required');
             $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
             $this->form_validation->set_rules('experience', 'Years of Experience', 'required');
+            $this->form_validation->set_rules('weekday', 'Schedule','required');
 
       if ($this->form_validation->run() == FALSE)
       {

@@ -12,6 +12,7 @@ class Admin extends CI_Controller {
             $this->load->model('AdminModel');
             $this->load->model('BookingModel');
             $this->load->model('HelperModel');
+            $this->load->model('MaintenanceModel');
     }
 //
 //     function myFunction() {
