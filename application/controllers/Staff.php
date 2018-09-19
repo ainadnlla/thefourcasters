@@ -172,52 +172,16 @@ class Staff extends CI_Controller {
     }
   
 // STAFF SIDE
-
-  
-    public function login(){
-        
-        $data['title'] = 'Angelogistic Forwarder Corporation';
-        $this->load->view('include/login_header');
-        $this->load->view('staff/login');
-        $this->load->view('include/footer');
-        if($this->session->userdata('email') !=''){ 
-            redirect('staff/homepage');
-        }else{
- 
-        } 
-    }
-    public function staff(){
-       $email=$this->input->post('email');
-        $password=$this->input->post('password');
-        $user = $this->AdminModel->getStaff($email, $password);
-        
-        if(!($user == null)){             
-            if($user->status == 1) {
-                $session_data = array(
-                    'name'  => $user->fname,
-                    'picpath' => $user->img,
-                    'email'     => $email,
-                    'priv' => $user->priv,
-                    'logged_in' => TRUE,
-                    'isAdmin' => TRUE
-                    );
-                $this->session->set_userdata($session_data);
-                redirect('staff/homepage');
-            }
-            else{
-                $this->session->set_flashdata('error','Unauthorized Access');
-                redirect('staff/login');
-            }
-        }else {
-            $this->session->set_flashdata('error','Invalid Username or Password');
-           redirect('staff/login');
-       }
-    }
-       
-    public function logout(){
-        $this->session->sess_destroy();
-        redirect('staff/login');
-    }
+public function logged(){
+    $session_data = array(
+        'name'  => $user->fname,
+        'picpath' => $user->img,
+        'email'     => $email,
+        'priv' => $user->priv,
+        'logged_in' => TRUE,
+        'isAdmin' => TRUE
+        );
+}
 
     public function homepage(){
         if($this->session->userdata('email') !=''){   
@@ -227,7 +191,7 @@ class Staff extends CI_Controller {
             $this->load->view('staff/homepage');
             $this->load->view('include/footer');
         }else{
-            redirect('staff/login');
+            redirect('login/staff');
         }
     }
 
@@ -272,7 +236,7 @@ class Staff extends CI_Controller {
         redirect('staff/homepage');
     }        
     }else{
-        redirect('staff/login');
+        redirect('login/staff');
     }
     }
 
@@ -319,7 +283,7 @@ class Staff extends CI_Controller {
               
           }    
     }else{
-            redirect('staff/login');
+            redirect('login/staff');
         }
     }
     public function driverdetails($offset=0){
@@ -362,7 +326,7 @@ class Staff extends CI_Controller {
                     redirect('staff/homepage');
                 }
         }else{
-            redirect('staff/login');
+            redirect('login/staff');
         }
         }
     public function truckgps(){
@@ -374,7 +338,7 @@ class Staff extends CI_Controller {
         $this->load->view('staff/truckgps');
         $this->load->view('include/footer');
         }else{
-            redirect('staff/login');
+            redirect('login/staff');
         }
     }
 
@@ -387,7 +351,7 @@ class Staff extends CI_Controller {
         $this->load->view('admin/stats');
         $this->load->view('include/footer');
     }else{
-        redirect('staff/login');
+        redirect('login/staff');
         }
     }
 
@@ -399,7 +363,7 @@ class Staff extends CI_Controller {
         $this->load->view('staff/calendar');
         $this->load->view('include/calendar_foot');
         }else{
-            redirect('staff/login');
+            redirect('login/staff');
         }
     }  
 
@@ -411,7 +375,7 @@ class Staff extends CI_Controller {
         $this->load->view('staff/inbox');
         $this->load->view('include/calendar_foot');
         }else{
-            redirect('staff/login');
+            redirect('login/staff');
         }
     }  
 
@@ -423,7 +387,7 @@ class Staff extends CI_Controller {
         $this->load->view('staff/compose');
         $this->load->view('include/calendar_foot');
         }else{
-            redirect('staff/login');
+            redirect('login/staff');
         }
     }
 
@@ -468,7 +432,7 @@ class Staff extends CI_Controller {
                 redirect('staff/homepage');
             }
         }else{
-            redirect('staff/login');
+            redirect('login/staff');
         }
     }
     public function staff_registration(){
@@ -513,7 +477,7 @@ class Staff extends CI_Controller {
       else
       {
             $this->UserModel->regis($data);
-            redirect('staff/login');
+            redirect('login/staff');
       }
       
     }
@@ -527,7 +491,7 @@ class Staff extends CI_Controller {
         $this->load->view('staff/userdetails');
         $this->load->view('include/footer');
     }else{
-        redirect('staff/login');
+        redirect('login/staff');
     }
     }
     //driver crud
@@ -582,7 +546,7 @@ class Staff extends CI_Controller {
         $this->load->view('staff/driver/driveradd');
         $this->load->view('include/footer');
     }else{
-        redirect('staff/login');
+        redirect('login/staff');
     }
     }
     public function driveredit($id){
@@ -594,7 +558,7 @@ class Staff extends CI_Controller {
         $this->load->view('staff/driver/driveredit',compact('driv'));
         $this->load->view('include/footer');
     }else{
-        redirect('staff/login');
+        redirect('login/staff');
     }
     }
     public function driverupdate($id){
@@ -674,7 +638,7 @@ class Staff extends CI_Controller {
                     redirect('staff/homepage');
                 }
     }else{
-        redirect('staff/login');
+        redirect('login/staff');
     }
         }
         public function helperadd(){
@@ -685,7 +649,7 @@ class Staff extends CI_Controller {
             $this->load->view('staff/helper/helperadd');
             $this->load->view('include/footer');
         }else{
-            redirect('staff/login');
+            redirect('login/staff');
         }
         }
     public function helperinsert(){
@@ -735,7 +699,7 @@ class Staff extends CI_Controller {
         $this->load->view('staff/helper/helperedit',compact('help'));
         $this->load->view('include/footer');
     }else{
-        redirect('staff/login');
+        redirect('login/staff');
     }
     }
     public function helperupdate($id){

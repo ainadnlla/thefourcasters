@@ -56,7 +56,7 @@
                   <a href="<?=base_url().'admin/profile'?>"> <span class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                <a href="<?=base_url().'admin/logout'?>"> <span class="btn btn-default btn-flat">Sign out</span></a>
+                <a href="<?=base_url().'login/logoutadmin'?>"> <span class="btn btn-default btn-flat">Sign out</span></a>
                 </div>
               </li>
             </ul>

@@ -22,51 +22,16 @@ class Admin extends CI_Controller {
 
 // ADMIN SIDE
 
-	public function login(){
+	 public function logged(){
+        $newdata = array(
+            'name'  => $user->name,
+            'username'     => $user->username,
+            'logged_in' => TRUE,
+            'isAdmin' => TRUE
+    );
+}
 
-        $this->load->view('include/login_header');
-        $this->load->view('admin/login');
-        $this->load->view('include/footer');
-        if($this->session->userdata('username') !=''){ 
-            redirect('admin/homepage');
-        }else{
-         
-        } 
-    }
-
-    public function signin(){
-		$admin = array(
-			'username' => $this->input->post('username'),
-			'password' => sha1($this->input->post('password'))
-			);
-
-		$user = $this->AdminModel->getAdmin($admin);
-
-		if(!$user == null){
-
-
-			$newdata = array(
-			        'name'  => $user->name,
-			        'username'     => $user->username,
-			        'logged_in' => TRUE,
-			        'isAdmin' => TRUE
-			);
-
-			$this->session->set_userdata($newdata);
-			redirect('admin/homepage');
-		}
-		else{
-            $this->session->set_flashdata('error','Invalid Username or Password');
-		redirect('admin/login');
-			
-		}
-	}
-
-    public function logout(){
-		$this->session->sess_destroy();
-		redirect('admin/login');
-    }
-
+  
     public function homepage(){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Angelogistic Forwarder Corporation';
@@ -75,7 +40,7 @@ class Admin extends CI_Controller {
         $this->load->view('include/footer');
         $this->load->view('admin/homepage',compact('emps'));
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }  
     public function truckdetails($offset=0){
@@ -114,7 +79,7 @@ class Admin extends CI_Controller {
             $this->load->view('include/footer');
             $this->load->view('admin/truckdetails',compact('trucks'));
         }else{
-            redirect('admin/login');
+            redirect('login/admin');
         }
     }
 
@@ -153,7 +118,7 @@ class Admin extends CI_Controller {
             $this->load->view('include/footer');
             $this->load->view('admin/userprivelege',compact('emps'));
         }else{
-                redirect('admin/login');
+                redirect('login/admin');
             }
     } 
 
@@ -166,7 +131,7 @@ class Admin extends CI_Controller {
         $this->load->view('admin/truckgps');
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
 
@@ -179,7 +144,7 @@ class Admin extends CI_Controller {
         $this->load->view('include/calendar_foot');
         
 }else{
-    redirect('admin/login');
+    redirect('login/admin');
 }
     }  
 
@@ -192,7 +157,7 @@ class Admin extends CI_Controller {
         $this->load->view('include/calendar_foot');
         
 }else{
-    redirect('admin/login');
+    redirect('login/admin');
 }
     }  
 
@@ -205,7 +170,7 @@ class Admin extends CI_Controller {
         $this->load->view('admin/compose');
         $this->load->view('include/calendar_foot');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }  
 
@@ -218,7 +183,7 @@ class Admin extends CI_Controller {
         $this->load->view('admin/stats');
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
 
@@ -230,7 +195,7 @@ class Admin extends CI_Controller {
         $this->load->view('admin/profile');
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
 
@@ -271,7 +236,7 @@ class Admin extends CI_Controller {
         $this->load->view('include/footer');
         $this->load->view('admin/userdetails_staff',compact('emps'));
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
 
@@ -312,7 +277,7 @@ class Admin extends CI_Controller {
         $this->load->view('include/footer');
         $this->load->view('admin/userdetails_customer',compact('custs'));
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
 
@@ -352,7 +317,7 @@ class Admin extends CI_Controller {
         $this->load->view('include/footer');
         $this->load->view('admin/userdetails_driver',compact('drivs'));
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
 
@@ -392,7 +357,7 @@ class Admin extends CI_Controller {
         $this->load->view('include/footer');
         $this->load->view('admin/userdetails_helper',compact('helps'));
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
 
@@ -432,7 +397,7 @@ class Admin extends CI_Controller {
             $this->load->view('admin/booking',compact('books'));
             $this->load->view('include/footer');
         }else{
-            redirect('admin/login');
+            redirect('login/admin');
         }
     } 
     }
