@@ -45,10 +45,10 @@
                             <td><?= $main->amount?></td>
                             <td></td>
                             <td>
-                            <!-- <a href="<?= base_url().'truck/view/'.$truck->id?>" class="btn btn-default btn.lg" role="button">
+                            <!-- <a href="<?= base_url().'maintenance/view/'.$main->id?>" class="btn btn-default btn.lg" role="button">
                             <span class="fa fa-eye" aria-hidden="true">
                             </span></a> -->
-                            <!-- <a href="<?= base_url().'truck/edit/'.$truck->id?>" class="btn btn-default btn.lg" role="button">
+                            <!-- <a href="<?= base_url().'maintenance/edit/'.$main->id?>" class="btn btn-default btn.lg" role="button">
                             <span class="fa fa-edit" aria-hidden="true">
                             </span></a> -->
                             </td>
@@ -56,10 +56,10 @@
                     <?php endforeach; ?>
                 </tfoot>
               </table>
-              <div class="box-footer">
-                <!-- <a href="<?=base_url()?>truck/add" class="btn btn-success btn-block btn-sm" role="button">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Truck</a> -->
-                </div>
+              <!-- <div class="box-footer">
+                <a href="<?=base_url()?>maintenance/add" class="btn btn-success btn-block btn-sm" role="button">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Truck</a>
+                </div> -->
 
                 <center><?php echo $this->pagination->create_links();?></center>
             </div>
