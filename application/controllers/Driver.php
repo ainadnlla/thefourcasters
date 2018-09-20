@@ -114,7 +114,7 @@ $this->session->set_userdata($newdata);
         $this->load->view('admin/driver/driveradd');
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
     public function edit($id){
@@ -126,7 +126,7 @@ $this->session->set_userdata($newdata);
         $this->load->view('admin/driver/driveredit',compact('driv'));
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
     public function delete($Product_ID){
@@ -137,7 +137,7 @@ $this->session->set_userdata($newdata);
         $this->load->view('admin/driver/driverdelete',compact('driv'));
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     } 
     public function del($id){

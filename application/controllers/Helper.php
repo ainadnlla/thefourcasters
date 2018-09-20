@@ -57,7 +57,7 @@ class Helper extends CI_Controller {
             $this->load->view('admin/userdetails',compact('helps'));
             
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
         }
 
@@ -113,7 +113,7 @@ class Helper extends CI_Controller {
         $this->load->view('admin/helper/helperadd');
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
     public function edit($id){
@@ -125,7 +125,7 @@ class Helper extends CI_Controller {
         $this->load->view('admin/helper/helperedit',compact('help'));
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
     public function delete($Product_ID){
@@ -136,7 +136,7 @@ class Helper extends CI_Controller {
         $this->load->view('admin/helper/helperdelete',compact('help'));
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     } 
     public function del($id){

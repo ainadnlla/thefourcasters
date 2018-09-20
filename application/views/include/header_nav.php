@@ -112,6 +112,7 @@
           <ul class="treeview-menu">
             <li><a href="<?=base_url().'admin/truckdetails'?>"><i class="fa fa-table"></i> Truck Details</a></li>
             <li><a href="<?=base_url().'admin/truckgps'?>"><i class="fa fa-map-pin"></i> Truck GPS</a></li>
+            <li><a href="<?=base_url().'admin/maintenance'?>"><i class="fa fa-wrench"></i> Truck maintenance</a></li>
           </ul>
         </li>
 

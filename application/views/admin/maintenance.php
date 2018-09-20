@@ -13,9 +13,15 @@
         <div class="col-xs-12 col-md-12">
           <div class="box box-success">
             <div class="box-header">
-              <h3 class="box-title">Truck Information</h3>
+              <h3 class="box-title">Truck Maintenance</h3>
             </div>
-            <!-- /.box-header -->
+           
+          &nbsp;&nbsp; &nbsp;&nbsp;  <select type="dropdown" value="<?=$main->Truck_info ?>">
+          <?php 
+             // foreach($location as $row) { 
+              //  echo '<option value="'.$row->destination.'">' .$row->destination.'</option>';
+            //  }?>
+          </select>
             <div class="box-body">
               <table id="maintenance" class="table table-bordered table-hover table-striped dataTable">
                 <thead>
