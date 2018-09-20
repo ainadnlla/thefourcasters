@@ -57,6 +57,14 @@ public function getItem($id){
 public function regis($data){
     $this->db->insert('staff' , $data);
 }
+public function countbooking(){
+    return $this->db->count_all('booking');
+    }
+    public function getBook($norecs, $offset){
+        $this->db->order_by('date' == "DATE('%Y')", "ASC");
+        $query = $this->db->get('booking', $norecs, $offset);
+        return $query->result();
+        }
 }
 
 ?>
