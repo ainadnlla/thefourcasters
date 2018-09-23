@@ -3,15 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
--- Generation Time: Sep 23, 2018 at 04:43 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
-=======
 -- Generation Time: Sep 18, 2018 at 07:13 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
->>>>>>> 345196aa8fcbf36c56001a379cc4a1b936bf7967
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -152,7 +146,7 @@ INSERT INTO `destination` (`id`, `destination`) VALUES
 (4, 'MIP - Manila-North, Valenzuela, Bisalud Bagbauin (Evergreen Textile Printing)\r\n'),
 (5, 'MIP - Manila-North, Valenzuela, Bartolome KM. 16 Mc Arthur (Sun Fortune Inc.)'),
 (6, 'MIP - Manila-North, Valenzuela, Sitio Bisalud (Artos Textile Mills, Inc.)'),
-(7, 'MIP - Manila-North, Caloocan, Sta. Quiteria (Alysons\' Warehouse)'),
+(7, 'MIP - Manila-North, Caloocan, Sta. Quiteria (Alysons'' Warehouse)'),
 (8, 'MIP - Manila-North, Valenzuela, Talipapa'),
 (9, 'MIP - Manila-North, Valenzuela, Ugong'),
 (10, 'MIP - Pampanga, Angeles, Balibago'),
@@ -235,7 +229,6 @@ CREATE TABLE `driver` (
 --
 
 INSERT INTO `driver` (`img`, `id`, `driver_no`, `expire`, `fname`, `mname`, `lname`, `email`, `password`, `repass`, `gender`, `birthday`, `contact`, `experience`, `date`, `status`, `timein`, `timeout`, `weekday`) VALUES
-<<<<<<< HEAD
 ('default.jpg', 1, 'ACLDI010987016', '2020-01-01', 'Arnel', NULL, 'Villamor', 'avillamor@gmail.com', '123456789', '123456789', 'M', '1988-12-20', '09154269173', 5, '2015-03-25', 0, '12:00:00', '09:00:00', 'Mon'),
 ('default.jpg', 2, 'ACLDI090878015', '2020-01-01', 'Ernie', NULL, 'Saavedra', 'esaavedra@gmail.com', '123456789', '123456789', 'M', '1976-03-01', '09151496857', 10, '2013-08-21', 0, '01:00:00', '09:00:00', 'Tue'),
 ('default.jpg', 3, 'ACLDI240178014', '2020-01-01', 'Inigo', NULL, 'Rafaeles', 'irafaeles@gmail.com', '123456789', '123456789', 'M', '1987-05-11', '09150138304', 3, '2014-11-01', 0, '01:00:00', '09:00:00', 'Wed'),
@@ -255,14 +248,6 @@ INSERT INTO `driver` (`img`, `id`, `driver_no`, `expire`, `fname`, `mname`, `lna
 ('default.jpg', 17, 'ACLDI091180001', '2020-01-01', 'Wancho', NULL, 'Apas', 'wapas@gmail.com', '123456789', '123456789', 'M', '1976-11-13', '09125647820', 4, '2014-05-06', 0, '12:00:00', '09:00:00', 'Thurs'),
 ('default.jpg', 18, 'ACLDI091181567', '2020-01-01', 'Remante', NULL, 'Ibanez', 'ribanez@gmail.com', '123456789', '123456789', 'M', '1985-07-17', '09997531548', 6, '2011-06-19', 0, '11:00:00', '03:00:00', 'Wed'),
 ('default.jpg', 19, 'ACLDI091182000', '2020-01-01', 'Frederico', NULL, 'Alburo', 'falburo@gmail.com', '123456789', '123456789', 'M', '1978-09-26', '09192554863', 12, '2009-04-17', 0, '08:00:00', '07:00:00', 'Fri');
-=======
-('default.jpg', 1, '321', '2018-09-15', 'cxz', 'cxz', 'cxz', 'sample@sample.com', '123456789', '123456789', 'M', '2018-09-15', '09173338993', 321, '2018-09-15', 0, '15:46:00', '15:46:00', 'Mon,Wed,Thu'),
-('default.jpg', 2, '321', '2018-09-15', 'cxz', 'cxz', 'cxz', 'sample@sample.com', '123456789', '123456789', 'M', '2018-09-15', '09173338993', 15, '2018-09-15', 0, '16:55:00', '16:55:00', 'Mon,Tue,Wed,Thu,Fri'),
-('default.jpg', 3, '5456', '2018-09-15', 'Xylem', 'Water', 'System', 'sample@sample.com', '123456789', '123456789', 'M', '2018-09-15', '09173338993', 123, '2018-09-15', 0, '05:02:00', '17:02:00', 'Tue,Wed,Thu,Sat'),
-('default.jpg', 4, '321', '2018-09-17', 'Xylem', 'Water', 'System', 'sample@sample.com', '123456789', '123456789', 'M', '2018-09-17', '09173338993', 15, '2018-09-17', 0, '15:16:00', '15:16:00', 'Mon,Tue,Thu,Fri'),
-('default.jpg', 5, '321', '2018-09-17', 'Anthony', 'L.', 'Ane', 'anthonyjarlane@yahoo.com', '123456789', '123456789', 'M', '2018-09-17', '29173338995', 1545, '2018-09-17', 0, '15:18:00', '15:18:00', 'Tue,Thu,Fri'),
-('default.jpg', 6, '321', '2018-09-17', 'Xylem', 'Water', 'System', 'sample@sample.com', '123456789', '123456789', 'F', '2018-09-17', '09173338993', 15, '2018-09-17', 1, '15:21:00', '15:21:00', 'Tue,Thu,Fri');
->>>>>>> 345196aa8fcbf36c56001a379cc4a1b936bf7967
 
 -- --------------------------------------------------------
 
@@ -297,7 +282,6 @@ CREATE TABLE `helper` (
 --
 
 INSERT INTO `helper` (`img`, `id`, `driver_no`, `expire`, `fname`, `mname`, `lname`, `email`, `password`, `repass`, `birthday`, `gender`, `contact`, `date`, `status`, `experience`, `timein`, `timeout`, `weekday`) VALUES
-<<<<<<< HEAD
 ('default.jpg', 1, 'ACLHL000000017', '2020-01-01', 'Zander', NULL, 'Ubaldo', 'zubaldo@gmail.com', '123456789', '123456789', '1988-12-20', 'M', '09154269173', '2015-03-25', 0, 5, '12:00:00', '09:00:00', 'Mon'),
 ('default.jpg', 2, 'ACLHL000000016', '2020-01-01', 'Dario', NULL, 'Traquina', 'dtraquina@gmail.com', '123456789', '123456789', '1976-03-01', 'M', '09151496857', '2013-08-21', 0, 10, '01:00:00', '09:00:00', 'Tue'),
 ('default.jpg', 3, 'ACLHL230676015', '2020-01-01', 'Carlo', NULL, 'Tigbawan', 'ctigbawan@gmail.com', '123456789', '123456789', '1987-05-11', 'M', '09150138304', '2014-11-01', 0, 3, '01:00:00', '09:00:00', 'Wed'),
@@ -327,9 +311,6 @@ INSERT INTO `helper` (`img`, `id`, `driver_no`, `expire`, `fname`, `mname`, `lna
 ('default.jpg', 27, 'ACLDI300862013', '2020-01-01', 'Randy', NULL, 'Caberte', 'rcaberte@gmail.com', '123456789', '123456789', '1984-09-15', 'M', '09154736181', '2013-10-11', 0, 7, '03:00:00', '10:00:00', 'Thurs'),
 ('default.jpg', 28, 'ACLDI240178014', '2020-01-01', 'Jon', NULL, 'Hondrado', 'jhondrado@gmail.com', '123456789', '123456789', '1987-05-11', 'M', '09150138304', '2014-11-01', 0, 3, '01:00:00', '09:00:00', 'Wed'),
 ('default.jpg', 29, 'ACLD120884017', '2020-01-01', 'Roniel', NULL, 'Zamora', 'rzamora@gmail.com', '123456789', '123456789', '1985-08-30', 'M', '09170143697', '2018-02-25', 0, 2, '03:00:00', '10:00:00', 'Wed');
-=======
-('default.jpg', 1, 'dsadsa', '2018-09-17', 'Xylem', 'Water', 'System', 'sample@sample.com', '123456789', '123456789', '2018-09-17', 'M', '09173338993', '2018-09-17', 0, 0, '09:59:00', '09:59:00', 'Tue,Wed,Fri');
->>>>>>> 345196aa8fcbf36c56001a379cc4a1b936bf7967
 
 -- --------------------------------------------------------
 
@@ -521,21 +502,13 @@ ALTER TABLE `destination`
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-<<<<<<< HEAD
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-=======
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
->>>>>>> 345196aa8fcbf36c56001a379cc4a1b936bf7967
 
 --
 -- AUTO_INCREMENT for table `helper`
 --
 ALTER TABLE `helper`
-<<<<<<< HEAD
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-=======
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
->>>>>>> 345196aa8fcbf36c56001a379cc4a1b936bf7967
 
 --
 -- AUTO_INCREMENT for table `staff`

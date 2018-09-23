@@ -111,14 +111,16 @@ class Admin extends CI_Controller {
         }
     }
 
-    public function userprivelege($offset=0){
-        if($this->session->userdata('username') !=''){ 
-            $data['title'] = 'User Privelege | Angelogistic Forwarder Corporation';
-            $this->load->library('pagination');
-            $norecs = 5;
     
-            $config['base_url'] = base_url().'admin/userprivelege/';
-            $config['total_rows'] = $this->UserModel->getNumRecs();
+    public function maintenance($offset=0){
+        if($this->session->userdata('username') !=''){ 
+            $data['title'] = 'Truck Details | Angelogistic Forwarder Corporation';
+    
+            $this->load->library('pagination');
+            $norecs = 10;
+    
+            $config['base_url'] = base_url().'admin/maintenance/';
+            $config['total_rows'] = $this->MaintenanceModel->getNumRecs();
             $config['per_page'] = $norecs;
     
             $config['full_tag_open'] = "<ul class='pagination'>";
@@ -139,16 +141,16 @@ class Admin extends CI_Controller {
             $this->pagination->initialize($config);
     
             $this->load->config('myconfig');
-            $emps =  $this->UserModel->getItems($norecs, $offset);
+            $mains =  $this->MaintenanceModel->getItems($norecs, $offset);
             
             $this->load->view('include/header', $data);
             $this->load->view('include/header_nav');
             $this->load->view('include/footer');
-            $this->load->view('admin/userprivelege',compact('emps'));
+            $this->load->view('admin/maintenance',compact('mains'));
         }else{
-                redirect('login/admin');
-            }
-    } 
+            redirect('admin/login');
+        }
+    }
 
     public function truckgps(){
         if($this->session->userdata('username') !=''){ 
@@ -162,6 +164,7 @@ class Admin extends CI_Controller {
         redirect('login/admin');
     }
     }
+
 
     public function calendar(){
         if($this->session->userdata('username') !=''){ 
@@ -233,7 +236,7 @@ class Admin extends CI_Controller {
         $data['title'] = 'Staff Details | Angelogistic Forwarder Corporation';
 
         $this->load->library('pagination');
-        $norecs = 5;
+        $norecs = 10;
 
         $config['base_url'] = base_url().'admin/userdetails_staff/';
         $config['total_rows'] = $this->UserModel->getNumRecs();
@@ -274,7 +277,7 @@ class Admin extends CI_Controller {
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
 
         $this->load->library('pagination');
-        $norecs = 5;
+        $norecs = 10;
 
         $config['base_url'] = base_url().'admin/userdetails_customer/';
         $config['total_rows'] = $this->CustomerModel->getNumRecs();
@@ -314,7 +317,7 @@ class Admin extends CI_Controller {
         $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
 
         $this->load->library('pagination');
-        $norecs = 5;
+        $norecs = 10;
 
         $config['base_url'] = base_url().'admin/userdetails_driver/';
         $config['total_rows'] = $this->DriverModel->getNumRecs();
@@ -354,7 +357,7 @@ class Admin extends CI_Controller {
         $data['title'] = 'Helper Details | Angelogistic Forwarder Corporation';
 
         $this->load->library('pagination');
-        $norecs = 5;
+        $norecs = 10;
 
         $config['base_url'] = base_url().'admin/userdetails_Helper/';
         $config['total_rows'] = $this->HelperModel->getNumRecs();
@@ -394,7 +397,7 @@ class Admin extends CI_Controller {
             $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
 
             $this->load->library('pagination');
-            $norecs = 5;
+            $norecs = 10;
     
             $config['base_url'] = base_url().'admin/booking/';
             $config['total_rows'] = $this->BookingModel->getNumRecs();
@@ -428,46 +431,6 @@ class Admin extends CI_Controller {
             redirect('login/admin');
         }
     } 
-
-    public function maintenance($offset=0){
-        if($this->session->userdata('username') !=''){ 
-            $data['title'] = 'Truck Details | Angelogistic Forwarder Corporation';
-    
-            $this->load->library('pagination');
-            $norecs = 5;
-    
-            $config['base_url'] = base_url().'admin/maintenance/';
-            $config['total_rows'] = $this->MaintenanceModel->getNumRecs();
-            $config['per_page'] = $norecs;
-    
-            $config['full_tag_open'] = "<ul class='pagination'>";
-            $config['full_tag_close'] ="</ul>";
-            $config['num_tag_open'] = '<li>';
-            $config['num_tag_close'] = '</li>';
-            $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-            $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-            $config['next_tag_open'] = "<li>";
-            $config['next_tagl_close'] = "</li>";
-            $config['prev_tag_open'] = "<li>";
-            $config['prev_tagl_close'] = "</li>";
-            $config['first_tag_open'] = "<li>";
-            $config['first_tagl_close'] = "</li>";
-            $config['last_tag_open'] = "<li>";
-            $config['last_tagl_close'] = "</li>";
-    
-            $this->pagination->initialize($config);
-    
-            $this->load->config('myconfig');
-            $mains =  $this->MaintenanceModel->getItems($norecs, $offset);
-            
-            $this->load->view('include/header', $data);
-            $this->load->view('include/header_nav');
-            $this->load->view('include/footer');
-            $this->load->view('admin/maintenance',compact('mains'));
-        }else{
-            redirect('admin/login');
-        }
-    }
 
     }
 ?>

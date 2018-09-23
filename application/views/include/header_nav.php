@@ -1,4 +1,4 @@
-<body class="hold-transition skin-green-light sidebar-mini">
+<body class="hold-transition skin-green sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
@@ -80,7 +80,7 @@
           <a href="<?=base_url().'admin/profile'?>"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
-      <!-- search form -->
+      <!-- search form
       <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Search...">
@@ -91,7 +91,7 @@
               </span>
         </div>
       </form>
-      <!-- /.search form -->
+      search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
@@ -112,7 +112,6 @@
           <ul class="treeview-menu">
             <li><a href="<?=base_url().'admin/truckdetails'?>"><i class="fa fa-table"></i> Truck Details</a></li>
             <li><a href="<?=base_url().'admin/truckgps'?>"><i class="fa fa-map-pin"></i> Truck GPS</a></li>
-            <li><a href="<?=base_url().'admin/maintenance'?>"><i class="fa fa-wrench"></i> Truck maintenance</a></li>
           </ul>
         </li>
 

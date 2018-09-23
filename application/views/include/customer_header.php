@@ -2,7 +2,7 @@
 <div class="wrapper">
   <header class="main-header">
     <!-- Logo -->
-    <a href="<?=base_url().'customer/homepage'?>" class="logo">
+    <a href="<?=base_url().'customer/index'?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>AFC</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -107,7 +107,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li>
-        <a href="<?=base_url().'customer/homepage'?>">
+        <a href="<?=base_url().'customer/index'?>">
           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
         </a>
       </li>

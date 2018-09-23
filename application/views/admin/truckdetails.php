@@ -58,6 +58,9 @@
                             <a href="<?= base_url().'truck/edit/'.$truck->id?>" class="btn btn-default btn.lg" role="button">
                             <span class="fa fa-edit" aria-hidden="true">
                             </span></a>
+                            <a href="<?= base_url().'admin/maintenance/'.$truck->id?>" class="btn btn-default btn.lg" role="button">
+                            <span class="fa fa-wrench" aria-hidden="true">
+                            </span></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
