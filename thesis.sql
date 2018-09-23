@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2018 at 11:45 AM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Generation Time: Sep 23, 2018 at 04:43 PM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -108,7 +108,7 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`, `contact`, `date`, `status`, `created`, `updated`, `img`, `user_type`, `user_id`) VALUES
 (1, 'Wuerth Phils. Inc', 'Broker/Agent', '123456789', '123456789', 'wuerthphilsinc@gmail.com', '09147852136', '2018-09-15', 1, '2018-09-13 15:51:21', '2018-09-13 15:51:21', 'C:\\Users\\Anthony\\Pictures\\leopard.jpg', 0, 0),
-(2, 'Northern Chemical Sales Inc.', '', '123456789', '123456789', 'northernchemci@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:51:22', '2018-09-13 15:51:22', 'default.jpg', 0, 0),
+(2, 'Northern Chemical Sales Inc.', 'In-house Brokerage', '123456789', '123456789', 'northernchemci@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:51:22', '2018-09-13 15:51:22', 'default.jpg', 0, 0),
 (3, 'Alysons Chemical Enterprises Inc.', '', '123456789', '123456789', 'alysonschemic@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:51:22', '2018-09-13 15:51:22', 'default.jpg', 0, 0),
 (4, 'Breakthru Cleaning Agent', '', '123456789', '123456789', 'breakthru@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:52:32', '2018-09-13 15:52:32', 'default.jpg', 0, 0),
 (5, 'MyWine - the best italian wine', '', '123456789', '123456789', 'mywine@gmail.com', '09147852136', '0000-00-00', 0, '2018-09-13 15:52:32', '2018-09-13 15:52:32', 'default.jpg', 0, 0),
@@ -225,9 +225,25 @@ CREATE TABLE `driver` (
 --
 
 INSERT INTO `driver` (`img`, `id`, `driver_no`, `expire`, `fname`, `mname`, `lname`, `email`, `password`, `repass`, `gender`, `birthday`, `contact`, `experience`, `date`, `status`, `timein`, `timeout`, `weekday`) VALUES
-('default.jpg', 1, '321', '2018-09-15', 'cxz', 'cxz', 'cxz', 'sample@sample.com', '123456789', '123456789', 'M', '2018-09-15', '09173338993', 321, '2018-09-15', 0, '15:46:00', '15:46:00', 'Wed'),
-('default.jpg', 2, '321', '2018-09-15', 'cxz', 'cxz', 'cxz', 'sample@sample.com', '123456789', '123456789', 'M', '2018-09-15', '09173338993', 15, '2018-09-15', 0, '16:55:00', '16:55:00', 'Mon,Tue,Wed,Thu,Fri'),
-('default.jpg', 3, '5456', '2018-09-15', 'Xylem', 'Water', 'System', 'sample@sample.com', '123456789', '123456789', 'M', '2018-09-15', '09173338993', 123, '2018-09-15', 0, '05:02:00', '17:02:00', 'Tue,Wed,Thu,Sat');
+('default.jpg', 1, 'ACLDI010987016', '2020-01-01', 'Arnel', NULL, 'Villamor', 'avillamor@gmail.com', '123456789', '123456789', 'M', '1988-12-20', '09154269173', 5, '2015-03-25', 0, '12:00:00', '09:00:00', 'Mon'),
+('default.jpg', 2, 'ACLDI090878015', '2020-01-01', 'Ernie', NULL, 'Saavedra', 'esaavedra@gmail.com', '123456789', '123456789', 'M', '1976-03-01', '09151496857', 10, '2013-08-21', 0, '01:00:00', '09:00:00', 'Tue'),
+('default.jpg', 3, 'ACLDI240178014', '2020-01-01', 'Inigo', NULL, 'Rafaeles', 'irafaeles@gmail.com', '123456789', '123456789', 'M', '1987-05-11', '09150138304', 3, '2014-11-01', 0, '01:00:00', '09:00:00', 'Wed'),
+('default.jpg', 4, 'ACLDI300862013', '2020-01-01', 'Joshua', NULL, 'Patino', 'jpatino@gmail.com', '123456789', '123456789', 'M', '1984-09-15', '09154736181', 7, '2013-10-11', 0, '03:00:00', '10:00:00', 'Thurs'),
+('default.jpg', 5, 'ACLD120884017', '2020-01-01', 'John Robert', NULL, 'Tambanillo', 'jrtambanillo@gmail.com', '123456789', '123456789', 'M', '1985-08-30', '09170143697', 2, '2018-02-25', 0, '03:00:00', '10:00:00', 'Thurs'),
+('default.jpg', 6, 'ACLDI070952012', '2020-01-01', 'Joe', NULL, 'Layan', 'jlayan@gmail.com', '123456789', '123456789', 'M', '1969-07-24', '09103451236', 12, '2009-01-15', 0, '03:00:00', '10:00:00', 'Thurs'),
+('default.jpg', 7, 'ACLDI000000011', '2020-01-01', 'Mau', NULL, 'Latap', 'mlatap@gmail.com', '123456789', '123456789', 'M', '1985-06-30', '09135715948', 6, '2012-02-26', 0, '04:00:00', '12:00:00', 'Fri'),
+('default.jpg', 8, 'ACLDI280588010', '2020-01-01', 'Jeremy', NULL, 'Lansang', 'jlansang@gmail.com', '123456789', '123456789', 'M', '1983-08-31', '09676247831', 6, '2018-04-20', 0, '05:00:00', '09:00:00', 'Sat'),
+('default.jpg', 9, 'ACLDI260573009', '2020-01-01', 'Ronnie', NULL, 'Jaballa', 'rjaballa@gmail.com', '123456789', '123456789', 'M', '1986-07-11', '09051478365', 5, '2014-05-17', 0, '05:00:00', '05:00:00', 'Sun'),
+('default.jpg', 10, 'ACLDI311276008', '2020-01-01', 'Donnie', NULL, 'Jaballa', 'djaballa@gmail.com', '123456789', '123456789', 'M', '1984-06-23', '09153146987', 4, '2015-07-13', 0, '09:00:00', '04:00:00', 'Sat'),
+('default.jpg', 11, 'ACLDI201084007', '2020-01-01', 'Mariano', NULL, 'Estaris', 'mestaris@gmail.com', '123456789', '123456789', 'M', '1984-12-10', '09364251658', 8, '2011-03-29', 0, '01:00:00', '02:00:00', 'Mon'),
+('default.jpg', 12, 'ACLDI180468006', '2020-01-01', 'Lemuel', NULL, 'Catalan', 'lcatalan@gmail.com', '123456789', '123456789', 'M', '1985-08-11', '09458621403', 3, '2016-09-23', 0, '02:00:00', '12:00:00', 'Thurs'),
+('default.jpg', 13, 'ACLDI241164005', '2020-01-01', 'Tonyo', NULL, 'Bitoon', 'tbitoon@gmail.com', '123456789', '123456789', 'M', '1975-04-14', '09073556128', 12, '2010-12-21', 0, '07:00:00', '12:00:00', 'Sun'),
+('default.jpg', 14, 'ACLDI141281004', '2020-01-01', 'Jonalyn', NULL, 'Bartolome', 'jbartolome@gmail.com', '123456789', '123456789', 'M', '1987-10-14', '09154669875', 5, '2015-01-20', 0, '09:00:00', '08:00:00', 'Wed'),
+('default.jpg', 15, 'ACLDI081281003', '2020-01-01', 'Ernesto', NULL, 'Baquiran', 'ebaquiran@gmail.com', '123456789', '123456789', 'M', '1981-03-18', '09478621034', 9, '2009-06-28', 0, '12:00:00', '12:00:00', 'Fri'),
+('default.jpg', 16, 'ACLDI241283002', '2020-01-01', 'Jing', NULL, 'Baluran', 'jbaluran@gmail.com', '123456789', '123456789', 'M', '1988-09-12', '09365448607', 4, '2012-02-22', 0, '11:00:00', '12:00:00', 'Tue'),
+('default.jpg', 17, 'ACLDI091180001', '2020-01-01', 'Wancho', NULL, 'Apas', 'wapas@gmail.com', '123456789', '123456789', 'M', '1976-11-13', '09125647820', 4, '2014-05-06', 0, '12:00:00', '09:00:00', 'Thurs'),
+('default.jpg', 18, 'ACLDI091181567', '2020-01-01', 'Remante', NULL, 'Ibanez', 'ribanez@gmail.com', '123456789', '123456789', 'M', '1985-07-17', '09997531548', 6, '2011-06-19', 0, '11:00:00', '03:00:00', 'Wed'),
+('default.jpg', 19, 'ACLDI091182000', '2020-01-01', 'Frederico', NULL, 'Alburo', 'falburo@gmail.com', '123456789', '123456789', 'M', '1978-09-26', '09192554863', 12, '2009-04-17', 0, '08:00:00', '07:00:00', 'Fri');
 
 -- --------------------------------------------------------
 
@@ -241,7 +257,7 @@ CREATE TABLE `helper` (
   `driver_no` varchar(50) NOT NULL,
   `expire` date NOT NULL,
   `fname` varchar(50) NOT NULL,
-  `mname` varchar(50) NOT NULL,
+  `mname` varchar(50) DEFAULT NULL,
   `lname` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
@@ -255,6 +271,57 @@ CREATE TABLE `helper` (
   `timein` time NOT NULL,
   `timeout` time NOT NULL,
   `weekday` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `helper`
+--
+
+INSERT INTO `helper` (`img`, `id`, `driver_no`, `expire`, `fname`, `mname`, `lname`, `email`, `password`, `repass`, `birthday`, `gender`, `contact`, `date`, `status`, `experience`, `timein`, `timeout`, `weekday`) VALUES
+('default.jpg', 1, 'ACLHL000000017', '2020-01-01', 'Zander', NULL, 'Ubaldo', 'zubaldo@gmail.com', '123456789', '123456789', '1988-12-20', 'M', '09154269173', '2015-03-25', 0, 5, '12:00:00', '09:00:00', 'Mon'),
+('default.jpg', 2, 'ACLHL000000016', '2020-01-01', 'Dario', NULL, 'Traquina', 'dtraquina@gmail.com', '123456789', '123456789', '1976-03-01', 'M', '09151496857', '2013-08-21', 0, 10, '01:00:00', '09:00:00', 'Tue'),
+('default.jpg', 3, 'ACLHL230676015', '2020-01-01', 'Carlo', NULL, 'Tigbawan', 'ctigbawan@gmail.com', '123456789', '123456789', '1987-05-11', 'M', '09150138304', '2014-11-01', 0, 3, '01:00:00', '09:00:00', 'Wed'),
+('default.jpg', 4, 'ACLHL000000014', '2020-01-01', 'Anthony', NULL, 'Tanaya', 'atanaya@gmail.com', '123456789', '123456789', '1984-09-15', 'M', '09154736181', '2013-10-11', 0, 7, '03:00:00', '10:00:00', 'Thurs'),
+('default.jpg', 5, 'ACLHL000000013', '2020-01-01', 'Elembert', NULL, 'Rodriguez', 'erodriguez@gmail.com', '123456789', '123456789', '1985-08-30', 'M', '09170143697', '2018-02-25', 0, 2, '03:00:00', '10:00:00', 'Thurs'),
+('default.jpg', 6, 'ACLHL011288012', '2020-01-01', 'Arkeo', NULL, 'Mendez', 'amendez@gmail.com', '123456789', '123456789', '1969-07-24', 'M', '09103451236', '2009-01-15', 0, 12, '03:00:00', '10:00:00', 'Thurs'),
+('default.jpg', 7, 'ACLHL011288011', '2020-01-01', 'Berto', NULL, 'Lozada', 'blozada@gmail.com', '123456789', '123456789', '1985-06-30', 'M', '09135715948', '2012-02-26', 0, 6, '04:00:00', '12:00:00', 'Fri'),
+('default.jpg', 8, 'ACLHL221285010', '2020-01-01', 'Francisco', NULL, 'Lomente', 'jlomente@gmail.com', '123456789', '123456789', '1983-08-31', 'M', '09676247831', '2018-04-20', 0, 6, '05:00:00', '09:00:00', 'Sat'),
+('default.jpg', 9, 'ACLHL211294009', '2020-01-01', 'Sandro', NULL, 'Lomente', 'slomente@gmail.com', '123456789', '123456789', '1986-07-11', 'M', '09051478365', '2014-05-17', 0, 5, '05:00:00', '05:00:00', 'Sun'),
+('default.jpg', 10, 'ACLHL090395007', '2020-01-01', 'Gardo', NULL, 'Librojo', 'glibrojo@gmail.com', '123456789', '123456789', '1984-06-23', 'M', '09153146987', '2015-07-13', 0, 4, '09:00:00', '04:00:00', 'Sat'),
+('default.jpg', 11, 'ACLHL231076006', '2020-01-01', 'Armando', NULL, 'Lagrimas', 'alagrimas@gmail.com', '123456789', '123456789', '1984-12-10', 'M', '09364251658', '2011-03-29', 0, 8, '01:00:00', '02:00:00', 'Mon'),
+('default.jpg', 12, 'ACLHL280599005', '2020-01-01', 'Virgilio', NULL, 'Jaballa', 'vjaballa@gmail.com', '123456789', '123456789', '1985-08-11', 'M', '09458621403', '2016-09-23', 0, 3, '02:00:00', '12:00:00', 'Thurs'),
+('default.jpg', 13, 'ACLHL281190004', '2020-01-01', 'Jester', NULL, 'Fernandez', 'jfernandez@gmail.com', '123456789', '123456789', '1975-04-14', 'M', '09073556128', '2010-12-21', 0, 12, '07:00:00', '12:00:00', 'Sun'),
+('default.jpg', 14, 'ACLHL180589003', '2020-01-01', 'Mario', NULL, 'Deguitos', 'mdeguitos@gmail.com', '123456789', '123456789', '1987-10-14', 'M', '09154669875', '2015-01-20', 0, 5, '09:00:00', '08:00:00', 'Wed'),
+('default.jpg', 15, 'ACLHL260490002', '2020-01-01', 'Lito', NULL, 'Catalan Jr.', 'lcatalan@gmail.com', '123456789', '123456789', '1981-03-18', 'M', '09478621034', '2009-06-28', 0, 9, '12:00:00', '12:00:00', 'Fri'),
+('default.jpg', 16, 'ACLHL000000021', '2020-01-01', 'Dereck', NULL, 'Traqueña', 'dtraqueña@gmail.com', '123456789', '123456789', '1988-09-12', 'M', '09365448607', '2012-02-22', 0, 4, '11:00:00', '12:00:00', 'Tue'),
+('default.jpg', 17, 'ACLHL000000001', '2020-01-01', 'Jason', NULL, 'Ablazo', 'jablazo@gmail.com', '123456789', '123456789', '1976-11-13', 'M', '09125647820', '2014-05-06', 0, 4, '12:00:00', '09:00:00', 'Thurs'),
+('default.jpg', 18, 'ACLHL000000019', '2020-01-01', 'Ronald', NULL, 'Dumas', 'rdumas@gmail.com', '123456789', '123456789', '1985-07-17', 'M', '09997531548', '2011-06-19', 0, 6, '11:00:00', '03:00:00', 'Wed'),
+('default.jpg', 19, 'ACLHL000000020', '2020-01-01', 'Art', NULL, 'Mangawang', 'amangawang@gmail.com', '123456789', '123456789', '1978-09-26', 'M', '09192554863', '2009-04-17', 0, 12, '08:00:00', '07:00:00', 'Fri'),
+('default.jpg', 20, 'ACLHL000000018', '2020-01-01', 'Allan', NULL, 'Catalan', 'acatalan@gmail.com', '123456789', '123456789', '1981-02-24', 'M', '09192554863', '2011-05-12', 0, 12, '08:00:00', '07:00:00', 'Mon'),
+('default.jpg', 21, 'ACLDI311273008', '2020-01-01', 'Nino', NULL, 'Altamia', 'nltamia@gmail.com', '123456789', '123456789', '1984-06-23', 'M', '09153146987', '2015-07-13', 0, 4, '09:00:00', '04:00:00', 'Sat'),
+('default.jpg', 22, 'ACLDI271643009', '2020-01-01', 'Ethan', NULL, 'Bitoon', 'ebitoon@gmail.com', '123456789', '123456789', '1986-07-11', 'M', '09051478365', '2014-05-17', 0, 5, '05:00:00', '05:00:00', 'Sun'),
+('default.jpg', 23, 'ACLDI280588010', '2020-01-01', 'Mauricio', NULL, 'Paras', 'mparas@gmail.com', '123456789', '123456789', '1983-08-31', 'M', '09676247831', '2018-04-20', 0, 6, '05:00:00', '09:00:00', 'Sat'),
+('default.jpg', 24, 'ACLDI000000039', '2020-01-01', 'Mio', NULL, 'Sareno', 'msareno@gmail.com', '123456789', '123456789', '1985-06-30', 'M', '09135715948', '2012-02-26', 0, 6, '04:00:00', '12:00:00', 'Fri'),
+('default.jpg', 25, 'ACLDI070952012', '2020-01-01', 'Raul', NULL, 'Lagutao', 'rlagutao@gmail.com', '123456789', '123456789', '1969-07-24', 'M', '09103451236', '2009-01-15', 0, 12, '03:00:00', '10:00:00', 'Thurs'),
+('default.jpg', 26, 'ACLD120884017', '2020-01-01', 'Andrew', NULL, 'Mateo', 'amateo@gmail.com', '123456789', '123456789', '1985-08-30', 'M', '09170143697', '2018-02-25', 0, 2, '03:00:00', '10:00:00', 'Thurs'),
+('default.jpg', 27, 'ACLDI300862013', '2020-01-01', 'Randy', NULL, 'Caberte', 'rcaberte@gmail.com', '123456789', '123456789', '1984-09-15', 'M', '09154736181', '2013-10-11', 0, 7, '03:00:00', '10:00:00', 'Thurs'),
+('default.jpg', 28, 'ACLDI240178014', '2020-01-01', 'Jon', NULL, 'Hondrado', 'jhondrado@gmail.com', '123456789', '123456789', '1987-05-11', 'M', '09150138304', '2014-11-01', 0, 3, '01:00:00', '09:00:00', 'Wed'),
+('default.jpg', 29, 'ACLD120884017', '2020-01-01', 'Roniel', NULL, 'Zamora', 'rzamora@gmail.com', '123456789', '123456789', '1985-08-30', 'M', '09170143697', '2018-02-25', 0, 2, '03:00:00', '10:00:00', 'Wed');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `maintenance`
+--
+
+CREATE TABLE `maintenance` (
+  `supplier` varchar(50) NOT NULL,
+  `description` varchar(50) DEFAULT NULL,
+  `purchased` date NOT NULL,
+  `price` int(25) NOT NULL,
+  `cost` varchar(25) NOT NULL,
+  `quantity` int(5) NOT NULL,
+  `amount` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -286,8 +353,8 @@ CREATE TABLE `staff` (
 
 INSERT INTO `staff` (`img`, `id`, `fname`, `lname`, `mname`, `gender`, `birthday`, `contact`, `date`, `email`, `password`, `repass`, `status`, `priv`) VALUES
 ('default.jpg', 1, 'Anthony', 'Ane', 'L.', 'M', '0000-00-00', '09191245852', '1998-05-28', 'anthonyjarlane@yahoo.com', '123456789', '123456789', 0, 0),
-('default.jpg', 2, 'Anthony1', 'Ane', 'L.', 'M', '0000-00-00', '0', '2018-05-05', 'a@yahoo.com', '123456789', '123456789', 0, 1),
-('C:\\Users\\Anthony\\Pictures\\321312312.jpg', 3, 'Leona', 'Kim', 'Marj', 'F', '0000-00-00', '09173338993', '2009-12-03', 'dso@yahoo.com', '123456789', '123456789', 0, 1),
+('C:\\Users\\Anthony\\Pictures\\321312312.jpg', 2, 'Anthony1', 'Ane', 'L.', 'M', '2018-09-17', '09173338993', '2018-05-05', 'a@yahoo.com', '123456789', '123456789', 1, 1),
+('321312312.jpg', 3, 'Leona', 'Kim', 'Marj', 'F', '0000-00-00', '09173338993', '2009-12-03', 'dso@yahoo.com', '123456789', '123456789', 0, 1),
 ('logo.jpg', 4, 'Aina', 'Sales', 'Rongavilla', 'F', '1998-11-04', '09192753740', '2018-09-05', 'ainadrsales@gmail.com', '123456789', '123456789', 1, 1),
 ('C:\\xampp\\htdocs\\thefourcasters\\images\\logo.png', 5, 'Sample', 'Sample', '', 'M', '1998-05-05', '12345678901', '2005-04-15', 'sample@sample.com', '123456789', '123456789', 1, 4),
 ('', 6, 'dsadsa', 'dsa', 'ad', 'F', '2018-09-08', '0', '2018-09-08', '123@yahoo.com', '123456789', '123456789', 1, 2),
@@ -387,6 +454,12 @@ ALTER TABLE `helper`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `maintenance`
+--
+ALTER TABLE `maintenance`
+  ADD PRIMARY KEY (`supplier`);
+
+--
 -- Indexes for table `staff`
 --
 ALTER TABLE `staff`
@@ -412,7 +485,7 @@ ALTER TABLE `booking`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `destination`
@@ -424,13 +497,13 @@ ALTER TABLE `destination`
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `helper`
 --
 ALTER TABLE `helper`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `staff`
@@ -442,7 +515,7 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `truck`
 --
 ALTER TABLE `truck`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
