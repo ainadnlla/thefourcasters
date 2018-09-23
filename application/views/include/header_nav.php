@@ -56,7 +56,7 @@
                   <a href="<?=base_url().'admin/profile'?>"> <span class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                <a href="<?=base_url().'admin/logout'?>"> <span class="btn btn-default btn-flat">Sign out</span></a>
+                <a href="<?=base_url().'login/logoutadmin'?>"> <span class="btn btn-default btn-flat">Sign out</span></a>
                 </div>
               </li>
             </ul>
@@ -112,6 +112,7 @@
           <ul class="treeview-menu">
             <li><a href="<?=base_url().'admin/truckdetails'?>"><i class="fa fa-table"></i> Truck Details</a></li>
             <li><a href="<?=base_url().'admin/truckgps'?>"><i class="fa fa-map-pin"></i> Truck GPS</a></li>
+            <li><a href="<?=base_url().'admin/maintenance'?>"><i class="fa fa-wrench"></i> Truck maintenance</a></li>
           </ul>
         </li>
 

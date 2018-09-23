@@ -81,16 +81,20 @@ $this->session->set_userdata($newdata);
             'weekday'=> implode(",", $this->input->post('weekday')),
             'status' => $this->input->post('status')
         );
-            $this->form_validation->set_rules('driver_no', 'License No.', 'required');
-            $this->form_validation->set_rules('expire', 'License Expiry Date', 'required');
-            $this->form_validation->set_rules('fname', 'First Name', 'required');
-            $this->form_validation->set_rules('lname', 'Last Name', 'required');
-            $this->form_validation->set_rules('email', 'Email Address', 'required');
-            $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
-            $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
-            $this->form_validation->set_rules('birthday', 'Birth Day', 'required');
-            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
-            $this->form_validation->set_rules('experience', 'Years of Experience', 'required');
+        $this->form_validation->set_rules('driver_no', 'License No.', 'required');
+        $this->form_validation->set_rules('expire', 'License Expiry Date', 'required');
+        $this->form_validation->set_rules('fname', 'First Name', 'required');
+        $this->form_validation->set_rules('lname', 'Last Name', 'required');
+        $this->form_validation->set_rules('email', 'Email Address', 'required');
+        $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
+        $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
+        $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
+        $this->form_validation->set_rules('experience', 'Years of Experience', 'required');
+        $this->form_validation->set_rules('birthday', 'Birth Date', 'required');
+        $this->form_validation->set_rules('timein', 'Time In', 'required');
+        $this->form_validation->set_rules('timeout', 'Time Out', 'required');
+        $this->form_validation->set_rules('gender', 'Gender', 'required');
+
 
       if ($this->form_validation->run() == FALSE)
       {
@@ -110,7 +114,7 @@ $this->session->set_userdata($newdata);
         $this->load->view('admin/driver/driveradd');
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
     public function edit($id){
@@ -122,7 +126,7 @@ $this->session->set_userdata($newdata);
         $this->load->view('admin/driver/driveredit',compact('driv'));
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
     public function delete($Product_ID){
@@ -133,7 +137,7 @@ $this->session->set_userdata($newdata);
         $this->load->view('admin/driver/driverdelete',compact('driv'));
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     } 
     public function del($id){
@@ -177,71 +181,30 @@ $this->session->set_userdata($newdata);
         $this->form_validation->set_rules('birthday', 'Birth Date', 'required');
         $this->form_validation->set_rules('timein', 'Time In', 'required');
         $this->form_validation->set_rules('timeout', 'Time Out', 'required');
+        $this->form_validation->set_rules('gender', 'Gender', 'required');
+        $this->form_validation->set_rules('img', '(Image)', 'required');
 
             if ($this->form_validation->run() == FALSE)
             {
                 $this->edit($id);
             }
-            else
-            {
-                if ($this->input->post('img') == ""){
-                    $data = array (
-                        'img' => 'default.jpg',
-                        'driver_no' => $this->input->post('driver_no'),
-                        'expire' => $this->input->post('expire'),
-                        'fname' => $this->input->post('fname'),
-                        'mname' => $this->input->post('mname'),
-                        'lname' => $this->input->post('lname'),
-                        'email' => $this->input->post('email'),
-                        'password' => $this->input->post('password'),
-                        'repass' => $this->input->post('repass'),
-                        'birthday' => $this->input->post('birthday'),
-                        'gender' => $this->input->post('gender'),
-                        'contact' => $this->input->post('contact'),
-                        'experience' => $this->input->post('experience'),
-                        'date' => $this->input->post('date'),            
-                        'timein' => $this->input->post('timein'),
-                        'timeout' => $this->input->post('timeout'),
-                        'weekday'=> implode(",", $this->input->post('weekday'))
-                    );
-                    $this->DriverModel->update($id, $data);
-                    redirect('admin/userdetails_driver');    
-                }
-                else{
-                    $data = array (
-                        'img' => $this->input->post('img'),
-                        'driver_no' => $this->input->post('driver_no'),
-                        'expire' => $this->input->post('expire'),
-                        'fname' => $this->input->post('fname'),
-                        'mname' => $this->input->post('mname'),
-                        'lname' => $this->input->post('lname'),
-                        'email' => $this->input->post('email'),
-                        'password' => $this->input->post('password'),
-                        'repass' => $this->input->post('repass'),
-                        'birthday' => $this->input->post('birthday'),
-                        'gender' => $this->input->post('gender'),
-                        'contact' => $this->input->post('contact'),
-                        'experience' => $this->input->post('experience'),
-                        'date' => $this->input->post('date'),            
-                        'timein' => $this->input->post('timein'),
-                        'timeout' => $this->input->post('timeout'),
-                        'weekday'=> implode(",", $this->input->post('weekday'))
-                    );
-                    $this->DriverModel->update($id, $data);
-                    redirect('admin/userdetails_driver');    
-                }
-            }    
-        }
+            else{
+                $this->DriverModel->update($id, $data);
+                redirect('admin/userdetails_driver');    
+            }
+        }    
+
     
 
     public function do_upload(){  
+        $driv = $this->uri->segment(4);
         $id = $this->input->post('id');
         $data['driv'] = $this->DriverModel->getItem($id);
         $config['upload_path']          = './images/';
         $config['allowed_types']        = 'gif|jpg|png';
-        $config['max_size']             = 100;
-        $config['max_width']            = 1024;
-        $config['max_height']           = 768;
+        $config['max_size']             = 15000;
+        $config['max_width']            = 10000;
+        $config['max_height']           = 10000;
         $config['file_name']            = $data['driv']->id;
         $this->load->library('upload', $config);
         if ( ! $this->upload->do_upload('itemfile'))
@@ -251,32 +214,18 @@ $this->session->set_userdata($newdata);
         }
         else
         {
-            $data = $this->upload->data();
-            $this->DriverModel->update($id,array('img' => $data['file_name']));
-            $this->index();  
-            /*    $upload_data = $this->upload->data();
-                $config['image_library'] = 'gd2';
-                $config['source_image'] = './uploads/'.$upload_data['file_name'];
-                $config['create_thumb'] = TRUE;
-                $config['maintain_ratio'] = TRUE;
-                $config['width']         = 100;
-                $config['height']       = 100;
-                $config['thumb_marker'] = '';
-                $config['new_image'] = './uploads_thumbs/';
-                $this->load->library('image_lib');
-                $this->load->lib->initialize($config2);
-                
-                if ( ! $this->image_lib->resize())
-                {
-                    echo $this->image_lib->display_errors(); die();
-                }
-                $data['image']=$upload_data[file_name];
-                $this->DriverModel->insert($data);
-                $this->index(); */
-                }
+            // $data = $this->upload->data('file_name');
+            // $this->DriverModel->update($id,array('img' => $data['file_name']));
+            // $image = $this->upload->data('file_name');
+            // $data['id'] = $image;
+            // if ($this->driver->update('driver', $data, array('driver' => $this->session->id))) {
+            //     $data['user'] = $this->user->fetch('driver',array('id'=>$this->session->id))[0];
+            // if($this->insert_logs($this->session->uid,1,'Update Driver Details',31)){}
+            // }else {
+                $this->index();  
+            // }
         }
-    
-        
-    
     }
+        
+}
 ?>

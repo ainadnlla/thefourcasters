@@ -12,7 +12,7 @@
     <p class="login-box-msg">ADMINISTRATOR</p>
 
         <div class="form-group has-feedback">
-        <form class="form-signin" action='<?= base_url()."admin/signin"?>' method='POST'>
+        <form class="form-signin" action='<?= base_url()."login/signinadmin"?>' method='POST'>
             <input type="text" value='<?=set_value('username')?>' 
             name="username" class="form-control" placeholder="Username" required autofocus>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>

@@ -54,9 +54,7 @@
                             <td><?= $truck->year?></td>
                             <td><?= $DATE =date('Y') - $truck->year ?></td>
                             <td>
-                            <a href="<?= base_url().'truck/view/'.$truck->id?>" class="btn btn-default btn.lg" role="button">
-                            <span class="fa fa-eye" aria-hidden="true">
-                            </span></a>
+
                             <a href="<?= base_url().'truck/edit/'.$truck->id?>" class="btn btn-default btn.lg" role="button">
                             <span class="fa fa-edit" aria-hidden="true">
                             </span></a>

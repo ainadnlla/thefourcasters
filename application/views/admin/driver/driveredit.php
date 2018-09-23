@@ -36,7 +36,7 @@
         <label class="col-md-1 control-label" for="upload"></label>  
             <div class="col-md-9">
             <?php echo form_open_multipart('admin/do_upload');?>
-            <input class="form-control" type="file" name="img" size="20" >
+            <input value="<?=set_value('img')?>" class="form-control" type="file" name="img" size="20" >
             <?= form_error('img', '<span class="label label-danger">', '</span>'); ?>  
             </div>
           </div>
@@ -71,25 +71,24 @@
     </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label"for ="weekday">Weekdays</label>  
-      <label><?=$driv->weekday?></label>
+      <label class="col-md-4 control-label" for ="weekday">Weekdays</label>  
         <div class="col-md-8">
-        
-              <input type="checkbox" name="weekday[]" value="Sun"> Sunday<br>
-              <input type="checkbox" name="weekday[]" value="Mon"> Monday<br>
-              <input type="checkbox" name="weekday[]" value="Tue"> Tuesday<br>
-              <input type="checkbox" name="weekday[]" value="Wed"> Wednesday<br>
-              <input type="checkbox" name="weekday[]" value="Thu"> Thursday<br>
-              <input type="checkbox" name="weekday[]" value="Fri"> Friday<br>
-              <input type="checkbox" name="weekday[]" value="Sat"> Saturday<br>
-
-              </select>
+          <input disabled value="<?=$driv->weekday?>" type="text" class="form-control input-md">
             </div>
         </div>
-
-          </div>
+        <select name="weekday[]" multiple class="form-control">  
+            <option disabled name="weekday[]" value='<?=$driv->weekday?>' selected><?=$driv->weekday?></option>  
+                <option name="weekday[]" value="Sun">Sunday</option>
+                <option name="weekday[]" value="Mon">Monday</option>
+                <option name="weekday[]" value="Tues">Tuesday</option>
+                <option name="weekday[]" value="Wed">Wednesday</option>
+                <option name="weekday[]" value="Th">Thursday</option>
+                <option name="weekday[]" value="Fri">Friday</option>
+                <option name="weekday[]" value="Sat">Saturday</option>
+          </select>
         </div>
       </div>
+    </div>
 
     </div>
     </fieldset>
@@ -132,8 +131,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" >Middle Name</label>  
           <div class="col-md-6">
-            <input  value="<?=$driv->mname?>" name="mname" type="text" placeholder="Middle Name" class="form-control input-md" >
-            <?= form_error('mname', '<span class="label label-danger">', '</span>'); ?>  
+            <input  value="<?=$driv->mname?>" name="mname" type="text" placeholder="Middle Name (Optional)" class="form-control input-md" >
           </div>
       </div>  
 
@@ -237,21 +235,6 @@
           </div>
       </div>
 
-
-      <div class="form-group">
-      <label class="col-md-4 control-label"for ="weekday">Weekdays</label>  
-        <div class="col-md-8">
-    
-              <input type="checkbox" name="weekday[]" value="Sun"> Sunday<br>
-              <input type="checkbox" name="weekday[]" value="Mon"> Monday<br>
-              <input type="checkbox" name="weekday[]" value="Tue"> Tuesday<br>
-              <input type="checkbox" name="weekday[]" value="Wed"> Wednesday<br>
-              <input type="checkbox" name="weekday[]" value="Thu"> Thursday<br>
-              <input type="checkbox" name="weekday[]" value="Fri"> Friday<br>
-              <input type="checkbox" name="weekday[]" value="Sat"> Saturday<br>
-
-            </div>
-        </div>
       <div class="form-group">
         <label class="col-md-4 control-label" for="button1id"></label>
         <div class="col-md-6">

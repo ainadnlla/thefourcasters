@@ -13,7 +13,7 @@
         
         <div class="form-group has-feedback">
 
-            <form class="form-signin" action='<?= base_url()."staff/staff"?>' method='POST'>
+            <form class="form-signin" action='<?= base_url()."login/signinstaff"?>' method='POST'>
             <input type="text" 
             name="email" class="form-control" placeholder="Email@example.com" required autofocus>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>

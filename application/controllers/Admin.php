@@ -12,6 +12,7 @@ class Admin extends CI_Controller {
             $this->load->model('AdminModel');
             $this->load->model('BookingModel');
             $this->load->model('HelperModel');
+            $this->load->model('MaintenanceModel');
     }
 //
 //     function myFunction() {
@@ -21,60 +22,53 @@ class Admin extends CI_Controller {
 
 // ADMIN SIDE
 
-	public function login(){
+	 public function logged(){
+        $newdata = array(
+            'name'  => $user->name,
+            'username'     => $user->username,
+            'logged_in' => TRUE,
+            'isAdmin' => TRUE
+    );
+}
 
-        $this->load->view('include/login_header');
-        $this->load->view('admin/login');
-        $this->load->view('include/footer');
-        if($this->session->userdata('username') !=''){ 
-            redirect('admin/homepage');
-        }else{
-         
-        } 
-    }
-
-    public function signin(){
-		$admin = array(
-			'username' => $this->input->post('username'),
-			'password' => sha1($this->input->post('password'))
-			);
-
-		$user = $this->AdminModel->getAdmin($admin);
-
-		if(!$user == null){
-
-
-			$newdata = array(
-			        'name'  => $user->name,
-			        'username'     => $user->username,
-			        'logged_in' => TRUE,
-			        'isAdmin' => TRUE
-			);
-
-			$this->session->set_userdata($newdata);
-			redirect('admin/homepage');
-		}
-		else{
-            $this->session->set_flashdata('error','Invalid Username or Password');
-		redirect('admin/login');
-			
-		}
-	}
-
-    public function logout(){
-		$this->session->sess_destroy();
-		redirect('admin/login');
-    }
-
-    public function homepage(){
+  
+    public function homepage($offset=0){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Angelogistic Forwarder Corporation';
+        $this->load->library('pagination');
+        $norecs = 5;
+
+        $config['base_url'] = base_url().'admin/homepage/';
+        $config['total_rows'] = $this->UserModel->countbooking();
+        $config['per_page'] = $norecs;
+
+        $config['full_tag_open'] = "<ul class='pagination'>";
+        $config['full_tag_close'] ="</ul>";
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+        $config['next_tag_open'] = "<li>";
+        $config['next_tagl_close'] = "</li>";
+        $config['prev_tag_open'] = "<li>";
+        $config['prev_tagl_close'] = "</li>";
+        $config['first_tag_open'] = "<li>";
+        $config['first_tagl_close'] = "</li>";
+        $config['last_tag_open'] = "<li>";
+        $config['last_tagl_close'] = "</li>";
+
+        $this->pagination->initialize($config);
+
+        $this->load->config('myconfig');
+        $emps =  $this->UserModel->getBook($norecs, $offset);
+        
+        
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('admin/homepage',compact('emps'));
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }  
     public function truckdetails($offset=0){
@@ -113,7 +107,7 @@ class Admin extends CI_Controller {
             $this->load->view('include/footer');
             $this->load->view('admin/truckdetails',compact('trucks'));
         }else{
-            redirect('admin/login');
+            redirect('login/admin');
         }
     }
 
@@ -152,7 +146,7 @@ class Admin extends CI_Controller {
             $this->load->view('include/footer');
             $this->load->view('admin/userprivelege',compact('emps'));
         }else{
-                redirect('admin/login');
+                redirect('login/admin');
             }
     } 
 
@@ -165,7 +159,7 @@ class Admin extends CI_Controller {
         $this->load->view('admin/truckgps');
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
 
@@ -178,7 +172,7 @@ class Admin extends CI_Controller {
         $this->load->view('include/calendar_foot');
         
 }else{
-    redirect('admin/login');
+    redirect('login/admin');
 }
     }  
 
@@ -191,7 +185,7 @@ class Admin extends CI_Controller {
         $this->load->view('include/calendar_foot');
         
 }else{
-    redirect('admin/login');
+    redirect('login/admin');
 }
     }  
 
@@ -204,7 +198,7 @@ class Admin extends CI_Controller {
         $this->load->view('admin/compose');
         $this->load->view('include/calendar_foot');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }  
 
@@ -217,7 +211,7 @@ class Admin extends CI_Controller {
         $this->load->view('admin/stats');
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
 
@@ -229,7 +223,7 @@ class Admin extends CI_Controller {
         $this->load->view('admin/profile');
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
 
@@ -270,7 +264,7 @@ class Admin extends CI_Controller {
         $this->load->view('include/footer');
         $this->load->view('admin/userdetails_staff',compact('emps'));
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
 
@@ -311,7 +305,7 @@ class Admin extends CI_Controller {
         $this->load->view('include/footer');
         $this->load->view('admin/userdetails_customer',compact('custs'));
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
 
@@ -351,7 +345,7 @@ class Admin extends CI_Controller {
         $this->load->view('include/footer');
         $this->load->view('admin/userdetails_driver',compact('drivs'));
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
 
@@ -391,7 +385,7 @@ class Admin extends CI_Controller {
         $this->load->view('include/footer');
         $this->load->view('admin/userdetails_helper',compact('helps'));
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
 
@@ -431,8 +425,49 @@ class Admin extends CI_Controller {
             $this->load->view('admin/booking',compact('books'));
             $this->load->view('include/footer');
         }else{
-            redirect('admin/login');
+            redirect('login/admin');
         }
     } 
+
+    public function maintenance($offset=0){
+        if($this->session->userdata('username') !=''){ 
+            $data['title'] = 'Truck Details | Angelogistic Forwarder Corporation';
+    
+            $this->load->library('pagination');
+            $norecs = 5;
+    
+            $config['base_url'] = base_url().'admin/maintenance/';
+            $config['total_rows'] = $this->MaintenanceModel->getNumRecs();
+            $config['per_page'] = $norecs;
+    
+            $config['full_tag_open'] = "<ul class='pagination'>";
+            $config['full_tag_close'] ="</ul>";
+            $config['num_tag_open'] = '<li>';
+            $config['num_tag_close'] = '</li>';
+            $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+            $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+            $config['next_tag_open'] = "<li>";
+            $config['next_tagl_close'] = "</li>";
+            $config['prev_tag_open'] = "<li>";
+            $config['prev_tagl_close'] = "</li>";
+            $config['first_tag_open'] = "<li>";
+            $config['first_tagl_close'] = "</li>";
+            $config['last_tag_open'] = "<li>";
+            $config['last_tagl_close'] = "</li>";
+    
+            $this->pagination->initialize($config);
+    
+            $this->load->config('myconfig');
+            $mains =  $this->MaintenanceModel->getItems($norecs, $offset);
+            
+            $this->load->view('include/header', $data);
+            $this->load->view('include/header_nav');
+            $this->load->view('include/footer');
+            $this->load->view('admin/maintenance',compact('mains'));
+        }else{
+            redirect('admin/login');
+        }
+    }
+
     }
 ?>

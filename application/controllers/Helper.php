@@ -57,7 +57,7 @@ class Helper extends CI_Controller {
             $this->load->view('admin/userdetails',compact('helps'));
             
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
         }
 
@@ -78,7 +78,8 @@ class Helper extends CI_Controller {
             'date' => $this->input->post('date'), 
             'timein' =>$this->input->post('timein'),
             'timeout' => $this->input->post('timeout'),
-            'weekday'=> implode(",", $this->input->post('weekday'))          
+            'weekday'=> implode(",", $this->input->post('weekday'))   
+                   
         );
 
     /*    $data = $this->input->post();
@@ -89,8 +90,10 @@ class Helper extends CI_Controller {
             $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
             $this->form_validation->set_rules('birthday', 'Birth Day', 'required');
+            $this->form_validation->set_rules('gender', 'Gender', 'required');
             $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
             $this->form_validation->set_rules('date', 'Employement Date', 'required');
+            $this->form_validation->set_rules('weekday', 'Weekdays', 'required');
 
       if ($this->form_validation->run() == FALSE)
       {
@@ -110,7 +113,7 @@ class Helper extends CI_Controller {
         $this->load->view('admin/helper/helperadd');
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
     public function edit($id){
@@ -122,7 +125,7 @@ class Helper extends CI_Controller {
         $this->load->view('admin/helper/helperedit',compact('help'));
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
     public function delete($Product_ID){
@@ -133,7 +136,7 @@ class Helper extends CI_Controller {
         $this->load->view('admin/helper/helperdelete',compact('help'));
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     } 
     public function del($id){

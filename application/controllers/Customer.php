@@ -43,6 +43,8 @@ class Customer extends CI_Controller {
             $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
             $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
             $this->form_validation->set_rules('email', 'Email Address', 'required');
+            $this->form_validation->set_rules('cust_type', 'Customer Type', 'required');
+            $this->form_validation->set_rules('date', 'Expiration Date', 'required');
             $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
       if ($this->form_validation->run() == FALSE)
       {
@@ -106,12 +108,14 @@ class Customer extends CI_Controller {
     public function update($id){
         $data = $this->input->post();
         unset($data['submit']);
-            $this->form_validation->set_rules('name', 'Customer/Brokerage', 'required');
-            $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
-            $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
-            $this->form_validation->set_rules('email', 'Email Address', 'required');
-            $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
-            $this->form_validation->set_rules('img', 'Image', 'required');
+        $this->form_validation->set_rules('name', 'Customer/Brokerage', 'required');
+        $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
+        $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
+        $this->form_validation->set_rules('email', 'Email Address', 'required');
+        $this->form_validation->set_rules('cust_type', 'Customer Type', 'required');
+        $this->form_validation->set_rules('date', 'Expiration Date', 'required');
+        $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
+        $this->form_validation->set_rules('img', 'Image', 'required');
             
             if ($this->form_validation->run() == FALSE)
             {

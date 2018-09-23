@@ -37,7 +37,7 @@
         <label class="col-md-1 control-label" for="upload"></label>  
           <div class="col-md-9">
             <?php echo form_open_multipart('admin/do_upload');?>
-            <input class="form-control" type="file" name="img" size="20" >
+            <input value="<?=set_value('img')?>" class="form-control" type="file" name="img" size="20" >
             <?= form_error('img', '<span class="label label-danger">', '</span>'); ?>  
             </div>
           </div>
@@ -63,17 +63,18 @@
 
     <div class="form-group">
         <div class="col-xs-6">
-          <input  name="name" type="text" placeholder="Customer/Importer" class="form-control input-md">
+          <input value="<?=set_value('name')?>" name="name" type="text" placeholder="Customer/Importer" class="form-control input-md" required="">
           <?= form_error('name', '<span class="label label-danger">', '</span>') ?>  
         </div>
         <div class="col-xs-6">
-          <select name="cust_type" class="form-control">
+          <select value="<?=set_value('cust_type')?>" name="cust_type" class="form-control">
             <option Selected disabled="disabled" >Customer Type</option>
             <option value="In-house Brokerage">In-house Brokerage</option>
             <option value="Broker/Agent">Broker/Agent</option>
             <option value="Freight Forwarder">Freight Forwarder</option>
             <option value="Local/Sub-contractor">Local/Sub-contractor</option>
           </select>
+          <?= form_error('cust_type', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
     
@@ -88,11 +89,11 @@
 
     <div class="form-group">
         <div class="col-md-6">
-          <input name="password" type="password" placeholder="Password" class="form-control input-md">  
+          <input value="<?=set_value('password')?>" name="password" type="password" placeholder="Password" class="form-control input-md" required="">  
           <?= form_error('password', '<span class="label label-danger">', '</span>') ?>  
         </div>
         <div class="col-md-6">
-          <input name="repass" type="password" placeholder="Confirm Password" class="form-control input-md">  
+          <input value="<?=set_value('repass')?>" name="repass" type="password" placeholder="Confirm Password" class="form-control input-md" required="">  
           <?= form_error('repass', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
@@ -108,11 +109,11 @@
 
     <div class="form-group">
         <div class="col-md-6">
-          <input  name="email" type="email" placeholder="example@yahoo.com" class="form-control input-md">  
+          <input value="<?=set_value('email')?>" name="email" type="email" placeholder="example@yahoo.com" class="form-control input-md" required="">  
           <?= form_error('email', '<span class="label label-danger">', '</span>') ?>  
         </div>
         <div class="col-md-6">
-          <input name="contact" type="text" placeholder="Contact Number" class="form-control input-md">  
+          <input value="<?=set_value('contact')?>" name="contact" type="text" placeholder="Contact Number" class="form-control input-md" required="">  
           <?= form_error('contact', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
@@ -127,7 +128,7 @@
 
       <div class="form-group">
         <div class="col-md-6">
-          <input name="date" type="date" class="form-control input-md">  
+          <input value="<?=set_value('date')?>" name="date" type="date" class="form-control input-md" required="">  
           <?= form_error('date', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
