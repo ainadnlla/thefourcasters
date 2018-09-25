@@ -14,16 +14,6 @@
             <div class="box-header"> 
               <h3 class="box-title">Staff Information</h3>
 
-              <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search" value="Search"></i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <div class="box-body">  
               <table id="staff" class="table table-bordered table-hover table-striped">
                 <thead>
@@ -80,7 +70,6 @@
                 <a href="<?=base_url()?>staff/add" class="btn btn-success btn-block btn-sm" role="button">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Staff</a>
                 </div>
-                <center><?php echo $this->pagination->create_links();?></center>
             </div>
           </div>
         </div>        
@@ -116,8 +105,8 @@
   </footer>
   <script>
    $(function () {
-    $('#example1').DataTable()
-    $('#staff').DataTable({
+    $('#staff').DataTable()
+    $('#example5').DataTable({
       'paging'      : true,
       'lengthChange': false,
       'searching'   : false,

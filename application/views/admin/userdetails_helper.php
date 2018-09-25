@@ -76,8 +76,6 @@
                 <a href="<?=base_url()?>helper/add" class="btn btn-success btn-block btn-sm" role="button">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Truck Helper</a>
                 </div>
-
-                <center><?php echo $this->pagination->create_links();?></center>
             </div>
           </div>
         </div>
@@ -110,4 +108,16 @@
     <strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation</a>.</strong> All rights
     reserved.
   </footer>
-
+  <script>
+   $(function () {
+    $('#helper').DataTable()
+    $('#example4').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>

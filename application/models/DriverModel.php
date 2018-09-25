@@ -29,8 +29,8 @@ class DriverModel extends CI_Model{
 
 // PAGINATION
    
-   public function getItems($norecs, $offset){
-    $query = $this->db->get('driver', $norecs, $offset);
+   public function getItems(){
+    $query = $this->db->get('driver');
     return $query->result();
     }
 
