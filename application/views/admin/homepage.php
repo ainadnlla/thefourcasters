@@ -30,10 +30,7 @@
                   <thead>
                   <?php foreach($emps as $emp): ?>
                   <tr>
-                    <!-- <th>Order ID</th>
-                    <th>Item</th>
-                    <th>Status</th>
-                    <th>Popularity</th> -->
+                    
                    
               <th>Waybill</th>
               <th>Customer</th>
