@@ -143,7 +143,6 @@ class Admin extends CI_Controller {
     
             $this->load->config('myconfig');
             $mains =  $this->MaintenanceModel->getItems($norecs, $offset);
-            
             $this->load->view('include/header', $data);
             $this->load->view('include/header_nav');
             $this->load->view('include/footer');
