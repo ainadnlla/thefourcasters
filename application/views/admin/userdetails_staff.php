@@ -114,4 +114,16 @@
     <strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation</a>.</strong> All rights
     reserved.
   </footer>
-
+  <script>
+   $(function () {
+    $('#example1').DataTable()
+    $('#staff').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
