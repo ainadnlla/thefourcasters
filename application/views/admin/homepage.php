@@ -114,7 +114,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="table-responsive">
-                <table  id="example1" class="table no-margin">
+              <table id="example1" class="table table-bordered table-hover">
                   <thead>
                  
                   <tr>
@@ -169,13 +169,7 @@
               <a href="<?=base_url().'admin/booking'?>" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
               
             </div>
-            <!-- /.box-footer -->
           </div>
-          
-          <!-- /.box -->
-        </div>
-        <!-- /.col -->
-   
  </section>
  <!-- /.content -->
 </div>

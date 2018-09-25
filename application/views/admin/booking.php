@@ -17,7 +17,7 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <table id="Staff" class="table table-bordered table-hover table-striped">
+          <table id="booking" class="table table-bordered table-hover table-striped">
             <thead>
             <tr>
               <th>ID</th>
@@ -75,13 +75,6 @@
             </tfoot>
           <?php endforeach; ?> 
           </table>
-
-          <!-- <div class="box-footer">
-                <a href="<?=base_url()?>bookingadmin/add" class="btn btn-success btn-block btn-sm" role="button">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Booking Information</a>
-                </div> -->
-
-            <center><?php echo $this->pagination->create_links();?></center>
         </div>
       </div>
     </div>       
@@ -95,9 +88,15 @@
 reserved.
 </footer>
 <script>
-
-  $(document).ready( function () {
-      $('#Staff').DataTable();
-  } );
-
+   $(function () {
+    $('#booking').DataTable()
+    $('#example7').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
 </script>

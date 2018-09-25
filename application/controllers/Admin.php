@@ -32,38 +32,13 @@ class Admin extends CI_Controller {
 }
 
   
-    public function homepage($offset=0){
+    public function homepage(){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Angelogistic Forwarder Corporation';
-        $this->load->library('pagination');
-        $norecs = 5;
-
-        $config['base_url'] = base_url().'admin/homepage/';
-        $config['total_rows'] = $this->UserModel->countbooking();
-        $config['per_page'] = $norecs;
-
-        $config['full_tag_open'] = "<ul class='pagination'>";
-        $config['full_tag_close'] ="</ul>";
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-        $config['next_tag_open'] = "<li>";
-        $config['next_tagl_close'] = "</li>";
-        $config['prev_tag_open'] = "<li>";
-        $config['prev_tagl_close'] = "</li>";
-        $config['first_tag_open'] = "<li>";
-        $config['first_tagl_close'] = "</li>";
-        $config['last_tag_open'] = "<li>";
-        $config['last_tagl_close'] = "</li>";
-
-        $this->pagination->initialize($config);
-
+       
         $this->load->config('myconfig');
         $emps =  $this->UserModel->getBook();
   
-        
-        
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('admin/homepage',compact('emps'));
@@ -72,36 +47,12 @@ class Admin extends CI_Controller {
         redirect('login/admin');
     }
     }  
-    public function truckdetails($offset=0){
+    public function truckdetails(){
         if($this->session->userdata('username') !=''){ 
             $data['title'] = 'Truck Details | Angelogistic Forwarder Corporation';
-    
-            $this->load->library('pagination');
-            $norecs = 5;
-    
-            $config['base_url'] = base_url().'admin/truckdetails/';
-            $config['total_rows'] = $this->TruckModel->getNumRecs();
-            $config['per_page'] = $norecs;
-    
-            $config['full_tag_open'] = "<ul class='pagination'>";
-            $config['full_tag_close'] ="</ul>";
-            $config['num_tag_open'] = '<li>';
-            $config['num_tag_close'] = '</li>';
-            $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-            $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-            $config['next_tag_open'] = "<li>";
-            $config['next_tagl_close'] = "</li>";
-            $config['prev_tag_open'] = "<li>";
-            $config['prev_tagl_close'] = "</li>";
-            $config['first_tag_open'] = "<li>";
-            $config['first_tagl_close'] = "</li>";
-            $config['last_tag_open'] = "<li>";
-            $config['last_tagl_close'] = "</li>";
-    
-            $this->pagination->initialize($config);
-    
+        
             $this->load->config('myconfig');
-            $trucks =  $this->TruckModel->getItems($norecs, $offset);
+            $trucks =  $this->TruckModel->getItems();
             
             $this->load->view('include/header', $data);
             $this->load->view('include/header_nav');
@@ -113,36 +64,13 @@ class Admin extends CI_Controller {
     }
 
     
-    public function maintenance($offset=0){
+    public function maintenance(){
         if($this->session->userdata('username') !=''){ 
             $data['title'] = 'Truck Details | Angelogistic Forwarder Corporation';
     
-            $this->load->library('pagination');
-            $norecs = 10;
-    
-            $config['base_url'] = base_url().'admin/maintenance/';
-            $config['total_rows'] = $this->MaintenanceModel->getNumRecs();
-            $config['per_page'] = $norecs;
-    
-            $config['full_tag_open'] = "<ul class='pagination'>";
-            $config['full_tag_close'] ="</ul>";
-            $config['num_tag_open'] = '<li>';
-            $config['num_tag_close'] = '</li>';
-            $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-            $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-            $config['next_tag_open'] = "<li>";
-            $config['next_tagl_close'] = "</li>";
-            $config['prev_tag_open'] = "<li>";
-            $config['prev_tagl_close'] = "</li>";
-            $config['first_tag_open'] = "<li>";
-            $config['first_tagl_close'] = "</li>";
-            $config['last_tag_open'] = "<li>";
-            $config['last_tagl_close'] = "</li>";
-    
-            $this->pagination->initialize($config);
-    
             $this->load->config('myconfig');
-            $mains =  $this->MaintenanceModel->getItems($norecs, $offset);
+            $mains =  $this->MaintenanceModel->getItems();
+            
             $this->load->view('include/header', $data);
             $this->load->view('include/header_nav');
             $this->load->view('include/footer');
@@ -231,36 +159,12 @@ class Admin extends CI_Controller {
     }
 
 
-    public function userdetails_staff($offset=0){
+    public function userdetails_staff(){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Staff Details | Angelogistic Forwarder Corporation';
 
-        $this->load->library('pagination');
-        $norecs = 10;
-
-        $config['base_url'] = base_url().'admin/userdetails_staff/';
-        $config['total_rows'] = $this->UserModel->getNumRecs();
-        $config['per_page'] = $norecs;
-
-        $config['full_tag_open'] = "<ul class='pagination'>";
-        $config['full_tag_close'] ="</ul>";
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-        $config['next_tag_open'] = "<li>";
-        $config['next_tagl_close'] = "</li>";
-        $config['prev_tag_open'] = "<li>";
-        $config['prev_tagl_close'] = "</li>";
-        $config['first_tag_open'] = "<li>";
-        $config['first_tagl_close'] = "</li>";
-        $config['last_tag_open'] = "<li>";
-        $config['last_tagl_close'] = "</li>";
-
-        $this->pagination->initialize($config);
-
         $this->load->config('myconfig');
-        $emps =  $this->UserModel->getItems($norecs, $offset);
+        $emps =  $this->UserModel->getItems();
         
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
@@ -272,36 +176,13 @@ class Admin extends CI_Controller {
     }
 
 
-    public function userdetails_customer($offset=0){
+    public function userdetails_customer(){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
 
-        $this->load->library('pagination');
-        $norecs = 10;
-
-        $config['base_url'] = base_url().'admin/userdetails_customer/';
-        $config['total_rows'] = $this->CustomerModel->getNumRecs();
-        $config['per_page'] = $norecs;
-
-        $config['full_tag_open'] = "<ul class='pagination'>";
-        $config['full_tag_close'] ="</ul>";
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-        $config['next_tag_open'] = "<li>";
-        $config['next_tagl_close'] = "</li>";
-        $config['prev_tag_open'] = "<li>";
-        $config['prev_tagl_close'] = "</li>";
-        $config['first_tag_open'] = "<li>";
-        $config['first_tagl_close'] = "</li>";
-        $config['last_tag_open'] = "<li>";
-        $config['last_tagl_close'] = "</li>";
-
-        $this->pagination->initialize($config);
-
+        
         $this->load->config('myconfig');
-        $custs = $this->CustomerModel->getItems($norecs, $offset);
+        $custs = $this->CustomerModel->getItems();
         
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
@@ -312,36 +193,12 @@ class Admin extends CI_Controller {
     }
     }
 
-    public function userdetails_driver($offset=0){
+    public function userdetails_driver(){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
 
-        $this->load->library('pagination');
-        $norecs = 10;
-
-        $config['base_url'] = base_url().'admin/userdetails_driver/';
-        $config['total_rows'] = $this->DriverModel->getNumRecs();
-        $config['per_page'] = $norecs;
-
-        $config['full_tag_open'] = "<ul class='pagination'>";
-        $config['full_tag_close'] ="</ul>";
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-        $config['next_tag_open'] = "<li>";
-        $config['next_tagl_close'] = "</li>";
-        $config['prev_tag_open'] = "<li>";
-        $config['prev_tagl_close'] = "</li>";
-        $config['first_tag_open'] = "<li>";
-        $config['first_tagl_close'] = "</li>";
-        $config['last_tag_open'] = "<li>";
-        $config['last_tagl_close'] = "</li>";
-
-        $this->pagination->initialize($config);
-
         $this->load->config('myconfig');
-        $drivs = $this->DriverModel->getItems($norecs, $offset);
+        $drivs = $this->DriverModel->getItems();
         
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
@@ -352,36 +209,12 @@ class Admin extends CI_Controller {
     }
     }
 
-    public function userdetails_helper($offset=0){
+    public function userdetails_helper(){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Helper Details | Angelogistic Forwarder Corporation';
 
-        $this->load->library('pagination');
-        $norecs = 10;
-
-        $config['base_url'] = base_url().'admin/userdetails_Helper/';
-        $config['total_rows'] = $this->HelperModel->getNumRecs();
-        $config['per_page'] = $norecs;
-
-        $config['full_tag_open'] = "<ul class='pagination'>";
-        $config['full_tag_close'] ="</ul>";
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-        $config['next_tag_open'] = "<li>";
-        $config['next_tagl_close'] = "</li>";
-        $config['prev_tag_open'] = "<li>";
-        $config['prev_tagl_close'] = "</li>";
-        $config['first_tag_open'] = "<li>";
-        $config['first_tagl_close'] = "</li>";
-        $config['last_tag_open'] = "<li>";
-        $config['last_tagl_close'] = "</li>";
-
-        $this->pagination->initialize($config);
-
         $this->load->config('myconfig');
-        $helps = $this->HelperModel->getItems($norecs, $offset);
+        $helps = $this->HelperModel->getItems();
         
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
@@ -392,36 +225,12 @@ class Admin extends CI_Controller {
     }
     }
 
-    public function booking($offset=0){
+    public function booking(){
         if($this->session->userdata('username') !=''){ 
             $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
 
-            $this->load->library('pagination');
-            $norecs = 10;
-    
-            $config['base_url'] = base_url().'admin/booking/';
-            $config['total_rows'] = $this->BookingModel->getNumRecs();
-            $config['per_page'] = $norecs;
-    
-            $config['full_tag_open'] = "<ul class='pagination'>";
-            $config['full_tag_close'] ="</ul>";
-            $config['num_tag_open'] = '<li>';
-            $config['num_tag_close'] = '</li>';
-            $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-            $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-            $config['next_tag_open'] = "<li>";
-            $config['next_tagl_close'] = "</li>";
-            $config['prev_tag_open'] = "<li>";
-            $config['prev_tagl_close'] = "</li>";
-            $config['first_tag_open'] = "<li>";
-            $config['first_tagl_close'] = "</li>";
-            $config['last_tag_open'] = "<li>";
-            $config['last_tagl_close'] = "</li>";
-    
-            $this->pagination->initialize($config);
-    
             $this->load->config('myconfig');
-            $books =  $this->BookingModel->getItems($norecs, $offset);
+            $books =  $this->BookingModel->getItems();
 
             $this->load->view('include/header', $data);
             $this->load->view('include/header_nav');
