@@ -1,7 +1,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
    <!-- <script src="<?//=base_url()?>bs/js/bootstrap.min.js"></script>-->
-    
+
+<script src="<?=base_url()?>js/datatables.min.js"></script>
+
 <script src="<?=base_url()?>dashboard/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?=base_url()?>dashboard/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

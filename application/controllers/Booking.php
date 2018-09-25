@@ -16,6 +16,7 @@ class Booking extends CI_Controller {
 // CUSTOMER SIDE - BOOKING
     
     public function insert(){
+      
         $data = $this->input->post();
         unset($data['add']);
             $this->form_validation->set_rules('product', 'Product', 'required');       
@@ -34,7 +35,8 @@ class Booking extends CI_Controller {
       }
     }  
     public function add(){
-         if($this->session->userdata('email') !=''){ 
+         if($this->session->userdata('emailad') !=''){ 
+            $data['location'] = $this->BookingModel->getDestination();
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
         $this->load->view('include/header', $data);
         $this->load->view('include/customer_header');
@@ -45,7 +47,7 @@ class Booking extends CI_Controller {
      }
     }
     public function edit($id){
-        if($this->session->userdata('email') !=''){ 
+        if($this->session->userdata('emailad') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
         $data['models'] = $this->TruckModel->getModel();
         $books = $this->BookingModel->getProd($id);
@@ -58,7 +60,7 @@ class Booking extends CI_Controller {
     }
     }
     public function delete($id){
-        if($this->session->userdata('email') !=''){ 
+        if($this->session->userdata('emailad') !=''){ 
         $books = $this->BookingModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/customer');

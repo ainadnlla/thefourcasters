@@ -94,3 +94,10 @@
 <strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation</a>.</strong> All rights
 reserved.
 </footer>
+<script>
+
+  $(document).ready( function () {
+      $('#Staff').DataTable();
+  } );
+
+</script>

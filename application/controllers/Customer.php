@@ -147,7 +147,7 @@ class Customer extends CI_Controller {
         {
             $data = $this->upload->data();
             $this->CustomerModel->update($id,array('img' => $data['file_name']));
-            $this->index();  
+            $this->homepage();  
             /*    $upload_data = $this->upload->data();
                 $config['image_library'] = 'gd2';
                 $config['source_image'] = './uploads/'.$upload_data['file_name'];
@@ -172,12 +172,12 @@ class Customer extends CI_Controller {
 
 //CUSTOMER SIDE
 
-    public function index(){
+    public function homepage(){
         if($this->session->userdata('emailad') !=''){ 
         $data['title'] = 'Angelogistic Forwarder Corporation';
         $this->load->view('include/header', $data);
         $this->load->view('include/customer_header');
-        $this->load->view('customer/index');
+        $this->load->view('customer/homepage');
         $this->load->view('include/footer');
        
         }else {
@@ -191,7 +191,7 @@ class Customer extends CI_Controller {
         $this->load->view('customer/login');
         $this->load->view('include/footer');
         if($this->session->userdata('emailad') !=''){ 
-                redirect('customer/index');
+                redirect('customer/homepage');
             }
             else {
             } 
@@ -213,7 +213,7 @@ class Customer extends CI_Controller {
                 'isAdmin' => TRUE
             );
             $this->session->set_userdata($session_data);
-            redirect('customer/index');
+            redirect('customer/homepage');
             }      
         }else{
             $this->session->set_flashdata('error','Invalid Username or Password');

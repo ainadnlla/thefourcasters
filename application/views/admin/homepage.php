@@ -26,7 +26,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="table-responsive">
-                <table class="table no-margin">
+                <table class="table no-margin" id="book">
                   <thead>
                   <?php foreach($emps as $emp): ?>
                   <tr>
@@ -74,11 +74,15 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix">
+            <center>  <?php echo $this->pagination->create_links();?></center>
               <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</a>
+              
               <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
+              
             </div>
             <!-- /.box-footer -->
           </div>
+          
           <!-- /.box -->
         </div>
         <!-- /.col -->
@@ -95,3 +99,10 @@
  <strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation</a>.</strong> All rights
  reserved.
 </footer>
+<script>
+
+  $(document).ready( function () {
+      $('#book').DataTable();
+  } );
+
+</script>

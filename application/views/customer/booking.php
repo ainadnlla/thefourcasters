@@ -67,7 +67,7 @@
               </table>
               <div class="box-footer">
               <a href="<?=base_url()?>booking/add" class="btn btn-success btn-block btn-sm" role="button">
-              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Truck Details</a>
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Book Schedule</a>
                 </div>
 
                 <center><?php echo $this->pagination->create_links();?></center>
