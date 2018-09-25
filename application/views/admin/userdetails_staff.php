@@ -67,7 +67,7 @@
                         <span class="fa fa-edit" aria-hidden="true">
                         </span></a>
                         
-                        <!-- <a href="<?=base_url('staff/del/'.$emp->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
+                        <!-- <a href="<?//=base_url('staff/del/'.$emp->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
                         </span></a> -->
                         </td>
@@ -87,7 +87,7 @@
     </section>
 </div>
 
-<div class="modal modal-danger fade" id="modal-danger">
+<!-- <div class="modal modal-danger fade" id="modal-danger">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -100,11 +100,11 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-outline" data-dismiss="modal">Cancel</button>
-                <a href="<?=base_url('admin/del/'.$emp->id)?>"  role="button" class="btn btn-outline" >Delete</a>
+                <a href="<?//=base_url('admin/del/'.$emp->id)?>"  role="button" class="btn btn-outline" >Delete</a>
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
 
   <footer class="main-footer">

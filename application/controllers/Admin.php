@@ -39,7 +39,7 @@ class Admin extends CI_Controller {
         $norecs = 5;
 
         $config['base_url'] = base_url().'admin/homepage/';
-        $config['total_rows'] = $this->UserModel->getbookcount();
+        $config['total_rows'] = $this->UserModel->countbooking();
         $config['per_page'] = $norecs;
 
         $config['full_tag_open'] = "<ul class='pagination'>";
@@ -60,7 +60,8 @@ class Admin extends CI_Controller {
         $this->pagination->initialize($config);
 
         $this->load->config('myconfig');
-        $emps =  $this->UserModel->getBook($norecs,$offset);
+        $emps =  $this->UserModel->getBook();
+  
         
         
         $this->load->view('include/header', $data);

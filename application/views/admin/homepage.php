@@ -12,6 +12,7 @@
  </section>
 
  <!-- Main content -->
+ 
  <section class="content">
  <div class="box box-info">
             <div class="box-header with-border">
@@ -26,9 +27,9 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="table-responsive">
-                <table class="table no-margin" id="book">
+              <table id="example2" class="table table-bordered table-hover">
                   <thead>
-                  <?php foreach($emps as $emp): ?>
+                 
                   <tr>
                     
                    
@@ -42,6 +43,7 @@
             
                   </tr>
                   </thead>
+                  <?php foreach($emps as $emp): ?>
                   <tbody>
                   <tr>
                
@@ -74,10 +76,10 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix">
-            <center>  <?php echo $this->pagination->create_links();?></center>
+           
               <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</a>
               
-              <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
+              <a href="<?=base_url().'admin/booking'?>" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
               
             </div>
             <!-- /.box-footer -->
@@ -100,9 +102,15 @@
  reserved.
 </footer>
 <script>
-
-  $(document).ready( function () {
-      $('#book').DataTable();
-  } );
-
+   $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
 </script>
