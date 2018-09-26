@@ -4,7 +4,9 @@
 <title><?= $title ?></title>   
 <link rel="icon" type="image/gif/png" href="<?= base_url()."images/logo.png"?>">
 <link rel="stylesheet" type="text/css" href="<?=base_url()?>css/font.css"/>
-
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
 <!-- ainadnlla -->
 <link rel="stylesheet" href="<?=base_url()?>dashboard/bower_components/bootstrap/dist/css/bootstrap.min.css">

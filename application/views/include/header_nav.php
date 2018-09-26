@@ -148,7 +148,7 @@
         </li>
 
         <li>
-          <a href="<?=base_url().'admin/stats'?>">
+          <a href="<?=base_url().'admin/print'?>">
             <i class="fa fa-pie-chart"></i> <span>Reports</span>
           </a>
         </li>

@@ -243,6 +243,37 @@ class Admin extends CI_Controller {
             redirect('login/admin');
         }
     } 
+    public function print(){
+        if($this->session->userdata('username') !=''){ 
+            $data['title'] = 'Repots Information | Angelogistic Forwarder Corporation';
+
+            $this->load->config('myconfig');
+            $emps =  $this->UserModel->getBook();
+
+            $this->load->view('include/header', $data);
+            $this->load->view('include/header_nav');
+            $this->load->view('include/footer');
+            $this->load->view('admin/reports',compact('emps'));
+        }else{
+            redirect('login/admin');
+        }
+    }
+    public function toprint(){
+        if($this->session->userdata('username') !=''){ 
+            $data['title'] = 'Repots Information | Angelogistic Forwarder Corporation';
+
+            $this->load->config('myconfig');
+            $emps =  $this->UserModel->getBook();
+
+            $this->load->view('include/header', $data);
+            $this->load->view('include/header_nav');
+            $this->load->view('include/footer');
+            $this->load->view('admin/toprint',compact('emps'));
+        }else{
+            redirect('login/admin');
+        }
+    }
+    
 
     }
 ?>
