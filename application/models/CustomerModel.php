@@ -30,8 +30,8 @@ class CustomerModel extends CI_Model{
 
 // PAGINATION
    
-   public function getItems($norecs, $offset){
-    $query = $this->db->get('customer', $norecs, $offset);
+   public function getItems(){
+    $query = $this->db->get('customer');
     return $query->result();
     }
 

@@ -3,6 +3,8 @@
 
 <title><?= $title ?></title>   
 <link rel="icon" type="image/gif/png" href="<?= base_url()."images/logo.png"?>">
+<link rel="stylesheet" type="text/css" href="<?=base_url()?>css/font.css"/>
+
 
 <!-- ainadnlla -->
 <link rel="stylesheet" href="<?=base_url()?>dashboard/bower_components/bootstrap/dist/css/bootstrap.min.css">

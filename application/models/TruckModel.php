@@ -29,8 +29,8 @@ class TruckModel extends CI_Model{
 
 // PAGINATION
    
-   public function getItems($norecs, $offset){
-    $query = $this->db->get('truck', $norecs, $offset);
+   public function getItems(){
+    $query = $this->db->get('truck');
     return $query->result();
     }
 
@@ -51,6 +51,11 @@ class TruckModel extends CI_Model{
         $q = $this->db->get_where('truck',array('id'=>$id));
         return $q->row();
     }
+    public function getTruck(){
+        $query = $this->db->get('truck');
+        return $query->result();
+        }
+    
 
 }
 

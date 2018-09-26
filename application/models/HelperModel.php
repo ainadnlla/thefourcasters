@@ -29,8 +29,8 @@ class HelperModel extends CI_Model{
 
 // PAGINATION
    
-   public function getItems($norecs, $offset){
-    $query = $this->db->get('helper', $norecs, $offset);
+   public function getItems(){
+    $query = $this->db->get('helper');
     return $query->result();
     }
 

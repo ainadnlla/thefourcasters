@@ -190,7 +190,7 @@
       <label class="col-md-4 control-label" for="button1id"></label>
         <div class="col-md-4">
             <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Add</button>
-            <a href="<?=base_url().'admin/userdetails_customer/'?>" class="btn btn-danger" role="button">Back</a>
+            <a href="<?=base_url().'admin/userdetails_staff/'?>" class="btn btn-danger" role="button">Back</a>
             </div>
       </div>
 
