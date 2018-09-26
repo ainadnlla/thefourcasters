@@ -16,39 +16,7 @@
 
             
             </select> -->
-            <br>
-            <div class="col-xs-12">
-            <div class="box box-success">
-            <div class="box-header"> 
-            <h3 class="box-title">Truck Information</h3>
-            <div class="box-body">  
-            <table  class="table table-bordered table-hover table-striped">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Image</th>
-                    <th>Make</th>
-                    <th>Plate No.</th>
-                    <th>Series</th>
-                    <th>MV File No</th>
-                    <th>Year Model</th>
-                    <th>Year Old</th>
-                   
-                </tr>
-                </thead>
-                <tbody>
-                    <tr> 
-                    <td><?= $this->session->id?></td>
-                          
-                            <td><?= $this->session->brand?></td>
-                            <td><?= $this->session->plate_no?></td>
-                            <td><?= $this->session->series?></td>
-                            <td><?= $this->session->mvfile_no?></td>
-                            <td><?= $this->session->year?></td>
-                            <td><?//= $DATE =date('Y') - $truck->year?></td>
-                    </tr>        
-              
-              </table>  </div> </div> </div></div>
+      
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
@@ -125,7 +93,7 @@
                 <a href="<?=base_url()?>staff/add" class="btn btn-success btn-block btn-sm" role="button">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Details</a>
                 </div>
-                <center><?php echo $this->pagination->create_links();?></center>
+              
             </div>
           </div>
         </div>        

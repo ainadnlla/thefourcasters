@@ -41,8 +41,11 @@ class Admin extends CI_Controller {
   
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('admin/homepage',compact('emps'));
         $this->load->view('include/footer');
+        $this->load->view('admin/homepage');
+        $this->load->view('admin/bookinglatest',compact('emps'));
+
+       
     }else{
         redirect('login/admin');
     }
@@ -234,8 +237,8 @@ class Admin extends CI_Controller {
 
             $this->load->view('include/header', $data);
             $this->load->view('include/header_nav');
-            $this->load->view('admin/booking',compact('books'));
             $this->load->view('include/footer');
+            $this->load->view('admin/booking',compact('books'));
         }else{
             redirect('login/admin');
         }

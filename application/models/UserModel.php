@@ -60,11 +60,12 @@ public function regis($data){
 public function countbooking(){
     return $this->db->count_all('booking');
     }
+
+ 
+
     public function getBook(){
-        // $this->db->order_by('date' == DATE('%Y'), "ASC");
-        // $query = $this->db->get('booking', $norecs, $offset);
         $query = $this->db->query("SELECT * FROM booking WHERE EXTRACT(MONTH FROM date) = EXTRACT(MONTH from CURDATE()) AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())");
-        return $query->result();
+        return $query->result(); 
     }
 
     public function getbookcount()
