@@ -48,7 +48,7 @@
                   <td><?= $book->driver_name?></td>
                   <td><?= $book->helper_name?></td>
                   <td><?= $book->destination?></td>
-                  <td><?= $book->price?></td>
+                  <td>₱<?= $book->price?></td>
                   <td>  <?php if($book->action==1){ ?>
                           <div class="label label-success">
                             <strong>Accepted</strong>

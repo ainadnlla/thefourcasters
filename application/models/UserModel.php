@@ -52,7 +52,10 @@ public function getItem($id){
         return $q->row();
     }
 
-//status
+//Count
+
+
+
 //registration
 public function regis($data){
     $this->db->insert('staff' , $data);
@@ -61,21 +64,16 @@ public function countbooking(){
     return $this->db->count_all('booking');
     }
 
- 
 
-    public function getBook(){
-        $query = $this->db->query("SELECT * FROM booking WHERE EXTRACT(MONTH FROM date) = EXTRACT(MONTH from CURDATE()) AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())");
-        return $query->result(); 
+public function getBook(){
+    $query = $this->db->query("SELECT * FROM booking WHERE EXTRACT(MONTH FROM date) = EXTRACT(MONTH from CURDATE()) AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())");
+    return $query->result(); 
+}
+
+public function getbookcount(){
+    $query = $this->db->query("SELECT * FROM booking WHERE EXTRACT(MONTH FROM date) = EXTRACT(MONTH from CURDATE()) AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())");
+    return $query->num_rows();
     }
-
-    public function getbookcount()
-    {
-
-        $query = $this->db->query("SELECT * FROM booking WHERE EXTRACT(MONTH FROM date) = EXTRACT(MONTH from CURDATE()) AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())");
-        return $query->num_rows();
-
-    }
-
 }
 
 ?>

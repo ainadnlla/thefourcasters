@@ -243,9 +243,9 @@ class Admin extends CI_Controller {
             redirect('login/admin');
         }
     } 
-    public function print(){
+    public function reports(){
         if($this->session->userdata('username') !=''){ 
-            $data['title'] = 'Repots Information | Angelogistic Forwarder Corporation';
+            $data['title'] = 'Reports Information | Angelogistic Forwarder Corporation';
 
             $this->load->config('myconfig');
             $emps =  $this->UserModel->getBook();
@@ -260,15 +260,14 @@ class Admin extends CI_Controller {
     }
     public function toprint(){
         if($this->session->userdata('username') !=''){ 
-            $data['title'] = 'Repots Information | Angelogistic Forwarder Corporation';
+            $data['title'] = 'Reports Information | Angelogistic Forwarder Corporation';
 
             $this->load->config('myconfig');
             $emps =  $this->UserModel->getBook();
-
             $this->load->view('include/header', $data);
-            $this->load->view('include/header_nav');
             $this->load->view('include/footer');
             $this->load->view('admin/toprint',compact('emps'));
+            
         }else{
             redirect('login/admin');
         }
