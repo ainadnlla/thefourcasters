@@ -29,9 +29,11 @@
         <div class="row">
             <div class="col-xs-8">
                 <div class="checkbox icheck">
+                <div class="pull-left">
                     <label>
-                    &nbsp;&nbsp;&nbsp;  <input type="checkbox">&nbsp; Remember Me
+                        <input type="checkbox" value="">Remember Me
                     </label>
+                </div>
                 </div>
             </div>
         <!-- /.col -->
@@ -43,9 +45,9 @@
         <!-- /.col -->
       </div>
     </form>
-
-    <a href="<?=base_url().'customer/registration'?>"></i>Signup</a>
-    
+    <div class="text-center">
+    <br/><a href="<?=base_url().'customer/register'?>"></i>Create an account</a>
+    </div>
   </div>
   <!-- /.login-box-body -->
 </div>

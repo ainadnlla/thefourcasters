@@ -186,7 +186,6 @@ class Customer extends CI_Controller {
         }
 
     public function login(){
-        $data['title'] = 'Angelogistic Forwarder Corporation';
         $this->load->view('include/login_header');
         $this->load->view('customer/login');
         $this->load->view('include/footer');
@@ -300,11 +299,9 @@ class Customer extends CI_Controller {
              redirect('customer/login');
          }
     } 
-    public function registration(){
-        $data['title'] = 'Customer Registration | Angelogistic Forwarder Corporation';
-        
-        $this->load->view('include/header',$data);
-        $this->load->view('customer/customerregis');
+    public function register(){
+        $this->load->view('include/login_header');
+        $this->load->view('customer/register');
         $this->load->view('include/footer');
     }
         
@@ -332,7 +329,7 @@ class Customer extends CI_Controller {
                     $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
               if ($this->form_validation->run() == FALSE)
               {
-                  $this->registration();
+                  $this->register();
               }
               else
               {
