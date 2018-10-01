@@ -243,7 +243,7 @@ class Admin extends CI_Controller {
             redirect('login/admin');
         }
     } 
-    public function print(){
+    public function reports(){
         if($this->session->userdata('username') !=''){ 
             $data['title'] = 'Repots Information | Angelogistic Forwarder Corporation';
 
