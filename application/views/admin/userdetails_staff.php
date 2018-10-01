@@ -14,7 +14,7 @@
             <div class="box-header"> 
               <h3 class="box-title">Staff Information</h3>
 
-            <div class="box-body">  
+            <div class="box-body table-responsive">  
               <table id="staff" class="table table-bordered table-hover table-striped">
                 <thead>
                 <tr>

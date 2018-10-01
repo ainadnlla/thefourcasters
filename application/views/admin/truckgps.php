@@ -10,8 +10,8 @@
       </ol>
     </section>
 
-    <!-- Main content -->
-    
+     <!-- Main content -->
+     
 </div>
 
   <footer class="main-footer">
