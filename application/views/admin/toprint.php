@@ -29,7 +29,7 @@
       <!-- /.col -->
 
       <div class="col-sm-4 invoice-col">
-        <b>Report #</b><br>
+        <b>Report # <?php echo mt_rand(1000, 9999) ?></b><br>
       </div>
       <!-- /.col -->
     </div>
@@ -44,6 +44,8 @@
             <th>Waybill</th>
             <th>Customer</th>
             <th>Date</th>
+            <th>Product</th>
+            <th>Pieces</th>
             <th>Cargo Size</th>
             <th>Destination</th>
             <th>Price</th>
@@ -56,6 +58,8 @@
             <td><?= $emp->waybill?></td>
             <td><?= $emp->custname?></td>
             <td><?= $emp->date?></td>
+            <td><?= $emp->product?></td>
+            <td><?= $emp->pieces?></td>
             <td><?= $emp->cargo?></td>
             <td><?= $emp->destination?></td>
             <td><?= $emp->price?></td>
@@ -88,17 +92,13 @@
       </div>
       <!-- /.col -->
       <div class="col-xs-6">
-        <p class="lead">Amount Due <?php date_default_timezone_set('Asia/Manila'); echo date('m/d/y'); ?></p>
+        <p class="lead">Total Amount as of <?php date_default_timezone_set('Asia/Manila'); echo date('m/d/y'); ?></p>
 
         <div class="table-responsive">
           <table class="table">
             <tr>
-              <th style="width:50%">Subtotal:</th>
-              <td>₱</td>
-            </tr>
-            <tr>
               <th>Total:</th>
-              <td>₱ <?php echo $totalprice;?></td>
+              <td>₱ <?php echo $totalprice;?>.00</td>
             </tr>
           </table>
         </div>

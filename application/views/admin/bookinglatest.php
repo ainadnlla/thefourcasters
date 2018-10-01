@@ -17,6 +17,7 @@
           <th>Waybill</th>
           <th>Customer</th>
           <th>Date</th>
+          <th>Destination</th>
           <th>Status</th>
         </tr>
       </thead>
@@ -26,6 +27,7 @@
           <td><?= $emp->waybill?></td>
           <td><?= $emp->custname?></td>
           <td><?= $emp->date?></td>
+          <td><?= $emp->destination?></td>
           <td>  <?php if($emp->action==1){ ?>
             <div class="label label-success">
               <strong>Accepted</strong>
