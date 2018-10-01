@@ -271,8 +271,17 @@ class Admin extends CI_Controller {
         }else{
             redirect('login/admin');
         }
+     
     }
-    
+    public function pdf()
+    {
+        $data['title'] = 'PDF | Angelogistic Forwarder Corporation';
+        $data['totalprice'] = $this->UserModel->get_sum();
+        $this->load->config('myconfig');
+        $this->load->helper('pdf_helper');
+     //  $this->load->view('admin/topdf');
+        $this->load->view('admin/pdfreport', $data);
+    }
 
     }
 ?>
