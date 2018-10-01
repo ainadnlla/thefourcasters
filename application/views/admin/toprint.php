@@ -88,7 +88,7 @@
       </div>
       <!-- /.col -->
       <div class="col-xs-6">
-        <p class="lead">Amount Due 2/22/2014</p>
+        <p class="lead">Amount Due <?php date_default_timezone_set('Asia/Manila'); echo date('m/d/y'); ?></p>
 
         <div class="table-responsive">
           <table class="table">
