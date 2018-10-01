@@ -97,5 +97,9 @@ class Booking extends CI_Controller {
                 redirect('customer/booking');
             }
         }
+        //sample month
+        public function sample(){
+            $this->load->view("admin/sampleshit");
+        }
 }
 ?>

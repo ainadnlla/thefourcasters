@@ -71,7 +71,7 @@ public function getBook(){
 }
 
 public function getbookcount(){
-    $query = $this->db->query("SELECT * FROM booking WHERE EXTRACT(MONTH FROM date) = EXTRACT(MONTH from CURDATE()) AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())");
+    $query = $this->db->query("SELECT * FROM booking WHERE EXTRACT(MONTH  = $month FROM date) = EXTRACT(MONTH from CURDATE()) AND EXTRACT(YEAR = $year from date) = EXTRACT(YEAR from CURDATE())");
     return $query->num_rows();
     }
     //price
@@ -80,6 +80,13 @@ public function getbookcount(){
         $result = $this->db->query($sql);
         return $result->row()->totalprice;
     }
+//reports
+public function getmonth(){
+    $query = $this->db->get_where('booking', array('date' => $date));
+        return $query->row();
+  
+    
+}
 }
 
 ?>

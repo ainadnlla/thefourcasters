@@ -1,12 +1,9 @@
-<?php 
-tcpdf();
+<?php tcpdf();
 $obj_pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 $obj_pdf->SetCreator(PDF_CREATOR);
 $title = "PDF Report";
 $obj_pdf->SetTitle($title);
-//edit logistics logo sa header data
-$obj_pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, $title, PDF_HEADER_STRING);
-//
+$obj_pdf->SetHeaderData(base_url("images/logo.jpg"), PDF_HEADER_LOGO_WIDTH, $title, PDF_HEADER_STRING);
 $obj_pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 $obj_pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 $obj_pdf->SetDefaultMonospacedFont('helvetica');
@@ -17,13 +14,11 @@ $obj_pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
 $obj_pdf->SetFont('helvetica', '', 9);
 $obj_pdf->setFontSubsetting(false);
 $obj_pdf->AddPage();
-ob_start(); 
-//Start 
+ob_start();
 $emps =  $this->UserModel->getBook();
-   $this->load->view('admin/topdf',compact('emps'));
+    $this->load->view('admin/topdf',compact('emps'));
     $content = ob_get_contents();
-//End
 ob_end_clean();
 $obj_pdf->writeHTML($content, true, false, true, false, '');
-$obj_pdf->Output('report.pdf', 'I');
- ?>
+$obj_pdf->Output('output.pdf', 'I');
+?>
