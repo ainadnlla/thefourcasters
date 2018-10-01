@@ -261,12 +261,12 @@ class Admin extends CI_Controller {
     public function toprint(){
         if($this->session->userdata('username') !=''){ 
             $data['title'] = 'Reports Information | Angelogistic Forwarder Corporation';
-
+            $data['totalprice'] = $this->UserModel->get_sum();
             $this->load->config('myconfig');
             $emps =  $this->UserModel->getBook();
             $this->load->view('include/header', $data);
             $this->load->view('include/footer');
-            $this->load->view('admin/toprint',compact('emps'));
+            $this->load->view('admin/toprint',compact('emps',$data));
             
         }else{
             redirect('login/admin');
