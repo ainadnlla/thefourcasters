@@ -1,90 +1,113 @@
-<body onload="window.print();">
-<div class="content-wrapper">
-<section class="content">
-<div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Latest Orders</h3>
+<link rel="stylesheet" href="<?=base_url()?>css/invoice">
 
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
+</head>
+<body onload="window.print();">
+<div class="wrapper">
+  <!-- Main content -->
+  <section class="invoice">
+    <!-- title row -->
+    <div class="row">
+      <div class="col-xs-12">
+        <h2 class="page-header">
+        <img src="<?= base_url()."images/logo.jpg"?>" class="img-circle" width="50" alt="User Image"> Angelogistics Forwarder Corporation
+          <small class="pull-right"><?php date_default_timezone_set('Asia/Manila'); echo date('F d, Y'); ?></small>
+        </h2>
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- info row -->
+    <div class="row invoice-info">
+      <div class="col-sm-4 invoice-col">
+        <address>
+          <strong>Angelogistics Forwarder Corporation</strong><br>
+          103B A Halcon St. Cor Maria Clara<br>
+          Quezon City, Philippines<br>
+          Phone: (02) 714-1762<br>
+          Email: jsanlangustelao@gmail.com
+        </address>
+      </div>
+      <!-- /.col -->
+
+      <div class="col-sm-4 invoice-col">
+        <b>Report #</b><br>
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+
+    <!-- Table row -->
+    <div class="row">
+      <div class="col-xs-12 table-responsive">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Waybill</th>
+            <th>Customer</th>
+            <th>Date</th>
+            <th>Cargo Size</th>
+            <th>Destination</th>
+            <th>Price</th>
+            <th>Status</th>
+          </tr>
+          </thead>
+          <tbody>
+          <?php foreach($emps as $emp): ?>
+          <tr>
+            <td><?= $emp->waybill?></td>
+            <td><?= $emp->custname?></td>
+            <td><?= $emp->date?></td>
+            <td><?= $emp->cargo?></td>
+            <td><?= $emp->destination?></td>
+            <td><?= $emp->price?></td>
+            <td>  <?php if($emp->action==1){ ?>
+            <div class="label label-success">
+              <strong>Accepted</strong>
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="table-responsive">
-              <table id="example1" class="table table-bordered table-hover table-striped">
-                  <thead>
-                 
-                  <tr>
-                    
-                   
-              <th>Waybill</th>
-              <th>Customer</th>
-              <th>Date</th>
-              <th>Cargo Size</th>
-              <th>Destination</th>
-              <th>Price</th>
-              <th>Status</th>
-            
-                  </tr>
-                  </thead>
-                  <?php foreach($emps as $emp): ?>
-                  <tbody>
-                  <tr>
-               
-                  <td><?= $emp->waybill?></td>
-                  <td><?= $emp->custname?></td>
-                  <td><?= $emp->date?></td>
-                  <td><?= $emp->cargo?></td>
-                  <td><?= $emp->destination?></td>
-                  <td><?= $emp->price?></td>
-                  <td>  <?php if($emp->action==1){ ?>
-                          <div class="label label-success">
-                            <strong>Accepted</strong>
-                          </div>
-                        <?php }elseif($emp->action==2){ ?>
-                          <div class="label label-danger">
-                            <strong>Denied</strong>
-                          </div></p>
-                        <?php }else{?>
-                          <div class="label label-warning">
-                            <strong>Pending</strong>
-                          </div>
-                     <?php   }?>
-                     </td>
-                  </tr>
-                  </tbody>
-                  <?php endforeach; ?> 
-                </table>
+            <?php }elseif($emp->action==2){ ?>
+              <div class="label label-danger">
+                <strong>Denied</strong>
+              </div></p>
+            <?php }else{?>
+              <div class="label label-warning">
+                <strong>Pending</strong>
               </div>
-              <!-- /.table-responsive -->
-            </div>
-            <!-- /.box-body -->
-           
-          </div>
- </section>
- <!-- /.content -->
+            <?php  }?>
+            </td>
+          </tr>
+          <?php endforeach; ?> 
+          </tbody>
+        </table>
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+      <!-- accepted payments column -->
+      <div class="col-xs-6">  
+      </div>
+      <!-- /.col -->
+      <div class="col-xs-6">
+        <p class="lead">Amount Due 2/22/2014</p>
+
+        <div class="table-responsive">
+          <table class="table">
+            <tr>
+              <th style="width:50%">Subtotal:</th>
+              <td>₱</td>
+            </tr>
+            <tr>
+              <th>Total:</th>
+              <td>₱</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </section>
+  <!-- /.content -->
 </div>
-<!-- /.content-wrapper -->
-<footer class="main-footer">
- <div class="pull-right hidden-xs">
-   <b>The Fourcasters</b>
- </div>
- <strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation </a>.</strong> All rights
- reserved.
-</footer>
-<script>
-   $(function () {
-    $('#example1').DataTable()
-    $('#example5').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
-</script>
+<!-- ./wrapper -->
+</body>
