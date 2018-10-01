@@ -150,7 +150,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label">Price</label>
             <div class="col-md-4">
-            <input id="price" name="price" type="text" placeholder="Price" class="form-control input-md">
+            <input value="<?=$books->price?>" id="price" name="price" type="text" placeholder="Price" class="form-control input-md">
             </div>
         </div>
 
@@ -158,10 +158,10 @@
         <label class="col-md-4 control-label" >Status</label>
           <div class="col-md-4">
             <select name="action" value="<?=$books->action?>" class="form-control">
-            <option Selected disabled>Unchanged</option>
-            <option value="0">Pending</option>
-            <option value="1">Accept</option>
-            <option value="2">Deny</option>
+            <option Selected disabled="disabled" value="<?=$books->action?>" selected>(<?=$books->action?>)</option>
+            <option value="0">(0) Pending</option>
+            <option value="1">(1) Accept</option>
+            <option value="2">(2) Deny</option>
             </select>
           </div>
       </div>

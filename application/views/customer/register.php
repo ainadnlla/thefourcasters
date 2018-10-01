@@ -3,7 +3,6 @@
 <div class="register-box">
     <div class="text-center">
         <a href="<?=base_url()?>customer/register">
-        <img id="profile-img" width = "350px" alt="Image" src="<?= base_url()."images/AngelogisticsName.png"?>" />
         <p></p></a>
     </div>
   <!-- /.login-logo  -->
@@ -36,16 +35,18 @@
         <?= form_error('contact', '<span class="label label-danger">', '</span>') ?> 
       </div>
       <div class="form-group has-feedback">
-      <label class="col-md-4 control-label" for="name"><?= $image ?></label>  
+      <label class="col-md-12 control-label" for="name"><?= $image ?></label>  
           <?= $captchainput ?>                              
         <?= form_error('contact', '<span class="label label-danger">', '</span>') ?> 
       </div>
   
         <div class="row">
-        <div class="text-center">
-                <button type="submit" name='insert'class="btn btn-primary btn-flat">Sign Up</button>
-               
-            </div>
+        <div class="col-xs-4">
+        <a href="<?=base_url()?>customer/login" role="button" class="btn btn-primary btn-block btn-flat">Back</a>
+        </div>
+        <div class="col-xs-8">
+            <button type="submit" name='insert'class="pull-right btn btn-primary btn-block btn-flat">Sign In</button>
+        </div>
            
         <!-- /.col -->
       </div>

@@ -333,7 +333,7 @@ class Customer extends CI_Controller {
     $this->db->query($query);
 
     $data['image'] = $cap['image'];
-    $data['captchainput'] = '<input type="text" name="captcha" value="" class="col-md-8 control-label" placeholder="Enter Captcha">';
+    $data['captchainput'] = '<input type="text" name="captcha" value="" class="form-control" placeholder="Enter Captcha">';
 
         $this->load->view('include/login_header');
         $this->load->view('customer/register', $data);
