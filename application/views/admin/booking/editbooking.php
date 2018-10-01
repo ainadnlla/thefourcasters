@@ -72,7 +72,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label">Pieces</label>  
             <div class="col-md-4">
-              <input value="<?=$books->pieces?>" name="destination" type="text" placeholder="Destination" class="form-control input-md">
+              <input value="<?=$books->pieces?>" name="pieces" type="text" placeholder="Destination" class="form-control input-md">
               <?= form_error('pieces', '<span class="label label-danger">', '</span>') ?>  
           </div>
         </div>
@@ -95,6 +95,7 @@
           <label class="col-md-4 control-label">Truck Plate No.</label>  
             <div class="col-md-4">
           <select value="<?=$books->plate_no?>" name="plate_no" class="form-control">
+          <option Selected disabled="disabled" value="<?=$books->plate_no?>" selected><?=$books->plate_no?></option>
             <?php 
               foreach($plate_nos as $row) { 
                 echo '<option value="'.$row->plate_no.'">'.$row->plate_no.'</option>';
@@ -108,6 +109,7 @@
           <label class="col-md-4 control-label">Driver</label>  
             <div class="col-md-4">
             <select value="<?=$books->driver_name?>" name="driver_name" class="form-control">
+            <option Selected disabled="disabled" value="<?=$books->driver_name?>" selected><?=$books->driver_name?></option>
             <?php 
               foreach($drivernames as $row) { 
                 echo '<option value="'.$row->fname.' '.$row->lname.'">' .$row->fname.' '. $row->lname.'</option>';
@@ -121,6 +123,7 @@
           <label class="col-md-4 control-label">Helper</label>  
             <div class="col-md-4">
             <select value="<?=$books->helper_name?>" name="helper_name" class="form-control">
+            <option Selected disabled="disabled" value="<?=$books->helper_name?>" selected><?=$books->helper_name?></option>
             <?php 
               foreach($helpernames as $row) { 
                 echo '<option value="'.$row->fname.' '.$row->lname.'">' .$row->fname.' '. $row->lname.'</option>';
@@ -134,6 +137,7 @@
           <label class="col-md-4 control-label">Destination</label>  
             <div class="col-md-4">
             <select value="<?=$books->destination?>" name="destination" class="form-control">
+            <option Selected disabled="disabled" value="<?=$books->destination?>" selected><?=$books->destination?></option>
             <?php 
               foreach($location as $row) { 
                 echo '<option value="'.$row->destination.'">' .$row->destination.'</option>';

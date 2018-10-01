@@ -46,8 +46,9 @@
       </div>
     </form>
     <div class="text-center">
-    <br/><a href="<?=base_url().'customer/register'?>"></i>Create an account</a>
+    <br/><a href="<?=base_url()?>customer/register" ></i>Create an account</a>
     </div>
   </div>
-  <!-- /.login-box-body -->
+
+
 </div>

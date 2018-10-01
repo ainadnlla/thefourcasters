@@ -35,6 +35,11 @@
         <span class="glyphicon glyphicon-phone form-control-feedback"></span>
         <?= form_error('contact', '<span class="label label-danger">', '</span>') ?> 
       </div>
+      <div class="form-group has-feedback">
+      <label class="col-md-4 control-label" for="name"><?= $image ?></label>  
+          <?= $captchainput ?>                              
+        <?= form_error('contact', '<span class="label label-danger">', '</span>') ?> 
+      </div>
   
         <div class="row">
         <div class="text-center">
