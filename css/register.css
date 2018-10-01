@@ -1,0 +1,14 @@
+body {
+    background-image: "base_url().'images/Angelogistics.jpg'";
+    height: 100%;
+    overflow: hidden;
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.register-color{
+    background-color: #bcd6ff;
+    border-radius: 20px;
+}

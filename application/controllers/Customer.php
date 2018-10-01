@@ -305,8 +305,8 @@ class Customer extends CI_Controller {
         $vals = array(	
             'img_path'      => './captcha/',
             'img_url'       => base_url().'captcha/',
-            'img_width'     => '150',
-            'img_height'    => 30,
+            'img_width'     => '100',
+            'img_height'    => 25,
             'expiration'    => 7200,
             'word_length'   => 5,
             'font_size'     => 20,

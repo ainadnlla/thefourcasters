@@ -12,6 +12,7 @@ class Staff extends CI_Controller {
             $this->load->model('AdminModel');
             $this->load->model('BookingModel');
             $this->load->model('HelperModel');
+            $this->load->helper('captcha');
     }
 
 
@@ -730,39 +731,85 @@ public function logged(){
                }
            }
 
+    public function register(){
 
+        $vals = array(	
+            'img_path'      => './captcha/',
+            'img_url'       => base_url().'captcha/',
+            'img_width'     => '100',
+            'img_height'    => 25,
+            'expiration'    => 7200,
+            'word_length'   => 5,
+            'font_size'     => 20,
+            'img_id'        => 'Imageid',
+            'pool'          => '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ',
 
+            // White background and border, black text and red grid
+            'colors'        => array(
+                    'background' => array(255, 255, 255),
+                    'border' => array(255, 255, 255),
+                    'text' => array(0, 0, 0),
+                    'grid' => array(0, 0, 255)
+            )
+    );
 
-    //public function approve(){
-    //    $id = $_GET['id'];
-    //    $query = "select * from `requests` where `id` = '$id'; ";
-    //    if(count(fetchAll($query)) > 0){
-    //       foreach(fetchAll($query) as $row){
-    //           $firstname = $row['firstname'];
-    //            $lastname = $row['lastname'];
-    //            $email = $row['email'];
-    //            $password = $row['password'];
-    //            $query = "INSERT INTO `accounts` (`id`, `firstname`, `lastname`, `email`, `type`, `password`) VALUES (NULL, '$firstname', '$lastname', '$email', 'user', '$password');";
-    //        }
-    //        $query .= "DELETE FROM `requests` WHERE `requests`.`id` = '$id';";
-    //        if(performQuery($query)){
-    //            echo "Booking has been accepted.";
-    //        }else{
-    //           echo "Unknown error occured. Please try again.";
-    //        }
-    //    }
-    //}
+    $cap = create_captcha($vals);
+    $data2 = array(
+            'captcha_time'  => $cap['time'],
+            'ip_address'    => $this->input->ip_address(),
+            'word'          => $cap['word']
+    );
 
-    //public function remove(){
-    //    $id = $_GET['id'];
+    $query = $this->db->insert_string('captcha', $data2);
+    $this->db->query($query);
+
+    $data['image'] = $cap['image'];
+    $data['captchainput'] = '<input type="text" name="captcha" value="" class="form-control" placeholder="Enter Captcha">';
+
+        $this->load->view('include/login_header');
+        $this->load->view('staff/register', $data);
+        $this->load->view('include/footer');
+    }
         
-    //    $query = "DELETE FROM `requests` WHERE `requests`.`id` = '$id';";
-    //        if(performQuery($query)){
-    //            echo "Booking has been rejected.";
-    //        }else{
-    //            echo "Unknown error occured. Please try again.";
-    //        }
-    //}
+    public function regis(){
+        
+                $data = array (
+                    'img' => 'default.jpg',
+                    'fname' => $this->input->post('fname'),
+                    'mname' => $this->input->post('mname'),
+                    'lname' => $this->input->post('lname'),
+                    'email' => $this->input->post('email'),
+                    'password' => $this->input->post('password'),
+                    'repass' => $this->input->post('repass'),
+                    'birthday' => $this->input->post('birthday'),
+                    'gender' => $this->input->post('gender'),
+                    'contact' => $this->input->post('contact'),
+                    'date' => $this->input->post('date'),
+        
+                );
+        
+              /*  $data = $this->input->post();
+                unset($data['add']); */
+                $this->form_validation->set_rules('fname', 'First Name', 'required');
+                $this->form_validation->set_rules('lname', 'Last Name', 'required');
+                $this->form_validation->set_rules('email', 'Email Address', 'required');
+                $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
+                $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
+                $this->form_validation->set_rules('gender', 'Gender', 'required');
+                $this->form_validation->set_rules('birthday', 'Birth Date', 'required');
+                $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
+                $this->form_validation->set_rules('email', 'Email Address', 'required');
+                $this->form_validation->set_rules('date', 'Employment Date', 'required');
+              if ($this->form_validation->run() == FALSE)
+              {
+                  $this->register();
+              }
+              else
+              {
+                    $this->CustomerModel->signup($data);
+                    redirect('staff/login');
+              }
+            }  
     
 
 }
