@@ -15,7 +15,7 @@
               <h3 class="box-title">Truck Driver Information</h3>
             </div>
 
-            <div class="box-body">  
+            <div class="box-body table-responsive">  
               <table id="driver" class="table table-bordered table-hover table-striped">
                 <thead>
                 <tr>
@@ -25,8 +25,6 @@
                     <th>Expiry Date</th>
                     <th>Full Name</th>
                     <th>Email Address</th>
-                    <th>Birth Date</th>
-                    <th>Gender</th>
                     <th>Contact No.</th>
                     <th>Years of Experience</th>
                     <th>Employed Date</th>
@@ -43,8 +41,6 @@
                         <td><?= $driv->expire?></td>
                         <td><?= $driv->fname?> <?= $driv->mname?> <?= $driv->lname?></td>
                         <td><?= $driv->email?></td>                            
-                        <td><?= $driv->birthday?></td>
-                        <td><?= $driv->gender?></td>
                         <td><?= $driv->contact?></td>
                         <td><?= $driv->experience?></td>
                         <td><?= $driv->date?></td>

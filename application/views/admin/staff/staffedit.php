@@ -201,8 +201,6 @@
      </div>
      </fieldset>
     </div>
-    
-  </div>
 
   </section>
 </div>

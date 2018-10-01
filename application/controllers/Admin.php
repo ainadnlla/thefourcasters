@@ -273,6 +273,14 @@ class Admin extends CI_Controller {
         }
     }
     
+    public function error(){
+            $data['title'] = '404 Error | Angelogistic Forwarder Corporation';
+
+            $this->load->config('myconfig');
+            $this->load->view('include/header', $data);
+            $this->load->view('include/footer');
+            $this->load->view('admin/error');
+    }
 
     }
 ?>

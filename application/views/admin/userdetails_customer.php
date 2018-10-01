@@ -15,7 +15,7 @@
               <h3 class="box-title">Customer Information</h3>
             </div>
 
-            <div class="box-body">
+            <div class="box-body table-responsive">
               <table id="customer" class="table table-bordered table-hover table-striped">
                 <thead>
                 <tr>

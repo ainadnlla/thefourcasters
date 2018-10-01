@@ -16,16 +16,15 @@
           <h3 class="box-title">Delivery Progress Information</h3>
         </div>
         <!-- /.box-header -->
-        <div class="box-body">
+        <div class="box-body table-responsive">
           <table id="booking" class="table table-bordered table-hover table-striped">
             <thead>
             <tr>
-              <th>ID</th>
               <th>Waybill</th>
               <th>Customer</th>
               <th>Date</th>
               <th>Product</th>
-              <th>Cargo Size</th>
+              <th>Pieces</th>
               <th>Truck No.</th>
               <th>Driver Name</th>
               <th>Helper Name</th>
@@ -38,12 +37,11 @@
             <tbody>
             <?php foreach($books as $book): ?>
               <tr>
-                  <td><?= $book->id?></td>
                   <td><?= $book->waybill?></td>
                   <td><?= $book->custname?></td>
                   <td><?= $book->date?></td>
                   <td><?= $book->product?></td>
-                  <td><?= $book->cargo?></td>
+                  <td><?= $book->pieces?></td>
                   <td><?= $book->plate_no?></td>
                   <td><?= $book->driver_name?></td>
                   <td><?= $book->helper_name?></td>

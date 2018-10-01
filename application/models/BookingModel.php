@@ -58,7 +58,7 @@ class BookingModel extends CI_Model{
 
     function getHelper()
     {
-        $query = $this->db->query('SELECT fname, lname FROM driver WHERE status = "1"');
+        $query = $this->db->query('SELECT fname, lname FROM helper WHERE status = "1"');
         return $query->result();
     }
 

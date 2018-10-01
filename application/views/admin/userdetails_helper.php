@@ -15,7 +15,7 @@
               <h3 class="box-title">Truck Helper Information</h3>
             </div>
 
-            <div class="box-body">  
+            <div class="box-body table-responsive">  
               <table id="helper" class="table table-bordered table-hover table-striped">
                 <thead>
                 <tr>
@@ -25,8 +25,6 @@
                     <th>Expiry Date</th>
                     <th>Full Name</th>
                     <th>Email Address</th>
-                    <th>Birthday</th>
-                    <th>Gender</th>
                     <th>Contact No.</th>
                     <th>Employed Date</th>
                     <th>Status</th>
@@ -42,8 +40,6 @@
                         <td><?= $help->expire?></td>
                         <td><?= $help->fname?> <?= $help->mname?> <?= $help->lname?></td>
                         <td><?= $help->email?></td>                            
-                        <td><?= $help->birthday?></td>
-                        <td><?= $help->gender?></td>
                         <td><?= $help->contact?></td>
                         <td><?= $help->date?></td>
                         <td><p>
