@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="<?=base_url()?>css/invoice">
 
 </head>
+
 <div class="wrapper">
   <!-- Main content -->
   <section class="invoice">
@@ -97,7 +98,7 @@
             </tr>
             <tr>
               <th>Total:</th>
-              <td>₱ <?php echo $totalprice; ?></td>
+              <td>₱ <?php echo $totalprice;?></td>
             </tr>
           </table>
         </div>
