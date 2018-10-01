@@ -82,9 +82,9 @@
           <div class="row no-print">
             <div class="col-xs-12">
               <a href="<?=base_url()."admin/toprint"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-              <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+              <a href="<?=base_url()."admin/pdf"?>" target="_blank" type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
               <i class="fa fa-download"></i> Generate PDF
-              </button>
+                        </a>
             </div>
           </div>
       </div>
