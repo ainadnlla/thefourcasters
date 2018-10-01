@@ -46,62 +46,9 @@
       </div>
     </form>
     <div class="text-center">
-    <br/><a data-toggle="modal" data-target="#modal-primary" ></i>Create an account</a>
+    <br/><a href="<?=base_url()?>customer/register" ></i>Create an account</a>
     </div>
   </div>
-  <!-- /.login-box-body -->
-  <div class="modal modal-primary fade" id="modal-primary">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">REGISTRATION</h4>
-              </div>
-              <div class="modal-body">
-               
-            <div class="form-group has-feedback">
-                <input name="name" type="text" class="form-control" placeholder="Customer/Importer">
-                <span class="glyphicon glyphicon-user form-control-feedback text-primary"></span>
-                <?= form_error('name', '<span class="label label-danger">', '</span>') ?>
-            </div>
-            <div class="form-group has-feedback">
-                <input name="email" type="email" class="form-control" placeholder="Email">
-                <span class="glyphicon glyphicon-envelope form-control-feedback text-primary"></span>
-                <?= form_error('email', '<span class="label label-danger">', '</span>') ?>  
-            </div>
-            <div class="form-group has-feedback">
-                <input name="password" type="password" class="form-control" placeholder="Password">
-                <span class="glyphicon glyphicon-lock form-control-feedback text-primary"></span>
-                <?= form_error('password', '<span class="label label-danger">', '</span>') ?>  
-            </div>
-            <div class="form-group has-feedback">
-                <input name="repass" type="password" class="form-control" placeholder="Retype password">
-                <span class="glyphicon glyphicon-log-in form-control-feedback text-primary"></span>
-                <?= form_error('repass', '<span class="label label-danger">', '</span>') ?> 
-            </div>
-            <div class="form-group has-feedback">
-                <input name="contact" type="password" class="form-control" placeholder="Contact No.">
-                <span class="glyphicon glyphicon-phone form-control-feedback text-primary"></span>
-                <?= form_error('contact', '<span class="label label-danger">', '</span>') ?> 
-            </div>
-            <div class="form-group has-feedback">
-                <label class="col-md-4 control-label" for="name"><?= $image ?></label>  
-                <?= $captchainput ?>
-                <!-- <span class="glyphicon glyphicon-phone form-control-feedback text-primary"></span> -->
-            </div>
-            
 
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
-                <button type="submit" name='insert'class="btn btn-outline">Sign Up</button>
-              </div>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
 
 </div>

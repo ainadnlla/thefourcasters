@@ -72,7 +72,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label">Pieces</label>  
             <div class="col-md-4">
-              <input value="<?=$books->pieces?>" name="destination" type="text" placeholder="Destination" class="form-control input-md">
+              <input value="<?=$books->pieces?>" name="pieces" type="text" placeholder="Destination" class="form-control input-md">
               <?= form_error('pieces', '<span class="label label-danger">', '</span>') ?>  
           </div>
         </div>

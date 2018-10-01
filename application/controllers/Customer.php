@@ -187,41 +187,8 @@ class Customer extends CI_Controller {
         }
 
     public function login(){
-        $vals = array(	
-            'img_path'      => './captcha/',
-            'img_url'       => base_url().'captcha/',
-            'img_width'     => '150',
-            'img_height'    => 30,
-            'expiration'    => 7200,
-            'word_length'   => 5,
-            'font_size'     => 20,
-            'img_id'        => 'Imageid',
-            'pool'          => '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-
-            // White background and border, black text and red grid
-            'colors'        => array(
-                    'background' => array(255, 255, 255),
-                    'border' => array(255, 255, 255),
-                    'text' => array(0, 0, 0),
-                    'grid' => array(0, 0, 255)
-            )
-    );
-
-    $cap = create_captcha($vals);
-    $data2 = array(
-            'captcha_time'  => $cap['time'],
-            'ip_address'    => $this->input->ip_address(),
-            'word'          => $cap['word']
-    );
-
-    $query = $this->db->insert_string('captcha', $data2);
-    $this->db->query($query);
-
-    $data['image'] = $cap['image'];
-    $data['captchainput'] = '<input type="text" name="captcha" value="" class="col-md-8 control-label" placeholder="Enter Captcha">';
-
         $this->load->view('include/login_header');
-        $this->load->view('customer/login', $data);
+        $this->load->view('customer/login');
         $this->load->view('include/footer');
         if($this->session->userdata('emailad') !=''){ 
                 redirect('customer/homepage');
@@ -334,8 +301,42 @@ class Customer extends CI_Controller {
          }
     } 
     public function register(){
+
+        $vals = array(	
+            'img_path'      => './captcha/',
+            'img_url'       => base_url().'captcha/',
+            'img_width'     => '150',
+            'img_height'    => 30,
+            'expiration'    => 7200,
+            'word_length'   => 5,
+            'font_size'     => 20,
+            'img_id'        => 'Imageid',
+            'pool'          => '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+
+            // White background and border, black text and red grid
+            'colors'        => array(
+                    'background' => array(255, 255, 255),
+                    'border' => array(255, 255, 255),
+                    'text' => array(0, 0, 0),
+                    'grid' => array(0, 0, 255)
+            )
+    );
+
+    $cap = create_captcha($vals);
+    $data2 = array(
+            'captcha_time'  => $cap['time'],
+            'ip_address'    => $this->input->ip_address(),
+            'word'          => $cap['word']
+    );
+
+    $query = $this->db->insert_string('captcha', $data2);
+    $this->db->query($query);
+
+    $data['image'] = $cap['image'];
+    $data['captchainput'] = '<input type="text" name="captcha" value="" class="col-md-8 control-label" placeholder="Enter Captcha">';
+
         $this->load->view('include/login_header');
-        $this->load->view('customer/register');
+        $this->load->view('customer/register', $data);
         $this->load->view('include/footer');
     }
         
