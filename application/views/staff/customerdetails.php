@@ -1,22 +1,22 @@
 <div class="content-wrapper">
-    <section class="content-header">
-      <h1>Customer Details</h1>
-      <ol class="breadcrumb">
-        <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li class="active">Customer Details</a></li>
-      </ol>
-    </section>
+<section class="content-header">
+  <h1>Customer Details</h1>
+  <ol class="breadcrumb">
+    <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+    <li class="active">Customer Details</a></li>
+  </ol>
+</section>
 
-    <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box box-primary">
-            <div class="box-header">
-              <h3 class="box-title">Customer Information</h3>
-            </div>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-primary">
+        <div class="box-header">
+          <h3 class="box-title">Customer Information</h3>
+        </div>
 
-            <div class="box-body">
-              <table id=staff_customer class="table table-bordered table-hover">
+            <div class="box-body table-responsive">
+              <table id="staff_customer" class="table table-bordered table-hover table-striped">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -58,21 +58,19 @@
                         <span class="fa fa-edit" aria-hidden="true">
                         </span></a>
 
-                        <!-- <?php $onclick = array('onclick'=>"return confirm('Are you sure?')");?>
-                        <a href="<?=base_url('staff/del/'.$cust->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
-                        <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
-                        </span></a> -->
+                      
                         </td>
                     </tr>        
                 <?php endforeach; ?> 
                 </tfoot>
               </table>
             </div>
-                <div class="box-footer">
-                <a href="<?=base_url()?>staff_customer/add" class="btn btn-success btn-block btn-sm" role="button">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Customer</a>
-                </div>
-                 <center><?php echo $this->pagination->create_links();?></center>
+            <div class="box-footer">
+            <a href="<?=base_url()?>staff_customer/add" class="btn btn-success btn-block btn-sm" role="button">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Customer</a>
+            </div>
+            </div>
+            </div>
             </div>
     </section>
 </div>
@@ -84,4 +82,16 @@
     <strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation</a>.</strong> All rights
     reserved.
   </footer>
-
+  <script>
+   $(function () {
+    $('#staff_customer').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>

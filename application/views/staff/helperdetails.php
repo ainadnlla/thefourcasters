@@ -1,23 +1,23 @@
 <div class="content-wrapper">
-    <section class="content-header">
-      <h1>Truck Helper Details</h1>
-      <ol class="breadcrumb">
-        <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li><a href="<?=base_url().'staff/userdetails'?>">User Accounts</a></li>
-        <li class="active">Truck Helper Details</a></li>
-      </ol>
-    </section>
+<section class="content-header">
+  <h1>Truck Helper Details</h1>
+  <ol class="breadcrumb">
+    <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+    <li><a href="<?=base_url().'staff/userdetails'?>">User Accounts</a></li>
+    <li class="active">Truck Helper Details</a></li>
+  </ol>
+</section>
 
-    <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Truck Helper Information</h3>
-            </div>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Truck Helper Information</h3>
+        </div>
 
-            <div class="box-body">  
-              <table id="helper" class="table table-bordered table-hover">
+            <div class="box-body table-responsive">  
+              <table id="helperstaff" class="table table-bordered table-hover table-striped">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -26,8 +26,6 @@
                     <th>Expiry Date</th>
                     <th>Full Name</th>
                     <th>Email Address</th>
-                    <th>Birthday</th>
-                    <th>Gender</th>
                     <th>Contact No.</th>
                     <th>Employed Date</th>
                     <th>Status</th>
@@ -43,8 +41,6 @@
                         <td><?= $help->expire?></td>
                         <td><?= $help->fname?> <?= $help->mname?> <?= $help->lname?></td>
                         <td><?= $help->email?></td>                            
-                        <td><?= $help->birthday?></td>
-                        <td><?= $help->gender?></td>
                         <td><?= $help->contact?></td>
                         <td><?= $help->date?></td>
                         <td><p>
@@ -60,7 +56,7 @@
                         </td>
 
                         <td>
-                        <a href="<?= base_url().'staff/helperedit/'.$help->id?>" class="btn btn-default btn.lg" role="button">
+                        <a href="<?= base_url().'helper/edit/'.$help->id?>" class="btn btn-default btn.lg" role="button">
                         <span class="fa fa-edit" aria-hidden="true">
                         </span></a>
 
@@ -72,13 +68,11 @@
                 <?php endforeach; ?> 
                 </tfoot>
               </table>
-            </div>
-                <div class="box-footer">
-                <a href="<?=base_url()?>staff/helperadd" class="btn btn-success btn-block btn-sm" role="button">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Truck Helper</a>
-                </div>
-
-                <center><?php echo $this->pagination->create_links();?></center>
+             </div>
+              <div class="box-footer">
+              <a href="<?=base_url()?>staff/helperadd" class="btn btn-success btn-block btn-sm" role="button">
+             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Truck Helper</a>
+             </div>
             </div>
           </div>
         </div>
@@ -111,4 +105,16 @@
     <strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation</a>.</strong> All rights
     reserved.
   </footer>
-
+  <script>
+   $(function () {
+    $('#helperstaff').DataTable()
+    $('#example4').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>

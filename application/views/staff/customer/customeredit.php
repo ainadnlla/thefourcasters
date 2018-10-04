@@ -1,22 +1,22 @@
 <div class="content-wrapper">
-    <section class="content-header">
-      <h1>Customer Details</h1>
-        <ol class="breadcrumb">
-          <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i> Home </a></li>
-          <li><a href="<?=base_url().'staff/customerdetails'?>"> Customer Details </a></li>
-          <li class="active">Edit</li>
-        </ol>
-    </section>
+<section class="content-header">
+  <h1>Customer Details</h1>
+    <ol class="breadcrumb">
+      <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i> Home </a></li>
+      <li><a href="<?=base_url().'staff/customerdetails'?>"> Customer Details </a></li>
+      <li class="active">Edit</li>
+    </ol>
+</section>
 
-    <section class="content"> 
-    <div class="row">
-      <div class="col-md-3">
-        <div class="box box-success">
-          <div class="box-header with-border">
-            <h3 class="box-title">Profile Photo</h3>
-          </div>
+<section class="content"> 
+<div class="row">
+  <div class="col-md-3">
+    <div class="box box-success">
+      <div class="box-header with-border">
+        <h3 class="box-title">Profile Photo</h3>
+      </div>
 
-    <form  class="form-horizontal" action="<?=base_url().'staff_customer/update/<?=$cust->id?>'?>"  method='post'>
+<form  class="form-horizontal" action="<?=base_url().'staff_customer/update/<?=$cust->id?>'?>"  method='post'>
     <fieldset>
         <div class="form-group">
           <div class="col-md-4">
@@ -36,8 +36,8 @@
       <div class="form-group">
         <label class="col-md-1 control-label" for="upload"></label>  
           <div class="col-md-9">
-            <?php echo form_open_multipart('staff_customer/do_upload');?>
-            <input class="form-control" type="file" name="img" size="20" >
+            <?php echo form_open_multipart('admin/do_upload');?>
+            <input value="<?=set_value('img')?>" class="form-control" type="file" name="img" size="20" >
             <?= form_error('img', '<span class="label label-danger">', '</span>'); ?>  
             </div>
           </div>
@@ -63,7 +63,7 @@
 
     <div class="form-group">
         <div class="col-xs-6">
-          <input value="<?=$cust->name?>" name="name" type="text" placeholder="Customer/Importer" class="form-control input-md">
+          <input value="<?=$cust->name?>" name="name" type="text" placeholder="Customer/Importer" class="form-control input-md" required="">
           <?= form_error('name', '<span class="label label-danger">', '</span>') ?>  
         </div>
         <div class="col-xs-6">
@@ -90,11 +90,11 @@
 
     <div class="form-group">
         <div class="col-md-6">
-          <input value="<?=$cust->password?>" name="password" type="password" placeholder="Password" class="form-control input-md">  
+          <input value="<?=$cust->password?>" name="password" type="password" placeholder="Password" class="form-control input-md" required="">  
           <?= form_error('password', '<span class="label label-danger">', '</span>') ?>  
         </div>
         <div class="col-md-6">
-          <input value="<?=$cust->repass?>" name="repass" type="password" placeholder="Confirm Password" class="form-control input-md">  
+          <input value="<?=$cust->repass?>" name="repass" type="password" placeholder="Confirm Password" class="form-control input-md" required="">  
           <?= form_error('repass', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
@@ -110,11 +110,11 @@
 
     <div class="form-group">
         <div class="col-md-6">
-          <input value="<?=$cust->email?>" name="email" type="email" placeholder="example@yahoo.com" class="form-control input-md">  
+          <input value="<?=$cust->email?>" name="email" type="email" placeholder="example@yahoo.com" class="form-control input-md" required="">  
           <?= form_error('email', '<span class="label label-danger">', '</span>') ?>  
         </div>
         <div class="col-md-6">
-          <input value="<?=$cust->contact?>" name="contact" type="text" placeholder="Contact Number" class="form-control input-md">  
+          <input value="<?=$cust->contact?>" name="contact" type="text" placeholder="Contact Number" class="form-control input-md" required="">  
           <?= form_error('contact', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
@@ -130,12 +130,12 @@
 
       <div class="form-group">
         <div class="col-md-6">
-          <input value="<?=$cust->date?>" name="date" type="date" class="form-control input-md">  
+          <input value="<?=$cust->date?>" name="date" type="date" class="form-control input-md" required="">  
           <?= form_error('date', '<span class="label label-danger">', '</span>') ?>  
         </div>
           <div class="col-md-6">
             <select  value="<?=$cust->status?>" name="status" class="form-control">
-            <option Selected disabled="disabled" value="<?=$cust->status?>" selected><?=$cust->status?></option>
+            <option disabled="disabled" value="<?=$cust->status?>" selected>(<?=$cust->status?>)</option>
             <option value="0">(0) Inactive</option>
             <option value="1">(1) Active</option>
             </select>
@@ -146,13 +146,14 @@
           <br/>
       </div>
 
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="button1id"></label>
-        <div class="col-md-12 text-right">
-          <button id="button1id" name="submit" type="submit" value="submit" class="btn btn-success">Update</button>
-          <a href="<?= base_url().'staff/customerdetails'?>" class="btn btn-danger" role="button"> Cancel</a>
-        </div>
+      <div class="form-group">
+      <label class="col-md-4 control-label" for="button1id"></label>
+      <div class="col-md-12 text-right">
+        <button id="button1id" name="submit" type="submit" value="submit" class="btn btn-success">Update</button>
+        <a href="<?= base_url().'staff/customerdetails'?>" class="btn btn-danger" role="button"> Cancel</a>
       </div>
+    </div>
+
 
       <div class="col-md-12">
           <br/>

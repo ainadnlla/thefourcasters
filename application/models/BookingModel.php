@@ -34,6 +34,11 @@ class BookingModel extends CI_Model{
     return $this->db->count_all('booking');
     }
 
+    // public function getCurrent($custname){
+    //     $query =  $this->db->get_where('booking', array('custname' => $custname));
+    //     return $query->row();
+    //     }
+    
 //DELETE    
 
     public function delete($id,$data){

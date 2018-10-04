@@ -1,23 +1,23 @@
 <div class="content-wrapper">
-    <section class="content-header">
-      <h1>Helper Details</h1>
-        <ol class="breadcrumb">
-          <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li><a href="<?=base_url().'staff/userdetails'?>">User Accounts</a></li>
-          <li><a href="<?=base_url().'staff/helperdetails'?>">Helper Details</a></li>
-          <li class="active">Edit</li>
-        </ol>
-    </section>
+<section class="content-header">
+  <h1>Helper Details</h1>
+    <ol class="breadcrumb">
+      <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><a href="<?=base_url().'staff/userdetails'?>">User Accounts</a></li>
+      <li><a href="<?=base_url().'staff/helperdetails'?>">Helper Details</a></li>
+      <li class="active">Edit</li>
+    </ol>
+</section>
 
-    <section class="content">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="box box-success">
-            <div class="box-header with-border">
-              <h3 class="box-title">Profile Photo</h3>
-            </div>
+<section class="content">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="box box-success">
+        <div class="box-header with-border">
+          <h3 class="box-title">Profile Photo</h3>
+        </div>
 
-    <form  class="form-horizontal" action="<?=base_url()?>staff/helperupdate/<?=$help->id?>"  method='post'>
+<form  class="form-horizontal" action="<?=base_url()?>staff/helperupdate/<?=$help->id?>"  method='post'>
       <fieldset>
         <div class="form-group">
           <div class="col-md-4">
@@ -37,7 +37,7 @@
         <label class="col-md-1 control-label" for="upload"></label>  
             <div class="col-md-9">
             <?php echo form_open_multipart('admin/do_upload');?>
-            <input class="form-control" type="file" name="img" size="20" >
+            <input value="<?=set_value('img')?>" class="form-control" type="file" name="img" size="20" >
             <?= form_error('img', '<span class="label label-danger">', '</span>'); ?>  
             </div>
           </div>
@@ -71,25 +71,27 @@
         </div>
     </div>
 
-    <div class="form-group">
-      <label class="col-md-4 control-label"for ="weekday">Weekdays</label>  
+  
+  <div class="form-group">
+      <label class="col-md-4 control-label" for ="weekday">Weekdays</label>  
         <div class="col-md-8">
-        <label><?=$help->weekday?></label>
-              <select name="weekday[]" multiple class="form-control">
-              <option value='<?=$help->weekday?>' selected><?=$help->weekday?></option>
-                <option id="weekday" name="weekday[]" value="Monday">Monday</option>
-                <option id="weekday" name="weekday[]" value="Tuesday">Tuesday</option>
-                <option id="weekday" name="weekday[]" value="Wednesday">Wednesday</option>
-                <option id="weekday" name="weekday[]" value="Thursday">Thursday</option>
-                <option id="weekday" name="weekday[]" value="Friday">Friday</option>
-                <option id="weekday" name="weekday[]" value="Saturday">Saturday</option>
-              </select>
+          <input disabled value="<?=$help->weekday?>" type="text" class="form-control input-md">
             </div>
         </div>
-
-          </div>
+        <select name="weekday[]" multiple class="form-control">  
+            <option disabled name="weekday[]" value='<?=$help->weekday?>' selected><?=$help->weekday?></option>  
+                <option name="weekday[]" value="Sun">Sunday</option>
+                <option name="weekday[]" value="Mon">Monday</option>
+                <option name="weekday[]" value="Tues">Tuesday</option>
+                <option name="weekday[]" value="Wed">Wednesday</option>
+                <option name="weekday[]" value="Th">Thursday</option>
+                <option name="weekday[]" value="Fri">Friday</option>
+                <option name="weekday[]" value="Sat">Saturday</option>
+          </select>
+          <?= form_error('weekdays', '<span class="label label-danger">', '</span>'); ?>  
         </div>
       </div>
+    </div>
 
     </div>
     </fieldset>
@@ -153,6 +155,7 @@
                 <option value="M">Male</option>
                 <option value="F">Female</option>
                 </select>
+                <?= form_error('gender', '<span class="label label-danger">', '</span>'); ?>  
             </div>
     </div>
 
@@ -238,12 +241,12 @@
       </div>
 
       <div class="form-group">
-        <label class="col-md-4 control-label" for="button1id"></label>
-        <div class="col-md-6">
-          <button id="button1id" name="submit" type="submit" value="submit" class="btn btn-success">Update</button>
-          <a href="<?= base_url().'staff/helperdetails'?>" class="btn btn-danger" role="button"> Cancel</a>
-        </div>
+      <label class="col-md-4 control-label" for="button1id"></label>
+      <div class="col-md-6">
+        <button id="button1id" name="submit" type="submit" value="submit" class="btn btn-success">Update</button>
+        <a href="<?= base_url().'staff/helperdetails'?>" class="btn btn-danger" role="button"> Cancel</a>
       </div>
+    </div>
 
           </div>
         </div>

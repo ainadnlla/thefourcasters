@@ -2,7 +2,7 @@
     <section class="content-header">
       <h1>Booking Delivery</h1>
       <ol class="breadcrumb">
-        <li><a href="<?=base_url().'customer/index'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="<?=base_url().'customer/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
         <li class="active">Booking Delivery</a></li>
       </ol>
     </section>
@@ -15,6 +15,7 @@
             <div class="box-header">
               <h3 class="box-title">Delivery Progress Information</h3>
             </div>
+        
             <!-- /.box-header -->
             <div class="box-body">
               <table id="customer" class="table table-bordered table-hover">
@@ -65,12 +66,14 @@
                 </tfoot>
               <?php endforeach; ?> 
               </table>
+         
               <div class="box-footer">
               <a href="<?=base_url()?>booking/add" class="btn btn-success btn-block btn-sm" role="button">
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Book Schedule</a>
                 </div>
 
                 <center><?php echo $this->pagination->create_links();?></center>
+           
             </div>
           </div>
         </div>       

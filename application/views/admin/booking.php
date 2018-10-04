@@ -2,7 +2,7 @@
 <section class="content-header">
   <h1>Booking Information</h1>
   <ol class="breadcrumb">
-    <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+    <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
     <li class="active">Booking Information</a></li>
   </ol>
 </section>

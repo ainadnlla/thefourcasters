@@ -31,7 +31,7 @@ class BookingStaff extends CI_Controller {
       }
     }  
     public function add(){
-        if($this->session->userdata('username') !=''){ 
+        if($this->session->userdata('email') !=''){ 
         $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
         $this->load->view('include/header', $data);
         $this->load->view('include/staff_header');
@@ -43,7 +43,7 @@ class BookingStaff extends CI_Controller {
     }
 
     public function view($id){
-        if($this->session->userdata('username') !=''){ 
+        if($this->session->userdata('email') !=''){ 
         $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
         $books = $this->BookingModel->getProd($id);
         $this->load->view('include/header', $data);
@@ -56,7 +56,7 @@ class BookingStaff extends CI_Controller {
     }
 
     public function edit($id){
-        if($this->session->userdata('username') !=''){ 
+        if($this->session->userdata('email') !=''){ 
         $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
         $data['plate_nos'] = $this->BookingModel->getPlateNo();
         $data['drivernames'] = $this->BookingModel->getDriver();
@@ -72,7 +72,7 @@ class BookingStaff extends CI_Controller {
         }
     }
     public function delete($id){
-        if($this->session->userdata('username') !=''){ 
+        if($this->session->userdata('email') !=''){ 
         $books = $this->BookingModel->getProd($id);
         $this->load->view('include/header');
         $this->load->view('include/staff_header');

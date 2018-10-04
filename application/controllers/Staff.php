@@ -195,9 +195,11 @@ public function logged(){
              $this->load->view('include/header', $data);
              $this->load->view('include/staff_header');
              $this->load->view('include/footer');
-             $this->load->view('admin/homepage');
+             $this->load->view('staff/homepage');
              $this->load->view('admin/graph');
-             $this->load->view('admin/bookinglatest',compact('emps'));
+             $this->load->view('staff/bookinglatest',compact('emps'));
+            
+           
         }else{
             redirect('login/staff');
         }
@@ -248,38 +250,16 @@ public function logged(){
     }
     }
 
-    public function customerdetails($offset=0){
+    public function customerdetails(){
       
         if($this->session->userdata('email') !=''){
             if($this->session->userdata('priv') =='5' OR $this->session->userdata('priv')=='1') {
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
 
-        $this->load->library('pagination');
-        $norecs = 5;
-
-        $config['base_url'] = base_url().'staff/customerdetails/';
-        $config['total_rows'] = $this->CustomerModel->getNumRecs();
-        $config['per_page'] = $norecs;
-
-        $config['full_tag_open'] = "<ul class='pagination'>";
-        $config['full_tag_close'] ="</ul>";
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-        $config['next_tag_open'] = "<li>";
-        $config['next_tagl_close'] = "</li>";
-        $config['prev_tag_open'] = "<li>";
-        $config['prev_tagl_close'] = "</li>";
-        $config['first_tag_open'] = "<li>";
-        $config['first_tagl_close'] = "</li>";
-        $config['last_tag_open'] = "<li>";
-        $config['last_tagl_close'] = "</li>";
-
-        $this->pagination->initialize($config);
+       
 
         $this->load->config('myconfig');
-        $custs = $this->CustomerModel->getItems($norecs, $offset);
+        $custs = $this->CustomerModel->getItems();
         
         $this->load->view('include/header', $data);
         $this->load->view('include/staff_header');
@@ -294,37 +274,14 @@ public function logged(){
             redirect('login/staff');
         }
     }
-    public function driverdetails($offset=0){
+    public function driverdetails(){
             if($this->session->userdata('email') !=''){ 
                 if($this->session->userdata('priv') =='4' OR $this->session->userdata('priv')=='1') {
             $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
     
-            $this->load->library('pagination');
-            $norecs = 5;
-    
-            $config['base_url'] = base_url().'staff/driverdetails/';
-            $config['total_rows'] = $this->DriverModel->getNumRecs();
-            $config['per_page'] = $norecs;
-    
-            $config['full_tag_open'] = "<ul class='pagination'>";
-            $config['full_tag_close'] ="</ul>";
-            $config['num_tag_open'] = '<li>';
-            $config['num_tag_close'] = '</li>';
-            $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-            $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-            $config['next_tag_open'] = "<li>";
-            $config['next_tagl_close'] = "</li>";
-            $config['prev_tag_open'] = "<li>";
-            $config['prev_tagl_close'] = "</li>";
-            $config['first_tag_open'] = "<li>";
-            $config['first_tagl_close'] = "</li>";
-            $config['last_tag_open'] = "<li>";
-            $config['last_tagl_close'] = "</li>";
-    
-            $this->pagination->initialize($config);
-    
+        
             $this->load->config('myconfig');
-            $drivs = $this->DriverModel->getItems($norecs, $offset);
+            $drivs = $this->DriverModel->getItems();
             
             $this->load->view('include/header', $data);
             $this->load->view('include/staff_header');
@@ -399,43 +356,20 @@ public function logged(){
         }
     }
 
-    public function booking($offset=0){
+    public function booking(){
         if($this->session->userdata('email') !=''){ 
             if($this->session->userdata('priv') =='1'OR $this->session->userdata('priv')=='2') {
                 
             $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
-
-            $this->load->library('pagination');
-            $norecs = 5;
-    
-            $config['base_url'] = base_url().'staff/booking/';
-            $config['total_rows'] = $this->BookingModel->getNumRecs();
-            $config['per_page'] = $norecs;
-    
-            $config['full_tag_open'] = "<ul class='pagination'>";
-            $config['full_tag_close'] ="</ul>";
-            $config['num_tag_open'] = '<li>';
-            $config['num_tag_close'] = '</li>';
-            $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-            $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-            $config['next_tag_open'] = "<li>";
-            $config['next_tagl_close'] = "</li>";
-            $config['prev_tag_open'] = "<li>";
-            $config['prev_tagl_close'] = "</li>";
-            $config['first_tag_open'] = "<li>";
-            $config['first_tagl_close'] = "</li>";
-            $config['last_tag_open'] = "<li>";
-            $config['last_tagl_close'] = "</li>";
-    
-            $this->pagination->initialize($config);
     
             $this->load->config('myconfig');
-            $books =  $this->BookingModel->getItems($norecs, $offset);
+            $books =  $this->BookingModel->getItems();
 
             $this->load->view('include/header', $data);
             $this->load->view('include/staff_header');
-            $this->load->view('staff/booking',compact('books'));
             $this->load->view('include/footer');
+            $this->load->view('staff/booking',compact('books'));
+         
             }else{
                 redirect('staff/homepage');
             }
@@ -607,36 +541,15 @@ public function logged(){
                }    
            }
            //HELPER
-           public function helperdetails($offset=0){
+           public function helperdetails(){
                
             if($this->session->userdata('email') !=''){ 
                 if($this->session->userdata('priv') =='4' OR $this->session->userdata('priv')=='1') {
                 
             $data['title'] = 'Helper Details | Angelogistic Forwarder Corporation';
-            $this->load->library('pagination');
-            $norecs = 5;
-            $config['base_url'] = base_url().'staff/helperdetails/';
-            $config['total_rows'] = $this->HelperModel->getNumRecs();
-            $config['per_page'] = $norecs;
-
-            $config['full_tag_open'] = "<ul class='pagination'>";
-            $config['full_tag_close'] ="</ul>";
-            $config['num_tag_open'] = '<li>';
-            $config['num_tag_close'] = '</li>';
-            $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-            $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-            $config['next_tag_open'] = "<li>";
-            $config['next_tagl_close'] = "</li>";
-            $config['prev_tag_open'] = "<li>";
-            $config['prev_tagl_close'] = "</li>";
-            $config['first_tag_open'] = "<li>";
-            $config['first_tagl_close'] = "</li>";
-            $config['last_tag_open'] = "<li>";
-            $config['last_tagl_close'] = "</li>";
-
-            $this->pagination->initialize($config);
+           
             $this->load->config('myconfig');
-            $helps = $this->HelperModel->getItems($norecs, $offset);
+            $helps = $this->HelperModel->getItems();
             
             $this->load->view('include/header', $data);
             $this->load->view('include/staff_header');

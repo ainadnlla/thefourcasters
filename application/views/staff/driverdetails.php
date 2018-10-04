@@ -1,23 +1,24 @@
 <div class="content-wrapper">
-    <section class="content-header">
-      <h1>Truck Driver Details</h1>
-      <ol class="breadcrumb">
-        <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li><a href="<?=base_url().'staff/userdetails'?>">User Accounts</a></li>
-        <li class="active">Truck Driver Details</a></li>
-      </ol>
-    </section>
+<section class="content-header">
+  <h1>Truck Driver Details</h1>
+  <ol class="breadcrumb">
+    <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+    <li><a href="<?=base_url().'staff/userdetails'?>">User Accounts</a></li>
+    <li class="active">Truck Driver Details</a></li>
+  </ol>
+</section>
 
-    <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box box-success">
-            <div class="box-header">
-              <h3 class="box-title">Truck Driver Information</h3>
-            </div>
+<section class="content">
+<div class="row">
+  <div class="col-xs-12">
+    <div class="box box-primary">
+      <div class="box-header">
+        <h3 class="box-title">Truck Driver Information</h3>
+      </div>
 
-            <div class="box-body">  
-              <table id="driver" class="table table-bordered table-hover">
+
+            <div class="box-body table-responsive">  
+              <table id="driverstaff" class="table table-bordered table-hover table-striped">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -26,8 +27,6 @@
                     <th>Expiry Date</th>
                     <th>Full Name</th>
                     <th>Email Address</th>
-                    <th>Birth Date</th>
-                    <th>Gender</th>
                     <th>Contact No.</th>
                     <th>Years of Experience</th>
                     <th>Employed Date</th>
@@ -44,20 +43,18 @@
                         <td><?= $driv->expire?></td>
                         <td><?= $driv->fname?> <?= $driv->mname?> <?= $driv->lname?></td>
                         <td><?= $driv->email?></td>                            
-                        <td><?= $driv->birthday?></td>
-                        <td><?= $driv->gender?></td>
                         <td><?= $driv->contact?></td>
                         <td><?= $driv->experience?></td>
                         <td><?= $driv->date?></td>
                         <td><p>
                         <?php if($driv->status==1){ ?>
-                          <div class="label label-success">
-                            <strong>Available</strong>
-                          </div>
+                          <center><div class="label label-success">
+                           <strong>Available</strong>
+                          </div></center>
                         <?php }elseif($driv->status==0){ ?>
-                          <div class="label label-danger">
-                            <strong>Unavailable</strong>
-                          </div></p>
+                          <center> <div class="label label-danger">
+                           <strong>Unavailable</strong>
+                          </div></p></center>
                         <?php }?>
                         </td>
 
@@ -65,20 +62,16 @@
                         <a href="<?= base_url().'staff/driveredit/'.$driv->id?>" class="btn btn-default btn.lg" role="button">
                         <span class="fa fa-edit" aria-hidden="true">
                         </span></a>
-
-                     
                         </td>
                     </tr>        
                 <?php endforeach; ?> 
                 </tfoot>
               </table>
-            </div>
-                <div class="box-footer">
-                <a href="<?=base_url()?>staff/driveradd" class="btn btn-success btn-block btn-sm" role="button">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Truck Driver</a>
-                </div>
-
-                <center><?php echo $this->pagination->create_links();?></center>
+              </div>
+              <div class="box-footer">
+              <a href="<?=base_url()?>staff/driveradd" class="btn btn-success btn-block btn-sm" role="button">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Truck Driver</a>
+              </div>
             </div>
           </div>
         </div>
@@ -111,4 +104,16 @@
     <strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation</a>.</strong> All rights
     reserved.
   </footer>
-
+  <script>
+   $(function () {
+    $('#driverstaff').DataTable()
+    $('#example3').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>

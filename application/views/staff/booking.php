@@ -15,42 +15,52 @@
         <div class="box-header">
           <h3 class="box-title">Delivery Progress Information</h3>
         </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-          <table id="Staff" class="table table-bordered table-hover">
+          <!-- /.box-header -->
+          <div class="box-body table-responsive">
+          <table id="bookingstaff" class="table table-bordered table-hover table-striped">
             <thead>
             <tr>
-            <th>ID</th>
-            <th>Waybill</th>
-            <th>Customer</th>
-            <th>Date</th>
-            <th>Product</th>
-            <th>Cargo Size</th>
-            <th>Truck #</th>
-            <th>Driver Name</th>
-            <th>Helper Name</th>
-            <th>Destination</th>
-            <th>Price</th>
-            <th>Status</th>
-            <th>Action</th> 
+              <th>Waybill</th>
+              <th>Customer</th>
+              <th>Date</th>
+              <th>Product</th>
+              <th>Pieces</th>
+              <th>Truck No.</th>
+              <th>Driver Name</th>
+              <th>Helper Name</th>
+              <th>Destination</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>Action</th>
             </tr>
             </thead>
             <tbody>
             <?php foreach($books as $book): ?>
               <tr>
-              <td><?= $book->id?></td>
-              <td><?= $book->waybill?></td>
-              <td><?= $book->custname?></td>
-              <td><?= $book->date?></td>
-              <td><?= $book->product?></td>
-              <td><?= $book->cargo?></td>
-              <td><?= $book->plate_no?></td>
-              <td><?= $book->driver_name?></td>
-              <td><?= $book->helper_name?></td>
-              <td><?= $book->destination?></td>
-              <td><?= $book->price?></td>
-                  <td></td>
-                  <td>
+                  <td><?= $book->waybill?></td>
+                  <td><?= $book->custname?></td>
+                  <td><?= $book->date?></td>
+                  <td><?= $book->product?></td>
+                  <td><?= $book->pieces?></td>
+                  <td><?= $book->plate_no?></td>
+                  <td><?= $book->driver_name?></td>
+                  <td><?= $book->helper_name?></td>
+                  <td><?= $book->destination?></td>
+                  <td>₱<?= $book->price?></td>
+                  <td>  <?php if($book->action==1){ ?>
+                          <div class="label label-success">
+                            <strong>Accepted</strong>
+                          </div>
+                        <?php }elseif($book->action==2){ ?>
+                          <div class="label label-danger">
+                            <strong>Denied</strong>
+                          </div></p>
+                        <?php }else{?>
+                          <div class="label label-warning">
+                            <strong>Pending</strong>
+                          </div>
+                     <?php   }?></td>
+                     <td>
                   <a href="<?= base_url().'bookingstaff/view/'.$book->id?>" class="btn btn-default btn.lg" role="button">
                   <span class="fa fa-eye" aria-hidden="true"></span></a>
                   <a href="<?= base_url().'bookingstaff/edit/'.$book->id?>" class="btn btn-default btn.lg" role="button">
@@ -69,7 +79,7 @@
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Booking Information</a>
                 </div> -->
 
-            <center><?php echo $this->pagination->create_links();?></center>
+            <center></center>
         </div>
       </div>
     </div>       
@@ -83,3 +93,16 @@
 <strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation</a>.</strong> All rights
 reserved.
 </footer>
+<script>
+   $(function () {
+    $('#bookingstaff').DataTable()
+    $('#example7').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>

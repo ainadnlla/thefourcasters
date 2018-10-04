@@ -13,16 +13,68 @@
 
     <!-- Main content -->
     <section class="content">
-      
-    </section>
+    
+    <div class="row">
+      <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-aqua">
+          <div class="inner">
+            <h3><?php echo $this->db->count_all('staff') ?></h3>
+            <p>Staff Accounts</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person"></i>
+          </div>
+            <a href="<?=base_url().'admin/userdetails_staff'?>" class="small-box-footer"></a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-green">
+          <div class="inner">
+            <h3><?php echo $this->db->count_all('customer') ?></h3>
+            <p>Customer Accounts</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person"></i>
+          </div>
+            <a href="<?=base_url().'admin/userdetails_customer'?>" class="small-box-footer"></a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-yellow">
+          <div class="inner">
+            <h3><?php echo $this->db->count_all('driver') ?></h3>
+            <p>Driver Accounts</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person"></i>
+          </div>
+            <a href="<?=base_url().'admin/userdetails_driver'?>" class="small-box-footer"></a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-red">
+          <div class="inner">
+            <h3><?php echo $this->db->count_all('helper') ?></h3>
+            <p>Helper Accounts</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person"></i>
+          </div>
+            <a href="<?=base_url().'admin/userdetails_helper'?>" class="small-box-footer"></a>
+        </div>
+     
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
+<!-- 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>The Fourcasters</b>
     </div>
     <strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation</a>.</strong> All rights
     reserved.
-  </footer>
+  </footer> -->
