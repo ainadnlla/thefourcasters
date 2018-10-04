@@ -185,12 +185,19 @@ public function logged(){
 }
 
     public function homepage(){
-        if($this->session->userdata('email') !=''){   
+        if($this->session->userdata('email') !=''){  
+
             $data['title'] = 'Angelogistic Forwarder Corporation';
-            $this->load->view('include/header', $data);
-            $this->load->view('include/staff_header');
-            $this->load->view('staff/homepage');
-            $this->load->view('include/footer');
+            
+             $this->load->config('myconfig');
+             $emps =  $this->UserModel->getBook();
+       
+             $this->load->view('include/header', $data);
+             $this->load->view('include/staff_header');
+             $this->load->view('include/footer');
+             $this->load->view('admin/homepage');
+             $this->load->view('admin/graph');
+             $this->load->view('admin/bookinglatest',compact('emps'));
         }else{
             redirect('login/staff');
         }

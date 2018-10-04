@@ -43,7 +43,9 @@ class Admin extends CI_Controller {
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('admin/homepage');
+        $this->load->view('admin/graph');
         $this->load->view('admin/bookinglatest',compact('emps'));
+        
 
        
     }else{

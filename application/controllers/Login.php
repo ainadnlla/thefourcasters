@@ -94,7 +94,7 @@ class Login extends CI_Controller {
        
     public function logoutstaff(){
         $this->session->sess_destroy();
-        redirect('staff/login');
+        redirect('login/staff');
     }
     
 }
