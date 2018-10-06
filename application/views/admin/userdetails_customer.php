@@ -36,11 +36,11 @@
                     <tr>
                         <td><?= $cust->id?></td>
                         <td><img src="<?=base_url().'images/'.$cust->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
-                        <td><?= $cust->name?></td>
+                        <td class="text-capitalize"><?= $cust->name?></td>
                         <td><?= $cust->cust_type?></td>
                         <td><?= $cust->email?></td>                            
                         <td><?= $cust->contact?></td>
-                        <td><?= $cust->date?></td>
+                        <td><?= date('M d, Y', strtotime($cust->date))?></td>
                         <td><p>
                         <?php if($cust->status==1){ ?>
                           <div class="label label-success">

@@ -112,45 +112,6 @@ class Admin extends CI_Controller {
 }
     }  
 
-    public function inbox(){
-        if($this->session->userdata('username') !=''){ 
-        $data['title'] = 'Inbox | Angelogistic Forwarder Corporation';
-        $this->load->view('include/calendar_head', $data);
-        $this->load->view('include/header_nav'); 
-        $this->load->view('admin/inbox');
-        $this->load->view('include/calendar_foot');
-        
-}else{
-    redirect('login/admin');
-}
-    }  
-
-    public function compose(){  
-        
-        if($this->session->userdata('username') !=''){    
-        $data['title'] = 'Compose | Angelogistic Forwarder Corporation';
-        $this->load->view('include/calendar_head', $data);
-        $this->load->view('include/header_nav'); 
-        $this->load->view('admin/compose');
-        $this->load->view('include/calendar_foot');
-    }else{
-        redirect('login/admin');
-    }
-    }  
-
-    public function stats(){
-        
-        if($this->session->userdata('username') !=''){    
-        $data['title'] = 'Compose | Angelogistic Forwarder Corporation';
-        $this->load->view('include/header');
-        $this->load->view('include/header_nav');
-        $this->load->view('admin/stats');
-        $this->load->view('include/footer');
-    }else{
-        redirect('login/admin');
-    }
-    }
-
     public function profile(){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Profile | Angelogistic Forwarder Corporation';
@@ -162,7 +123,6 @@ class Admin extends CI_Controller {
         redirect('login/admin');
     }
     }
-
 
     public function userdetails_staff(){
         if($this->session->userdata('username') !=''){ 

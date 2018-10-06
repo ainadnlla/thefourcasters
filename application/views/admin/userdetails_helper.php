@@ -10,7 +10,7 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          <div class="box">
+          <div class="box box-success">
             <div class="box-header">
               <h3 class="box-title">Truck Helper Information</h3>
             </div>
@@ -36,12 +36,12 @@
                     <tr>
                         <td><?= $help->id?></td>
                         <td><img src="<?=base_url().'images/'.$help->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
-                        <td><?= $help->driver_no?></td>
-                        <td><?= $help->expire?></td>
-                        <td><?= $help->fname?> <?= $help->mname?> <?= $help->lname?></td>
+                        <td class="text-uppercase"><?= $help->driver_no?></td>
+                        <td><?= date('F Y', strtotime($help->expire))?></td>
+                        <td class="text-capitalize"><?= $help->fname?> <?= $help->mname?> <?= $help->lname?></td>
                         <td><?= $help->email?></td>                            
                         <td><?= $help->contact?></td>
-                        <td><?= $help->date?></td>
+                        <td><?= date('M d, Y', strtotime($help->date))?></td>
                         <td><p>
                         <?php if($help->status==1){ ?>
                           <div class="label label-success">

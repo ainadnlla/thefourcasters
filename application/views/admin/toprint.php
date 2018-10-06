@@ -29,7 +29,7 @@
       <!-- /.col -->
 
       <div class="col-sm-4 invoice-col">
-        <b>Report # <?php echo mt_rand(1000, 9999) ?></b><br>
+        <b>Report # <?php echo mt_rand(10000, 99999) ?></b><br>
       </div>
       <!-- /.col -->
     </div>
@@ -98,7 +98,7 @@
           <table class="table">
             <tr>
               <th>Total:</th>
-              <td>₱ <?php echo $totalprice;?>.00</td>
+              <td>P <?php echo $totalprice;?>.00</td>
             </tr>
           </table>
         </div>

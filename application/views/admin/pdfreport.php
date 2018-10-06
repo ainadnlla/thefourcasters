@@ -1,9 +1,9 @@
 <?php tcpdf();
 $obj_pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 $obj_pdf->SetCreator(PDF_CREATOR);
-$title = "PDF Report";
+$title = "";
 $obj_pdf->SetTitle($title);
-$obj_pdf->SetHeaderData(base_url("images/logo.jpg"), PDF_HEADER_LOGO_WIDTH, $title, PDF_HEADER_STRING);
+$obj_pdf->SetHeaderData(base_url(""), PDF_HEADER_LOGO_WIDTH, $title, PDF_HEADER_STRING);
 $obj_pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 $obj_pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 $obj_pdf->SetDefaultMonospacedFont('helvetica');
@@ -20,5 +20,5 @@ $emps =  $this->UserModel->getBook();
     $content = ob_get_contents();
 ob_end_clean();
 $obj_pdf->writeHTML($content, true, false, true, false, '');
-$obj_pdf->Output('output.pdf', 'I');
+$obj_pdf->Output('Angelogistics_Report.pdf', 'I');
 ?>

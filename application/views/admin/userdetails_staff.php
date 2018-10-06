@@ -35,12 +35,12 @@
                     <tr>
                         <td><?= $emp->id?></td>
                         <td><img src="<?=base_url().'images/'.$emp->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
-                        <td><?= $emp->fname?> <?= $emp->mname?> <?= $emp->lname?></td>
+                        <td class="text-capitalize"><?= $emp->fname?> <?= $emp->mname?> <?= $emp->lname?></td>
                         <td><?= $emp->email?></td>                            
-                        <td><?= $emp->birthday?></td>
+                        <td><?= date('M d, Y', strtotime($emp->birthday))?></td>
                         <td><?= $emp->gender?></td>
                         <td><?= $emp->contact?></td>
-                        <td><?= $emp->date?></td>
+                        <td><?= date('M d, Y', strtotime($emp->date))?></td>
                         <td><p>
                         <?php if($emp->status==1){ ?>
                           <div class="label label-success">

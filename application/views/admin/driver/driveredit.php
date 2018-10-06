@@ -228,9 +228,9 @@
         <label class="col-md-4 control-label" >Status</label>
           <div class="col-md-6">
             <select  value="<?=$driv->status?>" name="status" class="form-control">
-            <option Selected disabled>Unchanged</option>
-            <option value="1">Active</option>
-            <option value="0">Inactive</option>
+            <option disabled value='<?=$driv->status?>' selected>(<?=$driv->status?>)</option>
+            <option value="0">(0) Inactive</option>
+            <option value="1">(1) Active</option>
             </select>
           </div>
       </div>

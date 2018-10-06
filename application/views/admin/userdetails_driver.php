@@ -26,7 +26,7 @@
                     <th>Full Name</th>
                     <th>Email Address</th>
                     <th>Contact No.</th>
-                    <th>Years of Experience</th>
+                    <th>YOE</th>
                     <th>Employed Date</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -37,13 +37,13 @@
                     <tr>
                         <td><?= $driv->id?></td>
                         <td><img src="<?=base_url().'images/'.$driv->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
-                        <td><?= $driv->driver_no?></td>
-                        <td><?= $driv->expire?></td>
-                        <td><?= $driv->fname?> <?= $driv->mname?> <?= $driv->lname?></td>
+                        <td class="text-uppercase"><?= $driv->driver_no?></td>
+                        <td><?= date('F Y', strtotime($driv->expire))?></td>
+                        <td class="text-capitalize"><?= $driv->fname?> <?= $driv->mname?> <?= $driv->lname?></td>
                         <td><?= $driv->email?></td>                            
                         <td><?= $driv->contact?></td>
                         <td><?= $driv->experience?></td>
-                        <td><?= $driv->date?></td>
+                        <td><?= date('M d, Y', strtotime($driv->date))?></td>
                         <td><p>
                         <?php if($driv->status==1){ ?>
                           <div class="label label-success">

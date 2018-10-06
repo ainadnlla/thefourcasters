@@ -38,13 +38,13 @@
             <?php foreach($books as $book): ?>
               <tr>
                   <td><?= $book->waybill?></td>
-                  <td><?= $book->custname?></td>
-                  <td><?= $book->date?></td>
-                  <td><?= $book->product?></td>
+                  <td class="text-capitalize"><?= $book->custname?></td>
+                  <td><?= date('M d, Y', strtotime($book->date))?></td>
+                  <td class="text-capitalize"><?= $book->product?></td>
                   <td><?= $book->pieces?></td>
-                  <td><?= $book->plate_no?></td>
-                  <td><?= $book->driver_name?></td>
-                  <td><?= $book->helper_name?></td>
+                  <td class="text-uppercase"><?= $book->plate_no?></td>
+                  <td class="text-capitalize"><?= $book->driver_name?></td>
+                  <td class="text-capitalize"><?= $book->helper_name?></td>
                   <td><?= $book->destination?></td>
                   <td>₱<?= $book->price?></td>
                   <td>  <?php if($book->action==1){ ?>

@@ -3,6 +3,7 @@
       <h1>Maintenance Details</h1>
       <ol class="breadcrumb">
         <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="<?=base_url().'admin/truckdetails'?>">Trucks Details</a></li>
         <li class="active">Maintenance Details</a></li>
       </ol>
     </section>
@@ -22,20 +23,62 @@
         <div class="col-xs-12">
           <div class="box box-success">
             <div class="box-header"> 
-              <h3 class="box-title">Maintenance Information</h3>
-
-              <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search" value="Search"></i></button>
-                  </div>
-                </div>
-              </div>
+              <h3 class="box-title">Truck Information</h3>
             </div>
 
             <div class="box-body">  
-              <table id="staff" class="table table-bordered table-hover table-striped">
+              <table id="maintenance" class="table table-bordered table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Make</th>
+                    <th>Plate No.</th>
+                    <th>Series</th>
+                    <th>MV File No</th>
+                    <th>Engine No.</th>
+                    <th>Chassis No.</th>
+                    <th>Gross Wt.</th>
+                    <th>Net Wt.</th>
+                    <th>Net Capacity</th>
+                    <th>Year Model</th>
+                    <th>Year Old</th>
+                   
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach($mains as $main): ?>
+                    <tr>
+                        <td><?= $truck->id?></td>
+                        <td><?= $truck->brand?></td>
+                        <td class="text-uppercase"><?= $truck->plate_no?></td>
+                        <td><?= $truck->series?></td>
+                        <td><?= $truck->mvfile_no?></td>
+                        <!-- <td><?= $truck->engine_no?></td>
+                        <td><?= $truck->chassis_no?></td>
+                        <td><?= $truck->grosswt?></td>
+                        <td><?= $truck->netwt?></td>
+                        <td><?= $truck->netcap?></td> -->
+                        <td><?= $truck->year?></td>
+                        <td><?= $DATE =date('Y') - $truck->year ?></td>
+                        <td>
+                    </tr>        
+                <?php endforeach; ?>       
+                </tfoot>
+              </table>
+            </div>
+            </div>
+          </div>
+        </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box box-success">
+            <div class="box-header"> 
+              <h3 class="box-title">Maintenance Information</h3>
+            </div>
+
+            <div class="box-body">  
+              <table id="maintenance" class="table table-bordered table-hover table-striped">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -45,7 +88,7 @@
                     <th>Price</th>
                     <th>Cost</th>
                     <th>Quantity</th>
-                    <th></th>
+                    <th>Amount</th>
                     <th>Action</th>
                    
                 </tr>
@@ -71,32 +114,28 @@
                         </span></a> -->
                         </td>
                     </tr>        
-                <?php endforeach; ?> 
-                <tfoot>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th>Amount</th>
-                    <th></th>
-                   
-                </tr>
-        
+                <?php endforeach; ?>       
                 </tfoot>
               </table>
             </div>
-                <div class="box-footer">
-                <a href="<?=base_url()?>staff/add" class="btn btn-success btn-block btn-sm" role="button">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Details</a>
-                </div>
-              
             </div>
           </div>
-        </div>        
+        </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+          <div class="box box-success">
+            <div class="box-header"> 
+              <h3 class="box-title">History Information</h3>
+            </div>
+
+            <!-- CONTENT HERE -->
+
+            </div>
+            </div>
+          </div>
+        </div>
+        
     </section>
 </div>
 

@@ -43,7 +43,7 @@
                             <td><?= $truck->id?></td>
                             <td><img src="<?=base_url().'images/'.$truck->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
                             <td><?= $truck->brand?></td>
-                            <td><?= $truck->plate_no?></td>
+                            <td class="text-uppercase"><?= $truck->plate_no?></td>
                             <td><?= $truck->series?></td>
                             <td><?= $truck->mvfile_no?></td>
                             <!-- <td><?= $truck->engine_no?></td>
