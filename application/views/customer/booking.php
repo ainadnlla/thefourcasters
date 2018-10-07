@@ -10,58 +10,58 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-12 table-responsive">
           <div class="box box-danger">
             <div class="box-header">
               <h3 class="box-title">Delivery Progress Information</h3>
             </div>
         
             <!-- /.box-header -->
-            <div class="box-body">
-              <table id="customer" class="table table-bordered table-hover">
+            <div class="box-body table-responsive">
+              <table id="custbooking" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Waybill</th>
-                  <th>Date</th>
-                  <th>Product</th>
-                  <th>Description</th>
-                  <th>Pieces</th>
-                  <th>Customer Type</th>
-                  <th>Name</th>
-                  <th>Cargo Size</th>
-                  <th>Truck</th>
-                  <th>Plate No.</th>
-                  <th>Driver No.</th>
-                  <th>Driver Name</th>
-                  <th>Helper No.</th>
-                  <th>Helper Name</th>
-                  <th>Destination</th>
-                  <th>Price</th>
-                  <th>Status</th>
+                <th>Waybill</th>
+                <th>Customer</th>
+                <th>Date</th>
+                <th>Product</th>
+                <th>Pieces</th>
+                <th>Truck No.</th>
+                <th>Driver Name</th>
+                <th>Helper Name</th>
+                <th>Destination</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php foreach($books as $book): ?>
                 <tr>
-                  <td><?= $book->id?></td>
-                  <td></td>
-                  <td><?= $book->date?></td>
-                  <td><?= $book->product?></td>
-                  <td><?= $book->description?></td>
+                <td><?= $book->waybill?></td>
+                  <td class="text-capitalize"><?= $book->custname?></td>
+                  <td><?= date('M d, Y', strtotime($book->date))?></td>
+                  <td class="text-capitalize"><?= $book->product?></td>
                   <td><?= $book->pieces?></td>
-                  <td><?= $book->cust_type?></td>
-                  <td><?= $book->custname?></td>
-                  <td><?= $book->cargo?></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td class="text-uppercase"><?= $book->plate_no?></td>
+                  <td class="text-capitalize"><?= $book->driver_name?></td>
+                  <td class="text-capitalize"><?= $book->helper_name?></td>
                   <td><?= $book->destination?></td>
-                  <td></td>
-                  <td></td>
+                  <td>₱<?= $book->price?></td>
+                  <td>  <?php if($book->action==1){ ?>
+                          <div class="label label-success">
+                            <strong>Accepted</strong>
+                          </div>
+                        <?php }elseif($book->action==2){ ?>
+                          <div class="label label-danger">
+                            <strong>Denied</strong>
+                          </div></p>
+                        <?php }else{?>
+                          <div class="label label-warning">
+                            <strong>Pending</strong>
+                          </div>
+                     <?php   }?></td>
+                  <td>
                 </tr>
                 </tfoot>
               <?php endforeach; ?> 
@@ -71,9 +71,6 @@
               <a href="<?=base_url()?>booking/add" class="btn btn-success btn-block btn-sm" role="button">
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Book Schedule</a>
                 </div>
-
-                <center><?php echo $this->pagination->create_links();?></center>
-           
             </div>
           </div>
         </div>       
@@ -87,3 +84,16 @@
     <strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation</a>.</strong> All rights
     reserved.
   </footer>
+<script>
+   $(function () {
+    $('#custbooking').DataTable()
+    $('#custbooking2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>

@@ -23,12 +23,17 @@ class BookingModel extends CI_Model{
   
     }
 
-// PAGINATION
+// GET
    
     public function getItems(){
     $query = $this->db->get('booking');
     return $query->result();
     }
+
+    public function getCustBook(){
+        $query = $this->db->get_where('booking', array('custname' => $this->session->name));
+        return $query->result();
+        }
 
     public function getNumRecs(){
     return $this->db->count_all('booking');

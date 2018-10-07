@@ -16,7 +16,7 @@
             <h3 class="box-title">Profile Photo</h3>
           </div>
 
-    <form  class="form-horizontal" action="<?=base_url().'staff/insert'?>"  method='post'>
+    <form  class="form-horizontal" action="<?=base_url().'staff/insert'?>" enctype="multipart/form-data" method='post'>
     <fieldset>
         <div class="form-group">
           <div class="col-md-4">
@@ -24,20 +24,26 @@
           </div>
         </div>
 
+        <?php
+        $default_path = base_url() . '/images/default.png';
+        $file = $emp->img != "" ? base_url(). 'images/'. $emp->img : $default_path ;
+        
+    ?>
+
       <div class="form-group">
-        <label class="col-md-1 control-label" for="upload"></label>  
+        <label class="col-md-1 control-label" for="file_name"></label>  
             <div class="col-md-9">
-              <img src="<?= base_url().'images/default.jpg'?>" alt="..." class="img-thumbnail">
+              <img src="<?= $file?>" alt="..." class="img-thumbnail">
             </div>
           </div>
       <div>
       <hr/>
 
-      <div class="form-group">
-        <label class="col-md-1 control-label" for="upload"></label>  
+      <div class="form-group" >
+        <label class="col-md-1 control-label" for="file_name"></label>  
           <div class="col-md-9">
-            <?php echo form_open_multipart('admin/do_upload');?>
-            <input value="<?=set_value('img')?>" value="<?=set_value('img')?>" class="form-control" type="file" name="img" size="20" >
+            <?php echo form_open_multipart('staff/do_upload');?>
+            <input value="<?=set_value('img')?>" class="form-control" id="file" type="file" name="img" size="20" >
             <?= form_error('img', '<span class="label label-danger">', '</span>'); ?>  
             </div>
           </div>

@@ -112,6 +112,12 @@
         </a>
       </li>
 
+      <li>
+        <a href="<?=base_url().'customer/profile'?>">
+          <i class="fa fa-user"></i> <span>Profile</span>
+        </a>
+      </li>
+
         <li>
         <a href="<?=base_url().'customer/booking'?>">
           <i class="fa fa-info-circle"></i> <span>Booking Information</span>

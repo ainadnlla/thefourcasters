@@ -208,7 +208,11 @@ class Customer extends CI_Controller {
                 'picpath' => $user->img,
                 'name'=>$user->name,
                 'cust'  => $user->cust_type,
-                'emailad'     => $email,
+                'since'  => $user->date,
+                'contact'  => $user->contact,
+                'emailad'  => $email,
+                'password' => $password,
+                'repass'  => $user->repass,
                 'logged_in' => TRUE,
                 'isAdmin' => TRUE
             );
@@ -225,25 +229,15 @@ class Customer extends CI_Controller {
         redirect('customer/login');
     }
 
-    public function inbox(){
+    public function profile(){
         if($this->session->userdata('emailad') !=''){
-            $data['title'] = 'Inbox | Angelogistic Forwarder Corporation';
-            $this->load->view('include/calendar_head', $data);
-            $this->load->view('include/customer_header'); 
-            $this->load->view('customer/inbox');
-            $this->load->view('include/calendar_foot');
-        }else{
-            redirect('customer/login');
-        }
-    }  
-    
-    public function compose(){   
-        if($this->session->userdata('emailad') !=''){
-            $data['title'] = 'Compose | Angelogistic Forwarder Corporation';
-            $this->load->view('include/calendar_head', $data);
-            $this->load->view('include/customer_header'); 
-            $this->load->view('customer/compose');
-            $this->load->view('include/calendar_foot');
+            $data['title'] = 'Profile | Angelogistic Forwarder Corporation';
+
+            $cust = $this->session->userdata();
+            $this->load->view('include/header', $data);
+            $this->load->view('include/customer_header');
+            $this->load->view('customer/profile');
+            $this->load->view('include/footer');
         }else{
             redirect('customer/login');
         }
@@ -261,41 +255,18 @@ class Customer extends CI_Controller {
         }
     }  
 
-    public function booking($offset=0){
+    public function booking(){
          if($this->session->userdata('emailad') !=''){ 
             $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
 
-            $this->load->library('pagination');
-            $norecs = 5;
-    
-            $config['base_url'] = base_url().'customer/booking/';
-            $config['total_rows'] = $this->BookingModel->getNumRecs();
-            $config['per_page'] = $norecs;
-    
-            $config['full_tag_open'] = "<ul class='pagination'>";
-            $config['full_tag_close'] ="</ul>";
-            $config['num_tag_open'] = '<li>';
-            $config['num_tag_close'] = '</li>';
-            $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-            $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-            $config['next_tag_open'] = "<li>";
-            $config['next_tagl_close'] = "</li>";
-            $config['prev_tag_open'] = "<li>";
-            $config['prev_tagl_close'] = "</li>";
-            $config['first_tag_open'] = "<li>";
-            $config['first_tagl_close'] = "</li>";
-            $config['last_tag_open'] = "<li>";
-            $config['last_tagl_close'] = "</li>";
-    
-            $this->pagination->initialize($config);
-    
             $this->load->config('myconfig');
-            $books =  $this->BookingModel->getItems($norecs, $offset);
+            $books =  $this->BookingModel->getCustBook();
 
             $this->load->view('include/header', $data);
             $this->load->view('include/customer_header');
-            $this->load->view('customer/booking',compact('books'));
             $this->load->view('include/footer');
+            $this->load->view('customer/booking',compact('books'));
+            
         }else{
              redirect('customer/login');
          }

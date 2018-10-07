@@ -34,7 +34,12 @@
                 <?php foreach($emps as $emp): ?>
                     <tr>
                         <td><?= $emp->id?></td>
-                        <td><img src="<?=base_url().'images/'.$emp->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
+                        <td>
+                        <?php
+                        $default_path = base_url() . 'images/default.jpg';
+                        $file = $emp->img != "" ? base_url(). 'images/'. $emp->img : $default_path ;
+                        ?>
+                        <img src="<?=$file?>" width = "50px" alt="Image" class="img-thumbnail"></td>
                         <td class="text-capitalize"><?= $emp->fname?> <?= $emp->mname?> <?= $emp->lname?></td>
                         <td><?= $emp->email?></td>                            
                         <td><?= date('M d, Y', strtotime($emp->birthday))?></td>

@@ -58,6 +58,7 @@ class Staff extends CI_Controller {
     public function add(){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Staff Details | Angelogistic Forwarder Corporation';
+        $data['user'] =  $this->UserModel->getProd($id);
 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
@@ -133,42 +134,44 @@ class Staff extends CI_Controller {
     public function do_upload(){  
     $id = $this->input->post('id');
     $data['emps'] = $this->UserModel->getItem($id);
-    $config['upload_path']          = './images/';
+    $config['upload_path']          = './uploads/';
     $config['allowed_types']        = 'gif|jpg|png';
-    $config['max_size']             = 1000;
-    $config['max_width']            = 1024;
-    $config['max_height']           = 1024;
+    $config['max_size']             = 20000;
+    $config['max_width']            = 20000;
+    $config['max_height']           = 10000;
     $config['file_name']           = $this->input->post('img');
 
     $this->load->library('upload', $config);
-
-        if ( ! $this->upload->do_upload('itemfile'))
+    $this->upload->initialize($config);
+        if ( ! $this->upload->do_upload('file_name'))
         {
             $error = array('error' => $this->upload->display_errors());
 
             $this->debug($error);
         }
         else
-        {
-            $upload_data = $this->upload->data();
-            $config['image_library'] = 'gd2';
-            $config['source_image'] = './uploads/'.$upload_data['file_name'];
-            $config['create_thumb'] = TRUE;
-            $config['maintain_ratio'] = TRUE;
-            $config['width']         = 100;
-            $config['height']       = 100;
-            $config['thumb_marker'] = '';
-            $config['new_image'] = './uploads_thumbs/';
-            $this->load->library('image_lib');
-            $this->load->lib->initialize($config2);
+        {   
+            $data['img'] = $this->upload->data();
+            $this->UserModel->update($id,array('img' => $data['file_name']));
+            // $upload_data = $this->upload->data();
+            // $config['image_library'] = 'gd2';
+            // $config['source_image'] = './uploads/'.$upload_data['file_name'];
+            // $config['create_thumb'] = TRUE;
+            // $config['maintain_ratio'] = TRUE;
+            // $config['width']         = 100;
+            // $config['height']       = 100;
+            // $config['thumb_marker'] = '';
+            // $config['new_image'] = './uploads_thumbs/';
+            // $this->load->library('image_lib');
+            // $this->load->lib->initialize($config2);
                 
-                if ( ! $this->image_lib->resize())
-                {
-                    echo $this->image_lib->display_errors(); die();
-                }
-            $data['image']=$upload_data[file_name];
-            $this->UserModel->insert($data);
-            $this->index();
+            //     if ( ! $this->image_lib->resize())
+            //     {
+            //         echo $this->image_lib->display_errors(); die();
+            //     }
+            // $data['file_name']=$upload_data['file_name'];
+            // $this->UserModel->insert($data);
+            // $this->index();
         }
     }
   
