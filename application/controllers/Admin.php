@@ -13,6 +13,7 @@ class Admin extends CI_Controller {
             $this->load->model('BookingModel');
             $this->load->model('HelperModel');
             $this->load->model('MaintenanceModel');
+            $this->load->model("CalendarModel");
     }
 //
 //     function myFunction() {
@@ -102,15 +103,49 @@ class Admin extends CI_Controller {
     public function calendar(){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Calendar | Angelogistic Forwarder Corporation';
+
         $this->load->view('include/calendar_head', $data);
         $this->load->view('include/header_nav'); 
-        $this->load->view('admin/calendar');
         $this->load->view('include/calendar_foot');
+        $this->load->view('admin/calendar');
+        
         
 }else{
     redirect('login/admin');
 }
     }  
+
+    public function get_events()
+    {
+        // Our Start and End Dates
+        $start = $this->input->get("start");
+        $end = $this->input->get("end");
+   
+        $startdt = new DateTime('now'); // setup a local datetime
+        $startdt->setTimestamp($start); // Set the date based on timestamp
+        $start_format = $startdt->format('Y-m-d H:i:s');
+   
+        $enddt = new DateTime('now'); // setup a local datetime
+        $enddt->setTimestamp($end); // Set the date based on timestamp
+        $end_format = $enddt->format('Y-m-d H:i:s');
+   
+        $events = $this->CalendarModel->get_events($start_format, $end_format);
+   
+        $data_events = array();
+   
+        foreach($events->result() as $r) {
+   
+            $data_events[] = array(
+                "id" => $r->id,
+                "title" => $r->custname,
+                "end" => $r->date,
+                "start" => $r->date
+            );
+        }
+   
+        echo json_encode(array("events" => $data_events));
+        exit();
+    }
 
     public function profile(){
         if($this->session->userdata('username') !=''){ 
