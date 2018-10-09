@@ -123,6 +123,12 @@
           <i class="fa fa-info-circle"></i> <span>Booking Information</span>
         </a>
       </li>
+
+      <li>
+        <a href="<?=base_url().'customer/logistics'?>">
+          <i class="fa fa-info-circle"></i> <span>Logistics Tracking</span>
+        </a>
+      </li>
       
         <li>
           <a href="<?=base_url().'customer/calendar'?>">

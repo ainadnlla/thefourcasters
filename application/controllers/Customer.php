@@ -302,6 +302,13 @@ class Customer extends CI_Controller {
                     redirect('login/customer');
               }
             }  
+    public function logistics(){
+        $data['title'] = 'Logistics Tracking | Angelogistic Forwarder Corporation';
+        $this->load->view('include/header', $data);
+        $this->load->view('include/customer_header');
+        $this->load->view('include/footer');
+        $this->load->view('customer/timeline');
+            }
 
 }
 ?>
