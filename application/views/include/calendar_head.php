@@ -9,6 +9,10 @@
 <!-- fullCalendar -->
 <link rel="stylesheet" href="<?=base_url()?>dashboard/bower_components/fullcalendar/dist/fullcalendar.min.css">
 <link rel="stylesheet" href="<?=base_url()?>dashboard/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+<script src="<?php echo base_url() ?>scripts/fullcalendar/lib/moment.min.js"></script>
+<script src="<?php echo base_url() ?>scripts/fullcalendar/fullcalendar.min.js"></script>
+<script src="<?php echo base_url() ?>scripts/fullcalendar/gcal.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <!-- Theme style -->
 <link rel="stylesheet" href="<?=base_url()?>dashboard/dist/css/AdminLTE.min.css">
 <!-- AdminLTE Skins. Choose a skin from the css/skins
