@@ -23,7 +23,8 @@
     </div>
   </div>
 </section>
-<input type="month"></input>
+<select >
+</select>
 <input type="text">
  <!-- /.content -->
 </div>

@@ -70,9 +70,12 @@ public function getBook(){
     return $query->result(); 
 }
 
-public function getbookcount(){
-    $query = $this->db->query("SELECT * FROM booking WHERE EXTRACT(MONTH  = $month FROM date) = EXTRACT(MONTH from CURDATE()) AND EXTRACT(YEAR = $year from date) = EXTRACT(YEAR from CURDATE())");
-    return $query->num_rows();
+public function getbookcount($month, $year){
+    
+    $query = $this->db->query("SELECT * FROM booking WHERE EXTRACT(MONTH = $month FROM date) = EXTRACT(MONTH from CURDATE()) AND EXTRACT(YEAR = $year as year from date) = EXTRACT(YEAR from CURDATE())");
+    return $query->result();
+    // $query = $this->db->query("SELECT * FROM booking WHERE EXTRACT(MONTH  = $month FROM date) = EXTRACT(MONTH from CURDATE()) AND EXTRACT(YEAR = $year from date) = EXTRACT(YEAR from CURDATE())");
+    // return $query->num_rows();
     }
     //price
     public function get_sum(){

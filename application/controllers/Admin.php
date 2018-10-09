@@ -253,6 +253,10 @@ class Admin extends CI_Controller {
             $this->load->view('include/footer');
             $this->load->view('admin/error');
     }
-
+    public function sample(){
+        $this->UserModel->getbookcount($month, $year);
+        $this->load->config('myconfig');
+        $this->load->view('admin/sampleshit');
+    }
     }
 ?>

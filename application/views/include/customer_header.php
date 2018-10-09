@@ -2,7 +2,7 @@
 <div class="wrapper">
   <header class="main-header">
     <!-- Logo -->
-    <a href="<?=base_url().'customer/index'?>" class="logo">
+    <a href="<?=base_url().'customer/homepage'?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>AFC</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -67,7 +67,7 @@
                   <a href="#"> <span class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                <a href="<?=base_url().'customer/logout'?>"> <span class="btn btn-default btn-flat">Sign out</span></a>
+                <a href="<?=base_url().'login/logoutcustomer'?>"> <span class="btn btn-default btn-flat">Sign out</span></a>
                 </div>
               </li>
             </ul>
@@ -107,7 +107,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li>
-        <a href="<?=base_url().'customer/index'?>">
+        <a href="<?=base_url().'customer/homepage'?>">
           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
         </a>
       </li>

@@ -96,5 +96,49 @@ class Login extends CI_Controller {
         $this->session->sess_destroy();
         redirect('login/staff');
     }
+
+    
+    public function customer(){
+        $this->load->view('include/login_header');
+        $this->load->view('customer/login');
+        $this->load->view('include/footer');
+        if($this->session->userdata('emailad') !=''){ 
+                redirect('customer/homepage');
+            }
+            else {
+            } 
+        }
+        
+    public function signin(){
+        $email=$this->input->post('email');
+        $password=$this->input->post('password');
+        $user = $this->CustomerModel->getCustomer($email,$password);
+
+        if(!$user == null){
+            if($user->status == 1){
+            $session_data = array(
+                'picpath' => $user->img,
+                'name'=>$user->name,
+                'cust'  => $user->cust_type,
+                'since'  => $user->date,
+                'contact'  => $user->contact,
+                'emailad'  => $email,
+                'password' => $password,
+                'repass'  => $user->repass,
+                'logged_in' => TRUE,
+                'isAdmin' => TRUE
+            );
+            $this->session->set_userdata($session_data);
+            redirect('customer/homepage');
+            }      
+        }else{
+            $this->session->set_flashdata('error','Invalid Username or Password');
+            redirect('login/customer');
+        }        
+    } 
+    public function logoutcustomer(){
+        $this->session->sess_destroy();
+        redirect('login/customer');
+    }
     
 }
