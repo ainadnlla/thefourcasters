@@ -289,9 +289,31 @@ class Admin extends CI_Controller {
             $this->load->view('admin/error');
     }
     public function sample(){
-        $this->UserModel->getbookcount($month, $year);
+      
+        $month = $this->input->POST('month');
+        $year = $this->input->POST('year');
+
+        $reps=  $this->UserModel->getreport($month, $year);
         $this->load->config('myconfig');
-        $this->load->view('admin/sampleshit');
+        $this->load->view('admin/sampleshit',compact('reps'));
+   
+        
     }
+//     $data = $this->input->post();
+//     unset($data['add']);
+//         $this->form_validation->set_rules('product', 'Product', 'required');       
+//         $this->form_validation->set_rules('description', 'Description', 'required');
+//         $this->form_validation->set_rules('pieces', 'Pieces', 'required');
+//         $this->form_validation->set_rules('date','Date', 'required');
+//         $this->form_validation->set_rules('destination', 'Destination', 'required');
+//   if ($this->form_validation->run() == FALSE)
+//   {
+//       $this->add();
+//   }
+//   else
+//   {
+//         $this->BookingModel->insert($data);
+//         redirect('customer/booking');
+//   }
     }
 ?>
