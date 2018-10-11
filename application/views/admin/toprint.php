@@ -27,14 +27,14 @@
         </address>
       </div>
       <!-- /.col -->
-
+ 
       <div class="col-sm-4 invoice-col">
         <b>Report # <?php echo mt_rand(10000, 99999) ?></b><br>
       </div>
       <!-- /.col -->
     </div>
     <!-- /.row -->
-
+    <form  class="form-horizontal"  action ="<?=base_url()?>admin/sample/"  method="get">
     <!-- Table row -->
     <div class="row">
       <div class="col-xs-12 table-responsive">
@@ -53,21 +53,21 @@
           </tr>
           </thead>
           <tbody>
-          <?php foreach($emps as $emp): ?>
+          <?php foreach($reps as $rep): ?>
           <tr>
-            <td><?= $emp->waybill?></td>
-            <td><?= $emp->custname?></td>
-            <td><?= $emp->date?></td>
-            <td><?= $emp->product?></td>
-            <td><?= $emp->pieces?></td>
-            <td><?= $emp->cargo?></td>
-            <td><?= $emp->destination?></td>
-            <td><?= $emp->price?></td>
-            <td>  <?php if($emp->action==1){ ?>
+            <td><?= $rep->waybill?></td>
+            <td><?= $rep->custname?></td>
+            <td><?= $rep->date?></td>
+            <td><?= $rep->product?></td>
+            <td><?= $rep->pieces?></td>
+            <td><?= $rep->cargo?></td>
+            <td><?= $rep->destination?></td>
+            <td><?= $rep->price?></td>
+            <td>  <?php if($rep->action==1){ ?>
             <div class="label label-success">
               <strong>Accepted</strong>
             </div>
-            <?php }elseif($emp->action==2){ ?>
+            <?php }elseif($rep->action==2){ ?>
               <div class="label label-danger">
                 <strong>Denied</strong>
               </div></p>
@@ -85,7 +85,7 @@
       <!-- /.col -->
     </div>
     <!-- /.row -->
-
+</form>
     <div class="row">
       <!-- accepted payments column -->
       <div class="col-xs-6">  

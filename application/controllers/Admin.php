@@ -262,12 +262,14 @@ class Admin extends CI_Controller {
     public function toprint(){
         if($this->session->userdata('username') !=''){ 
             $data['title'] = 'Reports Information | Angelogistic Forwarder Corporation';
+             $month = $this->input->GET('month');
+             $year = $this->input->GET('year');
             $data['totalprice'] = $this->UserModel->get_sum();
             $this->load->config('myconfig');
-            $emps =  $this->UserModel->getBook();
+            $reps =  $this->UserModel->getreport($month,$year);
             $this->load->view('include/header', $data);
             $this->load->view('include/footer');
-            $this->load->view('admin/toprint',compact('emps',$data));
+            $this->load->view('admin/toprint',compact('reps',$data));
             
         }else{
             redirect('login/admin');
@@ -292,6 +294,36 @@ class Admin extends CI_Controller {
             $this->load->view('include/footer');
             $this->load->view('admin/error');
     }
+    public function sample(){
+      
+        $month = $this->input->GET('month');
+        $year = $this->input->GET('year');
 
+        
+        $reps=  $this->UserModel->getreport($month, $year);
+        $this->load->config('myconfig');
+        $this->load->view('include/header');
+        $this->load->view('include/header_nav');
+        $this->load->view('include/footer');
+        $this->load->view('admin/sampleshit',compact('reps'));
+   
+        
+    }
+//     $data = $this->input->post();
+//     unset($data['add']);
+//         $this->form_validation->set_rules('product', 'Product', 'required');       
+//         $this->form_validation->set_rules('description', 'Description', 'required');
+//         $this->form_validation->set_rules('pieces', 'Pieces', 'required');
+//         $this->form_validation->set_rules('date','Date', 'required');
+//         $this->form_validation->set_rules('destination', 'Destination', 'required');
+//   if ($this->form_validation->run() == FALSE)
+//   {
+//       $this->add();
+//   }
+//   else
+//   {
+//         $this->BookingModel->insert($data);
+//         redirect('customer/booking');
+//   }
     }
 ?>
