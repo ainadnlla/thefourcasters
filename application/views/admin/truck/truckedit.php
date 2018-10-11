@@ -20,14 +20,20 @@
     <fieldset>
         <div class="form-group">
           <div class="col-md-4">
-            <input type="hidden" name="id" type="text" placeholder="ID" class="form-control input-md" required="" >
+            <input value="<?=$truck->id?>" type="hidden" name="id" type="text" placeholder="ID" class="form-control input-md" required="" >
           </div>
         </div>
+
+      <?php
+      $default_path = base_url() . 'images/truck.jpg';
+      $file = $truck->img != "" ? base_url(). 'images/'.$truck->img : $default_path ;
+      ?>
+
 
       <div class="form-group">
         <label class="col-md-1 control-label" for="upload"></label>  
             <div class="col-md-9">
-              <img src="<?= base_url().'images/truck.jpg'?>" alt="..." class="img-thumbnail">
+              <img src="<?= $file ?>" alt="..." class="img-thumbnail">
             </div>
           </div>
       <div>
@@ -37,7 +43,7 @@
         <label class="col-md-1 control-label" for="upload"></label>  
           <div class="col-md-9">
             <?php echo form_open_multipart('admin/do_upload');?>
-            <input value="<?=set_value('img')?>" class="form-control" type="file" name="img" size="20" >
+            <input value="<?=$file?>" class="form-control" type="file" name="img" size="20" >
             <?= form_error('img', '<span class="label label-danger">', '</span>'); ?>  
             </div>
           </div>
@@ -87,7 +93,7 @@
           <?= form_error('series', '<span class="label label-danger">', '</span>') ?>  
         </div>
         <div class="col-md-6">
-          <input value="<<?=$truck->mvfile_no?>" name="mvfile_no" type="text" placeholder="MV File No." class="form-control input-md" required="">  
+          <input value="<?=$truck->mvfile_no?>" name="mvfile_no" type="text" placeholder="MV File No." class="form-control input-md" required="">  
           <?= form_error('mvfile_no', '<span class="label label-danger">', '</span>') ?>  
         </div>
     </div>
@@ -156,12 +162,23 @@
           <br/>
       </div>
 
+      <div class="form-group">
+        <label class="col-md-12 control-label" >Status</label>  
+      </div>
 
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="button1id"></label>
-        <div class="col-md-12 text-right">
-            <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Submit</button>
-            <a href="<?=base_url().'admin/truckdetails/'?>" class="btn btn-danger" role="button">Back</a>
+      <div class="form-group">
+          <div class="col-md-6">
+            <select  value="<?=$truck->status?>" name="status" class="form-control">
+            <option disabled="disabled" value="<?=$truck->status?>" selected>(<?=$truck->status?>)</option>
+            <option disabled>----------------</option>
+            <option value="0">(0) Inactive</option>
+            <option value="1">(1) Active</option>
+            </select>
+          </div>
+
+        <div class="col-md-6 text-right">
+          <button id="button1id" name="submit" type="submit" value="submit" class="btn btn-success">Update</button>
+          <a href="<?= base_url().'admin/truckdetails'?>" class="btn btn-danger" role="button"> Cancel</a>
         </div>
       </div>
 

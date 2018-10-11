@@ -26,13 +26,9 @@
                     <th>Plate No.</th>
                     <th>Series</th>
                     <th>MV File No</th>
-                    <!-- <th>Engine No.</th>
-                    <th>Chassis No.</th>
-                    <th>Gross Wt.</th>
-                    <th>Net Wt.</th>
-                    <th>Net Capacity</th> -->
                     <th>Year Model</th>
                     <th>Year Old</th>
+                    <th>Status</th>
                     <th>Action</th>
 
                 </tr>
@@ -41,18 +37,29 @@
                 <?php foreach($trucks as $truck): ?>
                         <tr>
                             <td><?= $truck->id?></td>
-                            <td><img src="<?=base_url().'images/'.$truck->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
+                            <td>
+                            <?php $default_path = base_url() . 'images/truck.jpg';
+                            $file = $truck->img != "" ? base_url(). 'images/'. $truck->img : $default_path ;?>
+                            <img src="<?=$file?>" width = "50px" alt="Image" class="img-thumbnail"></td>
+
+                            </td>
                             <td><?= $truck->brand?></td>
                             <td class="text-uppercase"><?= $truck->plate_no?></td>
                             <td><?= $truck->series?></td>
                             <td><?= $truck->mvfile_no?></td>
-                            <!-- <td><?= $truck->engine_no?></td>
-                            <td><?= $truck->chassis_no?></td>
-                            <td><?= $truck->grosswt?></td>
-                            <td><?= $truck->netwt?></td>
-                            <td><?= $truck->netcap?></td> -->
                             <td><?= $truck->year?></td>
                             <td><?= $DATE =date('Y') - $truck->year ?></td>
+                            <td>
+                            <?php if($truck->status==1){ ?>
+                            <div class="label label-success">
+                              <strong>Available</strong>
+                            </div>
+                            <?php }elseif($truck->status==0){ ?>
+                              <div class="label label-danger">
+                                <strong>Under Maintainance</strong>
+                              </div></p>
+                            <?php }?>
+                                </td>
                             <td>
 
                             <a href="<?= base_url().'truck/edit/'.$truck->id?>" class="btn btn-default btn.lg" role="button">
