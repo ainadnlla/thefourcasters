@@ -35,7 +35,11 @@
                 <?php foreach($helps as $help): ?>
                     <tr>
                         <td><?= $help->id?></td>
-                        <td><img src="<?=base_url().'images/'.$help->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
+                        <td>
+                        <?php $default_path = base_url() . 'images/default.jpg';
+                        $file = $help->img != "" ? base_url(). 'images/'. $help->img : $default_path ;?>
+                        <img src="<?=$file?>" width = "50px" alt="Image" class="img-thumbnail"></td>
+                        </td>
                         <td class="text-uppercase"><?= $help->driver_no?></td>
                         <td><?= date('F Y', strtotime($help->expire))?></td>
                         <td class="text-capitalize"><?= $help->fname?> <?= $help->mname?> <?= $help->lname?></td>

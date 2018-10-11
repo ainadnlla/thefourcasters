@@ -14,50 +14,14 @@ class Driver extends CI_Controller {
 
 // ADMIN SIDE - CRUD DRIVER
 
-public function logged(){
-    $newdata = array(
-        'name'  => $user->name,
-        'username'     => $user->username,
-        'logged_in' => TRUE,
-        'isAdmin' => TRUE
-);
-$this->session->set_userdata($newdata);
-}
-    public function userdetails_driver($offset=0){
-        if($this->session->userdata('username') !=''){ 
-            
-        $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
-        $this->load->library('pagination');
-        $norecs = 5;
-        $config['base_url'] = base_url().'admin/userdetails_driver/';
-        $config['total_rows'] = $this->DriverModel->getNumRecs();
-        $config['per_page'] = $norecs;
-        $config['full_tag_open'] = "<ul class='pagination'>";
-        $config['full_tag_close'] ="</ul>";
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-        $config['next_tag_open'] = "<li>";
-        $config['next_tagl_close'] = "</li>";
-        $config['prev_tag_open'] = "<li>";
-        $config['prev_tagl_close'] = "</li>";
-        $config['first_tag_open'] = "<li>";
-        $config['first_tagl_close'] = "</li>";
-        $config['last_tag_open'] = "<li>";
-        $config['last_tagl_close'] = "</li>";
-        $this->pagination->initialize($config);
-        $this->load->config('myconfig');
-        $drivs = $this->DriverModel->getItems($norecs, $offset);
-        
-        $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav');
-        $this->load->view('include/footer');
-        $this->load->view('admin/userdetails',compact('drivs'));
-        
-}else{
-    redirect('admin/login');
-}
+    public function logged(){
+        $newdata = array(
+            'name'  => $user->name,
+            'username'     => $user->username,
+            'logged_in' => TRUE,
+            'isAdmin' => TRUE
+    );
+    $this->session->set_userdata($newdata);
     }
 
     public function insert(){
@@ -182,7 +146,6 @@ $this->session->set_userdata($newdata);
         $this->form_validation->set_rules('timein', 'Time In', 'required');
         $this->form_validation->set_rules('timeout', 'Time Out', 'required');
         $this->form_validation->set_rules('gender', 'Gender', 'required');
-        $this->form_validation->set_rules('img', '(Image)', 'required');
 
             if ($this->form_validation->run() == FALSE)
             {
@@ -193,37 +156,28 @@ $this->session->set_userdata($newdata);
                 redirect('admin/userdetails_driver');    
             }
         }    
-
-    
-
+   
     public function do_upload(){  
-        $driv = $this->uri->segment(4);
         $id = $this->input->post('id');
         $data['driv'] = $this->DriverModel->getItem($id);
         $config['upload_path']          = './images/';
         $config['allowed_types']        = 'gif|jpg|png';
-        $config['max_size']             = 15000;
-        $config['max_width']            = 10000;
+        $config['max_size']             = 20000;
+        $config['max_width']            = 20000;
         $config['max_height']           = 10000;
-        $config['file_name']            = $data['driv']->id;
+        $config['file_name']           = $this->input->post('img');
+    
         $this->load->library('upload', $config);
-        if ( ! $this->upload->do_upload('itemfile'))
+        $this->upload->initialize($config);
+        if ( ! $this->upload->do_upload('file_name'))
         {
             $error = array('error' => $this->upload->display_errors());
             $this->debug($error);
         }
         else
-        {
-            // $data = $this->upload->data('file_name');
-            // $this->DriverModel->update($id,array('img' => $data['file_name']));
-            // $image = $this->upload->data('file_name');
-            // $data['id'] = $image;
-            // if ($this->driver->update('driver', $data, array('driver' => $this->session->id))) {
-            //     $data['user'] = $this->user->fetch('driver',array('id'=>$this->session->id))[0];
-            // if($this->insert_logs($this->session->uid,1,'Update Driver Details',31)){}
-            // }else {
-                $this->index();  
-            // }
+        {   
+            $data['img'] = $this->upload->data();
+            $this->DriverModel->update($id,array('img' => $data['file_name']));
         }
     }
         

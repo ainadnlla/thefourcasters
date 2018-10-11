@@ -36,7 +36,11 @@
                 <?php foreach($drivs as $driv): ?>
                     <tr>
                         <td><?= $driv->id?></td>
-                        <td><img src="<?=base_url().'images/'.$driv->img?>" width = "50px" alt="Image" class="img-thumbnail"></td>
+                        <td>
+                        <?php $default_path = base_url() . 'images/default.jpg';
+                        $file = $driv->img != "" ? base_url(). 'images/'. $driv->img : $default_path ;?>
+                        <img src="<?=$file?>" width = "50px" alt="Image" class="img-thumbnail"></td>
+                        </td>
                         <td class="text-uppercase"><?= $driv->driver_no?></td>
                         <td><?= date('F Y', strtotime($driv->expire))?></td>
                         <td class="text-capitalize"><?= $driv->fname?> <?= $driv->mname?> <?= $driv->lname?></td>

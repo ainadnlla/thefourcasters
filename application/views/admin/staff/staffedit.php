@@ -43,7 +43,6 @@
           <div class="col-md-9">
           <?php echo form_open_multipart('staff/do_upload');?>
             <input value="<?=$file?>"  class="form-control" type="file" name="img" size="20" >
-            <?= form_error('img', '<span class="label label-danger">', '</span>'); ?>  
             </div>
           </div>
           <br/>

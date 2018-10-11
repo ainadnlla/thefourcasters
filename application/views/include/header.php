@@ -25,4 +25,8 @@
 <!-- PACE -->
 <link rel="stylesheet" href="<?=base_url()?>dashboard/bower_components/PACE/themes/white/pace-theme-flash.css">
 <link rel="stylesheet" href="<?=base_url()?>dashboard/plugins/pace/pace.min.css">
+<!-- fullCalendar -->
+<link rel="stylesheet" href="<?=base_url()?>dashboard/bower_components/fullcalendar/dist/fullcalendar.min.css">
+<link rel="stylesheet" href="<?=base_url()?>dashboard/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+
 </head>

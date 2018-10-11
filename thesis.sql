@@ -92,7 +92,7 @@ INSERT INTO `booking` (`id`, `waybill`, `date`, `cust_type`, `custname`, `cargo`
 --
 
 CREATE TABLE `customer` (
-  `id` int(100) NOT NULL,
+  `id` int(100) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `cust_type` varchar(50) NOT NULL,
   `password` varchar(20) NOT NULL,
@@ -112,27 +112,27 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`, `contact`, `date`, `status`, `created`, `updated`, `img`, `user_type`, `user_id`) VALUES
-(0, 'Altron Logistics Inc.', 'Local/Sub-contractor', '123456789', '123456789', 'altron@gmail.com', '09147852136', '2017-08-11', 1, '2018-09-13 15:55:58', '2018-09-13 15:55:58', 'default.jpg', 0, 0),
-(1, 'Wuerth Phils. Inc', 'Broker/Agent', '123456789', '123456789', 'wuerthphilsinc@gmail.com', '09147852136', '2018-09-15', 1, '2018-09-13 15:51:21', '2018-09-13 15:51:21', 'default.jpg', 0, 0),
-(2, 'Northern Chemical Sales Inc.', '', '123456789', '123456789', 'northernchemci@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:51:22', '2018-09-13 15:51:22', 'default.jpg', 0, 0),
-(3, 'Alysons Chemical Enterprises Inc.', '', '123456789', '123456789', 'alysonschemic@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:51:22', '2018-09-13 15:51:22', 'default.jpg', 0, 0),
-(4, 'Breakthru Cleaning Agent', '', '123456789', '123456789', 'breakthru@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:52:32', '2018-09-13 15:52:32', 'default.jpg', 0, 0),
-(5, 'MyWine - the best italian wine', '', '123456789', '123456789', 'mywine@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:52:32', '2018-09-13 15:52:32', 'default.jpg', 0, 0),
-(6, 'Wacker Machines Supplies Corp.', '', '123456789', '123456789', 'wacker@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:53:20', '2018-09-13 15:53:20', 'default.jpg', 0, 0),
-(7, 'Marilou R. Arevalo (Bong)', '', '123456789', '123456789', 'bong@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:53:20', '2018-09-13 15:53:20', 'default.jpg', 0, 0),
-(8, 'Coastline Truck Center', '', '123456789', '123456789', 'coastline@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:55:58', '2018-09-13 15:55:58', 'default.jpg', 0, 0),
-(9, 'Angelogistics Co. Ltd - Pier Dispatch ', '', '123456789', '123456789', 'dispatch@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:55:58', '2018-09-13 15:55:58', 'default.jpg', 0, 0),
-(10, 'Continental Cargo Carriers Inc. ', '', '123456789', '123456789', 'continental@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:55:58', '2018-09-13 15:55:58', 'default.jpg', 0, 0),
-(11, 'Asiaworld Transport Phils.', '', '123456789', '123456789', 'asiaworld@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:55:58', '2018-09-13 15:55:58', 'default.jpg', 0, 0),
-(13, 'Kargamine Tool Inc.', 'Local/Sub-contractor', '123456789', '123456789', 'kargamin@gmail.com', '09154269173', '2013-08-21', 0, '2018-09-26 12:01:07', '2018-09-26 12:01:07', 'default.jpg', 0, 0),
-(14, 'San Miguel Shipping and Lighterage Corp.', 'Local/Sub-contractor', '123456789', '123456789', 'sanmiguelcorp@gmail.com', '09150138304', '2014-11-01', 0, '2018-09-26 12:11:46', '2018-09-26 12:11:46', 'default.jpg', 0, 0),
-(15, 'Mira Raquel Suriben', 'Broker/Agent', '123456789', '123456789', 'miraquel@gmail.com', '09994736181', '2013-10-11', 0, '2018-09-26 12:11:46', '2018-09-26 12:11:46', 'default.jpg', 0, 0),
-(16, 'NALM Trading (Reymark V. Gador)', 'In-house Brokerage', '123456789', '123456789', 'nalm@gmail.com', '09170143697', '2018-02-25', 0, '2018-09-26 12:11:46', '2018-09-26 12:11:46', 'default.jpg', 0, 0),
-(17, 'Allied Botanical Corporation', 'Local/Sub-contractor', '123456789', '123456789', 'alliedbcorp@gmail.com', '09495123614', '2015-02-26', 0, '2018-09-26 12:11:46', '2018-09-26 12:11:46', 'default.jpg', 0, 0),
-(18, 'Frey Fil Corp. (Elizabeth N. Almariego)', 'Broker/Agent', '123456789', '123456789', 'freyfilcorp@gmail.com', '09676247831', '2015-02-26', 0, '2018-09-26 12:11:46', '2018-09-26 12:11:46', 'default.jpg', 0, 0),
-(19, 'Yongzheng Shipping Corp Inc.', 'Local/Sub-contractor', '123456789', '123456789', 'yongzheng@gmail.com', '09051478365', '2016-05-17', 0, '2018-09-26 12:11:46', '2018-09-26 12:11:46', 'default.jpg', 0, 0),
-(20, 'W Hydrocolloids Inc.', 'Freight Forwarder', '123456789', '123456789', 'hydrocolloids@gmail.com', '09997531548', '2017-08-27', 0, '2018-09-26 12:11:47', '2018-09-26 12:11:47', 'default.jpg', 0, 0);
+INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`, `contact`, `date`, `status`, `created`, `updated`, `img`) VALUES
+(1, 'Altron Logistics Inc.', 'Local/Sub-contractor', '123456789', '123456789', 'altron@gmail.com', '09147852136', '2017-08-11', 1, '2018-09-13 15:55:58', '2018-09-13 15:55:58', 'default.jpg'),
+(2, 'Wuerth Phils. Inc', 'Broker/Agent', '123456789', '123456789', 'wuerthphilsinc@gmail.com', '09147852136', '2018-09-15', 1, '2018-09-13 15:51:21', '2018-09-13 15:51:21', 'default.jpg'),
+(3, 'Northern Chemical Sales Inc.', '', '123456789', '123456789', 'northernchemci@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:51:22', '2018-09-13 15:51:22', 'default.jpg'),
+(4, 'Alysons Chemical Enterprises Inc.', '', '123456789', '123456789', 'alysonschemic@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:51:22', '2018-09-13 15:51:22', 'default.jpg'),
+(5, 'Breakthru Cleaning Agent', '', '123456789', '123456789', 'breakthru@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:52:32', '2018-09-13 15:52:32', 'default.jpg'),
+(6, 'MyWine - the best italian wine', '', '123456789', '123456789', 'mywine@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:52:32', '2018-09-13 15:52:32', 'default.jpg'),
+(7, 'Wacker Machines Supplies Corp.', '', '123456789', '123456789', 'wacker@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:53:20', '2018-09-13 15:53:20', 'default.jpg'),
+(8, 'Marilou R. Arevalo (Bong)', '', '123456789', '123456789', 'bong@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:53:20', '2018-09-13 15:53:20', 'default.jpg'),
+(9, 'Coastline Truck Center', '', '123456789', '123456789', 'coastline@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:55:58', '2018-09-13 15:55:58', 'default.jpg'),
+(10, 'Angelogistics Co. Ltd - Pier Dispatch ', '', '123456789', '123456789', 'dispatch@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:55:58', '2018-09-13 15:55:58', 'default.jpg'),
+(11, 'Continental Cargo Carriers Inc. ', '', '123456789', '123456789', 'continental@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:55:58', '2018-09-13 15:55:58', 'default.jpg'),
+(12, 'Asiaworld Transport Phils.', '', '123456789', '123456789', 'asiaworld@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:55:58', '2018-09-13 15:55:58', 'default.jpg'),
+(13, 'Kargamine Tool Inc.', 'Local/Sub-contractor', '123456789', '123456789', 'kargamin@gmail.com', '09154269173', '2013-08-21', 0, '2018-09-26 12:01:07', '2018-09-26 12:01:07', 'default.jpg'),
+(14, 'San Miguel Shipping and Lighterage Corp.', 'Local/Sub-contractor', '123456789', '123456789', 'sanmiguelcorp@gmail.com', '09150138304', '2014-11-01', 0, '2018-09-26 12:11:46', '2018-09-26 12:11:46', 'default.jpg'),
+(15, 'Mira Raquel Suriben', 'Broker/Agent', '123456789', '123456789', 'miraquel@gmail.com', '09994736181', '2013-10-11', 0, '2018-09-26 12:11:46', '2018-09-26 12:11:46', 'default.jpg'),
+(16, 'NALM Trading (Reymark V. Gador)', 'In-house Brokerage', '123456789', '123456789', 'nalm@gmail.com', '09170143697', '2018-02-25', 0, '2018-09-26 12:11:46', '2018-09-26 12:11:46', 'default.jpg'),
+(17, 'Allied Botanical Corporation', 'Local/Sub-contractor', '123456789', '123456789', 'alliedbcorp@gmail.com', '09495123614', '2015-02-26', 0, '2018-09-26 12:11:46', '2018-09-26 12:11:46', 'default.jpg'),
+(18, 'Frey Fil Corp. (Elizabeth N. Almariego)', 'Broker/Agent', '123456789', '123456789', 'freyfilcorp@gmail.com', '09676247831', '2015-02-26', 0, '2018-09-26 12:11:46', '2018-09-26 12:11:46', 'default.jpg'),
+(19, 'Yongzheng Shipping Corp Inc.', 'Local/Sub-contractor', '123456789', '123456789', 'yongzheng@gmail.com', '09051478365', '2016-05-17', 0, '2018-09-26 12:11:46', '2018-09-26 12:11:46', 'default.jpg'),
+(20, 'W Hydrocolloids Inc.', 'Freight Forwarder', '123456789', '123456789', 'hydrocolloids@gmail.com', '09997531548', '2017-08-27', 0, '2018-09-26 12:11:47', '2018-09-26 12:11:47', 'default.jpg');
 
 -- --------------------------------------------------------
 
@@ -156,7 +156,7 @@ INSERT INTO `destination` (`id`, `destination`) VALUES
 (4, 'MIP - Manila-North, Valenzuela, Bisalud Bagbauin (Evergreen Textile Printing)\r\n'),
 (5, 'MIP - Manila-North, Valenzuela, Bartolome KM. 16 Mc Arthur (Sun Fortune Inc.)'),
 (6, 'MIP - Manila-North, Valenzuela, Sitio Bisalud (Artos Textile Mills, Inc.)'),
-(7, 'MIP - Manila-North, Caloocan, Sta. Quiteria (Alysons\' Warehouse)'),
+(7, 'MIP - Manila-North, Caloocan, Sta. Quiteria (Alysons Warehouse)'),
 (8, 'MIP - Manila-North, Valenzuela, Talipapa'),
 (9, 'MIP - Manila-North, Valenzuela, Ugong'),
 (10, 'MIP - Pampanga, Angeles, Balibago'),

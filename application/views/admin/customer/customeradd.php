@@ -16,7 +16,7 @@
             <h3 class="box-title">Profile Photo</h3>
           </div>
 
-    <form  class="form-horizontal" action="<?=base_url().'customer/insert'?>"  method='post'>
+    <form  class="form-horizontal" action="<?=base_url().'customer/insert'?>" enctype="multipart/form-data" method='post'>
     <fieldset>
         <div class="form-group">
           <div class="col-md-4">

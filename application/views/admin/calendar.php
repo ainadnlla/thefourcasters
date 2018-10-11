@@ -58,11 +58,11 @@ reserved.
       },
 			eventSources: [
          {
-						color: '#18b9e6',   
-            textColor: '#000000',
+              backgroundColor: '#0073b7',
+              borderColor    : '#0073b7',
             events: function(start, end, timezone, callback) {
                  $.ajax({
-                 url: '<?php echo base_url() ?>admin/get_events',
+                 url: '<?php echo base_url() ?>admin/get_events', 
                  dataType: 'json',
                  data: {
                  // our hypothetical feed requires UNIX timestamps

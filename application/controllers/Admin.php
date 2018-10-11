@@ -99,14 +99,15 @@ class Admin extends CI_Controller {
     }
     }
 
+// CALENDAR CONTROLLERS
 
     public function calendar(){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Calendar | Angelogistic Forwarder Corporation';
 
-        $this->load->view('include/calendar_head', $data);
+        $this->load->view('include/header', $data);
         $this->load->view('include/header_nav'); 
-        $this->load->view('include/calendar_foot');
+        $this->load->view('include/footer');
         $this->load->view('admin/calendar');
         
         
@@ -146,6 +147,9 @@ class Admin extends CI_Controller {
         echo json_encode(array("events" => $data_events));
         exit();
     }
+
+
+// END OF CALENDAR CONTROLLERS
 
     public function profile(){
         if($this->session->userdata('username') !=''){ 

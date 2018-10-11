@@ -176,49 +176,30 @@ class Helper extends CI_Controller {
                 redirect('admin/userdetails_helper');
             }
         }
+
     public function do_upload(){  
         $id = $this->input->post('id');
         $data['help'] = $this->HelperModel->getItem($id);
         $config['upload_path']          = './images/';
         $config['allowed_types']        = 'gif|jpg|png';
-        $config['max_size']             = 100;
-        $config['max_width']            = 1024;
-        $config['max_height']           = 768;
-        $config['file_name']            = $data['help']->id;
+        $config['max_size']             = 20000;
+        $config['max_width']            = 20000;
+        $config['max_height']           = 10000;
+        $config['file_name']           = $this->input->post('img');
+    
         $this->load->library('upload', $config);
-        if ( ! $this->upload->do_upload('itemfile'))
+        $this->upload->initialize($config);
+        if ( ! $this->upload->do_upload('file_name'))
         {
             $error = array('error' => $this->upload->display_errors());
             $this->debug($error);
         }
         else
-        {
-            $data = $this->upload->data();
+        {   
+            $data['img'] = $this->upload->data();
             $this->HelperModel->update($id,array('img' => $data['file_name']));
-            $this->index();  
-            /*    $upload_data = $this->upload->data();
-                $config['image_library'] = 'gd2';
-                $config['source_image'] = './uploads/'.$upload_data['file_name'];
-                $config['create_thumb'] = TRUE;
-                $config['maintain_ratio'] = TRUE;
-                $config['width']         = 100;
-                $config['height']       = 100;
-                $config['thumb_marker'] = '';
-                $config['new_image'] = './uploads_thumbs/';
-                $this->load->library('image_lib');
-                $this->load->lib->initialize($config2);
-                
-                if ( ! $this->image_lib->resize())
-                {
-                    echo $this->image_lib->display_errors(); die();
-                }
-                $data['image']=$upload_data[file_name];
-                $this->HelperModel->insert($data);
-                $this->index(); */
-                }
         }
-    
-        
+    }
     
     }
 ?>

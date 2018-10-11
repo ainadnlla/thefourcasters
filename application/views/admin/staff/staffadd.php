@@ -24,16 +24,11 @@
           </div>
         </div>
 
-        <?php
-        $default_path = base_url() . '/images/default.png';
-        $file = $emp->img != "" ? base_url(). 'images/'. $emp->img : $default_path ;
-        
-    ?>
 
       <div class="form-group">
         <label class="col-md-1 control-label" for="file_name"></label>  
             <div class="col-md-9">
-              <img src="<?= $file?>" alt="..." class="img-thumbnail">
+            <img src="<?= base_url().'images/default.jpg'?>" alt="..." class="img-thumbnail">
             </div>
           </div>
       <div>

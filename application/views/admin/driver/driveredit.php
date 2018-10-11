@@ -20,14 +20,19 @@
       <fieldset>
         <div class="form-group">
           <div class="col-md-4">
-            <input type="hidden" name="id" type="text" placeholder="ID" class="form-control input-md"value="<?=$driv->id?>" required="" >
+            <input value="<?=$driv->id?>" type="hidden" name="id" type="text" placeholder="ID" class="form-control input-md" required="" >
           </div>
         </div>
+
+      <?php
+      $default_path = base_url() . 'images/default.jpg';
+      $file = $driv->img != "" ? base_url(). 'images/'.$driv->img : $default_path ;
+      ?>
 
       <div class="form-group">
         <label class="col-md-1 control-label" for="upload"></label>  
             <div class="col-md-9">
-              <img src="<?= base_url().'images/'.$driv->img ?>" alt="..." class="img-thumbnail">
+              <img src="<?=$file?>" alt="..." class="img-thumbnail">
             </div>
           </div>
       <div>
@@ -35,9 +40,8 @@
       <div class="form-group">
         <label class="col-md-1 control-label" for="upload"></label>  
             <div class="col-md-9">
-            <?php echo form_open_multipart('admin/do_upload');?>
-            <input value="<?=set_value('img')?>" class="form-control" type="file" name="img" size="20" >
-            <?= form_error('img', '<span class="label label-danger">', '</span>'); ?>  
+            <?php echo form_open_multipart('driver/do_upload');?>
+            <input value="<?=$file?>" class="form-control" type="file" name="img" size="20" >
             </div>
           </div>
           <br/>
