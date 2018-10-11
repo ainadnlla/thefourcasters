@@ -248,13 +248,18 @@ class Admin extends CI_Controller {
         if($this->session->userdata('username') !=''){ 
             $data['title'] = 'Reports Information | Angelogistic Forwarder Corporation';
 
-            $this->load->config('myconfig');
-            $emps =  $this->UserModel->getBook();
+            $month = $this->input->GET('month');
+            $year = $this->input->GET('year');  
 
+            $reps=  $this->UserModel->getreport($month, $year);
+            $this->session->set_flashdata('month', $month);
+            $this->session->set_flashdata('year', $year);
+
+            $this->load->config('myconfig');
             $this->load->view('include/header', $data);
             $this->load->view('include/header_nav');
             $this->load->view('include/footer');
-            $this->load->view('admin/reports',compact('emps'));
+            $this->load->view('admin/reports',compact('reps'));
         }else{
             redirect('login/admin');
         }
@@ -262,11 +267,13 @@ class Admin extends CI_Controller {
     public function toprint(){
         if($this->session->userdata('username') !=''){ 
             $data['title'] = 'Reports Information | Angelogistic Forwarder Corporation';
-             $month = $this->input->GET('month');
-             $year = $this->input->GET('year');
-            $data['totalprice'] = $this->UserModel->get_sum();
-            $this->load->config('myconfig');
+            
+            $month = $this->session->flashdata('month');
+            $year = $this->session->flashdata('year');
             $reps =  $this->UserModel->getreport($month,$year);
+            $data['totalprice'] = $this->UserModel->get_sum();
+            
+            $this->load->config('myconfig');
             $this->load->view('include/header', $data);
             $this->load->view('include/footer');
             $this->load->view('admin/toprint',compact('reps',$data));
@@ -278,52 +285,48 @@ class Admin extends CI_Controller {
     }
     public function pdf()
     {
+        if($this->session->userdata('username') !=''){ 
         $data['title'] = 'PDF | Angelogistic Forwarder Corporation';
+        $month = $this->session->flashdata('month');
+        $year = $this->session->flashdata('year');
+        $reps =  $this->UserModel->getreport($month,$year);
         $data['totalprice'] = $this->UserModel->get_sum();
+
         $this->load->config('myconfig');
         $this->load->helper('pdf_helper');
      //  $this->load->view('admin/topdf');
-        $this->load->view('admin/pdfreport', $data);
-    }
-    
-    public function error(){
-            $data['title'] = '404 Error | Angelogistic Forwarder Corporation';
+        $this->load->view('admin/pdfreport', compact('reps'));
 
-            $this->load->config('myconfig');
-            $this->load->view('include/header', $data);
-            $this->load->view('include/footer');
-            $this->load->view('admin/error');
+        }else{
+            redirect('login/admin');
+        }
     }
+
     public function sample(){
-      
+        if($this->session->userdata('username') !=''){ 
         $month = $this->input->GET('month');
-        $year = $this->input->GET('year');
+        $year = $this->input->GET('year');  
 
-        
         $reps=  $this->UserModel->getreport($month, $year);
+        $this->session->set_flashdata('month', $month);
+        $this->session->set_flashdata('year', $year);
+
         $this->load->config('myconfig');
         $this->load->view('include/header');
-        $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('admin/sampleshit',compact('reps'));
-   
-        
+        }else{
+            redirect('login/admin');
+        }
     }
-//     $data = $this->input->post();
-//     unset($data['add']);
-//         $this->form_validation->set_rules('product', 'Product', 'required');       
-//         $this->form_validation->set_rules('description', 'Description', 'required');
-//         $this->form_validation->set_rules('pieces', 'Pieces', 'required');
-//         $this->form_validation->set_rules('date','Date', 'required');
-//         $this->form_validation->set_rules('destination', 'Destination', 'required');
-//   if ($this->form_validation->run() == FALSE)
-//   {
-//       $this->add();
-//   }
-//   else
-//   {
-//         $this->BookingModel->insert($data);
-//         redirect('customer/booking');
-//   }
+
+    public function error(){
+        $data['title'] = '404 Error | Angelogistic Forwarder Corporation';
+
+        $this->load->config('myconfig');
+        $this->load->view('include/header', $data);
+        $this->load->view('include/footer');
+        $this->load->view('admin/error');
     }
+}
 ?>

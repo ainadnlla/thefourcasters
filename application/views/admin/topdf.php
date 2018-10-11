@@ -25,19 +25,19 @@
           </tr>
           </thead>
           <tbody>
-          <?php foreach($emps as $emp): ?>
+          <?php foreach($reps as $rep): ?>
           <tr>
-            <td width="11%"><?= $emp->waybill?></td>
-            <td width="17.5%"><?= $emp->custname?></td>
-            <td><?= $emp->date?></td>
-            <td><?= $emp->cargo?></td>
-            <td><?= $emp->destination?></td>
-            <td><?= $emp->price?></td>
-            <td>  <?php if($emp->action==1){ ?>
+            <td width="11%"><?= $rep->waybill?></td>
+            <td width="17.5%"><?= $rep->custname?></td>
+            <td><?= $rep->date?></td>
+            <td><?= $rep->cargo?></td>
+            <td><?= $rep->destination?></td>
+            <td><?= $rep->price?></td>
+            <td>  <?php if($rep->action==1){ ?>
             <div>
               <strong>Accepted</strong>
             </div>
-            <?php }elseif($emp->action==2){ ?>
+            <?php }elseif($rep->action==2){ ?>
               <div>
                 <strong>Denied</strong>
               </div></p>
@@ -58,7 +58,7 @@
           <table class="table">
             <tr>
               <th>Total:</th>
-              <td>P <strong><?php echo $totalprice;?>.00</strong></td>
+              <!-- <td>P <strong><?php echo $totalprice;?>.00</strong></td> -->
             </tr>
           </table>
         </div>

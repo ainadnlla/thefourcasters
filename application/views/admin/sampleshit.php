@@ -1,13 +1,3 @@
-<script type="text/javascript">
-        function Copy() 
-        {
-            var Url = document.getElementById("paste-box");
-            Url.value = window.location.href;
-            Url.focus();
-            Url.select();  
-            document.execCommand("Copy");
-        }
-</script>
 <div class="row">
  <div class="col-md-12">
   <div class="box box-info">
@@ -45,7 +35,7 @@ for($x = 1998; $x <= date('Y'); $x++){
 }
 ?>
 </select>
-<input type="submit" name="submit" value="submit" onclick="Copy();" > </input>
+<input type="submit" name="submit" value="submit" > </input>
  <!-- /.content -->
 </div>
 </form></center>

@@ -14,8 +14,49 @@
         This page has been enhanced for printing. Click the print button at the bottom of the table to generate report.
       </div>
     </div>
-    
+
+<form  class="form-horizontal"  action ="<?=base_url()?>admin/reports/"  method='get'>
 <section class="content">
+
+  <div class="col-xs-3">
+    <div class="form-group">
+        <select name="month" class="form-control">
+          <option selected disabled>Select Month</option>
+          <option value="01">January</option>
+          <option value="02">Febuary</option>
+          <option value="03">March</option>
+          <option value="04">April</option>
+          <option value="05">May</option>
+          <option value="06">June</option>
+          <option value="07">July</option>
+          <option value="08">August</option>
+          <option value="09">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
+    </div>
+  </div>
+
+  <div class="col-xs-3">
+    <div class="form-group">
+        <select name="year" class="form-control">
+        <option selected disabled>Select Year</option>
+        <?php
+        for($x = 1998; $x <= date('Y'); $x++){
+          echo "<option value=".$x."> ".$x."</option>";
+        }
+        ?>
+        </select>
+    </div>
+  </div>
+
+  <div class="col-xs-1">
+    <div class="form-group">
+      <button name="submit" type="submit" value="submit" class="form-control btn btn-default">GO</button>
+    </div>
+  </div>
+
 <div class="row">
 <div class="col-xs-12">
   <div class="box box-info">
@@ -45,20 +86,20 @@
               </thead>
                   
                   <tbody>
-                  <?php foreach($emps as $emp): ?>
+                  <?php foreach($reps as $rep): ?>  
                   <tr>
                
-                  <td><?= $emp->waybill?></td>
-                  <td><?= $emp->custname?></td>
-                  <td><?= $emp->date?></td>
-                  <td><?= $emp->cargo?></td>
-                  <td><?= $emp->destination?></td>
-                  <td>₱<?= $emp->price?></td>
-                  <td>  <?php if($emp->action==1){ ?>
+                  <td><?= $rep->waybill?></td>
+                  <td><?= $rep->custname?></td>
+                  <td><?= $rep->date?></td>
+                  <td><?= $rep->cargo?></td>
+                  <td><?= $rep->destination?></td>
+                  <td>₱<?= $rep->price?></td>
+                  <td>  <?php if($rep->action==1){ ?>
                           <div class="label label-success">
                             <strong>Accepted</strong>
                           </div>
-                        <?php }elseif($emp->action==2){ ?>
+                        <?php }elseif($rep->action==2){ ?>
                           <div class="label label-danger">
                             <strong>Denied</strong>
                           </div></p>
@@ -93,6 +134,7 @@
  <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+</form>
 
 <footer class="main-footer">
  <div class="pull-right hidden-xs">
