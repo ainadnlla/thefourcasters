@@ -258,12 +258,14 @@ class Admin extends CI_Controller {
     public function toprint(){
         if($this->session->userdata('username') !=''){ 
             $data['title'] = 'Reports Information | Angelogistic Forwarder Corporation';
+             $month = $this->input->GET('month');
+             $year = $this->input->GET('year');
             $data['totalprice'] = $this->UserModel->get_sum();
             $this->load->config('myconfig');
-            $emps =  $this->UserModel->getBook();
+            $reps =  $this->UserModel->getreport($month,$year);
             $this->load->view('include/header', $data);
             $this->load->view('include/footer');
-            $this->load->view('admin/toprint',compact('emps',$data));
+            $this->load->view('admin/toprint',compact('reps',$data));
             
         }else{
             redirect('login/admin');
@@ -290,11 +292,15 @@ class Admin extends CI_Controller {
     }
     public function sample(){
       
-        $month = $this->input->POST('month');
-        $year = $this->input->POST('year');
+        $month = $this->input->GET('month');
+        $year = $this->input->GET('year');
 
+        
         $reps=  $this->UserModel->getreport($month, $year);
         $this->load->config('myconfig');
+        $this->load->view('include/header');
+        $this->load->view('include/header_nav');
+        $this->load->view('include/footer');
         $this->load->view('admin/sampleshit',compact('reps'));
    
         
