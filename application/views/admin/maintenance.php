@@ -194,21 +194,21 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach($mains as $main): ?>
+                
                     <tr>
-                        <td><?= $main->id?></td>
-                        <td><?= $main->supplier?></td>        
-                        <td><?= $main->description?></td>
-                        <td><?= $main->purchased?></td>
-                        <td><?= $main->price?></td>
-                        <td><?= $main->unit?></td>
-                        <td><?= $main->quantity?></td>
-                        <td><?= $main->amount?></td>
+                        <td><?= $mains->id?></td>
+                        <td><?= $mains->supplier?></td>        
+                        <td><?= $mains->description?></td>
+                        <td><?= $mains->purchased?></td>
+                        <td><?= $mains->price?></td>
+                        <td><?= $mains->unit?></td>
+                        <td><?= $mains->quantity?></td>
+                        <td><?= $mains->amount?></td>
                         <td></td>
                     </tr>
-                    <?php endforeach; ?> 
+                    
                 </tfoot>
-                <?php endforeach; ?> 
+           
                 </form>
               </table>
             </div>
