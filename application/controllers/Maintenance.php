@@ -15,7 +15,7 @@ class Maintenance extends CI_Controller {
             $this->load->model('MaintenanceModel');
     }
 
-    public function insert(){
+    public function insert($id){
         $data = $this->input->post();
         unset($data['add']);
         $this->form_validation->set_rules('supplier', 'Supplier', 'required');
@@ -27,7 +27,7 @@ class Maintenance extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE)
         {
-            $this->add();
+            $this->add($id);
         }
         else
         {

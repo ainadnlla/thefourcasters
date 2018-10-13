@@ -75,10 +75,11 @@ class Admin extends CI_Controller {
             $data['title'] = 'Truck Details | Angelogistic Forwarder Corporation';
     
             $this->load->config('myconfig');
-            $main =  $this->MaintenanceModel->getProd($id);
+            $main =  $this->MaintenanceModel->getItems();
             $truck = $this->TruckModel->getProd($id);
 
             $session_data = array(
+                'truckid' => $truck->id,
                 'status'  => $truck->status);
             $this->session->set_userdata($session_data);
             $mains =  $this->MaintenanceModel->getItems();
