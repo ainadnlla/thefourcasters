@@ -75,7 +75,7 @@ class Admin extends CI_Controller {
             $data['title'] = 'Truck Details | Angelogistic Forwarder Corporation';
             
             $this->load->config('myconfig');
-            $main =  $this->MaintenanceModel->getProd($id);
+            $mains =  $this->MaintenanceModel->getProd($id);
             $truck = $this->TruckModel->getProd($id);
             $session_data = array(
                 'status'  => $truck->status);
@@ -85,7 +85,7 @@ class Admin extends CI_Controller {
             $this->load->view('include/header_nav');
             $this->load->view('include/footer');
             $this->load->view('admin/truck/truckview',compact('truck'));
-            $this->load->view('admin/maintenance',compact('main'));
+            $this->load->view('admin/maintenance',compact('mains'));
         }else{
             redirect('admin/login');
         }
