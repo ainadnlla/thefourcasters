@@ -1,3 +1,4 @@
+<?php if($this->session->userdata('status') == '2'){ ?>
 
     <!-- <select value="<?//=$books->helper_name?>" name="helper_name" class="form-control">
             <?php 
@@ -44,16 +45,16 @@
                         <td><?= $mains->amount?></td>
                         <td></td>
                     </tr>
-                    
                 </tfoot>
-           
+                <?php endforeach; ?> 
                 </form>
               </table>
             </div>
             </div>
           </div>
         </div>
-
+        <?php }else{}?>
+        
     <div class="row">
         <div class="col-xs-12">
           <div class="box box-primary">
@@ -69,8 +70,6 @@
         </div>
         
     </section>
-</div>
-
 </div>
 
   <footer class="main-footer">
