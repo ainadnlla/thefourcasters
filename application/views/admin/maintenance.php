@@ -201,7 +201,7 @@
                         <td><?= $mains->description?></td>
                         <td><?= $mains->purchased?></td>
                         <td><?= $mains->price?></td>
-                        <td><?= $mains->unit?></td>
+                        <td><?= $mains->cost?></td>
                         <td><?= $mains->quantity?></td>
                         <td><?= $mains->amount?></td>
                         <td></td>
