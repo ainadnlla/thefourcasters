@@ -186,7 +186,6 @@
             <option value="3">(3) Truck Management</option>
             <option value="4">(4) Driver/Helper Management</option>
             <option value="5">(5) Customer Management</option>
-            
             </select>
           </div>
       </div>

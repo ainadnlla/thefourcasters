@@ -19,6 +19,11 @@ class Maintenance extends CI_Controller {
         $data = $this->input->post();
 
         $this->form_validation->set_rules('supplier', 'Supplier', 'required');
+        $this->form_validation->set_rules('description', 'Item Description', 'required');
+        $this->form_validation->set_rules('purchased', 'Date', 'required');
+        $this->form_validation->set_rules('price', 'Price', 'required');
+        $this->form_validation->set_rules('unit', 'Unit', 'required');
+        $this->form_validation->set_rules('quantity', 'Quantity', 'required');
 
         if ($this->form_validation->run() == FALSE)
         {
@@ -38,7 +43,7 @@ class Maintenance extends CI_Controller {
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
-        $this->load->view('maintenance/maintenanceadd');
+        $this->load->view('admin/maintenance/maintenanceadd');
         
         }else{
         redirect('admin/login');
