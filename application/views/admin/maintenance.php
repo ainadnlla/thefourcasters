@@ -32,11 +32,7 @@
                 </tr>
                 </thead>
                 <tbody>
-<<<<<<< HEAD
-                <?php foreach($books as $book): ?>
-=======
                 
->>>>>>> 53e147a97578b9c1edb25d788853018bbba3d68f
                     <tr>
                         <td><?= $mains->id?></td>
                         <td><?= $mains->supplier?></td>        
