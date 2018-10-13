@@ -69,7 +69,6 @@ class Admin extends CI_Controller {
         }
     }
 
-    
     public function maintenance($id){
         if($this->session->userdata('username') !=''){ 
             $data['title'] = 'Truck Details | Angelogistic Forwarder Corporation';
@@ -84,8 +83,8 @@ class Admin extends CI_Controller {
             $this->load->view('include/header', $data);
             $this->load->view('include/header_nav');
             $this->load->view('include/footer');
-            $this->load->view('admin/truck/truckview',compact('truck'));
-            $this->load->view('admin/maintenance',compact('mains'));
+            //$this->load->view('admin/truck/truckview',compact('truck', 'mains'));
+            $this->load->view('admin/maintenance',compact('truck','mains'));
         }else{
             redirect('admin/login');
         }
