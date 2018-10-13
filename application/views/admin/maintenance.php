@@ -11,7 +11,7 @@
 
       <div class="row">
         <div class="col-xs-12">
-          <div class="box box-success">
+          <div class="box box-primary">
             <div class="box-header"> 
               <h3 class="box-title">Maintenance Information</h3>
             </div>
@@ -25,23 +25,23 @@
                     <th>Description</th>
                     <th>Purchase</th>
                     <th>Price</th>
-                    <th>Cost</th>
+                    <th>Unit</th>
                     <th>Quantity</th>
                     <th>Amount</th>
                     <th>Action</th>
-                   
                 </tr>
                 </thead>
                 <tbody>
+                <form action="<?=base_url()?>maintenance/<?=$main->id?>" method='post'>
                     <tr>
-                        <!-- <td><?= $main->id?></td>
+                        <td><?= $main->id?></td>
                         <td><?= $main->supplier?></td>                            
                         <td><?= $main->description?></td>
                         <td><?= $main->purchased?></td>
                         <td><?= $main->price?></td>
-                        <td><?= $main->cost?></td>
+                        <td><?= $main->unit?></td>
                         <td><?= $main->quantity?></td>
-                        <td><?= $main->amount?></td> -->
+                        <td><?= $main->amount?></td>
                         <td>
                         <!-- <a href="<?//= base_url().'staff/edit/'.$emp->id?>" class="btn btn-default btn.lg" role="button">
                         <span class="fa fa-edit" aria-hidden="true">
@@ -51,9 +51,9 @@
                         <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
                         </span></a> -->
                         </td>
-                    </tr>        
-     
+                    </tr>
                 </tfoot>
+                </form>
               </table>
             </div>
             </div>
@@ -62,7 +62,7 @@
 
     <div class="row">
         <div class="col-xs-12">
-          <div class="box box-success">
+          <div class="box box-primary">
             <div class="box-header"> 
               <h3 class="box-title">History Information</h3>
             </div>

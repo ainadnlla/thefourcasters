@@ -11,7 +11,7 @@
     <section class="content">
       <div class="row">
         <div class="col-md-3">
-          <div class="box box-success">
+          <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Profile Photo</h3>
             </div>
@@ -54,7 +54,7 @@
 <!-- END OF 1ST BOX --> 
 
       <div class="col-md-9">
-        <div class="box box-success">
+        <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title">Personal Information</h3>
           </div>
@@ -134,7 +134,7 @@
         </div>
       </div>
 
-      <div class="box box-success">
+      <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">User Details</h3>
             </div>

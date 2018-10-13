@@ -11,7 +11,7 @@
 <section class="content"> 
     <div class="row">
       <div class="col-md-3">
-        <div class="box box-success">
+        <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title">Image</h3>
           </div>
@@ -54,7 +54,7 @@
     </fieldset>
 
       <div class="col-md-9">
-        <div class="box box-success">
+        <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title">Truck Information</h3>
           </div>
