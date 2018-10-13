@@ -77,7 +77,11 @@ class Admin extends CI_Controller {
             $this->load->config('myconfig');
             $main =  $this->MaintenanceModel->getProd($id);
             $truck = $this->TruckModel->getProd($id);
-            
+
+            $session_data = array(
+                'status'  => $truck->status);
+            $this->session->set_userdata($session_data);
+            $mains =  $this->MaintenanceModel->getItems();
             $this->load->view('include/header', $data);
             $this->load->view('include/header_nav');
             $this->load->view('include/footer');
