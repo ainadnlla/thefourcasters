@@ -70,6 +70,11 @@ class Maintenance extends CI_Controller {
     unset($data['submit']);
 
     $this->form_validation->set_rules('supplier', 'Supplier', 'required');
+    $this->form_validation->set_rules('description', 'Item Description', 'required');
+    $this->form_validation->set_rules('purchased', 'Date', 'required');
+    $this->form_validation->set_rules('price', 'Price', 'required');
+    $this->form_validation->set_rules('unit', 'Unit', 'required');
+    $this->form_validation->set_rules('quantity', 'Quantity', 'required');
         
         if ($this->form_validation->run() == FALSE)
         {
@@ -81,5 +86,36 @@ class Maintenance extends CI_Controller {
             redirect('admin/userdetails_staff');
         }
     }
+
+    function user_action(){  
+        if($_POST["action"] == "add")  
+        {  
+             $data = array(  
+                  'warning'   =>     $this->input->post('warning'),  
+             );  
+             $this->load->model('MaintenanceModal');  
+             $this->MaintenanceModal->insert($data);  
+             echo 'Data Inserted';  
+        }  
+   }
+
+   function fetch_user(){  
+    $this->load->model("MaintenanceModel");  
+    $fetch_data = $this->MaintenanceModal->make_datatables();  
+    $data = array();  
+    foreach($fetch_data as $row)  
+    {  
+         $sub_array = array();  
+         $sub_array[] = $row->warning;  
+         $data[] = $sub_array;  
+    }  
+    $output = array(  
+         "recordsTotal"          =>      $this->MaintenanceModal->getItems(),  
+         "recordsFiltered"     =>     $this->MaintenanceModal->get_filtered_data(),  
+         "data"                    =>     $data 
+    );  
+    echo json_encode($output);  
+}  
+
     
 }

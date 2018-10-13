@@ -1,18 +1,3 @@
-<style>
-    .example-modal .modal {
-      position: relative;
-      top: auto;
-      bottom: auto;
-      right: auto;
-      left: auto;
-      display: block;
-      z-index: 1;
-    }
-
-    .example-modal .modal {
-      background: transparent !important;
-    }
-  </style>
 <div class="content-wrapper">
     <section class="content-header">
       <h1>Truck Details</h1>
@@ -22,6 +7,12 @@
           <li class="active">Edit</a></li>
         </ol>
     </section>
+
+    <div class="col-md-12">
+      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#userModal">
+      Launch Warning Modal
+      </button>
+    </div>
 
 <section class="content"> 
     <div class="row">
@@ -196,32 +187,7 @@
           <a href="<?= base_url().'admin/truckdetails'?>" class="btn btn-danger" role="button"> Cancel</a>
         </div>
       </div>
-      <div class="col-md-12">
-          <br/> <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-warning">
-                Launch Warning Modal
-              </button>
-      </div>
-      <div class="modal modal-warning fade" id="modal-warning">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Warning Modal</h4>
-              </div>
-              <div class="modal-body">
-                <p>One fine body&hellip;</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-outline">Save changes</button>
-              </div>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
+
       </div>
       </div>
       </div>
@@ -236,3 +202,69 @@
     <strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation</a>.</strong> All rights
     reserved.
 </footer>
+
+<div id="userModal" class="modal fade">  
+      <div class="modal-dialog">  
+           <form method="post" id="user_form">  
+                <div class="modal-content">  
+                     <div class="modal-header">  
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>  
+                          <h4 class="modal-title">Add User</h4>  
+                     </div>  
+                     <div class="modal-body">  
+                          <label>Description</label>  
+                          <input type="text" name="description" id="description" class="form-control" />  
+                     </div>  
+                     <div class="modal-footer">  
+                          <input type="submit" name="action" class="btn btn-success" value="add" />  
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
+                     </div>  
+                </div>  
+           </form>  
+      </div>  
+ </div>  
+
+<script type="text/javascript" language="javascript" >  
+ $(document).ready(function(){  
+      var dataTable = $('#user_data').DataTable({  
+           "processing":true,  
+           "serverSide":true,  
+           "order":[],  
+           "ajax":{  
+                url:"<?php echo base_url() . 'maintenance/fetch_user'; ?>",  
+                type:"POST"  
+           },  
+           "columnDefs":[  
+                {  
+                     "targets":[0, 3, 4],  
+                     "orderable":false,  
+                },  
+           ],  
+      });  
+      $(document).on('submit', '#user_form', function(event){  
+           event.preventDefault();  
+           var description = $('#description').val();  
+           if(description != '')  
+           {  
+                $.ajax({  
+                     url:"<?php echo base_url() . 'maintenance/user_action'?>",  
+                     method:'POST',  
+                     data:new FormData(this),  
+                     contentType:false,  
+                     processData:false,  
+                     success:function(data)  
+                     {  
+                          alert(data);  
+                          $('#user_form')[0].reset();  
+                          $('#userModal').modal('hide');  
+                          dataTable.ajax.reload();  
+                     }  
+                });  
+           }  
+           else  
+           {  
+                alert("Bother Fields are Required");  
+           }  
+      });  
+ });  
+ </script>  

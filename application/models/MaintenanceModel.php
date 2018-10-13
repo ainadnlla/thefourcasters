@@ -74,6 +74,7 @@ class MaintenanceModel extends CI_Model{
         return $query->result();
     }
 
+//MODAL
 
 }
 
