@@ -74,20 +74,21 @@ class Admin extends CI_Controller {
         if($this->session->userdata('username') !=''){ 
             $data['title'] = 'Truck Details | Angelogistic Forwarder Corporation';
     
-            $this->load->config('myconfig');
-            $main =  $this->MaintenanceModel->getItems();
+            $this->load->config('myconfig'); 
             $truck = $this->TruckModel->getProd($id);
 
             $session_data = array(
-                'truckid' => $truck->id,
-                'status'  => $truck->status);
+                'status'  => $truck->status,
+                'plate_no'  => $truck->plate_no);
             $this->session->set_userdata($session_data);
-            $mains =  $this->MaintenanceModel->getItems();
+
+            $mains =  $this->MaintenanceModel->getMain();
+
             $this->load->view('include/header', $data);
             $this->load->view('include/header_nav');
             $this->load->view('include/footer');
             $this->load->view('admin/truck/truckview',compact('truck'));
-            $this->load->view('admin/maintenance',compact('mains'));
+            $this->load->view('admin/maintenance',compact('mains', 'truck'));
         }else{
             redirect('admin/login');
         }

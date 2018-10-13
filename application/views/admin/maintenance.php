@@ -35,7 +35,7 @@
                 <tbody>
                 <?php foreach($mains as $main): ?>
                     <tr>
-                        <td><?= $main->id?></td>
+                        <td><?= $main->plate_no?></td>
                         <td><?= $main->supplier?></td>                            
                         <td><?= $main->description?></td>
                         <td><?= $main->purchased?></td>
