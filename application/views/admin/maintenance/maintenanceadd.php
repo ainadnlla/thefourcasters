@@ -11,7 +11,7 @@
   <section class="content"> 
     <div class="row">
     
-    <form  class="form-horizontal" action="<?=base_url()?>maintenance/insert/<?=$truck->id?>"  method='post'>
+    <form  class="form-horizontal" action="<?=base_url()?>maintenance/insert"  method='post'>
     <fieldset>
         <div class="form-group">
           <div class="col-md-4">
