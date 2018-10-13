@@ -33,25 +33,17 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach($mains as $main): ?>
+                
                     <tr>
-                        <td><?= $main->id?></td>
-                        <td><?= $main->supplier?></td>                            
-                        <td><?= $main->description?></td>
-                        <td><?= $main->purchased?></td>
-                        <td><?= $main->price?></td>
-                        <td><?= $main->unit?></td>
-                        <td><?= $main->quantity?></td>
-                        <td><?= $main->amount?></td>
-                        <td>
-                        <!-- <a href="<?//= base_url().'staff/edit/'.$emp->id?>" class="btn btn-default btn.lg" role="button">
-                        <span class="fa fa-edit" aria-hidden="true">
-                        </span></a> -->
-                        
-                        <!-- <a href="<?//=base_url('staff/del/'.$emp->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
-                        <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
-                        </span></a> -->
-                        </td>
+                        <td><?= $mains->id?></td>
+                        <td><?= $mains->supplier?></td>        
+                        <td><?= $mains->description?></td>
+                        <td><?= $mains->purchased?></td>
+                        <td><?= $mains->price?></td>
+                        <td><?= $mains->cost?></td>
+                        <td><?= $mains->quantity?></td>
+                        <td><?= $mains->amount?></td>
+                        <td></td>
                     </tr>
                 </tfoot>
                 <?php endforeach; ?> 

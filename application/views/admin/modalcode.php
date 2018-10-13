@@ -11,7 +11,7 @@
 
    </td>
                     </tr>        
-                <?php endforeach; ?> 
+                <?php// endforeach: ?> 
                 </tfoot>
               </table>
             </div>
