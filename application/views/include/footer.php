@@ -34,7 +34,6 @@
 <!-- fullCalendar -->
 <script src="<?=base_url()?>dashboard/bower_components/moment/moment.js"></script>
 <script src="<?=base_url()?>dashboard/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="<?=base_url()?>dashboard/bower_components/fullcalendar/dist/gcal.js"></script>
 
 <script>
