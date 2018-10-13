@@ -11,7 +11,7 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12 col-md-12">
-          <div class="box box-success">
+          <div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title">Truck Information</h3>
             </div>

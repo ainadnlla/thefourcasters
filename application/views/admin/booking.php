@@ -11,7 +11,7 @@
 <section class="content">
   <div class="row">
     <div class="col-xs-12 table-responsive">
-      <div class="box box-success">
+      <div class="box box-primary">
         <div class="box-header">
           <h3 class="box-title">Delivery Progress Information</h3>
         </div>

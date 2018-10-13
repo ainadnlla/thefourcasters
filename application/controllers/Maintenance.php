@@ -14,16 +14,67 @@ class Maintenance extends CI_Controller {
             $this->load->model('HelperModel');
             $this->load->model('MaintenanceModel');
     }
+
+    public function insert(){
+        $data = $this->input->post();
+
+        $this->form_validation->set_rules('supplier', 'Supplier', 'required');
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->add();
+        }
+        else
+        {
+            $this->UserModel->insert($data);
+            redirect('admin/userdetails_staff');
+        }
+    }
+    
     public function add(){
+        if($this->session->userdata('username') !=''){ 
+        $data['title'] = 'Maintenance Information | Angelogistic Forwarder Corporation';
+
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('maintenance/maintenanceadd');
+        
+        }else{
+        redirect('admin/login');
+        }
     }
-    public function edit(){
+
+    public function edit($id){
+        if($this->session->userdata('username') !=''){ 
+        $data['title'] = 'Maintenance Information | Angelogistic Forwarder Corporation';
+
+        $main = $this->MaintenanceModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
+        $this->load->view('admin/staff/staffedit',compact('main'));
         $this->load->view('include/footer');
-        $this->load->view('maintenance/maintenanceedit');
-}
+
+        }else{
+            redirect('admin/login');
+        }
+    }
+
+    public function update($id){
+    $data = $this->input->post();
+    unset($data['submit']);
+
+    $this->form_validation->set_rules('supplier', 'Supplier', 'required');
+        
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->edit($id);
+        }
+        else
+        {
+            $this->UserModel->update($id, $data);
+            redirect('admin/userdetails_staff');
+        }
+    }
+    
 }
