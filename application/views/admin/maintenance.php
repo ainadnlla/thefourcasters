@@ -1,3 +1,4 @@
+<?php if($this->session->userdata('status') == '2'){ ?>
 
     <!-- <select value="<?//=$books->helper_name?>" name="helper_name" class="form-control">
             <?php 
@@ -32,32 +33,36 @@
                 </tr>
                 </thead>
                 <tbody>
-<<<<<<< HEAD
-                <?php foreach($books as $book): ?>
-=======
-                
->>>>>>> 53e147a97578b9c1edb25d788853018bbba3d68f
+                <?php foreach($mains as $main): ?>
                     <tr>
-                        <td><?= $mains->id?></td>
-                        <td><?= $mains->supplier?></td>        
-                        <td><?= $mains->description?></td>
-                        <td><?= $mains->purchased?></td>
-                        <td><?= $mains->price?></td>
-                        <td><?= $mains->unit?></td>
-                        <td><?= $mains->quantity?></td>
-                        <td><?= $mains->amount?></td>
-                        <td></td>
+                        <td><?= $main->id?></td>
+                        <td><?= $main->supplier?></td>                            
+                        <td><?= $main->description?></td>
+                        <td><?= $main->purchased?></td>
+                        <td><?= $main->price?></td>
+                        <td><?= $main->unit?></td>
+                        <td><?= $main->quantity?></td>
+                        <td><?= $main->amount?></td>
+                        <td>
+                        <!-- <a href="<?//= base_url().'staff/edit/'.$emp->id?>" class="btn btn-default btn.lg" role="button">
+                        <span class="fa fa-edit" aria-hidden="true">
+                        </span></a> -->
+                        
+                        <!-- <a href="<?//=base_url('staff/del/'.$emp->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
+                        </span></a> -->
+                        </td>
                     </tr>
-                    
                 </tfoot>
-           
+                <?php endforeach; ?> 
                 </form>
               </table>
             </div>
             </div>
           </div>
         </div>
-
+        <?php }else{}?>
+        
     <div class="row">
         <div class="col-xs-12">
           <div class="box box-primary">
@@ -73,8 +78,6 @@
         </div>
         
     </section>
-</div>
-
 </div>
 
   <footer class="main-footer">
