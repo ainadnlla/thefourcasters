@@ -78,7 +78,7 @@
                 </tfoot>
               </table>
               <div class="box-footer">
-                <a href="<?=base_url()?>truck/add" class="btn btn-success btn-block btn-sm" role="button">
+                <a href="<?=base_url().'truck/add/'.$truck->id?>" class="btn btn-success btn-block btn-sm" role="button">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Truck</a>
                 </div>
             </div>

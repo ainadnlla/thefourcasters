@@ -17,7 +17,7 @@ class Maintenance extends CI_Controller {
 
     public function insert(){
         $data = $this->input->post();
-
+        unset($data['add']);
         $this->form_validation->set_rules('supplier', 'Supplier', 'required');
         $this->form_validation->set_rules('description', 'Item Description', 'required');
         $this->form_validation->set_rules('purchased', 'Date', 'required');
@@ -31,19 +31,19 @@ class Maintenance extends CI_Controller {
         }
         else
         {
-            $this->UserModel->insert($data);
-            redirect('admin/userdetails_staff');
+            $this->MaintenanceModel->insert($data);
+            redirect('admin/maintenance/');
         }
     }
     
-    public function add(){
+    public function add($id){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Maintenance Information | Angelogistic Forwarder Corporation';
-
+        $truck = $this->TruckModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
-        $this->load->view('admin/maintenance/maintenanceadd');
+        $this->load->view('admin/maintenance/maintenanceadd',compact('truck'));
         
         }else{
         redirect('admin/login');
