@@ -73,11 +73,14 @@ class Admin extends CI_Controller {
     public function maintenance($id){
         if($this->session->userdata('username') !=''){ 
             $data['title'] = 'Truck Details | Angelogistic Forwarder Corporation';
-    
+            
             $this->load->config('myconfig');
             $main =  $this->MaintenanceModel->getProd($id);
             $truck = $this->TruckModel->getProd($id);
-            
+            $session_data = array(
+                'status'  => $truck->status);
+            $this->session->set_userdata($session_data);
+
             $this->load->view('include/header', $data);
             $this->load->view('include/header_nav');
             $this->load->view('include/footer');

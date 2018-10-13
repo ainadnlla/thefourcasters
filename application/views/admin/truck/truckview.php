@@ -1,4 +1,13 @@
+
 <div class="content-wrapper">
+<?php if($this->session->userdata('status') == '2'){ ?>
+<div class="callout callout-danger">
+<h4>I am a danger callout!</h4>
+
+<p>There is a problem that we need to fix. A wonderful serenity has taken possession of my entire soul,
+  like these sweet mornings of spring which I enjoy with my whole heart.</p>  
+</div>
+<?php }else{}?>
     <section class="content-header">
       <h1>Maintenance Details</h1>
       <ol class="breadcrumb">
@@ -150,5 +159,3 @@
     </div>
 </div>
 </form>
-    
- 

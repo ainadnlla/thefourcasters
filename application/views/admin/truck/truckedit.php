@@ -171,8 +171,8 @@
             <select  value="<?=$truck->status?>" name="status" class="form-control">
             <option disabled="disabled" value="<?=$truck->status?>" selected>(<?=$truck->status?>)</option>
             <option disabled>----------------</option>
-            <option value="0">(0) Inactive</option>
             <option value="1">(1) Active</option>
+            <option value="2">(2) UnderMaintenance</option>
             </select>
           </div>
 

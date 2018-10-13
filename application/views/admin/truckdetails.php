@@ -54,11 +54,15 @@
                             <div class="label label-success">
                               <strong>Available</strong>
                             </div>
-                            <?php }elseif($truck->status==0){ ?>
+                            <?php }elseif($truck->status==2){ ?>
                               <div class="label label-danger">
                                 <strong>Under Maintainance</strong>
                               </div></p>
-                            <?php }?>
+                            <?php }else {?>
+                              <div class="label label-warning">
+                                <strong>Inactive</strong>
+                              </div></p>
+                          <?php  }?>
                                 </td>
                             <td>
 
