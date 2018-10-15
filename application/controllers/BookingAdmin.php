@@ -58,12 +58,19 @@ class BookingAdmin extends CI_Controller {
     public function edit($id){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
+      
+       
+
         $data['plate_nos'] = $this->BookingModel->getPlateNo();
-        $data['drivernames'] = $this->BookingModel->getDriver();
+        $data['drivernames'] = $this->BookingModel->getDrivers();
         $data['drivernos'] = $this->BookingModel->getDriverNo();
         $data['helpernames'] = $this->BookingModel->getHelper();
         $data['location'] = $this->BookingModel->getDestination();
         $books = $this->BookingModel->getProd($id);
+        $session_data = array(
+            'date' => $books->date
+        );
+        $this->session->set_userdata($session_data);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('admin/booking/editbooking',compact('books'));

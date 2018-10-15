@@ -46,7 +46,7 @@
         </div>
 
         <div class="form-group">
-          <label class="col-md-4 control-label">Date Schdeuled</label>
+          <label class="col-md-4 control-label">Date Scheduled</label>
             <div class="col-md-4">
               <input value="<?=$books->date?>" name="date" type="date" class="form-control input-md">  
               <?= form_error('date', '<span class="label label-danger">', '</span>') ?>  
