@@ -58,20 +58,17 @@
       <fieldset>
 
       <div class="form-group">
-          <label class="col-md-4 control-label" >First Name</label>  
-          <label class="col-md-3 control-label" >Middle Name</label> 
-          <label class="col-md-5 control-label" >Last Name</label> 
-      </div>
-
-      <div class="form-group">
         <div class="col-xs-4">
+        <label>First Name</label>  
             <input value="<?=set_value('fname')?>" name="fname" type="text" placeholder="First Name" class="form-control input-md" required="">
             <?= form_error('fname', '<span class="label label-danger">', '</span>'); ?>  
           </div>
           <div class="col-xs-3">
+          <label>Middle Name</label> 
             <input value="<?=set_value('mname')?>" name="mname" type="text" placeholder="Middle Name (Optional)" class="form-control input-md">
           </div>
           <div class="col-xs-5">
+          <label>Last Name</label> 
             <input value="<?=set_value('lname')?>" name="lname" type="text" placeholder="Last Name" class="form-control input-md" required="">
             <?= form_error('lname', '<span class="label label-danger">', '</span>'); ?>  
           </div>
@@ -82,12 +79,8 @@
       </div>
 
       <div class="form-group">
-        <label class="col-md-6 control-label"> Gender</label>
-        <label class="col-md-6 control-label" >Birth Date</label>  
-      </div>
-
-      <div class="form-group">
             <div class="col-md-6">
+            <label>Gender</label>
               <select value="<?=set_value('gender')?>" name="gender" class="form-control">
               <option Selected disabled="disabled" >Gender</option>
               <option value="M">Male</option>
@@ -96,6 +89,7 @@
               <?= form_error('gender', '<span class="label label-danger">', '</span>'); ?>  
             </div>
             <div class="col-md-6">
+            <label>Birth Date</label>  
               <input value="<?=set_value('birthday')?>" name="birthday" type="date" class="form-control input-md"> 
               <?= form_error('birthday', '<span class="label label-danger">', '</span>'); ?>  
           </div>
@@ -106,16 +100,13 @@
       </div>
 
       <div class="form-group">
-        <label class="col-md-6 control-label">Contact</label>  
-        <label class="col-md-6 control-label" >Employee Since</label>  
-      </div>
-
-      <div class="form-group">
           <div class="col-md-6">
+          <label>Contact</label> 
               <input value="<?=set_value('contact')?>" name="contact" type="text" placeholder="Contact No." class="form-control input-md" required="">
               <?= form_error('contact', '<span class="label label-danger">', '</span>'); ?>  
           </div>
           <div class="col-md-6">
+          <label>Employee Since</label>  
             <input value="<?=set_value('date')?>" name="date" type="date" class="form-control input-md"> 
             <?= form_error('date', '<span class="label label-danger">', '</span>'); ?>  
           </div>
@@ -187,11 +178,11 @@
           </div>
       </div>
 
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="button1id"></label>
-        <div class="col-md-4">
-            <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Add</button>
-            <a href="<?=base_url().'admin/userdetails_staff/'?>" class="btn btn-danger" role="button">Back</a>
+      <div class="box-footer">
+        <label class="col-md-12 control-label" for="button1id"></label>
+        <a href="<?=base_url().'admin/userdetails_staff/'?>" class="btn btn-default" role="button">Back</a>
+            <div class="pull-right">
+            <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Submit</button>
             </div>
       </div>
 

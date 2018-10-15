@@ -9,10 +9,6 @@ class UserModel extends CI_Model{
         $this->db->insert('staff' , $data);
         }
 
-    public function insertUser($data){
-        $this->db->insert('staff', $data);
-        } 
-
 //UPDATE
     public function update($id ,$data){
         $this->db->where('id' , $id);

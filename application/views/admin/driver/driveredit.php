@@ -81,12 +81,12 @@
             </div>
         </div>
         <select name="weekday[]" multiple class="form-control">  
-            <option disabled name="weekday[]" value='<?=$driv->weekday?>' selected><?=$driv->weekday?></option>  
+            <option hidden name="weekday[]" value='<?=$driv->weekday?>' selected><?=$driv->weekday?></option>  
                 <option name="weekday[]" value="Sun">Sunday</option>
                 <option name="weekday[]" value="Mon">Monday</option>
                 <option name="weekday[]" value="Tues">Tuesday</option>
                 <option name="weekday[]" value="Wed">Wednesday</option>
-                <option name="weekday[]" value="Th">Thursday</option>
+                <option name="weekday[]" value="Thurs">Thursday</option>
                 <option name="weekday[]" value="Fri">Friday</option>
                 <option name="weekday[]" value="Sat">Saturday</option>
           </select>
@@ -150,11 +150,13 @@
       <div class="form-group">
         <label class="col-md-4 control-label" >Gender</label>
             <div class="col-md-6">
-                <select value="<?=$driv->gender?>" name="gender" class="form-control">
-                <option value='<?=$driv->gender?>' selected><?=$driv->gender?></option>
+              <select value="<?=$driv->gender?>" name="gender" class="form-control">
+                <option hidden value='<?=$driv->gender?>' selected><?=$driv->gender?></option>
+                <option disabled><?=$driv->gender?></option>
                 <option value="M">Male</option>
                 <option value="F">Female</option>
                 </select>
+                <?= form_error('gender', '<span class="label label-danger">', '</span>'); ?>  
             </div>
     </div>
 
@@ -231,19 +233,20 @@
       <div class="form-group">
         <label class="col-md-4 control-label" >Status</label>
           <div class="col-md-6">
-            <select  value="<?=$driv->status?>" name="status" class="form-control">
-            <option disabled value='<?=$driv->status?>' selected>(<?=$driv->status?>)</option>
+            <select value="<?=$driv->status?>" name="status" class="form-control">
+            <option hidden value='<?=$driv->status?>' selected>Level <?=$driv->status?></option>
+            <option disabled>Level <?=$driv->status?></option>
             <option value="0">(0) Inactive</option>
             <option value="1">(1) Active</option>
             </select>
           </div>
       </div>
 
-      <div class="form-group">
-        <label class="col-md-4 control-label" for="button1id"></label>
-        <div class="col-md-6">
+      <div class="box-footer">
+        <label class="col-md-12 control-label" for="button1id"></label>
+        <a href="<?= base_url().'admin/userdetails_driver'?>" class="btn btn-default" role="button"> Cancel</a>
+        <div class="pull-right">
           <button id="button1id" name="submit" type="submit" value="submit" class="btn btn-success">Update</button>
-          <a href="<?= base_url().'admin/userdetails_driver'?>" class="btn btn-danger" role="button"> Cancel</a>
         </div>
       </div>
 

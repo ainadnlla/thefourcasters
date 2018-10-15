@@ -82,16 +82,15 @@
             </div>
         </div>
         <select name="weekday[]" multiple class="form-control">  
-            <option disabled name="weekday[]" value='<?=$help->weekday?>' selected><?=$help->weekday?></option>  
+            <option hidden name="weekday[]" value='<?=$help->weekday?>' selected><?=$help->weekday?></option>  
                 <option name="weekday[]" value="Sun">Sunday</option>
                 <option name="weekday[]" value="Mon">Monday</option>
                 <option name="weekday[]" value="Tues">Tuesday</option>
                 <option name="weekday[]" value="Wed">Wednesday</option>
-                <option name="weekday[]" value="Th">Thursday</option>
+                <option name="weekday[]" value="Thurs">Thursday</option>
                 <option name="weekday[]" value="Fri">Friday</option>
                 <option name="weekday[]" value="Sat">Saturday</option>
           </select>
-          <?= form_error('weekdays', '<span class="label label-danger">', '</span>'); ?>  
         </div>
       </div>
     </div>
@@ -114,7 +113,6 @@
         <label class="col-md-4 control-label" for="driver_no" >Driver License No.</label>  
             <div class="col-md-6">
                 <input  value="<?=$help->driver_no?>" name="driver_no" type="text" placeholder="License No." class="form-control input-md">
-                <?= form_error('driver_no', '<span class="label label-danger">', '</span>'); ?>  
             </div>
     </div> 
 
@@ -122,7 +120,6 @@
         <label class="col-md-4 control-label" for="expire" >Expiry Date</label>  
             <div class="col-md-6">
                 <input  value="<?=$help->expire?>" name="expire" type="date" placeholder="License No." class="form-control input-md">
-                <?= form_error('expire', '<span class="label label-danger">', '</span>'); ?>  
             </div>
     </div> 
 
@@ -138,7 +135,6 @@
         <label class="col-md-4 control-label" >Middle Name</label>  
           <div class="col-md-6">
             <input  value="<?=$help->mname?>" name="mname" type="text" placeholder="Middle Name" class="form-control input-md" >
-            <?= form_error('mname', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div>  
 
@@ -154,7 +150,8 @@
         <label class="col-md-4 control-label" >Gender</label>
             <div class="col-md-6">
                 <select value="<?=$help->gender?>" name="gender" class="form-control">
-                <option value='<?=$help->gender?>' selected><?=$help->gender?></option>
+                <option hidden value='<?=$help->gender?>' selected><?=$help->gender?></option>
+                <option disabled><?=$help->gender?></option>
                 <option value="M">Male</option>
                 <option value="F">Female</option>
                 </select>
@@ -235,19 +232,21 @@
       <div class="form-group">
         <label class="col-md-4 control-label" >Status</label>
           <div class="col-md-6">
-            <select  value="<?=$help->status?>" name="status" class="form-control">
-            <option Selected disabled>Unchanged</option>
-            <option value="1">Active</option>
-            <option value="0">Inactive</option>
+            <select value="<?=$help->status?>" name="status" class="form-control">
+            <option hidden value='<?=$help->status?>' selected>Level <?=$help->status?></option>
+            <option disabled>Level <?=$help->status?></option>
+            <option value="0">(0) Inactive</option>
+            <option value="1">(1) Active</option>
             </select>
           </div>
       </div>
 
-      <div class="form-group">
-        <label class="col-md-4 control-label" for="button1id"></label>
-        <div class="col-md-6">
+
+      <div class="box-footer">
+        <label class="col-md-12 control-label" for="button1id"></label>
+        <a href="<?= base_url().'admin/userdetails_helper'?>" class="btn btn-default" role="button">Cancel</a>
+        <div class="pull-right">
           <button id="button1id" name="submit" type="submit" value="submit" class="btn btn-success">Update</button>
-          <a href="<?= base_url().'admin/userdetails_helper'?>" class="btn btn-danger" role="button"> Cancel</a>
         </div>
       </div>
 
