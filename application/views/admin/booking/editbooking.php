@@ -68,7 +68,7 @@
         <div class="form-group">
           <div class="col-md-4">
             <label>Pieces</label>  
-            <input value="<?=$books->pieces?>" name="pieces" type="text" placeholder="Destination" class="form-control input-md">
+            <input value="<?=$books->pieces?>" name="pieces" type="text" placeholder="Pieces" class="form-control input-md">
             <?= form_error('pieces', '<span class="label label-danger">', '</span>') ?>  
           </div>
           <div class="col-md-4">
@@ -155,6 +155,10 @@
           </div>
         </div>
 
+        <div class="col-md-12">
+          </p>
+        </div>
+
     </fieldset>
   </form>
     
@@ -162,11 +166,8 @@
       <label class="col-md-12 control-label" for="button1id"></label>
         <div class="pull-right">
           <button id="button1id" name="submit" value="submit" class="btn btn-success">Update</button>
-      <a href="<?= base_url().'admin/booking'?>" class="btn btn-default" role="button"> Cancel</a>
-        </div>
-        <div class="col-md-12">
-          <p></p>
-      </div>
+          <a href="<?= base_url().'admin/booking'?>" class="btn btn-default" role="button"> Cancel</a>
+        </div> 
     </div>
     
 </div>

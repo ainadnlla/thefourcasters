@@ -8,12 +8,6 @@
         </ol>
     </section>
 
-    <div class="col-md-12">
-      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#userModal">
-      Launch Warning Modal
-      </button>
-    </div>
-
 <section class="content"> 
     <div class="row">
       <div class="col-md-3">
@@ -68,17 +62,14 @@
         <div role="form">
       <fieldset>
 
-      <div class="form-group">
-          <label class="col-md-6 control-label" >Make</label>  
-          <label class="col-md-6 control-label" >Plate No.</label> 
-      </div>
-
     <div class="form-group">
         <div class="col-xs-6">
+        <label>Make</label>  
           <input value="<?=$truck->brand?>" name="brand" type="text" placeholder="Make" class="form-control input-md" required="">
           <?= form_error('brand', '<span class="label label-danger">', '</span>') ?>  
         </div>
         <div class="col-xs-6">
+        <label>Plate No.</label> 
           <input value="<?=$truck->plate_no?>" name="plate_no" type="text" placeholder="Plate No." class="form-control input-md" required="">
           <?= form_error('plate_no', '<span class="label label-danger">', '</span>') ?>  
         </div>
@@ -88,17 +79,14 @@
           <br/>
       </div>
 
-      <div class="form-group">
-        <label class="col-md-6 control-label">Series</label>
-        <label class="col-md-6 control-label">MV File No.</label>  
-      </div>
-
     <div class="form-group">
         <div class="col-md-6">
+        <label>Series</label>
           <input value="<?=$truck->series?>" name="series" type="text" placeholder="Series" class="form-control input-md" required="">  
           <?= form_error('series', '<span class="label label-danger">', '</span>') ?>  
         </div>
         <div class="col-md-6">
+        <label>MV File No.</label>  
           <input value="<?=$truck->mvfile_no?>" name="mvfile_no" type="text" placeholder="MV File No." class="form-control input-md" required="">  
           <?= form_error('mvfile_no', '<span class="label label-danger">', '</span>') ?>  
         </div>
@@ -108,17 +96,14 @@
           <br/>
       </div>
 
-      <div class="form-group">
-        <label class="col-md-6 control-label">Engine No.</label>
-        <label class="col-md-6 control-label">Chassis No.</label>  
-      </div>
-
     <div class="form-group">
         <div class="col-md-6">
+        <label>Engine No.</label>
           <input value="<?=$truck->engine_no?>" name="engine_no" type="text" placeholder="Engine No." class="form-control input-md" required="">  
           <?= form_error('engine_no', '<span class="label label-danger">', '</span>') ?>  
         </div>
         <div class="col-md-6">
+        <label>Chassis No.</label> 
           <input value="<?=$truck->chassis_no?>" name="chassis_no" type="text" placeholder="Chassis No." class="form-control input-md" required="">  
           <?= form_error('chassis_no', '<span class="label label-danger">', '</span>') ?>  
         </div>
@@ -128,17 +113,14 @@
           <br/>
       </div>
 
-      <div class="form-group">
-        <label class="col-md-6 control-label" >Gross Wt.</label>  
-        <label class="col-md-6 control-label" >Net Wt.</label>
-      </div>
-
-      <div class="form-group">
-        <div class="col-md-6">
+    <div class="form-group">
+      <div class="col-md-6">
+        <label>Gross Wt.</label>
           <input value="<?=$truck->grosswt?>" name="grosswt" type="number" min="0" placeholder="Gross Wt." class="form-control input-md" required="">  
           <?= form_error('grosswt', '<span class="label label-danger">', '</span>') ?>  
         </div>
         <div class="col-md-6">
+        <label>Net Wt.</label>
           <input value="<?=$truck->netwt?>" name="netwt" type="number" min="0" placeholder="Net Wt." class="form-control input-md" required="">  
           <?= form_error('netwt', '<span class="label label-danger">', '</span>') ?>  
         </div>
@@ -149,16 +131,13 @@
       </div>
 
       <div class="form-group">
-        <label class="col-md-6 control-label" >Net Capacity</label>  
-        <label class="col-md-6 control-label" >Year Model</label>
-      </div>
-
-      <div class="form-group">
         <div class="col-md-6">
+        <label>Net Capacity</label>
           <input value="<?=$truck->netcap?>" name="netcap" type="number" min="0" placeholder="Net Capacity" class="form-control input-md" required="">  
           <?= form_error('netcap', '<span class="label label-danger">', '</span>') ?>  
         </div>
         <div class="col-md-6">
+        <label>Year Model</label>
           <input value="<?=$truck->year?>" name="year" type="number" min="0" placeholder="Year" class="form-control input-md" required="">  
           <?= form_error('year', '<span class="label label-danger">', '</span>') ?>  
         </div>
@@ -169,28 +148,30 @@
       </div>
 
       <div class="form-group">
-        <label class="col-md-12 control-label" >Status</label>  
-      </div>
-
-      <div class="form-group">
           <div class="col-md-6">
+          <label>Status</label>
             <select  value="<?=$truck->status?>" name="status" class="form-control">
-            <option disabled="disabled" value="<?=$truck->status?>" selected>(<?=$truck->status?>)</option>
-            <option disabled>----------------</option>
+            <option selected disabled="disabled" value="<?=$truck->status?>" >Level <?=$truck->status?></option>
             <option value="1">(1) Active</option>
             <option value="2">(2) UnderMaintenance</option>
             </select>
           </div>
+      </div>
 
-        <div class="col-md-6 text-right">
+      <div class="col-md-12">
+          <br/>
+      </div>
+    </div>
+
+    <div class="box-footer">
+      <label class="col-md-12 control-label" for="button1id"></label>
+        <a href="<?= base_url().'admin/truckdetails'?>" class="btn btn-default" role="button"> Cancel</a>
+        <div class="pull-right">
           <button id="button1id" name="submit" type="submit" value="submit" class="btn btn-success">Update</button>
-          <a href="<?= base_url().'admin/truckdetails'?>" class="btn btn-danger" role="button"> Cancel</a>
         </div>
-      </div>
-
-      </div>
-      </div>
-      </div>
+    </div>
+    
+  </div>
   </section>
 </div>
 </form>
@@ -202,69 +183,3 @@
     <strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation</a>.</strong> All rights
     reserved.
 </footer>
-
-<div id="userModal" class="modal fade">  
-      <div class="modal-dialog">  
-           <form method="post" id="user_form">  
-                <div class="modal-content">  
-                     <div class="modal-header">  
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>  
-                          <h4 class="modal-title">Add User</h4>  
-                     </div>  
-                     <div class="modal-body">  
-                          <label>Description</label>  
-                          <input type="text" name="description" id="description" class="form-control" />  
-                     </div>  
-                     <div class="modal-footer">  
-                          <input type="submit" name="action" class="btn btn-success" value="add" />  
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
-                     </div>  
-                </div>  
-           </form>  
-      </div>  
- </div>  
-
-<script type="text/javascript" language="javascript" >  
- $(document).ready(function(){  
-      var dataTable = $('#user_data').DataTable({  
-           "processing":true,  
-           "serverSide":true,  
-           "order":[],  
-           "ajax":{  
-                url:"<?php echo base_url() . 'maintenance/fetch_user'; ?>",  
-                type:"POST"  
-           },  
-           "columnDefs":[  
-                {  
-                     "targets":[0, 3, 4],  
-                     "orderable":false,  
-                },  
-           ],  
-      });  
-      $(document).on('submit', '#user_form', function(event){  
-           event.preventDefault();  
-           var description = $('#description').val();  
-           if(description != '')  
-           {  
-                $.ajax({  
-                     url:"<?php echo base_url() . 'maintenance/user_action'?>",  
-                     method:'POST',  
-                     data:new FormData(this),  
-                     contentType:false,  
-                     processData:false,  
-                     success:function(data)  
-                     {  
-                          alert(data);  
-                          $('#user_form')[0].reset();  
-                          $('#userModal').modal('hide');  
-                          dataTable.ajax.reload();  
-                     }  
-                });  
-           }  
-           else  
-           {  
-                alert("Bother Fields are Required");  
-           }  
-      });  
- });  
- </script>  

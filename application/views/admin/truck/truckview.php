@@ -9,14 +9,15 @@
       </ol>
     </section>
 
-  <?php if($this->session->userdata('status') == '2'){ ?>
-<div class="pad margin no-print">
-      <div class="callout callout-danger" style="margin-bottom: 0!important;">
+<?php if($this->session->userdata('status') == '2'){ ?>
+  <div class="pad margin no-print">
+    <div class="callout callout-danger" style="margin-bottom: 0!important;">
         <h4><i class="fa fa-danger"></i>Truck Under Maintenance:</h4>
-        There is a problem that we need to fix. A wonderful serenity has taken possession of my entire soul,
-  like these sweet mornings of spring which I enjoy with my whole heart.      </div>
+        <?= $main->warning?>
+    </div>
     </div>
 <?php }else{}?>
+
 <section class="content"> 
     <div class="row">
       <div class="col-md-3">

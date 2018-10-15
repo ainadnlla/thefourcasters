@@ -18,22 +18,12 @@ class Maintenance extends CI_Controller {
     public function insert(){
         $data = array (
             'plate_no' => $this->session->userdata('plate_no'),
-            'supplier' => $this->input->post('supplier'),
-            'description' => $this->input->post('description'),
-            'purchased' => $this->input->post('purchased'),
-            'price' => $this->input->post('price'),
-            'unit' => $this->input->post('unit'),
-            'quantity' => $this->input->post('quantity'),
+            'warning' => $this->input->post('warning'),
 
         );
 
         unset($data['add']);
-        $this->form_validation->set_rules('supplier', 'Supplier', 'required');
-        $this->form_validation->set_rules('description', 'Item Description', 'required');
-        $this->form_validation->set_rules('purchased', 'Date', 'required');
-        $this->form_validation->set_rules('price', 'Price', 'required');
-        $this->form_validation->set_rules('unit', 'Unit', 'required');
-        $this->form_validation->set_rules('quantity', 'Quantity', 'required');
+        $this->form_validation->set_rules('warning', 'Description', 'required');
 
         if ($this->form_validation->run() == FALSE)
         {
@@ -42,7 +32,9 @@ class Maintenance extends CI_Controller {
         else
         {
             $this->MaintenanceModel->insert($data);
-            redirect('admin/truckdetails');
+            // redirect('admin/truckdetails');
+            $referred_from = $this->session->userdata('referred_from');
+            redirect($referred_from, 'refresh');
         }
     }
     
@@ -67,7 +59,7 @@ class Maintenance extends CI_Controller {
         $main = $this->MaintenanceModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('admin/staff/staffedit',compact('main'));
+        $this->load->view('admin/maintenance/maintenanceedit',compact('main'));
         $this->load->view('include/footer');
 
         }else{
@@ -93,7 +85,8 @@ class Maintenance extends CI_Controller {
         else
         {
             $this->MaintenanceModel->update($id, $data);
-            redirect('admin/truckdetails');
+            $referred_from = $this->session->userdata('referred_from');
+            redirect($referred_from, 'refresh');
         }
     }
 
@@ -108,24 +101,5 @@ class Maintenance extends CI_Controller {
              echo 'Data Inserted';  
         }  
    }
-
-   function fetch_user(){  
-    $this->load->model("MaintenanceModel");  
-    $fetch_data = $this->MaintenanceModal->make_datatables();  
-    $data = array();  
-    foreach($fetch_data as $row)  
-    {  
-         $sub_array = array();  
-         $sub_array[] = $row->warning;  
-         $data[] = $sub_array;  
-    }  
-    $output = array(  
-         "recordsTotal"          =>      $this->MaintenanceModal->getItems(),  
-         "recordsFiltered"     =>     $this->MaintenanceModal->get_filtered_data(),  
-         "data"                    =>     $data 
-    );  
-    echo json_encode($output);  
-}  
-
     
 }
