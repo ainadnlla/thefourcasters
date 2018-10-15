@@ -76,7 +76,11 @@ class BookingModel extends CI_Model{
         $query = $this->db->query('SELECT fname, lname FROM helper WHERE status = "1"');
         return $query->result();
     }
-
+    function getHelpers(){
+        $bookingdateh = $this->session->userdata('date');
+        $query = $this->db->query("SELECT fname, lname from helper where status= '1' AND DATE_FORMAT('$bookingdateh', '%W') = weekday ");
+             return $query->result();
+    }
     function getDriverNo()
     {
         $query = $this->db->query('SELECT driver_no FROM driver');

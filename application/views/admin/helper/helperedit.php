@@ -83,13 +83,13 @@
         </div>
         <select name="weekday[]" multiple class="form-control">  
             <option hidden name="weekday[]" value='<?=$help->weekday?>' selected><?=$help->weekday?></option>  
-                <option name="weekday[]" value="Sun">Sunday</option>
-                <option name="weekday[]" value="Mon">Monday</option>
-                <option name="weekday[]" value="Tues">Tuesday</option>
-                <option name="weekday[]" value="Wed">Wednesday</option>
-                <option name="weekday[]" value="Thurs">Thursday</option>
-                <option name="weekday[]" value="Fri">Friday</option>
-                <option name="weekday[]" value="Sat">Saturday</option>
+                <option name="weekday[]" value="Sunday">Sunday</option>
+                <option name="weekday[]" value="Monday">Monday</option>
+                <option name="weekday[]" value="Tuesday">Tuesday</option>
+                <option name="weekday[]" value="Wednesday">Wednesday</option>
+                <option name="weekday[]" value="Thursday">Thursday</option>
+                <option name="weekday[]" value="Friday">Friday</option>
+                <option name="weekday[]" value="Saturday">Saturday</option>
           </select>
         </div>
       </div>

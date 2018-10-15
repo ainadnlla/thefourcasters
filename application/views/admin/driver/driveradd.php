@@ -73,13 +73,13 @@
     <div class="form-group">
       <label class="col-md-4 control-label"for ="weekday">Weekdays</label>  
         <div class="col-md-8">
-              <input type="checkbox" name="weekday[]" value="Sun"> Sunday<br>
-              <input type="checkbox" name="weekday[]" value="Mon"> Monday<br>
-              <input type="checkbox" name="weekday[]" value="Tue"> Tuesday<br>
-              <input type="checkbox" name="weekday[]" value="Wed"> Wednesday<br>
-              <input type="checkbox" name="weekday[]" value="Thu"> Thursday<br>
-              <input type="checkbox" name="weekday[]" value="Fri"> Friday<br>
-              <input type="checkbox" name="weekday[]" value="Sat"> Saturday<br>
+              <input type="checkbox" name="weekday[]" value="Sunday"> Sunday<br>
+              <input type="checkbox" name="weekday[]" value="Monday"> Monday<br>
+              <input type="checkbox" name="weekday[]" value="Tuesday"> Tuesday<br>
+              <input type="checkbox" name="weekday[]" value="Wednesday"> Wednesday<br>
+              <input type="checkbox" name="weekday[]" value="Thursday"> Thursday<br>
+              <input type="checkbox" name="weekday[]" value="Friday"> Friday<br>
+              <input type="checkbox" name="weekday[]" value="Saturday"> Saturday<br>
               <?= form_error('weekday', '<span class="label label-danger">', '</span>') ?> 
             </div>
         </div>

@@ -64,7 +64,7 @@ class BookingAdmin extends CI_Controller {
         $data['plate_nos'] = $this->BookingModel->getPlateNo();
         $data['drivernames'] = $this->BookingModel->getDrivers();
         $data['drivernos'] = $this->BookingModel->getDriverNo();
-        $data['helpernames'] = $this->BookingModel->getHelper();
+        $data['helpernames'] = $this->BookingModel->getHelpers();
         $data['location'] = $this->BookingModel->getDestination();
         $books = $this->BookingModel->getProd($id);
         $session_data = array(
