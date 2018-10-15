@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2018 at 08:17 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Generation Time: Oct 15, 2018 at 09:02 PM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -80,11 +80,10 @@ INSERT INTO `booking` (`id`, `waybill`, `date`, `cust_type`, `custname`, `cargo`
 (4, 8432, '2018-09-29', '', 'MyWine - the best italian wine', 'FCL 1x20', 'Liquior and Beverages', 'Wine from Italy', 50, '130104', '', 'MIP - Bulacan, Guiguinto', 13500, '', 'Ernie Saavedra', 'Dario Traquina', '', 2),
 (5, 2570, '2018-11-01', '', 'Continental Cargo Carriers Inc. ', 'LCL 1x40', 'Hazardous substances', 'Hazardous substances, such as explosives or chemicals. Handle with care.', 99, 'ABA 9575', '', 'MIP - Manila-North, Valenzuela, Ugong', 13500, '', 'Jonalyn Bartolome', 'Nino Altamia', '', 0),
 (6, 4962, '2018-10-05', '', 'Angelogistics Co. Ltd - Pier Dispatch ', 'LCL 1x40', 'Furnitures', 'Sofa Set ', 3, 'RNK 277', '', 'MIP - Manila-South, Taguig, Bicutan', 10000, '', 'Mariano Estaris', 'Jason Ablazo', '', 1),
-(7, 1619, '2018-10-10', '', 'Marilou R. Arevalo (Bong)', 'FCL 1x40', 'Insulation Foam and Roof', '2x2mm Roof and Foam 19x67', 1, '130102', '', 'MIP - Manila-North, Valenzuela, Talipapa', 5000, '', 'Jonalyn Bartolome', 'Armando Lagrimas', '', 0),
+(7, 1619, '2018-10-09', '', 'Marilou R. Arevalo (Bong)', 'FCL 1x20', 'Insulation Foam and Roof', '2x2mm Roof and Foam 19x67', 1, '130102', '', 'MIP - Bulacan, Sta. Maria (Coastline Warehouse)', 5000, '', 'Ernie Saavedra', 'Dario Traquina', '', 0),
 (8, 2623, '2018-10-06', '', 'Marilou R. Arevalo (Bong)', 'FCL 1x20', 'Insulation Foam and Roof', '2x2mm Roof and Foam 19x67', 3, '130104', '', 'MIP - Caloocan, Baesa', 19590, '', 'Jeremy Lansang', 'Armando Lagrimas', '', 1),
 (9, 5190, '2018-10-17', '', 'Wacker Machines Supplies Corp.', 'FCL 2x20', 'Machinery Supplies', 'Machiner Supplies by NBS14', 50, 'UIM 308', '', 'MIP - Manila , Mandaluyong', 25000, '', 'Ernie Saavedra', 'Armando Lagrimas', '', 1),
-(10, 1809, '2018-10-05', '', 'Coastline Truck Center', 'LCL 1x40', 'Dispenser Material', 'H2O Water Dispenser Aquabest', 100, 'ABF 3040', '', 'MIP - Bulacan, Sta. Maria (Coastline Warehouse)', 20000, '', 'Ernie Saavedra', 'Dario Traquina', '', 1),
-(11, 0, '2018-01-16', '', 'Northern Chemical Sales Inc.', 'FCL 1x40', 'Frozen Goods', 'Chilled meat', 10, '130102', '', 'MIP - Bulacan, Sta. Maria (Xylem Water Systems Int', 909090, '', 'Ernie Saavedra', 'Jason Ablazo', '', 1);
+(10, 1809, '2018-10-05', '', 'Coastline Truck Center', 'LCL 1x40', 'Dispenser Material', 'H2O Water Dispenser Aquabest', 100, 'ABF 3040', '', 'MIP - Bulacan, Sta. Maria (Coastline Warehouse)', 20000, '', 'Ernie Saavedra', 'Dario Traquina', '', 1);
 
 -- --------------------------------------------------------
 
@@ -112,9 +111,9 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`, `contact`, `date`, `status`, `created`, `updated`, `img`) VALUES
-(1, 'Altron Logistics Inc.', 'Local/Sub-contractor', '123456789', '123456789', 'altron@gmail.com', '09147852136', '2017-08-11', 1, '2018-09-13 15:55:58', '2018-09-13 15:55:58', 'logo.jpg'),
+(1, 'Altron Logistics Inc.', 'Local/Sub-contractor', '123456789', '123456789', 'altron@gmail.com', '09147852136', '2017-08-11', 1, '2018-09-13 15:55:58', '2018-09-13 15:55:58', ''),
 (2, 'Wuerth Phils. Inc', 'Broker/Agent', '123456789', '123456789', 'wuerthphilsinc@gmail.com', '09147852136', '2018-09-15', 1, '2018-09-13 15:51:21', '2018-09-13 15:51:21', 'default.jpg'),
-(3, 'Northern Chemical Sales Inc.', '', '123456789', '123456789', 'northernchemci@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:51:22', '2018-09-13 15:51:22', 'default.jpg'),
+(3, 'Northern Chemical Sales Inc.', 'Freight Forwarder', '123456789', '123456789', 'northernchemci@gmail.com', '09147852136', '2018-01-31', 1, '2018-09-13 15:51:22', '2018-09-13 15:51:22', ''),
 (4, 'Alysons Chemical Enterprises Inc.', '', '123456789', '123456789', 'alysonschemic@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:51:22', '2018-09-13 15:51:22', 'default.jpg'),
 (5, 'Breakthru Cleaning Agent', '', '123456789', '123456789', 'breakthru@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:52:32', '2018-09-13 15:52:32', 'default.jpg'),
 (6, 'MyWine - the best italian wine', '', '123456789', '123456789', 'mywine@gmail.com', '09147852136', '0000-00-00', 1, '2018-09-13 15:52:32', '2018-09-13 15:52:32', 'default.jpg'),
@@ -328,25 +327,35 @@ INSERT INTO `helper` (`img`, `id`, `driver_no`, `expire`, `fname`, `mname`, `lna
 --
 
 CREATE TABLE `maintenance` (
-  `id` int(255) NOT NULL,
-  `supplier` varchar(50) NOT NULL,
-  `description` varchar(50) DEFAULT NULL,
-  `purchased` date NOT NULL,
-  `price` int(25) NOT NULL,
-  `unit` varchar(25) NOT NULL,
-  `quantity` int(5) NOT NULL,
-  `amount` int(50) NOT NULL,
+  `id` int(100) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `warning` text NOT NULL,
-  `plate_no` varchar(10) NOT NULL
+  `plate_no` varchar(50) DEFAULT NULL,
+  `supplier` varchar(50) DEFAULT NULL,
+  `description` varchar(50) DEFAULT NULL,
+  `purchased` date DEFAULT NULL,
+  `price` int(25) DEFAULT NULL,
+  `unit` varchar(25) DEFAULT NULL,
+  `quantity` int(5) DEFAULT NULL,
+  `amount` int(50) DEFAULT NULL,
+  `warning` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `maintenance`
 --
 
-INSERT INTO `maintenance` (`id`, `supplier`, `description`, `purchased`, `price`, `unit`, `quantity`, `amount`, `date`, `warning`, `plate_no`) VALUES
-(1, '12123', 'dsadsa', '2018-10-14', 32, 'KGS', 10, 0, '2018-10-14 15:36:01', '', 'ABC 8771');
+INSERT INTO `maintenance` (`id`, `date`, `plate_no`, `supplier`, `description`, `purchased`, `price`, `unit`, `quantity`, `amount`, `warning`) VALUES
+(1, '2018-10-15 18:03:34', 'ABC 8771', 'First', 'try', '2018-10-16', 5000, 'PCS', 2, 10000, 'Try try try'),
+(2, '2018-10-15 18:03:34', '', 'Try', 'try', '5555-05-05', 55, 'PCS', 555, 30525, ''),
+(3, '2018-10-15 18:03:34', '', 'Try1', 'try', '2000-05-04', 45, 'PCS', 22, 990, ''),
+(4, '2018-10-15 18:03:34', 'ABC 8771', 'try', 'try', '0000-00-00', 5, 'PCS', 4, 20, ''),
+(5, '2018-10-15 18:03:34', 'ABF 3040', 'try', 'try', '2020-05-05', 45, 'PCS', 4, 180, ''),
+(6, '2018-10-15 18:03:34', '130104', 'trtrt', 'trtrt', '5666-06-05', 56, 'PCS', 545, 30520, ''),
+(7, '2018-10-15 18:03:34', 'ABF 3040', 'aina', 'sales', '2000-05-04', 51, 'PCS', 45, 2295, ''),
+(9, '2018-10-15 16:16:35', 'ABC 8771', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sample'),
+(10, '2018-10-15 16:18:25', 'ABC 8771', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sample1'),
+(11, '2018-10-15 16:19:05', 'ABC 8771', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'warning'),
+(12, '2018-10-15 16:19:19', 'ABC 8771', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'pang 5');
 
 -- --------------------------------------------------------
 
@@ -376,7 +385,7 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`img`, `id`, `fname`, `lname`, `mname`, `gender`, `birthday`, `contact`, `date`, `email`, `password`, `repass`, `status`, `priv`) VALUES
-('default.jpg', 1, 'Aina', 'Sales', NULL, 'F', '1998-11-04', '09495214786', '2015-02-28', 'ainadrsales@gmail.com', '123456789', '123456789', 0, 1),
+('', 1, 'Aina', 'Sales', '', 'F', '1998-11-04', '09495214786', '2015-02-28', 'ainadrsales@gmail.com', '123456789', '123456789', 1, 1),
 ('default.jpg', 2, 'Anthony', 'Ane', NULL, 'M', '1998-05-28', '09153245692', '2016-07-11', 'anthonyjarlane@yahoo.com', '123456789', '123456789', 0, 2),
 ('default.jpg', 3, 'Lanz', 'Manalo', NULL, 'M', '1999-01-11', '09164851259', '2015-01-20', 'ljomanalo@gmail.com', '123456789', '123456789', 0, 1),
 ('default.jpg', 4, 'Andrea', 'Cruz', NULL, 'M', '1996-11-11', '09468521478', '2017-09-03', 'andrecruz@gmail.com', '123456789', '123456789', 0, 3),
@@ -425,10 +434,10 @@ CREATE TABLE `truck` (
 --
 
 INSERT INTO `truck` (`id`, `img`, `brand`, `plate_no`, `series`, `mvfile_no`, `engine_no`, `chassis_no`, `grosswt`, `netwt`, `netcap`, `year`, `old`, `status`) VALUES
-(1, '', 'FUSO ', 'RLP 377', 'REBUILT TRUCK', '0386-00000240945', '8DC9502620', 'FP54JD-520907', 10500, 210, 10290, 2011, 0, 2),
+(1, '', 'FUSO ', 'RLP 377', 'REBUILT TRUCK', '0386-00000240945', '8DC9502620', 'FP54JD-520907', 10500, 210, 10290, 2011, 0, 1),
 (2, '', 'ISUZU', 'ABC 8771', 'REBUILT TRUCK', '1301-00000503950', '10PD1-746850', 'EXR71D-3000004', 10500, 5250, 5250, 2013, 0, 2),
-(3, 'truck.jpg', 'SINOTRUK HOWO', 'ABF 3040', 'REBUILT TRUCK', '1301-00000410217', 'WD61547150417009747', 'LZZ5CCSC7FA093009', 4000, 4000, 4000, 2015, 0, 0),
-(4, 'truck.jpg', 'FAW', '130104', 'REBUILT TRUCK', '1301-00000891410', 'CA6DL237E3F52770098', 'LFWNHXPC6G1F58891', 8000, 4000, 4000, 2016, 0, 0),
+(3, '', 'SINOTRUK HOWO', 'ABF 3040', 'REBUILT TRUCK', '1301-00000410217', 'WD61547150417009747', 'LZZ5CCSC7FA093009', 4000, 4000, 4000, 2015, 0, 2),
+(4, '', 'FAW', '130104', 'REBUILT TRUCK', '1301-00000891410', 'CA6DL237E3F52770098', 'LFWNHXPC6G1F58891', 8000, 4000, 4000, 2016, 0, 2),
 (5, 'truck.jpg', 'FAW', '130104', 'REBUILT TRUCK', '1301-00000891408', 'CA6DL237E3F52770099', 'LFWNHXPC6G1F58890', 8000, 4000, 4000, 2016, 0, 0),
 (6, 'truck.jpg', 'FAW', '130102', 'REBUILT TRUCK', '1301-00001079279', 'CA6DL237E3F52935945', 'LFWSRXPJ7H1E61858', 8000, 4000, 4000, 2017, 0, 0),
 (7, 'truck.jpg', 'MTSHUBISHI - FUSO', 'RCE 120', 'DROPSIDE', '0386-00000094576', '8DC11-393526', 'FU419U-540165', 5000, 4000, 4000, 2009, 0, 0),
@@ -515,7 +524,7 @@ ALTER TABLE `truck`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -545,7 +554,7 @@ ALTER TABLE `helper`
 -- AUTO_INCREMENT for table `maintenance`
 --
 ALTER TABLE `maintenance`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `staff`
