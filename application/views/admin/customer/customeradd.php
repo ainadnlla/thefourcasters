@@ -56,17 +56,14 @@
         <div role="form">
       <fieldset>
 
-      <div class="form-group">
-          <label class="col-md-6 control-label" >Customer/Importer</label>  
-          <label class="col-md-6 control-label" >Customer Type</label> 
-      </div>
-
     <div class="form-group">
         <div class="col-xs-6">
+        <label>Customer/Importer</label>  
           <input value="<?=set_value('name')?>" name="name" type="text" placeholder="Customer/Importer" class="form-control input-md" required="">
           <?= form_error('name', '<span class="label label-danger">', '</span>') ?>  
         </div>
         <div class="col-xs-6">
+        <label>Customer Type</label> 
           <select value="<?=set_value('cust_type')?>" name="cust_type" class="form-control">
             <option Selected disabled="disabled" >Customer Type</option>
             <option value="In-house Brokerage">In-house Brokerage</option>
@@ -82,17 +79,14 @@
           <br/>
       </div>
 
-      <div class="form-group">
-        <label class="col-md-6 control-label"> Password</label>
-        <label class="col-md-6 control-label" >Confirm </label>  
-      </div>
-
     <div class="form-group">
         <div class="col-md-6">
+        <label>Password</label>
           <input value="<?=set_value('password')?>" name="password" type="password" placeholder="Password" class="form-control input-md" required="">  
           <?= form_error('password', '<span class="label label-danger">', '</span>') ?>  
         </div>
         <div class="col-md-6">
+        <label>Confirm Password</label>  
           <input value="<?=set_value('repass')?>" name="repass" type="password" placeholder="Confirm Password" class="form-control input-md" required="">  
           <?= form_error('repass', '<span class="label label-danger">', '</span>') ?>  
         </div>
@@ -102,17 +96,14 @@
           <br/>
       </div>
 
-      <div class="form-group">
-        <label class="col-md-6 control-label"> Email</label>
-        <label class="col-md-6 control-label" >Contact Number</label>  
-      </div>
-
     <div class="form-group">
         <div class="col-md-6">
+        <label>Email</label>
           <input value="<?=set_value('email')?>" name="email" type="email" placeholder="example@yahoo.com" class="form-control input-md" required="">  
           <?= form_error('email', '<span class="label label-danger">', '</span>') ?>  
         </div>
         <div class="col-md-6">
+        <label>Contact Number</label>  
           <input value="<?=set_value('contact')?>" name="contact" type="text" placeholder="Contact Number" class="form-control input-md" required="">  
           <?= form_error('contact', '<span class="label label-danger">', '</span>') ?>  
         </div>
@@ -123,29 +114,28 @@
       </div>
 
       <div class="form-group">
-        <label class="col-md-12 control-label" >Customer Since</label>  
-      </div>
-
-      <div class="form-group">
         <div class="col-md-6">
+        <label>Customer Since</label>  
           <input value="<?=set_value('date')?>" name="date" type="date" class="form-control input-md" required="">  
           <?= form_error('date', '<span class="label label-danger">', '</span>') ?>  
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-6 text-right">
-          <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Add</button>
-            <a href="<?=base_url().'admin/userdetails_customer/'?>" class="btn btn-danger" role="button">Back</a>
         </div>
       </div>
 
       <div class="col-md-12">
           <br/>
       </div>
+    </div>
+    
+    <div class="box-footer">
+      <label class="col-md-12 control-label" for="button1id"></label>
+      <a href="<?=base_url().'admin/userdetails_customer/'?>" class="btn btn-default" role="button">Back</a>
+        <div class="pull-right">
+          <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+
       </div>
-      </div>
-      </div>
+    </div>
   </section>
 </div>
 </form>

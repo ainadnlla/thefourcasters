@@ -130,6 +130,7 @@ class Driver extends CI_Controller {
             'date' => $this->input->post('date'),            
             'timein' => $this->input->post('timein'),
             'timeout' => $this->input->post('timeout'),
+            'status' => $this->input->post('status'),
             'weekday'=> implode(",", $this->input->post('weekday'))
         );
         unset($data['submit']); 
@@ -146,6 +147,7 @@ class Driver extends CI_Controller {
         $this->form_validation->set_rules('timein', 'Time In', 'required');
         $this->form_validation->set_rules('timeout', 'Time Out', 'required');
         $this->form_validation->set_rules('gender', 'Gender', 'required');
+        $this->form_validation->set_rules('date', 'Employement Date', 'required');
 
             if ($this->form_validation->run() == FALSE)
             {

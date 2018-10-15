@@ -62,43 +62,36 @@
         <div role="form">
       <fieldset>
 
-      <div class="form-group">
-          <label class="col-md-4 control-label" >Make</label>  
-          <label class="col-md-4 control-label" >Plate No.</label> 
-          <label class="col-md-4 control-label">Series</label>
-      </div>
-
     <div class="form-group">
         <div class="col-xs-4">
+        <label>Make</label>  
           <input disabled value="<?=$truck->brand?>" name="brand" type="text" placeholder="Make" class="form-control input-md" required="">
         </div>
         <div class="col-xs-4">
+        <label>Plate No.</label>  
           <input disabled value="<?=$truck->plate_no?>" name="plate_no" type="text" placeholder="Plate No." class="form-control input-md" required="">
         </div>
         <div class="col-md-4">
+        <label>Series</label>  
           <input disabled value="<?=$truck->series?>" name="series" type="text" placeholder="Series" class="form-control input-md" required="">  
         </div>
-
     </div>
 
     <div class="col-md-12">
           <br/>
       </div>
 
-      <div class="form-group">
-        <label class="col-md-4 control-label">Engine No.</label>
-        <label class="col-md-4 control-label">Chassis No.</label>  
-        <label class="col-md-4 control-label">MV File No.</label>  
-      </div>
-
     <div class="form-group">
         <div class="col-md-4">
+        <label>Engine No.</label>
           <input disabled value="<?=$truck->engine_no?>" name="engine_no" type="text" placeholder="Engine No." class="form-control input-md" required="">  
         </div>
         <div class="col-md-4">
+        <label>Chassis No.</label>  
           <input disabled value="<?=$truck->chassis_no?>" name="chassis_no" type="text" placeholder="Chassis No." class="form-control input-md" required="">  
         </div>
         <div class="col-md-4">
+        <label>MV File No.</label>  
           <input disabled value="<?=$truck->mvfile_no?>" name="mvfile_no" type="text" placeholder="MV File No." class="form-control input-md" required="">  
         </div>
     </div>
@@ -108,19 +101,16 @@
       </div>
 
       <div class="form-group">
-        <label class="col-md-4 control-label" >Gross Wt.</label>  
-        <label class="col-md-4 control-label" >Net Wt.</label>
-        <label class="col-md-4 control-label" >Net Capacity</label>  
-      </div>
-
-      <div class="form-group">
         <div class="col-md-4">
+        <label>Gross Wt.</label>  
           <input disabled value="<?=$truck->grosswt?>" name="grosswt" type="number" min="0" placeholder="Gross Wt." class="form-control input-md" required="">  
         </div>
         <div class="col-md-4">
+        <label>Net Wt.</label>
           <input disabled value="<?=$truck->netwt?>" name="netwt" type="number" min="0" placeholder="Net Wt." class="form-control input-md" required="">  
         </div>
         <div class="col-md-4">
+        <label>Net Capacity</label>  
           <input disabled value="<?=$truck->netcap?>" name="netcap" type="number" min="0" placeholder="Net Capacity" class="form-control input-md" required="">  
         </div>
       </div>
@@ -130,19 +120,16 @@
       </div>
 
       <div class="form-group">
-        <label class="col-md-4 control-label" >Net Capacity</label>  
-        <label class="col-md-4 control-label" >Year Model</label>
-        <label class="col-md-4 control-label" >Status</label>  
-      </div>
-
-      <div class="form-group">
         <div class="col-md-4">
+        <label>Net Capacity</label>  
             <input disabled value="<?=$truck->netcap?>" name="netcap" type="number" min="0" placeholder="Net Capacity" class="form-control input-md" required="">  
         </div>
         <div class="col-md-4">
+        <label>Year Model</label>
             <input disabled value="<?=$truck->year?>" name="year" type="number" min="0" placeholder="Year" class="form-control input-md" required="">  
         </div>
         <div class="col-md-4">
+        <label>Status</label>  
             <select disabled value="<?=$truck->status?>" name="status" class="form-control">
             <option disabled="disabled" value="<?=$truck->status?>" selected>(<?=$truck->status?>)</option>
             </select>

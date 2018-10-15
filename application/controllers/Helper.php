@@ -24,42 +24,6 @@ class Helper extends CI_Controller {
     );
     $this->session->set_userdata($newdata);
     }
-        public function userdetails_helper($offset=0){
-            if($this->session->userdata('username') !=''){ 
-                
-            $data['title'] = 'Helper Details | Angelogistic Forwarder Corporation';
-            $this->load->library('pagination');
-            $norecs = 5;
-            $config['base_url'] = base_url().'admin/userdetails_helper/';
-            $config['total_rows'] = $this->HelperModel->getNumRecs();
-            $config['per_page'] = $norecs;
-            $config['full_tag_open'] = "<ul class='pagination'>";
-            $config['full_tag_close'] ="</ul>";
-            $config['num_tag_open'] = '<li>';
-            $config['num_tag_close'] = '</li>';
-            $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-            $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-            $config['next_tag_open'] = "<li>";
-            $config['next_tagl_close'] = "</li>";
-            $config['prev_tag_open'] = "<li>";
-            $config['prev_tagl_close'] = "</li>";
-            $config['first_tag_open'] = "<li>";
-            $config['first_tagl_close'] = "</li>";
-            $config['last_tag_open'] = "<li>";
-            $config['last_tagl_close'] = "</li>";
-            $this->pagination->initialize($config);
-            $this->load->config('myconfig');
-            $helps = $this->HelperModel->getItems($norecs, $offset);
-            
-            $this->load->view('include/header', $data);
-            $this->load->view('include/header_nav');
-            $this->load->view('include/footer');
-            $this->load->view('admin/userdetails',compact('helps'));
-            
-    }else{
-        redirect('login/admin');
-    }
-        }
 
     public function insert(){
         $data = array (
@@ -75,6 +39,7 @@ class Helper extends CI_Controller {
             'birthday' => $this->input->post('birthday'),
             'gender' => $this->input->post('gender'),
             'contact' => $this->input->post('contact'),
+            'experience' => $this->input->post('experience'),
             'date' => $this->input->post('date'), 
             'timein' =>$this->input->post('timein'),
             'timeout' => $this->input->post('timeout'),
@@ -93,7 +58,11 @@ class Helper extends CI_Controller {
             $this->form_validation->set_rules('gender', 'Gender', 'required');
             $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
             $this->form_validation->set_rules('date', 'Employement Date', 'required');
+            $this->form_validation->set_rules('experience', 'Years of Experience', 'required');
             $this->form_validation->set_rules('weekday', 'Weekdays', 'required');
+            $this->form_validation->set_rules('timein', 'Time In', 'required');
+            $this->form_validation->set_rules('timeout', 'Time Out', 'required');
+    
 
       if ($this->form_validation->run() == FALSE)
       {
@@ -148,23 +117,39 @@ class Helper extends CI_Controller {
     }
 
     public function update($id){
-     
-
-   $data = $this->input->post();
+        $data = array (
+            'img' => $this->input->post('img'),
+            'driver_no' => $this->input->post('driver_no'),
+            'expire' => $this->input->post('expire'),
+            'fname' => $this->input->post('fname'),
+            'mname' => $this->input->post('mname'),
+            'lname' => $this->input->post('lname'),
+            'email' => $this->input->post('email'),
+            'password' => $this->input->post('password'),
+            'repass' => $this->input->post('repass'),
+            'birthday' => $this->input->post('birthday'),
+            'gender' => $this->input->post('gender'),
+            'contact' => $this->input->post('contact'),
+            'experience' => $this->input->post('experience'),
+            'date' => $this->input->post('date'),            
+            'timein' => $this->input->post('timein'),
+            'timeout' => $this->input->post('timeout'),
+            'status' => $this->input->post('status'),
+            'weekday'=> implode(",", $this->input->post('weekday'))
+        );
         unset($data['submit']); 
-        $this->form_validation->set_rules('img', 'Image', 'required');
         $this->form_validation->set_rules('fname', 'First Name', 'required');
         $this->form_validation->set_rules('lname', 'Last Name', 'required');
         $this->form_validation->set_rules('email', 'Email Address', 'required');
         $this->form_validation->set_rules('password','Password', 'required|min_length[8]');
         $this->form_validation->set_rules('repass', 'Confirm Password', 'required|matches[password]');
         $this->form_validation->set_rules('contact', 'Contact No.', 'required|numeric|exact_length[11]');
-
-                $days = implode(",", $this->input->post('weekday'));
-                $data = array(
-                    'id'=> $this->input->post('id'),
-                    'weekday'=> $days
-                );
+        $this->form_validation->set_rules('birthday', 'Birth Day', 'required');
+        $this->form_validation->set_rules('gender', 'Gender', 'required');
+        $this->form_validation->set_rules('date', 'Employement Date', 'required');
+        $this->form_validation->set_rules('experience', 'Years of Experience', 'required');
+        $this->form_validation->set_rules('timein', 'Time In', 'required');
+        $this->form_validation->set_rules('timeout', 'Time Out', 'required');
 
             if ($this->form_validation->run() == FALSE)
             {

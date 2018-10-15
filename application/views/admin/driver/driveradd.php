@@ -235,10 +235,10 @@
       </div>
 
       <div class="box-footer">
-        <label class="col-md-4 control-label" for="button1id"></label>
-        <div class="col-md-6">
+        <label class="col-md-12 control-label" for="button1id"></label>
+        <a href="<?= base_url().'admin/userdetails_driver'?>" class="btn btn-default" role="button"> Cancel</a>
+        <div class="pull-right">
           <button id="button1id" name="add" type="submit" value="submit" class="btn btn-success">Submit</button>
-          <a href="<?= base_url().'admin/userdetails_driver'?>" class="btn btn-danger" role="button"> Cancel</a>
         </div>
       </div>
 

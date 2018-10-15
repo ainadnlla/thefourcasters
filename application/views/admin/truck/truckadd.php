@@ -158,7 +158,7 @@
 
 
     <div class="form-group">
-        <label class="col-md-4 control-label" for="button1id"></label>
+        <label class="col-md-12 control-label" for="button1id"></label>
         <div class="col-md-12 text-right">
             <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Submit</button>
             <a href="<?=base_url().'admin/truckdetails/'?>" class="btn btn-danger" role="button">Back</a>

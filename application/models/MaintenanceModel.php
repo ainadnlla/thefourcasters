@@ -35,12 +35,17 @@ class MaintenanceModel extends CI_Model{
         // $this->db->select('*');
         // $this->db->get('maintenance');
         // $this->db->where('plate_no' = $plate);
+
         $id = $this->uri->segment(4);
-        $query = $this->db->select('plate_no')->where(array('plate_no' => $plate))->get('truck');
+        $plates = $this->db->select('plate_no')->where(array('plate_no' => $plate))->get('truck');
         
         // $query = $this->db->query('SELECT maintenance.id, maintenance.supplier, maintenance.description, maintenance.purchased,maintenance.price,maintenance.unit,maintenance.quantity,maintenance.amount
         // FROM maintenance JOIN truck ON truck.plate_no=maintenance.plate_no
         // WHERE maintenance.plate_no = truck.plate_no', array('truck.plate_no' => $plates));
+
+        $query = $this->db->query('SELECT maintenance.id, maintenance.supplier, maintenance.description, maintenance.purchased,maintenance.price,maintenance.unit,maintenance.quantity,maintenance.amount, truck.plate_no
+        FROM maintenance JOIN truck ON truck.plate_no=maintenance.plate_no', array('plate_no' => $plates));
+        
         return $query->result();
     }
 

@@ -63,20 +63,17 @@
       <fieldset>
 
       <div class="form-group">
-          <label class="col-md-4 control-label" for ="fname" >First Name</label>  
-          <label class="col-md-3 control-label" >Middle Name</label> 
-          <label class="col-md-5 control-label" >Last Name</label> 
-      </div>
-
-      <div class="form-group">
         <div class="col-xs-4">
+        <label>First Name</label>  
             <input value="<?=$emp->fname?>" name="fname" type="text" placeholder="First Name" class="form-control input-md" required="">
             <?= form_error('fname', '<span class="label label-danger">', '</span>'); ?>  
           </div>
           <div class="col-xs-3">
+          <label >Middle Name</label> 
             <input value="<?=$emp->mname?>" name="mname" type="text" placeholder="Middle Name (Optional)" class="form-control input-md">
           </div>
           <div class="col-xs-5">
+          <label>Last Name</label> 
             <input value="<?=$emp->lname?>" name="lname" type="text" placeholder="Last Name" class="form-control input-md" required="">
             <?= form_error('lname', '<span class="label label-danger">', '</span>'); ?>  
           </div>
@@ -87,19 +84,17 @@
       </div>
 
       <div class="form-group">
-        <label class="col-md-6 control-label"> Gender</label>
-        <label class="col-md-6 control-label" >Birth Date</label>  
-      </div>
-
-      <div class="form-group">
             <div class="col-md-6">
+            <label>Gender</label>
               <select value="<?=$emp->gender?>" name="gender" class="form-control">
-              <option value='<?=$emp->gender?>' selected><?=$emp->gender?></option>
+              <option hidden value='<?=$emp->gender?>' selected><?=$emp->gender?></option>
+              <option disabled><?=$emp->gender?></option>
               <option value="M">Male</option>
               <option value="F">Female</option>
               </select>
             </div>
             <div class="col-md-6">
+            <label>Birth Date</label>  
               <input value="<?=$emp->birthday?>" name="birthday" type="date" class="form-control input-md" required=""> 
               <?= form_error('birthday', '<span class="label label-danger">', '</span>'); ?>  
           </div>
@@ -110,16 +105,13 @@
       </div>
 
       <div class="form-group">
-        <label class="col-md-6 control-label">Contact</label>  
-        <label class="col-md-6 control-label" >Employee Since</label>  
-      </div>
-
-      <div class="form-group">
           <div class="col-md-6">
+          <label>Contact</label>  
               <input  value="<?=$emp->contact?>" name="contact" type="text" placeholder="Contact No." class="form-control input-md" required="">
               <?= form_error('contact', '<span class="label label-danger">', '</span>'); ?>  
           </div>
           <div class="col-md-6">
+          <label>Employee Since</label>  
             <input value="<?=$emp->date?>" name="date" type="date" class="form-control input-md" required=""> 
             <?= form_error('date', '<span class="label label-danger">', '</span>'); ?>  
           </div>
@@ -170,7 +162,7 @@
         <label class="col-md-4 control-label" >Status</label>
           <div class="col-md-5">
             <select  value="<?=$emp->status?>" name="status" class="form-control">
-            <option disabled value='<?=$emp->status?>' selected>(<?=$emp->status?>)</option>
+            <option disabled value='<?=$emp->status?>' selected>Level <?=$emp->status?></option>
             <option value="0">(0) Inactive</option>
             <option value="1">(1) Active</option>
             </select>
@@ -190,11 +182,11 @@
           </div>
       </div>
 
-      <div class="form-group">
-        <label class="col-md-4 control-label" for="button1id"></label>
-        <div class="col-md-5">
-          <button id="button1id" name="submit" type="submit" value="submit" class="btn btn-success">Update</button>
-          <a href="<?= base_url().'admin/userdetails_staff'?>" class="btn btn-danger" role="button"> Cancel</a>
+      <div class="box-footer">
+        <label class="col-md-12 control-label" for="button1id"></label>
+        <a href="<?= base_url().'admin/userdetails_staff'?>" class="btn btn-default" role="button"> Cancel</a>
+        <div class="pull-right">
+            <button id="button1id" name="submit" type="submit" value="submit" class="btn btn-success">Update</button>
         </div>
       </div>
 
