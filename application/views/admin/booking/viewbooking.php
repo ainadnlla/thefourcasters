@@ -115,9 +115,6 @@
           <br/>
       </div>
 
-</fieldset>
-</form>
-
     <div class="box-footer">
       <label class="col-md-12 control-label" for="button1id"></label>
         <div class="pull-right">
@@ -125,6 +122,8 @@
         </div>
     </div>
 
+</fieldset>
+</form>
 </div>
 </div>
 </div>

@@ -85,14 +85,14 @@ class Admin extends CI_Controller {
                 'plate_no'  => $truck->plate_no);
             $this->session->set_userdata($session_data);
 
-            $main =  $this->MaintenanceModel->getWarning();
+            $hists =  $this->MaintenanceModel->getHistory();
             $mains =  $this->MaintenanceModel->getMain();
 
             $this->load->view('include/header', $data);
             $this->load->view('include/header_nav');
             $this->load->view('include/footer');
-            $this->load->view('admin/truck/truckview',compact('truck', 'main'));
-            $this->load->view('admin/maintenance',compact('mains', 'truck'));
+            $this->load->view('admin/truck/truckview',compact('truck', 'mains'));
+            $this->load->view('admin/maintenance',compact('mains', 'hists'));
         }else{
             redirect('admin/login');
         }

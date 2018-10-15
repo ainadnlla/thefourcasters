@@ -13,7 +13,7 @@
                 <tr>
                     <th>Maintenance Description</th>
                     <th>Supplier</th>
-                    <th>Description</th>
+                    <th>Item Description</th>
                     <th>Purchase</th>
                     <th>Price</th>
                     <th>Unit</th>
@@ -46,7 +46,7 @@
               <div class="box-footer">
                 <a href="<?=base_url()?>maintenance/add/<?=$main->id?>" class="btn btn-success btn-block btn-sm" role="button">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Maintenance Description</a>
-                </div>
+              </div>
             </div>
             </div>
           </div>
@@ -60,12 +60,43 @@
               <h3 class="box-title">History Information</h3>
             </div>
 
-            <!-- CONTENT HERE -->
-
-            </div>
-            </div>
+            <div class="box-body">  
+              <table id="history" class="table table-bordered table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>Maintenance Date</th>
+                    <th>Maintenance Description</th>
+                    <th>Supplier</th>
+                    <th>Description</th>
+                    <th>Purchase</th>
+                    <th>Price</th>
+                    <th>Unit</th>
+                    <th>Quantity</th>
+                    <th>Amount</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach($hists as $hist): ?>
+                    <tr>
+                        <td><?= date('M d, Y - g:i A', strtotime($hist->date))?></td>
+                        <td><?= $hist->warning?></td>
+                        <td><?= $hist->supplier?></td>                            
+                        <td><?= $hist->description?></td>
+                        <td><?= $hist->purchased?></td>
+                        <td><?= $hist->price?></td>
+                        <td><?= $hist->unit?></td>
+                        <td><?= $hist->quantity?></td>
+                        <td><?= $hist->amount?></td>
+                    </tr>
+                </tfoot>
+                <?php endforeach; ?> 
+                </form>
+              </table>
           </div>
-    </section>
+        </div>
+    </div>
+  
+  </section>
 </div>
 
   <footer class="main-footer">
@@ -78,6 +109,7 @@
 
 <script>
    $(function () {
+    $('#history').DataTable()
     $('#mainte').DataTable()
     $('#example6').DataTable({
       'paging'      : true,

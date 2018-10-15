@@ -13,7 +13,9 @@
   <div class="pad margin no-print">
     <div class="callout callout-danger" style="margin-bottom: 0!important;">
         <h4><i class="fa fa-danger"></i>Truck Under Maintenance:</h4>
-        <?= $main->warning?>
+        <?php foreach($mains as $main): ?>
+        <div> - <?= $main->warning?><br/></div>
+        <?php endforeach; ?> 
     </div>
     </div>
 <?php }else{}?>
@@ -132,7 +134,7 @@
         <div class="col-md-4">
         <label>Status</label>  
             <select disabled value="<?=$truck->status?>" name="status" class="form-control">
-            <option disabled="disabled" value="<?=$truck->status?>" selected>(<?=$truck->status?>)</option>
+            <option disabled="disabled" value="<?=$truck->status?>" selected>Level <?=$truck->status?></option>
             </select>
         </div>
       </div>

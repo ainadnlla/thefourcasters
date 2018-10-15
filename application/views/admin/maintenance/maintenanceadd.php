@@ -32,7 +32,7 @@
     <div class="form-group">
         <div class="col-xs-12">
         <label>What seems to be the problem?</label>  
-          <textarea value="<?=set_value('warning')?>" name="warning" type="text" placeholder="Description Here..." class="form-control" required=""></textarea>
+          <textarea value="<?=set_value('warning')?>" rows="5" name="warning" type="text" placeholder="Description Here..." class="form-control" required=""></textarea>
       </div>
     </div>
 
