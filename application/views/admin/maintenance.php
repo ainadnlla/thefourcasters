@@ -1,10 +1,10 @@
 <?php if($this->session->userdata('status') == '2'){ ?>
-
+<?php error_reporting(0);?>
       <div class="row">
         <div class="col-xs-12">
           <div class="box box-primary">
             <div class="box-header"> 
-              <h3 class="box-title">Maintenance Information</h3>
+              <h3 class="box-title">Latest Maintenance Information</h3>
             </div>
 
             <div class="box-body">  
@@ -57,7 +57,7 @@
         <div class="col-xs-12">
           <div class="box box-primary">
             <div class="box-header"> 
-              <h3 class="box-title">History Information</h3>
+              <h3 class="box-title">Record of Past Maintenance Information</h3>
             </div>
 
             <div class="box-body">  

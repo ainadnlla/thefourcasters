@@ -283,7 +283,7 @@ class Admin extends CI_Controller {
             $month = $this->session->flashdata('month');
             $year = $this->session->flashdata('year');
             $reps =  $this->UserModel->getreport($month,$year);
-            $data['totalprice'] = $this->UserModel->get_sum();
+            $data['totalprice'] = $this->UserModel->get_sum($month, $year);
             
             $this->load->config('myconfig');
             $this->load->view('include/header', $data);

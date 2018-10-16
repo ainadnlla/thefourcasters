@@ -73,8 +73,8 @@ public function getreport($month, $year){
     
     }
     //price
-    public function get_sum(){
-        $sql = "SELECT SUM(price) as totalprice FROM booking WHERE EXTRACT(MONTH FROM date) = EXTRACT(MONTH from CURDATE()) AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())";
+    public function get_sum($month, $year){
+        $sql = "SELECT SUM(price) as totalprice FROM booking WHERE EXTRACT(MONTH FROM date) = '$month' AND EXTRACT(YEAR from date) = '$year'";
         $result = $this->db->query($sql);
         return $result->row()->totalprice;
     }

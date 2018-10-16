@@ -15,7 +15,7 @@
     <fieldset>
         <div class="form-group">
           <div class="col-md-4">
-            <input type="hidden" name="id" type="text" placeholder="ID" class="form-control input-md" required="" >
+            <input type="hidden" type="text" placeholder="ID" class="form-control input-md" required="" >
           </div>
         </div>
     </fieldset>
@@ -59,7 +59,8 @@
         <div class="col-md-6">
         <label>Unit</label>
             <select value="<?=$main->unit?>" name="unit" class="form-control">
-            <option selected disabled>Unit</option>
+            <option hidden value='<?=$main->unit?>' selected><?=$main->unit?></option>
+            <option disabled><?=$main->unit?></option>
             <option value="PCS">PIECES</option>
             <option value="LTR">LITERS</option>
             <option value="KGS">KILOGRAMS</option>
@@ -71,6 +72,13 @@
           <input value="<?=$main->quantity?>" name="quantity" type="number" min=0 placeholder="Quantity" class="form-control input-md" required="">  
           <?= form_error('quantity', '<span class="label label-danger">', '</span>') ?>  
         </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-xs-12">
+        <label>Maintenance Description</label>  
+          <textarea value="<?=set_value('warning')?>" rows="3" name="warning" type="text" placeholder="Description Here..." class="form-control" required=""><?=$main->warning?></textarea>
+      </div>
     </div>
 
     <div class="box-footer">

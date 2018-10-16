@@ -43,6 +43,12 @@ class MaintenanceModel extends CI_Model{
     return $this->db->count_all('maintenance');
     }
 
+    function getAmount()
+    {
+        $query = $this->db->query('UPDATE maintenance SET amount=price*quantity');
+        return $query->result();
+    }
+
 //DELETE    
 
     public function delete($id,$data){

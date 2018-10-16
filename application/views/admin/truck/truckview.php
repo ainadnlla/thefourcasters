@@ -14,7 +14,7 @@
     <div class="callout callout-danger" style="margin-bottom: 0!important;">
         <h4><i class="fa fa-danger"></i>Truck Under Maintenance:</h4>
         <?php foreach($mains as $main): ?>
-        <div> - <?= $main->warning?><br/></div>
+        <div> <?= $main->warning?><br/></div>
         <?php endforeach; ?> 
     </div>
     </div>

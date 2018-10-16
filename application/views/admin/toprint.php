@@ -2,6 +2,7 @@
 
 </head>
 <body onload="window.print();">
+<?php error_reporting(0);?>
 <div class="wrapper">
   <!-- Main content -->
   <section class="invoice">
@@ -62,7 +63,7 @@
             <td><?= $rep->pieces?></td>
             <td><?= $rep->cargo?></td>
             <td><?= $rep->destination?></td>
-            <td><?= $rep->price?></td>
+            <td align="right"><?= number_format("$rep->price", 2)?></td>
             <td>  <?php if($rep->action==1){ ?>
             <div class="label label-success">
               <strong>Accepted</strong>
@@ -98,7 +99,7 @@
           <table class="table">
             <tr>
               <th>Total:</th>
-              <td>P <?php echo $totalprice;?>.00</td>
+              <td>P <?php echo number_format("$totalprice",2);?></td>
             </tr>
           </table>
         </div>

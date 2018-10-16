@@ -66,9 +66,16 @@ class BookingModel extends CI_Model{
         return $query->result();
     }
     function getDrivers(){
+        $weekdays = explode(",", 'weekday');        
         $bookingdate = $this->session->userdata('date');
-        $query = $this->db->query("SELECT fname, lname from driver where status= '1' AND DATE_FORMAT('$bookingdate', '%W') = weekday ");
+        $query = $this->db->query("SELECT fname, lname from driver where status= '1' AND DATE_FORMAT('$bookingdate', '%W') = weekday", array('weekday'=>$weekdays));
              return $query->result();
+    }
+
+    function getWeek()
+    {
+        $query = $this->db->query('SELECT weekday FROM driver');
+        return $query->result();
     }
 
     function getHelper()
