@@ -56,7 +56,7 @@ class BookingModel extends CI_Model{
 
     function getPlateNo()
     {
-        $query = $this->db->query('SELECT plate_no FROM truck');
+        $query = $this->db->query('SELECT plate_no FROM truck where status="1"');
         return $query->result();
     }
 
