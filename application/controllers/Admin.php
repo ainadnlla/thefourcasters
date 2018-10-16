@@ -340,5 +340,16 @@ class Admin extends CI_Controller {
         $this->load->view('include/footer');
         $this->load->view('admin/error');
     }
+    public function chart(){
+        $data['title'] = 'Charts Sample';
+       
+        $this->load->config('myconfig');
+       
+        $this->load->view('include/chart_header',$data);
+        // $this->load->view('include/header_nav');
+        $this->load->view('include/footer');
+        $this->load->view('admin/chart');
+        
+    }
 }
 ?>

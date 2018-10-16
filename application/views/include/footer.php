@@ -3,6 +3,9 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
    <!-- <script src="<?//=base_url()?>bs/js/bootstrap.min.js"></script>-->
 
+<!-- Chart -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+
 <script src="<?=base_url()?>js/datatables.min.js"></script>
 
 <script src="<?=base_url()?>dashboard/bower_components/jquery/dist/jquery.min.js"></script>
