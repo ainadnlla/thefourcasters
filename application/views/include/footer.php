@@ -24,6 +24,9 @@
 <script src="<?=base_url()?>dashboard/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- ChartJS -->
 <script src="<?=base_url()?>dashboard/bower_components/chart.js/Chart.js"></script>
+<!-- CanvasJS -->
+<script src="<?=base_url()?>dashboard/canvasjs.min.js"></script>
+
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?=base_url()?>dashboard/dist/js/pages/dashboard2.js"></script>
 <!-- AdminLTE for demo purposes -->
