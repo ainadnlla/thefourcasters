@@ -58,7 +58,7 @@
           <table class="table">
             <tr>
               <th>Total:</th>
-              <!-- <td>P <strong><?php echo $totalprice;?>.00</strong></td> -->
+              <td>P <?php echo number_format("$totalprice",2);?></td>
             </tr>
           </table>
         </div>

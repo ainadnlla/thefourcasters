@@ -9,10 +9,6 @@ class HelperModel extends CI_Model{
         $this->db->insert('helper', $data);
         }
 
-    public function insertUser($data){
-        $this->db->insert('helper', $data);
-        } 
-
 //UPDATE
     public function update($id ,$data){
         $this->db->where('id' , $id);

@@ -15,15 +15,13 @@ class UserModel extends CI_Model{
         $this->db->update('staff' , $data);
         }   
 
+// GET
+
     public function getProd($id)
     {
-  
         $query = $this->db->get_where('staff', array('id' => $id));
         return $query->row();
-  
     }
-
-// PAGINATION
    
    public function getItems(){
     $query = $this->db->get('staff');
@@ -41,50 +39,11 @@ class UserModel extends CI_Model{
         $this->db->delete('staff',$data);
     }
 
-//UPLOAD
-
-public function getItem($id){
-        $q = $this->db->get_where('truck',array('id'=>$id));
-        return $q->row();
-    }
-
-//Count
-
-
-
 //registration
-public function regis($data){
-    $this->db->insert('staff' , $data);
-}
-public function countbooking(){
-    return $this->db->count_all('booking');
+
+    public function regis($data){
+        $this->db->insert('staff' , $data);
     }
 
-
-public function getBook(){
-     $query = $this->db->query("SELECT * FROM booking WHERE EXTRACT(MONTH FROM date) = EXTRACT(MONTH from CURDATE()) AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())");
-    return $query->result(); 
 }
-
-public function getreport($month, $year){
-    
-    $query = $this->db->query("SELECT * FROM booking WHERE EXTRACT(MONTH FROM date) = '$month' && EXTRACT(YEAR FROM date) = '$year'");
-    return $query->result();
-    
-    }
-    //price
-    public function get_sum($month, $year){
-        $sql = "SELECT SUM(price) as totalprice FROM booking WHERE EXTRACT(MONTH FROM date) = '$month' AND EXTRACT(YEAR from date) = '$year'";
-        $result = $this->db->query($sql);
-        return $result->row()->totalprice;
-    }
-//reports
-public function getmonth(){
-    $query = $this->db->get_where('booking', array('date' => $date));
-        return $query->row();
-  
-    
-}
-}
-
 ?>

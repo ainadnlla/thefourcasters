@@ -22,14 +22,14 @@
                 <div id="Hello" style="height: 370px; max-width: 1200px; margin: 0px auto;"> </div>
                 <!-- boy ung div=id dat = sa value ng canvasjs.chart na eedit ata value ng var chart palitan nga lang sa baba -->
                   </div>
-   <script>
+   <!-- <script>
     window.onload = function () {
       
     var chart = new CanvasJS.Chart("Hello", {
       animationEnabled: true,
       
       title:{
-        text:"Total Number of Booking"
+        text:"Booking Status of <?php date_default_timezone_set('Asia/Manila'); echo date('F Y'); ?>"
       },
       axisX:{
         interval: 1
@@ -38,7 +38,6 @@
         // can edit the color of the grid and that interlace lol
         interlacedColor: "rgba(1,77,101,.2)",
         gridColor: "rgba(1,77,101,.1)",
-        title: "On the Current Month"
       },
       data: [{
         type: "bar", 
@@ -48,31 +47,53 @@
         color: "#014D65",
         dataPoints: [
           //i still don't know how to do this one making data query na base on number of booked which is accepted, denied, pending ggwa ko bagong model for chart lol
-          { y: 3, label: "Sweden" },
-          { y: 7, label: "Taiwan" },
-          { y: 5, label: "Russia" },
-          { y: 9, label: "Spain" },
-          { y: 7, label: "Brazil" },
-          { y: 7, label: "India" },
-          { y: 9, label: "Italy" },
-          { y: 8, label: "Australia" },
-          { y: 11, label: "Canada" },
-          { y: 15, label: "South Korea" },
-          { y: 12, label: "Netherlands" },
-          { y: 15, label: "Switzerland" },
-          { y: 25, label: "Britain" },
-          { y: 28, label: "Germany" },
-          { y: 29, label: "France" },
-          { y: 52, label: "Japan" },
-          { y: 103, label: "China" },
-          { y: 134, label: "US" }
+          { y: <?=$accept?>, label: "Accepted" },
+          { y: <?=$pending?>, label: "Pending" },
+          { y: <?=$deny?>, label: "Denied" },
         ]
       }]
     });
     chart.render();
     
     }
-    </script>
+    </script> -->
+    <script type="text/javascript">
+	  window.onload = function () {
+      
+		var chart = new CanvasJS.Chart("Hello", {
+			title: {
+        text:"Booking Status - <?php date_default_timezone_set('Asia/Manila'); echo date('F Y'); ?>",
+        ontWeight: "bolder",
+        fontFamily: "tahoma",        
+        fontSize: 28,
+        padding: 10   
+			},
+			axisY: {
+				labelFontSize: 12,
+				labelFontColor: "black",
+        gridColor: "#F0F8FF",
+        interlacedColor: "#F0F8FF" 
+
+			},
+			axisX: {
+				labelAngle: -30
+			},
+			data: [
+			{
+				type: "bar",
+        color: "#014D65",
+				dataPoints: [
+          { y: <?=$accept?>, label: "Accepted" },
+          { y: <?=$pending?>, label: "Pending" },
+          { y: <?=$deny?>, label: "Denied" },
+				]
+			}
+			]
+		});
+
+	chart.render();
+	}
+	</script>
  
                 </div>
               
@@ -81,3 +102,4 @@
               </div>
               <!-- /.row -->
               </div>
+            </div>

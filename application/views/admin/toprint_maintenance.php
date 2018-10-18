@@ -30,56 +30,44 @@
       <!-- /.col -->
  
       <div class="col-sm-4 invoice-col">
-        <b>Booking Report</b><br>
+        <b>Maintenance Report</b><br>
       </div>
       <!-- /.col -->
     </div>
     <!-- /.row -->
-    <form  class="form-horizontal"  action ="<?=base_url()?>admin/toprint/"  method="get">
+    <form  class="form-horizontal"  action ="<?=base_url()?>admin/toprint_maintenance/"  method="get">
     <!-- Table row -->
     <div class="row">
       <div class="col-xs-12 table-responsive">
         <table class="table table-striped">
           <thead>
-          <tr>
-            <th>Waybill</th>
-            <th>Customer</th>
-            <th>Date</th>
-            <th>Product</th>
-            <th>Pieces</th>
-            <th>Cargo Size</th>
-            <th>Destination</th>
-            <th>Price</th>
-            <th>Status</th>
-          </tr>
+            <tr>
+                <th>Maintenance Date</th>
+                <th>Maintenance Description</th>
+                <th>Supplier</th>
+                <th>Description</th>
+                <th>Purchase</th>
+                <th>Price</th>
+                <th>Unit</th>
+                <th>Quantity</th>
+                <th>Amount</th>
+            </tr>
           </thead>
-          <tbody>
-          <?php foreach($reps as $rep): ?>
-          <tr>
-            <td><?= $rep->waybill?></td>
-            <td><?= $rep->custname?></td>
-            <td><?= $rep->date?></td>
-            <td><?= $rep->product?></td>
-            <td><?= $rep->pieces?></td>
-            <td><?= $rep->cargo?></td>
-            <td><?= $rep->destination?></td>
-            <td align="right"><?= number_format("$rep->price", 2)?></td>
-            <td>  <?php if($rep->action==1){ ?>
-            <div class="label label-success">
-              <strong>Accepted</strong>
-            </div>
-            <?php }elseif($rep->action==2){ ?>
-              <div class="label label-danger">
-                <strong>Denied</strong>
-              </div></p>
-            <?php }else{?>
-              <div class="label label-warning">
-                <strong>Pending</strong>
-              </div>
-            <?php  }?>
-            </td>
-          </tr>
-          <?php endforeach; ?> 
+            <tbody>
+              <?php foreach($mains as $main): ?>
+                <tr>
+                    <td><?= date('M d, Y - g:i A', strtotime($main->date))?></td>
+                    <td><?= $main->warning?></td>
+                    <td><?= $main->supplier?></td>                            
+                    <td><?= $main->description?></td>
+                    <td><?= $main->purchased?></td>
+                    <td><?= $main->price?></td>
+                    <td><?= $main->unit?></td>
+                    <td><?= $main->quantity?></td>
+                    <td><?= $main->amount?></td>
+                </tr>
+            </tfoot>
+            <?php endforeach; ?> 
           </tbody>
         </table>
       </div>

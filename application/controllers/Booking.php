@@ -78,6 +78,7 @@ class Booking extends CI_Controller {
             $this->BookingModel->delete($id,$data);
             redirect('customer/booking');
      }
+     
     public function update($id){
         $data = $this->input->post();
         unset($data['submit']);
@@ -97,9 +98,6 @@ class Booking extends CI_Controller {
                 redirect('customer/booking');
             }
         }
-        //sample month
-        public function sample(){
-            $this->load->view("admin/sampleshit");
-        }
+
 }
 ?>
