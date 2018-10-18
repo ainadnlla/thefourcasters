@@ -104,6 +104,7 @@
           <br/>
         </div>
 
+              
         <div class="form-group">
           <div class="col-md-4">
             <label>Driver</label>  
@@ -118,6 +119,11 @@
             </select>
             <?= form_error('driver_name', '<span class="label label-danger">', '</span>') ?>  
           </div>
+          <?php  foreach($driverid as $row){
+            echo '<input value="'.$row->id.'" name="driverid">' .'</input>';
+          }
+          ?>
+      
           <div class="col-md-4">
             <label>Helper</label>  
             <select value="<?=$books->helper_name?>" name="helper_name" class="form-control">
@@ -131,6 +137,10 @@
             </select>
             <?= form_error('helper_name', '<span class="label label-danger">', '</span>') ?>  
           </div>
+          <?php  foreach($helperid as $row){
+            echo '<input value="'.$row->id.'" name="helperid">' .'</input>';
+          }
+          ?>
           <div class="col-md-4">
             <label>Price</label>
             <input value="<?=$books->price?>" id="price" name="price" type="text" placeholder="Price" class="form-control input-md">

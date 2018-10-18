@@ -63,7 +63,7 @@
             <td><?= $rep->pieces?></td>
             <td><?= $rep->cargo?></td>
             <td><?= $rep->destination?></td>
-            <td align="right"><?= number_format("$rep->price", 2)?></td>
+            <td align="right"><?= number_format("$rep->price", 2); ?></td>
             <td>  <?php if($rep->action==1){ ?>
             <div class="label label-success">
               <strong>Accepted</strong>

@@ -60,7 +60,14 @@ class BookingModel extends CI_Model{
     function getDrivers(){
         $weekdays = explode(",", 'weekday');        
         $bookingdate = $this->session->userdata('date');
-        $query = $this->db->query("SELECT fname, lname from driver where status= '1' AND DATE_FORMAT('$bookingdate', '%W') = weekday", array('weekday'=>$weekdays));
+        $query = $this->db->query("SELECT id,fname, lname from driver where status= '1' AND DATE_FORMAT('$bookingdate', '%W') = weekday", array('weekday'=>$weekdays));
+             return $query->result();
+    }
+    function getDriverid(){
+        $weekdays = explode(",", 'weekday');        
+        $bookingdate = $this->session->userdata('date');
+      //  $driverid = $this->session->userdata('did');
+        $query = $this->db->query("SELECT id,fname, lname from driver where  status= '1' AND DATE_FORMAT('$bookingdate', '%W') = weekday LIMIT 1");
              return $query->result();
     }
 
@@ -77,8 +84,15 @@ class BookingModel extends CI_Model{
     }
     function getHelpers(){
         $bookingdateh = $this->session->userdata('date');
-        $query = $this->db->query("SELECT fname, lname from helper where status= '1' AND DATE_FORMAT('$bookingdateh', '%W') = weekday ");
+        $query = $this->db->query("SELECT id,fname, lname from helper where status= '1' AND DATE_FORMAT('$bookingdateh', '%W') = weekday ");
              return $query->result();
+    }
+    function getHelperid(){
+    
+            $bookingdateh = $this->session->userdata('date');
+         //   $helperid = $this->session->userdata('hid');
+            $query = $this->db->query("SELECT id,fname, lname from helper where status= '1' AND DATE_FORMAT('$bookingdateh', '%W') = weekday limit  1 ");
+                 return $query->result();
     }
     function getDriverNo()
     {

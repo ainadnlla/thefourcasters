@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2018 at 09:02 PM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: Oct 18, 2018 at 11:06 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -64,7 +64,9 @@ CREATE TABLE `booking` (
   `price` int(50) NOT NULL,
   `license_no` varchar(50) NOT NULL,
   `driver_name` varchar(50) NOT NULL,
+  `driverid` int(11) NOT NULL,
   `helper_name` varchar(50) NOT NULL,
+  `helperid` int(100) NOT NULL,
   `helper_no` varchar(50) NOT NULL,
   `action` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -73,17 +75,18 @@ CREATE TABLE `booking` (
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`id`, `waybill`, `date`, `cust_type`, `custname`, `cargo`, `product`, `description`, `pieces`, `plate_no`, `driver_no`, `destination`, `price`, `license_no`, `driver_name`, `helper_name`, `helper_no`, `action`) VALUES
-(1, 1664, '2018-10-03', 'Broker/Agent', 'Wuerth Phils. Inc', 'FCL 1x40', 'Paper Products', 'Printing paper, paper labels, cardboard boxes and wood pellets', 100, 'ABC 8771', '', 'MIP - Laguna, Binan (Wuerth Phils. Inc. Warehouse)', 18000, '', 'Jonalyn Bartolome', 'Berto Lozada', '', 1),
-(2, 9673, '2018-09-29', '', 'Breakthru Cleaning Agent', 'LCL (ELF)', 'Clothing', 'Not fragile', 150, 'RLP 377', '', 'MIP - Manila-North, Valenzuela, Ugong', 12000, '', 'Joshua Patino', 'Berto Lozada', '', 2),
-(3, 1643, '2018-10-04', '', 'Alysons Chemical Enterprises Inc.', 'FCL 1x45', 'Frozen Goods', 'San Miguel Tender Juicy Hotdogs', 500, 'RLP 377', '', 'MIP - Manila-South, Taguig, Bicutan', 9000, '', 'Mariano Estaris', 'Jester Fernandez', '', 0),
-(4, 8432, '2018-09-29', '', 'MyWine - the best italian wine', 'FCL 1x20', 'Liquior and Beverages', 'Wine from Italy', 50, '130104', '', 'MIP - Bulacan, Guiguinto', 13500, '', 'Ernie Saavedra', 'Dario Traquina', '', 2),
-(5, 2570, '2018-11-01', '', 'Continental Cargo Carriers Inc. ', 'LCL 1x40', 'Hazardous substances', 'Hazardous substances, such as explosives or chemicals. Handle with care.', 99, 'ABA 9575', '', 'MIP - Manila-North, Valenzuela, Ugong', 13500, '', 'Jonalyn Bartolome', 'Nino Altamia', '', 0),
-(6, 4962, '2018-10-05', '', 'Angelogistics Co. Ltd - Pier Dispatch ', 'LCL 1x40', 'Furnitures', 'Sofa Set ', 3, 'RNK 277', '', 'MIP - Manila-South, Taguig, Bicutan', 10000, '', 'Mariano Estaris', 'Jason Ablazo', '', 1),
-(7, 1619, '2018-10-09', '', 'Marilou R. Arevalo (Bong)', 'FCL 1x20', 'Insulation Foam and Roof', '2x2mm Roof and Foam 19x67', 1, '130102', '', 'MIP - Bulacan, Sta. Maria (Coastline Warehouse)', 5000, '', 'Ernie Saavedra', 'Dario Traquina', '', 0),
-(8, 2623, '2018-10-06', '', 'Marilou R. Arevalo (Bong)', 'FCL 1x20', 'Insulation Foam and Roof', '2x2mm Roof and Foam 19x67', 3, '130104', '', 'MIP - Caloocan, Baesa', 19590, '', 'Jeremy Lansang', 'Armando Lagrimas', '', 1),
-(9, 5190, '2018-10-17', '', 'Wacker Machines Supplies Corp.', 'FCL 2x20', 'Machinery Supplies', 'Machiner Supplies by NBS14', 50, 'UIM 308', '', 'MIP - Manila , Mandaluyong', 25000, '', 'Ernie Saavedra', 'Armando Lagrimas', '', 1),
-(10, 1809, '2018-10-05', '', 'Coastline Truck Center', 'LCL 1x40', 'Dispenser Material', 'H2O Water Dispenser Aquabest', 100, 'ABF 3040', '', 'MIP - Bulacan, Sta. Maria (Coastline Warehouse)', 20000, '', 'Ernie Saavedra', 'Dario Traquina', '', 1);
+INSERT INTO `booking` (`id`, `waybill`, `date`, `cust_type`, `custname`, `cargo`, `product`, `description`, `pieces`, `plate_no`, `driver_no`, `destination`, `price`, `license_no`, `driver_name`, `driverid`, `helper_name`, `helperid`, `helper_no`, `action`) VALUES
+(1, 1664, '2018-10-03', 'Broker/Agent', 'Wuerth Phils. Inc', 'FCL 1x40', 'Paper Products', 'Printing paper, paper labels, cardboard boxes and wood pellets', 100, 'ABC 8771', '', 'MIP - Laguna, Binan (Wuerth Phils. Inc. Warehouse)', 18000, '', 'Jonalyn Bartolome', 0, 'Berto Lozada', 0, '', 1),
+(2, 9673, '2018-09-29', '', 'Breakthru Cleaning Agent', 'LCL (ELF)', 'Clothing', 'Not fragile', 150, 'RLP 377', '', 'MIP - Manila-North, Valenzuela, Ugong', 12000, '', 'Joshua Patino', 0, 'Berto Lozada', 0, '', 2),
+(3, 1643, '2018-10-04', '', 'Alysons Chemical Enterprises Inc.', 'FCL 1x45', 'Frozen Goods', 'San Miguel Tender Juicy Hotdogs', 500, 'RLP 377', '', 'MIP - Manila-South, Taguig, Bicutan', 9000, '', 'Joshua Patino', 4, 'Jason Ablazo', 5, '', 0),
+(4, 8432, '2018-09-29', '', 'MyWine - the best italian wine', 'FCL 1x20', 'Liquior and Beverages', 'Wine from Italy', 50, '130104', '', 'MIP - Bulacan, Guiguinto', 13500, '', 'Ernie Saavedra', 0, 'Dario Traquina', 0, '', 2),
+(5, 2570, '2018-11-01', '', 'Continental Cargo Carriers Inc. ', 'LCL 1x40', 'Hazardous substances', 'Hazardous substances, such as explosives or chemicals. Handle with care.', 99, 'ABA 9575', '', 'MIP - Manila-North, Valenzuela, Ugong', 13500, '', 'Jonalyn Bartolome', 0, 'Nino Altamia', 0, '', 0),
+(6, 4962, '2018-10-05', '', 'Angelogistics Co. Ltd - Pier Dispatch ', 'LCL 1x40', 'Furnitures', 'Sofa Set ', 3, 'RNK 277', '', 'MIP - Manila-South, Taguig, Bicutan', 10000, '', 'Mariano Estaris', 0, 'Jason Ablazo', 0, '', 1),
+(7, 1619, '2018-10-09', '', 'Marilou R. Arevalo (Bong)', 'FCL 1x20', 'Insulation Foam and Roof', '2x2mm Roof and Foam 19x67', 1, 'RLP 377', '', 'MIP - Bulacan, Sta. Maria (Coastline Warehouse)', 5000, '', 'Jing Baluran', 16, 'Dereck Traqueña', 2, '', 0),
+(8, 2623, '2018-10-06', '', 'Marilou R. Arevalo (Bong)', 'FCL 1x20', 'Insulation Foam and Roof', '2x2mm Roof and Foam 19x67', 3, '130104', '', 'MIP - Caloocan, Baesa', 19590, '', 'Jeremy Lansang', 0, 'Armando Lagrimas', 0, '', 1),
+(9, 5190, '2018-10-17', '', 'Wacker Machines Supplies Corp.', 'FCL 2x20', 'Machinery Supplies', 'Machiner Supplies by NBS14', 50, 'UIM 308', '', 'MIP - Manila , Mandaluyong', 25000, '', 'Ernie Saavedra', 0, 'Armando Lagrimas', 0, '', 1),
+(10, 1809, '2018-10-05', '', 'Coastline Truck Center', 'LCL 1x40', 'Dispenser Material', 'H2O Water Dispenser Aquabest', 100, 'ABF 3040', '', 'MIP - Bulacan, Sta. Maria (Coastline Warehouse)', 20000, '', 'Ernie Saavedra', 0, 'Dario Traquina', 0, '', 1),
+(11, 15124, '2018-10-20', 'Local/Sub-contractor', 'Altron Logistics Inc.', 'LCL (ELF)', 'Frozen Goods', 'Chilled Goods', 10, 'ABA 9575', '', 'MIP - Pampanga, San Fernando', 1000, '', 'Jeremy Lansang', 0, 'Nino Altamia', 0, '', 1);
 
 -- --------------------------------------------------------
 
@@ -237,8 +240,8 @@ CREATE TABLE `driver` (
 --
 
 INSERT INTO `driver` (`img`, `id`, `driver_no`, `expire`, `fname`, `mname`, `lname`, `email`, `password`, `repass`, `gender`, `birthday`, `contact`, `experience`, `date`, `status`, `timein`, `timeout`, `weekday`) VALUES
-('', 1, 'ACLDI010987016', '2020-01-01', 'Arnel', '', 'Villamor', 'avillamor@gmail.com', '123456789', '123456789', 'M', '1988-12-20', '09154269173', 5, '2015-03-25', 0, '12:00:00', '09:00:00', NULL),
-('default.jpg', 2, 'ACLDI090878015', '2020-01-01', 'Ernie', NULL, 'Saavedra', 'esaavedra@gmail.com', '123456789', '123456789', 'M', '1976-03-01', '09151496857', 10, '2013-08-21', 1, '01:00:00', '09:00:00', 'Tuesday'),
+('default.jpg', 1, 'ACLDI010987016', '2020-01-01', 'Arnel', NULL, 'Villamor', 'avillamor@gmail.com', '123456789', '123456789', 'M', '1988-12-20', '09154269173', 5, '2015-03-25', 0, '12:00:00', '09:00:00', NULL),
+('', 2, 'ACLDI090878015', '2020-01-01', 'Ernie', NULL, 'Saavedra', 'esaavedra@gmail.com', '123456789', '123456789', 'M', '1976-03-01', '09151496857', 10, '2013-08-21', 1, '01:00:00', '09:00:00', 'Monday,Tuesday'),
 ('default.jpg', 3, 'ACLDI240178014', '2020-01-01', 'Inigo', NULL, 'Rafaeles', 'irafaeles@gmail.com', '123456789', '123456789', 'M', '1987-05-11', '09150138304', 3, '2014-11-01', 0, '01:00:00', '09:00:00', 'Wednesday'),
 ('default.jpg', 4, 'ACLDI300862013', '2020-01-01', 'Joshua', NULL, 'Patino', 'jpatino@gmail.com', '123456789', '123456789', 'M', '1984-09-15', '09154736181', 7, '2013-10-11', 1, '03:00:00', '10:00:00', 'Thursday'),
 ('default.jpg', 5, 'ACLD120884017', '2020-01-01', 'John Robert', NULL, 'Tambanillo', 'jrtambanillo@gmail.com', '123456789', '123456789', 'M', '1985-08-30', '09170143697', 2, '2018-02-25', 0, '03:00:00', '10:00:00', 'Thursday'),
@@ -252,7 +255,7 @@ INSERT INTO `driver` (`img`, `id`, `driver_no`, `expire`, `fname`, `mname`, `lna
 ('default.jpg', 13, 'ACLDI241164005', '2020-01-01', 'Tonyo', NULL, 'Bitoon', 'tbitoon@gmail.com', '123456789', '123456789', 'M', '1975-04-14', '09073556128', 12, '2010-12-21', 1, '07:00:00', '12:00:00', 'Sunday'),
 ('default.jpg', 14, 'ACLDI141281004', '2020-01-01', 'Jonalyn', NULL, 'Bartolome', 'jbartolome@gmail.com', '123456789', '123456789', 'M', '1987-10-14', '09154669875', 5, '2015-01-20', 1, '09:00:00', '08:00:00', 'Wednesday'),
 ('default.jpg', 15, 'ACLDI081281003', '2020-01-01', 'Ernesto', NULL, 'Baquiran', 'ebaquiran@gmail.com', '123456789', '123456789', 'M', '1981-03-18', '09478621034', 9, '2009-06-28', 1, '12:00:00', '12:00:00', 'Friday'),
-('default.jpg', 16, 'ACLDI241283002', '2020-01-01', 'Jing', NULL, 'Baluran', 'jbaluran@gmail.com', '123456789', '123456789', 'M', '1988-09-12', '09365448607', 4, '2012-02-22', 0, '11:00:00', '12:00:00', 'Tuesday'),
+('default.jpg', 16, 'ACLDI241283002', '2020-01-01', 'Jing', NULL, 'Baluran', 'jbaluran@gmail.com', '123456789', '123456789', 'M', '1988-09-12', '09365448607', 4, '2012-02-22', 1, '11:00:00', '12:00:00', 'Tuesday'),
 ('default.jpg', 17, 'ACLDI091180001', '2020-01-01', 'Wancho', NULL, 'Apas', 'wapas@gmail.com', '123456789', '123456789', 'M', '1976-11-13', '09125647820', 4, '2014-05-06', 0, '12:00:00', '09:00:00', 'Thursday'),
 ('default.jpg', 18, 'ACLDI091181567', '2020-01-01', 'Remante', NULL, 'Ibanez', 'ribanez@gmail.com', '123456789', '123456789', 'M', '1985-07-17', '09997531548', 6, '2011-06-19', 1, '11:00:00', '03:00:00', 'Wednesday'),
 ('default.jpg', 19, 'ACLDI091182000', '2020-01-01', 'Frederico', NULL, 'Alburo', 'falburo@gmail.com', '123456789', '123456789', 'M', '1978-09-26', '09192554863', 12, '2009-04-17', 0, '08:00:00', '07:00:00', 'Friday');
@@ -345,17 +348,10 @@ CREATE TABLE `maintenance` (
 --
 
 INSERT INTO `maintenance` (`id`, `date`, `plate_no`, `supplier`, `description`, `purchased`, `price`, `unit`, `quantity`, `amount`, `warning`) VALUES
-(1, '2018-10-15 18:03:34', 'ABC 8771', 'First', 'try', '2018-10-16', 5000, 'PCS', 2, 10000, 'Try try try'),
-(2, '2018-10-15 18:03:34', '', 'Try', 'try', '5555-05-05', 55, 'PCS', 555, 30525, ''),
-(3, '2018-10-15 18:03:34', '', 'Try1', 'try', '2000-05-04', 45, 'PCS', 22, 990, ''),
-(4, '2018-10-15 18:03:34', 'ABC 8771', 'try', 'try', '0000-00-00', 5, 'PCS', 4, 20, ''),
-(5, '2018-10-15 18:03:34', 'ABF 3040', 'try', 'try', '2020-05-05', 45, 'PCS', 4, 180, ''),
-(6, '2018-10-15 18:03:34', '130104', 'trtrt', 'trtrt', '5666-06-05', 56, 'PCS', 545, 30520, ''),
-(7, '2018-10-15 18:03:34', 'ABF 3040', 'aina', 'sales', '2000-05-04', 51, 'PCS', 45, 2295, ''),
-(9, '2018-10-15 16:16:35', 'ABC 8771', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sample'),
-(10, '2018-10-15 16:18:25', 'ABC 8771', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sample1'),
-(11, '2018-10-15 16:19:05', 'ABC 8771', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'warning'),
-(12, '2018-10-15 16:19:19', 'ABC 8771', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'pang 5');
+(0, '2018-10-16 07:28:36', 'ABC 8771', 'Morayta Bookstore', '1500', '2018-10-16', 1000, 'PCS', 20, NULL, 'Brake Fluid National is okay'),
+(1, '2018-10-15 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, '2018-10-16 07:27:28', 'ABC 8771', 'T.Y ENTERPRISES', 'HEAD LIGHT FUSO AM', '2018-10-16', 1200, 'KGS', 1, 1200, 'Head light of truck broke'),
+(4, '2018-10-16 07:45:54', 'ABC 8771', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'THe tires are tired');
 
 -- --------------------------------------------------------
 
@@ -438,12 +434,12 @@ INSERT INTO `truck` (`id`, `img`, `brand`, `plate_no`, `series`, `mvfile_no`, `e
 (2, '', 'ISUZU', 'ABC 8771', 'REBUILT TRUCK', '1301-00000503950', '10PD1-746850', 'EXR71D-3000004', 10500, 5250, 5250, 2013, 0, 2),
 (3, '', 'SINOTRUK HOWO', 'ABF 3040', 'REBUILT TRUCK', '1301-00000410217', 'WD61547150417009747', 'LZZ5CCSC7FA093009', 4000, 4000, 4000, 2015, 0, 2),
 (4, '', 'FAW', '130104', 'REBUILT TRUCK', '1301-00000891410', 'CA6DL237E3F52770098', 'LFWNHXPC6G1F58891', 8000, 4000, 4000, 2016, 0, 2),
-(5, 'truck.jpg', 'FAW', '130104', 'REBUILT TRUCK', '1301-00000891408', 'CA6DL237E3F52770099', 'LFWNHXPC6G1F58890', 8000, 4000, 4000, 2016, 0, 0),
-(6, 'truck.jpg', 'FAW', '130102', 'REBUILT TRUCK', '1301-00001079279', 'CA6DL237E3F52935945', 'LFWSRXPJ7H1E61858', 8000, 4000, 4000, 2017, 0, 0),
-(7, 'truck.jpg', 'MTSHUBISHI - FUSO', 'RCE 120', 'DROPSIDE', '0386-00000094576', '8DC11-393526', 'FU419U-540165', 5000, 4000, 4000, 2009, 0, 0),
-(8, 'truck.jpg', 'FUSO TRUCK', 'RFR 667', 'DROPSIDE', '0386-00000149453', '8DC11-350914', 'FP411D-550069', 5000, 3000, 4000, 2014, 0, 0),
-(9, 'truck.jpg', 'FUSO TRUCK', 'RGY 294', 'DROPSIDE', '0386-00000171817', '8DC9-430796', 'FP415D-650542', 5000, 3000, 4000, 2014, 0, 0),
-(10, 'truck.jpg', 'FUSO TRUCK', 'RLE 993', 'DROPSIDE', '0386-00000231282', '6D40235396', 'FP445D-550002', 5000, 3000, 4000, 2011, 0, 0),
+(5, '', 'FAW', '130205', 'REBUILT TRUCK', '1301-00000891408', 'CA6DL237E3F52770099', 'LFWNHXPC6G1F58890', 8000, 4000, 4000, 2016, 0, 1),
+(6, 'truck.jpg', 'FAW', '130102', 'REBUILT TRUCK', '1301-00001079279', 'CA6DL237E3F52935945', 'LFWSRXPJ7H1E61858', 8000, 4000, 4000, 2017, 0, 1),
+(7, 'truck.jpg', 'MTSHUBISHI - FUSO', 'RCE 120', 'DROPSIDE', '0386-00000094576', '8DC11-393526', 'FU419U-540165', 5000, 4000, 4000, 2009, 0, 1),
+(8, 'truck.jpg', 'FUSO TRUCK', 'RFR 667', 'DROPSIDE', '0386-00000149453', '8DC11-350914', 'FP411D-550069', 5000, 3000, 4000, 2014, 0, 1),
+(9, 'truck.jpg', 'FUSO TRUCK', 'RGY 294', 'DROPSIDE', '0386-00000171817', '8DC9-430796', 'FP415D-650542', 5000, 3000, 4000, 2014, 0, 1),
+(10, 'truck.jpg', 'FUSO TRUCK', 'RLE 993', 'DROPSIDE', '0386-00000231282', '6D40235396', 'FP445D-550002', 5000, 3000, 4000, 2011, 0, 1),
 (11, 'truck.jpg', 'ISUZU', 'AAQ9266', 'DROPSIDE', '0386-00000309296', '6WG1-405485', 'EXR50D-3000096', 5000, 3000, 4000, 2013, 0, 0),
 (12, 'truck.jpg', 'ISUZU', 'AAQ 7784', 'DROPSIDE', '0386-00000307618', '6WG1203422', 'EXR81D-3000080', 5000, 3000, 4000, 2000, 0, 0),
 (13, 'truck.jpg', 'ISUZU ELF', 'RKN 816', 'DROPSIDE TRUCK', '0386-00000219894', '4BE1-922286', 'NPR58P-7101502', 5000, 3000, 4000, 2015, 0, 0),
@@ -524,7 +520,7 @@ ALTER TABLE `truck`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -554,7 +550,7 @@ ALTER TABLE `helper`
 -- AUTO_INCREMENT for table `maintenance`
 --
 ALTER TABLE `maintenance`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `staff`
