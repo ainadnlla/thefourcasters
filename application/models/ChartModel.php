@@ -25,6 +25,6 @@ function bookingdeny(){
 
  //Maintenance issue process Duration (fastest process)
 
- //Top 5 Maintenanct issues
+ //Top 5 Maintenance issues
  
 }
