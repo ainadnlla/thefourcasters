@@ -12,6 +12,7 @@ class Staff extends CI_Controller {
             $this->load->model('AdminModel');
             $this->load->model('BookingModel');
             $this->load->model('HelperModel');
+            $this->load->model('ReportsModel');
             $this->load->helper('captcha');
     }
 
@@ -132,7 +133,7 @@ class Staff extends CI_Controller {
 
     public function do_upload(){  
         $id = $this->input->post('id');
-        $data['emps'] = $this->UserModel->getItem($id);
+        $data['emps'] = $this->UserModel->getProd($id);
         $config['upload_path']          = './images/';
         $config['allowed_types']        = 'gif|jpg|png';
         $config['max_size']             = 20000;
@@ -172,7 +173,7 @@ public function logged(){
             $data['title'] = 'Angelogistic Forwarder Corporation';
             
              $this->load->config('myconfig');
-             $emps =  $this->UserModel->getBook();
+             $emps =  $this->ReportsModel->getBook();
        
              $this->load->view('include/header', $data);
              $this->load->view('include/staff_header');

@@ -2,19 +2,23 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ChartModel extends CI_Model{
+
 //Total Number of Booking on Current Month (not sure optional)
-    function bookingaccept(){
-   $query= $this->db->query("SELECT COUNT(*) FROM BOOKING WHERE action= 1");
-   return $query->result();
+public function getBookingPending(){
+    $query = $this->db->where('action',0)->like('date', date('Y-m'))->from("booking");
+    return $query->count_all_results();
 }
-function bookingdeny(){
-    $query= $this->db->query("SELECT COUNT(*) FROM BOOKING WHERE action= 2");
-    return $query->result();
- }
- function bookingpending(){
-    $query= $this->db->query("SELECT COUNT(*) FROM BOOKING WHERE action= 0");
-    return $query->result();
- }
+
+public function getBookingDeny(){
+    $query = $this->db->where('action',2)->like('date', date('Y-m'))->from("booking");
+    return $query->count_all_results();
+}
+
+public function getBookingAccepted(){
+    $query = $this->db->where('action',1)->like('date', date('Y-m'))->from("booking");
+    return $query->count_all_results();
+}
+ 
  //Monthly report
 
  //Daily report

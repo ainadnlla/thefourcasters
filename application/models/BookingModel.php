@@ -14,20 +14,17 @@ class BookingModel extends CI_Model{
         $this->db->where('id' , $id);
         $this->db->update('booking' , $data);
         }   
+        
+// GET
 
-    public function getProd($id)
-    {
-  
+    public function getProd($id){
         $query = $this->db->get_where('booking', array('id' => $id));
-        return $query->row();
-  
+        return $query->row();  
     }
 
-// GET
-   
     public function getItems(){
-    $query = $this->db->get('booking');
-    return $query->result();
+        $query = $this->db->get('booking');
+        return $query->result();
     }
 
     public function getCustBook(){
@@ -36,14 +33,9 @@ class BookingModel extends CI_Model{
         }
 
     public function getNumRecs(){
-    return $this->db->count_all('booking');
+        return $this->db->count_all('booking');
     }
 
-    // public function getCurrent($custname){
-    //     $query =  $this->db->get_where('booking', array('custname' => $custname));
-    //     return $query->row();
-    //     }
-    
 //DELETE    
 
     public function delete($id,$data){

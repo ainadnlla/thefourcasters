@@ -104,7 +104,7 @@ class Truck extends CI_Controller {
     
     public function do_upload(){  
         $id = $this->input->post('id');
-        $data['truck'] = $this->TruckModel->getItem($id);
+        $data['truck'] = $this->TruckModel->getProd($id);
         $config['upload_path']          = './images/';
         $config['allowed_types']        = 'gif|jpg|png';
         $config['max_size']             = 20000;

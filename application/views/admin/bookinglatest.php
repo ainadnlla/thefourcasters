@@ -22,17 +22,17 @@
         </tr>
       </thead>
       <tbody>
-      <?php foreach($emps as $emp): ?>
+      <?php foreach($books as $book): ?>
         <tr>
-          <td><?= $emp->waybill?></td>
-          <td><?= $emp->custname?></td>
-          <td><?= $emp->date?></td>
-          <td><?= $emp->destination?></td>
-          <td>  <?php if($emp->action==1){ ?>
+          <td><?= $book->waybill?></td>
+          <td><?= $book->custname?></td>
+          <td><?= $book->date?></td>
+          <td><?= $book->destination?></td>
+          <td>  <?php if($book->action==1){ ?>
             <div class="label label-success">
               <strong>Accepted</strong>
             </div>
-            <?php }elseif($emp->action==2){ ?>
+            <?php }elseif($book->action==2){ ?>
             <div class="label label-danger">
               <strong>Denied</strong>
             </div></p>

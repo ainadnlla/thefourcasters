@@ -16,26 +16,21 @@ class DriverModel extends CI_Model{
         $this->db->update('driver' , $data);
         }   
 
-    public function getProd($id)
-    {
+// GET
+
+    public function getProd($id){
         $query = $this->db->get_where('driver', array('id' => $id));
         return $query->row();
     }
 
-    public function updateDay($id, $days){
-        $this->db->where('id' , $id);
-        $this->db->insert('driver', $days);
-    } 
-
-// PAGINATION
    
-   public function getItems(){
-    $query = $this->db->get('driver');
-    return $query->result();
+    public function getItems(){
+        $query = $this->db->get('driver');
+        return $query->result();
     }
 
     public function getNumRecs(){
-    return $this->db->count_all('driver');
+        return $this->db->count_all('driver');
     }
 
 //DELETE    

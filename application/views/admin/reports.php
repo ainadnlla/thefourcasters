@@ -61,7 +61,7 @@
 <div class="col-xs-12">
   <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Monthly Reports</h3>
+              <h3 class="box-title">Booking Report</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -130,6 +130,75 @@
           </div>
       </div>
       </div>
+
+<!-- MAINTENANCE REPORT -->
+
+<div class="row">
+<div class="col-xs-12">
+  <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Maintenance Report</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="table-responsive">
+              <table id="main" class="table table-bordered table-hover table-striped">
+              <thead>
+              <tr>
+                  <th>Maintenance Date</th>
+                  <th>Maintenance Description</th>
+                  <th>Supplier</th>
+                  <th>Item Description</th>
+                  <th>Purchase</th>
+                  <th>Price</th>
+                  <th>Unit</th>
+                  <th>Quantity</th>
+                  <th>Amount</th>
+              </tr>
+              </thead>
+                  
+                  <tbody>
+                  <?php foreach($mains as $main): ?>
+                    <tr>
+                        <td><?= date('M d, Y - g:i A', strtotime($main->date))?></td>
+                        <td><?= $main->warning?></td>
+                        <td><?= $main->supplier?></td>                            
+                        <td><?= $main->description?></td>
+                        <td><?= $main->purchased?></td>
+                        <td><?= $main->price?></td>
+                        <td><?= $main->unit?></td>
+                        <td><?= $main->quantity?></td>
+                        <td><?= $main->amount?></td>
+                    </tr>
+                </tfoot>
+                <?php endforeach; ?> 
+                  </tbody>
+                 
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-body -->
+          <div class="box-footer clearfix">
+           
+          <div class="row no-print">
+            <div class="col-xs-12">
+              <a href="<?=base_url()."admin/toprint_maintenance"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+              <a href="#" target="_blank" type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+              <i class="fa fa-download"></i> Generate PDF
+                        </a>
+            </div>
+          </div>
+      </div>
+      </div>
+
+
  </section>
  <!-- /.content -->
 </div>
@@ -146,6 +215,20 @@
 <script>
    $(function () {
     $('#example1').DataTable()
+    $('#example5').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
+
+<script>
+   $(function () {
+    $('#main').DataTable()
     $('#example5').DataTable({
       'paging'      : true,
       'lengthChange': false,

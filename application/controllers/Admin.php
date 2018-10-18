@@ -14,6 +14,8 @@ class Admin extends CI_Controller {
             $this->load->model('HelperModel');
             $this->load->model('MaintenanceModel');
             $this->load->model("CalendarModel");
+            $this->load->model("ChartModel");
+            $this->load->model("ReportsModel");
     }
 //
 //     function myFunction() {
@@ -38,14 +40,17 @@ class Admin extends CI_Controller {
         $data['title'] = 'Angelogistic Forwarder Corporation';
        
         $this->load->config('myconfig');
-        $emps =  $this->UserModel->getBook();
-  
+        $books =  $this->ReportsModel->getBook();
+        $accept =  $this->ChartModel->getBookingAccepted();
+        $pending =  $this->ChartModel->getBookingPending();
+        $deny =  $this->ChartModel->getBookingDeny();
+
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('admin/homepage');
-        $this->load->view('admin/graph');
-        $this->load->view('admin/bookinglatest',compact('emps'));
+        $this->load->view('admin/graph', compact('accept', 'pending','deny'));
+        $this->load->view('admin/bookinglatest',compact('books'));
         
 
        
@@ -262,8 +267,8 @@ class Admin extends CI_Controller {
 
             $month = $this->input->GET('month');
             $year = $this->input->GET('year');  
-
-            $reps=  $this->UserModel->getreport($month, $year);
+            $mains =  $this->ReportsModel->getMain($month, $year);
+            $reps=  $this->ReportsModel->getreport($month, $year);
             $this->session->set_flashdata('month', $month);
             $this->session->set_flashdata('year', $year);
 
@@ -271,19 +276,20 @@ class Admin extends CI_Controller {
             $this->load->view('include/header', $data);
             $this->load->view('include/header_nav');
             $this->load->view('include/footer');
-            $this->load->view('admin/reports',compact('reps'));
+            $this->load->view('admin/reports',compact('reps', 'mains'));
         }else{
             redirect('login/admin');
         }
     }
+
     public function toprint(){
         if($this->session->userdata('username') !=''){ 
             $data['title'] = 'Reports Information | Angelogistic Forwarder Corporation';
             
             $month = $this->session->flashdata('month');
             $year = $this->session->flashdata('year');
-            $reps =  $this->UserModel->getreport($month,$year);
-            $data['totalprice'] = $this->UserModel->get_sum($month, $year);
+            $reps =  $this->ReportsModel->getreport($month,$year);
+            $data['totalprice'] = $this->ReportsModel->get_sum($month, $year);
             
             $this->load->config('myconfig');
             $this->load->view('include/header', $data);
@@ -293,40 +299,41 @@ class Admin extends CI_Controller {
         }else{
             redirect('login/admin');
         }
-     
     }
+
+    public function toprint_maintenance(){
+        if($this->session->userdata('username') !=''){ 
+            $data['title'] = 'Reports Information | Angelogistic Forwarder Corporation';
+            
+            $month = $this->session->flashdata('month');
+            $year = $this->session->flashdata('year');
+            $mains =  $this->ReportsModel->getmain($month,$year);
+            $data['totalprice'] = $this->ReportsModel->get_sum_mainte($month, $year);
+            
+            $this->load->config('myconfig');
+            $this->load->view('include/header', $data);
+            $this->load->view('include/footer');
+            $this->load->view('admin/toprint_maintenance',compact('mains',$data));
+            
+        }else{
+            redirect('login/admin');
+        }
+    }
+
     public function pdf()
     {
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'PDF | Angelogistic Forwarder Corporation';
         $month = $this->session->flashdata('month');
         $year = $this->session->flashdata('year');
-        $reps =  $this->UserModel->getreport($month,$year);
-        $data['totalprice'] = $this->UserModel->get_sum();
+        $reps =  $this->ReportsModel->getreport($month,$year);
+        $data['totalprice'] = $this->ReportsModel->get_sum($month, $year);
 
         $this->load->config('myconfig');
         $this->load->helper('pdf_helper');
      //  $this->load->view('admin/topdf');
-        $this->load->view('admin/pdfreport', compact('reps'));
+        $this->load->view('admin/pdfreport', compact('reps', $data));
 
-        }else{
-            redirect('login/admin');
-        }
-    }
-
-    public function sample(){
-        if($this->session->userdata('username') !=''){ 
-        $month = $this->input->GET('month');
-        $year = $this->input->GET('year');  
-
-        $reps=  $this->UserModel->getreport($month, $year);
-        $this->session->set_flashdata('month', $month);
-        $this->session->set_flashdata('year', $year);
-
-        $this->load->config('myconfig');
-        $this->load->view('include/header');
-        $this->load->view('include/footer');
-        $this->load->view('admin/sampleshit',compact('reps'));
         }else{
             redirect('login/admin');
         }
