@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 19, 2018 at 07:23 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Generation Time: Oct 19, 2018 at 09:43 PM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -58,17 +58,15 @@ CREATE TABLE `booking` (
   `product` varchar(50) NOT NULL,
   `description` text NOT NULL,
   `pieces` int(11) NOT NULL,
-  `plate_no` varchar(50) NOT NULL,
-  `driver_no` varchar(50) NOT NULL,
   `destinationid` int(100) NOT NULL,
   `destination` varchar(50) NOT NULL,
   `price` int(50) NOT NULL,
-  `license_no` varchar(50) NOT NULL,
+  `plate_no` varchar(50) NOT NULL,
   `driver_name` varchar(50) NOT NULL,
+  `driver_lname` varchar(50) NOT NULL,
   `driverid` int(11) NOT NULL,
   `helper_name` varchar(50) NOT NULL,
   `helperid` int(100) NOT NULL,
-  `helper_no` varchar(50) NOT NULL,
   `action` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -76,18 +74,18 @@ CREATE TABLE `booking` (
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`id`, `waybill`, `date`, `cust_type`, `custname`, `cargo`, `product`, `description`, `pieces`, `plate_no`, `driver_no`, `destinationid`, `destination`, `price`, `license_no`, `driver_name`, `driverid`, `helper_name`, `helperid`, `helper_no`, `action`) VALUES
-(1, 1664, '2018-10-03', 'Broker/Agent', 'Wuerth Phils. Inc', 'FCL 1x40', 'Paper Products', 'Printing paper, paper labels, cardboard boxes and wood pellets', 100, 'ABC 8771', '', 1, 'MIP - Laguna, Binan (Wuerth Phils. Inc. Warehouse)', 18000, '', 'Remante Ibanez', 18, 'Mario Deguitos', 14, '', 1),
-(2, 9673, '2018-09-29', '', 'Breakthru Cleaning Agent', 'LCL (ELF)', 'Clothing', 'Not fragile', 150, 'RLP 377', '', 9, 'MIP - Manila-North, Valenzuela, Ugong', 12000, '', 'Jeremy Lansang', 8, 'Nino Altamia', 21, '', 1),
-(3, 1643, '2018-10-04', '', 'Alysons Chemical Enterprises Inc.', 'FCL 1x45', 'Frozen Goods', 'San Miguel Tender Juicy Hotdogs', 500, 'RLP 377', '', 38, 'MIP - Manila-South, Taguig, Bicutan', 9000, '', 'Joshua Patino', 4, 'Elembert Rodriguez', 5, '', 0),
-(4, 8432, '2018-09-29', '', 'MyWine - the best italian wine', 'FCL 1x20', 'Liquior and Beverages', 'Wine from Italy', 50, '130104', '', 19, 'MIP - Bulacan, Guiguinto', 13500, '', 'Jeremy Lansang', 8, 'Nino Altamia', 21, '', 2),
-(5, 2570, '2018-11-01', '', 'Continental Cargo Carriers Inc. ', 'LCL 1x40', 'Hazardous substances', 'Hazardous substances, such as explosives or chemicals. Handle with care.', 99, 'ABA 9575', '', 9, 'MIP - Manila-North, Valenzuela, Ugong', 13500, '', 'Joshua Patino', 4, 'Jason Ablazo', 17, '', 0),
-(6, 4962, '2018-10-05', '', 'Angelogistics Co. Ltd - Pier Dispatch ', 'LCL 1x40', 'Furnitures', 'Sofa Set ', 3, 'RNK 277', '', 38, 'MIP - Manila-South, Taguig, Bicutan', 10000, '', 'Ernesto Baquiran', 15, 'Lito Catalan Jr.', 15, '', 1),
-(7, 1619, '2018-10-09', '', 'Marilou R. Arevalo (Bong)', 'FCL 1x20', 'Insulation Foam and Roof', '2x2mm Roof and Foam 19x67', 1, 'RLP 377', '', 16, 'MIP - Bulacan, Sta. Maria (Coastline Warehouse)', 5000, '', 'Jing Baluran', 16, 'Dereck Traqueña', 16, '', 0),
-(8, 2623, '2018-10-06', '', 'Marilou R. Arevalo (Bong)', 'FCL 1x20', 'Insulation Foam and Roof', '2x2mm Roof and Foam 19x67', 3, '130104', '', 34, 'MIP - Caloocan, Baesa', 19590, '', 'Jeremy Lansang', 8, 'Nino Altamia', 21, '', 1),
-(9, 5190, '2018-10-17', '', 'Wacker Machines Supplies Corp.', 'FCL 2x20', 'Machinery Supplies', 'Machiner Supplies by NBS14', 50, 'UIM 308', '', 37, 'MIP - Manila , Mandaluyong', 25000, '', 'Jonalyn Bartolome', 14, 'Virgilio Jaballa', 12, '', 1),
-(10, 1809, '2018-10-05', '', 'Coastline Truck Center', 'LCL 1x40', 'Dispenser Material', 'H2O Water Dispenser Aquabest', 100, 'ABF 3040', '', 0, 'MIP - Bulacan, Sta. Maria (Coastline Warehouse)', 20000, '', 'Ernesto Baquiran', 15, 'Berto Lozada', 7, '', 1),
-(11, 15124, '2018-10-20', 'Local/Sub-contractor', 'Altron Logistics Inc.', 'LCL (ELF)', 'Frozen Goods', 'Chilled Goods', 10, 'ABA 9575', '', 11, 'MIP - Pampanga, San Fernando', 1000, '', 'Jeremy Lansang', 8, 'Nino Altamia', 21, '', 0);
+INSERT INTO `booking` (`id`, `waybill`, `date`, `cust_type`, `custname`, `cargo`, `product`, `description`, `pieces`, `destinationid`, `destination`, `price`, `plate_no`, `driver_name`, `driver_lname`, `driverid`, `helper_name`, `helperid`, `action`) VALUES
+(1, 1664, '2018-10-03', 'Broker/Agent', 'Wuerth Phils. Inc', 'FCL 1x40', 'Paper Products', 'Printing paper, paper labels, cardboard boxes and wood pellets', 100, 1, 'MIP - Laguna, Binan (Wuerth Phils. Inc. Warehouse)', 18000, 'ABC 8771', 'Remante', '', 14, 'Virgilio Jaballa', 12, 1),
+(2, 9673, '2018-09-29', '', 'Breakthru Cleaning Agent', 'LCL (ELF)', 'Clothing', 'Not fragile', 150, 9, 'MIP - Manila-North, Valenzuela, Ugong', 12000, 'RLP 377', 'Jeremy Lansang', '', 8, 'Nino Altamia', 21, 1),
+(3, 1643, '2018-10-04', '', 'Alysons Chemical Enterprises Inc.', 'FCL 1x45', 'Frozen Goods', 'San Miguel Tender Juicy Hotdogs', 500, 38, 'MIP - Manila-South, Taguig, Bicutan', 9000, 'RLP 377', 'Joshua Patino', '', 4, 'Elembert Rodriguez', 5, 0),
+(4, 8432, '2018-09-29', '', 'MyWine - the best italian wine', 'FCL 1x20', 'Liquior and Beverages', 'Wine from Italy', 50, 19, 'MIP - Bulacan, Guiguinto', 13500, '130104', 'Jeremy Lansang', '', 8, 'Nino Altamia', 21, 2),
+(5, 2570, '2018-11-01', '', 'Continental Cargo Carriers Inc. ', 'LCL 1x40', 'Hazardous substances', 'Hazardous substances, such as explosives or chemicals. Handle with care.', 99, 9, 'MIP - Manila-North, Valenzuela, Ugong', 13500, 'ABA 9575', 'Joshua', '', 4, 'Jason Ablazo', 5, 0),
+(6, 4962, '2018-10-05', '', 'Angelogistics Co. Ltd - Pier Dispatch ', 'LCL 1x40', 'Furnitures', 'Sofa Set ', 3, 38, 'MIP - Manila-South, Taguig, Bicutan', 10000, 'RNK 277', 'Ernesto Baquiran', '', 15, 'Lito Catalan Jr.', 15, 1),
+(7, 1619, '2018-10-09', '', 'Marilou R. Arevalo (Bong)', 'FCL 1x20', 'Insulation Foam and Roof', '2x2mm Roof and Foam 19x67', 1, 16, 'MIP - Bulacan, Sta. Maria (Coastline Warehouse)', 5000, 'RLP 377', 'Jing Baluran', '', 16, 'Dario Traquina', 2, 0),
+(8, 2623, '2018-10-06', '', 'Marilou R. Arevalo (Bong)', 'FCL 1x20', 'Insulation Foam and Roof', '2x2mm Roof and Foam 19x67', 3, 34, 'MIP - Caloocan, Baesa', 19590, '130104', 'Jeremy Lansang', '', 8, 'Nino Altamia', 21, 1),
+(9, 5190, '2018-10-17', '', 'Wacker Machines Supplies Corp.', 'FCL 2x20', 'Machinery Supplies', 'Machiner Supplies by NBS14', 50, 37, 'MIP - Manila , Mandaluyong', 25000, 'UIM 308', 'Remante Ibanez', '', 14, 'Virgilio Jaballa', 12, 1),
+(10, 1809, '2018-10-05', '', 'Coastline Truck Center', 'LCL 1x40', 'Dispenser Material', 'H2O Water Dispenser Aquabest', 100, 0, 'MIP - Bulacan, Sta. Maria (Coastline Warehouse)', 20000, 'ABF 3040', 'Ernesto Baquiran', '', 15, 'Berto Lozada', 7, 1),
+(11, 15124, '2018-10-20', 'Local/Sub-contractor', 'Altron Logistics Inc.', 'LCL (ELF)', 'Frozen Goods', 'Chilled Goods', 10, 11, 'MIP - Pampanga, San Fernando', 1000, 'ABA 9575', 'Jeremy Lansang', '', 8, 'Nino Altamia', 21, 0);
 
 -- --------------------------------------------------------
 
@@ -455,17 +453,6 @@ INSERT INTO `truck` (`id`, `img`, `brand`, `plate_no`, `series`, `mvfile_no`, `e
 --
 
 --
--- Indexes for table `booking`
---
-ALTER TABLE `booking`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `cust_type` (`cust_type`),
-  ADD KEY `custname` (`custname`),
-  ADD KEY `license_no` (`license_no`),
-  ADD KEY `driverfname` (`driver_name`) USING BTREE,
-  ADD KEY `driver_no` (`driver_no`);
-
---
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
@@ -516,12 +503,6 @@ ALTER TABLE `truck`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `booking`
---
-ALTER TABLE `booking`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `customer`

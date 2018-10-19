@@ -113,16 +113,13 @@
             <option disabled><?=$books->driver_name?></option>
             <?php 
               foreach($drivernames as $row) { 
-                echo '<option value="'.$row->fname.' '.$row->lname.'">' .$row->fname.' '. $row->lname.'</option>';
+                echo '<option value="'.$row->fname.'">' .$row->fname.' '. $row->lname.'</option>';
               }
             ?>
             </select>
+            <input hidden value="<?=$driverid->id?>" name="driverid" type="text">
             <?= form_error('driver_name', '<span class="label label-danger">', '</span>') ?>  
           </div>
-          <?php  foreach($driverid as $row){
-            echo '<input value="'.$row->id.'" name="driverid" hidden>' .'</input>';
-          }
-          ?>
       
           <div class="col-md-4">
             <label>Helper</label>  

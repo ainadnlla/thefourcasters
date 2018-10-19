@@ -6,8 +6,6 @@
 <!-- Chart -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 
-<script src="<?=base_url()?>js/datatables.min.js"></script>
-
 <script src="<?=base_url()?>dashboard/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?=base_url()?>dashboard/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -25,12 +23,7 @@
 <!-- ChartJS -->
 <script src="<?=base_url()?>dashboard/bower_components/chart.js/Chart.js"></script>
 <!-- CanvasJS -->
-<script src="<?=base_url()?>dashboard/canvasjs.min.js"></script>
-
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?=base_url()?>dashboard/dist/js/pages/dashboard2.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?=base_url()?>dashboard/dist/js/demo.js"></script>
+<script src="<?=base_url()?>dashboard/bower_components/canvasjs/canvasjs.min.js"></script>
 <!-- datatable -->
 <script src="<?=base_url()?>dashboard/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?=base_url()?>dashboard/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
