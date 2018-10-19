@@ -120,7 +120,7 @@
             <?= form_error('driver_name', '<span class="label label-danger">', '</span>') ?>  
           </div>
           <?php  foreach($driverid as $row){
-            echo '<input value="'.$row->id.'" name="driverid">' .'</input>';
+            echo '<input value="'.$row->id.'" name="driverid" hidden>' .'</input>';
           }
           ?>
       
@@ -138,7 +138,7 @@
             <?= form_error('helper_name', '<span class="label label-danger">', '</span>') ?>  
           </div>
           <?php  foreach($helperid as $row){
-            echo '<input value="'.$row->id.'" name="helperid">' .'</input>';
+            echo '<input value="'.$row->id.'" name="helperid" hidden>' .'</input>';
           }
           ?>
           <div class="col-md-4">
