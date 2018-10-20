@@ -58,29 +58,29 @@ class BookingAdmin extends CI_Controller {
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
         $books = $this->BookingModel->getProd($id);
-        
+
         $session_data = array(
             'date' => $books->date,
-            'did' => $books ->id,
-            'fid' => $books->id,
-            'driver_name' => $books->driver_name
+            'driverid' => $books->driverid
         );
-        $driverid = $this->BookingModel->getDriverid();
         $this->session->set_userdata($session_data);
+
         $data['plate_nos'] = $this->BookingModel->getPlateNo();
         $data['drivernames'] = $this->BookingModel->getDrivers();
+        $data['drivername'] = $this->BookingModel->getDrivername();
         $data['helpernames'] = $this->BookingModel->getHelpers();
         $data['helperid'] = $this->BookingModel->getHelperid();
         $data['location'] = $this->BookingModel->getDestination();
 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('admin/booking/editbooking',compact('books', 'driverid'));
+        $this->load->view('admin/booking/editbooking',compact('books'));
         $this->load->view('include/footer');
         }else{
             redirect('admin/login');
         }
     }
+    
     public function delete($id){
         if($this->session->userdata('username') !=''){ 
         $books = $this->BookingModel->getProd($id);
@@ -109,8 +109,8 @@ class BookingAdmin extends CI_Controller {
         $this->form_validation->set_rules('product', 'Product', 'required');
         $this->form_validation->set_rules('description', 'Description', 'required');
         $this->form_validation->set_rules('pieces', 'Pieces', 'required');
-        $this->form_validation->set_rules('driver_name','Driver', 'required');
-        $this->form_validation->set_rules('helper_name', 'Helper', 'required');
+        // $this->form_validation->set_rules('driver_name','Driver', 'required');
+        //$this->form_validation->set_rules('helper_name', 'Helper', 'required');
         $this->form_validation->set_rules('destination', 'Destination', 'required');
             
             if ($this->form_validation->run() == FALSE)

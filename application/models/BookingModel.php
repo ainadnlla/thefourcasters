@@ -60,12 +60,13 @@ class BookingModel extends CI_Model{
     function getDrivers(){
         $weekdays = explode(",", 'weekday');        
         $bookingdate = $this->session->userdata('date');
-        $query = $this->db->query("SELECT fname, lname from driver where status= '1' AND DATE_FORMAT('$bookingdate', '%W') = weekday", array('weekday'=>$weekdays));
+        $query = $this->db->query("SELECT id, fname, lname from driver where status= '1' AND DATE_FORMAT('$bookingdate', '%W') = weekday", array('weekday'=>$weekdays));
              return $query->result();
     }
-    function getDriverid(){
-        $drivername = $this->session->userdata('driver_name');
-        $query = $this->db->query("SELECT * FROM driver WHERE fname = '$drivername'");
+
+    function getDrivername(){
+        $driverid = $this->session->userdata('driverid');
+        $query = $this->db->query("SELECT CONCAT(fname, ' ', lname) AS drivername FROM driver WHERE id = '$driverid'");
         return $query->row();
     }
 

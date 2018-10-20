@@ -29,7 +29,7 @@
 <script src="<?=base_url()?>dashboard/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- PACE -->
 <script src="<?=base_url()?>dashboard/bower_components/PACE/pace.min.js"></script>
-<link rel="stylesheet" href="<?=base_url()?>dashboard/bower_components/PACE/themes/white/pace-theme-flash.css">
+<link rel="stylesheet" href="<?=base_url()?>dashboard/bower_components/PACE/themes/blue/pace-theme-flash.css">
 <!-- fullCalendar -->
 <script src="<?=base_url()?>dashboard/bower_components/moment/moment.js"></script>
 <script src="<?=base_url()?>dashboard/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>

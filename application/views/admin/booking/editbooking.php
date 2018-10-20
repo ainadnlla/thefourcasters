@@ -108,36 +108,34 @@
         <div class="form-group">
           <div class="col-md-4">
             <label>Driver</label>  
-            <select value="<?=$books->driver_name?>" name="driver_name" class="form-control">
-            <option hidden selected value="<?=$books->driver_name?>"><?=$books->driver_name?></option>
-            <option disabled><?=$books->driver_name?></option>
+            <select value="<?=$books->driverid?>" name="driverid" class="form-control">
+            <option hidden selected value="<?=$books->driverid?>"><?=$books->driverid?></option>
+            <option disabled><?=$books->driverid?></option>
             <?php 
               foreach($drivernames as $row) { 
-                echo '<option value="'.$row->fname.'">' .$row->fname.' '. $row->lname.'</option>';
+                echo '
+                <option value="'.$row->id.'">' .$row->fname.' '. $row->lname.'</option>';
               }
             ?>
             </select>
-            <input hidden value="<?=$driverid->id?>" name="driverid" type="text">
-            <?= form_error('driver_name', '<span class="label label-danger">', '</span>') ?>  
+            <input value="<?=$drivername->drivername?>" name="drivername" type="text">
+            <?= form_error('driverid', '<span class="label label-danger">', '</span>') ?>  
           </div>
       
           <div class="col-md-4">
             <label>Helper</label>  
-            <select value="<?=$books->helper_name?>" name="helper_name" class="form-control">
-            <option hidden selected value="<?=$books->helper_name?>"><?=$books->helper_name?></option>
-            <option disabled><?=$books->helper_name?></option>
+            <select value="<?=$books->helperid?>" name="helperid" class="form-control">
+            <option hidden selected value="<?=$books->helperid?>"><?=$books->helperid?></option>
+            <option disabled><?=$books->helperid?></option>
             <?php 
               foreach($helpernames as $row) { 
                 echo '<option value="'.$row->fname.' '.$row->lname.'">' .$row->fname.' '. $row->lname.'</option>';
               }
             ?>
             </select>
-            <?= form_error('helper_name', '<span class="label label-danger">', '</span>') ?>  
+            <input hidden value="<?=$drivername->drivername?>" name="drivername" type="text">  
+            <?= form_error('helperid', '<span class="label label-danger">', '</span>') ?>  
           </div>
-          <?php  foreach($helperid as $row){
-            echo '<input value="'.$row->id.'" name="helperid" hidden>' .'</input>';
-          }
-          ?>
           <div class="col-md-4">
             <label>Price</label>
             <input value="<?=$books->price?>" id="price" name="price" type="text" placeholder="Price" class="form-control input-md">
