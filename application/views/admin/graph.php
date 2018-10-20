@@ -1,4 +1,29 @@
 <div class="row">
+    <div class="col-md-12">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Monthly Recap Report</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <div class="btn-group">         
+              </div> 
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div class="row">
+          <div class="col-md-12">
+						<div id="topfive" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+				</div>          
+			</div>
+			<!-- /.col -->
+		</div>
+		<!-- /.row -->
+	</div>
+
+<div class="row">
         <div class="col-md-12">
           <div class="box">
             <div class="box-header with-border">
@@ -27,6 +52,8 @@
 	  window.onload = function () {
       
 		var chart = new CanvasJS.Chart("Hello", {
+		exportEnabled: true,
+		animationEnabled: true,
 			title: {
         text:"Booking Status - <?php date_default_timezone_set('Asia/Manila'); echo date('F Y'); ?>",
         ontWeight: "bolder",
@@ -98,15 +125,11 @@ function explodePie (e) {
 	e.top.render();
 
 }
-  
-	
-	</script>
- 
-                </div>
-              
-                </div>
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
-              </div>
-            </div>
+</script>
+        </div>    
+        </div>
+      	<!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+  </div>

@@ -56,7 +56,8 @@ class Admin extends CI_Controller {
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('admin/homepage');
-        $this->load->view('admin/graph', compact('accept', 'pending','deny'));
+        $this->load->view('admin/graph',
+        compact('accept', 'pending','deny', 'first', 'second','third','fourth','fifth'));
         $this->load->view('admin/bookinglatest',compact('books'));
         
 
@@ -363,7 +364,6 @@ class Admin extends CI_Controller {
         // $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('admin/chart');
-        
     }
    
 }

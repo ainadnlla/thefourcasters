@@ -32,7 +32,6 @@ public function getBookingAccepted(){
  //Top 5 Maintenance issues
  //LIMIT 19,1 19 QUERY , 1 GET 1ST ROW
  public function getFirst(){
-   
     $query = $this->db->query("SELECT `plate_no`, COUNT(*) AS `total` FROM maintenance GROUP BY `plate_no` ORDER BY plate_no desc limit 1,1");
     return $query->result();
  }

@@ -69,5 +69,4 @@
     </div>
   </div>
 </div>
-<div id="topfive" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
 
