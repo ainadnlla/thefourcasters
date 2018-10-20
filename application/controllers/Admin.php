@@ -41,10 +41,17 @@ class Admin extends CI_Controller {
        
         $this->load->config('myconfig');
         $books =  $this->ReportsModel->getBook();
+        //total booking status for curdate
         $accept =  $this->ChartModel->getBookingAccepted();
         $pending =  $this->ChartModel->getBookingPending();
         $deny =  $this->ChartModel->getBookingDeny();
-
+        //Pie chart 
+        $first = $this->ChartModel->getFirst();
+        $second = $this ->ChartModel->getSecond();
+        $third = $this->ChartModel->getThird();
+        $fourth = $this->ChartModel->getFourth();
+        $fifth = $this->ChartModel->getFifth();
+        
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
@@ -348,7 +355,7 @@ class Admin extends CI_Controller {
         $this->load->view('admin/error');
     }
     public function chart(){
-        $data['title'] = 'Charts Sample';
+        $data['title'] = 'Charts Sample | Angelogistic Forwarder Corporation';
        
         $this->load->config('myconfig');
        
@@ -358,5 +365,6 @@ class Admin extends CI_Controller {
         $this->load->view('admin/chart');
         
     }
+   
 }
 ?>

@@ -30,5 +30,31 @@ public function getBookingAccepted(){
  //Maintenance issue process Duration (fastest process)
 
  //Top 5 Maintenance issues
+ //LIMIT 19,1 19 QUERY , 1 GET 1ST ROW
+ public function getFirst(){
+   
+    $query = $this->db->query("SELECT `plate_no`, COUNT(*) AS `total` FROM maintenance GROUP BY `plate_no` ORDER BY plate_no desc limit 1,1");
+    return $query->result();
+ }
+ public function getSecond(){
+    $second= $this->session->userdata('plateno');
+    $query = $this->db->query("SELECT `plate_no`, COUNT(*) AS `total` FROM maintenance GROUP BY `plate_no` ORDER BY plate_no desc limit 1,2");
+    return $query->result();
+ }
+ public function getThird(){
+    $three= $this->session->userdata('plateno');
+    $query = $this->db->query("SELECT `plate_no`, COUNT(*) AS `total` FROM maintenance GROUP BY `plate_no` ORDER BY plate_no desc limit 1,3");
+    return $query->result();
+ }
+ public function getFourth(){
+    $fourth= $this->session->userdata('plateno');
+    $query = $this->db->query("SELECT `plate_no`, COUNT(*) AS `total` FROM maintenance GROUP BY `plate_no` ORDER BY plate_no desc limit 1,4");
+    return $query->result();
+ }
+ public function getFifth(){
+    $fifth= $this->session->userdata('plateno');
+    $query = $this->db->query("SELECT `plate_no`, COUNT(*) AS `total` FROM maintenance GROUP BY `plate_no` ORDER BY plate_no desc limit 1,5");
+    return $query->result();
+ }
  
 }
