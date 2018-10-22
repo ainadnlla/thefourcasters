@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2018 at 03:26 PM
+-- Generation Time: Oct 21, 2018 at 04:45 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -62,10 +62,9 @@ CREATE TABLE `booking` (
   `destination` varchar(50) NOT NULL,
   `price` int(50) NOT NULL,
   `plate_no` varchar(50) NOT NULL,
-  `driver_name` varchar(50) NOT NULL,
-  `driver_lname` varchar(50) NOT NULL,
+  `drivername` varchar(50) NOT NULL,
   `driverid` int(11) NOT NULL,
-  `helper_name` varchar(50) NOT NULL,
+  `helpername` varchar(50) NOT NULL,
   `helperid` int(100) NOT NULL,
   `action` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -74,18 +73,18 @@ CREATE TABLE `booking` (
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`id`, `waybill`, `date`, `cust_type`, `custname`, `cargo`, `product`, `description`, `pieces`, `destinationid`, `destination`, `price`, `plate_no`, `driver_name`, `driver_lname`, `driverid`, `helper_name`, `helperid`, `action`) VALUES
-(1, 1664, '2018-10-03', 'Broker/Agent', 'Wuerth Phils. Inc', 'FCL 1x40', 'Paper Products', 'Printing paper, paper labels, cardboard boxes and wood pellets', 100, 1, 'MIP - Laguna, Binan (Wuerth Phils. Inc. Warehouse)', 18000, 'ABC 8771', 'Remante', '', 14, 'Virgilio Jaballa', 12, 1),
-(2, 9673, '2018-09-29', '', 'Breakthru Cleaning Agent', 'LCL (ELF)', 'Clothing', 'Not fragile', 150, 9, 'MIP - Manila-North, Valenzuela, Ugong', 12000, 'RLP 377', 'Jeremy Lansang', '', 8, 'Nino Altamia', 21, 1),
-(3, 1643, '2018-10-04', '', 'Alysons Chemical Enterprises Inc.', 'FCL 1x45', 'Frozen Goods', 'San Miguel Tender Juicy Hotdogs', 500, 38, 'MIP - Manila-South, Taguig, Bicutan', 9000, 'RLP 377', 'Joshua Patino', '', 4, 'Elembert Rodriguez', 5, 0),
-(4, 8432, '2018-09-29', '', 'MyWine - the best italian wine', 'FCL 1x20', 'Liquior and Beverages', 'Wine from Italy', 50, 19, 'MIP - Bulacan, Guiguinto', 13500, '130104', 'Jeremy Lansang', '', 8, 'Nino Altamia', 21, 2),
-(5, 2570, '2018-11-01', '', 'Continental Cargo Carriers Inc. ', 'LCL 1x40', 'Hazardous substances', 'Hazardous substances, such as explosives or chemicals. Handle with care.', 99, 9, 'MIP - Manila-North, Valenzuela, Ugong', 13500, 'ABA 9575', 'Joshua', '', 4, 'Jason Ablazo', 5, 0),
-(6, 4962, '2018-10-05', '', 'Angelogistics Co. Ltd - Pier Dispatch ', 'LCL 1x40', 'Furnitures', 'Sofa Set ', 3, 38, 'MIP - Manila-South, Taguig, Bicutan', 10000, 'RNK 277', 'Ernesto Baquiran', '', 15, 'Lito Catalan Jr.', 15, 1),
-(7, 1619, '2018-10-09', '', 'Marilou R. Arevalo (Bong)', 'FCL 1x20', 'Insulation Foam and Roof', '2x2mm Roof and Foam 19x67', 1, 16, 'MIP - Bulacan, Sta. Maria (Coastline Warehouse)', 5000, 'RLP 377', 'Jing Baluran', '', 16, 'Dario Traquina', 2, 0),
-(8, 2623, '2018-10-06', '', 'Marilou R. Arevalo (Bong)', 'FCL 1x20', 'Insulation Foam and Roof', '2x2mm Roof and Foam 19x67', 3, 34, 'MIP - Caloocan, Baesa', 19590, '130104', 'Jeremy Lansang', '', 8, 'Nino Altamia', 21, 1),
-(9, 5190, '2018-10-17', '', 'Wacker Machines Supplies Corp.', 'FCL 2x20', 'Machinery Supplies', 'Machiner Supplies by NBS14', 50, 37, 'MIP - Manila , Mandaluyong', 25000, 'UIM 308', 'Remante Ibanez', '', 14, 'Virgilio Jaballa', 12, 1),
-(10, 1809, '2018-10-05', '', 'Coastline Truck Center', 'LCL 1x40', 'Dispenser Material', 'H2O Water Dispenser Aquabest', 100, 0, 'MIP - Bulacan, Sta. Maria (Coastline Warehouse)', 20000, 'ABF 3040', 'Ernesto Baquiran', '', 15, 'Berto Lozada', 7, 1),
-(11, 15124, '2018-10-20', 'Local/Sub-contractor', 'Altron Logistics Inc.', 'LCL (ELF)', 'Frozen Goods', 'Chilled Goods', 10, 11, 'MIP - Pampanga, San Fernando', 1000, 'ABA 9575', 'Jeremy Lansang', '', 8, 'Nino Altamia', 21, 0);
+INSERT INTO `booking` (`id`, `waybill`, `date`, `cust_type`, `custname`, `cargo`, `product`, `description`, `pieces`, `destinationid`, `destination`, `price`, `plate_no`, `drivername`, `driverid`, `helpername`, `helperid`, `action`) VALUES
+(1, 1664, '2018-10-03', 'Broker/Agent', 'Wuerth Phils. Inc', 'FCL 1x40', 'Paper Products', 'Printing paper, paper labels, cardboard boxes and wood pellets', 100, 1, 'MIP - Laguna, Binan (Wuerth Phils. Inc. Warehouse)', 18000, 'ABC 8771', 'Remante', 14, 'Virgilio Jaballa', 12, 1),
+(2, 9673, '2018-09-29', '', 'Breakthru Cleaning Agent', 'LCL (ELF)', 'Clothing', 'Not fragile', 150, 9, 'MIP - Manila-North, Valenzuela, Ugong', 12000, 'RLP 377', 'Jeremy Lansang', 8, 'Nino Altamia', 21, 1),
+(3, 1643, '2018-10-04', '', 'Alysons Chemical Enterprises Inc.', 'FCL 1x45', 'Frozen Goods', 'San Miguel Tender Juicy Hotdogs', 500, 38, 'MIP - Manila-South, Taguig, Bicutan', 9000, 'RLP 377', 'Joshua Patino', 4, 'Elembert Rodriguez', 5, 0),
+(4, 8432, '2018-09-29', '', 'MyWine - the best italian wine', 'FCL 1x20', 'Liquior and Beverages', 'Wine from Italy', 50, 19, 'MIP - Bulacan, Guiguinto', 13500, '130104', 'Jeremy Lansang', 8, 'Nino Altamia', 21, 2),
+(5, 2570, '2018-11-01', '', 'Continental Cargo Carriers Inc. ', 'LCL 1x40', 'Hazardous substances', 'Hazardous substances, such as explosives or chemicals. Handle with care.', 99, 9, 'MIP - Manila-North, Valenzuela, Ugong', 13500, 'ABA 9575', 'Joshua', 4, 'Jason Ablazo', 5, 0),
+(6, 4962, '2018-10-05', '', 'Angelogistics Co. Ltd - Pier Dispatch ', 'LCL 1x40', 'Furnitures', 'Sofa Set ', 3, 38, 'MIP - Manila-South, Taguig, Bicutan', 10000, 'RNK 277', 'Ernesto Baquiran', 15, 'Lito Catalan Jr.', 15, 1),
+(7, 1619, '2018-10-09', '', 'Marilou R. Arevalo (Bong)', 'FCL 1x20', 'Insulation Foam and Roof', '2x2mm Roof and Foam 19x67', 1, 16, 'MIP - Bulacan, Sta. Maria (Coastline Warehouse)', 5000, 'RLP 377', 'Jing Baluran', 16, 'Dario Traquina', 2, 0),
+(8, 2623, '2018-10-06', '', 'Marilou R. Arevalo (Bong)', 'FCL 1x20', 'Insulation Foam and Roof', '2x2mm Roof and Foam 19x67', 3, 34, 'MIP - Caloocan, Baesa', 19590, '130104', 'Jeremy Lansang', 8, 'Nino Altamia', 21, 1),
+(9, 5190, '2018-10-17', '', 'Wacker Machines Supplies Corp.', 'FCL 2x20', 'Machinery Supplies', 'Machiner Supplies by NBS14', 50, 37, 'MIP - Manila , Mandaluyong', 25000, 'UIM 308', 'Remante Ibanez', 14, 'Virgilio Jaballa', 12, 1),
+(10, 1809, '2018-10-05', '', 'Coastline Truck Center', 'LCL 1x40', 'Dispenser Material', 'H2O Water Dispenser Aquabest', 100, 0, 'MIP - Bulacan, Sta. Maria (Coastline Warehouse)', 20000, 'ABF 3040', 'Ernesto Baquiran', 15, 'Berto Lozada', 7, 1),
+(11, 15124, '2018-10-20', 'Local/Sub-contractor', 'Altron Logistics Inc.', 'LCL (ELF)', 'Frozen Goods', 'Chilled Goods', 10, 11, 'MIP - Pampanga, San Fernando', 1000, 'ABA 9575', 'Jeremy Lansang', 8, 'Nino Altamia', 21, 0);
 
 -- --------------------------------------------------------
 
@@ -156,7 +155,7 @@ INSERT INTO `destination` (`id`, `destination`) VALUES
 (4, 'MIP - Manila-North, Valenzuela, Bisalud Bagbauin (Evergreen Textile Printing)\r\n'),
 (5, 'MIP - Manila-North, Valenzuela, Bartolome KM. 16 Mc Arthur (Sun Fortune Inc.)'),
 (6, 'MIP - Manila-North, Valenzuela, Sitio Bisalud (Artos Textile Mills, Inc.)'),
-(7, 'MIP - Manila-North, Caloocan, Sta. Quiteria (Alysons\' Warehouse)'),
+(7, 'MIP - Manila-North, Caloocan, Sta. Quiteria (Alysons Warehouse)'),
 (8, 'MIP - Manila-North, Valenzuela, Talipapa'),
 (9, 'MIP - Manila-North, Valenzuela, Ugong'),
 (10, 'MIP - Pampanga, Angeles, Balibago'),
@@ -239,25 +238,25 @@ CREATE TABLE `driver` (
 --
 
 INSERT INTO `driver` (`img`, `id`, `driver_no`, `expire`, `fname`, `mname`, `lname`, `email`, `password`, `repass`, `gender`, `birthday`, `contact`, `experience`, `date`, `status`, `timein`, `timeout`, `weekday`) VALUES
-('default.jpg', 1, 'ACLDI010987016', '2021-12-20', 'Arnel', NULL, 'Villamor', 'avillamor@gmail.com', '123456789', '123456789', 'M', '1988-12-20', '09154269173', 5, '2015-03-25', 0, '12:00:00', '09:00:00', 'Mon'),
-('default.jpg', 2, 'ACLDI090878015', '2019-03-01', 'Ernie', NULL, 'Saavedra', 'esaavedra@gmail.com', '123456789', '123456789', 'M', '1976-03-01', '09151496857', 10, '2013-08-21', 0, '01:00:00', '09:00:00', 'Tue'),
-('default.jpg', 3, 'ACLDI240178014', '2020-05-11', 'Inigo', NULL, 'Rafaeles', 'irafaeles@gmail.com', '123456789', '123456789', 'M', '1987-05-11', '09150138304', 3, '2014-11-01', 0, '01:00:00', '09:00:00', 'Wed'),
-('default.jpg', 4, 'ACLDI300862013', '2022-09-15', 'Joshua', NULL, 'Patino', 'jpatino@gmail.com', '123456789', '123456789', 'M', '1984-09-15', '09154736181', 7, '2013-10-11', 0, '03:00:00', '10:00:00', 'Thurs'),
-('default.jpg', 5, 'ACLD120884017', '2019-08-30', 'John Robert', NULL, 'Tambanillo', 'jrtambanillo@gmail.com', '123456789', '123456789', 'M', '1985-08-30', '09170143697', 2, '2018-02-25', 0, '03:00:00', '10:00:00', 'Thurs'),
-('default.jpg', 6, 'ACLDI070952012', '2018-12-30', 'Joe', NULL, 'Layan', 'jlayan@gmail.com', '123456789', '123456789', 'M', '1969-07-24', '09103451236', 12, '2009-01-15', 0, '03:00:00', '10:00:00', 'Thurs'),
-('default.jpg', 7, 'ACLDI000000011', '2019-06-30', 'Mau', NULL, 'Latap', 'mlatap@gmail.com', '123456789', '123456789', 'M', '1985-06-30', '09135715948', 6, '2012-02-26', 0, '04:00:00', '12:00:00', 'Fri'),
-('default.jpg', 8, 'ACLDI280588010', '2020-08-31', 'Jeremy', NULL, 'Lansang', 'jlansang@gmail.com', '123456789', '123456789', 'M', '1983-08-31', '09676247831', 6, '2018-04-20', 0, '05:00:00', '09:00:00', 'Sat'),
-('default.jpg', 9, 'ACLDI260573009', '2019-11-24', 'Ronnie', NULL, 'Jaballa', 'rjaballa@gmail.com', '123456789', '123456789', 'M', '1986-07-11', '09051478365', 5, '2014-05-17', 0, '05:00:00', '05:00:00', 'Sun'),
-('default.jpg', 10, 'ACLDI311276008', '2022-06-23', 'Donnie', NULL, 'Jaballa', 'djaballa@gmail.com', '123456789', '123456789', 'M', '1984-06-23', '09153146987', 4, '2015-07-13', 0, '09:00:00', '04:00:00', 'Sat'),
-('default.jpg', 11, 'ACLDI201084007', '2021-12-10', 'Mariano', NULL, 'Estaris', 'mestaris@gmail.com', '123456789', '123456789', 'M', '1984-12-10', '09364251658', 8, '2011-03-29', 0, '01:00:00', '02:00:00', 'Mon'),
-('default.jpg', 12, 'ACLDI180468006', '2020-08-31', 'Lemuel', NULL, 'Catalan', 'lcatalan@gmail.com', '123456789', '123456789', 'M', '1985-08-11', '09458621403', 3, '2016-09-23', 0, '02:00:00', '12:00:00', 'Thurs'),
-('default.jpg', 13, 'ACLDI241164005', '2019-04-14', 'Tonyo', NULL, 'Bitoon', 'tbitoon@gmail.com', '123456789', '123456789', 'M', '1975-04-14', '09073556128', 12, '2010-12-21', 0, '07:00:00', '12:00:00', 'Sun'),
-('default.jpg', 14, 'ACLDI141281004', '2020-10-15', 'Jonalyn', NULL, 'Bartolome', 'jbartolome@gmail.com', '123456789', '123456789', 'M', '1987-10-14', '09154669875', 5, '2015-01-20', 0, '09:00:00', '08:00:00', 'Wed'),
-('default.jpg', 15, 'ACLDI081281003', '2023-03-18', 'Ernesto', NULL, 'Baquiran', 'ebaquiran@gmail.com', '123456789', '123456789', 'M', '1981-03-18', '09478621034', 9, '2009-06-28', 0, '12:00:00', '12:00:00', 'Fri'),
-('default.jpg', 16, 'ACLDI241283002', '2023-09-12', 'Jing', NULL, 'Baluran', 'jbaluran@gmail.com', '123456789', '123456789', 'M', '1988-09-12', '09365448607', 4, '2012-02-22', 0, '11:00:00', '12:00:00', 'Tue'),
-('default.jpg', 17, 'ACLDI091180001', '2023-11-13', 'Wancho', NULL, 'Apas', 'wapas@gmail.com', '123456789', '123456789', 'M', '1976-11-13', '09125647820', 4, '2014-05-06', 0, '12:00:00', '09:00:00', 'Thurs'),
-('default.jpg', 18, 'ACLDI091181567', '2020-07-17', 'Remante', NULL, 'Ibanez', 'ribanez@gmail.com', '123456789', '123456789', 'M', '1985-07-17', '09997531548', 6, '2011-06-19', 0, '11:00:00', '03:00:00', 'Wed'),
-('default.jpg', 19, 'ACLDI091182000', '2019-12-01', 'Frederico', NULL, 'Alburo', 'falburo@gmail.com', '123456789', '123456789', 'M', '1978-09-26', '09192554863', 12, '2009-04-17', 0, '08:00:00', '07:00:00', 'Fri');
+('default.jpg', 1, 'ACLDI010987016', '2021-12-20', 'Arnel', NULL, 'Villamor', 'avillamor@gmail.com', '123456789', '123456789', 'M', '1988-12-20', '09154269173', 5, '2015-03-25', 0, '12:00:00', '09:00:00', 'Monday'),
+('default.jpg', 2, 'ACLDI090878015', '2019-03-01', 'Ernie', NULL, 'Saavedra', 'esaavedra@gmail.com', '123456789', '123456789', 'M', '1976-03-01', '09151496857', 10, '2013-08-21', 0, '01:00:00', '09:00:00', 'Tuesday'),
+('default.jpg', 3, 'ACLDI240178014', '2020-05-11', 'Inigo', NULL, 'Rafaeles', 'irafaeles@gmail.com', '123456789', '123456789', 'M', '1987-05-11', '09150138304', 3, '2014-11-01', 0, '01:00:00', '09:00:00', 'Wednesday'),
+('default.jpg', 4, 'ACLDI300862013', '2022-09-15', 'Joshua', NULL, 'Patino', 'jpatino@gmail.com', '123456789', '123456789', 'M', '1984-09-15', '09154736181', 7, '2013-10-11', 0, '03:00:00', '10:00:00', 'Thursday'),
+('default.jpg', 5, 'ACLD120884017', '2019-08-30', 'John Robert', NULL, 'Tambanillo', 'jrtambanillo@gmail.com', '123456789', '123456789', 'M', '1985-08-30', '09170143697', 2, '2018-02-25', 0, '03:00:00', '10:00:00', 'Thursdays'),
+('default.jpg', 6, 'ACLDI070952012', '2018-12-30', 'Joe', NULL, 'Layan', 'jlayan@gmail.com', '123456789', '123456789', 'M', '1969-07-24', '09103451236', 12, '2009-01-15', 0, '03:00:00', '10:00:00', 'Thursday'),
+('default.jpg', 7, 'ACLDI000000011', '2019-06-30', 'Mau', NULL, 'Latap', 'mlatap@gmail.com', '123456789', '123456789', 'M', '1985-06-30', '09135715948', 6, '2012-02-26', 0, '04:00:00', '12:00:00', 'Friday'),
+('default.jpg', 8, 'ACLDI280588010', '2020-08-31', 'Jeremy', NULL, 'Lansang', 'jlansang@gmail.com', '123456789', '123456789', 'M', '1983-08-31', '09676247831', 6, '2018-04-20', 0, '05:00:00', '09:00:00', 'Saturday'),
+('default.jpg', 9, 'ACLDI260573009', '2019-11-24', 'Ronnie', NULL, 'Jaballa', 'rjaballa@gmail.com', '123456789', '123456789', 'M', '1986-07-11', '09051478365', 5, '2014-05-17', 0, '05:00:00', '05:00:00', 'Sunday'),
+('default.jpg', 10, 'ACLDI311276008', '2022-06-23', 'Donnie', NULL, 'Jaballa', 'djaballa@gmail.com', '123456789', '123456789', 'M', '1984-06-23', '09153146987', 4, '2015-07-13', 0, '09:00:00', '04:00:00', 'Saturday'),
+('default.jpg', 11, 'ACLDI201084007', '2021-12-10', 'Mariano', NULL, 'Estaris', 'mestaris@gmail.com', '123456789', '123456789', 'M', '1984-12-10', '09364251658', 8, '2011-03-29', 0, '01:00:00', '02:00:00', 'Monday'),
+('default.jpg', 12, 'ACLDI180468006', '2020-08-31', 'Lemuel', NULL, 'Catalan', 'lcatalan@gmail.com', '123456789', '123456789', 'M', '1985-08-11', '09458621403', 3, '2016-09-23', 0, '02:00:00', '12:00:00', 'Thursday'),
+('default.jpg', 13, 'ACLDI241164005', '2019-04-14', 'Tonyo', NULL, 'Bitoon', 'tbitoon@gmail.com', '123456789', '123456789', 'M', '1975-04-14', '09073556128', 12, '2010-12-21', 0, '07:00:00', '12:00:00', 'Sunday'),
+('default.jpg', 14, 'ACLDI141281004', '2020-10-15', 'Jonalyn', NULL, 'Bartolome', 'jbartolome@gmail.com', '123456789', '123456789', 'M', '1987-10-14', '09154669875', 5, '2015-01-20', 0, '09:00:00', '08:00:00', 'Wednesday'),
+('default.jpg', 15, 'ACLDI081281003', '2023-03-18', 'Ernesto', NULL, 'Baquiran', 'ebaquiran@gmail.com', '123456789', '123456789', 'M', '1981-03-18', '09478621034', 9, '2009-06-28', 0, '12:00:00', '12:00:00', 'Friday'),
+('default.jpg', 16, 'ACLDI241283002', '2023-09-12', 'Jing', NULL, 'Baluran', 'jbaluran@gmail.com', '123456789', '123456789', 'M', '1988-09-12', '09365448607', 4, '2012-02-22', 0, '11:00:00', '12:00:00', 'Tuesday'),
+('default.jpg', 17, 'ACLDI091180001', '2023-11-13', 'Wancho', NULL, 'Apas', 'wapas@gmail.com', '123456789', '123456789', 'M', '1976-11-13', '09125647820', 4, '2014-05-06', 0, '12:00:00', '09:00:00', 'Thursday'),
+('default.jpg', 18, 'ACLDI091181567', '2020-07-17', 'Remante', NULL, 'Ibanez', 'ribanez@gmail.com', '123456789', '123456789', 'M', '1985-07-17', '09997531548', 6, '2011-06-19', 0, '11:00:00', '03:00:00', 'Wednesday'),
+('default.jpg', 19, 'ACLDI091182000', '2019-12-01', 'Frederico', NULL, 'Alburo', 'falburo@gmail.com', '123456789', '123456789', 'M', '1978-09-26', '09192554863', 12, '2009-04-17', 0, '08:00:00', '07:00:00', 'Friday');
 
 -- --------------------------------------------------------
 
@@ -292,35 +291,35 @@ CREATE TABLE `helper` (
 --
 
 INSERT INTO `helper` (`img`, `id`, `driver_no`, `expire`, `fname`, `mname`, `lname`, `email`, `password`, `repass`, `birthday`, `gender`, `contact`, `date`, `status`, `experience`, `timein`, `timeout`, `weekday`) VALUES
-('default.jpg', 1, 'ACLHL000000017', '2020-01-01', 'Zander', NULL, 'Ubaldo', 'zubaldo@gmail.com', '123456789', '123456789', '1988-12-20', 'M', '09154269173', '2015-03-25', 1, 5, '12:00:00', '09:00:00', 'Monday'),
-('default.jpg', 2, 'ACLHL000000016', '2020-01-01', 'Dario', NULL, 'Traquina', 'dtraquina@gmail.com', '123456789', '123456789', '1976-03-01', 'M', '09151496857', '2013-08-21', 1, 10, '01:00:00', '09:00:00', 'Tuesday'),
-('default.jpg', 3, 'ACLHL230676015', '2020-01-01', 'Carlo', NULL, 'Tigbawan', 'ctigbawan@gmail.com', '123456789', '123456789', '1987-05-11', 'M', '09150138304', '2014-11-01', 0, 3, '01:00:00', '09:00:00', 'Wednesday'),
-('default.jpg', 4, 'ACLHL000000014', '2020-01-01', 'Anthony', NULL, 'Tanaya', 'atanaya@gmail.com', '123456789', '123456789', '1984-09-15', 'M', '09154736181', '2013-10-11', 0, 7, '03:00:00', '10:00:00', 'Thursday'),
-('default.jpg', 5, 'ACLHL000000013', '2020-01-01', 'Elembert', NULL, 'Rodriguez', 'erodriguez@gmail.com', '123456789', '123456789', '1985-08-30', 'M', '09170143697', '2018-02-25', 1, 2, '03:00:00', '10:00:00', 'Thursday'),
-('default.jpg', 6, 'ACLHL011288012', '2020-01-01', 'Arkeo', NULL, 'Mendez', 'amendez@gmail.com', '123456789', '123456789', '1969-07-24', 'M', '09103451236', '2009-01-15', 0, 12, '03:00:00', '10:00:00', 'Wednesday'),
-('default.jpg', 7, 'ACLHL011288011', '2020-01-01', 'Berto', NULL, 'Lozada', 'blozada@gmail.com', '123456789', '123456789', '1985-06-30', 'M', '09135715948', '2012-02-26', 1, 6, '04:00:00', '12:00:00', 'Friday'),
-('default.jpg', 8, 'ACLHL221285010', '2020-01-01', 'Francisco', NULL, 'Lomente', 'jlomente@gmail.com', '123456789', '123456789', '1983-08-31', 'M', '09676247831', '2018-04-20', 0, 6, '05:00:00', '09:00:00', 'Saturday'),
-('default.jpg', 9, 'ACLHL211294009', '2020-01-01', 'Sandro', NULL, 'Lomente', 'slomente@gmail.com', '123456789', '123456789', '1986-07-11', 'M', '09051478365', '2014-05-17', 0, 5, '05:00:00', '05:00:00', 'Sunday'),
-('default.jpg', 10, 'ACLHL090395007', '2020-01-01', 'Gardo', NULL, 'Librojo', 'glibrojo@gmail.com', '123456789', '123456789', '1984-06-23', 'M', '09153146987', '2015-07-13', 0, 4, '09:00:00', '04:00:00', 'Saturday'),
-('default.jpg', 11, 'ACLHL231076006', '2020-01-01', 'Armando', NULL, 'Lagrimas', 'alagrimas@gmail.com', '123456789', '123456789', '1984-12-10', 'M', '09364251658', '2011-03-29', 1, 8, '01:00:00', '02:00:00', 'Monday'),
-('default.jpg', 12, 'ACLHL280599005', '2020-01-01', 'Virgilio', NULL, 'Jaballa', 'vjaballa@gmail.com', '123456789', '123456789', '1985-08-11', 'M', '09458621403', '2016-09-23', 1, 3, '02:00:00', '12:00:00', 'Wednesday'),
-('default.jpg', 13, 'ACLHL281190004', '2020-01-01', 'Jester', NULL, 'Fernandez', 'jfernandez@gmail.com', '123456789', '123456789', '1975-04-14', 'M', '09073556128', '2010-12-21', 1, 12, '07:00:00', '12:00:00', 'Sunday'),
-('default.jpg', 14, 'ACLHL180589003', '2020-01-01', 'Mario', NULL, 'Deguitos', 'mdeguitos@gmail.com', '123456789', '123456789', '1987-10-14', 'M', '09154669875', '2015-01-20', 1, 5, '09:00:00', '08:00:00', 'Wednesday'),
-('default.jpg', 15, 'ACLHL260490002', '2020-01-01', 'Lito', NULL, 'Catalan Jr.', 'lcatalan@gmail.com', '123456789', '123456789', '1981-03-18', 'M', '09478621034', '2009-06-28', 1, 9, '12:00:00', '12:00:00', 'Friday'),
-('default.jpg', 16, 'ACLHL000000021', '2020-01-01', 'Dereck', NULL, 'Traqueña', 'dtraqueña@gmail.com', '123456789', '123456789', '1988-09-12', 'M', '09365448607', '2012-02-22', 1, 4, '11:00:00', '12:00:00', 'Tuesday'),
-('default.jpg', 17, 'ACLHL000000001', '2020-01-01', 'Jason', NULL, 'Ablazo', 'jablazo@gmail.com', '123456789', '123456789', '1976-11-13', 'M', '09125647820', '2014-05-06', 1, 4, '12:00:00', '09:00:00', 'Thursday'),
-('default.jpg', 18, 'ACLHL000000019', '2020-01-01', 'Ronald', NULL, 'Dumas', 'rdumas@gmail.com', '123456789', '123456789', '1985-07-17', 'M', '09997531548', '2011-06-19', 0, 6, '11:00:00', '03:00:00', 'Wednesday'),
-('default.jpg', 19, 'ACLHL000000020', '2020-01-01', 'Art', NULL, 'Mangawang', 'amangawang@gmail.com', '123456789', '123456789', '1978-09-26', 'M', '09192554863', '2009-04-17', 0, 12, '08:00:00', '07:00:00', 'Friday'),
-('default.jpg', 20, 'ACLHL000000018', '2020-01-01', 'Allan', NULL, 'Catalan', 'acatalan@gmail.com', '123456789', '123456789', '1981-02-24', 'M', '09192554863', '2011-05-12', 0, 12, '08:00:00', '07:00:00', 'Monday'),
-('default.jpg', 21, 'ACLDI311273008', '2020-01-01', 'Nino', NULL, 'Altamia', 'nltamia@gmail.com', '123456789', '123456789', '1984-06-23', 'M', '09153146987', '2015-07-13', 1, 4, '09:00:00', '04:00:00', 'Saturday'),
-('default.jpg', 22, 'ACLDI271643009', '2020-01-01', 'Ethan', NULL, 'Bitoon', 'ebitoon@gmail.com', '123456789', '123456789', '1986-07-11', 'M', '09051478365', '2014-05-17', 0, 5, '05:00:00', '05:00:00', 'Sunday'),
-('default.jpg', 23, 'ACLDI280588010', '2020-01-01', 'Mauricio', NULL, 'Paras', 'mparas@gmail.com', '123456789', '123456789', '1983-08-31', 'M', '09676247831', '2018-04-20', 0, 6, '05:00:00', '09:00:00', 'Saturday'),
-('default.jpg', 24, 'ACLDI000000039', '2020-01-01', 'Mio', NULL, 'Sareno', 'msareno@gmail.com', '123456789', '123456789', '1985-06-30', 'M', '09135715948', '2012-02-26', 0, 6, '04:00:00', '12:00:00', 'Friday'),
-('default.jpg', 25, 'ACLDI070952012', '2020-01-01', 'Raul', NULL, 'Lagutao', 'rlagutao@gmail.com', '123456789', '123456789', '1969-07-24', 'M', '09103451236', '2009-01-15', 0, 12, '03:00:00', '10:00:00', 'Thursday'),
-('default.jpg', 26, 'ACLD120884017', '2020-01-01', 'Andrew', NULL, 'Mateo', 'amateo@gmail.com', '123456789', '123456789', '1985-08-30', 'M', '09170143697', '2018-02-25', 1, 2, '03:00:00', '10:00:00', 'Thursday'),
-('default.jpg', 27, 'ACLDI300862013', '2020-01-01', 'Randy', NULL, 'Caberte', 'rcaberte@gmail.com', '123456789', '123456789', '1984-09-15', 'M', '09154736181', '2013-10-11', 0, 7, '03:00:00', '10:00:00', 'Thursday'),
-('default.jpg', 28, 'ACLDI240178014', '2020-01-01', 'Jon', NULL, 'Hondrado', 'jhondrado@gmail.com', '123456789', '123456789', '1987-05-11', 'M', '09150138304', '2014-11-01', 0, 3, '01:00:00', '09:00:00', 'Wednesday'),
-('default.jpg', 29, 'ACLD120884017', '2020-01-01', 'Roniel', NULL, 'Zamora', 'rzamora@gmail.com', '123456789', '123456789', '1985-08-30', 'M', '09170143697', '2018-02-25', 1, 2, '03:00:00', '10:00:00', 'Wednesday');
+('default.jpg', 1, 'ACLHL000000017', '2022-03-21', 'Zander', NULL, 'Ubaldo', 'zubaldo@gmail.com', '123456789', '123456789', '1988-12-20', 'M', '09154269173', '2015-03-25', 1, 5, '12:00:00', '09:00:00', 'Monday'),
+('default.jpg', 2, 'ACLHL000000016', '2019-05-26', 'Dario', NULL, 'Traquina', 'dtraquina@gmail.com', '123456789', '123456789', '1976-03-01', 'M', '09151496857', '2013-08-21', 1, 10, '01:00:00', '09:00:00', 'Tuesday'),
+('default.jpg', 3, 'ACLHL230676015', '2020-08-11', 'Carlo', NULL, 'Tigbawan', 'ctigbawan@gmail.com', '123456789', '123456789', '1987-05-11', 'M', '09150138304', '2014-11-01', 0, 3, '01:00:00', '09:00:00', 'Wednesday'),
+('default.jpg', 4, 'ACLHL000000014', '2018-11-01', 'Anthony', NULL, 'Tanaya', 'atanaya@gmail.com', '123456789', '123456789', '1984-09-15', 'M', '09154736181', '2013-10-11', 0, 7, '03:00:00', '10:00:00', 'Thursday'),
+('default.jpg', 5, 'ACLHL000000013', '2019-07-30', 'Elembert', NULL, 'Rodriguez', 'erodriguez@gmail.com', '123456789', '123456789', '1985-08-30', 'M', '09170143697', '2018-02-25', 1, 2, '03:00:00', '10:00:00', 'Thursday'),
+('default.jpg', 6, 'ACLHL011288012', '2020-04-20', 'Arkeo', NULL, 'Mendez', 'amendez@gmail.com', '123456789', '123456789', '1969-07-24', 'M', '09103451236', '2009-01-15', 0, 12, '03:00:00', '10:00:00', 'Wednesday'),
+('default.jpg', 7, 'ACLHL011288011', '2019-12-31', 'Berto', NULL, 'Lozada', 'blozada@gmail.com', '123456789', '123456789', '1985-06-30', 'M', '09135715948', '2012-02-26', 1, 6, '04:00:00', '12:00:00', 'Friday'),
+('default.jpg', 8, 'ACLHL221285010', '2021-06-22', 'Francisco', NULL, 'Lomente', 'jlomente@gmail.com', '123456789', '123456789', '1983-08-31', 'M', '09676247831', '2018-04-20', 0, 6, '05:00:00', '09:00:00', 'Saturday'),
+('default.jpg', 9, 'ACLHL211294009', '2020-01-11', 'Sandro', NULL, 'Lomente', 'slomente@gmail.com', '123456789', '123456789', '1986-07-11', 'M', '09051478365', '2014-05-17', 0, 5, '05:00:00', '05:00:00', 'Sunday'),
+('default.jpg', 10, 'ACLHL090395007', '2022-08-19', 'Gardo', NULL, 'Librojo', 'glibrojo@gmail.com', '123456789', '123456789', '1984-06-23', 'M', '09153146987', '2015-07-13', 0, 4, '09:00:00', '04:00:00', 'Saturday'),
+('default.jpg', 11, 'ACLHL231076006', '2019-01-01', 'Armando', NULL, 'Lagrimas', 'alagrimas@gmail.com', '123456789', '123456789', '1984-12-10', 'M', '09364251658', '2011-03-29', 1, 8, '01:00:00', '02:00:00', 'Monday'),
+('default.jpg', 12, 'ACLHL280599005', '2019-02-03', 'Virgilio', NULL, 'Jaballa', 'vjaballa@gmail.com', '123456789', '123456789', '1985-08-11', 'M', '09458621403', '2016-09-23', 1, 3, '02:00:00', '12:00:00', 'Wednesday'),
+('default.jpg', 13, 'ACLHL281190004', '2019-01-12', 'Jester', NULL, 'Fernandez', 'jfernandez@gmail.com', '123456789', '123456789', '1975-04-14', 'M', '09073556128', '2010-12-21', 1, 12, '07:00:00', '12:00:00', 'Sunday'),
+('default.jpg', 14, 'ACLHL180589003', '2018-12-13', 'Mario', NULL, 'Deguitos', 'mdeguitos@gmail.com', '123456789', '123456789', '1987-10-14', 'M', '09154669875', '2015-01-20', 1, 5, '09:00:00', '08:00:00', 'Wednesday'),
+('default.jpg', 15, 'ACLHL260490002', '2020-01-14', 'Lito', NULL, 'Catalan Jr.', 'lcatalan@gmail.com', '123456789', '123456789', '1981-03-18', 'M', '09478621034', '2009-06-28', 1, 9, '12:00:00', '12:00:00', 'Friday'),
+('default.jpg', 16, 'ACLHL000000021', '2019-05-06', 'Dereck', NULL, 'Traqueña', 'dtraqueña@gmail.com', '123456789', '123456789', '1988-09-12', 'M', '09365448607', '2012-02-22', 1, 4, '11:00:00', '12:00:00', 'Tuesday'),
+('default.jpg', 17, 'ACLHL000000001', '2019-01-01', 'Jason', NULL, 'Ablazo', 'jablazo@gmail.com', '123456789', '123456789', '1976-11-13', 'M', '09125647820', '2014-05-06', 1, 4, '12:00:00', '09:00:00', 'Thursday'),
+('default.jpg', 18, 'ACLHL000000019', '2020-05-19', 'Ronald', NULL, 'Dumas', 'rdumas@gmail.com', '123456789', '123456789', '1985-07-17', 'M', '09997531548', '2011-06-19', 0, 6, '11:00:00', '03:00:00', 'Wednesday'),
+('default.jpg', 19, 'ACLHL000000020', '2019-11-21', 'Art', NULL, 'Mangawang', 'amangawang@gmail.com', '123456789', '123456789', '1978-09-26', 'M', '09192554863', '2009-04-17', 0, 12, '08:00:00', '07:00:00', 'Friday'),
+('default.jpg', 20, 'ACLHL000000018', '2022-01-01', 'Allan', NULL, 'Catalan', 'acatalan@gmail.com', '123456789', '123456789', '1981-02-24', 'M', '09192554863', '2011-05-12', 0, 12, '08:00:00', '07:00:00', 'Monday'),
+('default.jpg', 21, 'ACLDI311273008', '2020-05-06', 'Nino', NULL, 'Altamia', 'nltamia@gmail.com', '123456789', '123456789', '1984-06-23', 'M', '09153146987', '2015-07-13', 1, 4, '09:00:00', '04:00:00', 'Saturday'),
+('default.jpg', 22, 'ACLDI271643009', '2020-02-07', 'Ethan', NULL, 'Bitoon', 'ebitoon@gmail.com', '123456789', '123456789', '1986-07-11', 'M', '09051478365', '2014-05-17', 0, 5, '05:00:00', '05:00:00', 'Sunday'),
+('default.jpg', 23, 'ACLDI280588010', '2019-03-08', 'Mauricio', NULL, 'Paras', 'mparas@gmail.com', '123456789', '123456789', '1983-08-31', 'M', '09676247831', '2018-04-20', 0, 6, '05:00:00', '09:00:00', 'Saturday'),
+('default.jpg', 24, 'ACLDI000000039', '2021-04-01', 'Mio', NULL, 'Sareno', 'msareno@gmail.com', '123456789', '123456789', '1985-06-30', 'M', '09135715948', '2012-02-26', 0, 6, '04:00:00', '12:00:00', 'Friday'),
+('default.jpg', 25, 'ACLDI070952012', '2022-01-01', 'Raul', NULL, 'Lagutao', 'rlagutao@gmail.com', '123456789', '123456789', '1969-07-24', 'M', '09103451236', '2009-01-15', 0, 12, '03:00:00', '10:00:00', 'Thursday'),
+('default.jpg', 26, 'ACLD120884017', '2019-07-25', 'Andrew', NULL, 'Mateo', 'amateo@gmail.com', '123456789', '123456789', '1985-08-30', 'M', '09170143697', '2018-02-25', 1, 2, '03:00:00', '10:00:00', 'Thursday'),
+('default.jpg', 27, 'ACLDI300862013', '2019-02-26', 'Randy', NULL, 'Caberte', 'rcaberte@gmail.com', '123456789', '123456789', '1984-09-15', 'M', '09154736181', '2013-10-11', 0, 7, '03:00:00', '10:00:00', 'Thursday'),
+('default.jpg', 28, 'ACLDI240178014', '2020-03-27', 'Jon', NULL, 'Hondrado', 'jhondrado@gmail.com', '123456789', '123456789', '1987-05-11', 'M', '09150138304', '2014-11-01', 0, 3, '01:00:00', '09:00:00', 'Wednesday'),
+('default.jpg', 29, 'ACLD120884017', '2020-01-28', 'Roniel', NULL, 'Zamora', 'rzamora@gmail.com', '123456789', '123456789', '1985-08-30', 'M', '09170143697', '2018-02-25', 1, 2, '03:00:00', '10:00:00', 'Wednesday');
 
 -- --------------------------------------------------------
 
@@ -339,6 +338,7 @@ CREATE TABLE `maintenance` (
   `unit` varchar(25) DEFAULT NULL,
   `quantity` int(5) DEFAULT NULL,
   `amount` int(50) DEFAULT NULL,
+  `enddate` date NOT NULL,
   `warning` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -346,32 +346,32 @@ CREATE TABLE `maintenance` (
 -- Dumping data for table `maintenance`
 --
 
-INSERT INTO `maintenance` (`id`, `date`, `plate_no`, `supplier`, `description`, `purchased`, `price`, `unit`, `quantity`, `amount`, `warning`) VALUES
-(1, '2018-10-20 12:32:40', 'RLP 377', 'T.Y ENTERPRISES', 'Plasmaglow Replacement Xenon Headlight Bulbs24V', '2018-10-27', 10000, 'PCS', 2, NULL, 'HALOGEN BULB H4 24V NARVA \r\n'),
-(2, '2018-10-20 12:42:32', 'RLP 377', 'T.Y ENTERPRISES', 'MITSUBISHI FUSO OEM TRUCK (L/H) COMBINATION MIRROR', '2018-10-01', 2000, 'PCS', 10, NULL, 'GUTTEN MIRROR FUSO\r\n'),
-(3, '2018-10-20 12:45:04', 'RLP 377', 'T.Y ENTERPRISES', 'A rear drum brake on a Kawasaki W800 Truck', '2018-10-04', 5500, 'PCS', 4, NULL, 'BRAKE DRUM\r\n'),
-(4, '2018-10-20 12:49:30', 'RLP 377', 'BOLTS & NUTS HARDWARE CORP', 'CS 8X40 WITH NUT  LW FW ', '2018-10-08', 5, 'PCS', 8, NULL, 'Fully Threaded Studs - Rods and Studs'),
-(5, '2018-10-20 12:51:26', 'RLP 377', 'T.Y ENTERPRISES', 'Light Side Marker Lights', '2018-10-10', 250, 'PCS', 1, NULL, 'SIGNAL LIGHT LENS \r\n'),
-(6, '2018-10-20 12:52:55', 'ABC 8771', 'T.Y ENTERPRISES', 'TAIL LIGHT LH&RH ', '2018-09-01', 1200, 'PCS', 1, NULL, 'Brake Light Tailight Tail Lamp LH & RH'),
-(7, '2018-10-20 12:54:50', 'ABC 8771', 'T.Y ENTERPRISES', 'National brake fluid, gear oils, engine oils, brak', '2018-09-05', 185, 'PCS', 1, NULL, 'BRAKE FLUID NATIONAL\r\n'),
-(8, '2018-10-20 12:56:16', 'ABC 8771', 'T.Y ENTERPRISES', 'Multifunctional side mirror with TS16949 Model NO', '2018-08-04', 350, 'PCS', 2, NULL, 'SIDE MIRROR\r\n'),
-(9, '2018-10-20 12:57:46', 'ABC 8771', 'AVISLEY HARDWARE CORP', ' Air Cuff Lock covers and locks the truck', '2018-08-21', 75, 'PCS', 1, NULL, 'PADLOCK\r\n'),
-(10, '2018-10-20 12:59:44', 'ABF 3040', 'AVISLEY HARDWARE CORP', 'Dodge Ram Truck Remote Key Fobik w/ Engine Start.', '2018-07-02', 100, 'PCS', 1, NULL, 'KEY\r\n'),
-(11, '2018-10-20 13:01:19', 'ABF 3040', 'T.Y ENTERPRISES', 'Alagoo 12v 6\'\'car Cooling Fan Automobile Vehicle C', '2018-07-10', 350, 'PCS', 1, NULL, 'CAR -FAN 24L 6\r\n'),
-(12, '2018-10-20 13:02:22', 'ABF 3040', 'T.Y ENTERPRISES', '501 Twenty20 Cree LED 12V W5W Canbus Wedge Bulb.', '2018-07-31', 80, 'PCS', 6, NULL, 'SIDE LIGHT LED \r\n'),
-(13, '2018-10-20 13:03:58', '130104', 'BOLTS & NUTS HARDWARE CORP', 'LED Bulb 102V', '2018-06-22', 250, 'PCS', 2, NULL, 'HANGEN BULB H-4 \r\n'),
-(14, '2018-10-20 13:06:39', '130104', 'PETRUBI MARKETING CORP', 'Mark and drill four 0.50-in. diameter holes in tru', '2018-05-04', 780, 'PCS', 1, NULL, 'ANGLE 1/4 X 2 \r\n'),
-(15, '2018-10-20 13:09:06', '130104', 'GOLDIBUE MARKETING CORP', 'GUL 2x2mm 19x67', '2018-10-11', 1400, 'PCS', 1, NULL, 'GUL PLUS 16X4X8 \r\n'),
-(16, '2018-10-20 13:11:02', '130205', 'GOLD - EVER MERCHANDISING CORP', 'Hot Sale 32ml glass measuring cylinder for diesel ', '2018-09-17', 1, 'PCS', 100, NULL, 'PSBWCH \r\n'),
-(17, '2018-10-20 13:13:58', '130205', 'T.Y ENTERPRISES', 'GE 53 2watt, 14.4volts, G3.5 (G3 1/2) Bulb Type, M', '2018-07-29', 25, 'PCS', 10, NULL, 'AUTO BULB 53\r\n'),
-(18, '2018-10-20 13:15:20', 'RCE 120', 'AVISLEY HARDWARE CORP', 'POWER/HDD LED Connector Cables 18.5\"', '2018-10-14', 650, 'PCS', 1, NULL, 'FRONT PANEL CABLE \r\n'),
-(19, '2018-10-20 13:16:29', 'RCE 120', 'AVISLEY HARDWARE CORP', 'Flange Bolt 6x25 Honda OEM 95701-0602508', '2018-09-26', 6, 'PCS', 20, NULL, 'BOLT 6X25 COMPLETE \r\n'),
-(20, '2018-10-20 13:17:56', 'RCE 120', 'T.Y ENTERPRISES', 'DC12V Door Drop Bolt Lock 1 x DC 12V Electric Drop', '2018-09-11', 45, 'PCS', 1, NULL, 'DROP BOLT \r\n'),
-(21, '2018-10-20 13:18:46', 'RCE 120', 'PETRUBI MARKETING CORP', 'A1121218 1/2 X 1/2 X 1/8', '2018-10-02', 600, 'PCS', 1, NULL, 'ANGLE 3/4 X 2\r\n'),
-(22, '2018-10-20 13:19:52', 'RCE 120', 'T.Y ENTERPRISES', 'Led Kit, Bulbs Rxv Ezgo Light Complete', '2018-07-27', 20, 'PCS', 1, NULL, 'BULB 17063\r\n'),
-(23, '2018-10-20 13:21:16', 'RCE 120', 'BOLTS&NUTS HARDWARE CORP.', ' Flanged Lock Screw (Hexagon) ', '2018-07-17', 10, 'PCS', 1, NULL, '3/X / 1/2 CS WITH NUT FW\r\n'),
-(24, '2018-10-20 13:22:34', 'RCE 120', 'T.Y ENTERPRISES', '3600A Drum, Trailer Brake Drums', '2018-09-22', 7200, 'PCS', 2, NULL, 'BRAKE DRUM'),
-(25, '2018-10-20 13:24:01', 'ABF 3040', 'T.Y ENTERPRISES', 'MITSUBISHI FUSO OEM TRUCK (L/H) COMBINATION MIRROR', '2018-06-17', 350, 'PCS', 1, NULL, 'GUTTEN MIRROR FUSO\r\n');
+INSERT INTO `maintenance` (`id`, `date`, `plate_no`, `supplier`, `description`, `purchased`, `price`, `unit`, `quantity`, `amount`, `enddate`, `warning`) VALUES
+(1, '2018-10-20 04:32:40', 'RLP 377', 'T.Y ENTERPRISES', 'Plasmaglow Replacement Xenon Headlight Bulbs24V', '2018-10-27', 10000, 'PCS', 2, NULL, '0000-00-00', 'HALOGEN BULB H4 24V NARVA \r\n'),
+(2, '2018-10-20 04:42:32', 'RLP 377', 'T.Y ENTERPRISES', 'MITSUBISHI FUSO OEM TRUCK (L/H) COMBINATION MIRROR', '2018-10-01', 2000, 'PCS', 10, NULL, '0000-00-00', 'GUTTEN MIRROR FUSO\r\n'),
+(3, '2018-10-20 04:45:04', 'RLP 377', 'T.Y ENTERPRISES', 'A rear drum brake on a Kawasaki W800 Truck', '2018-10-04', 5500, 'PCS', 4, NULL, '0000-00-00', 'BRAKE DRUM\r\n'),
+(4, '2018-10-20 04:49:30', 'RLP 377', 'BOLTS & NUTS HARDWARE CORP', 'CS 8X40 WITH NUT  LW FW ', '2018-10-08', 5, 'PCS', 8, NULL, '0000-00-00', 'Fully Threaded Studs - Rods and Studs'),
+(5, '2018-10-20 04:51:26', 'RLP 377', 'T.Y ENTERPRISES', 'Light Side Marker Lights', '2018-10-10', 250, 'PCS', 1, NULL, '0000-00-00', 'SIGNAL LIGHT LENS \r\n'),
+(6, '2018-10-20 04:52:55', 'ABC 8771', 'T.Y ENTERPRISES', 'TAIL LIGHT LH&RH ', '2018-09-01', 1200, 'PCS', 1, NULL, '0000-00-00', 'Brake Light Tailight Tail Lamp LH & RH'),
+(7, '2018-10-20 04:54:50', 'ABC 8771', 'T.Y ENTERPRISES', 'National brake fluid, gear oils, engine oils, brak', '2018-09-05', 185, 'PCS', 1, NULL, '0000-00-00', 'BRAKE FLUID NATIONAL\r\n'),
+(8, '2018-10-20 04:56:16', 'ABC 8771', 'T.Y ENTERPRISES', 'Multifunctional side mirror with TS16949 Model NO', '2018-08-04', 350, 'PCS', 2, NULL, '0000-00-00', 'SIDE MIRROR\r\n'),
+(9, '2018-10-20 04:57:46', 'ABC 8771', 'AVISLEY HARDWARE CORP', ' Air Cuff Lock covers and locks the truck', '2018-08-21', 75, 'PCS', 1, NULL, '0000-00-00', 'PADLOCK\r\n'),
+(10, '2018-10-20 04:59:44', 'ABF 3040', 'AVISLEY HARDWARE CORP', 'Dodge Ram Truck Remote Key Fobik w/ Engine Start.', '2018-07-02', 100, 'PCS', 1, NULL, '0000-00-00', 'KEY\r\n'),
+(11, '2018-10-20 05:01:19', 'ABF 3040', 'T.Y ENTERPRISES', 'Alagoo 12v 6\'\'car Cooling Fan Automobile Vehicle C', '2018-07-10', 350, 'PCS', 1, NULL, '0000-00-00', 'CAR -FAN 24L 6\r\n'),
+(12, '2018-10-20 05:02:22', 'ABF 3040', 'T.Y ENTERPRISES', '501 Twenty20 Cree LED 12V W5W Canbus Wedge Bulb.', '2018-07-31', 80, 'PCS', 6, NULL, '0000-00-00', 'SIDE LIGHT LED \r\n'),
+(13, '2018-10-20 05:03:58', '130104', 'BOLTS & NUTS HARDWARE CORP', 'LED Bulb 102V', '2018-06-22', 250, 'PCS', 2, NULL, '0000-00-00', 'HANGEN BULB H-4 \r\n'),
+(14, '2018-10-20 05:06:39', '130104', 'PETRUBI MARKETING CORP', 'Mark and drill four 0.50-in. diameter holes in tru', '2018-05-04', 780, 'PCS', 1, NULL, '0000-00-00', 'ANGLE 1/4 X 2 \r\n'),
+(15, '2018-10-20 05:09:06', '130104', 'GOLDIBUE MARKETING CORP', 'GUL 2x2mm 19x67', '2018-10-11', 1400, 'PCS', 1, NULL, '0000-00-00', 'GUL PLUS 16X4X8 \r\n'),
+(16, '2018-10-20 05:11:02', '130205', 'GOLD - EVER MERCHANDISING CORP', 'Hot Sale 32ml glass measuring cylinder for diesel ', '2018-09-17', 1, 'PCS', 100, NULL, '0000-00-00', 'PSBWCH \r\n'),
+(17, '2018-10-20 05:13:58', '130205', 'T.Y ENTERPRISES', 'GE 53 2watt, 14.4volts, G3.5 (G3 1/2) Bulb Type, M', '2018-07-29', 25, 'PCS', 10, NULL, '0000-00-00', 'AUTO BULB 53\r\n'),
+(18, '2018-10-20 05:15:20', 'RCE 120', 'AVISLEY HARDWARE CORP', 'POWER/HDD LED Connector Cables 18.5\"', '2018-10-14', 650, 'PCS', 1, NULL, '0000-00-00', 'FRONT PANEL CABLE \r\n'),
+(19, '2018-10-20 05:16:29', 'RCE 120', 'AVISLEY HARDWARE CORP', 'Flange Bolt 6x25 Honda OEM 95701-0602508', '2018-09-26', 6, 'PCS', 20, NULL, '0000-00-00', 'BOLT 6X25 COMPLETE \r\n'),
+(20, '2018-10-20 05:17:56', 'RCE 120', 'T.Y ENTERPRISES', 'DC12V Door Drop Bolt Lock 1 x DC 12V Electric Drop', '2018-09-11', 45, 'PCS', 1, NULL, '0000-00-00', 'DROP BOLT \r\n'),
+(21, '2018-10-20 05:18:46', 'RCE 120', 'PETRUBI MARKETING CORP', 'A1121218 1/2 X 1/2 X 1/8', '2018-10-02', 600, 'PCS', 1, NULL, '0000-00-00', 'ANGLE 3/4 X 2\r\n'),
+(22, '2018-10-20 05:19:52', 'RCE 120', 'T.Y ENTERPRISES', 'Led Kit, Bulbs Rxv Ezgo Light Complete', '2018-07-27', 20, 'PCS', 1, NULL, '0000-00-00', 'BULB 17063\r\n'),
+(23, '2018-10-20 05:21:16', 'RCE 120', 'BOLTS&NUTS HARDWARE CORP.', ' Flanged Lock Screw (Hexagon) ', '2018-07-17', 10, 'PCS', 1, NULL, '0000-00-00', '3/X / 1/2 CS WITH NUT FW\r\n'),
+(24, '2018-10-20 05:22:34', 'RCE 120', 'T.Y ENTERPRISES', '3600A Drum, Trailer Brake Drums', '2018-09-22', 7200, 'PCS', 2, NULL, '0000-00-00', 'BRAKE DRUM'),
+(25, '2018-10-20 05:24:01', 'ABF 3040', 'T.Y ENTERPRISES', 'MITSUBISHI FUSO OEM TRUCK (L/H) COMBINATION MIRROR', '2018-06-17', 350, 'PCS', 1, NULL, '0000-00-00', 'GUTTEN MIRROR FUSO\r\n');
 
 -- --------------------------------------------------------
 
