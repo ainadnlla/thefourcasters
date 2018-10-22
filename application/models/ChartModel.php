@@ -22,6 +22,57 @@ public function getBookingAccepted(){
  //Monthly report
 
  //Daily report
+ public function Jan(){
+//  $query = $this->db->query("SELECT * FROM booking WHERE DATE_FORMAT(date, '%M') = 'January' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())");
+//  return $query->result();
+ $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'January' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
+ return $query->count_all_results();
+ }
+ public function Feb(){
+ $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'February' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
+ return $query->count_all_results();
+}
+public function March(){
+ $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'March' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
+ return $query->count_all_results();
+}
+public function April(){
+ $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'April' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
+ return $query->count_all_results();
+}
+public function May(){
+ $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'May' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
+ return $query->count_all_results();
+}
+public function June(){
+ $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'June' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
+ return $query->count_all_results();
+}
+public function July(){
+ $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'July' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
+ return $query->count_all_results();
+}
+public function Aug(){
+ $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'August' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
+ return $query->count_all_results();
+}
+public function Sep(){
+ $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'September' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
+ return $query->count_all_results();
+}
+public function Oct(){
+ $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'October' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
+ return $query->count_all_results();
+}
+public function Nov(){
+ $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'November' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
+ return $query->count_all_results();
+}
+public function Dec(){
+ $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'December' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
+ return $query->count_all_results();
+}
+    
 
  //Yearly report
 

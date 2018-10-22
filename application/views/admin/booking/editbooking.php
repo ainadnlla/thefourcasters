@@ -118,7 +118,7 @@
               }
             ?>
             </select>
-            <input value="<?=$drivername->drivername?>" name="drivername" type="text">
+            <!-- <input value="<?=$drivername->drivername?>" name="drivername" type="text"> -->
             <?= form_error('driverid', '<span class="label label-danger">', '</span>') ?>  
           </div>
       
