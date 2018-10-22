@@ -155,7 +155,7 @@ INSERT INTO `destination` (`id`, `destination`) VALUES
 (4, 'MIP - Manila-North, Valenzuela, Bisalud Bagbauin (Evergreen Textile Printing)\r\n'),
 (5, 'MIP - Manila-North, Valenzuela, Bartolome KM. 16 Mc Arthur (Sun Fortune Inc.)'),
 (6, 'MIP - Manila-North, Valenzuela, Sitio Bisalud (Artos Textile Mills, Inc.)'),
-(7, 'MIP - Manila-North, Caloocan, Sta. Quiteria (Alysons\' Warehouse)'),
+(7, 'MIP - Manila-North, Caloocan, Sta. Quiteria (Alysons Warehouse)'),
 (8, 'MIP - Manila-North, Valenzuela, Talipapa'),
 (9, 'MIP - Manila-North, Valenzuela, Ugong'),
 (10, 'MIP - Pampanga, Angeles, Balibago'),
@@ -238,25 +238,25 @@ CREATE TABLE `driver` (
 --
 
 INSERT INTO `driver` (`img`, `id`, `driver_no`, `expire`, `fname`, `mname`, `lname`, `email`, `password`, `repass`, `gender`, `birthday`, `contact`, `experience`, `date`, `status`, `timein`, `timeout`, `weekday`) VALUES
-('default.jpg', 1, 'ACLDI010987016', '2021-12-20', 'Arnel', NULL, 'Villamor', 'avillamor@gmail.com', '123456789', '123456789', 'M', '1988-12-20', '09154269173', 5, '2015-03-25', 0, '12:00:00', '09:00:00', 'Mon'),
-('default.jpg', 2, 'ACLDI090878015', '2019-03-01', 'Ernie', NULL, 'Saavedra', 'esaavedra@gmail.com', '123456789', '123456789', 'M', '1976-03-01', '09151496857', 10, '2013-08-21', 0, '01:00:00', '09:00:00', 'Tue'),
-('default.jpg', 3, 'ACLDI240178014', '2020-05-11', 'Inigo', NULL, 'Rafaeles', 'irafaeles@gmail.com', '123456789', '123456789', 'M', '1987-05-11', '09150138304', 3, '2014-11-01', 0, '01:00:00', '09:00:00', 'Wed'),
-('default.jpg', 4, 'ACLDI300862013', '2022-09-15', 'Joshua', NULL, 'Patino', 'jpatino@gmail.com', '123456789', '123456789', 'M', '1984-09-15', '09154736181', 7, '2013-10-11', 0, '03:00:00', '10:00:00', 'Thurs'),
-('default.jpg', 5, 'ACLD120884017', '2019-08-30', 'John Robert', NULL, 'Tambanillo', 'jrtambanillo@gmail.com', '123456789', '123456789', 'M', '1985-08-30', '09170143697', 2, '2018-02-25', 0, '03:00:00', '10:00:00', 'Thurs'),
-('default.jpg', 6, 'ACLDI070952012', '2018-12-30', 'Joe', NULL, 'Layan', 'jlayan@gmail.com', '123456789', '123456789', 'M', '1969-07-24', '09103451236', 12, '2009-01-15', 0, '03:00:00', '10:00:00', 'Thurs'),
-('default.jpg', 7, 'ACLDI000000011', '2019-06-30', 'Mau', NULL, 'Latap', 'mlatap@gmail.com', '123456789', '123456789', 'M', '1985-06-30', '09135715948', 6, '2012-02-26', 0, '04:00:00', '12:00:00', 'Fri'),
-('default.jpg', 8, 'ACLDI280588010', '2020-08-31', 'Jeremy', NULL, 'Lansang', 'jlansang@gmail.com', '123456789', '123456789', 'M', '1983-08-31', '09676247831', 6, '2018-04-20', 0, '05:00:00', '09:00:00', 'Sat'),
-('default.jpg', 9, 'ACLDI260573009', '2019-11-24', 'Ronnie', NULL, 'Jaballa', 'rjaballa@gmail.com', '123456789', '123456789', 'M', '1986-07-11', '09051478365', 5, '2014-05-17', 0, '05:00:00', '05:00:00', 'Sun'),
-('default.jpg', 10, 'ACLDI311276008', '2022-06-23', 'Donnie', NULL, 'Jaballa', 'djaballa@gmail.com', '123456789', '123456789', 'M', '1984-06-23', '09153146987', 4, '2015-07-13', 0, '09:00:00', '04:00:00', 'Sat'),
-('default.jpg', 11, 'ACLDI201084007', '2021-12-10', 'Mariano', NULL, 'Estaris', 'mestaris@gmail.com', '123456789', '123456789', 'M', '1984-12-10', '09364251658', 8, '2011-03-29', 0, '01:00:00', '02:00:00', 'Mon'),
-('default.jpg', 12, 'ACLDI180468006', '2020-08-31', 'Lemuel', NULL, 'Catalan', 'lcatalan@gmail.com', '123456789', '123456789', 'M', '1985-08-11', '09458621403', 3, '2016-09-23', 0, '02:00:00', '12:00:00', 'Thurs'),
-('default.jpg', 13, 'ACLDI241164005', '2019-04-14', 'Tonyo', NULL, 'Bitoon', 'tbitoon@gmail.com', '123456789', '123456789', 'M', '1975-04-14', '09073556128', 12, '2010-12-21', 0, '07:00:00', '12:00:00', 'Sun'),
-('default.jpg', 14, 'ACLDI141281004', '2020-10-15', 'Jonalyn', NULL, 'Bartolome', 'jbartolome@gmail.com', '123456789', '123456789', 'M', '1987-10-14', '09154669875', 5, '2015-01-20', 0, '09:00:00', '08:00:00', 'Wed'),
-('default.jpg', 15, 'ACLDI081281003', '2023-03-18', 'Ernesto', NULL, 'Baquiran', 'ebaquiran@gmail.com', '123456789', '123456789', 'M', '1981-03-18', '09478621034', 9, '2009-06-28', 0, '12:00:00', '12:00:00', 'Fri'),
-('default.jpg', 16, 'ACLDI241283002', '2023-09-12', 'Jing', NULL, 'Baluran', 'jbaluran@gmail.com', '123456789', '123456789', 'M', '1988-09-12', '09365448607', 4, '2012-02-22', 0, '11:00:00', '12:00:00', 'Tue'),
-('default.jpg', 17, 'ACLDI091180001', '2023-11-13', 'Wancho', NULL, 'Apas', 'wapas@gmail.com', '123456789', '123456789', 'M', '1976-11-13', '09125647820', 4, '2014-05-06', 0, '12:00:00', '09:00:00', 'Thurs'),
-('default.jpg', 18, 'ACLDI091181567', '2020-07-17', 'Remante', NULL, 'Ibanez', 'ribanez@gmail.com', '123456789', '123456789', 'M', '1985-07-17', '09997531548', 6, '2011-06-19', 0, '11:00:00', '03:00:00', 'Wed'),
-('default.jpg', 19, 'ACLDI091182000', '2019-12-01', 'Frederico', NULL, 'Alburo', 'falburo@gmail.com', '123456789', '123456789', 'M', '1978-09-26', '09192554863', 12, '2009-04-17', 0, '08:00:00', '07:00:00', 'Fri');
+('default.jpg', 1, 'ACLDI010987016', '2021-12-20', 'Arnel', NULL, 'Villamor', 'avillamor@gmail.com', '123456789', '123456789', 'M', '1988-12-20', '09154269173', 5, '2015-03-25', 0, '12:00:00', '09:00:00', 'Monday'),
+('default.jpg', 2, 'ACLDI090878015', '2019-03-01', 'Ernie', NULL, 'Saavedra', 'esaavedra@gmail.com', '123456789', '123456789', 'M', '1976-03-01', '09151496857', 10, '2013-08-21', 0, '01:00:00', '09:00:00', 'Tuesday'),
+('default.jpg', 3, 'ACLDI240178014', '2020-05-11', 'Inigo', NULL, 'Rafaeles', 'irafaeles@gmail.com', '123456789', '123456789', 'M', '1987-05-11', '09150138304', 3, '2014-11-01', 0, '01:00:00', '09:00:00', 'Wednesday'),
+('default.jpg', 4, 'ACLDI300862013', '2022-09-15', 'Joshua', NULL, 'Patino', 'jpatino@gmail.com', '123456789', '123456789', 'M', '1984-09-15', '09154736181', 7, '2013-10-11', 0, '03:00:00', '10:00:00', 'Thursday'),
+('default.jpg', 5, 'ACLD120884017', '2019-08-30', 'John Robert', NULL, 'Tambanillo', 'jrtambanillo@gmail.com', '123456789', '123456789', 'M', '1985-08-30', '09170143697', 2, '2018-02-25', 0, '03:00:00', '10:00:00', 'Thursdays'),
+('default.jpg', 6, 'ACLDI070952012', '2018-12-30', 'Joe', NULL, 'Layan', 'jlayan@gmail.com', '123456789', '123456789', 'M', '1969-07-24', '09103451236', 12, '2009-01-15', 0, '03:00:00', '10:00:00', 'Thursday'),
+('default.jpg', 7, 'ACLDI000000011', '2019-06-30', 'Mau', NULL, 'Latap', 'mlatap@gmail.com', '123456789', '123456789', 'M', '1985-06-30', '09135715948', 6, '2012-02-26', 0, '04:00:00', '12:00:00', 'Friday'),
+('default.jpg', 8, 'ACLDI280588010', '2020-08-31', 'Jeremy', NULL, 'Lansang', 'jlansang@gmail.com', '123456789', '123456789', 'M', '1983-08-31', '09676247831', 6, '2018-04-20', 0, '05:00:00', '09:00:00', 'Saturday'),
+('default.jpg', 9, 'ACLDI260573009', '2019-11-24', 'Ronnie', NULL, 'Jaballa', 'rjaballa@gmail.com', '123456789', '123456789', 'M', '1986-07-11', '09051478365', 5, '2014-05-17', 0, '05:00:00', '05:00:00', 'Sunday'),
+('default.jpg', 10, 'ACLDI311276008', '2022-06-23', 'Donnie', NULL, 'Jaballa', 'djaballa@gmail.com', '123456789', '123456789', 'M', '1984-06-23', '09153146987', 4, '2015-07-13', 0, '09:00:00', '04:00:00', 'Saturday'),
+('default.jpg', 11, 'ACLDI201084007', '2021-12-10', 'Mariano', NULL, 'Estaris', 'mestaris@gmail.com', '123456789', '123456789', 'M', '1984-12-10', '09364251658', 8, '2011-03-29', 0, '01:00:00', '02:00:00', 'Monday'),
+('default.jpg', 12, 'ACLDI180468006', '2020-08-31', 'Lemuel', NULL, 'Catalan', 'lcatalan@gmail.com', '123456789', '123456789', 'M', '1985-08-11', '09458621403', 3, '2016-09-23', 0, '02:00:00', '12:00:00', 'Thursday'),
+('default.jpg', 13, 'ACLDI241164005', '2019-04-14', 'Tonyo', NULL, 'Bitoon', 'tbitoon@gmail.com', '123456789', '123456789', 'M', '1975-04-14', '09073556128', 12, '2010-12-21', 0, '07:00:00', '12:00:00', 'Sunday'),
+('default.jpg', 14, 'ACLDI141281004', '2020-10-15', 'Jonalyn', NULL, 'Bartolome', 'jbartolome@gmail.com', '123456789', '123456789', 'M', '1987-10-14', '09154669875', 5, '2015-01-20', 0, '09:00:00', '08:00:00', 'Wednesday'),
+('default.jpg', 15, 'ACLDI081281003', '2023-03-18', 'Ernesto', NULL, 'Baquiran', 'ebaquiran@gmail.com', '123456789', '123456789', 'M', '1981-03-18', '09478621034', 9, '2009-06-28', 0, '12:00:00', '12:00:00', 'Friday'),
+('default.jpg', 16, 'ACLDI241283002', '2023-09-12', 'Jing', NULL, 'Baluran', 'jbaluran@gmail.com', '123456789', '123456789', 'M', '1988-09-12', '09365448607', 4, '2012-02-22', 0, '11:00:00', '12:00:00', 'Tuesday'),
+('default.jpg', 17, 'ACLDI091180001', '2023-11-13', 'Wancho', NULL, 'Apas', 'wapas@gmail.com', '123456789', '123456789', 'M', '1976-11-13', '09125647820', 4, '2014-05-06', 0, '12:00:00', '09:00:00', 'Thursday'),
+('default.jpg', 18, 'ACLDI091181567', '2020-07-17', 'Remante', NULL, 'Ibanez', 'ribanez@gmail.com', '123456789', '123456789', 'M', '1985-07-17', '09997531548', 6, '2011-06-19', 0, '11:00:00', '03:00:00', 'Wednesday'),
+('default.jpg', 19, 'ACLDI091182000', '2019-12-01', 'Frederico', NULL, 'Alburo', 'falburo@gmail.com', '123456789', '123456789', 'M', '1978-09-26', '09192554863', 12, '2009-04-17', 0, '08:00:00', '07:00:00', 'Friday');
 
 -- --------------------------------------------------------
 
@@ -338,6 +338,7 @@ CREATE TABLE `maintenance` (
   `unit` varchar(25) DEFAULT NULL,
   `quantity` int(5) DEFAULT NULL,
   `amount` int(50) DEFAULT NULL,
+  `enddate` date NOT NULL,
   `warning` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -345,32 +346,32 @@ CREATE TABLE `maintenance` (
 -- Dumping data for table `maintenance`
 --
 
-INSERT INTO `maintenance` (`id`, `date`, `plate_no`, `supplier`, `description`, `purchased`, `price`, `unit`, `quantity`, `amount`, `warning`) VALUES
-(1, '2018-10-20 04:32:40', 'RLP 377', 'T.Y ENTERPRISES', 'Plasmaglow Replacement Xenon Headlight Bulbs24V', '2018-10-27', 10000, 'PCS', 2, NULL, 'HALOGEN BULB H4 24V NARVA \r\n'),
-(2, '2018-10-20 04:42:32', 'RLP 377', 'T.Y ENTERPRISES', 'MITSUBISHI FUSO OEM TRUCK (L/H) COMBINATION MIRROR', '2018-10-01', 2000, 'PCS', 10, NULL, 'GUTTEN MIRROR FUSO\r\n'),
-(3, '2018-10-20 04:45:04', 'RLP 377', 'T.Y ENTERPRISES', 'A rear drum brake on a Kawasaki W800 Truck', '2018-10-04', 5500, 'PCS', 4, NULL, 'BRAKE DRUM\r\n'),
-(4, '2018-10-20 04:49:30', 'RLP 377', 'BOLTS & NUTS HARDWARE CORP', 'CS 8X40 WITH NUT  LW FW ', '2018-10-08', 5, 'PCS', 8, NULL, 'Fully Threaded Studs - Rods and Studs'),
-(5, '2018-10-20 04:51:26', 'RLP 377', 'T.Y ENTERPRISES', 'Light Side Marker Lights', '2018-10-10', 250, 'PCS', 1, NULL, 'SIGNAL LIGHT LENS \r\n'),
-(6, '2018-10-20 04:52:55', 'ABC 8771', 'T.Y ENTERPRISES', 'TAIL LIGHT LH&RH ', '2018-09-01', 1200, 'PCS', 1, NULL, 'Brake Light Tailight Tail Lamp LH & RH'),
-(7, '2018-10-20 04:54:50', 'ABC 8771', 'T.Y ENTERPRISES', 'National brake fluid, gear oils, engine oils, brak', '2018-09-05', 185, 'PCS', 1, NULL, 'BRAKE FLUID NATIONAL\r\n'),
-(8, '2018-10-20 04:56:16', 'ABC 8771', 'T.Y ENTERPRISES', 'Multifunctional side mirror with TS16949 Model NO', '2018-08-04', 350, 'PCS', 2, NULL, 'SIDE MIRROR\r\n'),
-(9, '2018-10-20 04:57:46', 'ABC 8771', 'AVISLEY HARDWARE CORP', ' Air Cuff Lock covers and locks the truck', '2018-08-21', 75, 'PCS', 1, NULL, 'PADLOCK\r\n'),
-(10, '2018-10-20 04:59:44', 'ABF 3040', 'AVISLEY HARDWARE CORP', 'Dodge Ram Truck Remote Key Fobik w/ Engine Start.', '2018-07-02', 100, 'PCS', 1, NULL, 'KEY\r\n'),
-(11, '2018-10-20 05:01:19', 'ABF 3040', 'T.Y ENTERPRISES', 'Alagoo 12v 6\'\'car Cooling Fan Automobile Vehicle C', '2018-07-10', 350, 'PCS', 1, NULL, 'CAR -FAN 24L 6\r\n'),
-(12, '2018-10-20 05:02:22', 'ABF 3040', 'T.Y ENTERPRISES', '501 Twenty20 Cree LED 12V W5W Canbus Wedge Bulb.', '2018-07-31', 80, 'PCS', 6, NULL, 'SIDE LIGHT LED \r\n'),
-(13, '2018-10-20 05:03:58', '130104', 'BOLTS & NUTS HARDWARE CORP', 'LED Bulb 102V', '2018-06-22', 250, 'PCS', 2, NULL, 'HANGEN BULB H-4 \r\n'),
-(14, '2018-10-20 05:06:39', '130104', 'PETRUBI MARKETING CORP', 'Mark and drill four 0.50-in. diameter holes in tru', '2018-05-04', 780, 'PCS', 1, NULL, 'ANGLE 1/4 X 2 \r\n'),
-(15, '2018-10-20 05:09:06', '130104', 'GOLDIBUE MARKETING CORP', 'GUL 2x2mm 19x67', '2018-10-11', 1400, 'PCS', 1, NULL, 'GUL PLUS 16X4X8 \r\n'),
-(16, '2018-10-20 05:11:02', '130205', 'GOLD - EVER MERCHANDISING CORP', 'Hot Sale 32ml glass measuring cylinder for diesel ', '2018-09-17', 1, 'PCS', 100, NULL, 'PSBWCH \r\n'),
-(17, '2018-10-20 05:13:58', '130205', 'T.Y ENTERPRISES', 'GE 53 2watt, 14.4volts, G3.5 (G3 1/2) Bulb Type, M', '2018-07-29', 25, 'PCS', 10, NULL, 'AUTO BULB 53\r\n'),
-(18, '2018-10-20 05:15:20', 'RCE 120', 'AVISLEY HARDWARE CORP', 'POWER/HDD LED Connector Cables 18.5\"', '2018-10-14', 650, 'PCS', 1, NULL, 'FRONT PANEL CABLE \r\n'),
-(19, '2018-10-20 05:16:29', 'RCE 120', 'AVISLEY HARDWARE CORP', 'Flange Bolt 6x25 Honda OEM 95701-0602508', '2018-09-26', 6, 'PCS', 20, NULL, 'BOLT 6X25 COMPLETE \r\n'),
-(20, '2018-10-20 05:17:56', 'RCE 120', 'T.Y ENTERPRISES', 'DC12V Door Drop Bolt Lock 1 x DC 12V Electric Drop', '2018-09-11', 45, 'PCS', 1, NULL, 'DROP BOLT \r\n'),
-(21, '2018-10-20 05:18:46', 'RCE 120', 'PETRUBI MARKETING CORP', 'A1121218 1/2 X 1/2 X 1/8', '2018-10-02', 600, 'PCS', 1, NULL, 'ANGLE 3/4 X 2\r\n'),
-(22, '2018-10-20 05:19:52', 'RCE 120', 'T.Y ENTERPRISES', 'Led Kit, Bulbs Rxv Ezgo Light Complete', '2018-07-27', 20, 'PCS', 1, NULL, 'BULB 17063\r\n'),
-(23, '2018-10-20 05:21:16', 'RCE 120', 'BOLTS&NUTS HARDWARE CORP.', ' Flanged Lock Screw (Hexagon) ', '2018-07-17', 10, 'PCS', 1, NULL, '3/X / 1/2 CS WITH NUT FW\r\n'),
-(24, '2018-10-20 05:22:34', 'RCE 120', 'T.Y ENTERPRISES', '3600A Drum, Trailer Brake Drums', '2018-09-22', 7200, 'PCS', 2, NULL, 'BRAKE DRUM'),
-(25, '2018-10-20 05:24:01', 'ABF 3040', 'T.Y ENTERPRISES', 'MITSUBISHI FUSO OEM TRUCK (L/H) COMBINATION MIRROR', '2018-06-17', 350, 'PCS', 1, NULL, 'GUTTEN MIRROR FUSO\r\n');
+INSERT INTO `maintenance` (`id`, `date`, `plate_no`, `supplier`, `description`, `purchased`, `price`, `unit`, `quantity`, `amount`, `enddate`, `warning`) VALUES
+(1, '2018-10-20 04:32:40', 'RLP 377', 'T.Y ENTERPRISES', 'Plasmaglow Replacement Xenon Headlight Bulbs24V', '2018-10-27', 10000, 'PCS', 2, NULL, '0000-00-00', 'HALOGEN BULB H4 24V NARVA \r\n'),
+(2, '2018-10-20 04:42:32', 'RLP 377', 'T.Y ENTERPRISES', 'MITSUBISHI FUSO OEM TRUCK (L/H) COMBINATION MIRROR', '2018-10-01', 2000, 'PCS', 10, NULL, '0000-00-00', 'GUTTEN MIRROR FUSO\r\n'),
+(3, '2018-10-20 04:45:04', 'RLP 377', 'T.Y ENTERPRISES', 'A rear drum brake on a Kawasaki W800 Truck', '2018-10-04', 5500, 'PCS', 4, NULL, '0000-00-00', 'BRAKE DRUM\r\n'),
+(4, '2018-10-20 04:49:30', 'RLP 377', 'BOLTS & NUTS HARDWARE CORP', 'CS 8X40 WITH NUT  LW FW ', '2018-10-08', 5, 'PCS', 8, NULL, '0000-00-00', 'Fully Threaded Studs - Rods and Studs'),
+(5, '2018-10-20 04:51:26', 'RLP 377', 'T.Y ENTERPRISES', 'Light Side Marker Lights', '2018-10-10', 250, 'PCS', 1, NULL, '0000-00-00', 'SIGNAL LIGHT LENS \r\n'),
+(6, '2018-10-20 04:52:55', 'ABC 8771', 'T.Y ENTERPRISES', 'TAIL LIGHT LH&RH ', '2018-09-01', 1200, 'PCS', 1, NULL, '0000-00-00', 'Brake Light Tailight Tail Lamp LH & RH'),
+(7, '2018-10-20 04:54:50', 'ABC 8771', 'T.Y ENTERPRISES', 'National brake fluid, gear oils, engine oils, brak', '2018-09-05', 185, 'PCS', 1, NULL, '0000-00-00', 'BRAKE FLUID NATIONAL\r\n'),
+(8, '2018-10-20 04:56:16', 'ABC 8771', 'T.Y ENTERPRISES', 'Multifunctional side mirror with TS16949 Model NO', '2018-08-04', 350, 'PCS', 2, NULL, '0000-00-00', 'SIDE MIRROR\r\n'),
+(9, '2018-10-20 04:57:46', 'ABC 8771', 'AVISLEY HARDWARE CORP', ' Air Cuff Lock covers and locks the truck', '2018-08-21', 75, 'PCS', 1, NULL, '0000-00-00', 'PADLOCK\r\n'),
+(10, '2018-10-20 04:59:44', 'ABF 3040', 'AVISLEY HARDWARE CORP', 'Dodge Ram Truck Remote Key Fobik w/ Engine Start.', '2018-07-02', 100, 'PCS', 1, NULL, '0000-00-00', 'KEY\r\n'),
+(11, '2018-10-20 05:01:19', 'ABF 3040', 'T.Y ENTERPRISES', 'Alagoo 12v 6\'\'car Cooling Fan Automobile Vehicle C', '2018-07-10', 350, 'PCS', 1, NULL, '0000-00-00', 'CAR -FAN 24L 6\r\n'),
+(12, '2018-10-20 05:02:22', 'ABF 3040', 'T.Y ENTERPRISES', '501 Twenty20 Cree LED 12V W5W Canbus Wedge Bulb.', '2018-07-31', 80, 'PCS', 6, NULL, '0000-00-00', 'SIDE LIGHT LED \r\n'),
+(13, '2018-10-20 05:03:58', '130104', 'BOLTS & NUTS HARDWARE CORP', 'LED Bulb 102V', '2018-06-22', 250, 'PCS', 2, NULL, '0000-00-00', 'HANGEN BULB H-4 \r\n'),
+(14, '2018-10-20 05:06:39', '130104', 'PETRUBI MARKETING CORP', 'Mark and drill four 0.50-in. diameter holes in tru', '2018-05-04', 780, 'PCS', 1, NULL, '0000-00-00', 'ANGLE 1/4 X 2 \r\n'),
+(15, '2018-10-20 05:09:06', '130104', 'GOLDIBUE MARKETING CORP', 'GUL 2x2mm 19x67', '2018-10-11', 1400, 'PCS', 1, NULL, '0000-00-00', 'GUL PLUS 16X4X8 \r\n'),
+(16, '2018-10-20 05:11:02', '130205', 'GOLD - EVER MERCHANDISING CORP', 'Hot Sale 32ml glass measuring cylinder for diesel ', '2018-09-17', 1, 'PCS', 100, NULL, '0000-00-00', 'PSBWCH \r\n'),
+(17, '2018-10-20 05:13:58', '130205', 'T.Y ENTERPRISES', 'GE 53 2watt, 14.4volts, G3.5 (G3 1/2) Bulb Type, M', '2018-07-29', 25, 'PCS', 10, NULL, '0000-00-00', 'AUTO BULB 53\r\n'),
+(18, '2018-10-20 05:15:20', 'RCE 120', 'AVISLEY HARDWARE CORP', 'POWER/HDD LED Connector Cables 18.5\"', '2018-10-14', 650, 'PCS', 1, NULL, '0000-00-00', 'FRONT PANEL CABLE \r\n'),
+(19, '2018-10-20 05:16:29', 'RCE 120', 'AVISLEY HARDWARE CORP', 'Flange Bolt 6x25 Honda OEM 95701-0602508', '2018-09-26', 6, 'PCS', 20, NULL, '0000-00-00', 'BOLT 6X25 COMPLETE \r\n'),
+(20, '2018-10-20 05:17:56', 'RCE 120', 'T.Y ENTERPRISES', 'DC12V Door Drop Bolt Lock 1 x DC 12V Electric Drop', '2018-09-11', 45, 'PCS', 1, NULL, '0000-00-00', 'DROP BOLT \r\n'),
+(21, '2018-10-20 05:18:46', 'RCE 120', 'PETRUBI MARKETING CORP', 'A1121218 1/2 X 1/2 X 1/8', '2018-10-02', 600, 'PCS', 1, NULL, '0000-00-00', 'ANGLE 3/4 X 2\r\n'),
+(22, '2018-10-20 05:19:52', 'RCE 120', 'T.Y ENTERPRISES', 'Led Kit, Bulbs Rxv Ezgo Light Complete', '2018-07-27', 20, 'PCS', 1, NULL, '0000-00-00', 'BULB 17063\r\n'),
+(23, '2018-10-20 05:21:16', 'RCE 120', 'BOLTS&NUTS HARDWARE CORP.', ' Flanged Lock Screw (Hexagon) ', '2018-07-17', 10, 'PCS', 1, NULL, '0000-00-00', '3/X / 1/2 CS WITH NUT FW\r\n'),
+(24, '2018-10-20 05:22:34', 'RCE 120', 'T.Y ENTERPRISES', '3600A Drum, Trailer Brake Drums', '2018-09-22', 7200, 'PCS', 2, NULL, '0000-00-00', 'BRAKE DRUM'),
+(25, '2018-10-20 05:24:01', 'ABF 3040', 'T.Y ENTERPRISES', 'MITSUBISHI FUSO OEM TRUCK (L/H) COMBINATION MIRROR', '2018-06-17', 350, 'PCS', 1, NULL, '0000-00-00', 'GUTTEN MIRROR FUSO\r\n');
 
 -- --------------------------------------------------------
 
