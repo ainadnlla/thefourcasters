@@ -67,7 +67,7 @@ class Staff extends CI_Controller {
         $this->load->view('include/footer');
         
     }else{
-    redirect('admin/login');
+    redirect('login/admin');
     }
     }
 
@@ -81,7 +81,7 @@ class Staff extends CI_Controller {
         $this->load->view('admin/staff/staffedit',compact('emp'));
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
 
@@ -93,7 +93,7 @@ class Staff extends CI_Controller {
         $this->load->view('admin/staff/staffdelete',compact('emp'));
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     } 
 

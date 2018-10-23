@@ -114,7 +114,7 @@
             <?php 
               foreach($drivernames as $row) { 
                 echo '
-                <option value="'.$row->id.'">' .$row->fname.' '. $row->lname.'</option>';
+                <option value="'.$row->id.'">' .'('.$row->id.') '.$row->drivername.'</option>';
               }
             ?>
             </select>
@@ -133,7 +133,6 @@
               }
             ?>
             </select>
-            <input hidden value="<?=$drivername->drivername?>" name="drivername" type="text">  
             <?= form_error('helperid', '<span class="label label-danger">', '</span>') ?>  
           </div>
           <div class="col-md-4">

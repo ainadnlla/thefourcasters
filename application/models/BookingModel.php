@@ -52,15 +52,10 @@ class BookingModel extends CI_Model{
         return $query->result();
     }
 
-    function getDriver()
-    {
-        $query = $this->db->query('SELECT id, fname, lname FROM driver WHERE status ="1"');
-        return $query->result();
-    }
     function getDrivers(){
         $weekdays = explode(",", 'weekday');        
         $bookingdate = $this->session->userdata('date');
-        $query = $this->db->query("SELECT id, fname, lname from driver where status= '1' AND DATE_FORMAT('$bookingdate', '%W') = weekday", array('weekday'=>$weekdays));
+        $query = $this->db->query("SELECT id, CONCAT(fname, ' ', lname) AS drivername from driver where status= '1' AND DATE_FORMAT('$bookingdate', '%W') = weekday", array('weekday'=>$weekdays));
              return $query->result();
     }
 
@@ -76,22 +71,16 @@ class BookingModel extends CI_Model{
         return $query->result();
     }
 
-    function getHelper()
-    {
-        $query = $this->db->query('SELECT fname, lname FROM helper WHERE status = "1"');
-        return $query->result();
-    }
     function getHelpers(){
-        $bookingdateh = $this->session->userdata('date');
-        $query = $this->db->query("SELECT id,fname, lname from helper where status= '1' AND DATE_FORMAT('$bookingdateh', '%W') = weekday ");
+        $weekdays = explode(",", 'weekday');        
+        $bookingdate = $this->session->userdata('date');
+        $query = $this->db->query("SELECT id, CONCAT(fname, ' ', lname) AS helpername from helper where status= '1' AND DATE_FORMAT('$bookingdate', '%W') = weekday", array('weekday'=>$weekdays));
              return $query->result();
     }
-    function getHelperid(){
-    
-            $bookingdateh = $this->session->userdata('date');
-         //   $helperid = $this->session->userdata('hid');
-            $query = $this->db->query("SELECT id,fname, lname from helper where status= '1' AND DATE_FORMAT('$bookingdateh', '%W') = weekday limit  1 ");
-                 return $query->result();
+    function getHelpername(){
+        $helperid = $this->session->userdata('driverid');
+        $query = $this->db->query("SELECT CONCAT(fname, ' ', lname) AS helpername FROM helper WHERE id = '$helperid'");
+        return $query->row();
     }
 
     function getDestination()

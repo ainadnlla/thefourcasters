@@ -68,7 +68,7 @@ class Customer extends CI_Controller {
         $this->load->view('include/footer');
         
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
         }
 
@@ -82,7 +82,7 @@ class Customer extends CI_Controller {
         $this->load->view('admin/customer/customeredit',compact('cust'));
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     }
 
@@ -94,7 +94,7 @@ class Customer extends CI_Controller {
         $this->load->view('admin/customer/customerdelete',compact('cust'));
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
         }
     } 
     

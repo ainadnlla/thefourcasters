@@ -48,7 +48,7 @@ class Maintenance extends CI_Controller {
         $this->load->view('admin/maintenance/maintenanceadd');
         
         }else{
-        redirect('admin/login');
+        redirect('login/admin');
         }
     }
 
@@ -63,7 +63,7 @@ class Maintenance extends CI_Controller {
         $this->load->view('include/footer');
 
         }else{
-            redirect('admin/login');
+            redirect('login/admin');
         }
     }
 

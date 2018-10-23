@@ -107,7 +107,7 @@ class Admin extends CI_Controller {
             $this->load->view('admin/truck/truckview',compact('truck', 'mains'));
             $this->load->view('admin/maintenance',compact('mains', 'hists'));
         }else{
-            redirect('admin/login');
+            redirect('login/admin');
         }
     }
 

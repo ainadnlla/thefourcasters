@@ -115,7 +115,7 @@
         <div class="col-md-4">
   
           <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Add</button>
-            <a href="<?=base_url().'admin/login/'?>" class="btn btn-danger" role="button">Back</a>
+            <a href="<?=base_url().'login/admin/'?>" class="btn btn-danger" role="button">Back</a>
             </form>
         </div>
       </div>
