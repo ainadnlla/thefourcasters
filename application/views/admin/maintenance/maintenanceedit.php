@@ -81,6 +81,10 @@
       </div>
     </div>
 
+    <div class="col-md-12">
+        <input hidden value="<?=$amount->amount?>" name="amount" type="number">  
+    </div>
+
     <div class="box-footer">
         <label class="col-md-12 control-label" for="button1id"></label>
         <a href="<?=base_url().'admin/truckdetails/'?>" class="btn btn-danger" role="button">Back</a>

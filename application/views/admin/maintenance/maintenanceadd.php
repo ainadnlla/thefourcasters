@@ -16,6 +16,7 @@
         <div class="form-group">
           <div class="col-md-4">
             <input type="hidden" name="id" type="text" placeholder="ID" class="form-control input-md" required="" >
+            <input value="<?php date_default_timezone_set('Asia/Manila'); echo date('Y-m-d H:i:s');?>" type="hidden" name="date" type="date" placeholder="date" class="form-control input-md" required="" >
           </div>
         </div>
     </fieldset>

@@ -29,7 +29,7 @@ class MaintenanceModel extends CI_Model{
 
     public function getMain(){
         $plate = $this->session->userdata('plate_no');
-        $query = $this->db->select('*')->order_by('date',"desc")->limit(1)->where(array('plate_no' => $plate))->get('maintenance');
+        $query = $this->db->select('*')->order_by('date',"desc")->limit(3)->where(array('plate_no' => $plate))->get('maintenance');
         return $query->result();
     }
 
@@ -43,11 +43,12 @@ class MaintenanceModel extends CI_Model{
     return $this->db->count_all('maintenance');
     }
 
-    function getAmount()
+    function getAmount($id)
     {
-        $query = $this->db->query('UPDATE maintenance SET amount=price*quantity');
-        return $query->result();
+        $query = $this->db->query("SELECT price, quantity, price * quantity as amount from maintenance where id = '$id'");
+        return $query->row();
     }
+    
 
 //DELETE    
 

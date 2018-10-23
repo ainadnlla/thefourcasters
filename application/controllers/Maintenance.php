@@ -19,7 +19,7 @@ class Maintenance extends CI_Controller {
         $data = array (
             'plate_no' => $this->session->userdata('plate_no'),
             'warning' => $this->input->post('warning'),
-
+            'date' => $this->input->post('date'),
         );
 
         unset($data['add']);
@@ -55,11 +55,11 @@ class Maintenance extends CI_Controller {
     public function edit($id){
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Maintenance Information | Angelogistic Forwarder Corporation';
-
+        $amount = $this->MaintenanceModel->getAmount($id);
         $main = $this->MaintenanceModel->getProd($id);
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
-        $this->load->view('admin/maintenance/maintenanceedit',compact('main'));
+        $this->load->view('admin/maintenance/maintenanceedit',compact('main', 'amount'));
         $this->load->view('include/footer');
 
         }else{
