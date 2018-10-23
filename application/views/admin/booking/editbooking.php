@@ -109,30 +109,30 @@
           <div class="col-md-4">
             <label>Driver</label>  
             <select value="<?=$books->driverid?>" name="driverid" class="form-control">
-            <option hidden selected value="<?=$books->driverid?>"><?=$books->driverid?></option>
-            <option disabled><?=$books->driverid?></option>
+            <option hidden selected value="<?=$books->driverid?>">Driver ID: <?=$books->driverid?></option>
+            <option disabled>Driver ID: <?=$books->driverid?></option>
             <?php 
               foreach($drivernames as $row) { 
-                echo '
-                <option value="'.$row->id.'">' .'('.$row->id.') '.$row->drivername.'</option>';
+                echo '<option value="'.$row->id.'">' .'('.$row->id.') '.$row->drivername.'</option>';
               }
             ?>
             </select>
-            <!-- <input value="<?=$drivername->drivername?>" name="drivername" type="text"> -->
+            <input hidden value="<?=$drivername->drivername?>" name="drivername" type="text">
             <?= form_error('driverid', '<span class="label label-danger">', '</span>') ?>  
           </div>
       
           <div class="col-md-4">
             <label>Helper</label>  
             <select value="<?=$books->helperid?>" name="helperid" class="form-control">
-            <option hidden selected value="<?=$books->helperid?>"><?=$books->helperid?></option>
-            <option disabled><?=$books->helperid?></option>
+            <option hidden selected value="<?=$books->helperid?>">Helper ID: <?=$books->helperid?></option>
+            <option disabled>Helper ID: <?=$books->helperid?></option>
             <?php 
               foreach($helpernames as $row) { 
-                echo '<option value="'.$row->fname.' '.$row->lname.'">' .$row->fname.' '. $row->lname.'</option>';
+                echo '<option value="'.$row->id.'">' .'('.$row->id.') '.$row->helpername.'</option>';
               }
             ?>
             </select>
+            <input hidden value="<?=$helpername->helpername?>" name="helpername" type="text">
             <?= form_error('helperid', '<span class="label label-danger">', '</span>') ?>  
           </div>
           <div class="col-md-4">
@@ -148,16 +148,17 @@
         <div class="form-group">
           <div class="col-md-8">
             <label>Destination</label>  
-            <select value="<?=$books->destination?>" name="destination" class="form-control">
-            <option hidden Selected value="<?=$books->destination?>"><?=$books->destination?></option>
-            <option disabled><?=$books->destination?></option>
+            <select value="<?=$books->destinationid?>" name="destinationid" class="form-control">
+            <option hidden Selected value="<?=$books->destinationid?>">Destination ID: <?=$books->destinationid?></option>
+            <option disabled>Destination ID: <?=$books->destinationid?></option>
             <?php 
-              foreach($location as $row) { 
-                echo '<option value="'.$row->destination.'">' .$row->destination.'</option>';
+              foreach($destination as $row) { 
+                echo '<option value="'.$row->id.'">' .'('.$row->id.') '.$row->destination.'</option>';
               }
             ?>
             </select>
-            <?= form_error('destination', '<span class="label label-danger">', '</span>') ?>  
+            <input hidden value="<?=$destinationname->destination?>" name="destination" type="text">
+            <?= form_error('destinationid', '<span class="label label-danger">', '</span>') ?>  
           </div>
           <div class="col-md-4">
             <label>Status</label>

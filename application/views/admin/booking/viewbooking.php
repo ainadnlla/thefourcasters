@@ -84,11 +84,11 @@
         <div class="form-group">
           <div class="col-md-4">
             <label>Driver</label>  
-            <input disabled value="<?=$books->driver_name?>" type="text" placeholder="Driver" class="form-control input-md">
+            <input disabled value="<?=$books->drivername?>" type="text" placeholder="Driver" class="form-control input-md">
           </div>
           <div class="col-md-4">
             <label>Helper</label>  
-            <input disabled value="<?=$books->helper_name?>" type="text" placeholder="Helper" class="form-control input-md">
+            <input disabled value="<?=$books->helpername?>" type="text" placeholder="Helper" class="form-control input-md">
           </div>
           <div class="col-md-4">
             <label>Price</label>

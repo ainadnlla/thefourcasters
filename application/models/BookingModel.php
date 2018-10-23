@@ -56,7 +56,6 @@ class BookingModel extends CI_Model{
         $weekdays = explode(",", 'weekday');        
         $bookingdate = $this->session->userdata('date');
         $drivername = $this->session->userdata('drivername');
-        // $query = $this->db->query("SELECT id, fname, lname from driver where status= '1' AND DATE_FORMAT('$bookingdate', '%W') = weekday ORDER BY experience desc ", array('weekday'=>$weekdays));
         $query = $this->db->query("SELECT id, CONCAT(fname, ' ', lname) AS drivername from driver where status= '1' AND DATE_FORMAT('$bookingdate', '%W') = weekday ORDER BY experience desc ", array('weekday'=>$weekdays));
              return $query->result();
     }
@@ -76,19 +75,28 @@ class BookingModel extends CI_Model{
     function getHelpers(){
         $weekdays = explode(",", 'weekday');        
         $bookingdate = $this->session->userdata('date');
-        $query = $this->db->query("SELECT id, CONCAT(fname, ' ', lname) AS helpername from helper where status= '1' AND DATE_FORMAT('$bookingdate', '%W') = weekday", array('weekday'=>$weekdays));
+        $helpername = $this->session->userdata('helpername');
+        $query = $this->db->query("SELECT id, CONCAT(fname, ' ', lname) AS helpername from helper where status= '1' AND DATE_FORMAT('$bookingdate', '%W') = weekday ORDER BY experience desc ", array('weekday'=>$weekdays));
              return $query->result();
     }
+
     function getHelpername(){
-        $helperid = $this->session->userdata('driverid');
+        $helperid = $this->session->userdata('helperid');
         $query = $this->db->query("SELECT CONCAT(fname, ' ', lname) AS helpername FROM helper WHERE id = '$helperid'");
         return $query->row();
     }
 
     function getDestination()
     {
-        $query = $this->db->query('SELECT destination FROM destination');
+        $query = $this->db->query('SELECT id, destination FROM destination');
         return $query->result();
+    }
+
+    function getDestinationname()
+    {
+        $destinationid = $this->session->userdata('destinationid');
+        $query = $this->db->query("SELECT destination FROM destination WHERE id = '$destinationid'");
+        return $query->row();
     }
 
 
