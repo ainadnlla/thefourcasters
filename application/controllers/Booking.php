@@ -16,11 +16,9 @@ class Booking extends CI_Controller {
 // CUSTOMER SIDE - BOOKING
     
     public function insert(){
-      
         $data = $this->input->post();
         unset($data['add']);
             $this->form_validation->set_rules('product', 'Product', 'required');       
-            $this->form_validation->set_rules('description', 'Description', 'required');
             $this->form_validation->set_rules('pieces', 'Pieces', 'required');
             $this->form_validation->set_rules('date','Date', 'required');
             $this->form_validation->set_rules('destination', 'Destination', 'required');
