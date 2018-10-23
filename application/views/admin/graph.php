@@ -45,6 +45,14 @@
                 <div id="Hello" style="height: 370px; max-width: 1200px; margin: 0px auto;"> </div>
                 <!-- boy ung div=id dat = sa value ng canvasjs.chart na eedit ata value ng var chart palitan nga lang sa baba -->
                   </div>
+									</div>    
+        </div>
+      	<!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+  </div>
+
 
 
 <!-- BOOKING BAR GRAPH -->
@@ -142,14 +150,4 @@ function explodePie (e) {
 	e.top.render();
 }
 
-
-
-
 </script>
-        </div>    
-        </div>
-      	<!-- /.col -->
-      </div>
-      <!-- /.row -->
-    </div>
-  </div>
