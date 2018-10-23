@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2018 at 04:45 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Generation Time: Oct 23, 2018 at 08:36 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -49,7 +49,7 @@ INSERT INTO `admin` (`id`, `name`, `username`, `password`) VALUES
 --
 
 CREATE TABLE `booking` (
-  `id` int(50) NOT NULL,
+  `id` int(255) NOT NULL,
   `waybill` int(50) NOT NULL,
   `date` date NOT NULL,
   `cust_type` varchar(50) NOT NULL,
@@ -84,7 +84,12 @@ INSERT INTO `booking` (`id`, `waybill`, `date`, `cust_type`, `custname`, `cargo`
 (8, 2623, '2018-10-06', '', 'Marilou R. Arevalo (Bong)', 'FCL 1x20', 'Insulation Foam and Roof', '2x2mm Roof and Foam 19x67', 3, 34, 'MIP - Caloocan, Baesa', 19590, '130104', 'Jeremy Lansang', 8, 'Nino Altamia', 21, 1),
 (9, 5190, '2018-10-17', '', 'Wacker Machines Supplies Corp.', 'FCL 2x20', 'Machinery Supplies', 'Machiner Supplies by NBS14', 50, 37, 'MIP - Manila , Mandaluyong', 25000, 'UIM 308', 'Remante Ibanez', 14, 'Virgilio Jaballa', 12, 1),
 (10, 1809, '2018-10-05', '', 'Coastline Truck Center', 'LCL 1x40', 'Dispenser Material', 'H2O Water Dispenser Aquabest', 100, 0, 'MIP - Bulacan, Sta. Maria (Coastline Warehouse)', 20000, 'ABF 3040', 'Ernesto Baquiran', 15, 'Berto Lozada', 7, 1),
-(11, 15124, '2018-10-20', 'Local/Sub-contractor', 'Altron Logistics Inc.', 'LCL (ELF)', 'Frozen Goods', 'Chilled Goods', 10, 11, 'MIP - Pampanga, San Fernando', 1000, 'ABA 9575', 'Jeremy Lansang', 8, 'Nino Altamia', 21, 0);
+(11, 15124, '2018-10-20', 'Local/Sub-contractor', 'Altron Logistics Inc.', 'LCL (ELF)', 'Frozen Goods', 'Chilled Goods', 10, 11, 'MIP - Pampanga, San Fernando', 1000, 'ABA 9575', 'Jeremy Lansang', 8, 'Nino Altamia', 21, 0),
+(12, 0, '2018-10-24', 'Local/Sub-contractor', 'San Miguel Shipping and Lighterage Corp.', 'LCL 1x40', 'Dispenser Material', 'Fragile ', 10, 0, 'MIP - Antipolo, Mambungan, Sumulong Highway (V&F I', 0, 'RLE 993', 'Inigo Rafaeles', 3, '', 0, 0),
+(13, 0, '2018-10-24', 'Local/Sub-contractor', 'San Miguel Shipping and Lighterage Corp.', 'FCL 1x45', 'Insulation Foam and Roof', 'Sample', 10, 0, 'MIP - Batangas, Tabangao (Kepco IIijan Power Plant', 0, 'RGY 294', 'Inigo Rafaeles', 3, '', 0, 0),
+(14, 0, '2018-10-24', 'Local/Sub-contractor', 'San Miguel Shipping and Lighterage Corp.', 'FCL 1x40', 'Frozen Goods', 'Meat and etc.', 20, 0, 'MIP - Batangas, Tabangao (Kepco IIijan Power Plant', 0, 'RLE 993', 'Inigo Rafaeles', 3, '', 0, 0),
+(15, 0, '2018-10-24', 'Local/Sub-contractor', 'San Miguel Shipping and Lighterage Corp.', 'LCL 1x40', '321', '21', 13, 0, 'MIP - Antipolo, Mambungan, Sumulong Highway (V&F I', 0, 'RLE 993', 'Inigo Rafaeles', 3, '', 0, 0),
+(16, 0, '2018-10-24', 'Local/Sub-contractor', 'San Miguel Shipping and Lighterage Corp.', 'FCL 1x40', '321', '321321', 10, 0, 'Harbor Center - Laguna, Calamba', 0, 'RLE 993', '', 14, '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -113,10 +118,10 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`id`, `name`, `cust_type`, `password`, `repass`, `email`, `contact`, `date`, `status`, `created`, `updated`, `img`) VALUES
 (1, 'Kargamine Tool Inc.', 'Local/Sub-contractor', '123456789', '123456789', 'kargamin@gmail.com', '09154269173', '2013-08-21', 0, '2018-10-20 21:24:52', '2018-10-20 21:24:52', 'default.jpg'),
-(2, 'San Miguel Shipping and Lighterage Corp.', 'Local/Sub-contractor', '123456789', '123456789', 'sanmiguelcorp@gmail.com', '09150138304', '2014-11-01', 0, '2018-10-20 21:24:52', '2018-10-20 21:24:52', 'default.jpg'),
-(3, 'Mira Raquel Suriben', 'Broker/Agent', '123456789', '123456789', 'miraquel@gmail.com', '09994736181', '2013-10-11', 0, '2018-10-20 21:24:52', '2018-10-20 21:24:52', 'default.jpg'),
+(2, 'San Miguel Shipping and Lighterage Corp.', 'Local/Sub-contractor', '123456789', '123456789', 'sanmiguelcorp@gmail.com', '09150138304', '2014-11-01', 1, '2018-10-20 21:24:52', '2018-10-20 21:24:52', 'default.jpg'),
+(3, 'Mira Raquel Suriben', 'Broker/Agent', '123456789', '123456789', 'miraquel@gmail.com', '09994736181', '2013-10-11', 1, '2018-10-20 21:24:52', '2018-10-20 21:24:52', 'default.jpg'),
 (4, 'NALM Trading (Reymark V. Gador)', 'In-house Brokerage', '123456789', '123456789', 'nalm@gmail.com', '09170143697', '2018-02-25', 0, '2018-10-20 21:24:52', '2018-10-20 21:24:52', 'default.jpg'),
-(5, 'Allied Botanical Corporation', 'Local/Sub-contractor', '123456789', '123456789', 'alliedbcorp@gmail.com', '09495123614', '2015-02-26', 0, '2018-10-20 21:24:53', '2018-10-20 21:24:53', 'default.jpg'),
+(5, 'Allied Botanical Corporation', 'Local/Sub-contractor', '123456789', '123456789', 'alliedbcorp@gmail.com', '09495123614', '2015-02-26', 1, '2018-10-20 21:24:53', '2018-10-20 21:24:53', 'default.jpg'),
 (6, 'Frey Fil Corp. (Elizabeth N. Almariego)', 'Broker/Agent', '123456789', '123456789', 'freyfilcorp@gmail.com', '09676247831', '2015-02-26', 0, '2018-10-20 21:24:53', '2018-10-20 21:24:53', 'default.jpg'),
 (7, 'Yongzheng Shipping Corp Inc.', 'Local/Sub-contractor', '123456789', '123456789', 'yongzheng@gmail.com', '09051478365', '2016-05-17', 0, '2018-10-20 21:24:53', '2018-10-20 21:24:53', 'default.jpg'),
 (8, 'W Hydrocolloids Inc.', 'Freight Forwarder', '123456789', '123456789', 'hydrocolloids@gmail.com', '09997531548', '2017-08-27', 0, '2018-10-20 21:24:53', '2018-10-20 21:24:53', 'default.jpg'),
@@ -238,25 +243,25 @@ CREATE TABLE `driver` (
 --
 
 INSERT INTO `driver` (`img`, `id`, `driver_no`, `expire`, `fname`, `mname`, `lname`, `email`, `password`, `repass`, `gender`, `birthday`, `contact`, `experience`, `date`, `status`, `timein`, `timeout`, `weekday`) VALUES
-('default.jpg', 1, 'ACLDI010987016', '2021-12-20', 'Arnel', NULL, 'Villamor', 'avillamor@gmail.com', '123456789', '123456789', 'M', '1988-12-20', '09154269173', 5, '2015-03-25', 0, '12:00:00', '09:00:00', 'Monday'),
-('default.jpg', 2, 'ACLDI090878015', '2019-03-01', 'Ernie', NULL, 'Saavedra', 'esaavedra@gmail.com', '123456789', '123456789', 'M', '1976-03-01', '09151496857', 10, '2013-08-21', 0, '01:00:00', '09:00:00', 'Tuesday'),
-('default.jpg', 3, 'ACLDI240178014', '2020-05-11', 'Inigo', NULL, 'Rafaeles', 'irafaeles@gmail.com', '123456789', '123456789', 'M', '1987-05-11', '09150138304', 3, '2014-11-01', 0, '01:00:00', '09:00:00', 'Wednesday'),
-('default.jpg', 4, 'ACLDI300862013', '2022-09-15', 'Joshua', NULL, 'Patino', 'jpatino@gmail.com', '123456789', '123456789', 'M', '1984-09-15', '09154736181', 7, '2013-10-11', 0, '03:00:00', '10:00:00', 'Thursday'),
-('default.jpg', 5, 'ACLD120884017', '2019-08-30', 'John Robert', NULL, 'Tambanillo', 'jrtambanillo@gmail.com', '123456789', '123456789', 'M', '1985-08-30', '09170143697', 2, '2018-02-25', 0, '03:00:00', '10:00:00', 'Thursdays'),
-('default.jpg', 6, 'ACLDI070952012', '2018-12-30', 'Joe', NULL, 'Layan', 'jlayan@gmail.com', '123456789', '123456789', 'M', '1969-07-24', '09103451236', 12, '2009-01-15', 0, '03:00:00', '10:00:00', 'Thursday'),
-('default.jpg', 7, 'ACLDI000000011', '2019-06-30', 'Mau', NULL, 'Latap', 'mlatap@gmail.com', '123456789', '123456789', 'M', '1985-06-30', '09135715948', 6, '2012-02-26', 0, '04:00:00', '12:00:00', 'Friday'),
-('default.jpg', 8, 'ACLDI280588010', '2020-08-31', 'Jeremy', NULL, 'Lansang', 'jlansang@gmail.com', '123456789', '123456789', 'M', '1983-08-31', '09676247831', 6, '2018-04-20', 0, '05:00:00', '09:00:00', 'Saturday'),
-('default.jpg', 9, 'ACLDI260573009', '2019-11-24', 'Ronnie', NULL, 'Jaballa', 'rjaballa@gmail.com', '123456789', '123456789', 'M', '1986-07-11', '09051478365', 5, '2014-05-17', 0, '05:00:00', '05:00:00', 'Sunday'),
-('default.jpg', 10, 'ACLDI311276008', '2022-06-23', 'Donnie', NULL, 'Jaballa', 'djaballa@gmail.com', '123456789', '123456789', 'M', '1984-06-23', '09153146987', 4, '2015-07-13', 0, '09:00:00', '04:00:00', 'Saturday'),
-('default.jpg', 11, 'ACLDI201084007', '2021-12-10', 'Mariano', NULL, 'Estaris', 'mestaris@gmail.com', '123456789', '123456789', 'M', '1984-12-10', '09364251658', 8, '2011-03-29', 0, '01:00:00', '02:00:00', 'Monday'),
-('default.jpg', 12, 'ACLDI180468006', '2020-08-31', 'Lemuel', NULL, 'Catalan', 'lcatalan@gmail.com', '123456789', '123456789', 'M', '1985-08-11', '09458621403', 3, '2016-09-23', 0, '02:00:00', '12:00:00', 'Thursday'),
-('default.jpg', 13, 'ACLDI241164005', '2019-04-14', 'Tonyo', NULL, 'Bitoon', 'tbitoon@gmail.com', '123456789', '123456789', 'M', '1975-04-14', '09073556128', 12, '2010-12-21', 0, '07:00:00', '12:00:00', 'Sunday'),
-('default.jpg', 14, 'ACLDI141281004', '2020-10-15', 'Jonalyn', NULL, 'Bartolome', 'jbartolome@gmail.com', '123456789', '123456789', 'M', '1987-10-14', '09154669875', 5, '2015-01-20', 0, '09:00:00', '08:00:00', 'Wednesday'),
-('default.jpg', 15, 'ACLDI081281003', '2023-03-18', 'Ernesto', NULL, 'Baquiran', 'ebaquiran@gmail.com', '123456789', '123456789', 'M', '1981-03-18', '09478621034', 9, '2009-06-28', 0, '12:00:00', '12:00:00', 'Friday'),
-('default.jpg', 16, 'ACLDI241283002', '2023-09-12', 'Jing', NULL, 'Baluran', 'jbaluran@gmail.com', '123456789', '123456789', 'M', '1988-09-12', '09365448607', 4, '2012-02-22', 0, '11:00:00', '12:00:00', 'Tuesday'),
-('default.jpg', 17, 'ACLDI091180001', '2023-11-13', 'Wancho', NULL, 'Apas', 'wapas@gmail.com', '123456789', '123456789', 'M', '1976-11-13', '09125647820', 4, '2014-05-06', 0, '12:00:00', '09:00:00', 'Thursday'),
-('default.jpg', 18, 'ACLDI091181567', '2020-07-17', 'Remante', NULL, 'Ibanez', 'ribanez@gmail.com', '123456789', '123456789', 'M', '1985-07-17', '09997531548', 6, '2011-06-19', 0, '11:00:00', '03:00:00', 'Wednesday'),
-('default.jpg', 19, 'ACLDI091182000', '2019-12-01', 'Frederico', NULL, 'Alburo', 'falburo@gmail.com', '123456789', '123456789', 'M', '1978-09-26', '09192554863', 12, '2009-04-17', 0, '08:00:00', '07:00:00', 'Friday');
+('default.jpg', 1, 'ACLDI010987016', '2021-12-20', 'Arnel', NULL, 'Villamor', 'avillamor@gmail.com', '123456789', '123456789', 'M', '1988-12-20', '09154269173', 5, '2015-03-25', 1, '12:00:00', '09:00:00', 'Monday'),
+('default.jpg', 2, 'ACLDI090878015', '2019-03-01', 'Ernie', NULL, 'Saavedra', 'esaavedra@gmail.com', '123456789', '123456789', 'M', '1976-03-01', '09151496857', 10, '2013-08-21', 1, '01:00:00', '09:00:00', 'Tuesday'),
+('default.jpg', 3, 'ACLDI240178014', '2020-05-11', 'Inigo', NULL, 'Rafaeles', 'irafaeles@gmail.com', '123456789', '123456789', 'M', '1987-05-11', '09150138304', 3, '2014-11-01', 1, '01:00:00', '09:00:00', 'Wednesday'),
+('default.jpg', 4, 'ACLDI300862013', '2022-09-15', 'Joshua', NULL, 'Patino', 'jpatino@gmail.com', '123456789', '123456789', 'M', '1984-09-15', '09154736181', 7, '2013-10-11', 1, '03:00:00', '10:00:00', 'Thursday'),
+('default.jpg', 5, 'ACLD120884017', '2019-08-30', 'John Robert', NULL, 'Tambanillo', 'jrtambanillo@gmail.com', '123456789', '123456789', 'M', '1985-08-30', '09170143697', 2, '2018-02-25', 1, '03:00:00', '10:00:00', 'Thursdays'),
+('default.jpg', 6, 'ACLDI070952012', '2018-12-30', 'Joe', NULL, 'Layan', 'jlayan@gmail.com', '123456789', '123456789', 'M', '1969-07-24', '09103451236', 12, '2009-01-15', 1, '03:00:00', '10:00:00', 'Thursday'),
+('default.jpg', 7, 'ACLDI000000011', '2019-06-30', 'Mau', NULL, 'Latap', 'mlatap@gmail.com', '123456789', '123456789', 'M', '1985-06-30', '09135715948', 6, '2012-02-26', 1, '04:00:00', '12:00:00', 'Friday'),
+('default.jpg', 8, 'ACLDI280588010', '2020-08-31', 'Jeremy', NULL, 'Lansang', 'jlansang@gmail.com', '123456789', '123456789', 'M', '1983-08-31', '09676247831', 6, '2018-04-20', 1, '05:00:00', '09:00:00', 'Saturday'),
+('default.jpg', 9, 'ACLDI260573009', '2019-11-24', 'Ronnie', NULL, 'Jaballa', 'rjaballa@gmail.com', '123456789', '123456789', 'M', '1986-07-11', '09051478365', 5, '2014-05-17', 1, '05:00:00', '05:00:00', 'Sunday'),
+('default.jpg', 10, 'ACLDI311276008', '2022-06-23', 'Donnie', NULL, 'Jaballa', 'djaballa@gmail.com', '123456789', '123456789', 'M', '1984-06-23', '09153146987', 4, '2015-07-13', 1, '09:00:00', '04:00:00', 'Saturday'),
+('default.jpg', 11, 'ACLDI201084007', '2021-12-10', 'Mariano', NULL, 'Estaris', 'mestaris@gmail.com', '123456789', '123456789', 'M', '1984-12-10', '09364251658', 8, '2011-03-29', 1, '01:00:00', '02:00:00', 'Monday'),
+('default.jpg', 12, 'ACLDI180468006', '2020-08-31', 'Lemuel', NULL, 'Catalan', 'lcatalan@gmail.com', '123456789', '123456789', 'M', '1985-08-11', '09458621403', 3, '2016-09-23', 1, '02:00:00', '12:00:00', 'Thursday'),
+('default.jpg', 13, 'ACLDI241164005', '2019-04-14', 'Tonyo', NULL, 'Bitoon', 'tbitoon@gmail.com', '123456789', '123456789', 'M', '1975-04-14', '09073556128', 12, '2010-12-21', 1, '07:00:00', '12:00:00', 'Sunday'),
+('default.jpg', 14, 'ACLDI141281004', '2020-10-15', 'Jonalyn', NULL, 'Bartolome', 'jbartolome@gmail.com', '123456789', '123456789', 'M', '1987-10-14', '09154669875', 5, '2015-01-20', 1, '09:00:00', '08:00:00', 'Wednesday'),
+('default.jpg', 15, 'ACLDI081281003', '2023-03-18', 'Ernesto', NULL, 'Baquiran', 'ebaquiran@gmail.com', '123456789', '123456789', 'M', '1981-03-18', '09478621034', 9, '2009-06-28', 1, '12:00:00', '12:00:00', 'Friday'),
+('default.jpg', 16, 'ACLDI241283002', '2023-09-12', 'Jing', NULL, 'Baluran', 'jbaluran@gmail.com', '123456789', '123456789', 'M', '1988-09-12', '09365448607', 4, '2012-02-22', 1, '11:00:00', '12:00:00', 'Tuesday'),
+('default.jpg', 17, 'ACLDI091180001', '2023-11-13', 'Wancho', NULL, 'Apas', 'wapas@gmail.com', '123456789', '123456789', 'M', '1976-11-13', '09125647820', 4, '2014-05-06', 1, '12:00:00', '09:00:00', 'Thursday'),
+('default.jpg', 18, 'ACLDI091181567', '2020-07-17', 'Remante', NULL, 'Ibanez', 'ribanez@gmail.com', '123456789', '123456789', 'M', '1985-07-17', '09997531548', 6, '2011-06-19', 1, '11:00:00', '03:00:00', 'Wednesday'),
+('default.jpg', 19, 'ACLDI091182000', '2019-12-01', 'Frederico', NULL, 'Alburo', 'falburo@gmail.com', '123456789', '123456789', 'M', '1978-09-26', '09192554863', 12, '2009-04-17', 1, '08:00:00', '07:00:00', 'Friday');
 
 -- --------------------------------------------------------
 
@@ -474,6 +479,12 @@ INSERT INTO `truck` (`id`, `img`, `brand`, `plate_no`, `series`, `mvfile_no`, `e
 --
 
 --
+-- Indexes for table `booking`
+--
+ALTER TABLE `booking`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
@@ -524,6 +535,12 @@ ALTER TABLE `truck`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `customer`

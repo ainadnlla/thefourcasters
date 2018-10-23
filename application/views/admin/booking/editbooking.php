@@ -7,7 +7,7 @@
       <li class="active">Edit</a></li>
     </ol>
 </section>
-
+<?= error_reporting(0);?>
 <section class="content">
   <div class="row">
     <div class="col-sm-12">   

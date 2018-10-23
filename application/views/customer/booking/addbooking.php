@@ -16,13 +16,14 @@
           <h3 class="box-title">Add Details</h3>
         </div>
 
-        <form class="form-horizontal" action ="<?=base_url().'booking/insert'?>" method = "post">
+        <form class="form-horizontal" action ="<?=base_url()?>booking/insert/" method = "post">
         <div class="box-body">
-          <div class="form-group">
-            <div class="col-md-4">
-              <input type="hidden"  name="id" type="text" placeholder="ID" class="form-control input-md" required="" >  
-            </div>
-          </div>
+        <div class="form-group">
+        <div class="col-md-4">
+          <input type="hidden" name="id" type="text" placeholder="ID" class="form-control input-md"required="" >
+        </div>
+      </div>
+
 
           <div class="form-group">
             <div class="col-md-4">
@@ -47,7 +48,7 @@
           <label class="col-md-4 control-label"  for="description">Description</label>  
             <div class="col-md-4">
               <input class="form-control input-md" id="description" value = "<?=set_value('description')?>" name="description" type="text" placeholder="Decription"> 
-              <?= form_error('description', '<span class="label label-danger">', '</span>') ?> 
+      
           </div>
         </div>
 
