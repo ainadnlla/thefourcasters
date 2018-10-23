@@ -66,12 +66,12 @@
 
 <div class="row">
 <div class="col-xs-12">
-  <div class="box box-primary">
+  <div class="box box-primary collapsed-box">
             <div class="box-header with-border">
               <h3 class="box-title">Daily Booking Report</h3>
 
               <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
                 </button>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
@@ -141,12 +141,12 @@
 
 <div class="row">
 <div class="col-xs-12">
-  <div class="box box-primary">
+  <div class="box box-primary collapsed-box">
             <div class="box-header with-border">
               <h3 class="box-title">Monthly Booking Report</h3>
 
               <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
                 </button>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
@@ -216,12 +216,12 @@
 
 <div class="row">
 <div class="col-xs-12">
-  <div class="box box-primary">
+  <div class="box box-primary collapsed-box">
             <div class="box-header with-border">
               <h3 class="box-title">Yearly Booking Report</h3>
 
               <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
                 </button>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
@@ -291,12 +291,12 @@
 
 <div class="row">
 <div class="col-xs-12">
-  <div class="box box-primary">
+  <div class="box box-primary collapsed-box">
             <div class="box-header with-border">
               <h3 class="box-title">Daily Maintenance Report</h3>
 
               <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
                 </button>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
@@ -356,12 +356,12 @@
       </div>
       <div class="row">
 <div class="col-xs-12">
-  <div class="box box-primary">
+  <div class="box box-primary collapsed-box">
             <div class="box-header with-border">
               <h3 class="box-title">Monthly Maintenance Report</h3>
 
               <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
                 </button>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
@@ -421,12 +421,12 @@
       </div>
       <div class="row">
 <div class="col-xs-12">
-  <div class="box box-primary">
+  <div class="box box-primary collapsed-box">
             <div class="box-header with-border">
               <h3 class="box-title">Yearly Maintenance Report</h3>
 
               <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
                 </button>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
@@ -486,7 +486,7 @@
       </div>
       <div class="row">
 <div class="col-xs-12">
-  <div class="box box-primary">
+  <div class="box box-primary collapsed-box">
             <div class="box-header with-border">
               <h3 class="box-title">Yearly Report of Booking and Maintenance</h3>
 
