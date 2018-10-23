@@ -69,7 +69,6 @@ class Maintenance extends CI_Controller {
 
     public function update($id){
     $data = $this->input->post();
-    
     unset($data['submit']);
 
     $this->form_validation->set_rules('supplier', 'Supplier', 'required');

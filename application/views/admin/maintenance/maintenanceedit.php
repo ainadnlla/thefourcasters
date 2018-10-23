@@ -82,7 +82,7 @@
     </div>
 
     <div class="col-md-12">
-        <input hidden value="<?=$amount->amount?>" name="amount" type="number">  
+        <input value="<?=$amount->amount?>" type="hidden" name="amount" type="number" class="form-control input-md" required="" >
     </div>
 
     <div class="box-footer">
