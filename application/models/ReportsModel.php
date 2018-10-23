@@ -29,6 +29,18 @@ class ReportsModel extends CI_Model{
         return $query->result();
 
     }
+    public function getmainday($day,$month, $year){
+         $query = $this->db->query("SELECT * FROM maintenance WHERE EXTRACT(MONTH FROM date) = '$month' && EXTRACT(DAY FROM date) = '$day' && EXTRACT(YEAR FROM date) = '$year'");
+        return $query->result();
+
+    }
+    public function getmainyear($year){
+        
+        $query = $this->db->query("SELECT * FROM maintenance WHERE EXTRACT(YEAR FROM date) = '$year'");
+        return $query->result();
+
+    }
+
 
     public function getBook(){
         $query = $this->db->query("SELECT * FROM booking WHERE EXTRACT(MONTH FROM date) = EXTRACT(MONTH from CURDATE()) AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())");
