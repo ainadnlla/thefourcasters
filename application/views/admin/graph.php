@@ -107,18 +107,9 @@ chart.render();
 	}]
 });
 top.render();
-}
 
-function explodePie (e) {
-	if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
-		e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
-	} else {
-		e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
-	}
-	e.top.render();
-}
-
-var chart = new CanvasJS.Chart("longest", {
+// LONGEST MAINTENANCE TIME
+var longest = new CanvasJS.Chart("longest", {
 	animationEnabled: true,
 	theme: "light2",
 	title:{
@@ -130,24 +121,28 @@ var chart = new CanvasJS.Chart("longest", {
 	data: [{        
 		type: "line",       
 		dataPoints: [
-			{ y: 450 },
-			{ y: 414},
-			{ y: 520, indexLabel: "highest",markerColor: "red", markerType: "triangle" },
-			{ y: 460 },
-			{ y: 450 },
-			{ y: 500 },
-			{ y: 480 },
-			{ y: 480 },
-			{ y: 410 , indexLabel: "lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
-			{ y: 500 },
-			{ y: 480 },
-			{ y: 510 }
+			{ x: new Date(2017, 0, 3), y: 650 },
+			{ x: new Date(2017, 0, 3), y: 650 }
+			// { y: 520, indexLabel: "highest",markerColor: "red", markerType: "triangle" },
+
 		]
 	}]
 });
-chart.render();
+longest.render();
 
 }
+
+function explodePie (e) {
+	if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+		e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+	} else {
+		e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+	}
+	e.top.render();
+}
+
+
+
 
 </script>
         </div>    
