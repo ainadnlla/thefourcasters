@@ -23,7 +23,6 @@
 		<!-- /.row -->
 	</div>
 
-
 <div class="row">
     <div class="col-md-12">
       <div class="box">
@@ -44,16 +43,43 @@
                 <!-- For getting the chartContainer/to show the graph which is div id=Hello -->
                 <div id="Hello" style="height: 370px; max-width: 1200px; margin: 0px auto;"> </div>
                 <!-- boy ung div=id dat = sa value ng canvasjs.chart na eedit ata value ng var chart palitan nga lang sa baba -->
-                  </div>
-									</div>    
-        </div>
+                </div>
+							</div>    
+        		</div>
       	<!-- /.col -->
-      </div>
+      		</div>
       <!-- /.row -->
-    </div>
-  </div>
+  	</div>
+</div>
 
-
+<div class="row">
+    <div class="col-md-12">
+      <div class="box">
+        <div class="box-header with-border">
+        	<h3 class="box-title">Longest Maintenance Time</h3>
+          	<div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <div class="btn-group">  
+                </div> 
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <div class="row">
+              <div class="col-md-12">           
+                <!-- For getting the chartContainer/to show the graph which is div id=Hello -->
+                <div id="longest" style="height: 370px; max-width: 1200px; margin: 0px auto;"> </div>
+                <!-- boy ung div=id dat = sa value ng canvasjs.chart na eedit ata value ng var chart palitan nga lang sa baba -->
+                </div>
+							</div>    
+        		</div>
+      	<!-- /.col -->
+      		</div>
+      <!-- /.row -->
+  	</div>
+</div>
 
 <!-- BOOKING BAR GRAPH -->
 <script type="text/javascript">
@@ -127,13 +153,26 @@ var longest = new CanvasJS.Chart("longest", {
 		includeZero: false
 	},
 	data: [{        
-		type: "line",       
+		type: "line",     
+		color: "#F08080",  
 		dataPoints: [
-			{ x: new Date(2017, 0, 3), y: 650 },
-			{ x: new Date(2017, 0, 3), y: 650 }
+			{ y: <?php echo $days5->format('%a');?>, label: "Try" },
+			{ y: <?php echo $days4->format('%a');?>, label: "Try" },
+			{ y: <?php echo $days3->format('%a');?>, label: "Try" },
+			{ y: <?php echo $days2->format('%a');?>, label: "Try" },
+			{ y: <?php echo $days->format('%a');?>, label: "Try" },
 			// { y: 520, indexLabel: "highest",markerColor: "red", markerType: "triangle" },
-
-		]
+			]
+		},
+		{
+			type: "line",       
+			dataPoints: [
+			{ y: <?php echo $days6->format('%a');?>, label: "Try" },
+			{ y: <?php echo $days7->format('%a');?>, label: "Try" },
+			{ y: <?php echo $days8->format('%a');?>, label: "Try" },
+			{ y: <?php echo $days9->format('%a');?>, label: "Try" },
+			{ y: <?php echo $days10->format('%a');?>, label: "Try" },
+			]
 	}]
 });
 longest.render();

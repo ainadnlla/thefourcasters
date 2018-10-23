@@ -51,17 +51,79 @@ class Admin extends CI_Controller {
         $third = $this->ChartModel->getThird();
         $fourth = $this->ChartModel->getFourth();
         $fifth = $this->ChartModel->getFifth();
-        
+        //Longest - Line Graph
+        //First longest
+        $warning = $this->ChartModel->getFirstWarning();
+        $date1 = $this->ChartModel->getFirstDate();
+        $date1 = new DateTime($date1->date);
+        $enddate1 = $this->ChartModel->getFirstDate();
+        $enddate1 = new DateTime($enddate1->enddate);
+        $days = date_diff($date1,$enddate1);
+        //Second longest
+        $date2 = $this->ChartModel->getSecondDate();
+        $date2 = new DateTime($date2->date);
+        $enddate2 = $this->ChartModel->getSecondDate();
+        $enddate2 = new DateTime($enddate2->enddate);
+        $days2 = date_diff($date2,$enddate2);
+        //third longest
+        $date3 = $this->ChartModel->getThirdDate();
+        $date3 = new DateTime($date3->date);
+        $enddate3 = $this->ChartModel->getThirdDate();
+        $enddate3 = new DateTime($enddate3->enddate);
+        $days3 = date_diff($date3,$enddate3);
+        //fourth longest
+        $date4 = $this->ChartModel->getFourthDate();
+        $date4 = new DateTime($date4->date);
+        $enddate4 = $this->ChartModel->getFourthDate();
+        $enddate4 = new DateTime($enddate4->enddate);
+        $days4 = date_diff($date4,$enddate4);
+        //fifth longest
+        $date5 = $this->ChartModel->getFifthDate();
+        $date5 = new DateTime($date5->date);
+        $enddate5 = $this->ChartModel->getFifthDate();
+        $enddate5 = new DateTime($enddate5->enddate);
+        $days5 = date_diff($date5,$enddate5);
+
+        //first shortest
+        $date6 = $this->ChartModel->getFirstEndDate();
+        $date6 = new DateTime($date6->date);
+        $enddate6 = $this->ChartModel->getFirstEndDate();
+        $enddate6 = new DateTime($enddate6->enddate);
+        $days6 = date_diff($date6,$enddate6);
+        //Second shortest
+        $date7 = $this->ChartModel->getSecondEndDate();
+        $date7 = new DateTime($date7->date);
+        $enddate7 = $this->ChartModel->getSecondEndDate();
+        $enddate7 = new DateTime($enddate7->enddate);
+        $days7 = date_diff($date7,$enddate7);
+        //third shortest
+        $date8 = $this->ChartModel->getThirdEndDate();
+        $date8 = new DateTime($date8->date);
+        $enddate8 = $this->ChartModel->getThirdEndDate();
+        $enddate8 = new DateTime($enddate8->enddate);
+        $days8 = date_diff($date8,$enddate8);
+        //fourth shortest
+        $date9 = $this->ChartModel->getFourthEndDate();
+        $date9 = new DateTime($date9->date);
+        $enddate9 = $this->ChartModel->getFourthEndDate();
+        $enddate9 = new DateTime($enddate9->enddate);
+        $days9 = date_diff($date9,$enddate9);
+        //fifth shortest
+        $date10 = $this->ChartModel->getFifthEndDate();
+        $date10 = new DateTime($date10->date);
+        $enddate10 = $this->ChartModel->getFifthEndDate();
+        $enddate10 = new DateTime($enddate10->enddate);
+        $days10 = date_diff($date10,$enddate10);
+
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
         $this->load->view('include/footer');
         $this->load->view('admin/homepage');
         $this->load->view('admin/graph',
-        compact('accept', 'pending','deny', 'first', 'second','third','fourth','fifth'));
+        compact('accept', 'pending','deny', 'first', 'second','third','fourth','fifth',
+        'days', 'days2', 'days3','days4','days5', 'days6', 'days7', 'days8', 'days9', 'days10'));
         $this->load->view('admin/bookinglatest',compact('books'));
-        
-
-       
+    
     }else{
         redirect('login/admin');
     }
