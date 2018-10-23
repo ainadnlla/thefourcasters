@@ -61,7 +61,8 @@ class BookingAdmin extends CI_Controller {
 
         $session_data = array(
             'date' => $books->date,
-            'driverid' => $books->driverid
+            'driverid' => $books->driverid,
+            'drivername' => $books->drivername
         );
         $this->session->set_userdata($session_data);
 
