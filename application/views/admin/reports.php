@@ -1,4 +1,3 @@
-
 <div class="content-wrapper">
 <section class="content-header">
   <h1>Reports</h1>
@@ -8,13 +7,13 @@
   </ol>
 </section>
 
-<div class="pad margin no-print">
+
+    <div class="pad margin no-print">
       <div class="callout callout-info" style="margin-bottom: 0!important;">
         <h4><i class="fa fa-info"></i> Note:</h4>
-        This page has been enhanced for printing. Click the print button at the bottom of the table to generate report.
+       This datatable shows the Daily Booking Report
       </div>
     </div>
-
 <form  class="form-horizontal"  action ="<?=base_url()?>admin/reports/"  method='get'>
 <section class="content">
 
@@ -37,13 +36,25 @@
         </select>
     </div>
   </div>
+  <div class="col-xs-2">
+    <div class="form-group">
+        <select name="day" class="form-control">
+          <option selected disabled>Select Day</option>
+          <?php
+          for($y = 01; $y <= 31; $y++){
+            echo "<option value=".$y."> ".$y."</option>";
+          }
+          ?>
+        </select>
+    </div>
+  </div>
 
   <div class="col-xs-3">
     <div class="form-group">
         <select name="year" class="form-control">
         <option selected disabled>Select Year</option>
         <?php
-        for($x = 1998; $x <= date('Y'); $x++){
+        for($x = 2005; $x <= date('Y'); $x++){
           echo "<option value=".$x."> ".$x."</option>";
         }
         ?>
@@ -56,12 +67,93 @@
       <button name="submit" type="submit" value="submit" class="form-control btn btn-default">GO</button>
     </div>
   </div>
+<!-- Daily -->
 
 <div class="row">
 <div class="col-xs-12">
   <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Booking Report</h3>
+              <h3 class="box-title">Daily Booking Report</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="table-responsive">
+              <table id="example1" class="table table-bordered table-hover table-striped">
+              <thead>
+              <tr>
+                <th>Waybill</th>
+                <th>Customer</th>
+                <th>Date</th>
+                <th>Cargo Size</th>
+                <th>Destination</th>
+                <th>Price</th>
+                <th>Status</th>
+              </tr>
+              </thead>
+                  
+                  <tbody>
+                  <?php foreach($days as $day): ?>  
+                  <tr>
+               
+                  <td><?= $day->waybill?></td>
+                  <td><?= $day->custname?></td>
+                  <td><?= $day->date?></td>
+                  <td><?= $day->cargo?></td>
+                  <td><?= $day->destination?></td>
+                  <td>₱<?= $day->price?></td>
+                  <td>  <?php if($day->action==1){ ?>
+                          <div class="label label-success">
+                            <strong>Accepted</strong>
+                          </div>
+                        <?php }elseif($day->action==2){ ?>
+                          <div class="label label-danger">
+                            <strong>Denied</strong>
+                          </div></p>
+                        <?php }else{?>
+                          <div class="label label-warning">
+                            <strong>Pending</strong>
+                          </div>
+                     <?php   }?>
+                     </td>
+                  </tr>
+                  <?php endforeach; ?> 
+                  </tbody>
+                 
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-body -->
+          <div class="box-footer clearfix">
+           
+          <div class="row no-print">
+            <div class="col-xs-12">
+              <a href="<?=base_url()."admin/toprint"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+              <a href="<?=base_url()."admin/pdf"?>" target="_blank" type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+              <i class="fa fa-download"></i> Generate PDF
+                        </a>
+            </div>
+          </div>
+      </div>
+      </div>
+<!-- Monthly -->
+<div class="pad margin no-print">
+      <div class="callout callout-info" style="margin-bottom: 0!important;">
+        <h4><i class="fa fa-info"></i> Note:</h4>
+       This datatable shows the Monthly Booking Report
+      </div>
+    </div>
+<div class="row">
+<div class="col-xs-12">
+  <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Monthly Booking Report</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -130,7 +222,86 @@
           </div>
       </div>
       </div>
+<!-- Yearly -->
+<div class="pad margin no-print">
+      <div class="callout callout-info" style="margin-bottom: 0!important;">
+        <h4><i class="fa fa-info"></i> Note:</h4>
+       This datatable shows the Yearly Booking Report
+      </div>
+    </div>
+<div class="row">
+<div class="col-xs-12">
+  <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Yearly Booking Report</h3>
 
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="table-responsive">
+              <table id="example1" class="table table-bordered table-hover table-striped">
+              <thead>
+              <tr>
+                <th>Waybill</th>
+                <th>Customer</th>
+                <th>Date</th>
+                <th>Cargo Size</th>
+                <th>Destination</th>
+                <th>Price</th>
+                <th>Status</th>
+              </tr>
+              </thead>
+                  
+                  <tbody>
+                  <?php foreach($years as $year): ?>  
+                  <tr>
+               
+                  <td><?= $year->waybill?></td>
+                  <td><?= $year->custname?></td>
+                  <td><?= $year->date?></td>
+                  <td><?= $year->cargo?></td>
+                  <td><?= $year->destination?></td>
+                  <td>₱<?= $year->price?></td>
+                  <td>  <?php if($year->action==1){ ?>
+                          <div class="label label-success">
+                            <strong>Accepted</strong>
+                          </div>
+                        <?php }elseif($year->action==2){ ?>
+                          <div class="label label-danger">
+                            <strong>Denied</strong>
+                          </div></p>
+                        <?php }else{?>
+                          <div class="label label-warning">
+                            <strong>Pending</strong>
+                          </div>
+                     <?php   }?>
+                     </td>
+                  </tr>
+                  <?php endforeach; ?> 
+                  </tbody>
+                 
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-body -->
+          <div class="box-footer clearfix">
+           
+          <div class="row no-print">
+            <div class="col-xs-12">
+              <a href="<?=base_url()."admin/toprint"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+              <a href="<?=base_url()."admin/pdf"?>" target="_blank" type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+              <i class="fa fa-download"></i> Generate PDF
+                        </a>
+            </div>
+          </div>
+      </div>
+      </div>
 <!-- MAINTENANCE REPORT -->
 
 <div class="row">

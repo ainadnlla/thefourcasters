@@ -147,6 +147,7 @@ var chart = new CanvasJS.Chart("longest", {
 });
 chart.render();
 
+// Monthly
 }
 
 </script>

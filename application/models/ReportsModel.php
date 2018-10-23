@@ -10,6 +10,18 @@ class ReportsModel extends CI_Model{
         return $query->result();
 
     }
+    public function getdayreport($day,$month,$year){
+        $query = $this->db->query("SELECT * FROM booking WHERE EXTRACT(MONTH FROM date) = '$month' && EXTRACT(DAY FROM date) = '$day' && EXTRACT(YEAR FROM date) = '$year'");
+        return $query->result();
+
+    }
+    public function getyeareport($year){
+        
+        $query = $this->db->query("SELECT * FROM booking WHERE EXTRACT(YEAR FROM date) = '$year'");
+        return $query->result();
+
+    }
+
 
     public function getmain($month, $year){
         

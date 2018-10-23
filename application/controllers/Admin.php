@@ -275,16 +275,22 @@ class Admin extends CI_Controller {
 
             $month = $this->input->GET('month');
             $year = $this->input->GET('year');  
+            $day = $this->input->GET('day');  
+            $days = $this->ReportsModel->getdayreport($month,$day,$year);
             $mains =  $this->ReportsModel->getMain($month, $year);
             $reps=  $this->ReportsModel->getreport($month, $year);
+            $years = $this->ReportsModel->getyeareport($year);
+            $days = $this->ReportsModel->getdayreport($day,$month,$year);
             $this->session->set_flashdata('month', $month);
             $this->session->set_flashdata('year', $year);
+            $this->session->set_flashdata('day', $day);
+            
 
             $this->load->config('myconfig');
             $this->load->view('include/header', $data);
             $this->load->view('include/header_nav');
             $this->load->view('include/footer');
-            $this->load->view('admin/reports',compact('reps', 'mains'));
+            $this->load->view('admin/reports',compact('days','years','reps', 'mains'));
         }else{
             redirect('login/admin');
         }
