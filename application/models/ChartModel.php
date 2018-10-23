@@ -20,62 +20,85 @@ class ChartModel extends CI_Model{
     }
  
  //Monthly report
- public function Jan(){
+ public function jan(){
     //  $query = $this->db->query("SELECT * FROM booking WHERE DATE_FORMAT(date, '%M') = 'January' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())");
     //  return $query->result();
      $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'January' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
      return $query->count_all_results();
      }
-     public function Feb(){
+     public function feb(){
      $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'February' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
      return $query->count_all_results();
     }
-    public function March(){
+    public function march(){
      $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'March' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
      return $query->count_all_results();
     }
-    public function April(){
+    public function april(){
      $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'April' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
      return $query->count_all_results();
     }
-    public function May(){
+    public function may(){
      $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'May' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
      return $query->count_all_results();
     }
-    public function June(){
+    public function june(){
      $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'June' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
      return $query->count_all_results();
     }
-    public function July(){
+    public function july(){
      $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'July' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
      return $query->count_all_results();
     }
-    public function Aug(){
+    public function aug(){
      $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'August' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
      return $query->count_all_results();
     }
-    public function Sep(){
+    public function sep(){
      $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'September' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
      return $query->count_all_results();
     }
-    public function Oct(){
+    public function oct(){
      $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'October' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
      return $query->count_all_results();
     }
-    public function Nov(){
+    public function nov(){
      $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'November' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
      return $query->count_all_results();
     }
-    public function Dec(){
+    public function dec(){
      $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'December' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
      return $query->count_all_results();
     }
 
  //Daily report
- 
+    public function daily(){
+        $query = $this->db->where("EXTRACT(DAY from date) = EXTRACT(DAY from CURDATE()) AND EXTRACT(MONTH from date) = EXTRACT(MONTH from CURDATE())  AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
+        return $query->count_all_results();  
+    }
     
 
  //Yearly report
+ public function currentyear(){
+    $query = $this->db->where(" EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("booking");
+    return $query->count_all_results();
+ }
+ public function lastyear(){
+    $query = $this->db->where(" EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())-1")->from("booking");
+    return $query->count_all_results();
+ }
+ public function llastyear(){
+    $query = $this->db->where(" EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())-2")->from("booking");
+    return $query->count_all_results();
+ }
+ public function lllastyear(){
+    $query = $this->db->where(" EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())-3")->from("booking");
+    return $query->count_all_results();
+ }
+ public function llllastyear(){
+    $query = $this->db->where(" EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())-4")->from("booking");
+    return $query->count_all_results();
+ }
 
  //Maintenance issue process Duration (slowest process)
 
@@ -148,5 +171,81 @@ class ChartModel extends CI_Model{
         $query = $this->db->query('SELECT plate_no, COUNT(*) AS total FROM maintenance GROUP BY plate_no ORDER BY total desc limit 4,1');
         return $query->result();
     } 
-
+// Maintenance monthly
+public function mjan(){
+    //  $query = $this->db->query("SELECT * FROM booking WHERE DATE_FORMAT(date, '%M') = 'January' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())");
+    //  return $query->result();
+     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'January' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("maintenance");
+     return $query->count_all_results();
+     }
+     public function mfeb(){
+     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'February' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("maintenance");
+     return $query->count_all_results();
+    }
+    public function mmarch(){
+     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'March' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("maintenance");
+     return $query->count_all_results();
+    }
+    public function mapril(){
+     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'April' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("maintenance");
+     return $query->count_all_results();
+    }
+    public function mmay(){
+     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'May' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("maintenance");
+     return $query->count_all_results();
+    }
+    public function mjune(){
+     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'June' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("maintenance");
+     return $query->count_all_results();
+    }
+    public function mjuly(){
+     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'July' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("maintenance");
+     return $query->count_all_results();
+    }
+    public function maug(){
+     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'August' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("maintenance");
+     return $query->count_all_results();
+    }
+    public function msep(){
+     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'September' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("maintenance");
+     return $query->count_all_results();
+    }
+    public function moct(){
+     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'October' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("maintenance");
+     return $query->count_all_results();
+    }
+    public function mnov(){
+     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'November' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("maintenance");
+     return $query->count_all_results();
+    }
+    public function mdec(){
+     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'December' AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("maintenance");
+     return $query->count_all_results();
+    }
+    //Maintenance Yearly Report
+    public function mcurrentyear(){
+        $query = $this->db->where(" EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("maintenance");
+        return $query->count_all_results();
+     }
+     public function mlastyear(){
+        $query = $this->db->where(" EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())-1")->from("maintenance");
+        return $query->count_all_results();
+     }
+     public function mllastyear(){
+        $query = $this->db->where(" EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())-2")->from("maintenance");
+        return $query->count_all_results();
+     }
+     public function mlllastyear(){
+        $query = $this->db->where(" EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())-3")->from("maintenance");
+        return $query->count_all_results();
+     }
+     public function mllllastyear(){
+        $query = $this->db->where(" EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())-4")->from("maintenance");
+        return $query->count_all_results();
+     }
+     //Maintenance Daily Report
+     public function mdaily(){
+        $query = $this->db->where("EXTRACT(DAY from date) = EXTRACT(DAY from CURDATE()) AND EXTRACT(MONTH from date) = EXTRACT(MONTH from CURDATE())  AND EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("maintenance");
+        return $query->count_all_results();  
+    }
 }
