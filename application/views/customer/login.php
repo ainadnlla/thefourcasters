@@ -28,13 +28,7 @@
   
         <div class="row">
             <div class="col-xs-8">
-                <div class="checkbox icheck">
-                <div class="pull-left">
-                    <label>
-                        <input type="checkbox" value="">Remember Me
-                    </label>
-                </div>
-                </div>
+
             </div>
         <!-- /.col -->
             <div class="col-xs-4">

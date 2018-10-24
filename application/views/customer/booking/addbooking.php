@@ -16,24 +16,15 @@
           <h3 class="box-title">Add Details</h3>
         </div>
 
-        <form class="form-horizontal" action ="<?=base_url()?>booking/insert/" method = "post">
-        <div class="box-body">
+    <form class="form-horizontal" action ="<?=base_url()?>booking/insert/" method = "post">
+      <fieldset>
         <div class="form-group">
-        <div class="col-md-4">
-          <input type="hidden" name="id" type="text" placeholder="ID" class="form-control input-md" required="" >
+          <div class="col-md-4">
+            <input type="hidden" name="id" type="text" placeholder="ID" class="form-control input-md" required="" >
+            <input type="hidden" name="cust_type" type="text" value="<?=$this->session->cust?>" class="form-control input-md" required="" >  
+            <input type="hidden" name="custname" type="text" value="<?=$this->session->name?>" class="form-control input-md" required="" >  
+          </div>
         </div>
-      </div>
-
-          <div class="form-group">
-            <div class="col-md-4">
-              <input type="hidden"  name="cust_type" type="text" value="<?=$this->session->cust?>" class="form-control input-md" required="" >  
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-md-4">
-              <input type="hidden"  name="custname" type="text" value="<?=$this->session->name?>" class="form-control input-md" required="" >  
-            </div>
-          </div>
 
         <div class="form-group">
           <label class="col-md-4 control-label"  for="product">Product</label>  
@@ -60,26 +51,7 @@
         </div>
 
         <div class="form-group">
-<<<<<<< HEAD
-          <label class="col-md-4 control-label" for="cargo">Cargo Size</label>
-            <div class="col-md-4">
-              <select id="cargo" name="cargo" value = "<?=set_value('cargo')?>" class="form-control input-md">
-                <option Selected disabled="disabled" >Cargo Type</option>
-                <option value="FCL 1x40">FCL 1x40</option>
-                <option value="FCL 1x20">FCL 1x20</option>
-                <option value="LCL (ELF)">LCL (ELF)</option>
-                <option value="LCL 1x40">LCL 1x40 (Guaranteed Load)</option>
-                <option value="FCL 2x20">FCL 2x20</option>
-                <option value="FCL 1x45">FCL 1x45</option>
-              </select>
-            </div>
-        </div>
-
-        <div class="form-group">
           <label class="col-md-4 control-label" for="date">Date Scheduled</label>
-=======
-          <label class="col-md-4 control-label" for="date">Date Schdeuled</label>
->>>>>>> d0925a16541ef28751eadb95dab1cd099ecbaf78
             <div class="col-md-4">
               <input name="date" type="date" value = "<?=set_value('date')?>" class="form-control input-md">  
               <?= form_error('date', '<span class="label label-danger">', '</span>') ?>  
@@ -100,17 +72,12 @@
           </div>
         </div>
 
-        <!-- <div class="form-group">
-          <label class="col-md-4 control-label" for="price">Price</label>
-            <div class="col-md-4">
-            <input name="price" type="text" placeholder="Price" class="form-control input-md" disabled>             </div>
-        </div> -->
-
-        <div class="form-group">
+        <div class="box-footer">
           <label class="col-md-4 control-label" for="button1id"></label>
             <div class="col-md-4">
+              <a href="<?= base_url().'customer/booking'?>" class="btn btn-default" role="button"> Cancel</a>
+              <div class="pull-right">
               <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Submit</button></a>
-              <a href="<?= base_url().'customer/booking'?>" class="btn btn-danger" role="button"> Cancel</a>
             </div>
         </div> 
  

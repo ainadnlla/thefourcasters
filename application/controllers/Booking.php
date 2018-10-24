@@ -33,9 +33,17 @@ class Booking extends CI_Controller {
       }
     }  
     public function add(){
-         if($this->session->userdata('emailad') !=''){ 
-            $data['location'] = $this->BookingModel->getDestination();
+        if($this->session->userdata('emailad') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
+
+        $session_data = array(
+            'date' =>'date',
+        );
+        $this->session->set_userdata($session_data);
+
+        $data['location'] = $this->BookingModel->getDestination();
+        $data['recomdriver'] = $this->BookingModel->getRecommendDriver();
+
         $this->load->view('include/header', $data);
         $this->load->view('include/customer_header');
         $this->load->view('customer/booking/addbooking');
@@ -47,9 +55,16 @@ class Booking extends CI_Controller {
     public function edit($id){
         if($this->session->userdata('emailad') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
-        $data['models'] = $this->TruckModel->getModel();
         $books = $this->BookingModel->getProd($id);
+
+        $session_data = array(
+            'destinationid' => $books->destinationid,
+        );
+        $this->session->set_userdata($session_data);
+
         $data['destination'] = $this->BookingModel->getDestination();
+        $data['destinationname'] = $this->BookingModel->getDestinationname();
+        
         $this->load->view('include/header', $data);
         $this->load->view('include/customer_header');
         $this->load->view('customer/booking/editbooking',compact('books'));

@@ -11,35 +11,25 @@
 <section class="content">
   <div class="row">
     <div class="col-sm-12">   
-      <div class="box box-basic">
+      <div class="box box-success">
         <div class="box-header with-border">
           <h3 class="box-title">Add Details</h3>
         </div>
 
-        <form class="form-horizontal" action ="<?=base_url()?>booking//update/<?=$book->id?>" method = "post">
-        <div class="box-body">
+    <form class="form-horizontal" action ="<?=base_url()?>booking/update/<?=$books->id?>" method = "post">
+      <fieldset>
         <div class="form-group">
-        <div class="col-md-4">
-          <input value="<?=$book->id?>" type="hidden" name="id" type="text" placeholder="ID" class="form-control input-md"required="" >
+          <div class="col-md-4">
+            <input value="<?=$books->id?>" type="hidden" name="id" type="text" placeholder="ID" class="form-control input-md" required="" >
+            <input value="<?=$books->cust_type?>" type="hidden" name="cust_type" type="text" value="<?=$this->session->cust?>" class="form-control input-md" required="" >  
+            <input value="<?=$books->custname?>" type="hidden" name="custname" type="text" value="<?=$this->session->name?>" class="form-control input-md" required="" >  
+          </div>
         </div>
-      </div>
-
-
-          <div class="form-group">
-            <div class="col-md-4">
-              <input value="<?=$book->cust_type?>"  type="hidden"  name="cust_type" type="text" class="form-control input-md" required="" >  
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-md-4">
-              <input value="<?=$book->custname?>" type="hidden"  name="custname" type="text" class="form-control input-md" required="" >  
-            </div>
-          </div>
 
         <div class="form-group">
-          <label class="col-md-4 control-label"  for="product">Product Type</label>  
+          <label class="col-md-4 control-label"  for="product">Product</label>  
             <div class="col-md-4">
-              <input  value="<?=$book->product?>" id="product" name="product" type="text" placeholder="Product" class="form-control input-md">
+              <input value="<?=$books->product?>" id="product" name="product" type="text" placeholder="Product" class="form-control input-md">
               <?= form_error('product', '<span class="label label-danger">', '</span>') ?>  
           </div>
         </div>
@@ -47,7 +37,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label"  for="description">Description</label>  
             <div class="col-md-4">
-              <input  value="<?=$book->description?>" class="form-control input-md" id="description" name="description" type="text" placeholder="Decription"> 
+              <input value="<?=$books->description?>" class="form-control input-md" id="description" name="description" type="text" placeholder="Decription"> 
       
           </div>
         </div>
@@ -55,15 +45,15 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="pieces">No. of Pieces</label>  
             <div class="col-md-4">
-              <input  value="<?=$book->pieces?>" id="pieces" name="pieces" type="number" min=0 placeholder="Pieces" class="form-control input-md">
+              <input value="<?=$books->pieces?>" id="pieces" name="pieces" type="number" min=0 placeholder="Pieces" class="form-control input-md">
               <?= form_error('pieces', '<span class="label label-danger">', '</span>') ?>  
           </div>
         </div>
 
         <div class="form-group">
-          <label class="col-md-4 control-label" for="date">Date Schdeuled</label>
+          <label class="col-md-4 control-label" for="date">Date Scheduled</label>
             <div class="col-md-4">
-              <input  value="<?=$book->date?>" name="date" type="date" class="form-control input-md">  
+              <input value="<?=$books->date?>" name="date" type="date" class="form-control input-md">  
               <?= form_error('date', '<span class="label label-danger">', '</span>') ?>  
             </div>
         </div>
@@ -71,30 +61,27 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="destination">Destination</label>  
             <div class="col-md-4">
-              <select  value="<?=$book->destinationid?>" id="destinationid" name="destinationid"  type="text" placeholder="Destination" class="form-control">
-              <?php 
-              foreach($location as $row) { 
-                echo '<option value="'.$row->id.'">'.$row->id.'.' '.'.$row->destination.'</option>';
+            <select value="<?=$books->destinationid?>" name="destinationid" class="form-control">
+            <option hidden selected value="<?=$books->destinationid?>">Destination ID: <?=$books->destinationid?></option>
+            <option disabled>Destination ID: <?=$books->destinationid?></option>
+            <?php 
+              foreach($destination as $row) { 
+                echo '<option value="'.$row->id.'">' .'('.$row->id.') '.$row->destination.'</option>';
               }
-            ?> 
-              </select>
-              <?= form_error('destinationid', '<span class="label label-danger">', '</span>') ?>  
+            ?>
+            </select>
+            <input hidden value="<?=$destinationname->destination?>" name="destination" type="text">
+            <?= form_error('destinationid', '<span class="label label-danger">', '</span>') ?>  
           </div>
         </div>
 
-        <!-- <div class="form-group">
-          <label class="col-md-4 control-label" for="price">Price</label>
-            <div class="col-md-4">
-            <input name="price" type="text" placeholder="Price" class="form-control input-md" disabled>             </div>
-        </div> -->
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="button1id"></label>
-            <div class="col-md-4">
-              <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Submit</button></a>
-              <a href="<?= base_url().'customer/booking'?>" class="btn btn-danger" role="button"> Cancel</a>
-            </div>
-        </div> 
+      <div class="box-footer">
+        <label class="col-md-12 control-label" for="button1id"></label>
+        <a href="<?= base_url().'customer/booking'?>" class="btn btn-default" role="button">Cancel</a>
+        <div class="pull-right">
+          <button id="button1id" name="submit" type="submit" value="submit" class="btn btn-success">Update</button>
+        </div>
+      </div>
  
 </div>
 </section>
