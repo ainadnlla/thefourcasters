@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-md-6">
-    <div class="box box-default">
+    <div class="box box-primary">
       <div class="box-header with-border">
-        <i class="fa fa-warning"></i>
+        <i class="fa fa-pie-chart"></i>
           <h3 class="box-title">Truck Maintenance Record</h3>
 					<div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
@@ -25,9 +25,9 @@
   <!-- /.col -->
 
   <div class="col-md-6">
-    <div class="box box-default">
+    <div class="box box-primary">
       <div class="box-header with-border">
-        <i class="fa fa-bullhorn"></i>
+        <i class="fa fa-bar-chart"></i>
         	<h3 class="box-title">Monthly Recap Report</h3>
 					<div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
@@ -54,8 +54,9 @@
 
 <div class="row">
     <div class="col-md-12">
-      <div class="box">
+      <div class="box box-primary">
         <div class="box-header with-border">
+				<i class="fa fa-line-chart"></i>
         	<h3 class="box-title">Longest & Shortest Maintenance Time</h3>
           	<div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -152,7 +153,7 @@ var longest = new CanvasJS.Chart("longest", {
 	},
 	axisY:{
 		includeZero: false,
-		title: "Maintenance Days",
+		suffix: " DAYS",
 	},
 	data: [{        
 		type: "line",     

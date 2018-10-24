@@ -129,7 +129,7 @@
            
           <div class="row no-print">
             <div class="col-xs-12">
-              <a href="<?=base_url()."admin/toprint"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+              <a href="<?=base_url()."admin/toprintdaily"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
               <a href="<?=base_url()."admin/pdf"?>" target="_blank" type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
               <i class="fa fa-download"></i> Generate PDF
                         </a>
@@ -279,7 +279,7 @@
            
           <div class="row no-print">
             <div class="col-xs-12">
-              <a href="<?=base_url()."admin/toprint"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+              <a href="<?=base_url()."admin/toprintyear"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
               <a href="<?=base_url()."admin/pdf"?>" target="_blank" type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
               <i class="fa fa-download"></i> Generate PDF
                         </a>
@@ -345,7 +345,7 @@
            
           <div class="row no-print">
             <div class="col-xs-12">
-              <a href="<?=base_url()."admin/toprint_maintenance"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+              <a href="<?=base_url()."admin/toprint_maintdaily"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
               <a href="#" target="_blank" type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
               <i class="fa fa-download"></i> Generate PDF
                         </a>
@@ -475,7 +475,7 @@
            
           <div class="row no-print">
             <div class="col-xs-12">
-              <a href="<?=base_url()."admin/toprint_maintenance"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+              <a href="<?=base_url()."admin/toprint_mainyear"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
               <a href="#" target="_blank" type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
               <i class="fa fa-download"></i> Generate PDF
                         </a>
@@ -486,7 +486,7 @@
       </div>
       <div class="row">
 <div class="col-xs-12">
-  <div class="box box-primary collapsed-box">
+  <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Yearly Report of Booking and Maintenance</h3>
 

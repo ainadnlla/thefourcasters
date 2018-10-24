@@ -392,10 +392,9 @@ class Admin extends CI_Controller {
             $month = $this->input->GET('month');
             $year = $this->input->GET('year');  
             $day = $this->input->GET('day');  
-            $days = $this->ReportsModel->getdayreport($month,$day,$year);
+            $days = $this->ReportsModel->getdayreport($day,$month,$year);
             $reps=  $this->ReportsModel->getreport($month, $year);
             $years = $this->ReportsModel->getyeareport($year);
-            $days = $this->ReportsModel->getdayreport($day,$month,$year);
             //Maintenance
             $mains =  $this->ReportsModel->getMain($month, $year);
             $maindays = $this->ReportsModel->getmainday($day,$month, $year);
@@ -433,6 +432,40 @@ class Admin extends CI_Controller {
             redirect('login/admin');
         }
     }
+    public function toprintdaily(){
+        if($this->session->userdata('username') !=''){ 
+            $data['title'] = 'Reports Information | Angelogistic Forwarder Corporation';
+            
+            $month = $this->session->flashdata('month');
+            $year = $this->session->flashdata('year');
+            $day = $this->session->flashdata('day');
+            $days = $this->ReportsModel->getdayreport($day,$month, $year);
+            $data['totalprice'] = $this->ReportsModel->get_sumdaily($day,$month, $year);
+            
+            $this->load->config('myconfig');
+            $this->load->view('include/header', $data);
+            $this->load->view('include/footer');
+            $this->load->view('admin/toprintdaily',compact('days',$data));
+        }else{
+            redirect('login/admin');
+        }
+    }
+    public function toprintyear(){
+        if($this->session->userdata('username') !=''){ 
+            $data['title'] = 'Reports Information | Angelogistic Forwarder Corporation';
+            $year = $this->session->flashdata('year');
+          
+            $years = $this->ReportsModel->getyeareport($year);
+            $data['totalprice'] = $this->ReportsModel->get_sumyear($year);
+            
+            $this->load->config('myconfig');
+            $this->load->view('include/header', $data);
+            $this->load->view('include/footer');
+            $this->load->view('admin/toprintyear',compact('years',$data));
+        }else{
+            redirect('login/admin');
+        }
+    }
 
     public function toprint_maintenance(){
         if($this->session->userdata('username') !=''){ 
@@ -447,6 +480,44 @@ class Admin extends CI_Controller {
             $this->load->view('include/header', $data);
             $this->load->view('include/footer');
             $this->load->view('admin/toprint_maintenance',compact('mains',$data));
+            
+        }else{
+            redirect('login/admin');
+        }
+    }
+    public function toprint_maindaily(){
+        if($this->session->userdata('username') !=''){ 
+            $data['title'] = 'Reports Information | Angelogistic Forwarder Corporation';
+            
+            $month = $this->session->flashdata('month');
+            $year = $this->session->flashdata('year');
+            $day = $this->session->flashdata('day');
+            $maindays = $this->ReportsModel->getmainday($day,$month, $year);
+            $data['totalprice'] = $this->ReportsModel->get_sum_maintedaily($day,$month, $year);
+            
+            $this->load->config('myconfig');
+            $this->load->view('include/header', $data);
+            $this->load->view('include/footer');
+            $this->load->view('admin/toprint_maindaily',compact('maindays',$data));
+            
+        }else{
+            redirect('login/admin');
+        }
+    }
+    public function toprint_mainyear(){
+        if($this->session->userdata('username') !=''){ 
+            $data['title'] = 'Reports Information | Angelogistic Forwarder Corporation';
+            
+       
+            $year = $this->session->flashdata('year');
+            
+            $mainyears = $this->ReportsModel->getmainyear($year);
+            $data['totalprice'] = $this->ReportsModel->get_sum_mainteyear($year);
+            
+            $this->load->config('myconfig');
+            $this->load->view('include/header', $data);
+            $this->load->view('include/footer');
+            $this->load->view('admin/toprint_mainyear',compact('maindays',$data));
             
         }else{
             redirect('login/admin');

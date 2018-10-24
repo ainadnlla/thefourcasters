@@ -20,7 +20,7 @@
           <table id="booking" class="table table-bordered table-hover table-striped">
             <thead>
             <tr>
-            <th>ID</th>
+              <th hidden></th>
               <th>Waybill</th>
               <th>Customer</th>
               <th>Date</th>
@@ -38,7 +38,7 @@
             <tbody>
             <?php foreach($books as $book): ?>
               <tr>
-              <td><?= $book->id?></td>
+                  <td hidden><?= $book->created?></td>
                   <td><?= $book->waybill?></td>
                   <td class="text-capitalize"><?= $book->custname?></td>
                   <td><?= date('M d, Y', strtotime($book->date))?></td>
