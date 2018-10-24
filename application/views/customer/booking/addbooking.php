@@ -23,7 +23,6 @@
             <input type="hidden" name="id" type="text" placeholder="ID" class="form-control input-md" required="" >
             <input type="hidden" name="cust_type" type="text" value="<?=$this->session->cust?>" class="form-control input-md" required="" >  
             <input type="hidden" name="custname" type="text" value="<?=$this->session->name?>" class="form-control input-md" required="" >  
-            <input value="<?//=$recomdriver->id?>" type="hidden" name="driverid" type="text" class="form-control input-md" required="" >  
           </div>
         </div>
 
