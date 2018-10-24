@@ -2,7 +2,7 @@
     <section class="content-header">
       <h1>User Profile</h1>
         <ol class="breadcrumb">
-            <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li><a href="<?=base_url().'customer/booking'?>"><i class="fa fa-dashboard"></i>Home</a></li>
             <li class="active">User Profile</li>
         </ol>
     </section>
@@ -12,7 +12,7 @@
         <div class="col-md-3">
 
           <!-- Profile Image -->
-          <div class="box box-primary">
+          <div class="box box-danger">
             <div class="box-body box-profile">
               <img class="profile-user-img img-responsive img-circle" src="<?=base_url().'images/'.$this->session->picpath?>" alt="User profile picture">
 
@@ -28,7 +28,7 @@
             </div>
           </div>
 
-          <div class="box box-primary">
+          <div class="box box-danger">
             <div class="box-header with-border">
               <h3 class="box-title">Customer Information</h3>
             </div>
@@ -51,12 +51,13 @@
      
 
   <!---   /////////////////////////////////////////////////////////////// -->
+  
         <div class="col-md-9">
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
               <li class="active"><a href="#activity" data-toggle="tab">Profile</a></li>
-              <li><a href="#settings" data-toggle="tab">Settings</a></li>
             </ul>
+            
             <div class="tab-content">
               <div class="active tab-pane" id="activity">
               <form class="form-horizontal">
@@ -81,56 +82,11 @@
                       <span disabled class="form-control" > <?= $this->session->emailad; ?></span>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-9">
-                    <a href="#" class="btn btn-success btn-sm" role="button">Update</a>
-                    </div>
-                  </div>
+                
 
                 </form>
               </div>
 
-              <div class="tab-pane" id="settings">
-                <form class="form-horizontal">
-                <div class="form-group">
-                    <label for="inputEmail" class="col-sm-3 control-label">Contact</label>
-
-                    <div class="col-sm-8">
-                    <input value="<?= $this->session->contact; ?>" name="contact" type="text" placeholder="example@yahoo.com" class="form-control input-md" required="">  
-                    <?= form_error('contact', '<span class="label label-danger">', '</span>') ?>  
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputEmail" class="col-sm-3 control-label">Email</label>
-
-                    <div class="col-sm-8">
-                    <input value="<?= $this->session->emailad; ?>" name="email" type="email" placeholder="example@yahoo.com" class="form-control input-md" required="">  
-                    <?= form_error('email', '<span class="label label-danger">', '</span>') ?>  
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputPassword" class="col-sm-3 control-label">Password</label>
-
-                    <div class="col-sm-8">
-                    <input value="<?= $this->session->password; ?>" name="password" type="password" placeholder="Password" class="form-control input-md" required="">  
-                    <?= form_error('password', '<span class="label label-danger">', '</span>') ?>  
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputPassword" class="col-sm-3 control-label">Confirm Password</label>
-
-                    <div class="col-sm-8">
-                    <input value="<?= $this->session->repass; ?>" name="password" type="password" placeholder="Password" class="form-control input-md" required="">  
-                    <?= form_error('repass', '<span class="label label-danger">', '</span>') ?>  
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-sm-offset-3 col-sm-9">
-                      <!-- <button name="submit" type="submit" value="submit" class="btn btn-danger">Update</button> -->
-                    </div>
-                  </div>
-                </form>
-              </div>
               <!-- /.tab-pane -->
             </div>
             <!-- /.tab-content -->

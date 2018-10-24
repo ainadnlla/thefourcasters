@@ -106,27 +106,22 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li>
-        <a href="<?=base_url().'customer/homepage'?>">
-          <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="<?=base_url().'customer/profile'?>">
-          <i class="fa fa-user"></i> <span>Profile</span>
-        </a>
-      </li>
 
         <li>
-        <a href="<?=base_url().'customer/booking'?>">
-          <i class="fa fa-info-circle"></i> <span>Booking Information</span>
-        </a>
-      </li>
+          <a href="<?=base_url().'customer/booking'?>">
+            <i class="fa fa-info-circle"></i> <span>Booking Information</span>
+          </a>
+        </li>
 
       <li>
         <a href="<?=base_url().'customer/logistics'?>">
-          <i class="fa fa-info-circle"></i> <span>Logistics Tracking</span>
+          <i class="fa fa-map-pin"></i> <span>Logistics Tracking</span>
+        </a>
+      </li>
+
+          <li>
+          <a href="<?=base_url().'customer/profile'?>">
+            <i class="fa fa-user"></i> <span>Profile</span>
         </a>
       </li>
       
