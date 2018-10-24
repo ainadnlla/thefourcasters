@@ -56,8 +56,9 @@ class BookingModel extends CI_Model{
     function getRecommendDriver(){
         $weekdays = explode(",", 'weekday');        
         $bookingdate = $this->session->userdata('date');
+        $drivername = $this->session->userdata('drivername');
         // $query = $this->db->query("SELECT id, fname, lname from driver where status= '1' AND DATE_FORMAT('$bookingdate', '%W') = weekday ORDER BY experience desc ", array('weekday'=>$weekdays));
-        $query = $this->db->query("SELECT id from driver where status= '1' AND DATE_FORMAT('$bookingdate', '%W') = weekday ORDER BY RAND() LIMIT 1 ", array('weekday'=>$weekdays));
+        $query = $this->db->query("SELECT id, CONCAT(fname, ' ', lname) AS drivername from driver where status= '1' AND DATE_FORMAT('$bookingdate', '%W') = weekday ORDER BY RAND() LIMIT 1 ", array('weekday'=>$weekdays));
              return $query->row();
         }
 
@@ -81,6 +82,15 @@ class BookingModel extends CI_Model{
         $query = $this->db->query('SELECT weekday FROM driver');
         return $query->result();
     }
+
+    function getRecommendHelper(){
+        $weekdays = explode(",", 'weekday');        
+        $bookingdate = $this->session->userdata('date');
+        $helpername = $this->session->userdata('helpername');
+        // $query = $this->db->query("SELECT id, fname, lname from driver where status= '1' AND DATE_FORMAT('$bookingdate', '%W') = weekday ORDER BY experience desc ", array('weekday'=>$weekdays));
+        $query = $this->db->query("SELECT id, CONCAT(fname, ' ', lname) AS helpername from helper where status= '1' AND DATE_FORMAT('$bookingdate', '%W') = weekday ORDER BY RAND() LIMIT 1 ", array('weekday'=>$weekdays));
+             return $query->row();
+        }
 
     function getHelpers(){
         $weekdays = explode(",", 'weekday');        

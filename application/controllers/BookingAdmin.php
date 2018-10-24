@@ -76,6 +76,8 @@ class Bookingadmin extends CI_Controller {
         $data['helpername'] = $this->BookingModel->getHelpername();
         $data['destination'] = $this->BookingModel->getDestination();
         $data['destinationname'] = $this->BookingModel->getDestinationname();
+        $data['recomdriver'] = $this->BookingModel->getRecommendDriver();
+        $data['recomhelper'] = $this->BookingModel->getRecommendHelper();
 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');

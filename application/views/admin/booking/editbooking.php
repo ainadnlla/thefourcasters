@@ -5,6 +5,7 @@
       <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
       <li><a href="<?=base_url().'admin/booking'?>">Booking Information</a></li>
       <li class="active">Edit</a></li>
+      <?= error_reporting(0);?> 
     </ol>
 </section>
 <section class="content">
@@ -108,23 +109,22 @@
           <div class="col-md-4">
             <label>Driver</label>  
             <select value="<?=$books->driverid?>" name="driverid" class="form-control">
-            <option hidden selected value="<?=$books->driverid?>">Driver ID: <?=$books->driverid?></option>
-            <option disabled>Driver ID: <?=$books->driverid?></option>
+            <option hidden selected value="<?=$recomdriver->id?>">Recommended: (<?=$recomdriver->id?>) <?=$recomdriver->drivername?></option>
+            <option disabled>Choosen Driver: <?php echo $drivername->drivername?></option>
             <?php 
               foreach($drivernames as $row) { 
                 echo '<option value="'.$row->id.'">' .'('.$row->id.') '.$row->drivername.'</option>';
               }
             ?>
             </select>
-            <input hidden value="<?=$drivername->drivername?>" name="drivername" type="text">
             <?= form_error('driverid', '<span class="label label-danger">', '</span>') ?>  
           </div>
       
           <div class="col-md-4">
             <label>Helper</label>  
             <select value="<?=$books->helperid?>" name="helperid" class="form-control">
-            <option hidden selected value="<?=$books->helperid?>">Helper ID: <?=$books->helperid?></option>
-            <option disabled>Helper ID: <?=$books->helperid?></option>
+            <option hidden selected value="<?=$recomhelper->id?>">Recommended: (<?=$recomhelper->id?>) <?=$recomhelper->helpername?></option>
+            <option disabled>Choosen Driver: <?php echo $helpername->helpername?></option>
             <?php 
               foreach($helpernames as $row) { 
                 echo '<option value="'.$row->id.'">' .'('.$row->id.') '.$row->helpername.'</option>';
@@ -132,7 +132,6 @@
             ?>
             ?>
             </select>
-            <input hidden value="<?=$helpername->helpername?>" name="helpername" type="text">
             <?= form_error('helperid', '<span class="label label-danger">', '</span>') ?>  
           </div>
           <div class="col-md-4">

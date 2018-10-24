@@ -45,8 +45,8 @@
                   <td class="text-capitalize"><?= $book->product?></td>
                   <td><?= $book->pieces?></td>
                   <td class="text-uppercase"><?= $book->plate_no?></td>
-                  <td class="text-capitalize"><?= $book->drivername?></td>
-                  <td class="text-capitalize"><?= $book->helpername?></td>
+                  <td class="text-capitalize"><?= $book->driverid?></td>
+                  <td class="text-capitalize"><?= $book->helperid?></td>
                   <td><?= $book->destination?></td>
                   <td>₱<?= $book->price?></td>
                   <td>  <?php if($book->action==1){ ?>

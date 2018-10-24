@@ -76,7 +76,8 @@
         </div>
 
       <div class="box-footer">
-        <label class="col-md-12 control-label" for="button1id"></label>
+      <label class="col-md-4 control-label" for="button1id"></label>
+            <div class="col-md-4">
         <a href="<?= base_url().'customer/booking'?>" class="btn btn-default" role="button">Cancel</a>
         <div class="pull-right">
           <button id="button1id" name="submit" type="submit" value="submit" class="btn btn-success">Update</button>
