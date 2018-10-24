@@ -119,9 +119,7 @@
           <div class="row no-print">
             <div class="col-xs-12">
               <a href="<?=base_url()."admin/toprint_maindaily"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-              <a href="#" target="_blank" type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
-              <i class="fa fa-download"></i> Generate PDF
-                        </a>
+             
             </div>
           </div>
          
@@ -184,7 +182,7 @@
           <div class="row no-print">
             <div class="col-xs-12">
               <a href="<?=base_url()."admin/toprint_maintenance"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-              <a href="#" target="_blank" type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+              <a href="javascript:void(window.open('http://www.htmltopdfconverter.net/?convert='+window.location))" target="_blank" type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
               <i class="fa fa-download"></i> Generate PDF
                         </a>
             </div>
@@ -249,9 +247,7 @@
           <div class="row no-print">
             <div class="col-xs-12">
               <a href="<?=base_url()."admin/toprint_mainyear"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-              <a href="#" target="_blank" type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
-              <i class="fa fa-download"></i> Generate PDF
-                        </a>
+             
             </div>
           </div>
          
