@@ -504,7 +504,7 @@ var daily = new CanvasJS.Chart("daily", {
 		legendText: "Booking",
 		showInLegend: true, 
 		dataPoints:[
-			{ label: "<?php date_default_timezone_set('Asia/Manila'); echo date('M d,Y');?>", y: <?= $daily?> }
+			{ label: "", y: <?= $daily?> }
 		
 		]
 	},
@@ -515,7 +515,7 @@ var daily = new CanvasJS.Chart("daily", {
 		axisYType: "secondary",
 		showInLegend: true,
 		dataPoints:[
-      { label: "<?php date_default_timezone_set('Asia/Manila'); echo date('M d,Y');?>", y: <?= $mdaily?> }
+      { label: "<", y: <?= $mdaily?> }
 		]
 	}]
 });
