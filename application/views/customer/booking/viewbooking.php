@@ -126,7 +126,121 @@
 
 </div>
 </div>
+<section class="content">
+  <div class="row">
+    <div class="col-sm-12">   
+      <div class="box box-success">
+        <div class="box-header with-border">
+          <h3 class="box-title">Logistics Tracking</h3>
+        </div>
+      <fieldset>
+         <!-- Main content -->
+    <section class="content">
+
+      <!-- row -->
+      <div class="row">
+        <div class="col-md-12">
+          <!-- The time line -->
+          <ul class="timeline">
+            <!-- timeline time label -->
+            <li class="time-label">
+                  <span class="bg-red">
+                 <h6>Item Process</h6>
+                  </span>
+            </li>
+            <!-- /.timeline-label -->
+            <!-- timeline item -->
+          
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <?php if($this->session->userdata('status')=='3'){?>
+            <li>
+              <i class="fa fa-map-pin bg-yellow"></i>
+
+              <div class="timeline-item">
+                
+
+                <h3 class="timeline-header">Item Delivered Successfully!</h3>
+                
+              </div>
+            </li>
+            <?php }else{}?>
+            <!-- END timeline item -->
+            <!-- timeline time label -->
+          
+            <!-- /.timeline-label -->
+            <!-- timeline item -->
+            <?php if($this->session->userdata('status')=='3' || $this->session->userdata('status')=='2'){?>
+            <li>
+              <i class="fa fa-truck bg-purple"></i>
+
+              <div class="timeline-item">
+               
+
+                <h3 class="timeline-header"> The item is being delivered</h3>
+
+              
+              </div>
+            </li>
+            <?php }else{} ?>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+           <?php if($this->session->userdata('status')=='1'|| $this->session->userdata('status')=='2'|| $this->session->userdata('status')=='3' ){?>
+            <li>
+              <i class="fa fa-hourglass-half bg-maroon"></i>
+
+              <div class="timeline-item">
+                
+
+                <h3 class="timeline-header">The item is on due process</h3>
+
+             
+              
+              </div>
+            </li>
+            <?php
+            }else{}
+            ?>
+            <!-- END timeline item -->
+            <li>
+            <?php IF($this->session->userdata('action')=='0'){
+              echo "<i class='fa fa-clock-o bg-gray'>"."</i>"; 
+            }elseif($this->session->userdata('action')=='1'){
+              echo "<i class='fa fa-check-circle bg-green'>"."</i>";
+            }else{
+              echo "<i class='fa fa-times-circle bg-red'>"."</i>";
+            }
+            ?>
+              <!-- <i class="fa fa-check-circle bg-green"></i>   -->
+              <!-- <i class="fa fa-times-circle bg-red"></i>   -->
+            </li>
+          </ul>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+     
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+    </section>
+    <!-- /.content -->
+   
+       <div class="col-md-12">
+          <br/>
+      </div>
+
+    </fieldset> </div></div></div>
 </div>
+
 </section>
 </div>
 </form>

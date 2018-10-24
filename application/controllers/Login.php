@@ -130,11 +130,15 @@ class Login extends CI_Controller {
             );
             $this->session->set_userdata($session_data);
             redirect('customer/booking');
-            }      
-        }else{
-            $this->session->set_flashdata('error','Invalid Username or Password');
+        }
+        else{
+            $this->session->set_flashdata('error','Unauthorized Access');
             redirect('login/customer');
-        }        
+        }
+    }else {
+        $this->session->set_flashdata('error','Invalid Username or Password');
+       redirect('login/customer');
+   }
     } 
     public function logoutcustomer(){
         $this->session->sess_destroy();
