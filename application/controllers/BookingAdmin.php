@@ -37,7 +37,7 @@ class Bookingadmin extends CI_Controller {
         $this->load->view('admin/booking/addbooking');
         $this->load->view('include/footer');
         }else{
-            redirect('admin/login');
+            redirect('login/admin');
         }
     }
 
@@ -50,7 +50,7 @@ class Bookingadmin extends CI_Controller {
         $this->load->view('admin/booking/viewbooking', compact('books'));
         $this->load->view('include/footer');
         }else{
-            redirect('admin/login');
+            redirect('login/admin');
         }
     }
 
@@ -84,7 +84,7 @@ class Bookingadmin extends CI_Controller {
         $this->load->view('admin/booking/editbooking',compact('books'));
         $this->load->view('include/footer');
         }else{
-            redirect('admin/login');
+            redirect('login/admin');
         }
     }
     
@@ -96,7 +96,7 @@ class Bookingadmin extends CI_Controller {
         $this->load->view('admin/booking/deletebooking',compact('books'));
         $this->load->view('include/footer');
     }else{
-        redirect('admin/login');
+        redirect('login/admin');
     }
     } 
     

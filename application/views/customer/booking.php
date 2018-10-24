@@ -46,8 +46,8 @@
                   <td class="text-capitalize"><?= $book->product?></td>
                   <td><?= $book->pieces?></td>
                   <td class="text-uppercase"><?= $book->plate_no?></td>
-                  <td class="text-capitalize"><?= $book->drivername?></td>
-                  <td class="text-capitalize"><?= $book->helpername?></td>
+                  <td class="text-capitalize"><?= $book->driverid?></td>
+                  <td class="text-capitalize"><?= $book->helperid?></td>
                   <td><?= $book->destinationid?></td>
                   <td><?= $book->destination?></td>
                   <td>₱<?= $book->price?></td>
@@ -74,9 +74,12 @@
                      <?php   }?>
                   </td>
                   <td>
+                  <?php if($book->action==0){ ?>
                   <a href="<?= base_url().'booking/edit/'.$book->id?>" class="btn btn-default btn.lg" role="button">
-                  <span class="fa fa-edit" aria-hidden="true"></span></a>
-                  </td>
+                  <span class="fa fa-edit" aria-hidden="true"></span></a><?php  }else{?>
+                    <a href="<?= base_url().'booking/view/'.$book->id?>" class="btn btn-default btn.lg" role="button">
+                  <span class="fa fa-eye" aria-hidden="true"></span></a>
+                  </td><?php   }?>
                 </tr>
             <?php endforeach; ?> 
             </tfoot>

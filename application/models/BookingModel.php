@@ -84,7 +84,7 @@ class BookingModel extends CI_Model{
     }
 
     function getRecommendHelper(){
-        $weekdays = explode(",", 'weekday');        
+        $weekdays = explode(',', 'weekday');        
         $bookingdate = $this->session->userdata('date');
         $helpername = $this->session->userdata('helpername');
         // $query = $this->db->query("SELECT id, fname, lname from driver where status= '1' AND DATE_FORMAT('$bookingdate', '%W') = weekday ORDER BY experience desc ", array('weekday'=>$weekdays));

@@ -49,7 +49,7 @@ class Booking extends CI_Controller {
         $this->load->view('customer/booking/addbooking');
         $this->load->view('include/footer');
      }else{
-         redirect('customer/login');
+         redirect('login/customer');
      }
     }
     public function edit($id){
@@ -70,7 +70,7 @@ class Booking extends CI_Controller {
         $this->load->view('customer/booking/editbooking',compact('books'));
         $this->load->view('include/footer');
     }else{
-        redirect('customer/login');
+        redirect('login/customer');
     }
     }
     public function delete($id){
@@ -81,7 +81,7 @@ class Booking extends CI_Controller {
         $this->load->view('customer/booking/deletebooking',compact('books'));
         $this->load->view('include/footer');
     }else{
-        redirect('customer/login');
+        redirect('login/customer');
     }
     } 
     
@@ -112,6 +112,18 @@ class Booking extends CI_Controller {
                 redirect('customer/booking');
             }
         }
-
+        
+    public function view($id){
+        if($this->session->userdata('emailad') !=''){ 
+        $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
+        $books = $this->BookingModel->getProd($id);
+        $this->load->view('include/header', $data);
+        $this->load->view('include/customer_header');
+        $this->load->view('customer/booking/viewbooking', compact('books'));
+        $this->load->view('include/footer');
+        }else{
+            redirect('login/customer');
+        }
+    }
 }
 ?>

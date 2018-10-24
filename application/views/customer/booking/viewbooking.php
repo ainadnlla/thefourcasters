@@ -2,9 +2,9 @@
 <section class="content-header">
   <h1>Booking Information</h1>
     <ol class="breadcrumb">
-      <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-      <li><a href="<?=base_url().'admin/booking'?>">Booking Information</a></li>
-      <li class="active">View</a></li>
+      <li><a href="<?=base_url().'customer/index'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+      <li><a href="<?=base_url().'customer/booking'?>">Booking Information</a></li>
+      <li class="active">Add</a></li>
     </ol>
 </section>
 
@@ -16,7 +16,7 @@
           <h3 class="box-title">View Details</h3>
         </div>
 
-    <form class="form">
+    <form  class="form">
       <fieldset>
         <div class="form-group">
           <div class="col-md-12">
@@ -120,7 +120,7 @@
       <div class="box-footer">
         <label class="col-md-12 control-label" for="button1id"></label>
         <div class="pull-right">
-        <a href="<?= base_url().'admin/booking'?>" class="btn btn-default" role="button">Cancel</a>
+        <a href="<?= base_url().'customer/booking'?>" class="btn btn-default" role="button">Cancel</a>
         </div>
       </div>
 
@@ -133,9 +133,9 @@
 
 
 <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>The Fourcasters</b>
-    </div>
-    <strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation</a>.</strong> All rights
-    reserved.
+<div class="pull-right hidden-xs">
+  <b>The Fourcasters</b>
+</div>
+<strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation</a>.</strong> All rights
+reserved.
 </footer>
