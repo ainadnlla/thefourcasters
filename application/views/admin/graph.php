@@ -22,7 +22,6 @@
 		</div>
 		<!-- /.row -->
 	</div>
-
 <div class="row">
     <div class="col-md-12">
       <div class="box">
@@ -147,7 +146,7 @@ var longest = new CanvasJS.Chart("longest", {
 	animationEnabled: true,
 	theme: "light2",
 	title:{
-		text: "Simple Line Chart"
+		text: "Longest and Shortest Maintenance Time"
 	},
 	axisY:{
 		includeZero: false
@@ -156,85 +155,27 @@ var longest = new CanvasJS.Chart("longest", {
 		type: "line",     
 		color: "#F08080",  
 		dataPoints: [
-			{ y: <?php echo $days5->format('%a');?>, label: "Try" },
-			{ y: <?php echo $days4->format('%a');?>, label: "Try" },
-			{ y: <?php echo $days3->format('%a');?>, label: "Try" },
-			{ y: <?php echo $days2->format('%a');?>, label: "Try" },
-			{ y: <?php echo $days->format('%a');?>, label: "Try" },
+			{ y: <?php echo $days5->format('%a');?>, label: "1st" },
+			{ y: <?php echo $days4->format('%a');?>, label: "2nd" },
+			{ y: <?php echo $days3->format('%a');?>, label: "3rd" },
+			{ y: <?php echo $days2->format('%a');?>, label: "4th" },
+			{ y: <?php echo $days->format('%a');?>, label: "5th" },
 			// { y: 520, indexLabel: "highest",markerColor: "red", markerType: "triangle" },
 			]
 		},
 		{
 			type: "line",       
 			dataPoints: [
-			{ y: <?php echo $days6->format('%a');?>, label: "Try" },
-			{ y: <?php echo $days7->format('%a');?>, label: "Try" },
-			{ y: <?php echo $days8->format('%a');?>, label: "Try" },
-			{ y: <?php echo $days9->format('%a');?>, label: "Try" },
-			{ y: <?php echo $days10->format('%a');?>, label: "Try" },
+			{ y: <?php echo $days6->format('%a');?>, label: "6th" },
+			{ y: <?php echo $days7->format('%a');?>, label: "7th" },
+			{ y: <?php echo $days8->format('%a');?>, label: "8th" },
+			{ y: <?php echo $days9->format('%a');?>, label: "9th" },
+			{ y: <?php echo $days10->format('%a');?>, label: "10th" },
 			]
 	}]
 });
 longest.render();
 
-// Monthly
-var monthly = new CanvasJS.Chart("monthly", {
-	animationEnabled: true,
-	title:{
-		text: "Crude Oil Reserves vs Production, 2016"
-	},	
-	axisY: {
-		title: "Billions of Barrels",
-		titleFontColor: "#4F81BC",
-		lineColor: "#4F81BC",
-		labelFontColor: "#4F81BC",
-		tickColor: "#4F81BC"
-	},
-	axisY2: {
-		title: "Millions of Barrels/day",
-		titleFontColor: "#C0504E",
-		lineColor: "#C0504E",
-		labelFontColor: "#C0504E",
-		tickColor: "#C0504E"
-	},	
-	toolTip: {
-		shared: true
-	},
-	legend: {
-		cursor:"pointer",
-		itemclick: toggleDataSeries
-	},
-	data: [{
-		type: "column",
-		name: "Proven Oil Reserves (bn)",
-		legendText: "Proven Oil Reserves",
-		showInLegend: true, 
-		dataPoints:[
-			{ label: "Saudi", y: 266.21 },
-			{ label: "Venezuela", y: 302.25 },
-			{ label: "Iran", y: 157.20 },
-			{ label: "Iraq", y: 148.77 },
-			{ label: "Kuwait", y: 101.50 },
-			{ label: "UAE", y: 97.8 }
-		]
-	},
-	{
-		type: "column",	
-		name: "Oil Production (million/day)",
-		legendText: "Oil Production",
-		axisYType: "secondary",
-		showInLegend: true,
-		dataPoints:[
-			{ label: "Saudi", y: 10.46 },
-			{ label: "Venezuela", y: 2.27 },
-			{ label: "Iran", y: 3.99 },
-			{ label: "Iraq", y: 4.45 },
-			{ label: "Kuwait", y: 2.92 },
-			{ label: "UAE", y: 3.1 }
-		]
-	}]
-});
-monthly.render();
 }
 
 function explodePie (e) {
@@ -244,15 +185,6 @@ function explodePie (e) {
 		e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
 	}
 	e.top.render();
-}
-function toggleDataSeries(i) {
-	if (typeof(i.dataSeries.visible) === "undefined" || i.dataSeries.visible) {
-		i.dataSeries.visible = false;
-	}
-	else {
-		i.dataSeries.visible = true;
-	}
-	monthly.render();
 }
 
 </script>
