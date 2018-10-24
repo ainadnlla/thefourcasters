@@ -137,6 +137,19 @@
         </a>
       </li>
         
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>Reports</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?=base_url().'admin/bookingreport'?>"><i class="fa fa-circle-o"></i>Booking Reports</a></li>
+            <li><a href="<?=base_url().'admin/mainreport'?>"><i class="fa fa-circle-o"></i>Maintenance Reports</a></li>
+          </ul>
+        </li>
         <li>
           <a href="<?=base_url().'admin/calendar'?>">
             <i class="fa fa-calendar"></i> <span>Calendar</span>
@@ -144,13 +157,8 @@
             </span>
           </a>
         </li>
-
-        <li>
-          <a href="<?=base_url().'admin/reports'?>">
-            <i class="fa fa-pie-chart"></i> <span>Reports</span>
-          </a>
-        </li>
       </ul>
+      
     </section>
     <!-- /.sidebar -->
   </aside>

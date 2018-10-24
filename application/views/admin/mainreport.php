@@ -9,7 +9,7 @@
 
 
     
-<form  class="form-horizontal"  action ="<?=base_url()?>admin/reports/"  method='get'>
+<form  class="form-horizontal"  action ="<?=base_url()?>admin/mainreport/"  method='get'>
 <section class="content">
 
   <div class="col-xs-3">
@@ -62,241 +62,14 @@
       <button name="submit" type="submit" value="submit" class="form-control btn btn-default">GO</button>
     </div>
   </div>
-<!-- Daily -->
-
 <div class="row">
 <div class="col-xs-12">
-  <div class="box box-primary collapsed-box">
-            <div class="box-header with-border">
-              <h3 class="box-title">Daily Booking Report</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="table-responsive">
-              <table id="example1" class="table table-bordered table-hover table-striped">
-              <thead>
-              <tr>
-                <th>Waybill</th>
-                <th>Customer</th>
-                <th>Date</th>
-                <th>Cargo Size</th>
-                <th>Destination</th>
-                <th>Price</th>
-                <th>Status</th>
-              </tr>
-              </thead>
-                  
-                  <tbody>
-                  <?php foreach($days as $day): ?>  
-                  <tr>
-               
-                  <td><?= $day->waybill?></td>
-                  <td><?= $day->custname?></td>
-                  <td><?= $day->date?></td>
-                  <td><?= $day->cargo?></td>
-                  <td><?= $day->destination?></td>
-                  <td>₱<?= $day->price?></td>
-                  <td>  <?php if($day->action==1){ ?>
-                          <div class="label label-success">
-                            <strong>Accepted</strong>
-                          </div>
-                        <?php }elseif($day->action==2){ ?>
-                          <div class="label label-danger">
-                            <strong>Denied</strong>
-                          </div></p>
-                        <?php }else{?>
-                          <div class="label label-warning">
-                            <strong>Pending</strong>
-                          </div>
-                     <?php   }?>
-                     </td>
-                  </tr>
-                  <?php endforeach; ?> 
-                  </tbody>
-                 
-                </table>
-              </div>
-              <!-- /.table-responsive -->
-            </div>
-            <!-- /.box-body -->
-          <div class="box-footer clearfix">
-           
-          <div class="row no-print">
-            <div class="col-xs-12">
-              <a href="<?=base_url()."admin/toprintdaily"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-              <a href="<?=base_url()."admin/pdf"?>" target="_blank" type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
-              <i class="fa fa-download"></i> Generate PDF
-                        </a>
-            </div>
-          </div>
-      </div>
-      </div>
-<!-- Monthly -->
-
-<div class="row">
-<div class="col-xs-12">
-  <div class="box box-primary collapsed-box">
-            <div class="box-header with-border">
-              <h3 class="box-title">Monthly Booking Report</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="table-responsive">
-              <table id="monthlyy" class="table table-bordered table-hover table-striped">
-              <thead>
-              <tr>
-                <th>Waybill</th>
-                <th>Customer</th>
-                <th>Date</th>
-                <th>Cargo Size</th>
-                <th>Destination</th>
-                <th>Price</th>
-                <th>Status</th>
-              </tr>
-              </thead>
-                  
-                  <tbody>
-                  <?php foreach($reps as $rep): ?>  
-                  <tr>
-               
-                  <td><?= $rep->waybill?></td>
-                  <td><?= $rep->custname?></td>
-                  <td><?= $rep->date?></td>
-                  <td><?= $rep->cargo?></td>
-                  <td><?= $rep->destination?></td>
-                  <td>₱<?= $rep->price?></td>
-                  <td>  <?php if($rep->action==1){ ?>
-                          <div class="label label-success">
-                            <strong>Accepted</strong>
-                          </div>
-                        <?php }elseif($rep->action==2){ ?>
-                          <div class="label label-danger">
-                            <strong>Denied</strong>
-                          </div></p>
-                        <?php }else{?>
-                          <div class="label label-warning">
-                            <strong>Pending</strong>
-                          </div>
-                     <?php   }?>
-                     </td>
-                  </tr>
-                  <?php endforeach; ?> 
-                  </tbody>
-                 
-                </table>
-              </div>
-              <!-- /.table-responsive -->
-            </div>
-            <!-- /.box-body -->
-          <div class="box-footer clearfix">
-           
-          <div class="row no-print">
-            <div class="col-xs-12">
-              <a href="<?=base_url()."admin/toprint"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-              <a href="<?=base_url()."admin/pdf"?>" target="_blank" type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
-              <i class="fa fa-download"></i> Generate PDF
-                        </a>
-            </div>
-          </div>
-      </div>
-      </div>
-<!-- Yearly -->
-
-<div class="row">
-<div class="col-xs-12">
-  <div class="box box-primary collapsed-box">
-            <div class="box-header with-border">
-              <h3 class="box-title">Yearly Booking Report</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="table-responsive">
-              <table id="yearlyy" class="table table-bordered table-hover table-striped">
-              <thead>
-              <tr>
-                <th>Waybill</th>
-                <th>Customer</th>
-                <th>Date</th>
-                <th>Cargo Size</th>
-                <th>Destination</th>
-                <th>Price</th>
-                <th>Status</th>
-              </tr>
-              </thead>
-                  
-                  <tbody>
-                  <?php foreach($years as $year): ?>  
-                  <tr>
-               
-                  <td><?= $year->waybill?></td>
-                  <td><?= $year->custname?></td>
-                  <td><?= $year->date?></td>
-                  <td><?= $year->cargo?></td>
-                  <td><?= $year->destination?></td>
-                  <td>₱<?= $year->price?></td>
-                  <td>  <?php if($year->action==1){ ?>
-                          <div class="label label-success">
-                            <strong>Accepted</strong>
-                          </div>
-                        <?php }elseif($year->action==2){ ?>
-                          <div class="label label-danger">
-                            <strong>Denied</strong>
-                          </div></p>
-                        <?php }else{?>
-                          <div class="label label-warning">
-                            <strong>Pending</strong>
-                          </div>
-                     <?php   }?>
-                     </td>
-                  </tr>
-                  <?php endforeach; ?> 
-                  </tbody>
-                 
-                </table>
-              </div>
-              <!-- /.table-responsive -->
-            </div>
-            <!-- /.box-body -->
-          <div class="box-footer clearfix">
-           
-          <div class="row no-print">
-            <div class="col-xs-12">
-              <a href="<?=base_url()."admin/toprintyear"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-              <a href="<?=base_url()."admin/pdf"?>" target="_blank" type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
-              <i class="fa fa-download"></i> Generate PDF
-                        </a>
-            </div>
-          </div>
-      </div>
-      </div>
-<!-- MAINTENANCE REPORT -->
-
-<div class="row">
-<div class="col-xs-12">
-  <div class="box box-primary collapsed-box">
+  <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Daily Maintenance Report</h3>
 
               <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
@@ -356,12 +129,12 @@
       </div>
       <div class="row">
 <div class="col-xs-12">
-  <div class="box box-primary collapsed-box">
+  <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Monthly Maintenance Report</h3>
 
               <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
@@ -421,12 +194,12 @@
       </div>
       <div class="row">
 <div class="col-xs-12">
-  <div class="box box-primary collapsed-box">
+  <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Yearly Maintenance Report</h3>
 
               <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
