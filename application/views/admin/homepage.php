@@ -24,7 +24,7 @@
         <p>Total No. of Bookings</p>
       </div>
       <div class="icon">
-        <i class="ion ion-person"></i>
+        <i class="ion-clipboard"></i>
       </div>
         <a href="<?=base_url().'admin/booking'?>" class="small-box-footer">Proceed to Details <i class="fa fa-arrow-circle-right"></i></a>
     </div>
@@ -37,7 +37,7 @@
         <p>Truck Under Maintenance</p>
       </div>
       <div class="icon">
-        <i class="ion ion-person"></i>
+        <i class="ion-android-settings"></i>
       </div>
         <a href="<?=base_url().'admin/truckdetails'?>" class="small-box-footer">Proceed to Details <i class="fa fa-arrow-circle-right"></i></a>
     </div>
