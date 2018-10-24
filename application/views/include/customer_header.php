@@ -1,8 +1,8 @@
-<body class="hold-transition skin-red-light sidebar-mini">
+<body class="hold-transition skin-green-light sidebar-mini">
 <div class="wrapper">
   <header class="main-header">
     <!-- Logo -->
-    <a href="<?=base_url().'customer/homepage'?>" class="logo">
+    <a href="<?=base_url().'customer/booking'?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>AFC</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -17,20 +17,6 @@
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-
-          <li class="dropdown messages-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-envelope-o"></i>
-              <span class="label label-success"><!--number of messages here--></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have <!--number of messages here--> messages</li>
-              <li>
-                <!-- Messages code here -->
-              </li>
-              <li class="footer"><a href="#">See All Messages</a></li>
-            </ul>
-          </li>
           
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -64,7 +50,7 @@
 
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#"> <span class="btn btn-default btn-flat">Profile</a>
+                  <a href="<?=base_url().'customer/profile'?>"> <span class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
                 <a href="<?=base_url().'login/logoutcustomer'?>"> <span class="btn btn-default btn-flat">Sign out</span></a>
@@ -77,7 +63,7 @@
 
     </nav>
   </header>
-  <!-- Left side column. contains the logo and sidebar -->
+
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -124,13 +110,7 @@
             <i class="fa fa-user"></i> <span>Profile</span>
         </a>
       </li>
-      
-        <li>
-          <a href="<?=base_url().'customer/calendar'?>">
-            <i class="fa fa-calendar"></i> <span>Calendar</span>
-            </span>
-          </a>
-        </li>
+
       </ul>
     </section>
     <!-- /.sidebar -->
