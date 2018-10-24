@@ -164,11 +164,20 @@
           </ul>
         </li>
 
-        <li>
-          <a href="<?=base_url().'staff/reports'?>">
-            <i class="fa fa-pie-chart"></i> <span>Reports</span>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>Reports</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
+          <ul class="treeview-menu">
+            <li><a href="<?=base_url().'staff/bookingreport'?>"><i class="fa fa-circle-o"></i>Booking Reports</a></li>
+            <li><a href="<?=base_url().'staff/mainreport'?>"><i class="fa fa-circle-o"></i>Maintenance Reports</a></li>
+          </ul>
         </li>
+
       </ul>
     </section>
     <!-- /.sidebar -->

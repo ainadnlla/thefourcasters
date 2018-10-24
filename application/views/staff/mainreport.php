@@ -9,7 +9,7 @@
 
 
     
-<form  class="form-horizontal"  action ="<?=base_url()?>admin/bookingreport/"  method='get'>
+<form  class="form-horizontal"  action ="<?=base_url()?>staff/mainreport/"  method='get'>
 <section class="content">
 
   <div class="col-xs-3">
@@ -62,13 +62,11 @@
       <button name="submit" type="submit" value="submit" class="form-control btn btn-default">GO</button>
     </div>
   </div>
-<!-- Daily -->
-
 <div class="row">
 <div class="col-xs-12">
   <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Daily Booking Report</h3>
+              <h3 class="box-title">Daily Maintenance Report</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -79,45 +77,36 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="table-responsive">
-              <table id="example1" class="table table-bordered table-hover table-striped">
+              <table id="main" class="table table-bordered table-hover table-striped">
               <thead>
               <tr>
-                <th>Waybill</th>
-                <th>Customer</th>
-                <th>Date</th>
-                <th>Cargo Size</th>
-                <th>Destination</th>
-                <th>Price</th>
-                <th>Status</th>
+                  <th>Maintenance Date</th>
+                  <th>Maintenance Description</th>
+                  <th>Supplier</th>
+                  <th>Item Description</th>
+                  <th>Purchase</th>
+                  <th>Price</th>
+                  <th>Unit</th>
+                  <th>Quantity</th>
+                  <th>Amount</th>
               </tr>
               </thead>
                   
                   <tbody>
-                  <?php foreach($days as $day): ?>  
-                  <tr>
-               
-                  <td><?= $day->waybill?></td>
-                  <td><?= $day->custname?></td>
-                  <td><?= $day->date?></td>
-                  <td><?= $day->cargo?></td>
-                  <td><?= $day->destination?></td>
-                  <td>₱<?= $day->price?></td>
-                  <td>  <?php if($day->action==1){ ?>
-                          <div class="label label-success">
-                            <strong>Accepted</strong>
-                          </div>
-                        <?php }elseif($day->action==2){ ?>
-                          <div class="label label-danger">
-                            <strong>Denied</strong>
-                          </div></p>
-                        <?php }else{?>
-                          <div class="label label-warning">
-                            <strong>Pending</strong>
-                          </div>
-                     <?php   }?>
-                     </td>
-                  </tr>
-                  <?php endforeach; ?> 
+                  <?php foreach($maindays as $mainday): ?>
+                    <tr>
+                        <td><?= date('M d, Y - g:i A', strtotime($mainday->date))?></td>
+                        <td><?= $mainday->warning?></td>
+                        <td><?= $mainday->supplier?></td>                            
+                        <td><?= $mainday->description?></td>
+                        <td><?= $mainday->purchased?></td>
+                        <td><?= $mainday->price?></td>
+                        <td><?= $mainday->unit?></td>
+                        <td><?= $mainday->quantity?></td>
+                        <td><?= $mainday->amount?></td>
+                    </tr>
+                </tfoot>
+                <?php endforeach; ?> 
                   </tbody>
                  
                 </table>
@@ -129,92 +118,18 @@
            
           <div class="row no-print">
             <div class="col-xs-12">
-              <a href="<?=base_url()."admin/toprintdaily"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-              
-            </div>
-          </div>
-      </div>
-      </div>
-<!-- Monthly -->
-
-<div class="row">
-<div class="col-xs-12">
-  <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Monthly Booking Report</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="table-responsive">
-              <table id="monthlyy" class="table table-bordered table-hover table-striped">
-              <thead>
-              <tr>
-                <th>Waybill</th>
-                <th>Customer</th>
-                <th>Date</th>
-                <th>Cargo Size</th>
-                <th>Destination</th>
-                <th>Price</th>
-                <th>Status</th>
-              </tr>
-              </thead>
-                  
-                  <tbody>
-                  <?php foreach($reps as $rep): ?>  
-                  <tr>
-               
-                  <td><?= $rep->waybill?></td>
-                  <td><?= $rep->custname?></td>
-                  <td><?= $rep->date?></td>
-                  <td><?= $rep->cargo?></td>
-                  <td><?= $rep->destination?></td>
-                  <td>₱<?= $rep->price?></td>
-                  <td>  <?php if($rep->action==1){ ?>
-                          <div class="label label-success">
-                            <strong>Accepted</strong>
-                          </div>
-                        <?php }elseif($rep->action==2){ ?>
-                          <div class="label label-danger">
-                            <strong>Denied</strong>
-                          </div></p>
-                        <?php }else{?>
-                          <div class="label label-warning">
-                            <strong>Pending</strong>
-                          </div>
-                     <?php   }?>
-                     </td>
-                  </tr>
-                  <?php endforeach; ?> 
-                  </tbody>
-                 
-                </table>
-              </div>
-              <!-- /.table-responsive -->
-            </div>
-            <!-- /.box-body -->
-          <div class="box-footer clearfix">
-           
-          <div class="row no-print">
-            <div class="col-xs-12">
-              <a href="<?=base_url()."admin/toprint"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+              <a href="<?=base_url()."staff/toprint_maindaily"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
              
             </div>
           </div>
+         
       </div>
       </div>
-<!-- Yearly -->
-
-<div class="row">
+      <div class="row">
 <div class="col-xs-12">
   <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Yearly Booking Report</h3>
+              <h3 class="box-title">Monthly Maintenance Report</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -225,45 +140,36 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="table-responsive">
-              <table id="yearlyy" class="table table-bordered table-hover table-striped">
+              <table id="mainmonth" class="table table-bordered table-hover table-striped">
               <thead>
               <tr>
-                <th>Waybill</th>
-                <th>Customer</th>
-                <th>Date</th>
-                <th>Cargo Size</th>
-                <th>Destination</th>
-                <th>Price</th>
-                <th>Status</th>
+                  <th>Maintenance Date</th>
+                  <th>Maintenance Description</th>
+                  <th>Supplier</th>
+                  <th>Item Description</th>
+                  <th>Purchase</th>
+                  <th>Price</th>
+                  <th>Unit</th>
+                  <th>Quantity</th>
+                  <th>Amount</th>
               </tr>
               </thead>
                   
                   <tbody>
-                  <?php foreach($years as $year): ?>  
-                  <tr>
-               
-                  <td><?= $year->waybill?></td>
-                  <td><?= $year->custname?></td>
-                  <td><?= $year->date?></td>
-                  <td><?= $year->cargo?></td>
-                  <td><?= $year->destination?></td>
-                  <td>₱<?= $year->price?></td>
-                  <td>  <?php if($year->action==1){ ?>
-                          <div class="label label-success">
-                            <strong>Accepted</strong>
-                          </div>
-                        <?php }elseif($year->action==2){ ?>
-                          <div class="label label-danger">
-                            <strong>Denied</strong>
-                          </div></p>
-                        <?php }else{?>
-                          <div class="label label-warning">
-                            <strong>Pending</strong>
-                          </div>
-                     <?php   }?>
-                     </td>
-                  </tr>
-                  <?php endforeach; ?> 
+                  <?php foreach($mains as $main): ?>
+                    <tr>
+                        <td><?= date('M d, Y - g:i A', strtotime($main->date))?></td>
+                        <td><?= $main->warning?></td>
+                        <td><?= $main->supplier?></td>                            
+                        <td><?= $main->description?></td>
+                        <td><?= $main->purchased?></td>
+                        <td><?= $main->price?></td>
+                        <td><?= $main->unit?></td>
+                        <td><?= $main->quantity?></td>
+                        <td><?= $main->amount?></td>
+                    </tr>
+                </tfoot>
+                <?php endforeach; ?> 
                   </tbody>
                  
                 </table>
@@ -275,13 +181,78 @@
            
           <div class="row no-print">
             <div class="col-xs-12">
-              <a href="<?=base_url()."admin/toprintyear"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-              
+              <a href="<?=base_url()."staff/toprint_maintenance"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+            
             </div>
           </div>
+         
       </div>
       </div>
-      <div class="col-xs-12">
+      <div class="row">
+<div class="col-xs-12">
+  <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Yearly Maintenance Report</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="table-responsive">
+              <table id="mainyear" class="table table-bordered table-hover table-striped">
+              <thead>
+              <tr>
+                  <th>Maintenance Date</th>
+                  <th>Maintenance Description</th>
+                  <th>Supplier</th>
+                  <th>Item Description</th>
+                  <th>Purchase</th>
+                  <th>Price</th>
+                  <th>Unit</th>
+                  <th>Quantity</th>
+                  <th>Amount</th>
+              </tr>
+              </thead>
+                  
+                  <tbody>
+                  <?php foreach($mainyears as $mainyear): ?>
+                    <tr>
+                        <td><?= date('M d, Y - g:i A', strtotime($mainyear->date))?></td>
+                        <td><?= $mainyear->warning?></td>
+                        <td><?= $mainyear->supplier?></td>                            
+                        <td><?= $mainyear->description?></td>
+                        <td><?= $mainyear->purchased?></td>
+                        <td><?= $mainyear->price?></td>
+                        <td><?= $mainyear->unit?></td>
+                        <td><?= $mainyear->quantity?></td>
+                        <td><?= $mainyear->amount?></td>
+                    </tr>
+                </tfoot>
+                <?php endforeach; ?> 
+                  </tbody>
+                 
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-body -->
+          <div class="box-footer clearfix">
+           
+          <div class="row no-print">
+            <div class="col-xs-12">
+              <a href="<?=base_url()."staff/toprint_mainyear"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+             
+            </div>
+          </div>
+         
+      </div>
+      </div>
+      <div class="row">
+<div class="col-xs-12">
   <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Yearly Report of Booking and Maintenance</h3>
@@ -323,7 +294,20 @@
              
       <div id="daily" style="height: 370px; max-width: 1200px; margin: 0px auto;"> </div>
       </div></div> 
-      <script>
+ </section>
+ <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+</form>
+
+<footer class="main-footer">
+ <div class="pull-right hidden-xs">
+   <b>The Fourcasters</b>
+ </div>
+ <strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation </a>.</strong> All rights
+ reserved.
+</footer>
+<script>
 window.onload = function () {
 
 var chart = new CanvasJS.Chart("Monthly", {

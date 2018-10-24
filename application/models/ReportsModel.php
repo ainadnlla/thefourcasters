@@ -48,17 +48,17 @@ class ReportsModel extends CI_Model{
     }
 
     public function get_sum($month, $year){
-        $sql = "SELECT SUM(price) as totalprice FROM booking WHERE EXTRACT(MONTH FROM date) = '$month' AND EXTRACT(YEAR from date) = '$year'";
+        $sql = "SELECT SUM(price) as totalprice FROM booking WHERE action = 1 and EXTRACT(MONTH FROM date) = '$month' AND EXTRACT(YEAR from date) = '$year'";
         $result = $this->db->query($sql);
         return $result->row()->totalprice;
     }
     public function get_sumdaily($day,$month, $year){
-        $sql = "SELECT SUM(price) as totalprice FROM booking WHERE EXTRACT(MONTH FROM date) = '$month' && EXTRACT(day FROM date) = '$day' AND EXTRACT(YEAR from date) = '$year'";
+        $sql = "SELECT SUM(price) as totalprice FROM booking WHERE action = 1 and EXTRACT(MONTH FROM date) = '$month' && EXTRACT(day FROM date) = '$day' AND EXTRACT(YEAR from date) = '$year'";
         $result = $this->db->query($sql);
         return $result->row()->totalprice;
     }
     public function get_sumyear($year){
-        $sql = "SELECT SUM(price) as totalprice FROM booking where EXTRACT(YEAR from date) = '$year'";
+        $sql = "SELECT SUM(price) as totalprice FROM booking where action = 1 and EXTRACT(YEAR from date) = '$year'";
         $result = $this->db->query($sql);
         return $result->row()->totalprice;
     }

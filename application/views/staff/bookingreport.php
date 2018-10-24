@@ -9,7 +9,7 @@
 
 
     
-<form  class="form-horizontal"  action ="<?=base_url()?>admin/bookingreport/"  method='get'>
+<form  class="form-horizontal"  action ="<?=base_url()?>staff/bookingreport/"  method='get'>
 <section class="content">
 
   <div class="col-xs-3">
@@ -129,7 +129,7 @@
            
           <div class="row no-print">
             <div class="col-xs-12">
-              <a href="<?=base_url()."admin/toprintdaily"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+              <a href="<?=base_url()."staff/toprintdaily"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
               
             </div>
           </div>
@@ -202,7 +202,7 @@
            
           <div class="row no-print">
             <div class="col-xs-12">
-              <a href="<?=base_url()."admin/toprint"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+              <a href="<?=base_url()."staff/toprint"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
              
             </div>
           </div>
@@ -275,7 +275,7 @@
            
           <div class="row no-print">
             <div class="col-xs-12">
-              <a href="<?=base_url()."admin/toprintyear"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+              <a href="<?=base_url()."staff/toprintyear"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
               
             </div>
           </div>
