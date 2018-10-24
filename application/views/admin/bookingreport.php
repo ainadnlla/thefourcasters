@@ -515,7 +515,7 @@ var daily = new CanvasJS.Chart("daily", {
 		axisYType: "secondary",
 		showInLegend: true,
 		dataPoints:[
-      { label: "<", y: <?= $mdaily?> }
+      { label: "", y: <?= $mdaily?> }
 		]
 	}]
 });
