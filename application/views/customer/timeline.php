@@ -7,8 +7,8 @@
         <small>Informatiom</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?=base_url()."customer/homepage"?>"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><a href="<?=base_url()."customer/logistics"?>">Logistics Tracking</a></li>
+        <li><a href="<?=base_url()."customer/booking"?>"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Logistics Tracking</a></li>
       </ol>
     </section>
 

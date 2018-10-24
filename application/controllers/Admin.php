@@ -113,7 +113,17 @@ class Admin extends CI_Controller {
         $enddate10 = $this->ChartModel->getFifthEndDate();
         $enddate10 = new DateTime($enddate10->enddate);
         $days10 = date_diff($date10,$enddate10);
+
         $warning = $this->ChartModel->getFirstWarning();
+        $warning2 = $this->ChartModel->getSecondWarning();
+        $warning3 = $this->ChartModel->getThirdWarning();
+        $warning4 = $this->ChartModel->getFourthWarning();
+        $warning5 = $this->ChartModel->getFifthWarning();
+        $warning6 = $this->ChartModel->getFirstEndWarning();
+        $warning7 = $this->ChartModel->getSecondEndWarning();
+        $warning8 = $this->ChartModel->getThirdEndWarning();
+        $warning9 = $this->ChartModel->getFourthEndWarning();
+        $warning10 = $this->ChartModel->getFifthEndWarning();
 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
@@ -122,7 +132,7 @@ class Admin extends CI_Controller {
         $this->load->view('admin/graph',
         compact('accept', 'pending','deny', 'first', 'second','third','fourth','fifth',
         'days', 'days2', 'days3','days4','days5', 'days6', 'days7', 'days8', 'days9', 'days10',
-        'warning'));
+        'warning', 'warning2','warning3','warning4','warning5','warning6', 'warning7','warning8','warning9','warning10'));
         $this->load->view('admin/bookinglatest',compact('books'));
     
     }else{

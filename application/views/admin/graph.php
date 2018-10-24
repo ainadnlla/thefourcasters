@@ -1,61 +1,63 @@
 <div class="row">
-    <div class="col-md-12">
-      <div class="box">
-        <div class="box-header with-border">
+  <div class="col-md-6">
+    <div class="box box-primary">
+      <div class="box-header with-border">
+        <i class="fa fa-pie-chart"></i>
           <h3 class="box-title">Truck Maintenance Record</h3>
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <div class="btn-group">         
-              </div> 
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-          </div>
-        </div>
+					<div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+
+      </div>
       <!-- /.box-header -->
-      <div class="box-body">
+			<div class="box-body">
         <div class="row">
           <div class="col-md-12">
 						<div id="topfive" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
-				</div>          
-			</div>
-			<!-- /.col -->
-		</div>
-		<!-- /.row -->
-	</div>
-<div class="row">
-    <div class="col-md-12">
-      <div class="box">
-        <div class="box-header with-border">
+		  		</div>          
+				</div>
+				<!-- /.col -->
+    	</div>
+    </div>
+    <!-- /.box -->
+  </div>
+  <!-- /.col -->
+
+  <div class="col-md-6">
+    <div class="box box-primary">
+      <div class="box-header with-border">
+        <i class="fa fa-bar-chart"></i>
         	<h3 class="box-title">Monthly Recap Report</h3>
-          	<div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <div class="btn-group">  
-                </div> 
+					<div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
             </div>
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body">
-            <div class="row">
-              <div class="col-md-12">           
-                <!-- For getting the chartContainer/to show the graph which is div id=Hello -->
-                <div id="Hello" style="height: 370px; max-width: 1200px; margin: 0px auto;"> </div>
-                <!-- boy ung div=id dat = sa value ng canvasjs.chart na eedit ata value ng var chart palitan nga lang sa baba -->
-                </div>
-							</div>    
-        		</div>
-      	<!-- /.col -->
-      		</div>
-      <!-- /.row -->
-  	</div>
-</div>
+      </div>
+            <!-- /.box-header -->
+        <div class="box-body">
+        	<div class="row">
+          	<div class="col-md-12">           
+            	<!-- For getting the chartContainer/to show the graph which is div id=Hello -->
+              <div id="Hello" style="height: 370px; max-width: 1200px; margin: 0px auto;"> </div>
+              <!-- boy ung div=id dat = sa value ng canvasjs.chart na eedit ata value ng var chart palitan nga lang sa baba -->
+            </div>
+					</div>    
+    		</div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
 
 <div class="row">
     <div class="col-md-12">
-      <div class="box">
+      <div class="box box-primary">
         <div class="box-header with-border">
-        	<h3 class="box-title">Longest Maintenance Time</h3>
+				<i class="fa fa-line-chart"></i>
+        	<h3 class="box-title">Longest & Shortest Maintenance Time</h3>
           	<div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -88,10 +90,7 @@ window.onload = function () {
 	animationEnabled: true,
 		title: {
       text:"Booking Status - <?php date_default_timezone_set('Asia/Manila'); echo date('F Y'); ?>",
-      ontWeight: "bolder",
-      fontFamily: "tahoma",        
-      fontSize: 28,
-      padding: 10   
+
 		},
 		axisY: {
 			labelFontSize: 12,
@@ -141,36 +140,43 @@ chart.render();
 });
 top.render();
 
-// LONGEST MAINTENANCE TIME
+// LONGEST & SHORTEST MAINTENANCE TIME
 var longest = new CanvasJS.Chart("longest", {
 	animationEnabled: true,
 	theme: "light2",
 	title:{
 		text: "Longest and Shortest Maintenance Time"
 	},
+	axisX:{
+		includeZero: false,
+		axisXIndex: 1,
+	},
 	axisY:{
-		includeZero: false
+		includeZero: false,
+		suffix: " DAYS",
 	},
 	data: [{        
 		type: "line",     
-		color: "#F08080",  
+		lineThickness: 4,
 		dataPoints: [
-			{ y: <?php echo $days5->format('%a');?>, label: "1st" },
-			{ y: <?php echo $days4->format('%a');?>, label: "2nd" },
-			{ y: <?php echo $days3->format('%a');?>, label: "3rd" },
-			{ y: <?php echo $days2->format('%a');?>, label: "4th" },
-			{ y: <?php echo $days->format('%a');?>, label: "5th" },
+			{ x: 1, y: <?php echo $days5->format('%a');?>, indexLabel: "<?php echo $warning5->plate_no?>" },
+			{ x: 2, y: <?php echo $days4->format('%a');?>, indexLabel: "<?php echo $warning4->plate_no?>" },
+			{ x: 3, y: <?php echo $days3->format('%a');?>, indexLabel: "<?php echo $warning3->plate_no?>" },
+			{ x: 4, y: <?php echo $days2->format('%a');?>, indexLabel: "<?php echo $warning2->plate_no?>" },
+			{ x: 5, y: <?php echo $days->format('%a');?>, indexLabel: "<?php echo $warning->plate_no?>", markerColor: "red", markerType: "triangle" },
 			// { y: 520, indexLabel: "highest",markerColor: "red", markerType: "triangle" },
 			]
 		},
 		{
 			type: "line",       
+			color: "#ff4242",
+			lineThickness: 4,
 			dataPoints: [
-			{ y: <?php echo $days6->format('%a');?>, label: "6th" },
-			{ y: <?php echo $days7->format('%a');?>, label: "7th" },
-			{ y: <?php echo $days8->format('%a');?>, label: "8th" },
-			{ y: <?php echo $days9->format('%a');?>, label: "9th" },
-			{ y: <?php echo $days10->format('%a');?>, label: "10th" },
+			{ x: 1, y: <?php echo $days10->format('%a');?>, indexLabel: "<?php echo $warning10->plate_no?>" },
+			{ x: 2, y: <?php echo $days9->format('%a');?>, indexLabel: "<?php echo $warning9->plate_no?>" },
+			{ x: 3, y: <?php echo $days8->format('%a');?>, indexLabel: "<?php echo $warning8->plate_no?>" },
+			{ x: 4, y: <?php echo $days7->format('%a');?>, indexLabel: "<?php echo $warning7->plate_no?>" },
+			{ x: 5, y: <?php echo $days6->format('%a');?>, indexLabel: "<?php echo $warning6->plate_no?>", markerColor: "DarkSlateGrey", markerType: "cross" },
 			]
 	}]
 });

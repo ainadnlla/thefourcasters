@@ -100,34 +100,50 @@ class ChartModel extends CI_Model{
     return $query->count_all_results();
  }
 
- //Maintenance issue process Duration (slowest process)
-
  //Maintenance issue process Duration (fastest process)
     public function getFirstDate(){
-        $query = $this->db->query('SELECT warning, date, enddate FROM maintenance ORDER BY date asc, enddate desc limit 0,1');
+        $query = $this->db->query('SELECT date, enddate FROM maintenance ORDER BY date asc, enddate desc limit 0,1');
         return $query->row();
     }
-    public function getFirstWarning(){
-        $query = $this->db->query('SELECT warning FROM maintenance ORDER BY date asc, enddate desc limit 0,1');
-        return $query->result();
-    }
     public function getSecondDate(){
-        $query = $this->db->query('SELECT warning, date, enddate FROM maintenance ORDER BY date asc, enddate desc limit 1,1');
+        $query = $this->db->query('SELECT date, enddate FROM maintenance ORDER BY date asc, enddate desc limit 1,1');
         return $query->row();
     }
     public function getThirdDate(){
-        $query = $this->db->query('SELECT warning, date, enddate FROM maintenance ORDER BY date asc, enddate desc limit 2,1');
+        $query = $this->db->query('SELECT date, enddate FROM maintenance ORDER BY date asc, enddate desc limit 2,1');
         return $query->row();
     }
     public function getFourthDate(){
-        $query = $this->db->query('SELECT warning, date, enddate FROM maintenance ORDER BY date asc, enddate desc limit 3,1');
+        $query = $this->db->query('SELECT date, enddate FROM maintenance ORDER BY date asc, enddate desc limit 3,1');
         return $query->row();
     }
     public function getFifthDate(){
-        $query = $this->db->query('SELECT warning, date, enddate FROM maintenance ORDER BY date asc, enddate desc limit 4,1');
+        $query = $this->db->query('SELECT date, enddate FROM maintenance ORDER BY date asc, enddate desc limit 4,1');
+        return $query->row();
+    }
+    //LABEL
+    public function getFirstWarning(){
+        $query = $this->db->query('SELECT plate_no FROM maintenance ORDER BY date asc, enddate desc limit 0,1');
+        return $query->row();
+    }
+    public function getSecondWarning(){
+        $query = $this->db->query('SELECT plate_no FROM maintenance ORDER BY date asc, enddate desc limit 1,1');
+        return $query->row();
+    }
+    public function getThirdWarning(){
+        $query = $this->db->query('SELECT plate_no FROM maintenance ORDER BY date asc, enddate desc limit 2,1');
+        return $query->row();
+    }
+    public function getFourthWarning(){
+        $query = $this->db->query('SELECT plate_no FROM maintenance ORDER BY date asc, enddate desc limit 3,1');
+        return $query->row();
+    }
+    public function getFifthWarning(){
+        $query = $this->db->query('SELECT plate_no FROM maintenance ORDER BY date asc, enddate desc limit 4,1');
         return $query->row();
     }
 
+ //Maintenance issue process Duration (slowest process)
     public function getFirstEndDate(){
         $query = $this->db->query('SELECT warning, date, enddate FROM maintenance ORDER BY date desc, enddate asc limit 0,1');
         return $query->row();
@@ -146,6 +162,27 @@ class ChartModel extends CI_Model{
     }
     public function getFifthEndDate(){
         $query = $this->db->query('SELECT warning, date, enddate FROM maintenance ORDER BY date desc, enddate asc limit 4,1');
+        return $query->row();
+    }
+    //LABEL
+    public function getFirstEndWarning(){
+        $query = $this->db->query('SELECT plate_no FROM maintenance ORDER BY date desc, enddate asc limit 0,1');
+        return $query->row();
+    }
+    public function getSecondEndWarning(){
+        $query = $this->db->query('SELECT plate_no FROM maintenance ORDER BY date desc, enddate asc limit 1,1');
+        return $query->row();
+    }
+    public function getThirdEndWarning(){
+        $query = $this->db->query('SELECT plate_no FROM maintenance ORDER BY date desc, enddate asc limit 2,1');
+        return $query->row();
+    }
+    public function getFourthEndWarning(){
+        $query = $this->db->query('SELECT plate_no FROM maintenance ORDER BY date desc, enddate asc limit 3,1');
+        return $query->row();
+    }
+    public function getFifthEndWarning(){
+        $query = $this->db->query('SELECT plate_no FROM maintenance ORDER BY date desc, enddate asc limit 4,1');
         return $query->row();
     }
 
