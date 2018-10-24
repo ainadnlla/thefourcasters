@@ -10,25 +10,30 @@
 </section>
 
 <section class="content">
-  <div class="row">
-    <div class="col-md-3">
-      <div class="box box-success">
-        <div class="box-header with-border">
-          <h3 class="box-title">Profile Photo</h3>
-        </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Profile Photo</h3>
+            </div>
 
-<form  class="form-horizontal" action="<?=base_url()?>staff/helperupdate/<?=$help->id?>"  method='post'>
+    <form  class="form-horizontal" action="<?=base_url()?>staff/helperupdate/<?=$help->id?>"  method='post'>
       <fieldset>
         <div class="form-group">
           <div class="col-md-4">
-            <input type="hidden" name="id" type="text" placeholder="ID" class="form-control input-md"value="<?=$help->id?>" required="" >
+            <input value="<?=$help->id?>" type="hidden" name="id" type="text" placeholder="ID" class="form-control input-md" required="" >
           </div>
         </div>
+
+      <?php
+      $default_path = base_url() . 'images/default.jpg';
+      $file = $help->img != "" ? base_url(). 'images/'.$help->img : $default_path ;
+      ?>
 
       <div class="form-group">
         <label class="col-md-1 control-label" for="upload"></label>  
             <div class="col-md-9">
-              <img src="<?= base_url().'images/'.$help->img ?>" alt="..." class="img-thumbnail">
+              <img src="<?=$file?>" alt="..." class="img-thumbnail">
             </div>
           </div>
       <div>
@@ -36,9 +41,8 @@
       <div class="form-group">
         <label class="col-md-1 control-label" for="upload"></label>  
             <div class="col-md-9">
-            <?php echo form_open_multipart('admin/do_upload');?>
-            <input value="<?=set_value('img')?>" class="form-control" type="file" name="img" size="20" >
-            <?= form_error('img', '<span class="label label-danger">', '</span>'); ?>  
+            <?php echo form_open_multipart('helper/do_upload');?>
+            <input value="<?=$file?>" class="form-control" type="file" name="img" size="20" >
             </div>
           </div>
           <br/>
@@ -47,7 +51,7 @@
 
 <!-- END OF 1ST BOX -->
 
-      <div class="box box-success">
+      <div class="box box-primary">
         <div class="box-header with-border">
             <h3 class="box-title">Schedule</h3>
             </div>
@@ -79,16 +83,15 @@
             </div>
         </div>
         <select name="weekday[]" multiple class="form-control">  
-            <option disabled name="weekday[]" value='<?=$help->weekday?>' selected><?=$help->weekday?></option>  
-                <option name="weekday[]" value="Sun">Sunday</option>
-                <option name="weekday[]" value="Mon">Monday</option>
-                <option name="weekday[]" value="Tues">Tuesday</option>
-                <option name="weekday[]" value="Wed">Wednesday</option>
-                <option name="weekday[]" value="Th">Thursday</option>
-                <option name="weekday[]" value="Fri">Friday</option>
-                <option name="weekday[]" value="Sat">Saturday</option>
+            <option hidden name="weekday[]" value='<?=$help->weekday?>' selected><?=$help->weekday?></option>  
+                <option name="weekday[]" value="Sunday">Sunday</option>
+                <option name="weekday[]" value="Monday">Monday</option>
+                <option name="weekday[]" value="Tuesday">Tuesday</option>
+                <option name="weekday[]" value="Wednesday">Wednesday</option>
+                <option name="weekday[]" value="Thursday">Thursday</option>
+                <option name="weekday[]" value="Friday">Friday</option>
+                <option name="weekday[]" value="Saturday">Saturday</option>
           </select>
-          <?= form_error('weekdays', '<span class="label label-danger">', '</span>'); ?>  
         </div>
       </div>
     </div>
@@ -99,7 +102,7 @@
 <!-- END OF 2ND BOX -->
 
       <div class="col-md-9">
-        <div class="box box-success">
+        <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title">Personal Information</h3>
           </div>
@@ -111,7 +114,6 @@
         <label class="col-md-4 control-label" for="driver_no" >Driver License No.</label>  
             <div class="col-md-6">
                 <input  value="<?=$help->driver_no?>" name="driver_no" type="text" placeholder="License No." class="form-control input-md">
-                <?= form_error('driver_no', '<span class="label label-danger">', '</span>'); ?>  
             </div>
     </div> 
 
@@ -119,7 +121,6 @@
         <label class="col-md-4 control-label" for="expire" >Expiry Date</label>  
             <div class="col-md-6">
                 <input  value="<?=$help->expire?>" name="expire" type="date" placeholder="License No." class="form-control input-md">
-                <?= form_error('expire', '<span class="label label-danger">', '</span>'); ?>  
             </div>
     </div> 
 
@@ -135,7 +136,6 @@
         <label class="col-md-4 control-label" >Middle Name</label>  
           <div class="col-md-6">
             <input  value="<?=$help->mname?>" name="mname" type="text" placeholder="Middle Name" class="form-control input-md" >
-            <?= form_error('mname', '<span class="label label-danger">', '</span>'); ?>  
           </div>
       </div>  
 
@@ -151,7 +151,8 @@
         <label class="col-md-4 control-label" >Gender</label>
             <div class="col-md-6">
                 <select value="<?=$help->gender?>" name="gender" class="form-control">
-                <option value='<?=$help->gender?>' selected><?=$help->gender?></option>
+                <option hidden value='<?=$help->gender?>' selected><?=$help->gender?></option>
+                <option disabled><?=$help->gender?></option>
                 <option value="M">Male</option>
                 <option value="F">Female</option>
                 </select>
@@ -197,7 +198,7 @@
 
 <!-- END OF 3RD BOX -->
 
-      <div class="box box-success">
+      <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">User Details</h3>
             </div>
@@ -232,21 +233,23 @@
       <div class="form-group">
         <label class="col-md-4 control-label" >Status</label>
           <div class="col-md-6">
-            <select  value="<?=$help->status?>" name="status" class="form-control">
-            <option Selected disabled>Unchanged</option>
-            <option value="1">Active</option>
-            <option value="0">Inactive</option>
+            <select value="<?=$help->status?>" name="status" class="form-control">
+            <option hidden value='<?=$help->status?>' selected>Level <?=$help->status?></option>
+            <option disabled>Level <?=$help->status?></option>
+            <option value="0">(0) Inactive</option>
+            <option value="1">(1) Active</option>
             </select>
           </div>
       </div>
 
-      <div class="form-group">
-      <label class="col-md-4 control-label" for="button1id"></label>
-      <div class="col-md-6">
-        <button id="button1id" name="submit" type="submit" value="submit" class="btn btn-success">Update</button>
-        <a href="<?= base_url().'staff/helperdetails'?>" class="btn btn-danger" role="button"> Cancel</a>
+
+      <div class="box-footer">
+        <label class="col-md-12 control-label" for="button1id"></label>
+        <a href="<?= base_url().'staff/helperdetails'?>" class="btn btn-default" role="button">Cancel</a>
+        <div class="pull-right">
+          <button id="button1id" name="submit" type="submit" value="submit" class="btn btn-success">Update</button>
+        </div>
       </div>
-    </div>
 
           </div>
         </div>

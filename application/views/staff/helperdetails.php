@@ -56,13 +56,9 @@
                         </td>
 
                         <td>
-                        <a href="<?= base_url().'helper/edit/'.$help->id?>" class="btn btn-default btn.lg" role="button">
+                        <a href="<?= base_url().'staff/helperedit/'.$help->id?>" class="btn btn-default btn.lg" role="button">
                         <span class="fa fa-edit" aria-hidden="true">
                         </span></a>
-
-                        <!-- <a href="<?=base_url('helper/del/'.$help->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
-                        <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" >
-                        </span></a> -->
                         </td>
                     </tr>        
                 <?php endforeach; ?> 
