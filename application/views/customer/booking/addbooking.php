@@ -27,7 +27,7 @@
         </div>
 
         <div class="form-group">
-          <label class="col-md-4 control-label"  for="product">Product Type</label>  
+          <label class="col-md-4 control-label"  for="product">Product</label>  
             <div class="col-md-4">
               <input id="product" name="product" value = "<?=set_value('product')?>" type="text" placeholder="Product" class="form-control input-md">
               <?= form_error('product', '<span class="label label-danger">', '</span>') ?>  
@@ -51,7 +51,26 @@
         </div>
 
         <div class="form-group">
+<<<<<<< HEAD
+          <label class="col-md-4 control-label" for="cargo">Cargo Size</label>
+            <div class="col-md-4">
+              <select id="cargo" name="cargo" value = "<?=set_value('cargo')?>" class="form-control input-md">
+                <option Selected disabled="disabled" >Cargo Type</option>
+                <option value="FCL 1x40">FCL 1x40</option>
+                <option value="FCL 1x20">FCL 1x20</option>
+                <option value="LCL (ELF)">LCL (ELF)</option>
+                <option value="LCL 1x40">LCL 1x40 (Guaranteed Load)</option>
+                <option value="FCL 2x20">FCL 2x20</option>
+                <option value="FCL 1x45">FCL 1x45</option>
+              </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="date">Date Scheduled</label>
+=======
           <label class="col-md-4 control-label" for="date">Date Schdeuled</label>
+>>>>>>> d0925a16541ef28751eadb95dab1cd099ecbaf78
             <div class="col-md-4">
               <input name="date" type="date" value = "<?=set_value('date')?>" class="form-control input-md">  
               <?= form_error('date', '<span class="label label-danger">', '</span>') ?>  
