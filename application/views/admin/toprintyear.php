@@ -93,7 +93,7 @@
       </div>
       <!-- /.col -->
       <div class="col-xs-6">
-        <p class="lead">Total Amount as of <?php date_default_timezone_set('Asia/Manila'); echo date('m/d/y'); ?></p>
+        <p class="lead">Total Amount: ?></p>
 
         <div class="table-responsive">
           <table class="table">

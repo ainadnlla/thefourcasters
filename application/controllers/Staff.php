@@ -705,5 +705,250 @@ public function homepage(){
                    redirect('staff/helperdetails');
                }
            }
+           //Report
+        public function bookingreport(){
+            if($this->session->userdata('email') !=''){ 
+                $data['title'] = 'Booking Reports | Angelogistic Forwarder Corporation';
+                $month = $this->input->GET('month');
+                $year = $this->input->GET('year');  
+                $day = $this->input->GET('day');
+                //Monthly Report Graph
+           $jan= $this->ChartModel->jan($year);
+           $feb= $this->ChartModel->feb($year);
+           $march= $this->ChartModel->march($year);
+           $april= $this->ChartModel->april($year);
+           $may= $this->ChartModel->may($year);
+           $june= $this->ChartModel->june($year);
+           $july= $this->ChartModel->july($year);
+           $aug= $this->ChartModel->aug($year);
+           $sep= $this->ChartModel->sep($year);
+           $oct= $this->ChartModel->oct($year);
+           $nov= $this->ChartModel->nov($year);
+           $dec= $this->ChartModel->dec($year);
+            //Yearly Report Graph
+           $currentyear= $this->ChartModel->currentyear();
+           $lastyear = $this->ChartModel->lastyear();
+           $llastyear =$this->ChartModel->llastyear();
+           $lllastyear= $this->ChartModel->lllastyear();
+           $llllastyear = $this->ChartModel->llllastyear();
+           //Daily Report Graph
+           $daily = $this->ChartModel->daily($day,$month,$year);
+            //Maintenance Monthly Graph
+            $mjan= $this->ChartModel->mjan($year);
+            $mfeb= $this->ChartModel->mfeb($year);
+            $mmarch= $this->ChartModel->mmarch($year);
+            $mapril= $this->ChartModel->mapril($year);
+            $mmay= $this->ChartModel->mmay($year);
+            $mjune= $this->ChartModel->mjune($year);
+            $mjuly= $this->ChartModel->mjuly($year);
+            $maug= $this->ChartModel->maug($year);
+            $msep= $this->ChartModel->msep($year);
+            $moct= $this->ChartModel->moct($year);
+            $mnov= $this->ChartModel->mnov($year);
+            $mdec= $this->ChartModel->mdec($year);
+            //Maintenance Yearly Graph
+            $mcurrentyear= $this->ChartModel->mcurrentyear();
+            $mlastyear = $this->ChartModel->mlastyear();
+            $mllastyear =$this->ChartModel->mllastyear();
+            $mlllastyear= $this->ChartModel->mlllastyear();
+            $mllllastyear = $this->ChartModel->mllllastyear();
+            //Maintenance Daily Graph
+            $mdaily = $this->ChartModel->mdaily($day,$month,$year);
+      
+            $days = $this->ReportsModel->getdayreport($day,$month,$year);
+            $reps=  $this->ReportsModel->getreport($month, $year);
+            $years = $this->ReportsModel->getyeareport($year);
+    
+            $this->session->set_flashdata('month', $month);
+            $this->session->set_flashdata('year', $year);
+            $this->session->set_flashdata('day', $day);
+          
+            $this->load->config('myconfig');
+            $this->load->view('include/header', $data);
+            $this->load->view('include/staff_header');
+            $this->load->view('include/footer');
+            $this->load->view('staff/bookingreport',compact('maindays','mainyears','daily','mdaily','currentyear','lastyear','llastyear','lllastyear','llllastyear','mcurrentyear','mlastyear','mllastyear','mlllastyear','mllllastyear','mjan','mfeb','mmarch','mapril','mmay','mjune','mjuly','maug','msep','moct','mnov','mdec','jan','feb','march','april','may','june','july','aug','sep','oct','nov','dec','days','years','reps', 'mains'));
+            }else{
+                redirect('login/staff');
+            }
+        
+        }
+        public function mainreport(){
+            if($this->session->userdata('email') !=''){ 
+                $data['title'] = 'Maintenance Reports | Angelogistic Forwarder Corporation';
+                $month = $this->input->GET('month');
+                $year = $this->input->GET('year');  
+                $day = $this->input->GET('day');  
+                //Monthly Report Graph
+           $jan= $this->ChartModel->jan($year);
+           $feb= $this->ChartModel->feb($year);
+           $march= $this->ChartModel->march($year);
+           $april= $this->ChartModel->april($year);
+           $may= $this->ChartModel->may($year);
+           $june= $this->ChartModel->june($year);
+           $july= $this->ChartModel->july($year);
+           $aug= $this->ChartModel->aug($year);
+           $sep= $this->ChartModel->sep($year);
+           $oct= $this->ChartModel->oct($year);
+           $nov= $this->ChartModel->nov($year);
+           $dec= $this->ChartModel->dec($year);
+            //Yearly Report Graph
+           $currentyear= $this->ChartModel->currentyear();
+           $lastyear = $this->ChartModel->lastyear();
+           $llastyear =$this->ChartModel->llastyear();
+           $lllastyear= $this->ChartModel->lllastyear();
+           $llllastyear = $this->ChartModel->llllastyear();
+           //Daily Report Graph
+           $daily = $this->ChartModel->daily($day,$month,$year);
+            //Maintenance Monthly Graph
+            $mjan= $this->ChartModel->mjan($year);
+            $mfeb= $this->ChartModel->mfeb($year);
+            $mmarch= $this->ChartModel->mmarch($year);
+            $mapril= $this->ChartModel->mapril($year);
+            $mmay= $this->ChartModel->mmay($year);
+            $mjune= $this->ChartModel->mjune($year);
+            $mjuly= $this->ChartModel->mjuly($year);
+            $maug= $this->ChartModel->maug($year);
+            $msep= $this->ChartModel->msep($year);
+            $moct= $this->ChartModel->moct($year);
+            $mnov= $this->ChartModel->mnov($year);
+            $mdec= $this->ChartModel->mdec($year);
+            //Maintenance Yearly Graph
+            $mcurrentyear= $this->ChartModel->mcurrentyear();
+            $mlastyear = $this->ChartModel->mlastyear();
+            $mllastyear =$this->ChartModel->mllastyear();
+            $mlllastyear= $this->ChartModel->mlllastyear();
+            $mllllastyear = $this->ChartModel->mllllastyear();
+            //Maintenance Daily Graph
+            $mdaily = $this->ChartModel->mdaily($day,$month,$year);
+            $mains =  $this->ReportsModel->getMain($month, $year);
+            $maindays = $this->ReportsModel->getmainday($day,$month, $year);
+            $mainyears = $this->ReportsModel->getmainyear($year);
+          
+            
+    
+            $this->session->set_flashdata('month', $month);
+            $this->session->set_flashdata('year', $year);
+            $this->session->set_flashdata('day', $day);
+          
+            $this->load->config('myconfig');
+            $this->load->view('include/header', $data);
+            $this->load->view('include/staff_header');
+            $this->load->view('include/footer');
+            $this->load->view('staff/mainreport',compact('maindays','mainyears','daily','mdaily','currentyear','lastyear','llastyear','lllastyear','llllastyear','mcurrentyear','mlastyear','mllastyear','mlllastyear','mllllastyear','mjan','mfeb','mmarch','mapril','mmay','mjune','mjuly','maug','msep','moct','mnov','mdec','jan','feb','march','april','may','june','july','aug','sep','oct','nov','dec','days','years','reps', 'mains'));
+            }else{
+                redirect('login/staff');
+            }
+        }
+        //Printing
+        public function toprint(){
+            if($this->session->userdata('email') !=''){ 
+                $data['title'] = 'Reports Information | Angelogistic Forwarder Corporation';
+                
+                $month = $this->session->flashdata('month');
+                $year = $this->session->flashdata('year');
+                $reps =  $this->ReportsModel->getreport($month,$year);
+                $data['totalprice'] = $this->ReportsModel->get_sum($month, $year);
+                
+                $this->load->config('myconfig');
+                $this->load->view('include/header', $data);
+                $this->load->view('include/footer');
+                $this->load->view('staff/toprint',compact('reps',$data));
+                
+            }else{
+                redirect('login/staff');
+            }
+        }
+        public function toprintdaily(){
+            if($this->session->userdata('email') !=''){ 
+                $data['title'] = 'Reports Information | Angelogistic Forwarder Corporation';
+                
+                $month = $this->session->flashdata('month');
+                $year = $this->session->flashdata('year');
+                $day = $this->session->flashdata('day');
+                $days = $this->ReportsModel->getdayreport($day,$month, $year);
+                $data['totalprice'] = $this->ReportsModel->get_sumdaily($day,$month, $year);
+                
+                $this->load->config('myconfig');
+                $this->load->view('include/header', $data);
+                $this->load->view('include/footer');
+                $this->load->view('staff/toprintdaily',compact('days',$data));
+            }else{
+                redirect('login/staff');
+            }
+        }
+        public function toprintyear(){
+            if($this->session->userdata('email') !=''){ 
+                $data['title'] = 'Reports Information | Angelogistic Forwarder Corporation';
+                $year = $this->session->flashdata('year');
+              
+                $years = $this->ReportsModel->getyeareport($year);
+                $data['totalprice'] = $this->ReportsModel->get_sumyear($year);
+                
+                $this->load->config('myconfig');
+                $this->load->view('include/header', $data);
+                $this->load->view('include/footer');
+                $this->load->view('staff/toprintyear',compact('years',$data));
+            }else{
+                redirect('login/staff');
+            }
+        }
+    
+        public function toprint_maintenance(){
+            if($this->session->userdata('email') !=''){ 
+                $data['title'] = 'Reports Information | Angelogistic Forwarder Corporation';
+                
+                $month = $this->session->flashdata('month');
+                $year = $this->session->flashdata('year');
+                $mains =  $this->ReportsModel->getmain($month,$year);
+                $data['totalprice'] = $this->ReportsModel->get_sum_mainte($month, $year);
+                
+                $this->load->config('myconfig');
+                $this->load->view('include/header', $data);
+                $this->load->view('include/footer');
+                $this->load->view('staff/toprint_maintenance',compact('mains',$data));
+                
+            }else{
+                redirect('login/staff');
+            }
+        }
+        public function toprint_maindaily(){
+            if($this->session->userdata('email') !=''){ 
+                $data['title'] = 'Reports Information | Angelogistic Forwarder Corporation';
+                
+                $month = $this->session->flashdata('month');
+                $year = $this->session->flashdata('year');
+                $day = $this->session->flashdata('day');
+                $maindays = $this->ReportsModel->getmainday($day,$month, $year);
+                $data['totalprice'] = $this->ReportsModel->get_sum_maintedaily($day,$month, $year);
+                
+                $this->load->config('myconfig');
+                $this->load->view('include/header', $data);
+                $this->load->view('include/footer');
+                $this->load->view('staff/toprint_maindaily',compact('maindays',$data));
+                
+            }else{
+                redirect('login/staff');
+            }
+        }
+        public function toprint_mainyear(){
+            if($this->session->userdata('email') !=''){ 
+                $data['title'] = 'Reports Information | Angelogistic Forwarder Corporation';
+                
+           
+                $year = $this->session->flashdata('year');
+                
+                $mainyears = $this->ReportsModel->getmainyear($year);
+                $data['totalprice'] = $this->ReportsModel->get_sum_mainteyear($year);
+                
+                $this->load->config('myconfig');
+                $this->load->view('include/header', $data);
+                $this->load->view('include/footer');
+                $this->load->view('staff/toprint_mainyear',compact('mainyears',$data));
+                
+            }else{
+                redirect('login/staff');
+            }
+        }
 }
 ?>

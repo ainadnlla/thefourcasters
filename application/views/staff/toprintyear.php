@@ -35,7 +35,7 @@
       <!-- /.col -->
     </div>
     <!-- /.row -->
-    <form  class="form-horizontal"  action ="<?=base_url()?>admin/toprintdaily/"  method="get">
+    <form  class="form-horizontal"  action ="<?=base_url()?>admin/toprintyear/"  method="get">
     <!-- Table row -->
     <div class="row">
       <div class="col-xs-12 table-responsive">
@@ -54,21 +54,21 @@
           </tr>
           </thead>
           <tbody>
-          <?php foreach($days as $day): ?>
+          <?php foreach($years as $year): ?>
           <tr>
-            <td><?= $day->waybill?></td>
-            <td><?= $day->custname?></td>
-            <td><?= $day->date?></td>
-            <td><?= $day->product?></td>
-            <td><?= $day->pieces?></td>
-            <td><?= $day->cargo?></td>
-            <td><?= $day->destination?></td>
-            <td align="right"><?= number_format("$day->price", 2); ?></td>
-            <td>  <?php if($day->action==1){ ?>
+            <td><?= $year->waybill?></td>
+            <td><?= $year->custname?></td>
+            <td><?= $year->date?></td>
+            <td><?= $year->product?></td>
+            <td><?= $year->pieces?></td>
+            <td><?= $year->cargo?></td>
+            <td><?= $year->destination?></td>
+            <td align="right"><?= number_format("$year->price", 2); ?></td>
+            <td>  <?php if($year->action==1){ ?>
             <div class="label label-success">
               <strong>Accepted</strong>
             </div>
-            <?php }elseif($day->action==2){ ?>
+            <?php }elseif($year->action==2){ ?>
               <div class="label label-danger">
                 <strong>Denied</strong>
               </div></p>

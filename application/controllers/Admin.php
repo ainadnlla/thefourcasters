@@ -338,7 +338,7 @@ class Admin extends CI_Controller {
 
     public function mainreport(){
         if($this->session->userdata('username') !=''){ 
-            $data['title'] = 'Booking Reports | Angelogistic Forwarder Corporation';
+            $data['title'] = 'Maintenance Reports | Angelogistic Forwarder Corporation';
             $month = $this->input->GET('month');
             $year = $this->input->GET('year');  
             $day = $this->input->GET('day');  
