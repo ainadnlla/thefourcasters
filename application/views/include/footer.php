@@ -35,19 +35,7 @@
 <script src="<?=base_url()?>dashboard/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 <script src="<?=base_url()?>dashboard/bower_components/fullcalendar/dist/gcal.js"></script>
 
-<script>
-  $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
-</script>
+
 
 
 </body>

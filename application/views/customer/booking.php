@@ -60,8 +60,11 @@
                           <div class="label label-warning">
                             <strong>Pending</strong>
                           </div>
-                     <?php   }?></td>
-                  <td>
+                     <?php   }?>
+                    </td>
+                  <td><a href="<?= base_url().'booking/edit/'.$book->id?>" class="btn btn-default btn.lg" role="button">
+                    <span class="fa fa-edit" aria-hidden="true">
+                    </span></a></td>
                 </tr>
                 </tfoot>
               <?php endforeach; ?> 

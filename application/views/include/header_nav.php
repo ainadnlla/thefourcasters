@@ -20,20 +20,6 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           
-          <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning"><!--number of notif here--></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have <!--number of notif here--> notifications</li>
-              <li>
-                <!-- Notifications code here -->
-              </li>
-              <li class="footer"><a href="#">View all</a></li>
-            </ul>
-          </li>
-
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -52,9 +38,9 @@
               </li>
 
               <li class="user-footer">
-                <div class="pull-left">
-                  <a href="<?=base_url().'admin/profile'?>"> <span class="btn btn-default btn-flat">Profile</a>
-                </div>
+                <!-- <div class="pull-left">
+                  <a href="<?//=base_url().'admin/profile'?>"> <span class="btn btn-default btn-flat">Profile</a>
+                </div> -->
                 <div class="pull-right">
                 <a href="<?=base_url().'login/logoutadmin'?>"> <span class="btn btn-default btn-flat">Sign out</span></a>
                 </div>
