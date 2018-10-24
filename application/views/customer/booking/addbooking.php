@@ -11,7 +11,7 @@
 <section class="content">
   <div class="row">
     <div class="col-sm-12">   
-      <div class="box box-basic">
+      <div class="box box-success">
         <div class="box-header with-border">
           <h3 class="box-title">Add Details</h3>
         </div>
@@ -37,7 +37,7 @@
           </div>
 
         <div class="form-group">
-          <label class="col-md-4 control-label"  for="product">Product Type</label>  
+          <label class="col-md-4 control-label"  for="product">Product</label>  
             <div class="col-md-4">
               <input id="product" name="product" value = "<?=set_value('product')?>" type="text" placeholder="Product" class="form-control input-md">
               <?= form_error('product', '<span class="label label-danger">', '</span>') ?>  
@@ -76,7 +76,7 @@
         </div>
 
         <div class="form-group">
-          <label class="col-md-4 control-label" for="date">Date Schdeuled</label>
+          <label class="col-md-4 control-label" for="date">Date Scheduled</label>
             <div class="col-md-4">
               <input name="date" type="date" value = "<?=set_value('date')?>" class="form-control input-md">  
               <?= form_error('date', '<span class="label label-danger">', '</span>') ?>  
