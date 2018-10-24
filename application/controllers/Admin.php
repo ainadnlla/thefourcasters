@@ -517,7 +517,7 @@ class Admin extends CI_Controller {
             $this->load->config('myconfig');
             $this->load->view('include/header', $data);
             $this->load->view('include/footer');
-            $this->load->view('admin/toprint_mainyear',compact('maindays',$data));
+            $this->load->view('admin/toprint_mainyear',compact('mainyears',$data));
             
         }else{
             redirect('login/admin');

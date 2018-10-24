@@ -58,7 +58,7 @@ class ReportsModel extends CI_Model{
         return $result->row()->totalprice;
     }
     public function get_sumyear($year){
-        $sql = "SELECT SUM(price) as totalprice FROM booking EXTRACT(YEAR from date) = '$year'";
+        $sql = "SELECT SUM(price) as totalprice FROM booking where EXTRACT(YEAR from date) = '$year'";
         $result = $this->db->query($sql);
         return $result->row()->totalprice;
     }
