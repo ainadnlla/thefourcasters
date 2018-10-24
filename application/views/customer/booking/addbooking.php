@@ -11,29 +11,20 @@
 <section class="content">
   <div class="row">
     <div class="col-sm-12">   
-      <div class="box box-basic">
+      <div class="box box-success">
         <div class="box-header with-border">
           <h3 class="box-title">Add Details</h3>
         </div>
 
-        <form class="form-horizontal" action ="<?=base_url()?>booking/insert/" method = "post">
-        <div class="box-body">
+    <form class="form-horizontal" action ="<?=base_url()?>booking/insert/" method = "post">
+      <fieldset>
         <div class="form-group">
-        <div class="col-md-4">
-          <input type="hidden" name="id" type="text" placeholder="ID" class="form-control input-md" required="" >
+          <div class="col-md-4">
+            <input type="hidden" name="id" type="text" placeholder="ID" class="form-control input-md" required="" >
+            <input type="hidden" name="cust_type" type="text" value="<?=$this->session->cust?>" class="form-control input-md" required="" >  
+            <input type="hidden" name="custname" type="text" value="<?=$this->session->name?>" class="form-control input-md" required="" >  
+          </div>
         </div>
-      </div>
-
-          <div class="form-group">
-            <div class="col-md-4">
-              <input type="hidden"  name="cust_type" type="text" value="<?=$this->session->cust?>" class="form-control input-md" required="" >  
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-md-4">
-              <input type="hidden"  name="custname" type="text" value="<?=$this->session->name?>" class="form-control input-md" required="" >  
-            </div>
-          </div>
 
         <div class="form-group">
           <label class="col-md-4 control-label"  for="product">Product Type</label>  
@@ -81,17 +72,12 @@
           </div>
         </div>
 
-        <!-- <div class="form-group">
-          <label class="col-md-4 control-label" for="price">Price</label>
-            <div class="col-md-4">
-            <input name="price" type="text" placeholder="Price" class="form-control input-md" disabled>             </div>
-        </div> -->
-
-        <div class="form-group">
+        <div class="box-footer">
           <label class="col-md-4 control-label" for="button1id"></label>
             <div class="col-md-4">
+              <a href="<?= base_url().'customer/booking'?>" class="btn btn-default" role="button"> Cancel</a>
+              <div class="pull-right">
               <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Submit</button></a>
-              <a href="<?= base_url().'customer/booking'?>" class="btn btn-danger" role="button"> Cancel</a>
             </div>
         </div> 
  

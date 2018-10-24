@@ -17,20 +17,6 @@
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          
-          <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning"><!--number of notif here--></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have <!--number of notif here--> notifications</li>
-              <li>
-                <!-- Notifications code here -->
-              </li>
-              <li class="footer"><a href="#">View all</a></li>
-            </ul>
-          </li>
 
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
@@ -77,22 +63,17 @@
           <a href="<?= base_url()."customer/profile"?>"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
-      <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
-      <!-- /.search form -->
+
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
 
+          <li>
+          <a href="<?=base_url().'customer/profile'?>">
+            <i class="fa fa-user"></i> <span>Profile</span>
+        </a>
+      </li>
+      
         <li>
           <a href="<?=base_url().'customer/booking'?>">
             <i class="fa fa-info-circle"></i> <span>Booking Information</span>
@@ -102,12 +83,6 @@
       <li>
         <a href="<?=base_url().'customer/logistics'?>">
           <i class="fa fa-map-pin"></i> <span>Logistics Tracking</span>
-        </a>
-      </li>
-
-          <li>
-          <a href="<?=base_url().'customer/profile'?>">
-            <i class="fa fa-user"></i> <span>Profile</span>
         </a>
       </li>
 
