@@ -181,18 +181,6 @@ class Customer extends CI_Controller {
             redirect('login/customer');
         }
     }  
-    
-    public function calendar(){
-        if($this->session->userdata('emailad') !=''){
-            $data['title'] = 'Calendar | Angelogistic Forwarder Corporation';
-            $this->load->view('include/calendar_head', $data);
-            $this->load->view('include/customer_header'); 
-            $this->load->view('customer/calendar');
-            $this->load->view('include/calendar_foot');
-        }else{
-            redirect('login/customer');
-        }
-    }  
 
     public function booking(){
          if($this->session->userdata('emailad') !=''){ 

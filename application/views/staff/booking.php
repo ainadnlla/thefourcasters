@@ -18,16 +18,17 @@
           <!-- /.box-header -->
           <div class="box-body table-responsive">
           <table id="bookingstaff" class="table table-bordered table-hover table-striped">
-            <thead>
+          <thead>
             <tr>
+              <th hidden></th>
               <th>Waybill</th>
               <th>Customer</th>
               <th>Date</th>
               <th>Product</th>
               <th>Pieces</th>
               <th>Truck No.</th>
-              <th>Driver Name</th>
-              <th>Helper Name</th>
+              <th>Driver ID</th>
+              <th>Helper ID</th>
               <th>Destination</th>
               <th>Price</th>
               <th>Status</th>
@@ -37,14 +38,15 @@
             <tbody>
             <?php foreach($books as $book): ?>
               <tr>
+                  <td hidden><?= $book->created?></td>
                   <td><?= $book->waybill?></td>
-                  <td><?= $book->custname?></td>
-                  <td><?= $book->date?></td>
-                  <td><?= $book->product?></td>
+                  <td class="text-capitalize"><?= $book->custname?></td>
+                  <td><?= date('M d, Y', strtotime($book->date))?></td>
+                  <td class="text-capitalize"><?= $book->product?></td>
                   <td><?= $book->pieces?></td>
-                  <td><?= $book->plate_no?></td>
-                  <td><?= $book->driver_name?></td>
-                  <td><?= $book->helper_name?></td>
+                  <td class="text-uppercase"><?= $book->plate_no?></td>
+                  <td class="text-capitalize"><?= $book->drivername?></td>
+                  <td class="text-capitalize"><?= $book->helpername?></td>
                   <td><?= $book->destination?></td>
                   <td>₱<?= $book->price?></td>
                   <td>  <?php if($book->action==1){ ?>
@@ -54,13 +56,21 @@
                         <?php }elseif($book->action==2){ ?>
                           <div class="label label-danger">
                             <strong>Denied</strong>
-                          </div></p>
+                          </div>
+                          <?php }elseif($book->action==3){?>
+                          <div class="label label-primary">
+                            <strong>In-Transit</strong>
+                          </div>
+                        <?php }elseif($book->action==4){?>
+                          <div class="label label-success">
+                            <strong>Arrived</strong>
+                          </div>
                         <?php }else{?>
                           <div class="label label-warning">
                             <strong>Pending</strong>
                           </div>
                      <?php   }?></td>
-                     <td>
+                  <td>
                   <a href="<?= base_url().'bookingstaff/view/'.$book->id?>" class="btn btn-default btn.lg" role="button">
                   <span class="fa fa-eye" aria-hidden="true"></span></a>
                   <a href="<?= base_url().'bookingstaff/edit/'.$book->id?>" class="btn btn-default btn.lg" role="button">
@@ -71,20 +81,12 @@
               </td>
             </tr>
             </tfoot>
-          <?php endforeach; ?> 
+            <?php endforeach; ?> 
           </table>
-
-          <!-- <div class="box-footer">
-                <a href="<?=base_url()?>bookingstaff/add" class="btn btn-success btn-block btn-sm" role="button">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Booking Information</a>
-                </div> -->
-
-            <center></center>
         </div>
       </div>
     </div>       
 </section>
-</div>
 </div>
 <footer class="main-footer">
 <div class="pull-right hidden-xs">

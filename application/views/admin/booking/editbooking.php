@@ -130,13 +130,14 @@
                 echo '<option value="'.$row->id.'">' .'('.$row->id.') '.$row->helpername.'</option>';
               }
             ?>
+            ?>
             </select>
             <input hidden value="<?=$helpername->helpername?>" name="helpername" type="text">
             <?= form_error('helperid', '<span class="label label-danger">', '</span>') ?>  
           </div>
           <div class="col-md-4">
             <label>Price</label>
-            <input value="<?=$books->price?>" id="price" name="price" type="text" placeholder="Price" class="form-control input-md">
+            <input hidden value="<?=$books->price?>" id="price" name="price" type="text" placeholder="Price" class="form-control input-md">
           </div>
         </div>
 
