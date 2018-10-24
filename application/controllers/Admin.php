@@ -17,11 +17,6 @@ class Admin extends CI_Controller {
             $this->load->model("ChartModel");
             $this->load->model("ReportsModel");
     }
-//
-//     function myFunction() {
-//         var d = new Date();
-//         var n = d.getFullYear();
-//         document.getElementById("demo").innerHTML = n;
 
 // ADMIN SIDE
 
@@ -208,11 +203,10 @@ class Admin extends CI_Controller {
         $this->load->view('include/footer');
         $this->load->view('admin/calendar');
         
-        
-}else{
-    redirect('login/admin');
-}
-    }  
+    }else{
+        redirect('login/admin');
+    }
+    } 
 
     public function get_events()
     {
@@ -282,7 +276,6 @@ class Admin extends CI_Controller {
         if($this->session->userdata('username') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
 
-        
         $this->load->config('myconfig');
         $custs = $this->CustomerModel->getItems();
         

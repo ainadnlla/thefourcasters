@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Staff_Truck extends CI_Controller {
+class Staff_truck extends CI_Controller {
     public function __construct()
     {
             parent::__construct();
@@ -27,13 +27,22 @@ class Staff_Truck extends CI_Controller {
             'netwt' => $this->input->post('netwt'),
             'netcap' => $this->input->post('netcap'),
             'year' => $this->input->post('year'),
+            
+            // $test = $_GET['year'] -  YEAR(GETDATE()),
+            // $test == ('old') => $this->input->post('old'),
         );
 
       /*  $data = $this->input->post();
         unset($data['add']); */
         $this->form_validation->set_rules('brand', 'Brand/Make', 'required');
         $this->form_validation->set_rules('plate_no', 'Plate No.', 'required');
-        $this->form_validation->set_rules('mvfile_no', 'MV File No.', 'required');
+        $this->form_validation->set_rules('series', 'MV File No.', 'required');
+        $this->form_validation->set_rules('mvfile_no', 'Plate No.', 'required');
+        $this->form_validation->set_rules('engine_no', 'Plate No.', 'required');
+        $this->form_validation->set_rules('chassis_no', 'Plate No.', 'required');
+        $this->form_validation->set_rules('grosswt', 'Plate No.', 'required');
+        $this->form_validation->set_rules('netwt', 'Plate No.', 'required');
+        $this->form_validation->set_rules('netcap', 'Plate No.', 'required');
         $this->form_validation->set_rules('year', 'Year Model', 'required|exact_length[4]');      
       
         if ($this->form_validation->run() == FALSE)
@@ -73,8 +82,14 @@ class Staff_Truck extends CI_Controller {
         unset($data['submit']);
         $this->form_validation->set_rules('brand', 'Brand/Make', 'required');
         $this->form_validation->set_rules('plate_no', 'Plate No.', 'required');
-        $this->form_validation->set_rules('mvfile_no', 'MV File No.', 'required');
-        $this->form_validation->set_rules('year', 'Year Model', 'required|exact_length[4]');      
+        $this->form_validation->set_rules('series', 'MV File No.', 'required');
+        $this->form_validation->set_rules('mvfile_no', 'Plate No.', 'required');
+        $this->form_validation->set_rules('engine_no', 'Plate No.', 'required');
+        $this->form_validation->set_rules('chassis_no', 'Plate No.', 'required');
+        $this->form_validation->set_rules('grosswt', 'Plate No.', 'required');
+        $this->form_validation->set_rules('netwt', 'Plate No.', 'required');
+        $this->form_validation->set_rules('netcap', 'Plate No.', 'required');
+        $this->form_validation->set_rules('year', 'Year Model', 'required|exact_length[4]');       
 
             if ($this->form_validation->run() == FALSE)
             {
@@ -91,43 +106,23 @@ class Staff_Truck extends CI_Controller {
         $data['truck'] = $this->TruckModel->getProd($id);
         $config['upload_path']          = './images/';
         $config['allowed_types']        = 'gif|jpg|png';
-        $config['max_size']             = 100;
-        $config['max_width']            = 1024;
-        $config['max_height']           = 768;
-        $config['file_name']            = $data['truck']->id;
-        
+        $config['max_size']             = 20000;
+        $config['max_width']            = 20000;
+        $config['max_height']           = 10000;
+        $config['file_name']           = $this->input->post('img');
+
         $this->load->library('upload', $config);
-        if ( ! $this->upload->do_upload('itemfile'))
+        $this->upload->initialize($config);
+        if ( ! $this->upload->do_upload('file_name'))
         {
             $error = array('error' => $this->upload->display_errors());
             $this->debug($error);
         }
         else
-        {
-
-            $data = $this->upload->data();
+        {   
+            $data['img'] = $this->upload->data();
             $this->TruckModel->update($id,array('img' => $data['file_name']));
-            $this->index();       
-                $upload_data = $this->upload->data();
-                $config['image_library'] = 'gd2';
-                $config['source_image'] = './uploads/'.$upload_data['file_name'];
-                $config['create_thumb'] = TRUE;
-                $config['maintain_ratio'] = TRUE;
-                $config['width']         = 100;
-                $config['height']       = 100;
-                $config['thumb_marker'] = '';
-                $config['new_image'] = './uploads_thumbs/';
-                $this->load->library('image_lib');
-                $this->load->lib->initialize($config2);
-                
-                if ( ! $this->image_lib->resize())
-                {
-                    echo $this->image_lib->display_errors(); die();
-                }
-                $data['image']=$upload_data[file_name];
-                $this->TruckModel->insert($data);
-                $this->index();
-                }
         }
+    }
 }
 ?>

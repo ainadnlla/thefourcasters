@@ -158,7 +158,7 @@ class Customer extends CI_Controller {
         $data['title'] = 'Angelogistic Forwarder Corporation';
         $this->load->view('include/header', $data);
         $this->load->view('include/customer_header');
-        $this->load->view('customer/homepage');
+        $this->load->view('customer/booking');
         $this->load->view('include/footer');
        
         }else {
@@ -177,18 +177,6 @@ class Customer extends CI_Controller {
             $this->load->view('include/customer_header');
             $this->load->view('customer/profile');
             $this->load->view('include/footer');
-        }else{
-            redirect('login/customer');
-        }
-    }  
-    
-    public function calendar(){
-        if($this->session->userdata('emailad') !=''){
-            $data['title'] = 'Calendar | Angelogistic Forwarder Corporation';
-            $this->load->view('include/calendar_head', $data);
-            $this->load->view('include/customer_header'); 
-            $this->load->view('customer/calendar');
-            $this->load->view('include/calendar_foot');
         }else{
             redirect('login/customer');
         }

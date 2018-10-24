@@ -21,7 +21,7 @@ class Booking extends CI_Controller {
             $this->form_validation->set_rules('product', 'Product', 'required');       
             $this->form_validation->set_rules('pieces', 'Pieces', 'required');
             $this->form_validation->set_rules('date','Date', 'required');
-            $this->form_validation->set_rules('destination', 'Destination', 'required');
+            $this->form_validation->set_rules('destinationid', 'Destination', 'required');
       if ($this->form_validation->run() == FALSE)
       {
           $this->add();
@@ -49,6 +49,7 @@ class Booking extends CI_Controller {
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
         $data['models'] = $this->TruckModel->getModel();
         $books = $this->BookingModel->getProd($id);
+        $data['destination'] = $this->BookingModel->getDestination();
         $this->load->view('include/header', $data);
         $this->load->view('include/customer_header');
         $this->load->view('customer/booking/editbooking',compact('books'));
@@ -82,7 +83,7 @@ class Booking extends CI_Controller {
         unset($data['submit']);
         $this->form_validation->set_rules('product', 'Product', 'required');               
         $this->form_validation->set_rules('description', 'Description', 'required');
-        $this->form_validation->set_rules('pieces', 'Pieces', 'required');
+        $this->form_validation->set_rules('pieces', 'Pieces', 'required|integer');
         $this->form_validation->set_rules('date','Date', 'required');
         $this->form_validation->set_rules('destination', 'Destination', 'required');
             

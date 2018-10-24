@@ -137,19 +137,16 @@
       <?php  if($this->session->userdata('priv') =='1'OR $this->session->userdata('priv')=='2') {?>
         <li>
         <a href="<?=base_url().'staff/booking'?>">
-          <i class="fa fa-info-circle"></i> <span>Booking Information</span>
+          <i class="fa fa-truck"></i> <span>Booking Information</span>
         </a>
       </li>
       <?php }else{
-
       }?>
-
-
-
+        
       <li class="treeview">
           <a href="#">
-            <i class="fa fa-list"></i>
-            <span>User Management</span>
+          <i class="fa fa-users"></i>
+            <span>User Accounts</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -166,18 +163,9 @@
           <?php }else{}?>
           </ul>
         </li>
-     
-
 
         <li>
-          <a href="<?=base_url().'staff/calendar'?>">
-            <i class="fa fa-calendar"></i> <span>Calendar</span>
-            </span>
-          </a>
-        </li>
-
-        <li>
-          <a href="<?=base_url().'admin/stat'?>">
+          <a href="<?=base_url().'staff/reports'?>">
             <i class="fa fa-pie-chart"></i> <span>Reports</span>
           </a>
         </li>

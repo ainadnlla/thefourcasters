@@ -9,18 +9,14 @@
   <!-- /.login-logo  -->
   <div class="login-box-body login-color">
  <p class="login-box-msg">Welcome!</p>
-    
-        
-        <div class="form-group has-feedback">
 
+        <div class="form-group has-feedback">
             <form class="form-signin" action='<?= base_url()."login/signinstaff"?>' method='POST'>
             <input type="text" 
             name="email" class="form-control" placeholder="Email@example.com" required autofocus>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
-
         </div>
 
-      
         <div class="form-group has-feedback">
             <input type="password" name="password" class="form-control" placeholder="Password">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
@@ -40,16 +36,10 @@
         <!-- /.col -->
             <div class="col-xs-4">
                 <button type="submit" name='insert'class="btn btn-primary btn-block btn-flat">Sign In</button>
-               
             </div>
-           
         <!-- /.col -->
       </div>
-
     </form>
-    <div class="text-center">
-    <br/><a href="<?=base_url()?>staff/register" ></i>Create an account</a>
-    </div>
   </div>
   <!-- /.login-box-body -->
 </div>
