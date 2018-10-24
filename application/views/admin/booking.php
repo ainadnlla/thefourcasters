@@ -20,6 +20,7 @@
           <table id="booking" class="table table-bordered table-hover table-striped">
             <thead>
             <tr>
+            <th>ID</th>
               <th>Waybill</th>
               <th>Customer</th>
               <th>Date</th>
@@ -37,6 +38,7 @@
             <tbody>
             <?php foreach($books as $book): ?>
               <tr>
+              <td><?= $book->id?></td>
                   <td><?= $book->waybill?></td>
                   <td class="text-capitalize"><?= $book->custname?></td>
                   <td><?= date('M d, Y', strtotime($book->date))?></td>
@@ -54,7 +56,15 @@
                         <?php }elseif($book->action==2){ ?>
                           <div class="label label-danger">
                             <strong>Denied</strong>
-                          </div></p>
+                          </div>
+                          <?php }elseif($book->action==3){?>
+                          <div class="label label-primary">
+                            <strong>In-Transit</strong>
+                          </div>
+                        <?php }elseif($book->action==4){?>
+                          <div class="label label-success">
+                            <strong>Arrived</strong>
+                          </div>
                         <?php }else{?>
                           <div class="label label-warning">
                             <strong>Pending</strong>

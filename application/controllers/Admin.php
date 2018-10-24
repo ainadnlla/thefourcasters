@@ -53,7 +53,6 @@ class Admin extends CI_Controller {
         $fifth = $this->ChartModel->getFifth();
         //Longest - Line Graph
         //First longest
-        $warning = $this->ChartModel->getFirstWarning();
         $date1 = $this->ChartModel->getFirstDate();
         $date1 = new DateTime($date1->date);
         $enddate1 = $this->ChartModel->getFirstDate();
@@ -114,6 +113,7 @@ class Admin extends CI_Controller {
         $enddate10 = $this->ChartModel->getFifthEndDate();
         $enddate10 = new DateTime($enddate10->enddate);
         $days10 = date_diff($date10,$enddate10);
+        $warning = $this->ChartModel->getFirstWarning();
 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_nav');
@@ -121,7 +121,8 @@ class Admin extends CI_Controller {
         $this->load->view('admin/homepage');
         $this->load->view('admin/graph',
         compact('accept', 'pending','deny', 'first', 'second','third','fourth','fifth',
-        'days', 'days2', 'days3','days4','days5', 'days6', 'days7', 'days8', 'days9', 'days10'));
+        'days', 'days2', 'days3','days4','days5', 'days6', 'days7', 'days8', 'days9', 'days10',
+        'warning'));
         $this->load->view('admin/bookinglatest',compact('books'));
     
     }else{
