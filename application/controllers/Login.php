@@ -103,7 +103,7 @@ class Login extends CI_Controller {
         $this->load->view('customer/login');
         $this->load->view('include/footer');
         if($this->session->userdata('emailad') !=''){ 
-                redirect('customer/homepage');
+                redirect('customer/booking');
             }
             else {
             } 
@@ -129,7 +129,7 @@ class Login extends CI_Controller {
                 'isAdmin' => TRUE
             );
             $this->session->set_userdata($session_data);
-            redirect('customer/homepage');
+            redirect('customer/booking');
             }      
         }else{
             $this->session->set_flashdata('error','Invalid Username or Password');

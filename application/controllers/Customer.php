@@ -158,7 +158,7 @@ class Customer extends CI_Controller {
         $data['title'] = 'Angelogistic Forwarder Corporation';
         $this->load->view('include/header', $data);
         $this->load->view('include/customer_header');
-        $this->load->view('customer/homepage');
+        $this->load->view('customer/booking');
         $this->load->view('include/footer');
        
         }else {

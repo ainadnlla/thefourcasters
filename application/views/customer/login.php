@@ -45,9 +45,7 @@
         <!-- /.col -->
       </div>
     </form>
-    <div class="text-center">
-    <br/><a href="<?=base_url()?>customer/register" ></i>Create an account</a>
-    </div>
+  
   </div>
 
 
