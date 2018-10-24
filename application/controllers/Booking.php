@@ -22,6 +22,16 @@ class Booking extends CI_Controller {
             $this->form_validation->set_rules('pieces', 'Pieces', 'required');
             $this->form_validation->set_rules('date','Date', 'required');
             $this->form_validation->set_rules('destinationid', 'Destination', 'required');
+
+            
+        $session_data = array(
+            'date' =>'date',
+        );
+        $this->session->set_userdata($session_data);
+
+        $data['location'] = $this->BookingModel->getDestination();
+        $data['recomdriver'] = $this->BookingModel->getRecommendDriver();
+        
       if ($this->form_validation->run() == FALSE)
       {
           $this->add();
@@ -33,9 +43,9 @@ class Booking extends CI_Controller {
       }
     }  
     public function add(){
-         if($this->session->userdata('emailad') !=''){ 
-            $data['location'] = $this->BookingModel->getDestination();
+        if($this->session->userdata('emailad') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
+
         $this->load->view('include/header', $data);
         $this->load->view('include/customer_header');
         $this->load->view('customer/booking/addbooking');

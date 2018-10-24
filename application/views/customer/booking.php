@@ -27,8 +27,9 @@
               <th>Product</th>
               <th>Pieces</th>
               <th>Truck No.</th>
-              <th>Driver Name</th>
-              <th>Helper Name</th>
+              <th>Driver ID</th>
+              <th>Helper ID</th>
+              <th>Destination ID</th>
               <th>Destination</th>
               <th>Price</th>
               <th>Status</th>
