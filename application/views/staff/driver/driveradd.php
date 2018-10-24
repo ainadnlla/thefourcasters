@@ -9,15 +9,15 @@
     </ol>
 </section>
 
-<section class="content">
-  <div class="row">
-    <div class="col-md-3">
-      <div class="box box-success">
-        <div class="box-header with-border">
-          <h3 class="box-title">Profile Photo</h3>
-        </div>
+    <section class="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Profile Photo</h3>
+            </div>
 
-<form  class="form-horizontal" action="<?=base_url()?>staff/driverinsert/>"  method='post'>
+    <form  class="form-horizontal" action="<?=base_url()?>staff/driverinsert/>"  method='post'>
       <fieldset>
         <div class="form-group">
           <div class="col-md-4">
@@ -47,7 +47,7 @@
 
 <!-- END OF 1ST BOX -->
 
-      <div class="box box-success">
+      <div class="box box-primary">
         <div class="box-header with-border">
             <h3 class="box-title">Schedule</h3>
             </div>
@@ -74,13 +74,13 @@
     <div class="form-group">
       <label class="col-md-4 control-label"for ="weekday">Weekdays</label>  
         <div class="col-md-8">
-              <input type="checkbox" name="weekday[]" value="Sun"> Sunday<br>
-              <input type="checkbox" name="weekday[]" value="Mon"> Monday<br>
-              <input type="checkbox" name="weekday[]" value="Tue"> Tuesday<br>
-              <input type="checkbox" name="weekday[]" value="Wed"> Wednesday<br>
-              <input type="checkbox" name="weekday[]" value="Thu"> Thursday<br>
-              <input type="checkbox" name="weekday[]" value="Fri"> Friday<br>
-              <input type="checkbox" name="weekday[]" value="Sat"> Saturday<br>
+              <input type="checkbox" name="weekday[]" value="Sunday"> Sunday<br>
+              <input type="checkbox" name="weekday[]" value="Monday"> Monday<br>
+              <input type="checkbox" name="weekday[]" value="Tuesday"> Tuesday<br>
+              <input type="checkbox" name="weekday[]" value="Wednesday"> Wednesday<br>
+              <input type="checkbox" name="weekday[]" value="Thursday"> Thursday<br>
+              <input type="checkbox" name="weekday[]" value="Friday"> Friday<br>
+              <input type="checkbox" name="weekday[]" value="Saturday"> Saturday<br>
               <?= form_error('weekday', '<span class="label label-danger">', '</span>') ?> 
             </div>
         </div>
@@ -95,7 +95,7 @@
 <!-- END OF 2ND BOX -->
 
       <div class="col-md-9">
-        <div class="box box-success">
+        <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title">Personal Information</h3>
           </div>
@@ -192,7 +192,7 @@
 
 <!-- END OF 3RD BOX -->
 
-      <div class="box box-success">
+      <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">User Details</h3>
             </div>
@@ -236,12 +236,12 @@
       </div>
 
       <div class="box-footer">
-      <label class="col-md-4 control-label" for="button1id"></label>
-      <div class="col-md-6">
-        <button id="button1id" name="add" type="submit" value="submit" class="btn btn-primary">Submit</button>
+        <label class="col-md-12 control-label" for="button1id"></label>
         <a href="<?= base_url().'staff/driverdetails'?>" class="btn btn-default" role="button"> Cancel</a>
+        <div class="pull-right">
+          <button id="button1id" name="add" type="submit" value="submit" class="btn btn-success">Submit</button>
+        </div>
       </div>
-    </div>
 
           </div>
         </div>

@@ -363,6 +363,7 @@ public function homepage(){
             redirect('login/staff');
             }
     }
+    
     public function driverdetails(){
             if($this->session->userdata('email') !=''){ 
                 if($this->session->userdata('priv') =='4' OR $this->session->userdata('priv')=='1') {
@@ -408,10 +409,10 @@ public function homepage(){
     public function calendar(){
         if($this->session->userdata('email') !=''){
         $data['title'] = 'Calendar | Angelogistic Forwarder Corporation';
-        $this->load->view('include/calendar_head', $data);
+        $this->load->view('include/header', $data);
         $this->load->view('include/staff_header'); 
         $this->load->view('staff/calendar');
-        $this->load->view('include/calendar_foot');
+        $this->load->view('include/footer');
         }else{
             redirect('login/staff');
         }
