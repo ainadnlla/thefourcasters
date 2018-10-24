@@ -11,7 +11,7 @@
 <section class="content">
   <div class="row">
     <div class="col-xs-12 table-responsive">
-      <div class="box box-primary">
+      <div class="box box-success">
         <div class="box-header">
           <h3 class="box-title">Delivery Progress Information</h3>
         </div>
@@ -20,15 +20,15 @@
           <table id="custbooking" class="table table-bordered table-hover table-striped">
             <thead>
             <tr>
-              <th hidden></th>
+              <th>ID</th>
               <th>Waybill</th>
               <th>Customer</th>
               <th>Date</th>
               <th>Product</th>
               <th>Pieces</th>
               <th>Truck No.</th>
-              <th>Driver ID</th>
-              <th>Helper ID</th>
+              <th>Driver Name</th>
+              <th>Helper Name</th>
               <th>Destination</th>
               <th>Price</th>
               <th>Status</th>
@@ -38,7 +38,7 @@
             <tbody>
             <?php foreach($books as $book): ?>
               <tr>
-                  <td hidden><?= $book->created?></td>
+                  <td><?= $book->id?></td>
                   <td><?= $book->waybill?></td>
                   <td class="text-capitalize"><?= $book->custname?></td>
                   <td><?= date('M d, Y', strtotime($book->date))?></td>
@@ -47,6 +47,7 @@
                   <td class="text-uppercase"><?= $book->plate_no?></td>
                   <td class="text-capitalize"><?= $book->drivername?></td>
                   <td class="text-capitalize"><?= $book->helpername?></td>
+                  <td><?= $book->destinationid?></td>
                   <td><?= $book->destination?></td>
                   <td>₱<?= $book->price?></td>
                   <td>  <?php if($book->action==1){ ?>

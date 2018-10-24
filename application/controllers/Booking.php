@@ -48,7 +48,15 @@ class Booking extends CI_Controller {
         if($this->session->userdata('emailad') !=''){ 
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
         $books = $this->BookingModel->getProd($id);
+
+        $session_data = array(
+            'destinationid' => $books->destinationid,
+        );
+        $this->session->set_userdata($session_data);
+
         $data['destination'] = $this->BookingModel->getDestination();
+        $data['destinationname'] = $this->BookingModel->getDestinationname();
+        
         $this->load->view('include/header', $data);
         $this->load->view('include/customer_header');
         $this->load->view('customer/booking/editbooking',compact('books'));
