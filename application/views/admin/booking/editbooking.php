@@ -28,7 +28,6 @@
           <div class="col-md-4">
             <label>Waybill</label>
             <input value="<?=$books->waybill?>" id="waybill" name="waybill" type="text" placeholder="Waybill" class="form-control input-md">
-            <?= form_error('waybll', '<span class="label label-danger">', '</span>') ?>  
           </div>
           <div class="col-md-4">
             <label>Customer/Importer</label>  
