@@ -118,7 +118,6 @@ class Booking extends CI_Controller {
         $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
         $books = $this->BookingModel->getProd($id);
         $session_data = array(
-            'status'  => $books->status,
             'action'  => $books->action);
         $this->session->set_userdata($session_data);
 
