@@ -110,7 +110,6 @@ class Bookingadmin extends CI_Controller {
     public function update($id){
         $data = $this->input->post();
         unset($data['submit']);
-        $this->form_validation->set_rules('waybill', 'Waybill', 'required');
         $this->form_validation->set_rules('date', 'Date', 'required');
         $this->form_validation->set_rules('cargo', 'Cargo', 'required');
         $this->form_validation->set_rules('product', 'Product', 'required');
