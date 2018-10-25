@@ -80,12 +80,6 @@
           </a>
         </li>
 
-      <li>
-        <a href="<?=base_url().'customer/logistics'?>">
-          <i class="fa fa-map-pin"></i> <span>Logistics Tracking</span>
-        </a>
-      </li>
-
       </ul>
     </section>
     <!-- /.sidebar -->

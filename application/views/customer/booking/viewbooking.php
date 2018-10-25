@@ -144,61 +144,102 @@
           <ul class="timeline">
             <!-- timeline time label -->
             <li class="time-label">
-                  <span class="bg-red">
-                 <h6>Item Process</h6>
+                  <span class="bg-green">
+                 <h6>BOOKING PROCESS</h6>
                   </span>
             </li>
-            <!-- /.timeline-label -->
             <!-- timeline item -->
-          
-            <!-- END timeline item -->
-            <!-- timeline item -->
-            
-            <!-- END timeline item -->
-            <!-- timeline item -->
-            <?php if($this->session->userdata('status')=='3'){?>
+           <?php if($this->session->userdata('action')=='0' ){?>
             <li>
-              <i class="fa fa-map-pin bg-yellow"></i>
-
+              <i class="fa fa-hourglass-half bg-maroon"></i>
               <div class="timeline-item">
-                
-
-                <h3 class="timeline-header">Item Delivered Successfully!</h3>
-                
+                <h3 class="timeline-header">The item is on due process</h3>
               </div>
             </li>
-            <?php }else{}?>
+            <?php
+            }else{}
+            ?>
             <!-- END timeline item -->
-            <!-- timeline time label -->
-          
-            <!-- /.timeline-label -->
             <!-- timeline item -->
-            <?php if($this->session->userdata('status')=='3' || $this->session->userdata('status')=='2'){?>
-            <li>
-              <i class="fa fa-truck bg-purple"></i>
-
+            <?php if($this->session->userdata('action')=='1'){?>
+              <li>
+              <i class="fa fa-hourglass-half bg-maroon"></i>
               <div class="timeline-item">
-               
-
-                <h3 class="timeline-header"> The item is being delivered</h3>
-
-              
+                <h3 class="timeline-header">The Booking Information has been delivered and is on due process</h3>
+              </div>
+            </li>           
+            <li>
+              <i class="fa fa-check bg-yellow"></i>
+              <div class="timeline-item">
+                <h3 class="timeline-header">The Bookng Information has been accepted by Angelogistics Forwarder Corporation</h3>
               </div>
             </li>
             <?php }else{} ?>
             <!-- END timeline item -->
-            <!-- timeline item -->
-           <?php if($this->session->userdata('status')=='1'|| $this->session->userdata('status')=='2'|| $this->session->userdata('status')=='3' ){?>
+             <!-- timeline item -->
+           <?php if($this->session->userdata('action')=='2' ){?>
             <li>
               <i class="fa fa-hourglass-half bg-maroon"></i>
-
               <div class="timeline-item">
-                
-
-                <h3 class="timeline-header">The item is on due process</h3>
-
-             
-              
+                <h3 class="timeline-header">The Booking Information has been delivered and is on due process</h3>
+              </div>
+            </li>           
+            <li>
+              <i class="fa fa-close bg-red"></i>
+              <div class="timeline-item">
+                <h3 class="timeline-header">The Bookng Information has been denied by Angelogistics Forwarder Corporation</h3>
+              </div>
+            </li>
+            <?php }else{}
+            ?>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <?php if($this->session->userdata('action')=='3'){?>
+              <li>
+              <i class="fa fa-hourglass-half bg-maroon"></i>
+              <div class="timeline-item">
+                <h3 class="timeline-header">The Booking Information has been delivered and is on due process</h3>
+              </div>
+            </li>           
+            <li>
+              <i class="fa fa-check bg-yellow"></i>
+              <div class="timeline-item">
+                <h3 class="timeline-header">The Bookng Information has been accepted by Angelogistics Forwarder Corporation</h3>
+              </div>
+            </li>
+            <li>
+              <i class="fa fa-truck bg-blue"></i>
+              <div class="timeline-item">
+                <h3 class="timeline-header">The Products are now being delivered to destination</h3>
+              </div>
+            </li>
+            <?php }else{}?>
+            <!-- END timeline item -->
+                     
+             <!-- timeline item -->
+           <?php if($this->session->userdata('action')=='4' ){?>
+            <li>
+              <i class="fa fa-hourglass-half bg-maroon"></i>
+              <div class="timeline-item">
+                <h3 class="timeline-header">The booking information has been delivered and is on due process</h3>
+              </div>
+            </li>           
+            <li>
+              <i class="fa fa-check bg-yellow"></i>
+              <div class="timeline-item">
+                <h3 class="timeline-header">The bookng information has been accepted by Angelogistics Forwarder Corporation</h3>
+              </div>
+            </li>
+            <li>
+              <i class="fa fa-truck bg-blue"></i>
+              <div class="timeline-item">
+                <h3 class="timeline-header">The truck is in transit and products are now being delivered to destination</h3>
+              </div>
+            </li>
+            <li>
+              <i class="fa fa-map-pin bg-purple"></i>
+              <div class="timeline-item">
+                <h3 class="timeline-header">The truck has arrived to the targeted destination</h3>
               </div>
             </li>
             <?php
@@ -206,9 +247,9 @@
             ?>
             <!-- END timeline item -->
             <li>
-            <?php IF($this->session->userdata('action')=='0'){
+            <?php IF($this->session->userdata('action')=='0' || $this->session->userdata('action')=='1' || $this->session->userdata('action')=='3'){
               echo "<i class='fa fa-clock-o bg-gray'>"."</i>"; 
-            }elseif($this->session->userdata('action')=='1'){
+            }elseif($this->session->userdata('action')=='4'){
               echo "<i class='fa fa-check-circle bg-green'>"."</i>";
             }else{
               echo "<i class='fa fa-times-circle bg-red'>"."</i>";
