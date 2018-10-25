@@ -34,7 +34,7 @@
                         <td><?= $main->quantity?></td>
                         <td><?= $main->amount?></td>
                         <td>
-                        <a href="<?= base_url().'maintenance/edit/'.$main->id?>" class="btn btn-default btn.lg" role="button">
+                        <a href="<?= base_url().'staff_maintenance/edit/'.$main->id?>" class="btn btn-default btn.lg" role="button">
                         <span class="fa fa-edit" aria-hidden="true">
                         </span></a>
                         </td>
@@ -44,7 +44,7 @@
                 </form>
               </table>
               <div class="box-footer">
-                <a href="<?=base_url()?>maintenance/add/<?=$main->id?>" class="btn btn-success btn-block btn-sm" role="button">
+                <a href="<?=base_url()?>staff_maintenance/add/<?=$main->id?>" class="btn btn-success btn-block btn-sm" role="button">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Maintenance Description</a>
               </div>
             </div>

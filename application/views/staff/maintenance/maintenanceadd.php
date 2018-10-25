@@ -2,8 +2,8 @@
     <section class="content-header">
       <h1>Maintenance Information</h1>
         <ol class="breadcrumb">
-          <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
-          <li><a href="<?=base_url().'admin/truckdetails'?>">Truck Details</a></li>
+          <li><a href="<?=base_url().'staff/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
+          <li><a href="<?=base_url().'staff/truckdetails'?>">Truck Details</a></li>
           <li class="active">Add</a></li>
         </ol>
     </section>
@@ -11,7 +11,7 @@
   <section class="content"> 
     <div class="row">
     
-    <form  class="form-horizontal" action="<?=base_url()?>maintenance/insert"  method='post'>
+    <form  class="form-horizontal" action="<?=base_url()?>staff_maintenance/insert"  method='post'>
     <fieldset>
         <div class="form-group">
           <div class="col-md-4">
@@ -40,7 +40,7 @@
     <div class="box-footer">
         <label class="col-md-4 control-label" for="button1id"></label>
         <div class="pull-right">
-            <a href="<?=base_url().'admin/truckdetails/'?>" class="btn btn-default" role="button">Back</a>
+            <a href="<?=base_url().'staff/truckdetails/'?>" class="btn btn-default" role="button">Back</a>
             <button id="button1id" name="add" type="Submit" value="Submit" class="btn btn-success">Submit</button>
         </div>
       </div>
