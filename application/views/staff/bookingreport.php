@@ -8,9 +8,8 @@
 </section>
 
 
-    
-<form  class="form-horizontal"  action ="<?=base_url()?>staff/bookingreport/"  method='get'>
-<section class="content">
+<section class="content">  
+  <form  class="form-horizontal"  action ="<?=base_url()?>staff/bookingreport/"  method='get'>
 
   <div class="col-xs-3">
     <div class="form-group">
@@ -281,6 +280,7 @@
           </div>
       </div>
       </div>
+      </div>
       <div class="col-xs-12">
   <div class="box box-primary">
             <div class="box-header with-border">
@@ -294,7 +294,7 @@
             <div class="box-body">
             
       <div id="yearly" style="height: 370px; max-width: 1200px; margin: 0px auto;"> </div>
-      </div></div> 
+      </div></div> </div>
       <div class="col-xs-6">
   <div class="box box-primary">
             <div class="box-header with-border">
@@ -322,8 +322,23 @@
         
              
       <div id="daily" style="height: 370px; max-width: 1200px; margin: 0px auto;"> </div>
-      </div></div> 
-      <script>
+        </div>
+      </div> 
+
+</section>
+ <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<footer class="main-footer">
+ <div class="pull-right hidden-xs">
+   <b>The Fourcasters</b>
+ </div>
+ <strong>Copyright &copy; 2018 <a>Angelogistics Forwarder Corporation </a>.</strong> All rights
+ reserved.
+</footer>
+
+<script>
 window.onload = function () {
 
 var chart = new CanvasJS.Chart("Monthly", {

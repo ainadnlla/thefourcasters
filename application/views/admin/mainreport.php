@@ -8,9 +8,8 @@
 </section>
 
 
-    
-<form  class="form-horizontal"  action ="<?=base_url()?>admin/mainreport/"  method='get'>
 <section class="content">
+<form  class="form-horizontal"  action ="<?=base_url()?>admin/mainreport/"  method='get'>
 
   <div class="col-xs-3">
     <div class="form-group">
@@ -265,7 +264,9 @@
             <div class="box-body">
             
       <div id="yearly" style="height: 370px; max-width: 1200px; margin: 0px auto;"> </div>
-      </div></div> 
+          </div>
+        </div>
+      </div> 
       <div class="col-xs-6">
   <div class="box box-primary">
             <div class="box-header with-border">
