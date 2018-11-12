@@ -60,19 +60,22 @@
                             <strong>Denied</strong>
                           </div>
                           <?php }elseif($book->action==3){?>
-                          <div class="label label-primary">
+                          <div class="label label-info">
                             <strong>In-Transit</strong>
                           </div>
                         <?php }elseif($book->action==4){?>
-                          <div class="label label-success">
+                          <div class="label label-primary">
                             <strong>Arrived</strong>
+                          </div>
+                        <?php }elseif($book->action==5){?>
+                          <div class="label label-success">
+                            <strong>Finished</strong>
                           </div>
                         <?php }else{?>
                           <div class="label label-warning">
                             <strong>Pending</strong>
                           </div>
-                     <?php   }?>
-                  </td>
+                     <?php   }?></td>
                   <td>
                   <?php if($book->action==0){ ?>
                   <a href="<?= base_url().'booking/edit/'.$book->id?>" class="btn btn-default btn.lg" role="button">
