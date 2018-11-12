@@ -18,6 +18,21 @@ class ChartModel extends CI_Model{
         $query = $this->db->where('action',1)->like('date', date('Y-m'))->from("booking");
         return $query->count_all_results();
     }
+
+    public function getBookingIntransit(){
+        $query = $this->db->where('action',3)->like('date', date('Y-m'))->from("booking");
+        return $query->count_all_results();
+    }
+
+    public function getBookingArrived(){
+        $query = $this->db->where('action',4)->like('date', date('Y-m'))->from("booking");
+        return $query->count_all_results();
+    }
+
+    public function getBookingFinished(){
+        $query = $this->db->where('action',5)->like('date', date('Y-m'))->from("booking");
+        return $query->count_all_results();
+    }
  
  //Monthly report
  public function jan($year){

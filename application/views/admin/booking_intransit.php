@@ -1,9 +1,11 @@
 <div class="content-wrapper">
 <section class="content-header">
-  <h1>Booking Information</h1>
+  <h1>Booking Information
+  <small>In-transit Book</small></h1>
   <ol class="breadcrumb">
     <li><a href="<?=base_url().'admin/homepage'?>"><i class="fa fa-dashboard"></i>Home</a></li>
     <li class="active">Booking Information</a></li>
+    <li class="active">In-transit</a></li>
   </ol>
 </section>
 
@@ -17,10 +19,10 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body table-responsive">
-          <table id="booking" class="table table-bordered table-hover table-striped">
+          <table id="intransitbooking" class="table table-bordered table-hover table-striped">
             <thead>
             <tr>
-              <th >ID</th>
+              <th>ID</th>
               <th>Waybill</th>
               <th>Customer</th>
               <th>Date</th>
@@ -101,7 +103,7 @@ reserved.
 </footer>
 <script>
    $(function () {
-    $('#booking').DataTable()
+    $('#intransitbooking').DataTable()
     $('#example7').DataTable({
       'paging'      : true,
       'lengthChange': false,

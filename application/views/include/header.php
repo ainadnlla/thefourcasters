@@ -7,8 +7,6 @@
 <link rel="icon" type="image/gif/png" href="<?= base_url()."images/logo.png"?>">
 <link rel="stylesheet" type="text/css" href="<?=base_url()?>css/font.css"/>
 
-<!-- Chart.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 <!-- bootstrap -->
 <link rel="stylesheet" href="<?=base_url()?>dashboard/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <!-- Font Awesome -->

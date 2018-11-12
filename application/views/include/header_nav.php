@@ -110,18 +110,31 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?=base_url().'admin/userdetails_staff'?>"><i class="fa fa-circle-o"></i>Staff Details</a></li>
-            <li><a href="<?=base_url().'admin/userdetails_customer'?>"><i class="fa fa-circle-o"></i>Customer Details</a></li>
-            <li><a href="<?=base_url().'admin/userdetails_driver'?>"><i class="fa fa-circle-o"></i>Driver Details</a></li>
-            <li><a href="<?=base_url().'admin/userdetails_helper'?>"><i class="fa fa-circle-o"></i>Helper Details</a></li>
+            <li><a href="<?=base_url().'admin/userdetails_staff'?>"><i class="fa fa-user"></i>Staff Details</a></li>
+            <li><a href="<?=base_url().'admin/userdetails_customer'?>"><i class="fa fa-user"></i>Customer Details</a></li>
+            <li><a href="<?=base_url().'admin/userdetails_driver'?>"><i class="fa fa-user"></i>Driver Details</a></li>
+            <li><a href="<?=base_url().'admin/userdetails_helper'?>"><i class="fa fa-user"></i>Helper Details</a></li>
           </ul>
         </li>
 
-        <li>
-        <a href="<?=base_url().'admin/booking'?>">
-          <i class="fa fa-truck"></i> <span>Booking Information</span>
-        </a>
-      </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-truck"></i>
+            <span>Booking Infomation</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?=base_url().'admin/booking'?>"><i class="fa fa-book"></i>All Booking</a></li>
+            <li><a href="<?=base_url().'admin/booking_pending'?>"><i class="fa fa-circle-o"></i>Pending Book</a></li>
+            <li><a href="<?=base_url().'admin/booking_accepted'?>"><i class="fa fa-circle-o"></i>Accepted Book</a></li>
+            <li><a href="<?=base_url().'admin/booking_denied'?>"><i class="fa fa-circle-o"></i>Denied Book</a></li>
+            <li><a href="<?=base_url().'admin/booking_intransit'?>"><i class="fa fa-circle-o"></i>In-transit Book</a></li>
+            <li><a href="<?=base_url().'admin/booking_arrived'?>"><i class="fa fa-circle-o"></i>Arrived Book</a></li>
+            <li><a href="<?=base_url().'admin/booking_finished'?>"><i class="fa fa-circle-o"></i>Finished Book</a></li>
+          </ul>
+        </li>
         
         <li class="treeview">
           <a href="#">

@@ -1,15 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Driver extends CI_Controller {
+
     public function __construct()
     {
-            parent::__construct();
-            $this->load->model('UserModel');
-            $this->load->model('CustomerModel');
-            $this->load->model('DriverModel');
-            $this->load->model('TruckModel');
-            $this->load->model('AdminModel');
-            $this->load->model('BookingModel');
+        parent::__construct();
+        $this->load->model('UserModel');
+        $this->load->model('CustomerModel');
+        $this->load->model('DriverModel');
+        $this->load->model('TruckModel');
+        $this->load->model('AdminModel');
+        $this->load->model('BookingModel');
     }
 
 // ADMIN SIDE - CRUD DRIVER
@@ -20,8 +21,8 @@ class Driver extends CI_Controller {
             'username'     => $user->username,
             'logged_in' => TRUE,
             'isAdmin' => TRUE
-    );
-    $this->session->set_userdata($newdata);
+        );
+        $this->session->set_userdata($newdata);
     }
 
     public function insert(){
@@ -45,6 +46,7 @@ class Driver extends CI_Controller {
             'weekday'=> implode(",", $this->input->post('weekday')),
             'status' => $this->input->post('status')
         );
+        
         $this->form_validation->set_rules('driver_no', 'License No.', 'required');
         $this->form_validation->set_rules('expire', 'License Expiry Date', 'required');
         $this->form_validation->set_rules('fname', 'First Name', 'required');
@@ -59,51 +61,54 @@ class Driver extends CI_Controller {
         $this->form_validation->set_rules('timeout', 'Time Out', 'required');
         $this->form_validation->set_rules('gender', 'Gender', 'required');
 
-
-      if ($this->form_validation->run() == FALSE)
-      {
-          $this->add();
-      }
-      else
-      {
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->add();
+        }
+        else
+        {
             $this->DriverModel->insert($data);
             redirect('admin/userdetails_driver');
-      }
+        }
     }  
+
     public function add(){
         if($this->session->userdata('username') !=''){ 
-        $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
-        $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav');
-        $this->load->view('admin/driver/driveradd');
-        $this->load->view('include/footer');
-    }else{
-        redirect('login/admin');
+            $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
+            $this->load->view('include/header', $data);
+            $this->load->view('include/header_nav');
+            $this->load->view('admin/driver/driveradd');
+            $this->load->view('include/footer');
+        }else{
+            redirect('login/admin');
+        }
     }
-    }
+
     public function edit($id){
         if($this->session->userdata('username') !=''){ 
-        $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
-        $driv = $this->DriverModel->getProd($id);       
-        $this->load->view('include/header', $data);
-        $this->load->view('include/header_nav');
-        $this->load->view('admin/driver/driveredit',compact('driv'));
-        $this->load->view('include/footer');
-    }else{
-        redirect('login/admin');
+            $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
+            $driv = $this->DriverModel->getProd($id);       
+            $this->load->view('include/header', $data);
+            $this->load->view('include/header_nav');
+            $this->load->view('admin/driver/driveredit',compact('driv'));
+            $this->load->view('include/footer');
+        }else{
+            redirect('login/admin');
+        }
     }
-    }
+
     public function delete($Product_ID){
         if($this->session->userdata('username') !=''){ 
-        $driv = $this->DriverModel->getProd($Product_ID);
-        $this->load->view('include/header');
-        $this->load->view('include/header_nav');
-        $this->load->view('admin/driver/driverdelete',compact('driv'));
-        $this->load->view('include/footer');
-    }else{
-        redirect('login/admin');
+            $driv = $this->DriverModel->getProd($Product_ID);
+            $this->load->view('include/header');
+            $this->load->view('include/header_nav');
+            $this->load->view('admin/driver/driverdelete',compact('driv'));
+            $this->load->view('include/footer');
+        }else{
+            redirect('login/admin');
+        }
     }
-    } 
+
     public function del($id){
         $data= $this->input->post();
         unset($data['delete']);
@@ -133,6 +138,7 @@ class Driver extends CI_Controller {
             'status' => $this->input->post('status'),
             'weekday'=> implode(",", $this->input->post('weekday'))
         );
+        
         unset($data['submit']); 
         $this->form_validation->set_rules('driver_no', 'License No.', 'required');
         $this->form_validation->set_rules('expire', 'License Expiry Date', 'required');
@@ -149,15 +155,15 @@ class Driver extends CI_Controller {
         $this->form_validation->set_rules('gender', 'Gender', 'required');
         $this->form_validation->set_rules('date', 'Employement Date', 'required');
 
-            if ($this->form_validation->run() == FALSE)
-            {
-                $this->edit($id);
-            }
-            else{
-                $this->DriverModel->update($id, $data);
-                redirect('admin/userdetails_driver');    
-            }
-        }    
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->edit($id);
+        }
+        else{
+            $this->DriverModel->update($id, $data);
+            redirect('admin/userdetails_driver');    
+        }
+    }    
    
     public function do_upload(){  
         $id = $this->input->post('id');

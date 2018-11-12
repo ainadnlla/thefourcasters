@@ -28,6 +28,36 @@ class BookingModel extends CI_Model{
         return $query->result();
     }
 
+    public function getPending(){
+        $query = $this->db->get_where('booking', array('action' => 0));
+        return $query->result();
+    }
+
+    public function getAccepted(){
+        $query = $this->db->get_where('booking', array('action' => 1));
+        return $query->result();
+    }
+
+    public function getDenied(){
+        $query = $this->db->get_where('booking', array('action' => 2));
+        return $query->result();
+    }
+
+    public function getIntransit(){
+        $query = $this->db->get_where('booking', array('action' => 3));
+        return $query->result();
+    }
+
+    public function getArrived(){
+        $query = $this->db->get_where('booking', array('action' => 4));
+        return $query->result();
+    }
+
+    public function getFinished(){
+        $query = $this->db->get_where('booking', array('action' => 5));
+        return $query->result();
+    }
+
     public function getCustBook(){
         $query = $this->db->get_where('booking', array('custname' => $this->session->name));
         return $query->result();

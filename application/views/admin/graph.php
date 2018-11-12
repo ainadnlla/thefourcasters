@@ -105,6 +105,9 @@ window.onload = function () {
 			type: "bar",
       color: "#014D65",
 			dataPoints: [
+				{ y: <?=$finished?>, label: "Finished" },
+				{ y: <?=$arrived?>, label: "Arrived" },
+				{ y: <?=$intransit?>, label: "In-transit" },
         { y: <?=$accept?>, label: "Accepted" },
         { y: <?=$pending?>, label: "Pending" },
         { y: <?=$deny?>, label: "Denied" },

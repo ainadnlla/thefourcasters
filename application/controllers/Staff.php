@@ -174,7 +174,7 @@ public function homepage(){
     if($this->session->userdata('email') !=''){
     $data['title'] = 'Angelogistic Forwarder Corporation';
    
-    $this->load->config('myconfig');
+    
     $books =  $this->ReportsModel->getBook();
     //total booking status for curdate
     $accept =  $this->ChartModel->getBookingAccepted();
@@ -281,7 +281,7 @@ public function homepage(){
             if($this->session->userdata('priv') =='3'OR $this->session->userdata('priv')=='1' ){
             $data['title'] = 'Truck Details | Angelogistic Forwarder Corporation';
         
-            $this->load->config('myconfig');
+            
             $trucks =  $this->TruckModel->getItems();
             
             $this->load->view('include/header', $data);
@@ -305,7 +305,7 @@ public function homepage(){
             //GO BACK TO PREVIOUS PAGE
             $this->session->set_userdata('referred_from', current_url());
 
-            $this->load->config('myconfig'); 
+             
             $truck = $this->TruckModel->getProd($id);
 
             $session_data = array(
@@ -348,7 +348,7 @@ public function homepage(){
         $data['title'] = 'Customer Details | Angelogistic Forwarder Corporation';
 
 
-        $this->load->config('myconfig');
+        
         $custs = $this->CustomerModel->getItems();
         
         $this->load->view('include/header', $data);
@@ -370,7 +370,7 @@ public function homepage(){
             $data['title'] = 'Driver Details | Angelogistic Forwarder Corporation';
     
         
-            $this->load->config('myconfig');
+            
             $drivs = $this->DriverModel->getItems();
             
             $this->load->view('include/header', $data);
@@ -391,7 +391,7 @@ public function homepage(){
                     
             $data['title'] = 'Helper Details | Angelogistic Forwarder Corporation';
             
-                $this->load->config('myconfig');
+                
                 $helps = $this->HelperModel->getItems();
                 
                 $this->load->view('include/header', $data);
@@ -456,7 +456,7 @@ public function homepage(){
                 
             $data['title'] = 'Booking Information | Angelogistic Forwarder Corporation';
     
-            $this->load->config('myconfig');
+            
             $books =  $this->BookingModel->getItems();
 
             $this->load->view('include/header', $data);
@@ -763,7 +763,7 @@ public function homepage(){
             $this->session->set_flashdata('year', $year);
             $this->session->set_flashdata('day', $day);
           
-            $this->load->config('myconfig');
+            
             $this->load->view('include/header', $data);
             $this->load->view('include/staff_header');
             $this->load->view('include/footer');
@@ -831,7 +831,7 @@ public function homepage(){
             $this->session->set_flashdata('year', $year);
             $this->session->set_flashdata('day', $day);
           
-            $this->load->config('myconfig');
+            
             $this->load->view('include/header', $data);
             $this->load->view('include/staff_header');
             $this->load->view('include/footer');
@@ -850,7 +850,7 @@ public function homepage(){
                 $reps =  $this->ReportsModel->getreport($month,$year);
                 $data['totalprice'] = $this->ReportsModel->get_sum($month, $year);
                 
-                $this->load->config('myconfig');
+                
                 $this->load->view('include/header', $data);
                 $this->load->view('include/footer');
                 $this->load->view('staff/toprint',compact('reps',$data));
@@ -869,7 +869,7 @@ public function homepage(){
                 $days = $this->ReportsModel->getdayreport($day,$month, $year);
                 $data['totalprice'] = $this->ReportsModel->get_sumdaily($day,$month, $year);
                 
-                $this->load->config('myconfig');
+                
                 $this->load->view('include/header', $data);
                 $this->load->view('include/footer');
                 $this->load->view('staff/toprintdaily',compact('days',$data));
@@ -885,7 +885,7 @@ public function homepage(){
                 $years = $this->ReportsModel->getyeareport($year);
                 $data['totalprice'] = $this->ReportsModel->get_sumyear($year);
                 
-                $this->load->config('myconfig');
+                
                 $this->load->view('include/header', $data);
                 $this->load->view('include/footer');
                 $this->load->view('staff/toprintyear',compact('years',$data));
@@ -903,7 +903,7 @@ public function homepage(){
                 $mains =  $this->ReportsModel->getmain($month,$year);
                 $data['totalprice'] = $this->ReportsModel->get_sum_mainte($month, $year);
                 
-                $this->load->config('myconfig');
+                
                 $this->load->view('include/header', $data);
                 $this->load->view('include/footer');
                 $this->load->view('staff/toprint_maintenance',compact('mains',$data));
@@ -922,7 +922,7 @@ public function homepage(){
                 $maindays = $this->ReportsModel->getmainday($day,$month, $year);
                 $data['totalprice'] = $this->ReportsModel->get_sum_maintedaily($day,$month, $year);
                 
-                $this->load->config('myconfig');
+                
                 $this->load->view('include/header', $data);
                 $this->load->view('include/footer');
                 $this->load->view('staff/toprint_maindaily',compact('maindays',$data));
@@ -941,7 +941,7 @@ public function homepage(){
                 $mainyears = $this->ReportsModel->getmainyear($year);
                 $data['totalprice'] = $this->ReportsModel->get_sum_mainteyear($year);
                 
-                $this->load->config('myconfig');
+                
                 $this->load->view('include/header', $data);
                 $this->load->view('include/footer');
                 $this->load->view('staff/toprint_mainyear',compact('mainyears',$data));

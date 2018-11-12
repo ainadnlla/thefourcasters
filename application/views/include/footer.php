@@ -20,8 +20,6 @@
 <script src="<?=base_url()?>dashboard/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <!-- SlimScroll -->
 <script src="<?=base_url()?>dashboard/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- ChartJS -->
-<script src="<?=base_url()?>dashboard/bower_components/chart.js/Chart.js"></script>
 <!-- CanvasJS -->
 <script src="<?=base_url()?>dashboard/bower_components/canvasjs/canvasjs.min.js"></script>
 <!-- datatable -->
@@ -34,9 +32,6 @@
 <script src="<?=base_url()?>dashboard/bower_components/moment/moment.js"></script>
 <script src="<?=base_url()?>dashboard/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 <script src="<?=base_url()?>dashboard/bower_components/fullcalendar/dist/gcal.js"></script>
-
-
-
 
 </body>
 </html>
