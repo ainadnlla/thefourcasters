@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2018 at 03:40 AM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Generation Time: Nov 19, 2018 at 05:18 PM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -66,51 +66,53 @@ CREATE TABLE `booking` (
   `driverid` int(11) NOT NULL,
   `helpername` varchar(50) NOT NULL,
   `helperid` int(100) NOT NULL,
+  `image_path` text NOT NULL,
   `action` int(1) NOT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `status` int(2) NOT NULL
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`id`, `waybill`, `date`, `cust_type`, `custname`, `cargo`, `product`, `description`, `pieces`, `destinationid`, `destination`, `price`, `plate_no`, `drivername`, `driverid`, `helpername`, `helperid`, `action`, `created`, `status`) VALUES
-(1, '096896859624', '2018-01-04', 'Local/Sub-contractor', 'Asiaworld Transport Phils.', 'LCL (ELF)', 'Insulation Roof and Foam', '2x2mm Roof and Foam 19x67', 20, 8, 'MIP - Manila-North, Valenzuela, Talipapa', 8000, 'ZJK 102', '', 4, '', 17, 1, '2018-10-25 01:15:58', 0),
-(2, '544317607638', '2018-02-20', 'Local/Sub-contractor', 'Asiaworld Transport Phils.', 'FCL 1x20', 'Paper Supplies', 'DreamWorld Supplies - NB4', 100, 9, 'MIP - Manila-North, Valenzuela, Ugong', 8500, 'RCE 120', '', 16, '', 2, 1, '2018-10-25 01:17:56', 0),
-(3, '650483262002', '2018-01-22', 'Local/Sub-contractor', 'Yongzheng Shipping Corp Inc.', 'LCL 1x40', 'Speaker and Amplifier Component System', 'Amplifier/Speaker System for sound reinforcement', 10, 5, 'MIP - Manila-North, Valenzuela, Bartolome KM. 16 M', 6500, 'AAQ 7784', '', 1, '', 11, 1, '2018-10-25 01:18:09', 0),
-(4, '227459737923', '2018-02-24', 'Local/Sub-contractor', 'Yongzheng Shipping Corp Inc.', 'FCL 1x20', 'Appliances', 'Television Set', 8, 37, 'MIP - Manila , Mandaluyong', 7600, 'ABA 9575', '', 10, '', 10, 1, '2018-10-25 01:18:26', 0),
-(5, '0', '2018-02-15', 'Broker/Agent', 'Mira Raquel Suriben', 'LCL (ELF)', 'Tobacco', 'Light and Menthol Cigarettes', 100, 34, 'MIP - Caloocan, Baesa', 0, 'RFR 667', '', 4, '', 25, 2, '2018-10-25 01:25:43', 0),
-(6, '248599669569', '2018-03-09', 'Local/Sub-contractor', 'San Miguel Shipping and Lighterage Corp.', 'FCL 1x20', 'Beverages', 'Alcoholic Drinks and Cidar', 150, 37, 'MIP - Manila , Mandaluyong', 6000, 'UIM 308', '', 19, '', 24, 1, '2018-10-25 01:19:54', 0),
-(7, '140774265142', '2018-03-16', 'Local/Sub-contractor', 'San Miguel Shipping and Lighterage Corp.', 'LCL 1x40', 'Beverages', 'Distilled Water', 150, 37, 'MIP - Manila , Mandaluyong', 6000, 'AAQ 7784', '', 19, '', 24, 1, '2018-10-25 01:20:06', 0),
-(8, '414523172273', '2018-03-23', 'Local/Sub-contractor', 'San Miguel Shipping and Lighterage Corp.', 'LCL 1x40', 'Beverages', 'Fizzy and Softdrinks', 150, 37, 'MIP - Manila , Mandaluyong', 6000, 'AAQ 7784', '', 15, '', 19, 1, '2018-10-25 01:20:18', 0),
-(9, '0', '2018-04-01', 'In-house Brokerage', 'Northern Chemical Sales Inc.', 'FCL 2x20', 'Chemical', 'Leather Chemical (Bayer, Lanxess, ATC, ROHM & HAAS)', 25, 6, 'MIP - Manila-North, Valenzuela, Sitio Bisalud (Art', 0, 'ABA 9575', '', 9, '', 9, 2, '2018-10-25 01:25:55', 0),
-(10, '0', '2018-05-16', 'In-house Brokerage', 'Northern Chemical Sales Inc.', 'FCL 2x20', 'Chemical', 'SODIUM BENZOATE (KALAMA) SODIUM METABISULFITE', 50, 38, 'MIP - Manila-South, Taguig, Bicutan', 0, 'UIM 308', '', 3, '', 14, 2, '2018-10-25 01:26:05', 0),
-(11, '099510648333', '2018-09-07', 'In-house Brokerage', 'Breakthru Cleaning Agent', 'LCL (ELF)', 'Cleansing Detergent', 'Washing Detergent', 50, 4, 'MIP - Manila-North, Valenzuela, Bisalud Bagbauin (', 5000, 'RNK 277', '', 19, '', 24, 1, '2018-10-25 01:20:41', 0),
-(12, '403226566946', '2018-09-18', 'In-house Brokerage', 'Breakthru Cleaning Agent', 'FCL 1x40', ' Cleansing Machine', 'Whirlpool Washer and Dryer Machine ', 10, 23, 'MIP - Batangas (Xylem Water Systems Intl. Inc.)', 7500, 'RNK 276', '', 12, '', 2, 1, '2018-10-25 01:20:53', 0),
-(13, '011193119426', '2018-09-27', 'In-house Brokerage', 'Breakthru Cleaning Agent', 'LCL (ELF)', 'Cleansing Machine', 'Irons & Ironing Systems', 50, 20, 'MIP - Laguna, Calamba (Xylem Water Systems Intl. I', 5000, 'RKN 816', '', 4, '', 17, 1, '2018-10-25 01:21:09', 0),
-(14, '111778512691', '2018-09-13', 'Local/Sub-contractor', 'Coastline Truck Center', 'LCL 1x40', 'Flatwork Machine', 'Flatwork Ironer/Roller Ironer & Folding Machine', 5, 34, 'MIP - Caloocan, Baesa', 75000, 'UIM 308', '', 4, '', 27, 1, '2018-10-25 01:22:28', 0),
-(15, '809603124399', '2018-08-14', 'Local/Sub-contractor', 'Coastline Truck Center', 'FCL 2x20', ' Centrifuge Dental Casting Machine', 'Casting Machine. Set of 5 Casting Stainless Steel Flasks/Rings', 15, 37, 'MIP - Manila , Mandaluyong', 8000, 'RNK 276', '', 16, '', 16, 1, '2018-10-25 01:21:22', 0),
-(16, '0', '2018-08-10', 'Broker/Agent', 'Marilou R. Arevalo (Bong)', 'LCL (ELF)', 'Sharp Equipment', 'Finish Blade Set of 4. Flextool 24. Detailed View. Part No. FLXE0325', 13, 53, 'San Miguel Mills Inc. - Tarlac External Warehouse', 0, 'RGY 294', '', 19, '', 24, 2, '2018-10-25 01:26:14', 0),
-(17, '242413144790', '2018-07-10', 'Freight Forwarder', 'Wacker Machines Supplies Corp.', 'LCL (ELF)', 'Light Construction Equipments Supplies', 'LED Lights', 170, 24, 'MIP - Manila-South, Muntinlupa, Tunasan (Stores Sp', 4500, 'AAQ 7784', '', 12, '', 2, 1, '2018-10-25 01:21:38', 0),
-(18, '353867965881', '2018-06-04', 'Freight Forwarder', 'Wacker Machines Supplies Corp.', 'LCL 1x40', 'Construction Products', 'Parchem', 90, 38, 'MIP - Manila-South, Taguig, Bicutan', 9000, 'RLE 993', '', 17, '', 20, 1, '2018-10-25 01:22:48', 0),
-(19, '0', '2018-05-23', 'Freight Forwarder', 'Wacker Machines Supplies Corp.', 'LCL (ELF)', 'Flextool Equipment', 'Decorative Surfaces', 35, 37, 'MIP - Manila , Mandaluyong', 0, 'RLD 965', '', 3, '', 3, 2, '2018-10-25 01:26:24', 0),
-(20, '0', '2018-04-10', 'Local/Sub-contractor', 'MyWine - The Best Italian Wine', 'FCL 1x20', 'Wine Beverage', 'Chardonnay', 100, 24, 'MIP - Manila-South, Muntinlupa, Tunasan (Stores Sp', 0, 'RKN 816', '', 16, '', 16, 2, '2018-10-25 01:26:35', 0),
-(21, '0', '2018-04-27', 'Local/Sub-contractor', 'MyWine - The Best Italian Wine', 'LCL 1x40', 'Wine Beverage', 'Pinot noir', 100, 1, 'MIP - Laguna, Binan (Wuerth Phils. Inc. Warehouse)', 0, 'AAQ 926', '', 19, '', 7, 2, '2018-10-25 01:27:00', 0),
-(22, '424723648568', '2018-03-13', 'Local/Sub-contractor', 'Wuerth Phils Inc.', 'FCL 2x20', 'Air Conditioning System', 'Qube 3Tons Floor Standing Type Inverter Airconditioner', 7, 1, 'MIP - Laguna, Binan (Wuerth Phils. Inc. Warehouse)', 8000, 'RGY 294', '', 12, '', 2, 1, '2018-10-25 01:23:25', 0),
-(23, '0', '2018-10-04', 'Local/Sub-contractor', 'Altron Logistics Inc.', 'LCL (ELF)', 'Gardenry Supplies', 'Tiller Cultivator Petrol Hoyoma Japan 4 blades Push Plower ', 5, 55, 'Pangasinan External Warehouse - Sto Tomas Feed Pla', 0, 'RLD 965', '', 4, '', 25, 2, '2018-10-25 01:26:48', 0),
-(24, '0', '2018-10-11', 'Local/Sub-contractor', 'Altron Logistics Inc.', 'FCL 1x20', 'Mechanical Tools', 'Hacksaw High Grade Blade', 120, 8, 'MIP - Manila-North, Valenzuela, Talipapa', 0, 'UIM 308', '', 4, '', 17, 2, '2018-10-25 01:25:35', 0),
-(25, '937291018998', '2018-10-09', 'Freight Forwarder', 'W Hydrocolloids Inc.', 'FCL 2x20', 'Furniture', 'Woodcraft Supplies', 30, 38, 'MIP - Manila-South, Taguig, Bicutan', 9000, 'RLE 993', '', 16, '', 2, 1, '2018-10-25 01:23:40', 0),
-(26, '0', '2018-06-14', 'Freight Forwarder', 'W Hydrocolloids Inc.', 'FCL 2x20', ' Casting Machine', 'Spincaster Casting Machine', 10, 5, 'MIP - Manila-North, Valenzuela, Bartolome KM. 16 M', 0, 'RLE 993', '', 4, '', 26, 2, '2018-10-25 01:24:00', 0),
-(27, '630361872852', '2018-10-17', 'Local/Sub-contractor', 'Continental Cargo Carriers Inc.', 'FCL 2x20', 'Plastic Blue Drum', 'Heavy Duty Drum Dolly 1000 Pound - 55 Gallon Swivel Casters', 15, 37, 'MIP - Manila , Mandaluyong', 8000, 'RGY 294', '', 14, '', 28, 1, '2018-10-25 01:24:29', 0),
-(28, '188515105201', '2018-08-28', 'Local/Sub-contractor', 'Continental Cargo Carriers Inc.', 'FCL 2x20', 'Plastic Blue Drum', 'Heavy Duty Drum Dolly 1000 Pound - 55 Gallon Swivel Casters', 15, 34, 'MIP - Caloocan, Baesa', 8000, 'RGY 294', '', 12, '', 2, 1, '2018-10-25 01:24:44', 0),
-(29, '0', '2018-10-25', 'Freight Forwarder', 'Angelogistics Co. Ltd - Pier Dispatch', '', ' Musical Instrument', 'Jazz Drum Set With Chair Musical Instrument', 30, 9, 'MIP - Manila-North, Valenzuela, Ugong', 0, '', '', 0, '', 0, 0, '2018-10-24 10:13:27', 0),
-(30, '0', '2018-10-25', 'Local/Sub-contractor', 'Kargamine Tool Inc.', '', 'Appliances', 'Refrigirator', 10, 37, 'MIP - Manila , Mandaluyong', 0, '', '', 0, '', 0, 0, '2018-10-24 10:15:53', 0),
-(31, '0', '2018-11-10', 'Local/Sub-contractor', 'Kargamine Tool Inc.', '', 'Appliances', 'Imarflex Electric Oven Toaster IT-150 15 Liter', 50, 3, 'MIP - Cavite, Dasmariñas, Paliparan Gov. Drive (Sa', 0, '', '', 0, '', 0, 0, '2018-10-24 10:16:59', 0),
-(32, '0', '2018-11-13', 'Local/Sub-contractor', 'Altron Logistics Inc.', '', 'Paper Products', 'Printing paper, paper labels and cardboard boxes', 100, 6, 'MIP - Manila-North, Valenzuela, Sitio Bisalud (Art', 0, '', '', 0, '', 0, 0, '2018-10-24 10:23:47', 0),
-(33, '0', '2018-11-08', 'In-house Brokerage', 'Northern Chemical Sales Inc.', '', 'Hazardous substances', 'Hazardous substances, such as explosives or chemicals. Handle with care', 30, 21, 'MIP - Batangas, Tabangao (Kepco IIijan Power Plant', 0, '', '', 0, '', 0, 0, '2018-10-24 10:26:14', 0),
-(34, '0', '2018-12-18', 'Freight Forwarder', 'W Hydrocolloids Inc.', '', 'Dispenser Material', 'H2O Water Dispenser Aquabest', 100, 17, 'MIP - Caloocan, Bagong Barrio (Coastline Truck Cen', 0, '', '', 0, '', 0, 0, '2018-10-24 10:28:45', 0),
-(35, '0', '2018-12-04', 'Local/Sub-contractor', 'Asiaworld Transport Phils.', '', 'Kitchen Appliances', 'American Heritage 12L Oven Toaster', 50, 36, 'MIP - Laguna, Calamba', 0, '', '', 0, '', 0, 0, '2018-10-24 10:31:45', 0);
+INSERT INTO `booking` (`id`, `waybill`, `date`, `cust_type`, `custname`, `cargo`, `product`, `description`, `pieces`, `destinationid`, `destination`, `price`, `plate_no`, `drivername`, `driverid`, `helpername`, `helperid`, `image_path`, `action`, `created`) VALUES
+(1, '096896859624', '2018-01-04', 'Local/Sub-contractor', 'Asiaworld Transport Phils.', 'LCL (ELF)', 'Insulation Roof and Foam', '2x2mm Roof and Foam 19x67', 20, 8, 'MIP - Manila-North, Valenzuela, Talipapa', 8000, 'ZJK 102', '', 4, '', 17, 'waybill_1542582524.jpg', 4, '2018-11-18 23:08:44'),
+(2, '544317607638', '2018-02-20', 'Local/Sub-contractor', 'Asiaworld Transport Phils.', 'FCL 1x20', 'Paper Supplies', 'DreamWorld Supplies - NB4', 100, 9, 'MIP - Manila-North, Valenzuela, Ugong', 8500, 'RCE 120', '', 16, '', 2, '', 1, '2018-11-18 21:52:45'),
+(3, '650483262002', '2018-01-22', 'Local/Sub-contractor', 'Yongzheng Shipping Corp Inc.', 'LCL 1x40', 'Speaker and Amplifier Component System', 'Amplifier/Speaker System for sound reinforcement', 10, 5, 'MIP - Manila-North, Valenzuela, Bartolome KM. 16 M', 6500, 'AAQ 7784', '', 1, '', 11, '', 1, '2018-11-18 21:52:45'),
+(4, '227459737923', '2018-02-24', 'Local/Sub-contractor', 'Yongzheng Shipping Corp Inc.', 'FCL 1x20', 'Appliances', 'Television Set', 8, 37, 'MIP - Manila , Mandaluyong', 7600, 'ABA 9575', '', 10, '', 10, '', 1, '2018-11-18 21:52:45'),
+(5, '0', '2018-02-15', 'Broker/Agent', 'Mira Raquel Suriben', 'LCL (ELF)', 'Tobacco', 'Light and Menthol Cigarettes', 100, 34, 'MIP - Caloocan, Baesa', 0, 'RFR 667', '', 4, '', 25, '', 2, '2018-11-18 21:52:45'),
+(6, '248599669569', '2018-03-09', 'Local/Sub-contractor', 'San Miguel Shipping and Lighterage Corp.', 'FCL 1x20', 'Beverages', 'Alcoholic Drinks and Cidar', 150, 37, 'MIP - Manila , Mandaluyong', 6000, 'UIM 308', '', 19, '', 24, '', 1, '2018-11-18 21:52:45'),
+(7, '140774265142', '2018-03-16', 'Local/Sub-contractor', 'San Miguel Shipping and Lighterage Corp.', 'LCL 1x40', 'Beverages', 'Distilled Water', 150, 37, 'MIP - Manila , Mandaluyong', 6000, 'AAQ 7784', '', 19, '', 24, '', 1, '2018-11-18 21:52:45'),
+(8, '414523172273', '2018-03-23', 'Local/Sub-contractor', 'San Miguel Shipping and Lighterage Corp.', 'LCL 1x40', 'Beverages', 'Fizzy and Softdrinks', 150, 37, 'MIP - Manila , Mandaluyong', 6000, 'AAQ 7784', '', 15, '', 19, '', 1, '2018-11-18 21:52:45'),
+(9, '0', '2018-04-01', 'In-house Brokerage', 'Northern Chemical Sales Inc.', 'FCL 2x20', 'Chemical', 'Leather Chemical (Bayer, Lanxess, ATC, ROHM & HAAS)', 25, 6, 'MIP - Manila-North, Valenzuela, Sitio Bisalud (Art', 0, 'ABA 9575', '', 9, '', 9, '', 2, '2018-11-18 21:52:45'),
+(10, '0', '2018-05-16', 'In-house Brokerage', 'Northern Chemical Sales Inc.', 'FCL 2x20', 'Chemical', 'SODIUM BENZOATE (KALAMA) SODIUM METABISULFITE', 50, 38, 'MIP - Manila-South, Taguig, Bicutan', 0, 'UIM 308', '', 3, '', 14, '', 2, '2018-11-18 21:52:45'),
+(11, '099510648333', '2018-09-07', 'In-house Brokerage', 'Breakthru Cleaning Agent', 'LCL (ELF)', 'Cleansing Detergent', 'Washing Detergent', 50, 4, 'MIP - Manila-North, Valenzuela, Bisalud Bagbauin (', 5000, 'RNK 277', '', 19, '', 24, '', 1, '2018-11-18 21:52:45'),
+(12, '403226566946', '2018-09-18', 'In-house Brokerage', 'Breakthru Cleaning Agent', 'FCL 1x40', ' Cleansing Machine', 'Whirlpool Washer and Dryer Machine ', 10, 23, 'MIP - Batangas (Xylem Water Systems Intl. Inc.)', 7500, 'RNK 276', '', 12, '', 2, '', 1, '2018-11-18 21:52:45'),
+(13, '011193119426', '2018-09-27', 'In-house Brokerage', 'Breakthru Cleaning Agent', 'LCL (ELF)', 'Cleansing Machine', 'Irons & Ironing Systems', 50, 20, 'MIP - Laguna, Calamba (Xylem Water Systems Intl. I', 5000, 'RKN 816', '', 4, '', 17, '', 3, '2018-11-18 23:00:58'),
+(14, '111778512691', '2018-09-13', 'Local/Sub-contractor', 'Coastline Truck Center', 'LCL 1x40', 'Flatwork Machine', 'Flatwork Ironer/Roller Ironer & Folding Machine', 5, 34, 'MIP - Caloocan, Baesa', 75000, 'UIM 308', '', 4, '', 27, '', 1, '2018-11-18 22:57:11'),
+(15, '809603124399', '2018-08-14', 'Local/Sub-contractor', 'Coastline Truck Center', 'FCL 2x20', ' Centrifuge Dental Casting Machine', 'Casting Machine. Set of 5 Casting Stainless Steel Flasks/Rings', 15, 37, 'MIP - Manila , Mandaluyong', 8000, 'RNK 276', '', 16, '', 16, '', 1, '2018-11-18 21:52:45'),
+(16, '0', '2018-08-10', 'Broker/Agent', 'Marilou R. Arevalo (Bong)', 'LCL (ELF)', 'Sharp Equipment', 'Finish Blade Set of 4. Flextool 24. Detailed View. Part No. FLXE0325', 13, 53, 'San Miguel Mills Inc. - Tarlac External Warehouse', 0, 'RGY 294', '', 19, '', 24, '', 2, '2018-11-18 21:52:45'),
+(17, '242413144790', '2018-07-10', 'Freight Forwarder', 'Wacker Machines Supplies Corp.', 'LCL (ELF)', 'Light Construction Equipments Supplies', 'LED Lights', 170, 24, 'MIP - Manila-South, Muntinlupa, Tunasan (Stores Sp', 4500, 'AAQ 7784', '', 12, '', 2, '', 1, '2018-11-18 22:18:32'),
+(18, '353867965881', '2018-06-04', 'Freight Forwarder', 'Wacker Machines Supplies Corp.', 'LCL 1x40', 'Construction Products', 'Parchem', 90, 38, 'MIP - Manila-South, Taguig, Bicutan', 9000, 'RLE 993', '', 17, '', 20, '', 1, '2018-11-18 21:52:45'),
+(19, '0', '2018-05-23', 'Freight Forwarder', 'Wacker Machines Supplies Corp.', 'LCL (ELF)', 'Flextool Equipment', 'Decorative Surfaces', 35, 37, 'MIP - Manila , Mandaluyong', 0, 'RLD 965', '', 3, '', 3, '', 2, '2018-11-18 21:52:45'),
+(20, '189288374658', '2018-04-10', 'Local/Sub-contractor', 'MyWine - The Best Italian Wine', 'FCL 1x20', 'Wine Beverage', 'Chardonnay', 100, 24, 'MIP - Manila-South, Muntinlupa, Tunasan (Stores Sp', 0, 'RKN 816', '', 16, '', 16, '', 1, '2018-11-18 21:52:45'),
+(21, '0', '2018-04-27', 'Local/Sub-contractor', 'MyWine - The Best Italian Wine', 'LCL 1x40', 'Wine Beverage', 'Pinot noir', 100, 1, 'MIP - Laguna, Binan (Wuerth Phils. Inc. Warehouse)', 0, 'AAQ 926', '', 19, '', 7, '', 2, '2018-11-18 21:52:45'),
+(22, '424723648568', '2018-03-13', 'Local/Sub-contractor', 'Wuerth Phils Inc.', 'FCL 2x20', 'Air Conditioning System', 'Qube 3Tons Floor Standing Type Inverter Airconditioner', 7, 1, 'MIP - Laguna, Binan (Wuerth Phils. Inc. Warehouse)', 8000, 'RGY 294', '', 12, '', 2, '', 1, '2018-11-18 21:52:45'),
+(23, '0', '2018-10-04', 'Local/Sub-contractor', 'Altron Logistics Inc.', 'LCL (ELF)', 'Gardenry Supplies', 'Tiller Cultivator Petrol Hoyoma Japan 4 blades Push Plower ', 5, 55, 'Pangasinan External Warehouse - Sto Tomas Feed Pla', 0, 'RLD 965', '', 4, '', 25, '', 2, '2018-11-18 21:52:45'),
+(24, '0', '2018-10-11', 'Local/Sub-contractor', 'Altron Logistics Inc.', 'FCL 1x20', 'Mechanical Tools', 'Hacksaw High Grade Blade', 120, 8, 'MIP - Manila-North, Valenzuela, Talipapa', 0, 'UIM 308', '', 4, '', 17, '', 2, '2018-11-18 21:52:45'),
+(25, '937291018998', '2018-10-09', 'Freight Forwarder', 'W Hydrocolloids Inc.', 'FCL 2x20', 'Furniture', 'Woodcraft Supplies', 30, 38, 'MIP - Manila-South, Taguig, Bicutan', 9000, 'RLE 993', '', 16, '', 2, '', 1, '2018-11-18 21:52:45'),
+(26, '0', '2018-06-14', 'Freight Forwarder', 'W Hydrocolloids Inc.', 'FCL 2x20', ' Casting Machine', 'Spincaster Casting Machine', 10, 5, 'MIP - Manila-North, Valenzuela, Bartolome KM. 16 M', 0, 'RLE 993', '', 4, '', 26, '', 2, '2018-11-18 21:52:45'),
+(27, '630361872852', '2018-10-17', 'Local/Sub-contractor', 'Continental Cargo Carriers Inc.', 'FCL 2x20', 'Plastic Blue Drum', 'Heavy Duty Drum Dolly 1000 Pound - 55 Gallon Swivel Casters', 15, 37, 'MIP - Manila , Mandaluyong', 8000, 'RGY 294', '', 14, '', 28, '', 1, '2018-11-18 21:52:45'),
+(28, '188515105201', '2018-08-28', 'Local/Sub-contractor', 'Continental Cargo Carriers Inc.', 'FCL 2x20', 'Plastic Blue Drum', 'Heavy Duty Drum Dolly 1000 Pound - 55 Gallon Swivel Casters', 15, 34, 'MIP - Caloocan, Baesa', 8000, 'RGY 294', '', 12, '', 2, '', 1, '2018-11-18 21:52:45'),
+(29, '0', '2018-10-25', 'Freight Forwarder', 'Angelogistics Co. Ltd - Pier Dispatch', '', ' Musical Instrument', 'Jazz Drum Set With Chair Musical Instrument', 30, 9, 'MIP - Manila-North, Valenzuela, Ugong', 0, '', '', 0, '', 0, '', 0, '2018-11-18 21:52:45'),
+(30, '0', '2018-10-25', 'Local/Sub-contractor', 'Kargamine Tool Inc.', '', 'Appliances', 'Refrigirator', 10, 37, 'MIP - Manila , Mandaluyong', 0, '', '', 0, '', 0, '', 0, '2018-11-18 21:52:45'),
+(31, '0', '2018-11-10', 'Local/Sub-contractor', 'Kargamine Tool Inc.', '', 'Appliances', 'Imarflex Electric Oven Toaster IT-150 15 Liter', 50, 3, 'MIP - Cavite, Dasmariñas, Paliparan Gov. Drive (Sa', 0, '', '', 0, '', 0, '', 0, '2018-11-18 21:52:45'),
+(32, '0', '2018-11-13', 'Local/Sub-contractor', 'Altron Logistics Inc.', '', 'Paper Products', 'Printing paper, paper labels and cardboard boxes', 100, 6, 'MIP - Manila-North, Valenzuela, Sitio Bisalud (Art', 0, '', '', 0, '', 0, '', 0, '2018-11-18 21:52:45'),
+(33, '0', '2018-11-08', 'In-house Brokerage', 'Northern Chemical Sales Inc.', '', 'Hazardous substances', 'Hazardous substances, such as explosives or chemicals. Handle with care', 30, 21, 'MIP - Batangas, Tabangao (Kepco IIijan Power Plant', 0, '', '', 0, '', 0, '', 0, '2018-11-18 21:52:45'),
+(34, '0', '2018-12-18', 'Freight Forwarder', 'W Hydrocolloids Inc.', '', 'Dispenser Material', 'H2O Water Dispenser Aquabest', 100, 17, 'MIP - Caloocan, Bagong Barrio (Coastline Truck Cen', 0, '', '', 0, '', 0, '', 0, '2018-11-18 21:52:45'),
+(35, '0', '2018-12-04', 'Local/Sub-contractor', 'Asiaworld Transport Phils.', '', 'Kitchen Appliances', 'American Heritage 12L Oven Toaster', 50, 36, 'MIP - Laguna, Calamba', 0, '', '', 0, '', 0, '', 0, '2018-11-18 21:52:45'),
+(36, '', '2018-11-07', 'Freight Forwarder', 'Wacker Machines Supplies Corp.', '', 'Mechanic Equipment', 'Automotive Tools & Equipment', 65, 9, '', 0, '', '', 0, '', 0, '', 0, '2018-11-18 21:52:45'),
+(37, '12345678954', '2018-10-25', 'Freight Forwarder', 'Wacker Machines Supplies Corp.', 'LCL 1x40', 'Furniture', 'Sofa Set', 10, 37, 'MIP - Manila , Mandaluyong', 5000, 'RCE 120', '', 19, '', 24, '', 1, '2018-11-18 21:52:45');
 
 -- --------------------------------------------------------
 
@@ -458,7 +460,8 @@ INSERT INTO `staff` (`img`, `id`, `fname`, `lname`, `mname`, `gender`, `birthday
 ('', 17, 'Kurt', 'Tuason', '', 'M', '1991-08-27', '09092589632', '2014-04-20', 'kurtuason@gmail.com', '123456789', '123456789', 1, 5),
 ('', 18, 'Brandon', 'Benitez', '', 'M', '1992-06-30', '09981593548', '2014-03-11', 'branbent@gmail.com', '123456789', '123456789', 1, 1),
 ('', 19, 'Carlo', 'Mendoza', '', 'M', '1995-10-31', '09497852314', '2015-01-21', 'carlomend@gmail.com', '123456789', '123456789', 1, 2),
-('', 20, 'Francis', 'Sanchez', '', 'M', '1993-09-10', '09185896325', '2015-03-26', 'fransanch@gmail.com', '123456789', '123456789', 1, 3);
+('', 20, 'Francis', 'Sanchez', '', 'M', '1993-09-10', '09185896325', '2015-03-26', 'fransanch@gmail.com', '123456789', '123456789', 1, 3),
+('logo.jpg', 21, 'Juan', 'Dela Cruz', 'A', 'M', '1990-11-04', '09192753740', '2018-10-25', 'juandelacruz@gmail.com', '123456789', '123456789', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -573,7 +576,7 @@ ALTER TABLE `truck`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -609,7 +612,7 @@ ALTER TABLE `maintenance`
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `truck`
