@@ -72,7 +72,6 @@
               <div class="col-md-12">           
                 <!-- For getting the chartContainer/to show the graph which is div id=Hello -->
                 <div id="longest" style="height: 370px; max-width: 1200px; margin: 0px auto;"> </div>
-                <!-- boy ung div=id dat = sa value ng canvasjs.chart na eedit ata value ng var chart palitan nga lang sa baba -->
                 </div>
 							</div>    
         		</div>
@@ -104,16 +103,25 @@ window.onload = function () {
 		data: [{
 			type: "bar",
       color: "#014D65",
+			cursor:"pointer",
 			dataPoints: [
-				{ y: <?=$finished?>, label: "Finished" },
-				{ y: <?=$arrived?>, label: "Arrived" },
-				{ y: <?=$intransit?>, label: "In-transit" },
-        { y: <?=$accept?>, label: "Accepted" },
-        { y: <?=$pending?>, label: "Pending" },
-        { y: <?=$deny?>, label: "Denied" },
+				{ y: <?=$finished?>, label: "Finished", link: "<?=base_url().'admin/booking_finished'?>" },
+				{ y: <?=$arrived?>, label: "Arrived", link: "<?=base_url().'admin/booking_arrived'?>"  },
+				{ y: <?=$intransit?>, label: "In-transit", link: "<?=base_url().'admin/booking_intransit'?>"  },
+        { y: <?=$accept?>, label: "Accepted", link: "<?=base_url().'admin/booking_accepted'?>"  },
+        { y: <?=$pending?>, label: "Pending", link: "<?=base_url().'admin/booking_pending'?>"  },
+        { y: <?=$deny?>, label: "Denied", link: "<?=base_url().'admin/booking_denied'?>"  },
 			]
 		}]
 	});
+
+chart.options.data[0].click = function(e){ 
+    var dataSeries = e.dataSeries;
+    var dataPoint = e.dataPoint;
+    
+    window.open(dataPoint.link,'_blank');      
+};
+
 chart.render();
 
 // MOST MAINTENANCE RECORD
@@ -146,6 +154,7 @@ top.render();
 // LONGEST & SHORTEST MAINTENANCE TIME
 var longest = new CanvasJS.Chart("longest", {
 	animationEnabled: true,
+	exportEnabled: true,
 	theme: "light2",
 	title:{
 		text: "Longest and Shortest Maintenance Time"
@@ -158,31 +167,61 @@ var longest = new CanvasJS.Chart("longest", {
 		includeZero: false,
 		suffix: " DAYS",
 	},
-	data: [{        
-		type: "line",     
+	legend:{
+		cursor: "pointer",
+		fontSize: 16,
+		itemclick: toggleDataSeries
+	},
+	data: [{
+		name: "Longest Maintanance",
+		type: "line",
+		yValueFormatString: "#0.## Days",
 		lineThickness: 4,
+		cursor:"pointer",
+		showInLegend: true,
 		dataPoints: [
-			{ x: 1, y: <?php echo $days5->format('%a');?>, indexLabel: "<?php echo $warning5->plate_no?>" },
-			{ x: 2, y: <?php echo $days4->format('%a');?>, indexLabel: "<?php echo $warning4->plate_no?>" },
-			{ x: 3, y: <?php echo $days3->format('%a');?>, indexLabel: "<?php echo $warning3->plate_no?>" },
-			{ x: 4, y: <?php echo $days2->format('%a');?>, indexLabel: "<?php echo $warning2->plate_no?>" },
-			{ x: 5, y: <?php echo $days->format('%a');?>, indexLabel: "<?php echo $warning->plate_no?>", markerColor: "red", markerType: "triangle" },
-			// { y: 520, indexLabel: "highest",markerColor: "red", markerType: "triangle" },
+			{ x: 1, y: <?php echo $days5->format('%a');?>, indexLabel: "<?php echo $warning5->warning?>", link: "<?= base_url().'maintenance/edit/'.$warning5->id?>"  },
+			{ x: 2, y: <?php echo $days4->format('%a');?>, indexLabel: "<?php echo $warning4->warning?>", link: "<?= base_url().'maintenance/edit/'.$warning4->id?>"  },
+			{ x: 3, y: <?php echo $days3->format('%a');?>, indexLabel: "<?php echo $warning3->plate_no?>", link: "<?= base_url().'maintenance/edit/'.$warning3->id?>"  },
+			{ x: 4, y: <?php echo $days2->format('%a');?>, indexLabel: "<?php echo $warning2->plate_no?>", link: "<?= base_url().'maintenance/edit/'.$warning2->id?>"  },
+			{ x: 5, y: <?php echo $days->format('%a');?>, indexLabel: "<?php echo $warning->warning?>", markerColor: "red", markerType: "triangle", link: "<?= base_url().'maintenance/edit/'.$warning->id?>" },
 			]
 		},
 		{
-			type: "line",       
+			name: "Shortest Maintenance",
+			type: "line",
+			yValueFormatString: "#0.## Days",   
 			color: "#ff4242",
 			lineThickness: 4,
+			cursor:"pointer",
+			showInLegend: true,
 			dataPoints: [
-			{ x: 1, y: <?php echo $days10->format('%a');?>, indexLabel: "<?php echo $warning10->plate_no?>" },
-			{ x: 2, y: <?php echo $days9->format('%a');?>, indexLabel: "<?php echo $warning9->plate_no?>" },
-			{ x: 3, y: <?php echo $days8->format('%a');?>, indexLabel: "<?php echo $warning8->plate_no?>" },
-			{ x: 4, y: <?php echo $days7->format('%a');?>, indexLabel: "<?php echo $warning7->plate_no?>" },
-			{ x: 5, y: <?php echo $days6->format('%a');?>, indexLabel: "<?php echo $warning6->plate_no?>", markerColor: "DarkSlateGrey", markerType: "cross" },
+			{ x: 1, y: <?php echo $days10->format('%a');?>, indexLabel: "<?php echo $warning10->warning?>", link: "<?= base_url().'maintenance/edit/'.$warning10->id?>"  },
+			{ x: 2, y: <?php echo $days9->format('%a');?>, indexLabel: "<?php echo $warning9->warning?>", link: "<?= base_url().'maintenance/edit/'.$warning9->id?>"  },
+			{ x: 3, y: <?php echo $days8->format('%a');?>, indexLabel: "<?php echo $warning8->warning?>", link: "<?= base_url().'maintenance/edit/'.$warning8->id?>"  },
+			{ x: 4, y: <?php echo $days7->format('%a');?>, indexLabel: "<?php echo $warning7->warning?>", link: "<?= base_url().'maintenance/edit/'.$warning7->id?>"  },
+			{ x: 5, y: <?php echo $days6->format('%a');?>, indexLabel: "<?php echo $warning6->warning?>", markerColor: "DarkSlateGrey", markerType: "cross", link: "<?= base_url().'maintenance/edit/'.$warning6->id?>"  },
 			]
 	}]
 });
+
+function toggleDataSeries(e){
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	}
+	else{
+		e.dataSeries.visible = true;
+	}
+	longest.render();
+};
+
+longest.options.data[0].click = function(e){ 
+    var dataSeries = e.dataSeries;
+    var dataPoint = e.dataPoint;
+
+    window.open(dataPoint.link,'_blank');      
+};
+
 longest.render();
 
 }

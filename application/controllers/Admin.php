@@ -47,6 +47,7 @@ class Admin extends CI_Controller {
             $third = $this->ChartModel->getThird();
             $fourth = $this->ChartModel->getFourth();
             $fifth = $this->ChartModel->getFifth();
+
             //Longest - Line Graph
             //First longest
             $date1 = $this->ChartModel->getFirstDate();
@@ -115,6 +116,7 @@ class Admin extends CI_Controller {
             $warning3 = $this->ChartModel->getThirdWarning();
             $warning4 = $this->ChartModel->getFourthWarning();
             $warning5 = $this->ChartModel->getFifthWarning();
+            
             $warning6 = $this->ChartModel->getFirstEndWarning();
             $warning7 = $this->ChartModel->getSecondEndWarning();
             $warning8 = $this->ChartModel->getThirdEndWarning();
