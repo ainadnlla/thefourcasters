@@ -16,26 +16,26 @@
           <h3 class="box-title">View Details</h3>
         </div>
 
-    <form class="form">
+    <form  class="form"  action ="<?=base_url()?>bookingadmin/update/<?=$books->id?>"  method='post'>
       <fieldset>
         <div class="form-group">
           <div class="col-md-12">
-            <input type="hidden" type="text" placeholder="ID" class="form-control input-md"value="<?=$books ->id?>" required="" >
+            <input name="id" type="hidden" type="text" placeholder="ID" class="form-control input-md" value="<?=$books ->id?>" required="" >
           </div>
         </div>
 
         <div class="form-group">
           <div class="col-md-4">
             <label>Waybill</label>
-            <input disabled value="<?=$books->waybill?>"type="text" placeholder="Waybill" class="form-control input-md">
+            <input readonly value="<?=$books->waybill?>" name="waybill" type="text" placeholder="Waybill" class="form-control input-md">
           </div>
           <div class="col-md-4">
             <label>Customer/Importer</label>  
-            <input disabled value="<?=$books->custname?>" type="text" placeholder="Customer/Importer" class="form-control input-md"> 
+            <input readonly value="<?=$books->custname?>" name="custname" type="text" placeholder="Customer/Importer" class="form-control input-md"> 
           </div>
           <div class="col-md-4">
             <label>Customer Type</label>
-            <input disabled value="<?=$books->cust_type?>" type="text" placeholder="Customer/Importer" class="form-control input-md"> 
+            <input readonly value="<?=$books->cust_type?>" name="cust_type" type="text" placeholder="Customer/Importer" class="form-control input-md"> 
           </div>
         </div>
 
@@ -46,15 +46,15 @@
         <div class="form-group">
           <div class="col-md-4">
             <label>Date Schdeuled</label>
-            <input disabled value="<?=$books->date?>" type="date" class="form-control input-md">  
+            <input readonly value="<?=$books->date?>" name="date" type="date" class="form-control input-md">  
           </div>
           <div class="col-md-4">
             <label>Product Type</label>  
-            <input disabled value="<?=$books->product?>" type="text" placeholder="Product" class="form-control input-md">
+            <input readonly value="<?=$books->product?>" name="product" type="text" placeholder="Product" class="form-control input-md">
           </div>
           <div class="col-md-4">
             <label>Description</label>  
-            <input disabled value="<?=$books->description?>" type="text" placeholder="Decription" class="form-control input-md">
+            <input readonly value="<?=$books->description?>" name="description" type="text" placeholder="Decription" class="form-control input-md">
           </div>
         </div>
 
@@ -65,15 +65,15 @@
         <div class="form-group">
           <div class="col-md-4">
             <label>Pieces</label>  
-            <input disabled value="<?=$books->pieces?>" type="text" placeholder="Pieces" class="form-control input-md">
+            <input readonly value="<?=$books->pieces?>" name="pieces" type="text" placeholder="Pieces" class="form-control input-md">
           </div>
           <div class="col-md-4">
             <label>Cargo Size</label>
-            <input disabled value="<?=$books->cargo?>" type="text" placeholder="Cargo Size" class="form-control input-md">
+            <input readonly value="<?=$books->cargo?>" name="cargo" type="text" placeholder="Cargo Size" class="form-control input-md">
           </div>
           <div class="col-md-4">
             <label>Truck Plate No.</label>  
-            <input disabled value="<?=$books->plate_no?>" type="text" placeholder="Truck Plate No." class="form-control input-md">
+            <input readonly value="<?=$books->plate_no?>" name="plate_no" type="text" placeholder="Truck Plate No." class="form-control input-md">
           </div>
         </div>
 
@@ -84,15 +84,15 @@
         <div class="form-group">
           <div class="col-md-4">
             <label>Driver ID</label>  
-            <input disabled value="<?=$books->driverid?>" type="text" placeholder="Driver" class="form-control input-md">
+            <input readonly value="<?=$books->driverid?>" name="driverid" type="text" placeholder="Driver" class="form-control input-md">
           </div>
           <div class="col-md-4">
             <label>Helper ID</label>  
-            <input disabled value="<?=$books->helperid?>" type="text" placeholder="Helper" class="form-control input-md">
+            <input readonly value="<?=$books->helperid?>" name="helperid" type="text" placeholder="Helper" class="form-control input-md">
           </div>
           <div class="col-md-4">
             <label>Price</label>
-            <input disabled value="<?=$books->price?>" type="text" placeholder="Price" class="form-control input-md">
+            <input readonly value="<?=$books->price?>" name="price" type="text" placeholder="Price" class="form-control input-md">
           </div>
         </div>
 
@@ -103,11 +103,11 @@
         <div class="form-group">
           <div class="col-md-8">
             <label>Destination</label>  
-            <input disabled value="<?=$books->destination?>" type="text" placeholder="Destination" class="form-control input-md">
+            <input readonly value="<?=$books->destination?>" name="destination" type="text" placeholder="Destination" class="form-control input-md">
           </div>
           <div class="col-md-4">
             <label>Status</label>
-            <input disabled value="Level <?=$books->action?>" type="text" placeholder="Status" class="form-control input-md">
+            <input readonly value="Level <?=$books->action?>" type="text" placeholder="Status" class="form-control input-md">
           </div>
         </div>
 
@@ -133,25 +133,44 @@
           <h3 class="box-title">Waybill Photo</h3>
         </div>
         <fieldset>
+        <div class="col-md-12">
+          <br/>
+        </div>
         <div class="form-group">
-          <div class="col-md-12">
-            <p></p>
+          <center>
+            <img src="<?=base_url() . 'uploads/waybill/'.$books->image_path?>" alt="..." class="img-thumbnail" tabindex="0">
+          </center>
+        </div>
+        <?php if($books->action == 4 && $books->image_path != "" && $books->image_path != NULL){ ?>
+        <div class="form-group">
+        <div class="col-md-4">
+      </div>
+          <div class="col-md-4">
+              <label>Waybill Signed?</label><small> (Change Status)</small>
+                <select name="action" value="<?=$books->action?>" class="form-control">
+                <option disabled="disabled" value="<?=$books->action?>" selected>Level <?=$books->action?></option>
+                <option disabled value="0">(0) Pending</option>
+                <option disabled value="1">(1) Accept</option>
+                <option value="2">(2) Deny</option>
+                <option disabled value="3">(3) In-transit</option>
+                <option disabled value="4">(4) Arrived</option>
+                <option value="5">(5) Finished</option>
+                </select>
           </div>
         </div>
-        <div class="form-group">
-          <label class="col-md-3 control-label"></label>  
-            <div class="col-md-9">
-              <img src="<?=base_url() . 'uploads/waybill/'.$books->image_path?>" alt="..." class="img-thumbnail" tabindex="0">
-            </div>
-        </div>
-        <div class="form-group">
-          <div class="col-md-12">
-            <p></p>
+        <div class="col-md-12">
+          <br/>
+      </div>
+        </fieldset>
+        <div class="box-footer">
+          <div class="pull-right">
+            <button id="button1id" name="submit" type="submit" value="submit" class="btn btn-success">Update</button>
           </div>
-        </div>
+      </div>
     </div>
 </div>
-</fieldset>
+
+<?php } ?>
 <?php } ?>
 
 

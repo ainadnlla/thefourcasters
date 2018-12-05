@@ -133,6 +133,5 @@ class Bookingadmin extends CI_Controller {
             redirect($referred_from, 'refresh');
         }
     }
-
 }
 ?>

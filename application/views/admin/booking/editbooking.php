@@ -205,7 +205,7 @@
         <div class="form-group">
           <label class="col-md-3 control-label"></label>  
             <div class="col-md-9">
-              <img src="<?=base_url() . 'uploads/waybill/'.$books->image_path?>" alt="..." class="img-thumbnail" tabindex="0">
+              <img src="<?=base_url() . 'uploads/waybill/'.$books->image_path?>" alt="..." class="img-thumbnail" tabindex="1">
             </div>
         </div>
         <div class="form-group">
@@ -217,6 +217,7 @@
 </div>
 </fieldset>
 <?php } ?>
+
 </div>
 </section>
 </div>

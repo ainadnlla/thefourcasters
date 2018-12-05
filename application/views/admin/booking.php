@@ -75,12 +75,13 @@
                   <td>
                   <a href="<?= base_url().'bookingadmin/view/'.$book->id?>" class="btn btn-default btn.lg" role="button">
                   <span class="fa fa-eye" aria-hidden="true"></span></a>
+                  <?php if($book->action <= 2){ ?>
                   <a href="<?= base_url().'bookingadmin/edit/'.$book->id?>" class="btn btn-default btn.lg" role="button"><span class="fa fa-edit" aria-hidden="true"></span></a>
-                   <?php if($book->action >= 3 && $book->image_path != "" && $book->image_path != NULL){ ?>
+                  <?php } ?>
+                  <?php if($book->action >= 3 && $book->image_path != "" && $book->image_path != NULL){ ?>
                   <a href="<?= base_url().'uploads/waybill/'.$book->image_path?>" target="_blank" class="btn bg-navy btn.lg" role="button"><span class="fa fa-file-image-o" aria-hidden="true"></span></a>
-                       <?php } ?>
-                  
-                        
+                   <?php } ?>
+                            
                 <!-- <a href="<?=base_url('bookingadmin/del/'.$book->id)?>" class="btn btn-danger" onclick="return confirm('Are you sure?')" role="button">
                   <span class="glyphicon glyphicon-trash" aria-hidden="true" name="delete" ></span></a> -->
               </td>
