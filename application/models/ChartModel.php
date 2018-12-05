@@ -295,6 +295,6 @@ public function mjan($year){
      public function mdaily($day,$month,$year){
         // $query = $this->db->select("COUNT(DISTINCT plate_no)")->where("EXTRACT(DAY from date) = '$day' AND EXTRACT(MONTH from date) = '$month'  AND EXTRACT(YEAR from date) = '$year'")->from("maintenance");
         $query = $this->db->query("SELECT COUNT(DISTINCT plate_no) from maintenance where EXTRACT(DAY from date) = '$day' AND EXTRACT(MONTH from date) = '$month'  AND EXTRACT(YEAR from date) = '$year' ");
-        return $query->row();  
+        return $query->result();
     }
 }

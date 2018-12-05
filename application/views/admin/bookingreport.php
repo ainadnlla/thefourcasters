@@ -10,7 +10,7 @@
 <section class="content">    
 <form  class="form-horizontal"  action ="<?=base_url()?>admin/bookingreport/"  method='get'>
 
-<?php echo $totalprice; ?>
+<?= $totalprice; ?>
   <div class="col-xs-3">
     <div class="form-group">
         <select name="month" class="form-control">

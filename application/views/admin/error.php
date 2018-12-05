@@ -9,7 +9,7 @@
 
           <p>
             Sorry, We could not find the page you were looking for. <br/>
-            Meanwhile, you may <a href="<?=base_url().'customer/login'?>">return to login page</a>
+            Meanwhile, you may <a href="<?=base_url().'login/customer'?>">return to login page</a>
           </p>
 
         </div>

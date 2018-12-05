@@ -138,8 +138,9 @@ chart.render();
 	data: [{
 		type: "pie",
 		showInLegend: true,
+		indexLabelFontSize: 12,
 		toolTipContent: "{name}: <strong>{y}</strong>",
-		indexLabel: "Plate No.: {name} - {y} Records",
+		indexLabel: "{name} - {y} Records",
 		dataPoints: [
 			{ y: <?php foreach($first as $first):?><?= $first->total?>, name: "<?= $first->plate_no?><?php endforeach; ?>" },
 			{ y: <?php foreach($second as $second):?><?= $second->total?>, name: "<?= $second->plate_no?><?php endforeach; ?>" },
@@ -222,8 +223,13 @@ longest.options.data[0].click = function(e){
     window.open(dataPoint.link,'_blank');      
 };
 
-longest.render();
+longest.options.data[1].click = function(e){ 
+    var dataSeries = e.dataSeries;
+    var dataPoint = e.dataPoint;
 
+    window.open(dataPoint.link,'_blank');      
+};
+longest.render();
 }
 
 function explodePie (e) {

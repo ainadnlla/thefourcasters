@@ -27,7 +27,6 @@
               <th>Customer</th>
               <th>Date</th>
               <th>Product</th>
-              <th>Pieces</th>
               <th>Truck No.</th>
               <th>Driver ID</th>
               <th>Helper ID</th>
@@ -45,7 +44,6 @@
                   <td class="text-capitalize"><?= $book->custname?></td>
                   <td><?= date('M d, Y', strtotime($book->date))?></td>
                   <td class="text-capitalize"><?= $book->product?></td>
-                  <td><?= $book->pieces?></td>
                   <td class="text-uppercase"><?= $book->plate_no?></td>
                   <td class="text-capitalize"><?= $book->driverid?></td>
                   <td class="text-capitalize"><?= $book->helperid?></td>

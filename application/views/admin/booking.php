@@ -25,7 +25,6 @@
               <th>Customer</th>
               <th>Date</th>
               <th>Product</th>
-              <th>Pieces</th>
               <th>Truck No.</th>
               <th>Driver ID</th>
               <th>Helper ID</th>
@@ -43,7 +42,6 @@
                   <td class="text-capitalize"><?= $book->custname?></td>
                   <td><?= date('M d, Y', strtotime($book->date))?></td>
                   <td class="text-capitalize"><?= $book->product?></td>
-                  <td><?= $book->pieces?></td>
                   <td class="text-uppercase"><?= $book->plate_no?></td>
                   <td class="text-capitalize"><?= $book->driverid?></td>
                   <td class="text-capitalize"><?= $book->helperid?></td>
@@ -79,7 +77,7 @@
                   <span class="fa fa-eye" aria-hidden="true"></span></a>
                   <a href="<?= base_url().'bookingadmin/edit/'.$book->id?>" class="btn btn-default btn.lg" role="button"><span class="fa fa-edit" aria-hidden="true"></span></a>
                    <?php if($book->action >= 3 && $book->image_path != "" && $book->image_path != NULL){ ?>
-                  <a href="<?= base_url().'uploads/waybill/'.$book->image_path?>" target="_blank" class="btn btn-info btn.lg" role="button"><span class="fa fa-file-image-o" aria-hidden="true"></span></a>
+                  <a href="<?= base_url().'uploads/waybill/'.$book->image_path?>" target="_blank" class="btn bg-navy btn.lg" role="button"><span class="fa fa-file-image-o" aria-hidden="true"></span></a>
                        <?php } ?>
                   
                         

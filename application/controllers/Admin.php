@@ -516,7 +516,7 @@ class Admin extends CI_Controller {
             $month = $this->input->GET('month');
             $year = $this->input->GET('year');  
             $day = $this->input->GET('day');
-            $data['totalprice'] = $this->ChartModel->mdaily($day,$month,$year);
+            $totalprice= $this->ChartModel->mdaily($day,$month,$year);
             //Monthly Report Graph
             $jan= $this->ChartModel->jan($year);
             $feb= $this->ChartModel->feb($year);
@@ -571,7 +571,7 @@ class Admin extends CI_Controller {
             $this->load->view('include/header', $data);
             $this->load->view('include/header_nav');
             $this->load->view('include/footer');
-            $this->load->view('admin/bookingreport',compact('maindays','mainyears','daily','mdaily','currentyear','lastyear','llastyear','lllastyear','llllastyear','mcurrentyear','mlastyear','mllastyear','mlllastyear','mllllastyear','mjan','mfeb','mmarch','mapril','mmay','mjune','mjuly','maug','msep','moct','mnov','mdec','jan','feb','march','april','may','june','july','aug','sep','oct','nov','dec','days','years','reps', 'mains'));
+            $this->load->view('admin/bookingreport',compact('maindays','mainyears','daily','mdaily','currentyear','lastyear','llastyear','lllastyear','llllastyear','mcurrentyear','mlastyear','mllastyear','mlllastyear','mllllastyear','mjan','mfeb','mmarch','mapril','mmay','mjune','mjuly','maug','msep','moct','mnov','mdec','jan','feb','march','april','may','june','july','aug','sep','oct','nov','dec','days','years','reps', 'mains','totalprice'));
         }else{
             redirect('login/admin');
         }
