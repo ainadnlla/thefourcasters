@@ -123,9 +123,38 @@
         <a href="<?= base_url().'admin/booking'?>" class="btn btn-default" role="button">Cancel</a>
         </div>
       </div>
+</div>
+</div>
 
+<?php if($books->action >= 3 && $books->image_path != "" && $books->image_path != NULL){ ?>
+<div class="col-md-12">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Waybill Photo</h3>
+        </div>
+        <fieldset>
+        <div class="form-group">
+          <div class="col-md-12">
+            <p></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label"></label>  
+            <div class="col-md-9">
+              <img src="<?=base_url() . 'uploads/waybill/'.$books->image_path?>" alt="..." class="img-thumbnail" tabindex="0">
+            </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-12">
+            <p></p>
+          </div>
+        </div>
+    </div>
 </div>
-</div>
+</fieldset>
+<?php } ?>
+
+
 </div>
 </section>
 </div>

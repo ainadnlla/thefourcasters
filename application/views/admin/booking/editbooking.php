@@ -165,6 +165,11 @@
               <option value="0">(0) Pending</option>
               <option value="1">(1) Accept</option>
               <option value="2">(2) Deny</option>
+              <?php if($this->session->userdata('action') == '3' || $this->session->userdata('action') == '4' || $this->session->userdata('action') == '5'){ ?>
+              <option disabled value="3">(3) In-transit</option>
+              <option disabled value="4">(4) Arrived</option>
+              <option value="5">(5) Finished</option>
+              <?php }else{}?>
               </select>
           </div>
         </div>
@@ -182,9 +187,36 @@
           <button id="button1id" name="submit" type="submit" value="submit" class="btn btn-success">Update</button>
         </div>
       </div>
+    </div>
+</div>
 
+<?php if($books->action >= 3 && $books->image_path != "" && $books->image_path != NULL){ ?>
+<div class="col-md-12">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Waybill Photo</h3>
+        </div>
+        <fieldset>
+        <div class="form-group">
+          <div class="col-md-12">
+            <p></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label"></label>  
+            <div class="col-md-9">
+              <img src="<?=base_url() . 'uploads/waybill/'.$books->image_path?>" alt="..." class="img-thumbnail" tabindex="0">
+            </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-12">
+            <p></p>
+          </div>
+        </div>
+    </div>
 </div>
-</div>
+</fieldset>
+<?php } ?>
 </div>
 </section>
 </div>

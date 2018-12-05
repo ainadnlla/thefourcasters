@@ -66,6 +66,7 @@ class Bookingadmin extends CI_Controller {
                 'helperid' => $books->helperid,
                 'helpername' => $books->helpername,
                 'destinationid' => $books->destinationid,
+                'action' => $books->action,
             );
             $this->session->set_userdata($session_data);
 
