@@ -516,7 +516,7 @@ class Admin extends CI_Controller {
             $month = $this->input->GET('month');
             $year = $this->input->GET('year');  
             $day = $this->input->GET('day');
-
+            $data['totalprice'] = $this->ChartModel->mdaily($day,$month,$year);
             //Monthly Report Graph
             $jan= $this->ChartModel->jan($year);
             $feb= $this->ChartModel->feb($year);

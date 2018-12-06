@@ -10,7 +10,7 @@
 <section class="content">    
 <form  class="form-horizontal"  action ="<?=base_url()?>admin/bookingreport/"  method='get'>
 
-
+<?php echo $totalprice; ?>
   <div class="col-xs-3">
     <div class="form-group">
         <select name="month" class="form-control">
@@ -271,11 +271,11 @@
             </div>
             <!-- /.box-body -->
           <div class="box-footer clearfix">
-           
+        
           <div class="row no-print">
             <div class="col-xs-12">
               <a href="<?=base_url()."admin/toprintyear"?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-              
+             
             </div>
           </div>
       </div>
@@ -323,6 +323,7 @@
              
       <div id="daily" style="height: 370px; max-width: 1200px; margin: 0px auto;"> </div>
       </div>
+      
    
 </section>
  <!-- /.content -->
