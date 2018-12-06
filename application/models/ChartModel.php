@@ -223,78 +223,114 @@ class ChartModel extends CI_Model{
     } 
 // Maintenance monthly
 public function mjan($year){
-     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'January' AND EXTRACT(YEAR from date) = '$year'")->from("maintenance");
-     return $query->count_all_results();
+    $sql = ("SELECT COUNT(DISTINCT plate_no) as total from maintenance where DATE_FORMAT(date, '%M') = 'January' AND EXTRACT(YEAR from date) = '$year' ");
+    $result = $this->db->query($sql);
+    return $result->row()->total;  
+    
      }
-     public function mfeb($year){
-     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'February' AND EXTRACT(YEAR from date) = '$year'")->from("maintenance");
-     return $query->count_all_results();
+    public function mfeb($year){
+        $sql = ("SELECT COUNT(DISTINCT plate_no) as total from maintenance where DATE_FORMAT(date, '%M') = 'February' AND EXTRACT(YEAR from date) = '$year' ");
+        $result = $this->db->query($sql);
+        return $result->row()->total;  
+    
     }
     public function mmarch($year){
-     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'March' AND EXTRACT(YEAR from date) = '$year'")->from("maintenance");
-     return $query->count_all_results();
+        $sql = ("SELECT COUNT(DISTINCT plate_no) as total from maintenance where DATE_FORMAT(date, '%M') = 'March' AND EXTRACT(YEAR from date) = '$year' ");
+        $result = $this->db->query($sql);
+        return $result->row()->total;  
+   
     }
     public function mapril($year){
-     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'April' AND EXTRACT(YEAR from date) = '$year'")->from("maintenance");
-     return $query->count_all_results();
+        $sql = ("SELECT COUNT(DISTINCT plate_no) as total from maintenance where DATE_FORMAT(date, '%M') = 'April' AND EXTRACT(YEAR from date) = '$year' ");
+        $result = $this->db->query($sql);
+        return $result->row()->total;  
+     
     }
     public function mmay($year){
-     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'May' AND EXTRACT(YEAR from date) = '$year'")->from("maintenance");
-     return $query->count_all_results();
+        $sql = ("SELECT COUNT(DISTINCT plate_no) as total from maintenance where DATE_FORMAT(date, '%M') = 'May' AND EXTRACT(YEAR from date) = '$year' ");
+        $result = $this->db->query($sql);
+        return $result->row()->total;  
+  
     }
     public function mjune($year){
-     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'June' AND EXTRACT(YEAR from date) = '$year'")->from("maintenance");
-     return $query->count_all_results();
+        $sql = ("SELECT COUNT(DISTINCT plate_no) as total from maintenance where DATE_FORMAT(date, '%M') = 'June' AND EXTRACT(YEAR from date) = '$year' ");
+        $result = $this->db->query($sql);
+        return $result->row()->total;  
+    
     }
     public function mjuly($year){
-     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'July' AND EXTRACT(YEAR from date) = '$year'")->from("maintenance");
-     return $query->count_all_results();
+        $sql = ("SELECT COUNT(DISTINCT plate_no) as total from maintenance where DATE_FORMAT(date, '%M') = 'July' AND EXTRACT(YEAR from date) = '$year' ");
+        $result = $this->db->query($sql);
+        return $result->row()->total;  
+    
     }
     public function maug($year){
-     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'August' AND EXTRACT(YEAR from date) = '$year'")->from("maintenance");
-     return $query->count_all_results();
+        $sql = ("SELECT COUNT(DISTINCT plate_no) as total from maintenance where DATE_FORMAT(date, '%M') = 'August' AND EXTRACT(YEAR from date) = '$year' ");
+        $result = $this->db->query($sql);
+        return $result->row()->total;   
+    
     }
     public function msep($year){
-     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'September' AND EXTRACT(YEAR from date) = '$year'")->from("maintenance");
-     return $query->count_all_results();
+        $sql = ("SELECT COUNT(DISTINCT plate_no) as total from maintenance where DATE_FORMAT(date, '%M') = 'September' AND EXTRACT(YEAR from date) = '$year' ");
+        $result = $this->db->query($sql);
+        return $result->row()->total;   
+     
     }
     public function moct($year){
-     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'October' AND EXTRACT(YEAR from date) = '$year'")->from("maintenance");
-     return $query->count_all_results();
+        $sql = ("SELECT COUNT(DISTINCT plate_no) as total from maintenance where DATE_FORMAT(date, '%M') = 'October' AND EXTRACT(YEAR from date) = '$year' ");
+        $result = $this->db->query($sql);
+        return $result->row()->total;   
+    
     }
     public function mnov($year){
-     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'November' AND EXTRACT(YEAR from date) = '$year'")->from("maintenance");
-     return $query->count_all_results();
+        $sql = ("SELECT COUNT(DISTINCT plate_no) as total from maintenance where DATE_FORMAT(date, '%M') = 'November' AND EXTRACT(YEAR from date) = '$year' ");
+        $result = $this->db->query($sql);
+        return $result->row()->total;   
+    
     }
     public function mdec($year){
-     $query = $this->db->where(" DATE_FORMAT(date, '%M') = 'December' AND EXTRACT(YEAR from date) = '$year'")->from("maintenance");
-     return $query->count_all_results();
+        $sql = ("SELECT COUNT(DISTINCT plate_no) as total from maintenance where DATE_FORMAT(date, '%M') = 'December' AND EXTRACT(YEAR from date) = '$year' ");
+        $result = $this->db->query($sql);
+        return $result->row()->total;
+     
     }
     //Maintenance Yearly Report
     public function mcurrentyear(){
-        $query = $this->db->select("COUNT(DISTINCT plate_no)")->where(" EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())")->from("maintenance");
-        return $query->count_all_results();
+       
+        $sql = ("SELECT COUNT(DISTINCT plate_no) as total from maintenance where EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE()) ");
+        $result = $this->db->query($sql);
+        return $result->row()->total;
+       
      }
      public function mlastyear(){
-        $query = $this->db->select("COUNT(DISTINCT plate_no)")->where(" EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())-1")->from("maintenance");
-        return $query->count_all_results();
+        $sql = ("SELECT COUNT(DISTINCT plate_no) as total from maintenance where EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())-1 ");
+        $result = $this->db->query($sql);
+        return $result->row()->total;
+      
      }
      public function mllastyear(){
-        $query = $this->db->select("COUNT(DISTINCT plate_no)")->where(" EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())-2")->from("maintenance");
-        return $query->count_all_results();
+        $sql = ("SELECT COUNT(DISTINCT plate_no) as total from maintenance where EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())-2 ");
+        $result = $this->db->query($sql);
+        return $result->row()->total;
+      
      }
      public function mlllastyear(){
-        $query = $this->db->select("COUNT(DISTINCT plate_no)")->where(" EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())-3")->from("maintenance");
-        return $query->count_all_results();
+        $sql = ("SELECT COUNT(DISTINCT plate_no) as total from maintenance where EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())-3 ");
+        $result = $this->db->query($sql);
+        return $result->row()->total;
+       
      }
      public function mllllastyear(){
-        $query = $this->db->select("COUNT(DISTINCT plate_no)")->where(" EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())-4")->from("maintenance");
-        return $query->count_all_results();
+        $sql = ("SELECT COUNT(DISTINCT plate_no) as total from maintenance where EXTRACT(YEAR from date) = EXTRACT(YEAR from CURDATE())-4 ");
+        $result = $this->db->query($sql);
+        return $result->row()->total;
+       
      }
      //Maintenance Daily Report
      public function mdaily($day,$month,$year){
-        // $query = $this->db->select("COUNT(DISTINCT plate_no)")->where("EXTRACT(DAY from date) = '$day' AND EXTRACT(MONTH from date) = '$month'  AND EXTRACT(YEAR from date) = '$year'")->from("maintenance");
-        $query = $this->db->query("SELECT COUNT(DISTINCT plate_no) from maintenance where EXTRACT(DAY from date) = '$day' AND EXTRACT(MONTH from date) = '$month'  AND EXTRACT(YEAR from date) = '$year' ");
-        return $query->result();
+        $sql = ("SELECT COUNT(DISTINCT plate_no) as total from maintenance where EXTRACT(DAY from date) = '$day' AND EXTRACT(MONTH from date) = '$month'  AND EXTRACT(YEAR from date) = '$year' ");
+      
+        $result = $this->db->query($sql);
+        return $result->row()->total;
     }
 }

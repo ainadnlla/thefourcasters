@@ -254,7 +254,7 @@
 <div class="col-xs-12">
   <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Yearly Report of Booking and Maintenance</h3>
+              <h3 class="box-title">Yearly Report of Bookings and Repaired Trucks</h3>
 
               <div class="box-tools pull-right">
                
@@ -270,7 +270,7 @@
       <div class="col-xs-6">
   <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Monthly Report of Booking and Maintenance</h3>
+              <h3 class="box-title">Monthly Report of Bookings and Repaired Trucks</h3>
 
               <div class="box-tools pull-right">
               
@@ -284,7 +284,7 @@
       <div class="col-xs-6">
       <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Daily Report of Booking and Maintenance</h3>
+              <h3 class="box-title">Daily Report of Bookings and Repairing Trucks</h3>
 
               <div class="box-tools pull-right">
               
@@ -314,17 +314,17 @@ window.onload = function () {
 var chart = new CanvasJS.Chart("Monthly", {
 	animationEnabled: true,
 	title:{
-		text: "Monthly Report of Booking and Maintenance "
+		text: "Monthly Report of Bookings and Repaired Trucks "
 	},	
 	axisY: {
-		title: "Booking Report",
+		title: "Booking Reports",
 		titleFontColor: "#4F81BC",
 		lineColor: "#4F81BC",
 		labelFontColor: "#4F81BC",
 		tickColor: "#4F81BC"
 	},
 	axisY2: {
-		title: "Maintenance Report",
+		title: "Repaired Truck Reports",
 		titleFontColor: "#C0504E",
 		lineColor: "#C0504E",
 		labelFontColor: "#C0504E",
@@ -339,7 +339,7 @@ var chart = new CanvasJS.Chart("Monthly", {
 	},
 	data: [{
 		type: "column",
-		name: "Booking Report",
+		name: "Booking Reports",
 		legendText: "Booking",
 		showInLegend: true, 
 		dataPoints:[
@@ -359,8 +359,8 @@ var chart = new CanvasJS.Chart("Monthly", {
 	},
 	{
 		type: "column",	
-		name: "Maintenance Report",
-		legendText: "Maintenance",
+		name: "Repaired Truck Reports",
+		legendText: "Repaired Truck ",
 		axisYType: "secondary",
 		showInLegend: true,
 		dataPoints:[
@@ -394,17 +394,17 @@ function toggleDataSeries(e) {
 var yearly = new CanvasJS.Chart("yearly", {
 	animationEnabled: true,
 	title:{
-		text: "Yearly Report of Booking and Maintenance "
+		text: "Yearly Report of Bookings and Repaired Trucks "
 	},	
 	axisY: {
-		title: "Booking Report",
+		title: "Booking Reports",
 		titleFontColor: "#4F81BC",
 		lineColor: "#4F81BC",
 		labelFontColor: "#4F81BC",
 		tickColor: "#4F81BC"
 	},
 	axisY2: {
-		title: "Maintenance Report",
+		title: "Repaired Truck Reports",
 		titleFontColor: "#C0504E",
 		lineColor: "#C0504E",
 		labelFontColor: "#C0504E",
@@ -419,7 +419,7 @@ var yearly = new CanvasJS.Chart("yearly", {
 	},
 	data: [{
 		type: "column",
-		name: "Booking Report",
+		name: "Booking Reports",
 		legendText: "Booking",
 		showInLegend: true, 
 		dataPoints:[
@@ -433,8 +433,8 @@ var yearly = new CanvasJS.Chart("yearly", {
 	},
 	{
 		type: "column",	
-		name: "Maintenance Report",
-		legendText: "Maintenance",
+		name: "Repaired Truck Reports",
+		legendText: "Repaired Truck",
 		axisYType: "secondary",
 		showInLegend: true,
 		dataPoints:[
@@ -460,17 +460,17 @@ function toggleDataSeries(e) {
 var daily = new CanvasJS.Chart("daily", {
 	animationEnabled: true,
 	title:{
-		text: "Daily Report of Booking and Maintenance "
+		text: "Daily Report of Bookings and Repairing Trucks "
 	},	
 	axisY: {
-		title: "Booking Report",
+		title: "Booking Reports",
 		titleFontColor: "#4F81BC",
 		lineColor: "#4F81BC",
 		labelFontColor: "#4F81BC",
 		tickColor: "#4F81BC"
 	},
 	axisY2: {
-		title: "Maintenance Report",
+		title: "Repairing Truck Reports",
 		titleFontColor: "#C0504E",
 		lineColor: "#C0504E",
 		labelFontColor: "#C0504E",
@@ -485,7 +485,7 @@ var daily = new CanvasJS.Chart("daily", {
 	},
 	data: [{
 		type: "column",
-		name: "Booking Report",
+		name: "Booking Reports",
 		legendText: "Booking",
 		showInLegend: true, 
 		dataPoints:[
@@ -495,8 +495,8 @@ var daily = new CanvasJS.Chart("daily", {
 	},
 	{
 		type: "column",	
-		name: "Maintenance Report",
-		legendText: "Maintenance",
+		name: "Repairing Truck Reports",
+		legendText: "Repairing Truck",
 		axisYType: "secondary",
 		showInLegend: true,
 		dataPoints:[
