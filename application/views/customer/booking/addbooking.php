@@ -27,10 +27,22 @@
         </div>
 
         <div class="form-group">
-          <label class="col-md-4 control-label"  for="product">Product</label>  
+          <label class="col-md-4 control-label"  for="product">Product Type</label>  
             <div class="col-md-4">
-              <input id="product" name="product" value = "<?=set_value('product')?>" type="text" placeholder="Product" class="form-control input-md">
-              <?= form_error('product', '<span class="label label-danger">', '</span>') ?>  
+            <select  name="product"  type="text" placeholder="Product Type" class="form-control">
+            <option selected disabled > -----</option>
+             <option value="Electronic Devices">Electronic Devices</option>
+             <option value="Electronic Accessories">Electronic Accessories</option>
+             <option value="TV & Home Appliances">TV & Home Appliances</option>
+             <option value="Health & Beauty">Health & Beauty</option>
+             <option value="Babies & Toys">Babies & Toys</option>
+             <option value="Groceries & Pets">Groceries & Pets</option>
+             <option value="Fashion Accessories">Fashion Accessories</option>
+             <option value="Home & Lifestyle">Home & Lifestyle</option>
+             <option value="Sports & Travel">Sports & Travel</option>
+             <option value="Automotive & Motorcycles">Automotive & Motorcycles</option>
+              </select>
+             
           </div>
         </div>
 
