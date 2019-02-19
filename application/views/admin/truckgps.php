@@ -49,6 +49,10 @@
   
   
 <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-database.js"></script>
+
 <script>
   // Initialize Firebase
   var config = {
@@ -83,7 +87,6 @@ function initMap() {
     infoWindow = new google.maps.InfoWindow();
     getDataLatLong(map);
     
-    var x = document.getElementById("warning-text");
     
 
     var current_lat, current_long;
@@ -111,11 +114,11 @@ function changeMarkerPosition(marker,lat,long) {
     }
         var latlng = new google.maps.LatLng(lat, long);
         marker.setPosition(latlng);
-        // console.log(marker);
+        console.log(marker);
 }
 
 var markers = [];
-var d_name;
+var d_name = "";
 function getDataLatLong(map){
     var fbaseRef = firebase.database().ref("drivers");
     var ref = firebase.database().ref('users/passenger');
@@ -124,90 +127,33 @@ function getDataLatLong(map){
         // console.log('hehehe');
         var i = 0;
         clearMarkers();
-        console.log(datasnapshot.val());
         var drivers = datasnapshot.val();
-        console.log(drivers);
-        var lat = drivers.lat;
-        var long = drivers.lng;
-        var icon = app_url + "images/logo.jpg";
+        Object.keys(drivers).forEach(function(key, val) {
+            var lat = drivers[key].lat;
+            var long = drivers[key].lng;
+            console.log(key, lat, long);
+            var icon = app_url + "images/marker.png";
             var latlngset = new google.maps.LatLng(lat, long);
+            getDriver(key);
             var marker = new google.maps.Marker({
                 map: map,
-                title : "Driver",
+                title : d_name,
                 position : latlngset,
                 icon : icon
             });
-            
-            var content = "Driver : ";
+            var content = "Driver : " + d_name;
                         
             var infowindow = new google.maps.InfoWindow({
                 content: content
             });
-
+    
             google.maps.event.addListener(marker, 'click', function() {
                 infowindow.open(map,marker);
             });
-
+    
             markers.push(marker);
             setMapOnAll(map);
-            console.log(markers)
-        // Object.keys(drivers).forEach(function(key) {
-        //     console.log(key)
-        //     // var l = drivers[key].l;
-        //     // var lat = l[0];
-        //     // var long = l[1];
-            
-        //     // getDriver(key);
-        //     // var url = app_url + "executeadmin/fetch_driver";
-            
-        //     // var driver = null;
-        //     // var car = null;
-        //     // $.ajax({
-        //     //     async : false,
-        //     //     url : url,
-        //     //     type : "POST",
-        //     //     dataType : "json",
-        //     //     data : { 'uid' : key },
-        //     //     success:function(res){
-        //     //         console.log(res);
-        //     //         driver = res.driver;
-        //     //         car = res.vehicle;
-        //     //         // console.log(driver);
-        //     //         // return driver;
-        //     //         // console.log(d_name);
-        //     //         // d_name = driver.name;
-        //     //         // console.log(d_name);
-        //     //     },
-        //     //     error:function(res){
-        //     //         console.log(res);
-        //     //     }
-        //     // });
-
-        //     var icon = app_url + "images/logo.jpg";
-        //     var latlngset = new google.maps.LatLng(lat, long);
-        //     var marker = new google.maps.Marker({
-        //         map: map,
-        //         title : "Driver",
-        //         position : latlngset,
-        //         icon : icon
-        //     });
-            
-        //     var content = "Driver : " + driver.name;
-                        
-        //     var infowindow = new google.maps.InfoWindow({
-        //         content: content
-        //     });
-
-        //     google.maps.event.addListener(marker, 'click', function() {
-        //         infowindow.open(map,marker);
-        //     });
-
-        //     markers.push(marker);
-        //     setMapOnAll(map);
-            
-          
-        // });
-        
+        });
         
     });
     
@@ -215,22 +161,23 @@ function getDataLatLong(map){
 }
 
 function getDriver(key){
-    var url = app_url + "executeadmin/fetch_driver";
-    // var d_name = "hehe";
+    var url = app_url + "mobile/fetch_driver";
     $.ajax({
+        async : false,
         url : url,
         type : "POST",
         dataType : "json",
-        data : { 'uid' : key },
+        data : { 'driver_id' : key },
         success:function(res){
             console.log(res);
-            var driver = res.driver;
-            d_name = driver;
-            // console.log(driver);
-            // return driver;
-            // console.log(d_name);
-            // d_name = driver.name;
-            // console.log(d_name);
+            if(res.success){
+                
+                var driver = res.driver;
+                d_name = driver.fname + ' ' + driver.lname;
+            }
+            else{
+                d_name = "N/A";
+            }
         },
         error:function(res){
             console.log(res);
@@ -247,11 +194,11 @@ function setMapOnAll(map){
 function clearMarkers(){
     setMapOnAll(null);
     markers = [];
-    // console.log(markers);
+    console.log(markers);
 }
 
 
-getDataLatLong();    
+// getDataLatLong();    
 
 </script>
 <?php $API_KEY = "AIzaSyC_DiOtu2XQP2MVuyut3fLxkX9xknmUl1Y"; ?>
