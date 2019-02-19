@@ -2,8 +2,8 @@
 <body class="hold-transition">
 <div class="login-box">
     <div class="text-center">
-        <a href="<?=base_url()?>login/customer">
-        <img id="profile-img" width = "350px" alt="Image" src="<?= base_url()."images/AngelogisticsName.png"?>" />
+        <a href="<?=base_url()?>customer/login">
+        <img id="profile-img" width = "350px" alt="Image" src="<?= base_url()."images/Angelogisticsfcname.png"?>" />
         <p></p></a>
     </div>
   <!-- /.login-logo  -->
